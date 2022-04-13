@@ -1,0 +1,44 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: menu
+  description: ''
+#paths: {}
+servers:
+  # Added by API Auto Mocking Plugin
+  # Added by API Auto Mocking Plugin
+  # description: The number of items to skip before starting to collect the result set
+  # Added by API Auto Mocking Plugin
+
+  # Added by API Auto Mocking Plugin
+  - description: Direccion pruebas España
+    url: https://apifluxuadev.onyxsoft.co:8087 #/v1/sync/tasks/:taskID
+
+    
+paths:
+  /v1/sync/tasks/1cf85040-f468-4f18-a967-ab5e1c919af3:
+    post:
+      tags:
+      - "pos1"
+      summary: ""
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:  
+                  type: "string"
+                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjo0NCwgImN1c3RvbWVySUQiOjI5LCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJlZGdvcyIsICJhZG1pbmlzdHJhZG9yIjp0cnVlLCAiZW1wcmVzYUlEIjoxLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjQ5Mjc0NTE0LCAiZXhwIjoxNjQ5MjgxNzE0IH0.yhD0aUKH_7h8aSH0k2tc6TSbvX2OkIYtCDD2Rzvw1aQ"
+                apiKey:
+                  type: "string"
+                  example: "misecretito"
+      responses:
+        200:
+          description: True/False
+        400:
+          description: Error en caso de que success sea False
+  
+ 
+          
+          

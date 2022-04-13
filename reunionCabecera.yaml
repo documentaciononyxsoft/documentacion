@@ -1,0 +1,362 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: ReunionCabecera
+  description: ''
+#paths: {}
+servers:
+  # Added by API Auto Mocking Plugin
+  # Added by API Auto Mocking Plugin
+  # description: The number of items to skip before starting to collect the result set
+  # Added by API Auto Mocking Plugin
+
+  # Added by API Auto Mocking Plugin
+  - description: Direccion pruebas España
+    url: https://apifluxuadev.onyxsoft.co:8087 #/v1/sync/tasks/:taskID
+
+    
+paths:
+  /v1/sync/tasks/cdc4460f-2f96-4046-9857-59d92bc96b7f:
+  
+    post:
+      tags:
+      - "checker"
+      summary: "Chequear"
+                
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+              
+  /v1/sync/tasks/fcdafa16-8b44-44a2-98dc-cb6cdac648e2:
+    post:
+      tags:
+      - "login"
+      summary: "Logear"
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              properties:
+                email:  
+                  type: "string"
+                  example: "admin@admin.com"
+                password:
+                  type: "string"
+                  example: "Onyx2021"
+                apiKey:
+                  type: "string"
+                  example: "misecretito"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+  
+  /v1/sync/tasks/5d1c307c-cd18-462f-8272-7a19f725c80f:
+    post:
+      tags:
+      - "create Copy"
+      summary: "Crear"
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: "string"
+                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+                InicioPrevisto:
+                  type: "string"
+                  format: "date-time"
+                  example: "2018-02-21 10:00:00"
+                FinalPrevisto:
+                  type: "string"
+                  format: "date-time"
+                  example: "2018-02-21 12:00:00"
+                InicioReal:
+                  type: "string"
+                  format: "date-time"
+                  example: "2018-02-21 10:00:00"
+                FinalReal:
+                  type: "string"
+                  format: "date-time"
+                  example: "2018-02-21 12:00:00"
+                Asunto:
+                  type: "string"
+                  example: "Seguimiento de proyecto"
+                Lugar:
+                  type: "string"
+                  example: ""
+                OrdenDelDia:
+                  type: "string"
+                  example: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.16299}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+                TipoReunionId: 
+                  type: "integer"
+                  example: "null"
+                Proyecto_OFID:
+                  type: "integer"
+                  example: "576"
+                Acta:
+                  type: "string"
+                  example: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.16299}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+                CustomerID:
+                  type: "integer"
+                  example: "29"
+                EmpresaID:
+                  type: "integer"
+                  example: "1"
+                UsuarioID:
+                  type: "integer"
+                  example: "3"
+                FechaHoraUsuario:
+                  type: "string"
+                  format: "date-time"
+                  example: "2018-02-20 10:46:35"
+                GestionSalaReservaID:
+                  type: "integer"
+                  example: "null"
+                MailingID:
+                  type: "integer"
+                  example: "null"
+                Url:
+                  type: "string"
+                  example: "null"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado      
+  
+  /v1/sync/tasks/d60681f8-84a0-4c6d-8fee-11d4a3b6b19a:
+    post:
+      tags:
+      - "update Copy"
+      summary: "Actualizar"
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: "string"
+                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+                ReunionCabeceraID:
+                  type: "integer"
+                  example: "3"
+                InicioPrevisto:
+                  type: "string"
+                  format: "date-time"
+                  example: "2022-02-21 10:00:00"
+                FinalPrevisto:
+                  type: "string"
+                  format: "date-time"
+                  example: "2022-02-21 12:00:00"
+                InicioReal:
+                  type: "string"
+                  format: "date-time"
+                  example: "0000-00-00 00:00:00"
+                FinalReal:
+                  type: "string"
+                  format: "date-time"
+                  example: "2022-02-21 12:00:00"
+                Asunto:
+                  type: "string"
+                  example: "Seguimiento de proyecto"
+                Lugar:
+                  type: "string"
+                  example: ""
+                OrdenDelDia:
+                  type: "string"
+                  example: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.16299}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+                TipoReunionId: 
+                  type: "integer"
+                  example: "0"
+                Proyecto_OFID:
+                  type: "integer"
+                  example: "576"
+                Acta:
+                  type: "string"
+                  example: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.16299}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+                CustomerID:
+                  type: "integer"
+                  example: "29"
+                EmpresaID:
+                  type: "integer"
+                  example: "1"
+                UsuarioID:
+                  type: "integer"
+                  example: "3"
+                FechaHoraUsuario:
+                  type: "string"
+                  format: "date-time"
+                  example: "2018-02-20 10:46:35"
+                GestionSalaReservaID:
+                  type: "integer"
+                  example: "0"
+                MailingID:
+                  type: "integer"
+                  example: "0"
+                Url:
+                  type: "string"
+                  example: "mi url"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+            
+  /v1/sync/tasks/5f4795f9-c7ab-446d-9527-4dba4e1d2af9:
+    post:
+      tags:
+      - "remove Copy"
+      summary: "Remover"
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: "string"
+                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+                ReunionCabeceraID:
+                 type: "integer"
+                 example: "6"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+  
+  /v1/sync/tasks/2ac8e934-77be-4c89-a6c0-601218e26bc5/0=0&-1=-1:
+    get:
+      tags:
+      - "list Copy"
+      summary: "Lista"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+            
+  /v1/sync/tasks/4d73f4f8-5a2c-4cf8-9cb7-e98d30d3e3d3/Segui=Segui:
+    get:
+      tags:
+      - "search Copy"
+      summary: "Buscar"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+         
+  /v1/sync/tasks/5a89d5d4-42b8-444c-9566-f3730f68c346/DEPARTAMENTO=DEPARTAMENTO:       
+    get:
+      tags:
+      - "searchTG Copy"
+      summary: "BuscarTG"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+          
+  /v1/sync/tasks/490cea9b-96c2-4e19-a4b2-3fc7e4bf3eaa/ = :
+    get:
+      tags:
+      - "search by mailing Copy"
+      summary: "Buscar por Mailing"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjo0NCwgImN1c3RvbWVySUQiOjI5LCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJlZGdvcyIsICJhZG1pbmlzdHJhZG9yIjp0cnVlLCAiZW1wcmVzYUlEIjoxLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjQ4ODQ4NjM3LCAiZXhwIjoxNjQ4ODU1ODM3IH0.nwsH-bR8FaIMM36mM35QO1W0KFXOWnvogOqBPW9_dfw"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+  
+  /v1/sync/tasks/e42b4e89-fe4f-4b0d-a30c-40284f17ef15/findMany=findMany&Seguimiento de proyecto = Seguimiento de proyecto:
+    get:
+      tags:
+      - "read Copy"
+      summary: "Leer"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+  
+  /v1/sync/tasks/8f44bb63-e4d6-4ad2-9bb4-2a2fd1fe7c23/:
+    get:
+      tags:
+      - "lightList ProyectoOF Copy"
+      summary: ""
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+  
+  /v1/sync/tasks/d4fc1e75-7416-4041-ad1d-3abb9188a3b7/:
+    get:
+      tags:
+      - "lightList Mailing Copy"
+      summary: ""
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+          
+          

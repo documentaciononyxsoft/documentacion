@@ -1,0 +1,184 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: guardarOferta
+  description: ''
+#paths: {}
+servers:
+  # Added by API Auto Mocking Plugin
+  # Added by API Auto Mocking Plugin
+  # description: The number of items to skip before starting to collect the result set
+  # Added by API Auto Mocking Plugin
+
+  # Added by API Auto Mocking Plugin
+  - description: Direccion pruebas España
+    url: https://apifluxuadev.onyxsoft.co:8087 #/v1/sync/tasks/:taskID
+
+    
+paths:
+  /endponint1:
+    post:
+      tags:
+      - "pos1"
+      summary: ""
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:  
+                  type: "string"
+                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjo0NCwgImN1c3RvbWVySUQiOjI5LCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJlZGdvcyIsICJhZG1pbmlzdHJhZG9yIjp0cnVlLCAiZW1wcmVzYUlEIjoxLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjQ5MjU0ODMyLCAiZXhwIjoxNjQ5MjYyMDMyIH0.rNNdNm9MflATkqiE6tA_HOCb8BmMX6uleG1I_TY7AkU"
+                cabecera:
+                  properties:
+                    ofertaID:
+                      type: "integer"
+                      example: "1"
+                    numero:
+                      type: "integer"
+                    version:
+                      type: "string"
+                    validoDesde:
+                      type: "string"
+                    fecha:
+                      type: "string"
+                    fechaValidez:
+                      type: "string"
+                    fechaEntrega:
+                      type: "string"
+                    almacenID:
+                      type: "integer"
+                    mailingID:
+                      type: "integer"
+                    numeroSolicitud:
+                      type: "integer"
+                    fechaSolicitud:
+                      type: "string"
+                    fechaHoraUsuario:
+                      type: "string"
+                    usuarioID:
+                      type: "integer"
+                    contactoID:
+                      type: "integer"
+                    direccionEnvioID:
+                      type: "integer"
+                    descripcion:
+                      type: "string"
+                    responsableUsuarioID:
+                      type: "integer"
+                    tipoOfertaID:
+                      type: "integer"
+                    representanteID:
+                      type: "integer"
+                    representante2ID:
+                      type: "integer"
+                    porcentajeComision:
+                      type: "integer"
+                    porcentajeComision2:
+                      type: "integer"
+                    referenciaInterna:
+                      type: "string"
+                    idiomaID:
+                      type: "integer"
+                    inconterm:
+                      type: "string"
+                    FechaSolicitadaPara:
+                      type: "string"
+                    campanaID:
+                      type: "integer"
+                    oportunidadID:
+                      type: "integer"
+                    motivoRechazoID:
+                      type: "integer"
+                intrastat:
+                  properties:
+                    CondicionEntregaID:
+                      type: "integer"
+                cualificacion:
+                  properties:
+                    EstrategiaID:
+                      type: "integer"
+                    RentabilidadID:
+                      type: "integer"
+                    OportunidadID:
+                      type: "integer"
+                    InteresID:
+                      type: "integer"
+                    AtencionID:
+                      type: "integer"
+                    SituacionID:
+                      type: "integer"
+                lineas:
+                  properties:
+                    ofertaLineaID:
+                      type: "integer"
+                    linea:
+                      type: "integer"
+                    almacenID:
+                      type: "integer"
+                    articuloID:
+                      type: "integer"
+                    referencia:
+                      type: "integer"
+                    nombre:
+                      type: "string"
+                    descripcion:
+                      type: "string"
+                    cantidad:
+                      type: "integer"
+                    cantidad2:
+                      type: "integer"
+                    precioVenta:
+                      type: "integer"
+                    ivaID:
+                      type: "integer"
+                    dto1:
+                      type: "string"
+                    dto2:
+                      type: "string"
+                    dto3:
+                      type: "string"
+                    excluirInventario:
+                      type: "string"
+                    importeVenta:
+                      type: "integer"
+                    nivelIngenieriaID:
+                      type: "integer"
+                    fechaEntrega:
+                      type: "string"
+                    plazoEntrega:
+                      type: "string"
+                    tipoPlazoEntregaID:
+                      type: "integer"
+                    referenciaCliente:
+                      type: "string"
+                    notaInterna:
+                      type: "string"
+                    notaCliente:
+                      type: "string"
+                    factor:
+                      type: "string"
+                    rutaFabricacionID:
+                      type: "integer"
+                    rappelPorcentaje:
+                      type: "integer"
+                    rappelImporte:
+                      type: "integer"
+                    CrossdockingPorcentaje:
+                      type: "integer"
+                    CrossdockingImporte:
+                      type: "integer"
+                    PorcentajeComision:
+                      type: "integer"
+                    ComisionImporte:
+                      type: "integer"
+      responses:
+        200:
+          description: True/False
+        400:
+          description: Error en caso de que success sea False
+  
+ 
+          
+          
