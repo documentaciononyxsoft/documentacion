@@ -1,0 +1,843 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: apifluxua
+  description: ''
+#paths: {}
+servers:
+
+  - description: Direccion pruebas España
+    url: https://apifluxuadev.onyxsoft.co:8087 #/v1/sync/tasks/:taskID
+
+    
+paths:
+
+  /v1/sync/tasks/cdc4460f-2f96-4046-9857-59d92bc96b7f:
+  
+    post:
+      tags:
+      - "checker"
+      summary: "Chequear"
+                
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+  /v1/sync/tasks/fcdafa16-8b44-44a2-98dc-cb6cdac648e2:
+    post:
+      tags:
+      - "login"
+      summary: "Logear"
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              properties:
+                email:  
+                  type: "string"
+                  example: "admin@admin.com"
+                password:
+                  type: "string"
+                  example: "Onyx2021"
+                apiKey:
+                  type: "string"
+                  example: "misecretito"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+  
+  /v1/sync/tasks/5d1c307c-cd18-462f-8272-7a19f725c80f:
+    post:
+      tags:
+      - "create Copy"
+      summary: "Crear"
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: "string"
+                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+                InicioPrevisto:
+                  type: "string"
+                  format: "date-time"
+                  example: "2018-02-21 10:00:00"
+                FinalPrevisto:
+                  type: "string"
+                  format: "date-time"
+                  example: "2018-02-21 12:00:00"
+                InicioReal:
+                  type: "string"
+                  format: "date-time"
+                  example: "2018-02-21 10:00:00"
+                FinalReal:
+                  type: "string"
+                  format: "date-time"
+                  example: "2018-02-21 12:00:00"
+                Asunto:
+                  type: "string"
+                  example: "Seguimiento de proyecto"
+                Lugar:
+                  type: "string"
+                  example: ""
+                OrdenDelDia:
+                  type: "string"
+                  example: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.16299}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+                TipoReunionId: 
+                  type: "integer"
+                  example: "null"
+                Proyecto_OFID:
+                  type: "integer"
+                  example: "576"
+                Acta:
+                  type: "string"
+                  example: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.16299}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+                CustomerID:
+                  type: "integer"
+                  example: "29"
+                EmpresaID:
+                  type: "integer"
+                  example: "1"
+                UsuarioID:
+                  type: "integer"
+                  example: "3"
+                FechaHoraUsuario:
+                  type: "string"
+                  format: "date-time"
+                  example: "2018-02-20 10:46:35"
+                GestionSalaReservaID:
+                  type: "integer"
+                  example: "null"
+                MailingID:
+                  type: "integer"
+                  example: "null"
+                Url:
+                  type: "string"
+                  example: "null"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado      
+  
+  /v1/sync/tasks/d60681f8-84a0-4c6d-8fee-11d4a3b6b19a:
+    post:
+      tags:
+      - "update Copy"
+      summary: "Actualizar"
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: "string"
+                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+                ReunionCabeceraID:
+                  type: "integer"
+                  example: "3"
+                InicioPrevisto:
+                  type: "string"
+                  format: "date-time"
+                  example: "2022-02-21 10:00:00"
+                FinalPrevisto:
+                  type: "string"
+                  format: "date-time"
+                  example: "2022-02-21 12:00:00"
+                InicioReal:
+                  type: "string"
+                  format: "date-time"
+                  example: "0000-00-00 00:00:00"
+                FinalReal:
+                  type: "string"
+                  format: "date-time"
+                  example: "2022-02-21 12:00:00"
+                Asunto:
+                  type: "string"
+                  example: "Seguimiento de proyecto"
+                Lugar:
+                  type: "string"
+                  example: ""
+                OrdenDelDia:
+                  type: "string"
+                  example: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.16299}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+                TipoReunionId: 
+                  type: "integer"
+                  example: "0"
+                Proyecto_OFID:
+                  type: "integer"
+                  example: "576"
+                Acta:
+                  type: "string"
+                  example: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.16299}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+                CustomerID:
+                  type: "integer"
+                  example: "29"
+                EmpresaID:
+                  type: "integer"
+                  example: "1"
+                UsuarioID:
+                  type: "integer"
+                  example: "3"
+                FechaHoraUsuario:
+                  type: "string"
+                  format: "date-time"
+                  example: "2018-02-20 10:46:35"
+                GestionSalaReservaID:
+                  type: "integer"
+                  example: "0"
+                MailingID:
+                  type: "integer"
+                  example: "0"
+                Url:
+                  type: "string"
+                  example: "mi url"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+            
+  /v1/sync/tasks/5f4795f9-c7ab-446d-9527-4dba4e1d2af9:
+    post:
+      tags:
+      - "remove Copy"
+      summary: "Remover"
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: "string"
+                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+                ReunionCabeceraID:
+                 type: "integer"
+                 example: "6"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+  
+  /v1/sync/tasks/2ac8e934-77be-4c89-a6c0-601218e26bc5/0=0&-1=-1:
+    get:
+      tags:
+      - "list Copy"
+      summary: "Lista"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+            
+  /v1/sync/tasks/4d73f4f8-5a2c-4cf8-9cb7-e98d30d3e3d3/Segui=Segui:
+    get:
+      tags:
+      - "search Copy"
+      summary: "Buscar"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+         
+  /v1/sync/tasks/5a89d5d4-42b8-444c-9566-f3730f68c346/DEPARTAMENTO=DEPARTAMENTO:       
+    get:
+      tags:
+      - "searchTG Copy"
+      summary: "BuscarTG"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+          
+  /v1/sync/tasks/490cea9b-96c2-4e19-a4b2-3fc7e4bf3eaa/ = :
+    get:
+      tags:
+      - "search by mailing Copy"
+      summary: "Buscar por Mailing"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjo0NCwgImN1c3RvbWVySUQiOjI5LCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJlZGdvcyIsICJhZG1pbmlzdHJhZG9yIjp0cnVlLCAiZW1wcmVzYUlEIjoxLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjQ4ODQ4NjM3LCAiZXhwIjoxNjQ4ODU1ODM3IH0.nwsH-bR8FaIMM36mM35QO1W0KFXOWnvogOqBPW9_dfw"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+  
+  /v1/sync/tasks/e42b4e89-fe4f-4b0d-a30c-40284f17ef15/findMany=findMany&Seguimiento de proyecto = Seguimiento de proyecto:
+    get:
+      tags:
+      - "read Copy"
+      summary: "Leer"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+  
+  /v1/sync/tasks/8f44bb63-e4d6-4ad2-9bb4-2a2fd1fe7c23/:
+    get:
+      tags:
+      - "lightList ProyectoOF Copy"
+      summary: ""
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+  
+  /v1/sync/tasks/d4fc1e75-7416-4041-ad1d-3abb9188a3b7/:
+    get:
+      tags:
+      - "lightList Mailing Copy"
+      summary: ""
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+
+  /:
+    post:
+      tags:
+      - "pos1"
+      summary: "Abre oferta por ID"
+      parameters:
+      - $ref: '#/components/parameters/token'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              anyOf:
+                - $ref: '#/components/schemas/AbrirOferta'
+                - $ref: '#/components/schemas/AgregarAutorizacionCalendar'
+                - $ref: '#/components/schemas/borrarOferta'
+                - $ref: '#/components/schemas/cambiarColorCalendar'
+                - $ref: '#/components/schemas/cambiarMostrarCalendario'
+                - $ref: '#/components/schemas/CargarFestivos'
+                - $ref: '#/components/schemas/consultaOfertaExtendida'
+                - $ref: '#/components/schemas/DeleteAuthAgendaV24'
+                - $ref: '#/components/schemas/displayEvents'
+                - $ref: '#/components/schemas/duplicarOferta'
+                - $ref: '#/components/schemas/guardarOferta'
+                - $ref: '#/components/schemas/listadeusuariosCalendar'
+                - $ref: '#/components/schemas/listarOfertas'
+                - $ref: '#/components/schemas/login'
+                - $ref: '#/components/schemas/NuevaVersionOferta'
+                - $ref: '#/components/schemas/onEndEventEdition'
+                - $ref: '#/components/schemas/onEventMove'
+                - $ref: '#/components/schemas/onEventMove'
+                - $ref: '#/components/schemas/sincroHILOCalendar'
+                - $ref: '#/components/schemas/traerEmpleadoID'
+                - $ref: '#/components/schemas/verificarCodigoMailing'
+                
+              
+      responses:
+        200:
+          description: True/False
+        400:
+          description: Error en caso de que success sea False
+          
+components:
+  
+  parameters:
+    token:
+        name: token
+        in: header
+        description: Token de autenticación
+        schema:
+          type: string
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjo0NCwgImN1c3RvbWVySUQiOjI5LCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJlZGdvcyIsICJhZG1pbmlzdHJhZG9yIjp0cnVlLCAiZW1wcmVzYUlEIjoxLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjQ5MjU0ODMyLCAiZXhwIjoxNjQ5MjYyMDMyIH0.rNNdNm9MflATkqiE6tA_HOCb8BmMX6uleG1I_TY7AkU"
+        required: true
+        
+  schemas:
+    AbrirOferta:
+      type: object
+      properties:
+        idOferta:
+          type: "integer"
+          example: "1"
+          
+    AgregarAutorizacionCalendar:
+      type: object 
+      properties:
+        invitadoID:
+            type: "integer"
+            example: "1"
+        color:
+            type: "string"
+            example: "10066431"
+            
+    borrarOferta:
+      type: object
+      properties:
+        ofertaID:
+            type: "integer"
+            example: "1"
+    
+    cambiarColorCalendar:
+      type: object
+      properties:
+        agendaAuthID:
+              type: "integer"
+              example: "1"
+        color:
+              type: "string"
+              example: "10066431"
+    
+    #Asi estaba en el documento que pasaron
+    cambiarMostrarCalendario:
+      type: object
+    
+    CargarFestivos:
+      type: object 
+      properties:
+        invitadoID:
+              type: "integer"
+              example: "17"
+    
+    consultaOfertaExtendida:
+      type: object
+      properties:
+        fechaDesde:
+              type: "string"
+              format: "date"
+              example: "2021-03-29"
+        fechaOfertaHasta:
+              type: "string"
+              format: "date"
+              example: "2022-03-29"
+        listaZonasID:
+              type: "integer"
+        listaTipoOfertasID:
+              type: "integer"
+        listaRepresentantesID:
+              type: "integer"
+        descripcion:
+              type: "string"
+        mailingID:
+              type: "integer"
+        articuloID:
+              type: "integer"
+        familiaID:
+              type: "integer"
+        listaCampanasID:
+              type: "integer"
+        estadoOferta:
+              type: "string"
+        listaUsuarioID:
+              type: "integer"
+        numeroOfertaDesde:
+              type: "integer"
+        numeroOfertaHasta:
+              type: "integer"
+        listaResponsablesID:
+              type: "integer"
+        listaSituacionesID:
+              type: "integer"
+        numeroSolicitud:
+              type: "integer"
+        fechaSolicitudDesde:
+              type: "string"
+        misFavoritas:
+              type: "integer"
+        conDetalle:
+              type: "boolean"
+              example: "false"
+    
+    DeleteAuthAgendaV24:
+      type: object
+      properties:
+        authID:
+              type: "integer"
+              example: "1"
+    
+    displayEvents:
+      type: object
+      properties:
+        empleadoID:
+              type: "integer"
+              example: "1"
+        IDEmpleadoEvento:
+              type: "integer"
+              example: "2"
+        color:
+              type: "string"
+              example: "10066431"
+        dueno:
+              type: "string"
+              example: "Mis eventos"
+        FechaIni:
+              type: "string"
+              format: "date"
+              example: "20-03-2022"
+        FechaFin:
+              type: "string"
+              format: "date"
+              example: "20-03-2022"
+    
+    duplicarOferta:
+      type: object
+      properties:
+        idOferta:
+              type: "integer"
+              example: "1"
+        mailingID:
+              type: "integer"
+              example: "2"
+        idLineas:
+              type: "integer"
+              example: "[1,2]"
+        descripcion:
+              type: "string"
+              example: "algo"
+        ContactoID:
+              type: "integer"
+              example: "45"
+        copiarWord:
+              type: "boolean"
+        ActualizarPrecios:
+              type: "boolean"
+        duplicarGestion:
+              type: "boolean"
+    
+    guardarOferta:
+      type: object
+      properties:
+        cabecera:
+              type: object
+              properties:
+                ofertaID:
+                    type: "integer"
+                    example : "1"
+                numero:
+                    type: "integer"
+                version:
+                    type: "string"
+                validoDesde:
+                    type: "string"
+                fecha:
+                    type: "string"
+                fechaValidez:
+                    type: "string"
+                fechaEntrega:
+                    type: "string"
+                almacenID:
+                    type: "integer"
+                mailingID:
+                    type: "integer"
+                numeroSolicitud:
+                    type: "integer"
+                fechaSolicitud:
+                    type: "string"
+                fechaHoraUsuario:
+                    type: "string"
+                usuarioID:
+                    type: "integer"
+                contactoID:
+                    type: "integer"
+                direccionEnvioID:
+                    type: "integer"
+                descripcion:
+                    type: "string"
+                responsableUsuarioID:
+                    type: "integer"
+                tipoOfertaID:
+                    type: "integer"
+                representanteID:
+                    type: "integer"
+                representante2ID:
+                    type: "integer"
+                porcentajeComision:
+                    type: "integer"
+                porcentajeComision2:
+                    type: "integer"
+                referenciaInterna:
+                    type: "string"
+                idiomaID:
+                    type: "integer"
+                inconterm:
+                    type: "string"
+                FechaSolicitadaPara:
+                    type: "string"
+                campanaID:
+                    type: "integer"
+                oportunidadID:
+                    type: "integer"
+                motivoRechazoID:
+                    type: "integer"
+                    
+        intrastat:
+          type: object
+          properties:
+            CondicionEntregaID:
+              type: "integer"
+        
+        cualificacion:
+          type: object
+          properties:
+            EstrategiaID:
+                type: "integer"
+            RentabilidadID:
+                type: "integer"
+            OportunidadID:
+                type: "integer"
+            InteresID:
+                type: "integer"
+            AtencionID:
+                type: "integer"
+            SituacionID:
+                type: "integer"
+        
+        lineas:
+          type: object
+          properties:
+            ofertaLineaID:
+                type: "integer"
+            linea:
+                type: "integer"
+            almacenID:
+                type: "integer"
+            articuloID:
+                type: "integer"
+            referencia:
+                type: "integer"
+            nombre:
+                type: "string"
+            descripcion:
+                type: "string"
+            cantidad:
+                type: "integer"
+            cantidad2:
+                type: "integer"
+            precioVenta:
+                type: "integer"
+            ivaID:
+                type: "integer"
+            dto1:
+                type: "string"
+            dto2:
+                type: "string"
+            dto3:
+                type: "string"
+            excluirInventario:
+                type: "string"
+            importeVenta:
+                type: "integer"
+            nivelIngenieriaID:
+                type: "integer"
+            fechaEntrega:
+                type: "string"
+            plazoEntrega:
+                type: "string"
+            tipoPlazoEntregaID:
+                type: "integer"
+            referenciaCliente:
+                type: "string"
+            notaInterna:
+                type: "string"
+            notaCliente:
+                type: "string"
+            factor:
+                type: "string"
+            rutaFabricacionID:
+                type: "integer"
+            rappelPorcentaje:
+                type: "integer"
+            rappelImporte:
+                type: "integer"
+            CrossdockingPorcentaje:
+                type: "integer"
+            CrossdockingImporte:
+                type: "integer"
+            PorcentajeComision:
+                type: "integer"
+            ComisionImporte:
+                type: "integer"
+  
+            
+    listadeusuariosCalendar:
+      type: object
+      properties:
+        invitadoID:
+              type: "integer"
+              example: "17"
+              
+    listarOfertas:
+      type: object
+      properties:
+        nOffset:
+          type: "string"
+          example: "1"
+        orientation:
+          type: "string"
+          example: "1"
+          
+    login:
+      type: object
+      properties:
+        email:  
+            type: "string"
+            example: "admin@admin.com"
+        password:
+            type: "string"
+            example: "0nyx2021"
+        apiKey:
+            type: "string"
+            example: "misecretito"
+    NuevaVersionOferta:
+      type: object
+      properties:
+        idOferta:
+              type: "integer"
+              example: "1"
+        numeroOferta:
+              type: "integer"
+              example: "45"
+        version:
+              type: "string"
+              example: "3"
+    #Revisar appointmentorigen
+    onEndEventEdition:
+      type: object
+      properties:
+        appointmentorigen:
+              type: object  
+              properties:
+                ID:
+                      type: "integer"
+                      example: "1"
+                Note:
+                      type: "string"
+                      example: "algo"
+                StartDate:
+                      type: "string"
+                      format: "date-time"
+                      example: "30-03-2022T09:30:00"
+                EndDate:
+                      type: "string"
+                      format: "date-time"
+                      example: "30-03-2022T10:30:00"
+        
+    onEventMove:
+      type: object
+      properties:   
+        appointemntorigen:
+              type: object
+              properties:
+                ID:
+                      type: "integer"
+                      example: "1"
+                Note:
+                      type: "string"
+                      example: "ñaskdjad"
+                StartDate:
+                      type: "string"
+                      format: "date-time"
+                      example: "30-03-2022T09:30:00"
+                EndDate:
+                      type: "string"
+                      format: "date-time"
+                      example: "30-03-2022T10:30:00"
+        appointmentDestino:
+              type: object
+              properties:
+                ID:
+                      type: "integer"
+                      example: "1"
+                Note:
+                      type: "string"
+                      example: "ñaskdjad"
+                StartDate:
+                      type: "string"
+                      format: "date-time"
+                      example: "30-03-2022T09:30:00"
+                EndDate:
+                      type: "string"
+                      format: "date-time"
+                      example: "30-03-2022T10:30:00"
+    
+    #reunionCabecera:
+    #   type: object
+    
+    sincroHILOCalendar:
+      type: object
+      properties:
+        empleadoID:
+              type: "integer"
+              example: "1"
+    
+    traerEmpleadoID:
+      type: object
+    
+    verificarCodigoMailing:
+      type: object
+      properties:  
+        codigo:
+              type: "string"
+              example: "43000000"
+        tipoMailingID:
+               type: "integer"
+               example: "2"
+
+  
+    
+         
+                    
