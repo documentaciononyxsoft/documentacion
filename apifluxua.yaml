@@ -353,7 +353,380 @@ paths:
           description: Enviado correctamente
         404:
           description: Elemento no encontrado
+  #############    consulta ofertas           ############
+  /v1/sync/tasks/247e6e88-e5cb-46ae-be13-f15a9b339df9/:
+    get:
+      tags:
+      - "lightList Familia "
+      summary: ""
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
 
+  /v1/sync/tasks/c3ac95b8-da77-4e13-a673-f09ffa4c7e9c/:
+    get:
+      tags:
+      - "lightList Iva "
+      summary: ""
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+
+  /v1/sync/tasks/85208234-47ab-4fed-839b-4fd3d6ba74f7/:
+    get:
+      tags:
+      - "lightList Palabra Clave "
+      summary: ""
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+
+  /v1/sync/tasks/b49eab0b-79d8-4a64-b783-b12584931d43/:
+    get:
+      tags:
+      - "lightList Almacen "
+      summary: ""
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+
+  /v1/sync/tasks/cac5b93a-0160-49d0-b932-38090e7c7883/:
+    get:
+      tags:
+      - "lightList Articulo "
+      summary: ""
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+
+  #######    Empresa    ######
+
+  /v1/sync/tasks/36037f38-a7e7-4ebe-bcf3-48190c838a64/:
+    get:
+      tags:
+      - "list Empresa "
+      summary: ""
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      - in: "path"
+        name: "offset"
+        description: "offset de la consulta"
+        schema:
+          type: "integer"
+          example: "1"
+      - in: "path"
+        name: "orientation"
+        description: "positivo para la parte superior de la consulta, negativo para la inferior, siempre trae los 50 de arriba o de abajo de la tabla, teniendo en cuenta el offset"
+        schema:
+          type: "integer"
+          example: "-1"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+    
+  /v1/sync/tasks/632d3c2e-ad85-40fe-83a9-c010debb95fd/:
+    get:
+      tags:
+      - "lightList Articulo "
+      summary: ""
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+  
+  /v1/sync/tasks/d51ab2bd-e959-4bae-87ae-d84100808808:
+    post:
+      tags:
+      - "remove Empresa"
+      summary: "Remover"
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: "string"
+                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+                EmpresaID:
+                 type: "integer"
+                 example: "4"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+
+  /v1/sync/tasks/9d0e177a-5630-4ebf-acce-a11c689b7eaa:
+    post:
+      tags:
+      - "Update Empresa"
+      summary: "Actualizar"
+      requestBody:
+        description: "debe recibir el objeto entero en el body, ID obligatorio"
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: "string"
+                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+
+  /v1/sync/tasks/e3a33990-e617-410d-a240-4ecdb3a20752:
+    post:
+      tags:
+      - "Create Empresa"
+      summary: "Create"
+      requestBody:
+        description: "debe recibir el objeto entero en el body"
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: "string"
+                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+######    usuarios    ######
+  /v1/sync/tasks/dcb4f250-ea2f-4e60-8200-66b868b8c2ce:
+    post:
+      tags:
+      - "Create Usuario"
+      summary: "Create"
+      requestBody:
+        description: "debe recibir el objeto entero en el body"
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: "string"
+                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+
+  /v1/sync/tasks/497934f9-b1f9-4dde-843f-e26d79a9216f:
+    post:
+      tags:
+      - "Update Usuario"
+      summary: "Update"
+      requestBody:
+        description: "debe recibir el objeto entero en el body"
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: "string"
+                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+
+  /v1/sync/tasks/64ac42fc-272a-499e-af69-bb69ced07d52:
+    post:
+      tags:
+      - "remove Empresa"
+      summary: "Remover"
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: "string"
+                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+                UsuarioID:
+                 type: "integer"
+                 example: "4"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+
+  /v1/sync/tasks/f7236b4b-2f87-4cc4-9454-de96d51be8ff/:
+    get:
+      tags:
+      - "list Usuario "
+      summary: ""
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      - in: "path"
+        name: "offset"
+        description: "offset de la consulta"
+        schema:
+          type: "integer"
+          example: "1"
+      - in: "path"
+        name: "orientation"
+        description: "positivo para la parte superior de la consulta, negativo para la inferior, siempre trae los 50 de arriba o de abajo de la tabla, teniendo en cuenta el offset"
+        schema:
+          type: "integer"
+          example: "-1"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+
+  /v1/sync/tasks/57a888e3-c309-4ff1-a0d4-d6a7164916c4/:
+    get:
+      tags:
+      - "search Usuario "
+      summary: "busqueda rapida usuario"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      - in: "path"
+        name: "NombreAcesso"
+        description: "NombreAcesso para la consulta"
+        schema:
+          type: "string"
+          example: "admin"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+  
+  /v1/sync/tasks/3cd12302-7bc3-4f64-bb66-a8adb886754b/:
+    get:
+      tags:
+      - "lightList Provincia "
+      summary: ""
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+
+  /v1/sync/tasks/d84e73ac-8928-43a2-bbd5-394b172d0e66/:
+    get:
+      tags:
+      - "Combo Responsable"
+      summary: "Combo de responsables"
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
+
+  /v1/sync/tasks/1e26fb11-b691-47ef-9f31-70a44d7ab43a/:
+    get:
+      tags:
+      - "lightlist Representante"
+      summary: ""
+      parameters:
+      - in: "header"
+        name: "authorization"
+        description: ""
+        schema:
+          type: "string"
+          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+      responses:
+        200:
+          description: Enviado correctamente
+        404:
+          description: Elemento no encontrado
   /:
     post:
       tags:
