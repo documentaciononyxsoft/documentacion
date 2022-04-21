@@ -6,8 +6,10 @@ info:
 #paths: {}
 servers:
 
-  - description: Direccion pruebas España
-    url: https://apifluxuadev.onyxsoft.co:8087 #/v1/sync/tasks/:taskID
+  - description: Direccion pruebas Polombia
+    url: https://apifluxuadev.onyxsoft.co:8087
+  - description: Direccion pruebas Amazon
+    url: http://54.210.232.103:81/ 
 
     
 paths:
@@ -40,7 +42,7 @@ paths:
                   example: "admin@admin.com"
                 password:
                   type: "string"
-                  example: "Onyx2021"
+                  example: "0nyx2021"
                 apiKey:
                   type: "string"
                   example: "misecretito"
@@ -53,7 +55,7 @@ paths:
   /v1/sync/tasks/5d1c307c-cd18-462f-8272-7a19f725c80f:
     post:
       tags:
-      - "create Copy"
+      - "create Reunion Cabecera"
       summary: "Crear"
       requestBody:
         description: ""
@@ -129,7 +131,7 @@ paths:
   /v1/sync/tasks/d60681f8-84a0-4c6d-8fee-11d4a3b6b19a:
     post:
       tags:
-      - "update Copy"
+      - "update Reunion Cabecera"
       summary: "Actualizar"
       requestBody:
         description: ""
@@ -208,7 +210,7 @@ paths:
   /v1/sync/tasks/5f4795f9-c7ab-446d-9527-4dba4e1d2af9:
     post:
       tags:
-      - "remove Copy"
+      - "remove Reunion Cabecera"
       summary: "Remover"
       requestBody:
         description: ""
@@ -231,7 +233,7 @@ paths:
   /v1/sync/tasks/2ac8e934-77be-4c89-a6c0-601218e26bc5/0=0&-1=-1:
     get:
       tags:
-      - "list Copy"
+      - "list Reunion Cabecera"
       summary: "Lista"
       parameters:
       - in: "header"
@@ -249,7 +251,7 @@ paths:
   /v1/sync/tasks/4d73f4f8-5a2c-4cf8-9cb7-e98d30d3e3d3/Segui=Segui:
     get:
       tags:
-      - "search Copy"
+      - "search Reunion Cabecera"
       summary: "Buscar"
       parameters:
       - in: "header"
@@ -267,7 +269,7 @@ paths:
   /v1/sync/tasks/5a89d5d4-42b8-444c-9566-f3730f68c346/DEPARTAMENTO=DEPARTAMENTO:       
     get:
       tags:
-      - "searchTG Copy"
+      - "searchTG "
       summary: "BuscarTG"
       parameters:
       - in: "header"
@@ -285,7 +287,7 @@ paths:
   /v1/sync/tasks/490cea9b-96c2-4e19-a4b2-3fc7e4bf3eaa/ = :
     get:
       tags:
-      - "search by mailing Copy"
+      - "search by mailing Reunion Cabecera"
       summary: "Buscar por Mailing"
       parameters:
       - in: "header"
@@ -303,7 +305,7 @@ paths:
   /v1/sync/tasks/e42b4e89-fe4f-4b0d-a30c-40284f17ef15/findMany=findMany&Seguimiento de proyecto = Seguimiento de proyecto:
     get:
       tags:
-      - "read Copy"
+      - "read Reunion Cabecera"
       summary: "Leer"
       parameters:
       - in: "header"
@@ -321,7 +323,7 @@ paths:
   /v1/sync/tasks/8f44bb63-e4d6-4ad2-9bb4-2a2fd1fe7c23/:
     get:
       tags:
-      - "lightList ProyectoOF Copy"
+      - "lightList ProyectoOF "
       summary: ""
       parameters:
       - in: "header"
@@ -339,7 +341,7 @@ paths:
   /v1/sync/tasks/d4fc1e75-7416-4041-ad1d-3abb9188a3b7/:
     get:
       tags:
-      - "lightList Mailing Copy"
+      - "lightList Mailing"
       summary: ""
       parameters:
       - in: "header"
@@ -452,19 +454,15 @@ paths:
       - "list Empresa "
       summary: ""
       parameters:
-      - in: "header"
-        name: "authorization"
-        description: ""
-        schema:
-          type: "string"
-          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
-      - in: "path"
+        
+      - in: "query"
         name: "offset"
         description: "offset de la consulta"
+        required: true
         schema:
           type: "integer"
           example: "1"
-      - in: "path"
+      - in: "query"
         name: "orientation"
         description: "positivo para la parte superior de la consulta, negativo para la inferior, siempre trae los 50 de arriba o de abajo de la tabla, teniendo en cuenta el offset"
         schema:
@@ -632,13 +630,13 @@ paths:
         schema:
           type: "string"
           example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
-      - in: "path"
+      - in: "query"
         name: "offset"
         description: "offset de la consulta"
         schema:
           type: "integer"
           example: "1"
-      - in: "path"
+      - in: "query"
         name: "orientation"
         description: "positivo para la parte superior de la consulta, negativo para la inferior, siempre trae los 50 de arriba o de abajo de la tabla, teniendo en cuenta el offset"
         schema:
@@ -662,7 +660,7 @@ paths:
         schema:
           type: "string"
           example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
-      - in: "path"
+      - in: "query"
         name: "NombreAcesso"
         description: "NombreAcesso para la consulta"
         schema:
@@ -1213,4 +1211,3 @@ components:
   
     
          
-                    
