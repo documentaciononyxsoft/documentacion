@@ -2377,7 +2377,7 @@ paths:
                       example: false
                     Iban:
                       type: string
-                      example: 
+                      example: iban
       responses:
         '200': 
           description: exito
