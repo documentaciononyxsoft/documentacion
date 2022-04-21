@@ -2205,6 +2205,324 @@ paths:
         '500':
           description: error
           
+          
+   /v1/sync/tasks/c459ee1f-b0eb-47dc-9749-34e628d343ec:
+    post:
+      tags:
+        - despues de filtrar cliente factura pedido venta 
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                clienteID:
+                  type: integer
+                  example: 1
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+
+  /v1/sync/tasks/6210e034-c7e0-4d35-a11a-b4579e3ab3e9:
+    post:
+      tags:
+        - guardar pedido venta
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                pedidoVentaData:
+                  type: object
+                  properties:
+                    pedidoVentaCabeceraID:
+                      type: integer
+                      example: 0
+                    SeriePedidoID:
+                      type: integer
+                      example: 4
+                    fecha:
+                      type: string
+                      example: 20220421
+                    AlmacenID:
+                      type: integer
+                      example: 18
+                    ClienteID:
+                      type: integer
+                      example: 2
+                    ReferenciaCliente:
+                      type: string
+                      example: 
+                    TipoPedidoID:
+                      type: integer
+                      example: 0
+                    FechaCaptacion:
+                      type: string
+                      example: 20220421
+                    FechaEntregaPrevistaInterna:
+                      type: string
+                      example: 20220421
+                    FechaEntregaPrevistaCliente:
+                      type: string
+                      example: 20220421
+                    FechaHoraUsuario:
+                      type: string
+                      example: 20220421
+                    DireccionEnvioID:
+                      type: integer
+                      example: 0
+                    Confirmado:
+                      type: boolean
+                      example: false
+                    AlbaranNoValorado:
+                      type: boolean
+                      example: false
+                    TarifaVentaID:
+                      type: integer
+                      example: 0
+                    MonedaID:
+                      type: integer
+                      example: 3
+                    MonedaCambio:
+                      type: integer
+                      example: 1
+                    Portes:
+                      type: integer
+                      example: 0
+                    ImportePortes:
+                      type: integer
+                      example: 0
+                    PedidoPor:
+                      type: string
+                      example: 
+                    ClienteFacturaID:
+                      type: integer
+                      example: 2
+                    FormaPagoID:
+                      type: integer
+                      example: 5
+                    NumeroVencimiento:
+                      type: number
+                      example: 0
+                    DiasPrimerVencimiento:
+                      type: number
+                      example: 0
+                    DiasResto:
+                      type: number
+                      example: 0
+                    PorcentajeDtoComercial1:
+                      type: number
+                      example: 0
+                    PorcentajeDtoComercial2:
+                      type: number
+                      example: 0
+                    PorcentaDtoComercial3:
+                      type: number
+                      example: 0
+                    PorcentajeDtoProntoPago:
+                      type: number
+                      example: 0
+                    DiaFijoPago1:
+                      type: number
+                      example: 0
+                    DiaFijoPago2:
+                      type: number
+                      example: 0
+                    DiaFijoPago3:
+                      type: number
+                      example: 0
+                    DiaFijoPago4:
+                      type: number
+                      example: 0
+                    PorcentajeDtoEspecial1:
+                      type: number
+                      example: 0
+                    PorcentajeDtoEspecial2:
+                      type: number
+                      example: 0
+                    PorcentajeGastoFinanciero:
+                      type: number
+                      example: 0
+                    MesVacacion:
+                      type: number
+                      example: 0
+                    DiaSiguientePago:
+                      type: number
+                      example: 0
+                    NumeroCopiasFactura:
+                      type: number
+                      example: 0
+                    AgruparAlbaran:
+                      type: boolean
+                      example: false
+                    ImporteOtroGasto:
+                      type: number
+                      example: false
+                    IvaID:
+                      type: integer
+                      example: false
+                    BancoClienteID:
+                      type: integer
+                      example: false
+                    Iban:
+                      type: string
+                      example: 
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+
+
+  /v1/sync/tasks/7b870be3-563b-4c2a-8d10-b0a06654536b:
+    post:
+      tags:
+        - guardar pedido venta linea 
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                pedidoVentaLineaData:
+                  type: object
+                  properties:
+                    pedidoventaLineaID:
+                      type: integer
+                      example: 0
+                    pedidoVentaCabeceraID:
+                      type: integer
+                      example: 2002
+                    linea:
+                      type: integer
+                      example: 10
+                    almacenID:
+                      type: integer
+                      example: 18
+                    articuloID:
+                      type: integer
+                      example: 10
+                    referencia:
+                      type: string
+                      example: 10
+                    cantidad:
+                      type: number
+                      example: 10
+                    cajas:
+                      type: number
+                      example: 10
+                    precio:
+                      type: number
+                      example: 302
+                    precioCoste:
+                      type: number
+                      example: 0
+                    Dto1:
+                      type: number
+                      example: 0
+                    Dto2:
+                      type: number
+                      example: 0
+                    Dto3:
+                      type: number
+                      example: 0
+                    margen:
+                      type: string
+                      example: 
+                    nivelIngenieriaID:
+                      type: integer
+                      example: 0
+                    importe:
+                      type: number
+                      example: 465
+                    ivaID:
+                      type: integer
+                      example: 1
+                    FechaEntregaPrevistaInterna:
+                      type: string
+                      example: 20220421
+                    FechaEntregaPrevistaCliente:
+                      type: string
+                      example: 20220421
+                    confirmado:
+                      type: boolean
+                      example: false
+                    Proyecto_OFID:
+                      type: integer
+                      example: 0
+                    PorcentajeIVA:
+                      type: number
+                      example: 0
+                    PorcentajeRecargo:
+                      type: number
+                      example: 0
+                    Entregado:
+                      type: boolean
+                      example: false
+                    CantidadProforma:
+                      type: number
+                      example: 0
+                    ParaProforma:
+                      type: number
+                      example: 0
+                    ExcluirInventario:
+                      type: boolean
+                      example: false
+                    ReferenciaCliente:
+                      type: string
+                      example: 
+                    PosicionCliente:
+                      type: string
+                      example: 
+                    NotaInterna:
+                      type: string
+                      example:
+                    NotaCliente:
+                      type: string
+                      example:
+                    RappelImporte:
+                      type: number
+                      example: 0
+                    RappelPorcentaje:
+                      type: number
+                      example: 0
+                    CrossdockingImporte:
+                      type: number
+                      example: 0
+                    CrossdockingPorcentaje:
+                      type: number
+                      example: 0
+                    PorcentajeComision:
+                      type: number
+                      example: 0
+                    ComisionImporte:
+                      type: number
+                      example: 0
+                    Factor:
+                      type: number
+                      example: 0
+                    
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
   
   /:
     post:
