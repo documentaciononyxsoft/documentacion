@@ -2175,6 +2175,36 @@ paths:
         '500':
           description: error
           
+          
+  /v1/sync/tasks/3b15d67b-4576-4f4c-bd33-91d217ddb647:
+    post:
+      tags:
+        - despues de filtrar cliente pedido venta 
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                clienteID:
+                  type: integer
+                  example: 1
+                fecha:
+                  type: string
+                  example: 20220420
+                pedidoVentaID:
+                  type: integer
+                  example: 0
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
   
   /:
     post:
