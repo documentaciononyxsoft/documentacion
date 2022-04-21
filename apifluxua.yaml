@@ -2206,7 +2206,7 @@ paths:
           description: error
           
           
-   /v1/sync/tasks/c459ee1f-b0eb-47dc-9749-34e628d343ec:
+  /v1/sync/tasks/c459ee1f-b0eb-47dc-9749-34e628d343ec:
     post:
       tags:
         - despues de filtrar cliente factura pedido venta 
