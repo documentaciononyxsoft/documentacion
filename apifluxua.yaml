@@ -725,6 +725,1457 @@ paths:
           description: Enviado correctamente
         404:
           description: Elemento no encontrado
+          
+          
+          
+          
+  /v1/sync/tasks/be5c441d-544d-4c21-bb16-ae003b46cf07:
+    post:
+      tags:
+        - listar Variables Publicas
+      summary: 'listado de variables publicas'
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+              
+      responses:
+        '200':
+          description: listado de variables publicas
+        '500':
+          description: error obteniendo lista de variables publicas
+          
+  /v1/sync/tasks/4805ab07-6420-4097-b2b0-7459119a4886:
+    post:
+      tags:
+        - datos de una variable publica
+      summary: 'datos de una variable publica'
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                codigoVarPublica:
+                  type: string
+                  example: sTipoDeMenuPrincipal
+      responses:
+        '200':
+          description: datos variable publica
+        '500':
+          description: error obteniendo variable publica
+          
+  /v1/sync/tasks/0d1ebb64-7bda-4b3f-a118-9b4b54152d8c:
+    post:
+      tags:
+        - eliminar variable publica
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                idVarPublica:
+                  type: string
+                  example: 602
+      responses:
+        '200':
+          description: eliminacion exitosa
+        '500':
+          description: error borrando variable publica
+    
+    
+  /v1/sync/tasks/40d9f22b-237a-497f-82c2-a8068f2d2a83:
+    post:
+      tags:
+        - crear variable publica
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                dataVarPublica:
+                  type: object
+                  properties:
+                    parametrizacionID:
+                      type: integer
+                      example: 0
+                    codigo:
+                      type: string
+                      example: pruebaEdgos
+                    descripcion:
+                      type: string
+                      example: pruebaEdgos
+                    valorInicial:
+                      type: string
+                      example: pruebaEdgos
+                    posiblesValores:
+                      type: string
+                      example: pruebaEdgos
+                    notas:
+                      type: string
+                      example: pruebaEdgos
+      responses:
+        '200': 
+          description: creacion exitosa
+        '500':
+          description: error creando variable publica
+          
+          
+          
+  /v1/sync/tasks/72e4965b-9228-4f96-b96c-331f3e8e9d9a:
+    post:
+      tags:
+        - modificar variable publica
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                dataVarPublica:
+                  type: object
+                  properties:
+                    parametrizacionID:
+                      type: integer
+                      example: 365
+                    codigo:
+                      type: string
+                      example: pruebaEdgos
+                    descripcion:
+                      type: string
+                      example: pruebaEdgos
+                    valorInicial:
+                      type: string
+                      example: pruebaEdgos
+                    posiblesValores:
+                      type: string
+                      example: pruebaEdgos
+                    notas:
+                      type: string
+                      example: pruebaEdgos
+                dataCustomer:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      valor:
+                        type: string
+                        example: 365
+                      customerID:
+                        type: integer
+                        example: 192
+                dataempresas:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      valor:
+                        type: string
+                        example: 365
+                      empresaID:
+                        type: integer
+                        example: 1
+                        
+                dataUsuarios:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      valor:
+                        type: string
+                        example: 365
+                      usuarioID:
+                        type: integer
+                        example: 1
+      responses:
+        '200': 
+          description: modificacion exitosa
+        '500':
+          description: error modificando variable publica
+          
+          
+  /v1/sync/tasks/af5d235f-39f0-46fa-8237-87ba8f384225:
+    post:
+      tags:
+        - listar ofertas
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                offset:
+                  type: integer
+                  example: 1
+                orientation:
+                  type: integer
+                  example: 1
+      responses:
+        '200': 
+          description: lista de ofertas
+        '500':
+          description: error
+          
+  /v1/sync/tasks/a2cf97c4-2e69-4185-bb21-ce354741ef3e:
+    post:
+      tags:
+        - abrir oferta
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                idOferta:
+                  type: integer
+                  example: 1
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+          
+  /v1/sync/tasks/592742a7-4718-4a8a-856c-5dc85642ed6f:
+    post:
+      tags:
+        - duplicar oferta
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                idOferta:
+                  type: integer
+                  example: 1
+                idMailing:
+                  type: integer
+                  example: 1
+                idLineas:
+                  type: string
+                  example: 4,5,6
+                descripcion:
+                  type: string
+                  example: aqui puede ir alguna informacion
+                idContacto:
+                  type: integer
+                  example: 1
+                copiarWord:
+                  type: boolean
+                  example: false
+                actualizarPrecios:
+                  type: boolean
+                  example: false
+                duplicarGestion:
+                  type: boolean
+                  example: false
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/81e7c0e1-3783-43f8-aa02-355e249e82e9:
+    post:
+      tags:
+        - nueva version oferta
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                idOferta:
+                  type: integer
+                  example: 1
+                numero:
+                  type: integer
+                  example: 1
+                version:
+                  type: integer
+                  example: 4
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/1ac2fe1d-9106-4ff6-b5ce-0d3e89f0635f:
+    post:
+      tags:
+        - eliminar oferta
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                idOferta:
+                  type: integer
+                  example: 1
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/c11ac348-2069-4b60-811c-b919a2e561a2:
+    post:
+      tags:
+        - guardar oferta
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                ofertaData:
+                  type: object
+                  properties:
+                    cabecera:
+                      type: object
+                      properties:
+                        ofertaID:
+                          type: integer
+                          example: 0
+                        validoDesde:
+                          type: string
+                          example: 20220421
+                        fecha:
+                          type: string
+                          example: 20220421
+                        fechaValidez:
+                          type: string
+                          example: 20220421
+                        fechaEntregafechaEntrega:
+                          type: string
+                          example: 20220421
+                        almacenID:
+                          type: integer
+                          example: 1
+                        mailingID:
+                          type: integer
+                          example: 1
+                        numeroSolicitud:
+                          type: integer
+                          example: 1
+                        fechaSolicitud:
+                          type: string
+                          example: 20220421
+                        fechaHoraUsuario:
+                          type: string
+                          example: 20220421
+                        usuarioID:
+                          type: integer
+                          example: 1
+                        contactoID:
+                          type: integer
+                          example: 1
+                        direccionEnvioID:
+                          type: integer
+                          example: 1
+                        descripcion:
+                          type: string
+                          example: aqui va una descripcion
+                        responsableUsuarioID:
+                          type: integer
+                          example: 1
+                        tipoOfertaID:
+                          type: integer
+                          example: 1
+                        representanteID:
+                          type: integer
+                          example: 1
+                        respresentante2ID:
+                          type: integer
+                          example: 1
+                        porcentajeComision:
+                          type: number
+                          example: 1
+                        porcentajeComision2:
+                          type: number
+                          example: 1
+                        referenciaInterna:
+                          type: string
+                        idionaID:
+                          type: integer
+                          example: 1
+                        inconterm:
+                          type: string
+                          example: 1
+                        FechaSolcitadaPara:
+                          type: string
+                          example: 20220421
+                        campanaID:
+                          type: integer
+                          example: 1
+                        oportunidadID:
+                          type: integer
+                          example: 1
+                        motivoRechazoID:
+                          type: integer
+                          example: 1
+                    intrastat:
+                      type: object
+                      properties:
+                        CondicionEntregaID:
+                          type: integer
+                          example: 1
+                    cualificacion:
+                      type: object
+                      properties:
+                        EstrategiaID:
+                          type: integer
+                          example: 1
+                        RentabilidadID:
+                          type: integer
+                          example: 1
+                        OportunidadID:
+                          type: integer
+                          example: 1
+                        InteresID:
+                          type: integer
+                          example: 1
+                        AtencionID:
+                          type: integer
+                          example: 1
+                        SituacionID:
+                          type: integer
+                          example: 1
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+          
+          
+  /v1/sync/tasks/758b7a0e-1ff9-4879-9361-029edfec129f:
+    post:
+      tags:
+        - consulta oferta extendida
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                dataConsulta:
+                  type: object
+                  properties:
+                    fechaDesde:
+                      type: string
+                      example: 20220421
+                    fechaOfertaHasta:
+                      type: string
+                      example: 20220421
+                    listaZonasID:
+                      type: string
+                      example: 1,2
+                    listaTipoOfertasID:
+                      type: string
+                      example: 1,2
+                    listaRepresentantesID:
+                      type: string
+                      example: 1,2
+                    descripcion:
+                      type: string
+                      example: 1
+                    mailingID:
+                      type: integer
+                      example: 1
+                    articuloID:
+                      type: integer
+                      example: 1
+                    familiaID:
+                      type: integer
+                      example: 1
+                    listacampanasID:
+                      type: string
+                      example: 1,2
+                    estadoOferta:
+                      type: string
+                      example: abierta
+                    listausuariosID:
+                      type: string
+                      example: 1,2
+                    numeroOfertaDesde:
+                      type: integer
+                      example: 1 
+                    numeroOfertahasta:
+                      type: integer
+                      example: 1 
+                    listaresponsablesID:
+                      type: string
+                      example: 1,2
+                    listaSituacionesID:
+                      type: string
+                      example: 1,2
+                    numeroSolicitud:
+                      type: integer
+                      example: 1
+                    fechaSolicitudDesde:
+                      type: string
+                      example: 20220421
+                    fechaSolicitudHasta:
+                      type: string
+                      example: 20220421
+                    misFavoritos:
+                      type: boolean
+                      example: false
+                    ConDetalle:
+                      type: boolean
+                      example: false
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/71f9f157-f753-43c3-a1a4-44bb485a46e3:
+    post:
+      tags:
+        - guardar linea oferta
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                dataLineas:
+                  type: object
+                  properties:
+                    ofertaLineaID:
+                      type: integer
+                      example: 1
+                    linea:
+                      type: integer
+                      example: 10
+                    almacenid:
+                      type: integer
+                      example: 1
+                    articuloid:
+                      type: integer
+                      example: 1
+                    referencia:
+                      type: string
+                      example: una referencia
+                    nombre:
+                      type: string
+                      example: tornillo
+                    descripcion:
+                      type: string
+                      example: tornillo 1
+                    cantidad:
+                      type: number
+                      example: 45
+                    cantidad2:
+                      type: integer
+                      example: 0
+                    precioVenta:
+                      type: number
+                      example: 45.3
+                    ivaid:
+                      type: integer
+                      example: 1
+                    dto1:
+                      type: number
+                      example: 10
+                    dto2:
+                      type: number
+                      example: 0 
+                    dto3:
+                      type: number
+                      example: 0
+                    excluirInventario:
+                      type: boolean
+                      example: false
+                    importeVenta:
+                      type: number
+                      example: 300
+                    nivelIngenieriaID:
+                      type: integer
+                      example: 1
+                    fechaEntrega:
+                      type: string
+                      example: 20220421
+                    plazoEntrega:
+                      type: string
+                      example: 20220421
+                    tipoPlazoEntregaID:
+                      type: integer
+                      example: 1
+                    referenciaCliente:
+                      type: string
+                      example: una referencia
+                    notaInterna:
+                      type: string
+                      example: una referencia 
+                    notaCliente:
+                      type: string
+                      example: una referencia
+                    factor:
+                      type: number
+                      example: 1
+                    rutaFabricacionID:
+                      type: number
+                      example: 1
+                    rappelPorcentaje:
+                      type: number
+                      example: 1
+                    rappelImporte:
+                      type: number
+                      example: 1
+                    CrossdockingPorcentaje:
+                      type: number
+                      example: 1
+                    CrossdockingImporte:
+                      type: number
+                      example: 1
+                    PorcentajeComision:
+                      type: number
+                      example: 1
+                    ComisionImporte:
+                      type: number
+                      example: 1
+                    ofertaID:
+                      type: integer
+                      example: 1
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/9819adc7-95ef-49e3-9751-4b057ec95703:
+    post:
+      tags:
+        - eliminar linea oferta
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                idOfertaLinea:
+                  type: integer
+                  example: 1
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/cfe8a3e2-3a44-447b-9d9c-f8264d1ab40e:
+    post:
+      tags:
+        - informacion pestaña oferta
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                ofertaID:
+                  type: integer
+                  example: 1
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/a05b1656-cea9-44a5-b289-1bd989601b1a:
+    post:
+      tags:
+        - busqueda rapida oferta
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                busqueda:
+                  type: string
+                  example: 20
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+          
+  /v1/sync/tasks/93027b1b-c804-42f6-829b-d94e3f4a716f:
+    post:
+      tags:
+        - lista mailings oferta
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/093164af-d150-40f3-b94e-d41436b6bb7a:
+    post:
+      tags:
+        - despues de seleccionar mailing oferta
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                mailingID:
+                  type: string
+                  example: 455
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+          
+  /v1/sync/tasks/b4642ed5-e00d-46e8-bb88-16d7a1424364:
+    post:
+      tags:
+        - listado campañas 
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/5efaed76-5dd8-4562-862b-bb5157d8fa21:
+    post:
+      tags:
+        - despues de filtrar articulo oferta linea
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                idArticulo:
+                  type: integer
+                  example: 1
+                idAlmacen:
+                  type: integer
+                  example: 1
+                idoferta:
+                  type: integer
+                  example: 1
+                cantidad:
+                  type: integer
+                  example: 10
+                idOfertaLinea:
+                  type: integer
+                  example: 0
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+  
+  /v1/sync/tasks/857c73f6-2f78-40d5-8779-b530db15068d:
+    post:
+      tags:
+        - traer empleado calendar
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/31fa1a58-2f7b-47ea-a2de-54e5b63324af:
+    post:
+      tags:
+        - lista festivos calendar
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/a8566419-0b42-4419-a718-6fe24006d0ca:
+    post:
+      tags:
+        - cambiar color agenda auth calendar
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                AgendaAuthID:
+                  type: number
+                  example: 1
+                color:
+                  type: number
+                  example: 16587
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/68bb5b83-baed-4fa4-a731-1e6340301dbe:
+    post:
+      tags:
+        - agregar autorizacion agenda auth calendar
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                invitadoID:
+                  type: number
+                  example: 1
+                color:
+                  type: number
+                  example: 16587
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/7609a12b-a56c-4b21-9865-9b3c0892c671:
+    post:
+      tags:
+        - modificar mostrar agenda auth calendar
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                agendaAuthID:
+                  type: number
+                  example: 1
+                mostrar:
+                  type: boolean
+                  example: true
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+          
+  /v1/sync/tasks/31859b81-d07a-411c-9361-2af14fb1fc83:
+    post:
+      tags:
+        - lista de usuarios autorizados agenda auth calendar
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                invitadoID:
+                  type: number
+                  example: 1
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+  
+  /v1/sync/tasks/5e631996-ed1d-4be1-b936-20de6c061ec8:
+    post:
+      tags:
+        - borrar autorizacion agenda auth calendar
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                agendaAuthID:
+                  type: number
+                  example: 1
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+          
+          
+  /v1/sync/tasks/f1bcc7c1-89dd-401e-845c-88bd35789de0:
+    post:
+      tags:
+        - lista de eventos calendar
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                empeladoID:
+                  type: number
+                  example: 1
+                empeladoIDInvitado:
+                  type: number
+                  example: 1
+                fechaInicio:
+                  type: string
+                  example: 20220421
+                fechaFin:
+                  type: string
+                  example: 20220421
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/bd21f7b7-8310-4b2a-b765-1f21876d7ad7:
+    post:
+      tags:
+        - mdificar evento calendar
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                appointment:
+                  type: object
+                  properties:
+                    ID:
+                      type: integer
+                      example: 1
+                    StartDate:
+                      type: string
+                      example: 20220421
+                    EndDate:
+                      type: string
+                      example: 20220421
+                    note:
+                      type: string
+                      example: una nota
+                    title:
+                      type: string
+                      example: un titulo
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/be18c577-6305-4d1f-9ed6-644607623a48:
+    post:
+      tags:
+        - mover evento calendar
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                appointmentOrigen:
+                  type: object
+                  properties:
+                    ID:
+                      type: integer
+                      example: 1
+                    StartDate:
+                      type: string
+                      example: 20220421
+                    EndDate:
+                      type: string
+                      example: 20220421
+                    note:
+                      type: string
+                      example: una nota
+                    title:
+                      type: string
+                      example: un titulo
+                appointmentDestino:
+                  type: object
+                  properties:
+                    ID:
+                      type: integer
+                      example: 1
+                    StartDate:
+                      type: string
+                      example: 20220421
+                    EndDate:
+                      type: string
+                      example: 20220421
+                    note:
+                      type: string
+                      example: una nota
+                    title:
+                      type: string
+                      example: un titulo
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+          
+  /v1/sync/tasks/8b989758-d6ee-456d-a716-df058c03c037:
+    post:
+      tags:
+        - sincronizar eventos calendar
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                JWT:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                apiKey:
+                  type: string
+                  example: misecretito
+                empleadoID:
+                  type: integer
+                  example: 339
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+          
+  /v1/sync/tasks/25100022-02fe-46a8-9f54-b7e960293695:
+    post:
+      tags:
+        - lista pedidos venta
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                offset:
+                  type: integer
+                  example: 1
+                orientation:
+                  type: integer
+                  example: 1
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/a0e7aac8-ebc3-4966-8aad-2efce6a7a843:
+    post:
+      tags:
+        - data pestana facturacion pedido venta
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                pedidoVentaID:
+                  type: integer
+                  example: 1
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/3079a3c3-311d-4a7d-aa2b-49c8cc627241:
+    post:
+      tags:
+        - lineas pedido venta tabla
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                pedidoVentaID:
+                  type: integer
+                  example: 1
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+          
+  /v1/sync/tasks/de5c9b84-b39b-46d2-9758-68be127e6447:
+    post:
+      tags:
+        - albaranes por pedido venta
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                pedidoVentaID:
+                  type: integer
+                  example: 1
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+          
+  /v1/sync/tasks/10696f64-cc0a-4d68-bf65-5db7fb5e90a6:
+    post:
+      tags:
+        - datos pop up linea pedido venta 
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                pedidoVentaLineaID:
+                  type: integer
+                  example: 1
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/323baaf0-1288-43a5-bd1a-f94f8c5ac123:
+    post:
+      tags:
+        - busqueda rapida pedido venta 
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                busqueda:
+                  type: string
+                  example: 1
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+      
+  /v1/sync/tasks/0063dbe6-8fa4-4776-aa4a-b4468cae5578:
+    post:
+      tags:
+        - borrar linea pedido venta 
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                pedidoVentaLineaID:
+                  type: integer
+                  example: 1
+                pedidoVentaID:
+                  type: integer
+                  example: 1
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+          
+  /v1/sync/tasks/069bde5f-9b7e-4302-9cf7-69e322939617:
+    post:
+      tags:
+        - borrar pedido venta 
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                pedidoVentaID:
+                  type: integer
+                  example: 1
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
+  
   /:
     post:
       tags:
