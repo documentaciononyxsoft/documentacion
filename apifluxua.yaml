@@ -2523,7 +2523,89 @@ paths:
         '500':
           description: error
           
-  
+  /v1/sync/tasks/5ba11e40-6ed2-45b2-9e35-f72b51ee9f7f:
+    post:
+      tags:
+        - lista clientes pedido venta cabecera
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+
+
+  /v1/sync/tasks/4609af69-9dec-49b9-9ac1-3537fd7dba0d:
+    post:
+      tags:
+        - lista formas de pago
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+
+
+  /v1/sync/tasks/7d2312a3-a4ee-49d7-8412-0f95ec8262d4:
+    post:
+      tags:
+        - lista monedas
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+
+
+  /v1/sync/tasks/570f6df1-8f64-47e0-8c3b-c12629302866:
+    post:
+      tags:
+        - lista tarifas de ventas
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+      responses:
+        '200': 
+          description: exito
+        '500':
+          description: error
+          
   /:
     post:
       tags:
