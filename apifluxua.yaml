@@ -2605,7 +2605,318 @@ paths:
           description: exito
         '500':
           description: error
+  
+  
+  
+  /v1/sync/tasks/07ca2dcb-6146-490c-b8ce-69ce874946e4:
+    post:
+      tags:
+        - Acerca De
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+      responses:
+        '200':
+          description: exito
+        '500':
+          description: error
           
+  /v1/sync/tasks/7099f4ac-a274-4275-9a42-cb9dd3ae1035:
+    post:
+      tags:
+        - Listar ficha de cuentas
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                offset:
+                  type: integer
+                  example: 1
+                orientation:
+                  type: integer
+                  example: 1
+      responses:
+        '200':
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/721e065f-08a9-4f5c-b945-85b26b53b0fa:
+    post:
+      tags:
+        - busqueda rapida ficha cuentas
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                busqueda:
+                  type: string
+                  example: "2500001000"
+      responses:
+        '200':
+          description: exito
+        '500':
+          description: error
+          
+          
+  /v1/sync/tasks/8367146c-bff4-4d8f-8dfd-4074631e8db6:
+    post:
+      tags:
+        - guardar ficha cuentas
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                busqueda:
+                  type: object
+                  properties:
+                    mailingID:
+                      type: integer
+                      example: 0
+                    TipoMailID:
+                      type: integer
+                      example: 5
+                    ReferenciaCodigo:
+                      type: string
+                      example: "458720"
+                    CIF:
+                      type: string
+                      example: "123456"
+                    activo:
+                      type: boolean
+                      example: true
+                    nombre:
+                      type: string
+                      example: "edgos"
+                    nombrecomercial:
+                      type: string
+                      example: "edgos"
+                    email:
+                      type: string
+                      example: "a@a.com"
+                    web:
+                      type: string
+                      example: "google.com"
+                    telefono:
+                      type: string
+                      example: "123456"
+                    fax:
+                      type: string
+                      example: ""
+                    monedaid:
+                      type: integer
+                      example: 3
+                    horario:
+                      type: string
+                      example: ""
+                    tomacontactoid:
+                      type: integer
+                      example: 0
+                    representanteid:
+                      type: integer
+                      example: 0
+                    actividadID:
+                      type: integer
+                      example: 0
+                    sectorid:
+                      type: integer
+                      example: 0
+                    zonaid:
+                      type: integer
+                      example: 0
+                    PaisID:
+                      type: integer
+                      example: 0
+                    provinciaID:
+                      type: integer
+                      example: 0
+                    municipioID:
+                      type: integer
+                      example: 0
+                    municipio:
+                      type: string
+                      example: ""
+                    direccion:
+                      type: string
+                      example: ""
+                    latitud:
+                      type: string
+                      example: ""
+                    longitud:
+                      type: string
+                      example: ""
+                  
+      responses:
+        '200':
+          description: exito
+        '500':
+          description: error
+          
+          
+  /v1/sync/tasks/39a0231c-5923-4a4a-abc4-ae0480fbae7c:
+    post:
+      tags:
+        - Eliminar ficha cuentas
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                mailingID:
+                  type: integer
+                  example: 214
+      responses:
+        '200':
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/cd2cf6e4-bea4-4d31-90de-58922e31a9dc:
+    post:
+      tags:
+        - Verificar codigo ficha cuentas
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                codigoMailing:
+                  type: string
+                  example: "abc478"
+                tipoMailing:
+                  type: integer
+                  example: 5
+      responses:
+        '200':
+          description: exito
+        '500':
+          description: error
+          
+          
+  /v1/sync/tasks/9134ac60-9720-4675-84ae-9928cb5aab94:
+    post:
+      tags:
+        - lista tipos de mailing
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+      responses:
+        '200':
+          description: exito
+        '500':
+          description: error
+          
+          
+  /v1/sync/tasks/1f85638b-e812-4481-a133-48c184b5cf14:
+    post:
+      tags:
+        - lista de paises
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+      responses:
+        '200':
+          description: exito
+        '500':
+          description: error
+          
+          
+          
+  /v1/sync/tasks/7ecc8b8c-9216-4115-853f-2d8394b91f8b:
+    post:
+      tags:
+        - lista de provincias dado un pais
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                paisID:
+                  type: integer
+                  example: 1
+      responses:
+        '200':
+          description: exito
+        '500':
+          description: error
+          
+  /v1/sync/tasks/5a665fbf-099e-4db4-8dd3-a5ae395a3fa8:
+    post:
+      tags:
+        - lista de municipios dado una provincia
+      summary: ''
+      requestBody:
+        description: debe recibir el objeto entero en el body
+        content:
+          application/json:
+            schema:
+              properties:
+                authorization:
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
+                provinciaID:
+                  type: integer
+                  example: 1
+      responses:
+        '200':
+          description: exito
+        '500':
+          description: error
+  
   /:
     post:
       tags:
