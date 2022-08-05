@@ -29,3 +29,5 @@ paths:
           description: True/False
         '400':
           description: Error en caso de que success sea False
+tags:
+  - name: fadico

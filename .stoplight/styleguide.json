@@ -8,7 +8,11 @@
     "oas3.0",
     "oas3.1"
   ],
-  "aliases": {},
+  "aliases": {
+    "": {
+      "targets": []
+    }
+  },
   "rules": {},
   "extends": [
     "cHJqOjEyMzU4Ng@33"
