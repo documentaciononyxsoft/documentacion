@@ -3,737 +3,693 @@ info:
   version: '1.0'
   title: apifluxua
   description: ''
-#paths: {}
 servers:
-
   - description: Direccion pruebas Polombia
-    url: https://apifluxuadev.onyxsoft.co:8087
+    url: 'https://apifluxuadev.onyxsoft.co:8087'
   - description: Direccion pruebas Amazon
-    url: http://54.210.232.103:81/ 
-
-    
+    url: 'http://54.210.232.103:81/'
 paths:
-
   /v1/sync/tasks/cdc4460f-2f96-4046-9857-59d92bc96b7f:
-  
     post:
       tags:
-      - "checker"
-      summary: "Chequear"
-                
+        - checker
+      summary: Chequear
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
   /v1/sync/tasks/fcdafa16-8b44-44a2-98dc-cb6cdac648e2:
     post:
-      tags:
-      - "login"
-      summary: "Logear"
+      summary: Logear
       requestBody:
-        description: ""
+        description: ''
         content:
           application/json:
             schema:
               properties:
-                email:  
-                  type: "string"
-                  example: "admin@admin.com"
+                email:
+                  type: string
+                  example: admin@admin.com
                 password:
-                  type: "string"
-                  example: "0nyx2021"
+                  type: string
+                  example: 0nyx2021
                 apiKey:
-                  type: "string"
-                  example: "misecretito"
+                  type: string
+                  example: misecretito
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
-          description: Elemento no encontrado
-  
+        '404':
+          description: 'El usuario y/o contraseña no son validos, o no pertenecen al token enviado.'
   /v1/sync/tasks/5d1c307c-cd18-462f-8272-7a19f725c80f:
     post:
       tags:
-      - "create Reunion Cabecera"
-      summary: "Crear"
+        - create Reunion Cabecera
+      summary: Crear
       requestBody:
-        description: ""
+        description: ''
         content:
           application/json:
             schema:
               properties:
                 authorization:
-                  type: "string"
-                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
                 InicioPrevisto:
-                  type: "string"
-                  format: "date-time"
-                  example: "2018-02-21 10:00:00"
+                  type: string
+                  format: date-time
+                  example: '2018-02-21 10:00:00'
                 FinalPrevisto:
-                  type: "string"
-                  format: "date-time"
-                  example: "2018-02-21 12:00:00"
+                  type: string
+                  format: date-time
+                  example: '2018-02-21 12:00:00'
                 InicioReal:
-                  type: "string"
-                  format: "date-time"
-                  example: "2018-02-21 10:00:00"
+                  type: string
+                  format: date-time
+                  example: '2018-02-21 10:00:00'
                 FinalReal:
-                  type: "string"
-                  format: "date-time"
-                  example: "2018-02-21 12:00:00"
+                  type: string
+                  format: date-time
+                  example: '2018-02-21 12:00:00'
                 Asunto:
-                  type: "string"
-                  example: "Seguimiento de proyecto"
+                  type: string
+                  example: Seguimiento de proyecto
                 Lugar:
-                  type: "string"
-                  example: ""
+                  type: string
+                  example: ''
                 OrdenDelDia:
-                  type: "string"
+                  type: string
                   example: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.16299}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
-                TipoReunionId: 
-                  type: "integer"
-                  example: "null"
+                TipoReunionId:
+                  type: integer
+                  example: 'null'
                 Proyecto_OFID:
-                  type: "integer"
-                  example: "576"
+                  type: integer
+                  example: '576'
                 Acta:
-                  type: "string"
+                  type: string
                   example: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.16299}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
                 CustomerID:
-                  type: "integer"
-                  example: "29"
+                  type: integer
+                  example: '29'
                 EmpresaID:
-                  type: "integer"
-                  example: "1"
+                  type: integer
+                  example: '1'
                 UsuarioID:
-                  type: "integer"
-                  example: "3"
+                  type: integer
+                  example: '3'
                 FechaHoraUsuario:
-                  type: "string"
-                  format: "date-time"
-                  example: "2018-02-20 10:46:35"
+                  type: string
+                  format: date-time
+                  example: '2018-02-20 10:46:35'
                 GestionSalaReservaID:
-                  type: "integer"
-                  example: "null"
+                  type: integer
+                  example: 'null'
                 MailingID:
-                  type: "integer"
-                  example: "null"
+                  type: integer
+                  example: 'null'
                 Url:
-                  type: "string"
-                  example: "null"
+                  type: string
+                  example: 'null'
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
-          description: Elemento no encontrado      
-  
+        '404':
+          description: Elemento no encontrado
   /v1/sync/tasks/d60681f8-84a0-4c6d-8fee-11d4a3b6b19a:
     post:
       tags:
-      - "update Reunion Cabecera"
-      summary: "Actualizar"
+        - update Reunion Cabecera
+      summary: Actualizar
       requestBody:
-        description: ""
+        description: ''
         content:
           application/json:
             schema:
               properties:
                 authorization:
-                  type: "string"
-                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
                 ReunionCabeceraID:
-                  type: "integer"
-                  example: "3"
+                  type: integer
+                  example: '3'
                 InicioPrevisto:
-                  type: "string"
-                  format: "date-time"
-                  example: "2022-02-21 10:00:00"
+                  type: string
+                  format: date-time
+                  example: '2022-02-21 10:00:00'
                 FinalPrevisto:
-                  type: "string"
-                  format: "date-time"
-                  example: "2022-02-21 12:00:00"
+                  type: string
+                  format: date-time
+                  example: '2022-02-21 12:00:00'
                 InicioReal:
-                  type: "string"
-                  format: "date-time"
-                  example: "0000-00-00 00:00:00"
+                  type: string
+                  format: date-time
+                  example: '0000-00-00 00:00:00'
                 FinalReal:
-                  type: "string"
-                  format: "date-time"
-                  example: "2022-02-21 12:00:00"
+                  type: string
+                  format: date-time
+                  example: '2022-02-21 12:00:00'
                 Asunto:
-                  type: "string"
-                  example: "Seguimiento de proyecto"
+                  type: string
+                  example: Seguimiento de proyecto
                 Lugar:
-                  type: "string"
-                  example: ""
+                  type: string
+                  example: ''
                 OrdenDelDia:
-                  type: "string"
+                  type: string
                   example: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.16299}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
-                TipoReunionId: 
-                  type: "integer"
-                  example: "0"
+                TipoReunionId:
+                  type: integer
+                  example: '0'
                 Proyecto_OFID:
-                  type: "integer"
-                  example: "576"
+                  type: integer
+                  example: '576'
                 Acta:
-                  type: "string"
+                  type: string
                   example: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.16299}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
                 CustomerID:
-                  type: "integer"
-                  example: "29"
+                  type: integer
+                  example: '29'
                 EmpresaID:
-                  type: "integer"
-                  example: "1"
+                  type: integer
+                  example: '1'
                 UsuarioID:
-                  type: "integer"
-                  example: "3"
+                  type: integer
+                  example: '3'
                 FechaHoraUsuario:
-                  type: "string"
-                  format: "date-time"
-                  example: "2018-02-20 10:46:35"
+                  type: string
+                  format: date-time
+                  example: '2018-02-20 10:46:35'
                 GestionSalaReservaID:
-                  type: "integer"
-                  example: "0"
+                  type: integer
+                  example: '0'
                 MailingID:
-                  type: "integer"
-                  example: "0"
+                  type: integer
+                  example: '0'
                 Url:
-                  type: "string"
-                  example: "mi url"
+                  type: string
+                  example: mi url
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-            
   /v1/sync/tasks/5f4795f9-c7ab-446d-9527-4dba4e1d2af9:
     post:
       tags:
-      - "remove Reunion Cabecera"
-      summary: "Remover"
+        - remove Reunion Cabecera
+      summary: Remover
       requestBody:
-        description: ""
+        description: ''
         content:
           application/json:
             schema:
               properties:
                 authorization:
-                  type: "string"
-                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
                 ReunionCabeceraID:
-                 type: "integer"
-                 example: "6"
+                  type: integer
+                  example: '6'
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-  
   /v1/sync/tasks/2ac8e934-77be-4c89-a6c0-601218e26bc5/0=0&-1=-1:
     get:
       tags:
-      - "list Reunion Cabecera"
-      summary: "Lista"
+        - list Reunion Cabecera
+      summary: Lista
       parameters:
-      - in: "header"
-        name: "authorization"
-        description: ""
-        schema:
-          type: "string"
-          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+        - in: header
+          name: authorization
+          description: ''
+          schema:
+            type: string
+            example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-            
   /v1/sync/tasks/4d73f4f8-5a2c-4cf8-9cb7-e98d30d3e3d3/Segui=Segui:
     get:
       tags:
-      - "search Reunion Cabecera"
-      summary: "Buscar"
+        - search Reunion Cabecera
+      summary: Buscar
       parameters:
-      - in: "header"
-        name: "authorization"
-        description: ""
-        schema:
-          type: "string"
-          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+        - in: header
+          name: authorization
+          description: ''
+          schema:
+            type: string
+            example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-         
-  /v1/sync/tasks/5a89d5d4-42b8-444c-9566-f3730f68c346/DEPARTAMENTO=DEPARTAMENTO:       
+  /v1/sync/tasks/5a89d5d4-42b8-444c-9566-f3730f68c346/DEPARTAMENTO=DEPARTAMENTO:
     get:
       tags:
-      - "searchTG "
-      summary: "BuscarTG"
+        - 'searchTG '
+      summary: BuscarTG
       parameters:
-      - in: "header"
-        name: "authorization"
-        description: ""
-        schema:
-          type: "string"
-          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+        - in: header
+          name: authorization
+          description: ''
+          schema:
+            type: string
+            example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-          
-  /v1/sync/tasks/490cea9b-96c2-4e19-a4b2-3fc7e4bf3eaa/ = :
+  /v1/sync/tasks/490cea9b-96c2-4e19-a4b2-3fc7e4bf3eaa/ =:
     get:
       tags:
-      - "search by mailing Reunion Cabecera"
-      summary: "Buscar por Mailing"
+        - search by mailing Reunion Cabecera
+      summary: Buscar por Mailing
       parameters:
-      - in: "header"
-        name: "authorization"
-        description: ""
-        schema:
-          type: "string"
-          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjo0NCwgImN1c3RvbWVySUQiOjI5LCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJlZGdvcyIsICJhZG1pbmlzdHJhZG9yIjp0cnVlLCAiZW1wcmVzYUlEIjoxLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjQ4ODQ4NjM3LCAiZXhwIjoxNjQ4ODU1ODM3IH0.nwsH-bR8FaIMM36mM35QO1W0KFXOWnvogOqBPW9_dfw"
+        - in: header
+          name: authorization
+          description: ''
+          schema:
+            type: string
+            example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjo0NCwgImN1c3RvbWVySUQiOjI5LCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJlZGdvcyIsICJhZG1pbmlzdHJhZG9yIjp0cnVlLCAiZW1wcmVzYUlEIjoxLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjQ4ODQ4NjM3LCAiZXhwIjoxNjQ4ODU1ODM3IH0.nwsH-bR8FaIMM36mM35QO1W0KFXOWnvogOqBPW9_dfw
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-  
   /v1/sync/tasks/e42b4e89-fe4f-4b0d-a30c-40284f17ef15/findMany=findMany&Seguimiento de proyecto = Seguimiento de proyecto:
     get:
       tags:
-      - "read Reunion Cabecera"
-      summary: "Leer"
+        - read Reunion Cabecera
+      summary: Leer
       parameters:
-      - in: "header"
-        name: "authorization"
-        description: ""
-        schema:
-          type: "string"
-          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+        - in: header
+          name: authorization
+          description: ''
+          schema:
+            type: string
+            example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-  
   /v1/sync/tasks/8f44bb63-e4d6-4ad2-9bb4-2a2fd1fe7c23/:
     get:
       tags:
-      - "lightList ProyectoOF "
-      summary: ""
+        - 'lightList ProyectoOF '
+      summary: ''
       parameters:
-      - in: "header"
-        name: "authorization"
-        description: ""
-        schema:
-          type: "string"
-          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+        - in: header
+          name: authorization
+          description: ''
+          schema:
+            type: string
+            example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-  
   /v1/sync/tasks/d4fc1e75-7416-4041-ad1d-3abb9188a3b7/:
     get:
       tags:
-      - "lightList Mailing"
-      summary: ""
+        - lightList Mailing
+      summary: ''
       parameters:
-      - in: "header"
-        name: "authorization"
-        description: ""
-        schema:
-          type: "string"
-          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+        - in: header
+          name: authorization
+          description: ''
+          schema:
+            type: string
+            example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-  #############    consulta ofertas           ############
   /v1/sync/tasks/247e6e88-e5cb-46ae-be13-f15a9b339df9/:
     get:
       tags:
-      - "lightList Familia "
-      summary: ""
+        - 'lightList Familia '
+      summary: ''
       parameters:
-      - in: "header"
-        name: "authorization"
-        description: ""
-        schema:
-          type: "string"
-          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+        - in: header
+          name: authorization
+          description: ''
+          schema:
+            type: string
+            example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-
   /v1/sync/tasks/c3ac95b8-da77-4e13-a673-f09ffa4c7e9c/:
     get:
       tags:
-      - "lightList Iva "
-      summary: ""
+        - 'lightList Iva '
+      summary: ''
       parameters:
-      - in: "header"
-        name: "authorization"
-        description: ""
-        schema:
-          type: "string"
-          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+        - in: header
+          name: authorization
+          description: ''
+          schema:
+            type: string
+            example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-
   /v1/sync/tasks/85208234-47ab-4fed-839b-4fd3d6ba74f7/:
     get:
       tags:
-      - "lightList Palabra Clave "
-      summary: ""
+        - 'lightList Palabra Clave '
+      summary: ''
       parameters:
-      - in: "header"
-        name: "authorization"
-        description: ""
-        schema:
-          type: "string"
-          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+        - in: header
+          name: authorization
+          description: ''
+          schema:
+            type: string
+            example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-
   /v1/sync/tasks/b49eab0b-79d8-4a64-b783-b12584931d43/:
     get:
       tags:
-      - "lightList Almacen "
-      summary: ""
+        - 'lightList Almacen '
+      summary: ''
       parameters:
-      - in: "header"
-        name: "authorization"
-        description: ""
-        schema:
-          type: "string"
-          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+        - in: header
+          name: authorization
+          description: ''
+          schema:
+            type: string
+            example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-
   /v1/sync/tasks/cac5b93a-0160-49d0-b932-38090e7c7883/:
     get:
       tags:
-      - "lightList Articulo "
-      summary: ""
+        - 'lightList Articulo '
+      summary: ''
       parameters:
-      - in: "header"
-        name: "authorization"
-        description: ""
-        schema:
-          type: "string"
-          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+        - in: header
+          name: authorization
+          description: ''
+          schema:
+            type: string
+            example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-
-  #######    Empresa    ######
-
   /v1/sync/tasks/36037f38-a7e7-4ebe-bcf3-48190c838a64/:
     get:
       tags:
-      - "list Empresa "
-      summary: ""
+        - 'list Empresa '
+      summary: ''
       parameters:
-        
-      - in: "query"
-        name: "offset"
-        description: "offset de la consulta"
-        required: true
-        schema:
-          type: "integer"
-          example: "1"
-      - in: "query"
-        name: "orientation"
-        description: "positivo para la parte superior de la consulta, negativo para la inferior, siempre trae los 50 de arriba o de abajo de la tabla, teniendo en cuenta el offset"
-        schema:
-          type: "integer"
-          example: "-1"
+        - in: query
+          name: offset
+          description: offset de la consulta
+          required: true
+          schema:
+            type: integer
+            example: '1'
+        - in: query
+          name: orientation
+          description: 'positivo para la parte superior de la consulta, negativo para la inferior, siempre trae los 50 de arriba o de abajo de la tabla, teniendo en cuenta el offset'
+          schema:
+            type: integer
+            example: '-1'
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-    
   /v1/sync/tasks/632d3c2e-ad85-40fe-83a9-c010debb95fd/:
     get:
       tags:
-      - "lightList Articulo "
-      summary: ""
+        - 'lightList Articulo '
+      summary: ''
       parameters:
-      - in: "header"
-        name: "authorization"
-        description: ""
-        schema:
-          type: "string"
-          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+        - in: header
+          name: authorization
+          description: ''
+          schema:
+            type: string
+            example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-  
   /v1/sync/tasks/d51ab2bd-e959-4bae-87ae-d84100808808:
     post:
       tags:
-      - "remove Empresa"
-      summary: "Remover"
+        - remove Empresa
+      summary: Remover
       requestBody:
-        description: ""
+        description: ''
         content:
           application/json:
             schema:
               properties:
                 authorization:
-                  type: "string"
-                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
                 EmpresaID:
-                 type: "integer"
-                 example: "4"
+                  type: integer
+                  example: '4'
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-
   /v1/sync/tasks/9d0e177a-5630-4ebf-acce-a11c689b7eaa:
     post:
       tags:
-      - "Update Empresa"
-      summary: "Actualizar"
+        - Update Empresa
+      summary: Actualizar
       requestBody:
-        description: "debe recibir el objeto entero en el body, ID obligatorio"
+        description: 'debe recibir el objeto entero en el body, ID obligatorio'
         content:
           application/json:
             schema:
               properties:
                 authorization:
-                  type: "string"
-                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-
   /v1/sync/tasks/e3a33990-e617-410d-a240-4ecdb3a20752:
     post:
       tags:
-      - "Create Empresa"
-      summary: "Create"
+        - Create Empresa
+      summary: Create
       requestBody:
-        description: "debe recibir el objeto entero en el body"
+        description: debe recibir el objeto entero en el body
         content:
           application/json:
             schema:
               properties:
                 authorization:
-                  type: "string"
-                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-######    usuarios    ######
   /v1/sync/tasks/dcb4f250-ea2f-4e60-8200-66b868b8c2ce:
     post:
       tags:
-      - "Create Usuario"
-      summary: "Create"
+        - Create Usuario
+      summary: Create
       requestBody:
-        description: "debe recibir el objeto entero en el body"
+        description: debe recibir el objeto entero en el body
         content:
           application/json:
             schema:
               properties:
                 authorization:
-                  type: "string"
-                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-
   /v1/sync/tasks/497934f9-b1f9-4dde-843f-e26d79a9216f:
     post:
       tags:
-      - "Update Usuario"
-      summary: "Update"
+        - Update Usuario
+      summary: Update
       requestBody:
-        description: "debe recibir el objeto entero en el body"
+        description: debe recibir el objeto entero en el body
         content:
           application/json:
             schema:
               properties:
                 authorization:
-                  type: "string"
-                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-
   /v1/sync/tasks/64ac42fc-272a-499e-af69-bb69ced07d52:
     post:
       tags:
-      - "remove Empresa"
-      summary: "Remover"
+        - remove Empresa
+      summary: Remover
       requestBody:
-        description: ""
+        description: ''
         content:
           application/json:
             schema:
               properties:
                 authorization:
-                  type: "string"
-                  example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930"
+                  type: string
+                  example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
                 UsuarioID:
-                 type: "integer"
-                 example: "4"
+                  type: integer
+                  example: '4'
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-
   /v1/sync/tasks/f7236b4b-2f87-4cc4-9454-de96d51be8ff/:
     get:
       tags:
-      - "list Usuario "
-      summary: ""
+        - 'list Usuario '
+      summary: ''
       parameters:
-      - in: "header"
-        name: "authorization"
-        description: ""
-        schema:
-          type: "string"
-          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
-      - in: "query"
-        name: "offset"
-        description: "offset de la consulta"
-        schema:
-          type: "integer"
-          example: "1"
-      - in: "query"
-        name: "orientation"
-        description: "positivo para la parte superior de la consulta, negativo para la inferior, siempre trae los 50 de arriba o de abajo de la tabla, teniendo en cuenta el offset"
-        schema:
-          type: "integer"
-          example: "-1"
+        - in: header
+          name: authorization
+          description: ''
+          schema:
+            type: string
+            example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ
+        - in: query
+          name: offset
+          description: offset de la consulta
+          schema:
+            type: integer
+            example: '1'
+        - in: query
+          name: orientation
+          description: 'positivo para la parte superior de la consulta, negativo para la inferior, siempre trae los 50 de arriba o de abajo de la tabla, teniendo en cuenta el offset'
+          schema:
+            type: integer
+            example: '-1'
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-
   /v1/sync/tasks/57a888e3-c309-4ff1-a0d4-d6a7164916c4/:
     get:
       tags:
-      - "search Usuario "
-      summary: "busqueda rapida usuario"
+        - 'search Usuario '
+      summary: busqueda rapida usuario
       parameters:
-      - in: "header"
-        name: "authorization"
-        description: ""
-        schema:
-          type: "string"
-          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
-      - in: "query"
-        name: "NombreAcesso"
-        description: "NombreAcesso para la consulta"
-        schema:
-          type: "string"
-          example: "admin"
+        - in: header
+          name: authorization
+          description: ''
+          schema:
+            type: string
+            example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ
+        - in: query
+          name: NombreAcesso
+          description: NombreAcesso para la consulta
+          schema:
+            type: string
+            example: admin
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-  
   /v1/sync/tasks/3cd12302-7bc3-4f64-bb66-a8adb886754b/:
     get:
       tags:
-      - "lightList Provincia "
-      summary: ""
+        - 'lightList Provincia '
+      summary: ''
       parameters:
-      - in: "header"
-        name: "authorization"
-        description: ""
-        schema:
-          type: "string"
-          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+        - in: header
+          name: authorization
+          description: ''
+          schema:
+            type: string
+            example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-
   /v1/sync/tasks/d84e73ac-8928-43a2-bbd5-394b172d0e66/:
     get:
       tags:
-      - "Combo Responsable"
-      summary: "Combo de responsables"
+        - Combo Responsable
+      summary: Combo de responsables
       parameters:
-      - in: "header"
-        name: "authorization"
-        description: ""
-        schema:
-          type: "string"
-          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+        - in: header
+          name: authorization
+          description: ''
+          schema:
+            type: string
+            example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-
   /v1/sync/tasks/1e26fb11-b691-47ef-9f31-70a44d7ab43a/:
     get:
       tags:
-      - "lightlist Representante"
-      summary: ""
+        - lightlist Representante
+      summary: ''
       parameters:
-      - in: "header"
-        name: "authorization"
-        description: ""
-        schema:
-          type: "string"
-          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ"
+        - in: header
+          name: authorization
+          description: ''
+          schema:
+            type: string
+            example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTIyNDMsICJleHAiOjE2NDg4NTk0NDMgfQ.3CW_7oMpIpAeQMdMhMZcXER8m1LlBSo7hUKDqxzT6nQ
       responses:
-        200:
+        '200':
           description: Enviado correctamente
-        404:
+        '404':
           description: Elemento no encontrado
-          
-          
-          
-          
   /v1/sync/tasks/be5c441d-544d-4c21-bb16-ae003b46cf07:
     post:
       tags:
         - listar Variables Publicas
-      summary: 'listado de variables publicas'
+      summary: listado de variables publicas
       requestBody:
         description: debe recibir el objeto entero en el body
         content:
@@ -746,18 +702,16 @@ paths:
                 apiKey:
                   type: string
                   example: misecretito
-              
       responses:
         '200':
           description: listado de variables publicas
         '500':
           description: error obteniendo lista de variables publicas
-          
   /v1/sync/tasks/4805ab07-6420-4097-b2b0-7459119a4886:
     post:
       tags:
         - datos de una variable publica
-      summary: 'datos de una variable publica'
+      summary: datos de una variable publica
       requestBody:
         description: debe recibir el objeto entero en el body
         content:
@@ -778,7 +732,6 @@ paths:
           description: datos variable publica
         '500':
           description: error obteniendo variable publica
-          
   /v1/sync/tasks/0d1ebb64-7bda-4b3f-a118-9b4b54152d8c:
     post:
       tags:
@@ -804,8 +757,6 @@ paths:
           description: eliminacion exitosa
         '500':
           description: error borrando variable publica
-    
-    
   /v1/sync/tasks/40d9f22b-237a-497f-82c2-a8068f2d2a83:
     post:
       tags:
@@ -845,13 +796,10 @@ paths:
                       type: string
                       example: pruebaEdgos
       responses:
-        '200': 
+        '200':
           description: creacion exitosa
         '500':
           description: error creando variable publica
-          
-          
-          
   /v1/sync/tasks/72e4965b-9228-4f96-b96c-331f3e8e9d9a:
     post:
       tags:
@@ -912,7 +860,6 @@ paths:
                       empresaID:
                         type: integer
                         example: 1
-                        
                 dataUsuarios:
                   type: array
                   items:
@@ -925,12 +872,10 @@ paths:
                         type: integer
                         example: 1
       responses:
-        '200': 
+        '200':
           description: modificacion exitosa
         '500':
           description: error modificando variable publica
-          
-          
   /v1/sync/tasks/af5d235f-39f0-46fa-8237-87ba8f384225:
     post:
       tags:
@@ -955,11 +900,10 @@ paths:
                   type: integer
                   example: 1
       responses:
-        '200': 
+        '200':
           description: lista de ofertas
         '500':
           description: error
-          
   /v1/sync/tasks/a2cf97c4-2e69-4185-bb21-ce354741ef3e:
     post:
       tags:
@@ -981,12 +925,10 @@ paths:
                   type: integer
                   example: 1
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
-          
   /v1/sync/tasks/592742a7-4718-4a8a-856c-5dc85642ed6f:
     post:
       tags:
@@ -1012,7 +954,7 @@ paths:
                   example: 1
                 idLineas:
                   type: string
-                  example: 4,5,6
+                  example: '4,5,6'
                 descripcion:
                   type: string
                   example: aqui puede ir alguna informacion
@@ -1029,11 +971,10 @@ paths:
                   type: boolean
                   example: false
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/81e7c0e1-3783-43f8-aa02-355e249e82e9:
     post:
       tags:
@@ -1061,11 +1002,10 @@ paths:
                   type: integer
                   example: 4
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/1ac2fe1d-9106-4ff6-b5ce-0d3e89f0635f:
     post:
       tags:
@@ -1087,11 +1027,10 @@ paths:
                   type: integer
                   example: 1
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/c11ac348-2069-4b60-811c-b919a2e561a2:
     post:
       tags:
@@ -1223,13 +1162,10 @@ paths:
                           type: integer
                           example: 1
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
-          
-          
   /v1/sync/tasks/758b7a0e-1ff9-4879-9361-029edfec129f:
     post:
       tags:
@@ -1258,13 +1194,13 @@ paths:
                       example: 20220421
                     listaZonasID:
                       type: string
-                      example: 1,2
+                      example: '1,2'
                     listaTipoOfertasID:
                       type: string
-                      example: 1,2
+                      example: '1,2'
                     listaRepresentantesID:
                       type: string
-                      example: 1,2
+                      example: '1,2'
                     descripcion:
                       type: string
                       example: 1
@@ -1279,25 +1215,25 @@ paths:
                       example: 1
                     listacampanasID:
                       type: string
-                      example: 1,2
+                      example: '1,2'
                     estadoOferta:
                       type: string
                       example: abierta
                     listausuariosID:
                       type: string
-                      example: 1,2
+                      example: '1,2'
                     numeroOfertaDesde:
                       type: integer
-                      example: 1 
+                      example: 1
                     numeroOfertahasta:
                       type: integer
-                      example: 1 
+                      example: 1
                     listaresponsablesID:
                       type: string
-                      example: 1,2
+                      example: '1,2'
                     listaSituacionesID:
                       type: string
-                      example: 1,2
+                      example: '1,2'
                     numeroSolicitud:
                       type: integer
                       example: 1
@@ -1314,11 +1250,10 @@ paths:
                       type: boolean
                       example: false
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/71f9f157-f753-43c3-a1a4-44bb485a46e3:
     post:
       tags:
@@ -1377,7 +1312,7 @@ paths:
                       example: 10
                     dto2:
                       type: number
-                      example: 0 
+                      example: 0
                     dto3:
                       type: number
                       example: 0
@@ -1404,7 +1339,7 @@ paths:
                       example: una referencia
                     notaInterna:
                       type: string
-                      example: una referencia 
+                      example: una referencia
                     notaCliente:
                       type: string
                       example: una referencia
@@ -1436,11 +1371,10 @@ paths:
                       type: integer
                       example: 1
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/9819adc7-95ef-49e3-9751-4b057ec95703:
     post:
       tags:
@@ -1462,11 +1396,10 @@ paths:
                   type: integer
                   example: 1
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/cfe8a3e2-3a44-447b-9d9c-f8264d1ab40e:
     post:
       tags:
@@ -1488,11 +1421,10 @@ paths:
                   type: integer
                   example: 1
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/a05b1656-cea9-44a5-b289-1bd989601b1a:
     post:
       tags:
@@ -1514,12 +1446,10 @@ paths:
                   type: string
                   example: 20
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
-          
   /v1/sync/tasks/93027b1b-c804-42f6-829b-d94e3f4a716f:
     post:
       tags:
@@ -1538,11 +1468,10 @@ paths:
                   type: string
                   example: misecretito
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/093164af-d150-40f3-b94e-d41436b6bb7a:
     post:
       tags:
@@ -1564,16 +1493,14 @@ paths:
                   type: string
                   example: 455
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
-          
   /v1/sync/tasks/b4642ed5-e00d-46e8-bb88-16d7a1424364:
     post:
       tags:
-        - listado campañas 
+        - listado campañas
       summary: ''
       requestBody:
         description: debe recibir el objeto entero en el body
@@ -1588,11 +1515,10 @@ paths:
                   type: string
                   example: misecretito
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/5efaed76-5dd8-4562-862b-bb5157d8fa21:
     post:
       tags:
@@ -1626,11 +1552,10 @@ paths:
                   type: integer
                   example: 0
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-  
   /v1/sync/tasks/857c73f6-2f78-40d5-8779-b530db15068d:
     post:
       tags:
@@ -1649,11 +1574,10 @@ paths:
                   type: string
                   example: misecretito
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/31fa1a58-2f7b-47ea-a2de-54e5b63324af:
     post:
       tags:
@@ -1672,11 +1596,10 @@ paths:
                   type: string
                   example: misecretito
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/a8566419-0b42-4419-a718-6fe24006d0ca:
     post:
       tags:
@@ -1701,11 +1624,10 @@ paths:
                   type: number
                   example: 16587
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/68bb5b83-baed-4fa4-a731-1e6340301dbe:
     post:
       tags:
@@ -1730,11 +1652,10 @@ paths:
                   type: number
                   example: 16587
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/7609a12b-a56c-4b21-9865-9b3c0892c671:
     post:
       tags:
@@ -1759,12 +1680,10 @@ paths:
                   type: boolean
                   example: true
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
-          
   /v1/sync/tasks/31859b81-d07a-411c-9361-2af14fb1fc83:
     post:
       tags:
@@ -1786,11 +1705,10 @@ paths:
                   type: number
                   example: 1
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-  
   /v1/sync/tasks/5e631996-ed1d-4be1-b936-20de6c061ec8:
     post:
       tags:
@@ -1812,13 +1730,10 @@ paths:
                   type: number
                   example: 1
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
-          
-          
   /v1/sync/tasks/f1bcc7c1-89dd-401e-845c-88bd35789de0:
     post:
       tags:
@@ -1849,11 +1764,10 @@ paths:
                   type: string
                   example: 20220421
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/bd21f7b7-8310-4b2a-b765-1f21876d7ad7:
     post:
       tags:
@@ -1890,11 +1804,10 @@ paths:
                       type: string
                       example: un titulo
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/be18c577-6305-4d1f-9ed6-644607623a48:
     post:
       tags:
@@ -1949,12 +1862,10 @@ paths:
                       type: string
                       example: un titulo
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
-          
   /v1/sync/tasks/8b989758-d6ee-456d-a716-df058c03c037:
     post:
       tags:
@@ -1976,12 +1887,10 @@ paths:
                   type: integer
                   example: 339
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
-          
   /v1/sync/tasks/25100022-02fe-46a8-9f54-b7e960293695:
     post:
       tags:
@@ -2003,11 +1912,10 @@ paths:
                   type: integer
                   example: 1
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/a0e7aac8-ebc3-4966-8aad-2efce6a7a843:
     post:
       tags:
@@ -2026,11 +1934,10 @@ paths:
                   type: integer
                   example: 1
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/3079a3c3-311d-4a7d-aa2b-49c8cc627241:
     post:
       tags:
@@ -2049,12 +1956,10 @@ paths:
                   type: integer
                   example: 1
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
-          
   /v1/sync/tasks/de5c9b84-b39b-46d2-9758-68be127e6447:
     post:
       tags:
@@ -2073,16 +1978,14 @@ paths:
                   type: integer
                   example: 1
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
-          
   /v1/sync/tasks/10696f64-cc0a-4d68-bf65-5db7fb5e90a6:
     post:
       tags:
-        - datos pop up linea pedido venta 
+        - datos pop up linea pedido venta
       summary: ''
       requestBody:
         description: debe recibir el objeto entero en el body
@@ -2097,15 +2000,14 @@ paths:
                   type: integer
                   example: 1
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/323baaf0-1288-43a5-bd1a-f94f8c5ac123:
     post:
       tags:
-        - busqueda rapida pedido venta 
+        - busqueda rapida pedido venta
       summary: ''
       requestBody:
         description: debe recibir el objeto entero en el body
@@ -2120,15 +2022,14 @@ paths:
                   type: string
                   example: 1
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-      
   /v1/sync/tasks/0063dbe6-8fa4-4776-aa4a-b4468cae5578:
     post:
       tags:
-        - borrar linea pedido venta 
+        - borrar linea pedido venta
       summary: ''
       requestBody:
         description: debe recibir el objeto entero en el body
@@ -2146,16 +2047,14 @@ paths:
                   type: integer
                   example: 1
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
-          
   /v1/sync/tasks/069bde5f-9b7e-4302-9cf7-69e322939617:
     post:
       tags:
-        - borrar pedido venta 
+        - borrar pedido venta
       summary: ''
       requestBody:
         description: debe recibir el objeto entero en el body
@@ -2170,16 +2069,14 @@ paths:
                   type: integer
                   example: 1
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
-          
   /v1/sync/tasks/3b15d67b-4576-4f4c-bd33-91d217ddb647:
     post:
       tags:
-        - despues de filtrar cliente pedido venta 
+        - despues de filtrar cliente pedido venta
       summary: ''
       requestBody:
         description: debe recibir el objeto entero en el body
@@ -2200,16 +2097,14 @@ paths:
                   type: integer
                   example: 0
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
-          
   /v1/sync/tasks/c459ee1f-b0eb-47dc-9749-34e628d343ec:
     post:
       tags:
-        - despues de filtrar cliente factura pedido venta 
+        - despues de filtrar cliente factura pedido venta
       summary: ''
       requestBody:
         description: debe recibir el objeto entero en el body
@@ -2224,11 +2119,10 @@ paths:
                   type: integer
                   example: 1
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-
   /v1/sync/tasks/6210e034-c7e0-4d35-a11a-b4579e3ab3e9:
     post:
       tags:
@@ -2263,7 +2157,7 @@ paths:
                       example: 2
                     ReferenciaCliente:
                       type: string
-                      example: 
+                      example: null
                     TipoPedidoID:
                       type: integer
                       example: 0
@@ -2305,7 +2199,7 @@ paths:
                       example: 0
                     PedidoPor:
                       type: string
-                      example: 
+                      example: null
                     ClienteFacturaID:
                       type: integer
                       example: 2
@@ -2379,16 +2273,14 @@ paths:
                       type: string
                       example: iban
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-
-
   /v1/sync/tasks/7b870be3-563b-4c2a-8d10-b0a06654536b:
     post:
       tags:
-        - guardar pedido venta linea 
+        - guardar pedido venta linea
       summary: ''
       requestBody:
         description: debe recibir el objeto entero en el body
@@ -2443,7 +2335,7 @@ paths:
                       example: 0
                     margen:
                       type: string
-                      example: 
+                      example: null
                     nivelIngenieriaID:
                       type: integer
                       example: 0
@@ -2485,16 +2377,16 @@ paths:
                       example: false
                     ReferenciaCliente:
                       type: string
-                      example: 
+                      example: null
                     PosicionCliente:
                       type: string
-                      example: 
+                      example: null
                     NotaInterna:
                       type: string
-                      example:
+                      example: null
                     NotaCliente:
                       type: string
-                      example:
+                      example: null
                     RappelImporte:
                       type: number
                       example: 0
@@ -2516,13 +2408,11 @@ paths:
                     Factor:
                       type: number
                       example: 0
-                    
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/5ba11e40-6ed2-45b2-9e35-f72b51ee9f7f:
     post:
       tags:
@@ -2538,12 +2428,10 @@ paths:
                   type: string
                   example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-
-
   /v1/sync/tasks/4609af69-9dec-49b9-9ac1-3537fd7dba0d:
     post:
       tags:
@@ -2559,12 +2447,10 @@ paths:
                   type: string
                   example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-
-
   /v1/sync/tasks/7d2312a3-a4ee-49d7-8412-0f95ec8262d4:
     post:
       tags:
@@ -2580,12 +2466,10 @@ paths:
                   type: string
                   example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-
-
   /v1/sync/tasks/570f6df1-8f64-47e0-8c3b-c12629302866:
     post:
       tags:
@@ -2601,13 +2485,10 @@ paths:
                   type: string
                   example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
       responses:
-        '200': 
+        '200':
           description: exito
         '500':
           description: error
-  
-  
-  
   /v1/sync/tasks/07ca2dcb-6146-490c-b8ce-69ce874946e4:
     post:
       tags:
@@ -2627,7 +2508,6 @@ paths:
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/7099f4ac-a274-4275-9a42-cb9dd3ae1035:
     post:
       tags:
@@ -2653,7 +2533,6 @@ paths:
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/721e065f-08a9-4f5c-b945-85b26b53b0fa:
     post:
       tags:
@@ -2670,14 +2549,12 @@ paths:
                   example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
                 busqueda:
                   type: string
-                  example: "2500001000"
+                  example: '2500001000'
       responses:
         '200':
           description: exito
         '500':
           description: error
-          
-          
   /v1/sync/tasks/8367146c-bff4-4d8f-8dfd-4074631e8db6:
     post:
       tags:
@@ -2703,37 +2580,37 @@ paths:
                       example: 5
                     ReferenciaCodigo:
                       type: string
-                      example: "458720"
+                      example: '458720'
                     CIF:
                       type: string
-                      example: "123456"
+                      example: '123456'
                     activo:
                       type: boolean
                       example: true
                     nombre:
                       type: string
-                      example: "edgos"
+                      example: edgos
                     nombrecomercial:
                       type: string
-                      example: "edgos"
+                      example: edgos
                     email:
                       type: string
-                      example: "a@a.com"
+                      example: a@a.com
                     web:
                       type: string
-                      example: "google.com"
+                      example: google.com
                     telefono:
                       type: string
-                      example: "123456"
+                      example: '123456'
                     fax:
                       type: string
-                      example: ""
+                      example: ''
                     monedaid:
                       type: integer
                       example: 3
                     horario:
                       type: string
-                      example: ""
+                      example: ''
                     tomacontactoid:
                       type: integer
                       example: 0
@@ -2760,24 +2637,21 @@ paths:
                       example: 0
                     municipio:
                       type: string
-                      example: ""
+                      example: ''
                     direccion:
                       type: string
-                      example: ""
+                      example: ''
                     latitud:
                       type: string
-                      example: ""
+                      example: ''
                     longitud:
                       type: string
-                      example: ""
-                  
+                      example: ''
       responses:
         '200':
           description: exito
         '500':
           description: error
-          
-          
   /v1/sync/tasks/39a0231c-5923-4a4a-abc4-ae0480fbae7c:
     post:
       tags:
@@ -2800,7 +2674,6 @@ paths:
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/cd2cf6e4-bea4-4d31-90de-58922e31a9dc:
     post:
       tags:
@@ -2817,7 +2690,7 @@ paths:
                   example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjoxLCAiY3VzdG9tZXJJRCI6MTkyLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOnRydWUsICJlbXByZXNhSUQiOjEsICJhcGlLZXkiOiJtaXNlY3JldGl0byIsICJpYXQiOjE2NDg4NTE2OTksICJleHAiOjE2NDg4NTg4OTkgfQ.Mx0K-CMeUUX9j-fEZgfNvT1clFvl_x-LrC6ghBpx930
                 codigoMailing:
                   type: string
-                  example: "abc478"
+                  example: abc478
                 tipoMailing:
                   type: integer
                   example: 5
@@ -2826,8 +2699,6 @@ paths:
           description: exito
         '500':
           description: error
-          
-          
   /v1/sync/tasks/9134ac60-9720-4675-84ae-9928cb5aab94:
     post:
       tags:
@@ -2847,8 +2718,6 @@ paths:
           description: exito
         '500':
           description: error
-          
-          
   /v1/sync/tasks/1f85638b-e812-4481-a133-48c184b5cf14:
     post:
       tags:
@@ -2868,9 +2737,6 @@ paths:
           description: exito
         '500':
           description: error
-          
-          
-          
   /v1/sync/tasks/7ecc8b8c-9216-4115-853f-2d8394b91f8b:
     post:
       tags:
@@ -2893,7 +2759,6 @@ paths:
           description: exito
         '500':
           description: error
-          
   /v1/sync/tasks/5a665fbf-099e-4db4-8dd3-a5ae395a3fa8:
     post:
       tags:
@@ -2916,14 +2781,13 @@ paths:
           description: exito
         '500':
           description: error
-  
   /:
     post:
       tags:
-      - "pos1"
-      summary: "Abre oferta por ID"
+        - pos1
+      summary: Abre oferta por ID
       parameters:
-      - $ref: '#/components/parameters/token'
+        - $ref: '#/components/parameters/token'
       requestBody:
         content:
           application/json:
@@ -2950,456 +2814,421 @@ paths:
                 - $ref: '#/components/schemas/sincroHILOCalendar'
                 - $ref: '#/components/schemas/traerEmpleadoID'
                 - $ref: '#/components/schemas/verificarCodigoMailing'
-                
-              
       responses:
-        200:
+        '200':
           description: True/False
-        400:
+        '400':
           description: Error en caso de que success sea False
-          
 components:
-  
   parameters:
     token:
-        name: token
-        in: header
-        description: Token de autenticación
-        schema:
-          type: string
-          example: "eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjo0NCwgImN1c3RvbWVySUQiOjI5LCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJlZGdvcyIsICJhZG1pbmlzdHJhZG9yIjp0cnVlLCAiZW1wcmVzYUlEIjoxLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjQ5MjU0ODMyLCAiZXhwIjoxNjQ5MjYyMDMyIH0.rNNdNm9MflATkqiE6tA_HOCb8BmMX6uleG1I_TY7AkU"
-        required: true
-        
+      name: token
+      in: header
+      description: Token de autenticación
+      schema:
+        type: string
+        example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjo0NCwgImN1c3RvbWVySUQiOjI5LCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJlZGdvcyIsICJhZG1pbmlzdHJhZG9yIjp0cnVlLCAiZW1wcmVzYUlEIjoxLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjQ5MjU0ODMyLCAiZXhwIjoxNjQ5MjYyMDMyIH0.rNNdNm9MflATkqiE6tA_HOCb8BmMX6uleG1I_TY7AkU
+      required: true
   schemas:
     AbrirOferta:
       type: object
       properties:
         idOferta:
-          type: "integer"
-          example: "1"
-          
+          type: integer
+          example: '1'
     AgregarAutorizacionCalendar:
-      type: object 
+      type: object
       properties:
         invitadoID:
-            type: "integer"
-            example: "1"
+          type: integer
+          example: '1'
         color:
-            type: "string"
-            example: "10066431"
-            
+          type: string
+          example: '10066431'
     borrarOferta:
       type: object
       properties:
         ofertaID:
-            type: "integer"
-            example: "1"
-    
+          type: integer
+          example: '1'
     cambiarColorCalendar:
       type: object
       properties:
         agendaAuthID:
-              type: "integer"
-              example: "1"
+          type: integer
+          example: '1'
         color:
-              type: "string"
-              example: "10066431"
-    
-    #Asi estaba en el documento que pasaron
+          type: string
+          example: '10066431'
     cambiarMostrarCalendario:
       type: object
-    
     CargarFestivos:
-      type: object 
+      type: object
       properties:
         invitadoID:
-              type: "integer"
-              example: "17"
-    
+          type: integer
+          example: '17'
     consultaOfertaExtendida:
       type: object
       properties:
         fechaDesde:
-              type: "string"
-              format: "date"
-              example: "2021-03-29"
+          type: string
+          format: date
+          example: '2021-03-29'
         fechaOfertaHasta:
-              type: "string"
-              format: "date"
-              example: "2022-03-29"
+          type: string
+          format: date
+          example: '2022-03-29'
         listaZonasID:
-              type: "integer"
+          type: integer
         listaTipoOfertasID:
-              type: "integer"
+          type: integer
         listaRepresentantesID:
-              type: "integer"
+          type: integer
         descripcion:
-              type: "string"
+          type: string
         mailingID:
-              type: "integer"
+          type: integer
         articuloID:
-              type: "integer"
+          type: integer
         familiaID:
-              type: "integer"
+          type: integer
         listaCampanasID:
-              type: "integer"
+          type: integer
         estadoOferta:
-              type: "string"
+          type: string
         listaUsuarioID:
-              type: "integer"
+          type: integer
         numeroOfertaDesde:
-              type: "integer"
+          type: integer
         numeroOfertaHasta:
-              type: "integer"
+          type: integer
         listaResponsablesID:
-              type: "integer"
+          type: integer
         listaSituacionesID:
-              type: "integer"
+          type: integer
         numeroSolicitud:
-              type: "integer"
+          type: integer
         fechaSolicitudDesde:
-              type: "string"
+          type: string
         misFavoritas:
-              type: "integer"
+          type: integer
         conDetalle:
-              type: "boolean"
-              example: "false"
-    
+          type: boolean
+          example: 'false'
     DeleteAuthAgendaV24:
       type: object
       properties:
         authID:
-              type: "integer"
-              example: "1"
-    
+          type: integer
+          example: '1'
     displayEvents:
       type: object
       properties:
         empleadoID:
-              type: "integer"
-              example: "1"
+          type: integer
+          example: '1'
         IDEmpleadoEvento:
-              type: "integer"
-              example: "2"
+          type: integer
+          example: '2'
         color:
-              type: "string"
-              example: "10066431"
+          type: string
+          example: '10066431'
         dueno:
-              type: "string"
-              example: "Mis eventos"
+          type: string
+          example: Mis eventos
         FechaIni:
-              type: "string"
-              format: "date"
-              example: "20-03-2022"
+          type: string
+          format: date
+          example: 20-03-2022
         FechaFin:
-              type: "string"
-              format: "date"
-              example: "20-03-2022"
-    
+          type: string
+          format: date
+          example: 20-03-2022
     duplicarOferta:
       type: object
       properties:
         idOferta:
-              type: "integer"
-              example: "1"
+          type: integer
+          example: '1'
         mailingID:
-              type: "integer"
-              example: "2"
+          type: integer
+          example: '2'
         idLineas:
-              type: "integer"
-              example: "[1,2]"
+          type: integer
+          example: '[1,2]'
         descripcion:
-              type: "string"
-              example: "algo"
+          type: string
+          example: algo
         ContactoID:
-              type: "integer"
-              example: "45"
+          type: integer
+          example: '45'
         copiarWord:
-              type: "boolean"
+          type: boolean
         ActualizarPrecios:
-              type: "boolean"
+          type: boolean
         duplicarGestion:
-              type: "boolean"
-    
+          type: boolean
     guardarOferta:
       type: object
       properties:
         cabecera:
-              type: object
-              properties:
-                ofertaID:
-                    type: "integer"
-                    example : "1"
-                numero:
-                    type: "integer"
-                version:
-                    type: "string"
-                validoDesde:
-                    type: "string"
-                fecha:
-                    type: "string"
-                fechaValidez:
-                    type: "string"
-                fechaEntrega:
-                    type: "string"
-                almacenID:
-                    type: "integer"
-                mailingID:
-                    type: "integer"
-                numeroSolicitud:
-                    type: "integer"
-                fechaSolicitud:
-                    type: "string"
-                fechaHoraUsuario:
-                    type: "string"
-                usuarioID:
-                    type: "integer"
-                contactoID:
-                    type: "integer"
-                direccionEnvioID:
-                    type: "integer"
-                descripcion:
-                    type: "string"
-                responsableUsuarioID:
-                    type: "integer"
-                tipoOfertaID:
-                    type: "integer"
-                representanteID:
-                    type: "integer"
-                representante2ID:
-                    type: "integer"
-                porcentajeComision:
-                    type: "integer"
-                porcentajeComision2:
-                    type: "integer"
-                referenciaInterna:
-                    type: "string"
-                idiomaID:
-                    type: "integer"
-                inconterm:
-                    type: "string"
-                FechaSolicitadaPara:
-                    type: "string"
-                campanaID:
-                    type: "integer"
-                oportunidadID:
-                    type: "integer"
-                motivoRechazoID:
-                    type: "integer"
-                    
+          type: object
+          properties:
+            ofertaID:
+              type: integer
+              example: '1'
+            numero:
+              type: integer
+            version:
+              type: string
+            validoDesde:
+              type: string
+            fecha:
+              type: string
+            fechaValidez:
+              type: string
+            fechaEntrega:
+              type: string
+            almacenID:
+              type: integer
+            mailingID:
+              type: integer
+            numeroSolicitud:
+              type: integer
+            fechaSolicitud:
+              type: string
+            fechaHoraUsuario:
+              type: string
+            usuarioID:
+              type: integer
+            contactoID:
+              type: integer
+            direccionEnvioID:
+              type: integer
+            descripcion:
+              type: string
+            responsableUsuarioID:
+              type: integer
+            tipoOfertaID:
+              type: integer
+            representanteID:
+              type: integer
+            representante2ID:
+              type: integer
+            porcentajeComision:
+              type: integer
+            porcentajeComision2:
+              type: integer
+            referenciaInterna:
+              type: string
+            idiomaID:
+              type: integer
+            inconterm:
+              type: string
+            FechaSolicitadaPara:
+              type: string
+            campanaID:
+              type: integer
+            oportunidadID:
+              type: integer
+            motivoRechazoID:
+              type: integer
         intrastat:
           type: object
           properties:
             CondicionEntregaID:
-              type: "integer"
-        
+              type: integer
         cualificacion:
           type: object
           properties:
             EstrategiaID:
-                type: "integer"
+              type: integer
             RentabilidadID:
-                type: "integer"
+              type: integer
             OportunidadID:
-                type: "integer"
+              type: integer
             InteresID:
-                type: "integer"
+              type: integer
             AtencionID:
-                type: "integer"
+              type: integer
             SituacionID:
-                type: "integer"
-        
+              type: integer
         lineas:
           type: object
           properties:
             ofertaLineaID:
-                type: "integer"
+              type: integer
             linea:
-                type: "integer"
+              type: integer
             almacenID:
-                type: "integer"
+              type: integer
             articuloID:
-                type: "integer"
+              type: integer
             referencia:
-                type: "integer"
+              type: integer
             nombre:
-                type: "string"
+              type: string
             descripcion:
-                type: "string"
+              type: string
             cantidad:
-                type: "integer"
+              type: integer
             cantidad2:
-                type: "integer"
+              type: integer
             precioVenta:
-                type: "integer"
+              type: integer
             ivaID:
-                type: "integer"
+              type: integer
             dto1:
-                type: "string"
+              type: string
             dto2:
-                type: "string"
+              type: string
             dto3:
-                type: "string"
+              type: string
             excluirInventario:
-                type: "string"
+              type: string
             importeVenta:
-                type: "integer"
+              type: integer
             nivelIngenieriaID:
-                type: "integer"
+              type: integer
             fechaEntrega:
-                type: "string"
+              type: string
             plazoEntrega:
-                type: "string"
+              type: string
             tipoPlazoEntregaID:
-                type: "integer"
+              type: integer
             referenciaCliente:
-                type: "string"
+              type: string
             notaInterna:
-                type: "string"
+              type: string
             notaCliente:
-                type: "string"
+              type: string
             factor:
-                type: "string"
+              type: string
             rutaFabricacionID:
-                type: "integer"
+              type: integer
             rappelPorcentaje:
-                type: "integer"
+              type: integer
             rappelImporte:
-                type: "integer"
+              type: integer
             CrossdockingPorcentaje:
-                type: "integer"
+              type: integer
             CrossdockingImporte:
-                type: "integer"
+              type: integer
             PorcentajeComision:
-                type: "integer"
+              type: integer
             ComisionImporte:
-                type: "integer"
-  
-            
+              type: integer
     listadeusuariosCalendar:
       type: object
       properties:
         invitadoID:
-              type: "integer"
-              example: "17"
-              
+          type: integer
+          example: '17'
     listarOfertas:
       type: object
       properties:
         nOffset:
-          type: "string"
-          example: "1"
+          type: string
+          example: '1'
         orientation:
-          type: "string"
-          example: "1"
-          
+          type: string
+          example: '1'
     login:
       type: object
       properties:
-        email:  
-            type: "string"
-            example: "admin@admin.com"
+        email:
+          type: string
+          example: admin@admin.com
         password:
-            type: "string"
-            example: "0nyx2021"
+          type: string
+          example: 0nyx2021
         apiKey:
-            type: "string"
-            example: "misecretito"
+          type: string
+          example: misecretito
     NuevaVersionOferta:
       type: object
       properties:
         idOferta:
-              type: "integer"
-              example: "1"
+          type: integer
+          example: '1'
         numeroOferta:
-              type: "integer"
-              example: "45"
+          type: integer
+          example: '45'
         version:
-              type: "string"
-              example: "3"
-    #Revisar appointmentorigen
+          type: string
+          example: '3'
     onEndEventEdition:
       type: object
       properties:
         appointmentorigen:
-              type: object  
-              properties:
-                ID:
-                      type: "integer"
-                      example: "1"
-                Note:
-                      type: "string"
-                      example: "algo"
-                StartDate:
-                      type: "string"
-                      format: "date-time"
-                      example: "30-03-2022T09:30:00"
-                EndDate:
-                      type: "string"
-                      format: "date-time"
-                      example: "30-03-2022T10:30:00"
-        
+          type: object
+          properties:
+            ID:
+              type: integer
+              example: '1'
+            Note:
+              type: string
+              example: algo
+            StartDate:
+              type: string
+              format: date-time
+              example: '30-03-2022T09:30:00'
+            EndDate:
+              type: string
+              format: date-time
+              example: '30-03-2022T10:30:00'
     onEventMove:
       type: object
-      properties:   
+      properties:
         appointemntorigen:
-              type: object
-              properties:
-                ID:
-                      type: "integer"
-                      example: "1"
-                Note:
-                      type: "string"
-                      example: "ñaskdjad"
-                StartDate:
-                      type: "string"
-                      format: "date-time"
-                      example: "30-03-2022T09:30:00"
-                EndDate:
-                      type: "string"
-                      format: "date-time"
-                      example: "30-03-2022T10:30:00"
+          type: object
+          properties:
+            ID:
+              type: integer
+              example: '1'
+            Note:
+              type: string
+              example: ñaskdjad
+            StartDate:
+              type: string
+              format: date-time
+              example: '30-03-2022T09:30:00'
+            EndDate:
+              type: string
+              format: date-time
+              example: '30-03-2022T10:30:00'
         appointmentDestino:
-              type: object
-              properties:
-                ID:
-                      type: "integer"
-                      example: "1"
-                Note:
-                      type: "string"
-                      example: "ñaskdjad"
-                StartDate:
-                      type: "string"
-                      format: "date-time"
-                      example: "30-03-2022T09:30:00"
-                EndDate:
-                      type: "string"
-                      format: "date-time"
-                      example: "30-03-2022T10:30:00"
-    
-    #reunionCabecera:
-    #   type: object
-    
+          type: object
+          properties:
+            ID:
+              type: integer
+              example: '1'
+            Note:
+              type: string
+              example: ñaskdjad
+            StartDate:
+              type: string
+              format: date-time
+              example: '30-03-2022T09:30:00'
+            EndDate:
+              type: string
+              format: date-time
+              example: '30-03-2022T10:30:00'
     sincroHILOCalendar:
       type: object
       properties:
         empleadoID:
-              type: "integer"
-              example: "1"
-    
+          type: integer
+          example: '1'
     traerEmpleadoID:
       type: object
-    
     verificarCodigoMailing:
       type: object
-      properties:  
+      properties:
         codigo:
-              type: "string"
-              example: "43000000"
+          type: string
+          example: '43000000'
         tipoMailingID:
-               type: "integer"
-               example: "2"
-
-  
-    
-         
+          type: integer
+          example: '2'
