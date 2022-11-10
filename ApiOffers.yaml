@@ -3,7 +3,7 @@ x-stoplight:
   id: 6a74499413cbf
 info:
   version: '1.0'
-  title: apifluxua
+  title: ApiOffers
   description: ''
 servers:
   - description: Direccion Francia

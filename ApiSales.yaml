@@ -1,0 +1,173 @@
+openapi: 3.0.0
+x-stoplight:
+  id: pin4ntmffj2a3
+info:
+  version: '1.0'
+  title: ApiSales
+  description: ''
+servers:
+  - description: Direccion Francia
+    url: 'http://15.236.85.216/'
+paths:
+  /offers:
+    post:
+      summary: Create
+      operationId: post-offers
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: |-
+            {
+                "statusCode": 400,
+                "message": "Usuario Inactivo"
+            }
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+        description: |-
+          {
+              "cabecera": {
+                  "ofertaID": "",
+                  "almacenID": "",
+                  "fechaEntrega": "",
+                  "mailingID": "",
+                  "numeroSolicitud": "",
+                  "fechaSolicitud": "",
+                  "TransportistaID": "",
+                  "PlataformaLogisticaMailingID": "",
+                  "TarifaVentaID": "",
+                  "fechaHoraUsuario": "",
+                  "representanteID": "",
+                  "contactoID": "",
+                  "telefonoCuenta": "",
+                  "direccionEnvioID": "",
+                  "observaciones": "",
+                  "notaCliente": "",
+                  "responsableUsuarioID": "",
+                  "tipoOfertaID": "",
+                  "respresentante2ID": "",
+                  "porcentajeComision": "",
+                  "porcentajeComision2": "",
+                  "referenciaInterna": "",
+                  "FechaSolcitadaPara": "",
+                  "idionaID": "",
+                  "fecha": "",
+                  "validoDesde": "",
+                  "fechaValidez": "",
+                  "inconterm": "",
+                  "campanaID": "",
+                  "oportunidadID": ""
+              },
+              "intrastat": {
+                  "CondicionEntregaID": ""
+              },
+              "cualificacion": {
+                  "EstrategiaID": "",
+                  "RentabilidadID": "",
+                  "OportunidadID": "",
+                  "InteresID": "",
+                  "AtencionID": "",
+                  "SituacionID": "",
+                  "DedicacionMaxima": ""
+              },
+              "facturacion": {
+                 "ClienteFacturaID": "", 
+                 "FormaPagoCobroID": "", 
+                 "NumeroVencimiento": "", 
+                 "DiasPrimerVencimiento": "", 
+                 "DiasResto": "", 
+                 "DiasFijoPago1": "", 
+                 "DiasFijoPago2": "", 
+                 "DiasFijoPago3": "", 
+                 "DiasFijoPago4": "", 
+                 "MesVacacion": "", 
+                 "DiaSiguientePago": "", 
+                 "PorcentajeDtoComercial1": "", 
+                 "PorcentajeDtoComercial2": "", 
+                 "PorcentajeDtoComercial3": "", 
+                 "PorcentajeDtoEspecial1": "", 
+                 "PorcentajeDtoEspecial2": "", 
+                 "PorcentajeDtoProntoPago": "", 
+                 "PorcentajeGastoFinanciero": "", 
+                 "MonedaID": "", 
+                 "MonedaCambio": "", 
+                 "Portes": ""
+              }
+          }
+    parameters: []
+    get:
+      summary: FindMany
+      operationId: get-offers
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: number
+          in: query
+          name: offset
+        - schema:
+            type: number
+          in: query
+          name: limit
+        - schema:
+            type: string
+          in: query
+          name: order
+  '/offers/{id}':
+    parameters:
+      - schema:
+          type: number
+        name: id
+        in: path
+        required: true
+        description: id de la oferta
+    get:
+      summary: FindOne
+      tags: []
+      responses: {}
+      operationId: get-offers-id
+  /login:
+    post:
+      summary: Login
+      operationId: post-login
+      responses:
+        '200':
+          description: OK
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: string
+                  description: 'Example: admin@admin.com'
+                pass:
+                  type: string
+              required:
+                - user
+                - pass
+            examples:
+              Example:
+                value:
+                  user: admin@admin.com
+                  pass: 0nyx2021
+        description: ''
+components:
+  parameters:
+    token:
+      name: token
+      in: header
+      description: Token de autenticación
+      schema:
+        type: string
+        example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjo0NCwgImN1c3RvbWVySUQiOjI5LCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJlZGdvcyIsICJhZG1pbmlzdHJhZG9yIjp0cnVlLCAiZW1wcmVzYUlEIjoxLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjQ5MjU0ODMyLCAiZXhwIjoxNjQ5MjYyMDMyIH0.rNNdNm9MflATkqiE6tA_HOCb8BmMX6uleG1I_TY7AkU
+      required: true
+  schemas: {}
