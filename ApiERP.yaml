@@ -11,7 +11,7 @@ servers:
 paths:
   /offers:
     post:
-      summary: Login
+      summary: Create
       operationId: post-offers
       responses:
         '200':
@@ -101,7 +101,7 @@ paths:
           }
     parameters: []
     get:
-      summary: ''
+      summary: FindMany
       operationId: get-offers
       responses:
         '200':
@@ -128,13 +128,13 @@ paths:
         required: true
         description: id de la oferta
     get:
-      summary: Your GET endpoint
+      summary: FindOne
       tags: []
       responses: {}
       operationId: get-offers-id
   /login:
     post:
-      summary: ''
+      summary: Login
       operationId: post-login
       responses:
         '200':
