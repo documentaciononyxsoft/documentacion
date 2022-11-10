@@ -145,12 +145,18 @@ paths:
           application/json:
             schema:
               type: object
-              properties: {}
-        description: |-
-          {
-              "user": "admin@admin.com",
-              "pass": "0nyx2021"
-          }
+              properties:
+                user:
+                  type: string
+                  description: 'Example: admin@admin.com'
+                pass:
+                  type: string
+            examples:
+              Example:
+                value:
+                  user: admin@admin.com
+                  pass: 0nyx2021
+        description: ''
 components:
   parameters:
     token:
