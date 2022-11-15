@@ -168,7 +168,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Your GET endpoint
+      summary: FindLinesByOffer
       tags: []
       responses: {}
       operationId: get-offers-offerid-lines
@@ -179,7 +179,7 @@ paths:
           name: accessToken
       description: ''
     post:
-      summary: ''
+      summary: CreateLine
       operationId: post-offers-offerid-lines
       responses:
         '200':
@@ -217,6 +217,11 @@ paths:
               "tipoPlazoEntregaID": "",
               "referenciaCliente": ""
           }
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
 components:
   parameters:
     token:
