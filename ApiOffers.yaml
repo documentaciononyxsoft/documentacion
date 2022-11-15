@@ -76,27 +76,27 @@ paths:
                   "DedicacionMaxima": ""
               },
               "facturacion": {
-                 "ClienteFacturaID": "", 
-                 "FormaPagoCobroID": "", 
-                 "NumeroVencimiento": "", 
-                 "DiasPrimerVencimiento": "", 
-                 "DiasResto": "", 
-                 "DiasFijoPago1": "", 
-                 "DiasFijoPago2": "", 
-                 "DiasFijoPago3": "", 
-                 "DiasFijoPago4": "", 
-                 "MesVacacion": "", 
-                 "DiaSiguientePago": "", 
-                 "PorcentajeDtoComercial1": "", 
-                 "PorcentajeDtoComercial2": "", 
-                 "PorcentajeDtoComercial3": "", 
-                 "PorcentajeDtoEspecial1": "", 
-                 "PorcentajeDtoEspecial2": "", 
-                 "PorcentajeDtoProntoPago": "", 
-                 "PorcentajeGastoFinanciero": "", 
-                 "MonedaID": "", 
-                 "MonedaCambio": "", 
-                 "Portes": ""
+              "ClienteFacturaID": "", 
+              "FormaPagoCobroID": "", 
+              "NumeroVencimiento": "", 
+              "DiasPrimerVencimiento": "", 
+              "DiasResto": "", 
+              "DiasFijoPago1": "", 
+              "DiasFijoPago2": "", 
+              "DiasFijoPago3": "", 
+              "DiasFijoPago4": "", 
+              "MesVacacion": "", 
+              "DiaSiguientePago": "", 
+              "PorcentajeDtoComercial1": "", 
+              "PorcentajeDtoComercial2": "", 
+              "PorcentajeDtoComercial3": "", 
+              "PorcentajeDtoEspecial1": "", 
+              "PorcentajeDtoEspecial2": "", 
+              "PorcentajeDtoProntoPago": "", 
+              "PorcentajeGastoFinanciero": "", 
+              "MonedaID": "", 
+              "MonedaCambio": "", 
+              "Portes": ""
               }
           }
     parameters: []
@@ -160,6 +160,63 @@ paths:
                   user: admin@admin.com
                   pass: 0nyx2021
         description: ''
+  '/offers/{offerid}/lines':
+    parameters:
+      - schema:
+          type: string
+        name: offerid
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-offers-offerid-lines
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      description: ''
+    post:
+      summary: ''
+      operationId: post-offers-offerid-lines
+      responses:
+        '200':
+          description: OK
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+        description: |-
+          {
+              "ofertaLineaID": "",
+              "linea": "",
+              "almacenid": "",
+              "articuloid": "",
+              "nombre": "",
+              "descripcion": "",
+              "referencia": "",
+              "cantidad": "",
+              "precioVenta": "",
+              "dto1": "",
+              "dto2": "",
+              "dto3": "",
+              "importeVenta": "",
+              "cantidad2": "",
+              "notaInterna": "",
+              "notaCliente": "",
+              "ivaid": "",
+              "ofertaID": "",
+              "nivelIngenieriaID": "",
+              "fechaEntrega": "",
+              "plazoEntrega": "",
+              "tipoPlazoEntregaID": "",
+              "referenciaCliente": ""
+          }
 components:
   parameters:
     token:
