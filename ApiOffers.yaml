@@ -132,6 +132,11 @@ paths:
       tags: []
       responses: {}
       operationId: get-offers-id
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
   /login:
     post:
       summary: Login
@@ -159,7 +164,11 @@ paths:
                 value:
                   user: admin@admin.com
                   pass: 0nyx2021
-        description: ''
+        description: |-
+          {
+              "user": "admin@admin.com",
+              "pass": "0nyx2021"
+          }
   '/offers/{offerid}/lines':
     parameters:
       - schema:
