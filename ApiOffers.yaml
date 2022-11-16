@@ -119,7 +119,7 @@ paths:
             example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjI1NjkxLCAiZXhwIjoxNjY4NjMyODkxIH0.E0EcErEPyLZAYu55hZi-3Eoz3O0tQzm4yJmzdAl-alk
           in: header
           name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la validación.
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
     parameters: []
     get:
@@ -1818,7 +1818,7 @@ paths:
             example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjI1NjkxLCAiZXhwIjoxNjY4NjMyODkxIH0.E0EcErEPyLZAYu55hZi-3Eoz3O0tQzm4yJmzdAl-alk
           in: header
           name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la validación.
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
       description: ''
   '/offers/{id}':
@@ -1858,6 +1858,7 @@ paths:
                   description: 'Example: admin@admin.com'
                 pass:
                   type: string
+                  description: 'Example: 0nyx2021'
               required:
                 - user
                 - pass

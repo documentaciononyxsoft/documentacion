@@ -59,7 +59,11 @@ paths:
                 value:
                   user: admin@admin.com
                   pass: 0nyx2021
-        description: ''
+        description: |-
+          {
+            "user": "admin@admin.com",
+            "pass": "0nyx2021"
+          }
 components:
   parameters:
     token:
