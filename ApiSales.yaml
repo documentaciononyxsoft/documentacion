@@ -151,6 +151,7 @@ paths:
                   description: 'Example: admin@admin.com'
                 pass:
                   type: string
+                  description: 'Example: 0nyx2021'
               required:
                 - user
                 - pass
