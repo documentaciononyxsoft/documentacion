@@ -15,7 +15,21 @@ paths:
       operationId: post-offers
       responses:
         '200':
-          description: ''
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "ofertaID": 2186,
+                    "numero": 2181,
+                    "version": 1,
+                    "fechaCreacion": "2022-11-16T16:13:31.866",
+                    "usuarioCreacion": "ADMINISTRADOR",
+                    "estado": "",
+                    "MotivoRechazoID": 0,
+                    "rechazoDescripcion": ""
+                }
+            }
         '400':
           description: |-
             {
@@ -105,20 +119,33 @@ paths:
       operationId: get-offers
       responses:
         '200':
-          description: OK
+          description: |-
+            {
+                "statusCode": 500,
+                "message": "Token invalid: Malformed"
+            }
       parameters:
         - schema:
             type: number
+            example: 0
           in: query
           name: offset
+          description: 'Registro a partir del cual empezará a traer los datos desde la tabla. Si se envía por ejemplo 20, y en la tabla existen 100 registros, la respuesta traerá solo los registros comprendidos entre las posiciones 20 y 100, y los primero 20 se omitirán.'
+          required: true
         - schema:
             type: number
+            example: 50
           in: query
           name: limit
+          description: 'Límite de registros que trae la consulta. Si se envía por ejemplo el número 50, si la tabla tiene 2000 registros solo se traerán 50.'
+          required: true
         - schema:
             type: string
+            example: '1'
           in: query
           name: order
+          description: 'Esta valor determina si los registros de leerán desde arriba hacia abajo, o desde abajo hacia arriba en la tabla. Si por ejemplo la tabla cuenta con 100 registros'
+          required: true
   '/offers/{id}':
     parameters:
       - schema:

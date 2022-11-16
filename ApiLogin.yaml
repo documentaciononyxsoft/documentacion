@@ -1,0 +1,73 @@
+openapi: 3.0.0
+x-stoplight:
+  id: mbapm8z3lg6wm
+info:
+  version: '1.0'
+  title: ApiLogin
+  description: ''
+servers:
+  - description: Direccion Francia
+    url: 'http://15.236.85.216/'
+paths:
+  /login:
+    post:
+      summary: Login
+      operationId: post-login
+      responses:
+        '200':
+          description: |-
+            POSIBLES RESPUESTAS
+            /////////////////////////////////////////////////////////////////////////////////
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "token": "eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjE0NTg2LCAiZXhwIjoxNjY4NjIxNzg2IH0.CH41WeuWJD-yDF_TmXtk47RPUBwUp3IkdTedvuO8yvQ",
+                    "usuarioID": 1
+                }
+            }
+
+            /////////////////////////////////////////////////////////////////////////////////
+            {
+                "statusCode": 400,
+                "message": "Credenciales no validas "
+            }
+
+            /////////////////////////////////////////////////////////////////////////////////
+            {
+                "statusCode": 400,
+                "message": "Usuario Inactivo"
+            }
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: string
+                  description: 'Example: admin@admin.com'
+                pass:
+                  type: string
+                  description: 'Example: 0nyx2021'
+              required:
+                - user
+                - pass
+            examples:
+              Example:
+                value:
+                  user: admin@admin.com
+                  pass: 0nyx2021
+        description: ''
+components:
+  parameters:
+    token:
+      name: token
+      in: header
+      description: Token de autenticación
+      schema:
+        type: string
+        example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjo0NCwgImN1c3RvbWVySUQiOjI5LCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJlZGdvcyIsICJhZG1pbmlzdHJhZG9yIjp0cnVlLCAiZW1wcmVzYUlEIjoxLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjQ5MjU0ODMyLCAiZXhwIjoxNjQ5MjYyMDMyIH0.rNNdNm9MflATkqiE6tA_HOCb8BmMX6uleG1I_TY7AkU
+      required: true
+  schemas: {}
