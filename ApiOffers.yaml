@@ -30,18 +30,77 @@ paths:
                     "rechazoDescripcion": ""
                 }
             }
-        '400':
-          description: |-
-            {
-                "statusCode": 400,
-                "message": "Usuario Inactivo"
-            }
       description: ''
       requestBody:
         content:
           application/json:
             schema:
               type: object
+              x-examples:
+                Example 1:
+                  cabecera:
+                    ofertaID: ''
+                    almacenID: ''
+                    fechaEntrega: ''
+                    mailingID: ''
+                    numeroSolicitud: ''
+                    fechaSolicitud: ''
+                    TransportistaID: ''
+                    PlataformaLogisticaMailingID: ''
+                    TarifaVentaID: ''
+                    fechaHoraUsuario: ''
+                    representanteID: ''
+                    contactoID: ''
+                    telefonoCuenta: ''
+                    direccionEnvioID: ''
+                    observaciones: ''
+                    notaCliente: ''
+                    responsableUsuarioID: ''
+                    tipoOfertaID: ''
+                    respresentante2ID: ''
+                    porcentajeComision: ''
+                    porcentajeComision2: ''
+                    referenciaInterna: ''
+                    FechaSolcitadaPara: ''
+                    idionaID: ''
+                    fecha: ''
+                    validoDesde: ''
+                    fechaValidez: ''
+                    inconterm: ''
+                    campanaID: ''
+                    oportunidadID: ''
+                  intrastat:
+                    CondicionEntregaID: ''
+                  cualificacion:
+                    EstrategiaID: ''
+                    RentabilidadID: ''
+                    OportunidadID: ''
+                    InteresID: ''
+                    AtencionID: ''
+                    SituacionID: ''
+                    DedicacionMaxima: ''
+                  facturacion:
+                    ClienteFacturaID: ''
+                    FormaPagoCobroID: ''
+                    NumeroVencimiento: ''
+                    DiasPrimerVencimiento: ''
+                    DiasResto: ''
+                    DiasFijoPago1: ''
+                    DiasFijoPago2: ''
+                    DiasFijoPago3: ''
+                    DiasFijoPago4: ''
+                    MesVacacion: ''
+                    DiaSiguientePago: ''
+                    PorcentajeDtoComercial1: ''
+                    PorcentajeDtoComercial2: ''
+                    PorcentajeDtoComercial3: ''
+                    PorcentajeDtoEspecial1: ''
+                    PorcentajeDtoEspecial2: ''
+                    PorcentajeDtoProntoPago: ''
+                    PorcentajeGastoFinanciero: ''
+                    MonedaID: ''
+                    MonedaCambio: ''
+                    Portes: ''
               properties:
                 cabecera:
                   type: object
@@ -106,6 +165,8 @@ paths:
                       type: string
                     oportunidadID:
                       type: string
+                  required:
+                    - mailingID
                 intrastat:
                   type: object
                   properties:
@@ -173,85 +234,18 @@ paths:
                       type: string
                     Portes:
                       type: string
-              x-examples:
-                Example 1:
-                  cabecera:
-                    ofertaID: ''
-                    almacenID: ''
-                    fechaEntrega: ''
-                    mailingID: ''
-                    numeroSolicitud: ''
-                    fechaSolicitud: ''
-                    TransportistaID: ''
-                    PlataformaLogisticaMailingID: ''
-                    TarifaVentaID: ''
-                    fechaHoraUsuario: ''
-                    representanteID: ''
-                    contactoID: ''
-                    telefonoCuenta: ''
-                    direccionEnvioID: ''
-                    observaciones: ''
-                    notaCliente: ''
-                    responsableUsuarioID: ''
-                    tipoOfertaID: ''
-                    respresentante2ID: ''
-                    porcentajeComision: ''
-                    porcentajeComision2: ''
-                    referenciaInterna: ''
-                    FechaSolcitadaPara: ''
-                    idionaID: ''
-                    fecha: ''
-                    validoDesde: ''
-                    fechaValidez: ''
-                    inconterm: ''
-                    campanaID: ''
-                    oportunidadID: ''
-                  intrastat:
-                    CondicionEntregaID: ''
-                  cualificacion:
-                    EstrategiaID: ''
-                    RentabilidadID: ''
-                    OportunidadID: ''
-                    InteresID: ''
-                    AtencionID: ''
-                    SituacionID: ''
-                    DedicacionMaxima: ''
-                  facturacion:
-                    ClienteFacturaID: ''
-                    FormaPagoCobroID: ''
-                    NumeroVencimiento: ''
-                    DiasPrimerVencimiento: ''
-                    DiasResto: ''
-                    DiasFijoPago1: ''
-                    DiasFijoPago2: ''
-                    DiasFijoPago3: ''
-                    DiasFijoPago4: ''
-                    MesVacacion: ''
-                    DiaSiguientePago: ''
-                    PorcentajeDtoComercial1: ''
-                    PorcentajeDtoComercial2: ''
-                    PorcentajeDtoComercial3: ''
-                    PorcentajeDtoEspecial1: ''
-                    PorcentajeDtoEspecial2: ''
-                    PorcentajeDtoProntoPago: ''
-                    PorcentajeGastoFinanciero: ''
-                    MonedaID: ''
-                    MonedaCambio: ''
-                    Portes: ''
             examples:
               Example 1:
                 value:
                   cabecera:
-                    ofertaID: ''
                     almacenID: ''
-                    fechaEntrega: ''
-                    mailingID: ''
+                    fechaEntrega: '2022-11-16'
+                    mailingID: '455'
                     numeroSolicitud: ''
-                    fechaSolicitud: ''
+                    fechaSolicitud: '2022-11-16'
                     TransportistaID: ''
                     PlataformaLogisticaMailingID: ''
                     TarifaVentaID: ''
-                    fechaHoraUsuario: ''
                     representanteID: ''
                     contactoID: ''
                     telefonoCuenta: ''
@@ -264,11 +258,11 @@ paths:
                     porcentajeComision: ''
                     porcentajeComision2: ''
                     referenciaInterna: ''
-                    FechaSolcitadaPara: ''
+                    FechaSolcitadaPara: '2022-11-16'
                     idionaID: ''
-                    fecha: ''
-                    validoDesde: ''
-                    fechaValidez: ''
+                    fecha: '2022-11-16'
+                    validoDesde: '2022-11-16'
+                    fechaValidez: '2022-11-16'
                     inconterm: ''
                     campanaID: ''
                     oportunidadID: ''
@@ -304,76 +298,7 @@ paths:
                     MonedaID: ''
                     MonedaCambio: ''
                     Portes: ''
-        description: |-
-          {
-              "cabecera": {
-                  "ofertaID": "",
-                  "almacenID": "",
-                  "fechaEntrega": "",
-                  "mailingID": "",
-                  "numeroSolicitud": "",
-                  "fechaSolicitud": "",
-                  "TransportistaID": "",
-                  "PlataformaLogisticaMailingID": "",
-                  "TarifaVentaID": "",
-                  "fechaHoraUsuario": "",
-                  "representanteID": "",
-                  "contactoID": "",
-                  "telefonoCuenta": "",
-                  "direccionEnvioID": "",
-                  "observaciones": "",
-                  "notaCliente": "",
-                  "responsableUsuarioID": "",
-                  "tipoOfertaID": "",
-                  "respresentante2ID": "",
-                  "porcentajeComision": "",
-                  "porcentajeComision2": "",
-                  "referenciaInterna": "",
-                  "FechaSolcitadaPara": "",
-                  "idionaID": "",
-                  "fecha": "",
-                  "validoDesde": "",
-                  "fechaValidez": "",
-                  "inconterm": "",
-                  "campanaID": "",
-                  "oportunidadID": ""
-              },
-              "intrastat": {
-                  "CondicionEntregaID": ""
-              },
-              "cualificacion": {
-                  "EstrategiaID": "",
-                  "RentabilidadID": "",
-                  "OportunidadID": "",
-                  "InteresID": "",
-                  "AtencionID": "",
-                  "SituacionID": "",
-                  "DedicacionMaxima": ""
-              },
-              "facturacion": {
-              "ClienteFacturaID": "", 
-              "FormaPagoCobroID": "", 
-              "NumeroVencimiento": "", 
-              "DiasPrimerVencimiento": "", 
-              "DiasResto": "", 
-              "DiasFijoPago1": "", 
-              "DiasFijoPago2": "", 
-              "DiasFijoPago3": "", 
-              "DiasFijoPago4": "", 
-              "MesVacacion": "", 
-              "DiaSiguientePago": "", 
-              "PorcentajeDtoComercial1": "", 
-              "PorcentajeDtoComercial2": "", 
-              "PorcentajeDtoComercial3": "", 
-              "PorcentajeDtoEspecial1": "", 
-              "PorcentajeDtoEspecial2": "", 
-              "PorcentajeDtoProntoPago": "", 
-              "PorcentajeGastoFinanciero": "", 
-              "MonedaID": "", 
-              "MonedaCambio": "", 
-              "Portes": ""
-              }
-          }
+        description: ''
       parameters:
         - schema:
             type: string
@@ -2090,16 +2015,312 @@ paths:
         in: path
         required: true
         description: id de la oferta
-    get:
-      summary: FindOne
-      tags: []
-      responses: {}
-      operationId: get-offers-id
+    put:
+      summary: Update
+      operationId: put-offers-id
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "ofertaID": 2191,
+                    "numero": 2186,
+                    "version": 1,
+                    "fechaCreacion": "0000-00-00T00:00:00.000",
+                    "usuarioCreacion": "",
+                    "estado": "",
+                    "MotivoRechazoID": 0,
+                    "rechazoDescripcion": ""
+                }
+            }
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  cabecera:
+                    almacenID: ''
+                    fechaEntrega: '2022-11-18'
+                    mailingID: '455'
+                    numeroSolicitud: ''
+                    fechaSolicitud: '2022-11-16'
+                    TransportistaID: ''
+                    PlataformaLogisticaMailingID: ''
+                    TarifaVentaID: ''
+                    representanteID: ''
+                    contactoID: ''
+                    telefonoCuenta: ''
+                    direccionEnvioID: ''
+                    observaciones: ''
+                    notaCliente: ''
+                    responsableUsuarioID: ''
+                    tipoOfertaID: ''
+                    respresentante2ID: ''
+                    porcentajeComision: ''
+                    porcentajeComision2: ''
+                    referenciaInterna: ''
+                    FechaSolcitadaPara: '2022-11-16'
+                    idionaID: ''
+                    fecha: '2022-11-16'
+                    validoDesde: '2022-11-16'
+                    fechaValidez: '2022-11-16'
+                    inconterm: ''
+                    campanaID: ''
+                    oportunidadID: ''
+                  intrastat:
+                    CondicionEntregaID: ''
+                  cualificacion:
+                    EstrategiaID: ''
+                    RentabilidadID: ''
+                    OportunidadID: ''
+                    InteresID: ''
+                    AtencionID: ''
+                    SituacionID: ''
+                    DedicacionMaxima: ''
+                  facturacion:
+                    ClienteFacturaID: ''
+                    FormaPagoCobroID: ''
+                    NumeroVencimiento: ''
+                    DiasPrimerVencimiento: ''
+                    DiasResto: ''
+                    DiasFijoPago1: ''
+                    DiasFijoPago2: ''
+                    DiasFijoPago3: ''
+                    DiasFijoPago4: ''
+                    MesVacacion: ''
+                    DiaSiguientePago: ''
+                    PorcentajeDtoComercial1: ''
+                    PorcentajeDtoComercial2: ''
+                    PorcentajeDtoComercial3: ''
+                    PorcentajeDtoEspecial1: ''
+                    PorcentajeDtoEspecial2: ''
+                    PorcentajeDtoProntoPago: ''
+                    PorcentajeGastoFinanciero: ''
+                    MonedaID: ''
+                    MonedaCambio: ''
+                    Portes: ''
+              properties:
+                cabecera:
+                  type: object
+                  properties:
+                    almacenID:
+                      type: string
+                    fechaEntrega:
+                      type: string
+                    mailingID:
+                      type: string
+                    numeroSolicitud:
+                      type: string
+                    fechaSolicitud:
+                      type: string
+                    TransportistaID:
+                      type: string
+                    PlataformaLogisticaMailingID:
+                      type: string
+                    TarifaVentaID:
+                      type: string
+                    representanteID:
+                      type: string
+                    contactoID:
+                      type: string
+                    telefonoCuenta:
+                      type: string
+                    direccionEnvioID:
+                      type: string
+                    observaciones:
+                      type: string
+                    notaCliente:
+                      type: string
+                    responsableUsuarioID:
+                      type: string
+                    tipoOfertaID:
+                      type: string
+                    respresentante2ID:
+                      type: string
+                    porcentajeComision:
+                      type: string
+                    porcentajeComision2:
+                      type: string
+                    referenciaInterna:
+                      type: string
+                    FechaSolcitadaPara:
+                      type: string
+                    idionaID:
+                      type: string
+                    fecha:
+                      type: string
+                    validoDesde:
+                      type: string
+                    fechaValidez:
+                      type: string
+                    inconterm:
+                      type: string
+                    campanaID:
+                      type: string
+                    oportunidadID:
+                      type: string
+                intrastat:
+                  type: object
+                  properties:
+                    CondicionEntregaID:
+                      type: string
+                cualificacion:
+                  type: object
+                  properties:
+                    EstrategiaID:
+                      type: string
+                    RentabilidadID:
+                      type: string
+                    OportunidadID:
+                      type: string
+                    InteresID:
+                      type: string
+                    AtencionID:
+                      type: string
+                    SituacionID:
+                      type: string
+                    DedicacionMaxima:
+                      type: string
+                facturacion:
+                  type: object
+                  properties:
+                    ClienteFacturaID:
+                      type: string
+                    FormaPagoCobroID:
+                      type: string
+                    NumeroVencimiento:
+                      type: string
+                    DiasPrimerVencimiento:
+                      type: string
+                    DiasResto:
+                      type: string
+                    DiasFijoPago1:
+                      type: string
+                    DiasFijoPago2:
+                      type: string
+                    DiasFijoPago3:
+                      type: string
+                    DiasFijoPago4:
+                      type: string
+                    MesVacacion:
+                      type: string
+                    DiaSiguientePago:
+                      type: string
+                    PorcentajeDtoComercial1:
+                      type: string
+                    PorcentajeDtoComercial2:
+                      type: string
+                    PorcentajeDtoComercial3:
+                      type: string
+                    PorcentajeDtoEspecial1:
+                      type: string
+                    PorcentajeDtoEspecial2:
+                      type: string
+                    PorcentajeDtoProntoPago:
+                      type: string
+                    PorcentajeGastoFinanciero:
+                      type: string
+                    MonedaID:
+                      type: string
+                    MonedaCambio:
+                      type: string
+                    Portes:
+                      type: string
+            examples:
+              Example 1:
+                value:
+                  cabecera:
+                    almacenID: ''
+                    fechaEntrega: '2022-11-18'
+                    mailingID: '455'
+                    numeroSolicitud: ''
+                    fechaSolicitud: '2022-11-16'
+                    TransportistaID: ''
+                    PlataformaLogisticaMailingID: ''
+                    TarifaVentaID: ''
+                    representanteID: ''
+                    contactoID: ''
+                    telefonoCuenta: ''
+                    direccionEnvioID: ''
+                    observaciones: ''
+                    notaCliente: ''
+                    responsableUsuarioID: ''
+                    tipoOfertaID: ''
+                    respresentante2ID: ''
+                    porcentajeComision: ''
+                    porcentajeComision2: ''
+                    referenciaInterna: ''
+                    FechaSolcitadaPara: '2022-11-16'
+                    idionaID: ''
+                    fecha: '2022-11-16'
+                    validoDesde: '2022-11-16'
+                    fechaValidez: '2022-11-16'
+                    inconterm: ''
+                    campanaID: ''
+                    oportunidadID: ''
+                  intrastat:
+                    CondicionEntregaID: ''
+                  cualificacion:
+                    EstrategiaID: ''
+                    RentabilidadID: ''
+                    OportunidadID: ''
+                    InteresID: ''
+                    AtencionID: ''
+                    SituacionID: ''
+                    DedicacionMaxima: ''
+                  facturacion:
+                    ClienteFacturaID: ''
+                    FormaPagoCobroID: ''
+                    NumeroVencimiento: ''
+                    DiasPrimerVencimiento: ''
+                    DiasResto: ''
+                    DiasFijoPago1: ''
+                    DiasFijoPago2: ''
+                    DiasFijoPago3: ''
+                    DiasFijoPago4: ''
+                    MesVacacion: ''
+                    DiaSiguientePago: ''
+                    PorcentajeDtoComercial1: ''
+                    PorcentajeDtoComercial2: ''
+                    PorcentajeDtoComercial3: ''
+                    PorcentajeDtoEspecial1: ''
+                    PorcentajeDtoEspecial2: ''
+                    PorcentajeDtoProntoPago: ''
+                    PorcentajeGastoFinanciero: ''
+                    MonedaID: ''
+                    MonedaCambio: ''
+                    Portes: ''
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjI1NjkxLCAiZXhwIjoxNjY4NjMyODkxIH0.E0EcErEPyLZAYu55hZi-3Eoz3O0tQzm4yJmzdAl-alk
           in: header
           name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+    delete:
+      summary: ''
+      operationId: delete-offers-id
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {}
+            }
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjI1NjkxLCAiZXhwIjoxNjY4NjMyODkxIH0.E0EcErEPyLZAYu55hZi-3Eoz3O0tQzm4yJmzdAl-alk
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /login:
     post:
       summary: Login
@@ -2148,53 +2369,280 @@ paths:
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjI1NjkxLCAiZXhwIjoxNjY4NjMyODkxIH0.E0EcErEPyLZAYu55hZi-3Eoz3O0tQzm4yJmzdAl-alk
           in: header
           name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
       description: ''
     post:
       summary: CreateLine
       operationId: post-offers-offerid-lines
       responses:
         '200':
-          description: OK
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "ofertaLineaID": 4428,
+                    "numeroLinea": 40,
+                    "stock": 19999732
+                }
+            }
       description: ''
       requestBody:
         content:
           application/json:
             schema:
               type: object
-              properties: {}
-        description: |-
-          {
-              "ofertaLineaID": "",
-              "linea": "",
-              "almacenid": "",
-              "articuloid": "",
-              "nombre": "",
-              "descripcion": "",
-              "referencia": "",
-              "cantidad": "",
-              "precioVenta": "",
-              "dto1": "",
-              "dto2": "",
-              "dto3": "",
-              "importeVenta": "",
-              "cantidad2": "",
-              "notaInterna": "",
-              "notaCliente": "",
-              "ivaid": "",
-              "ofertaID": "",
-              "nivelIngenieriaID": "",
-              "fechaEntrega": "",
-              "plazoEntrega": "",
-              "tipoPlazoEntregaID": "",
-              "referenciaCliente": ""
-          }
+              x-examples:
+                Example 1:
+                  almacenid: ''
+                  articuloid: ''
+                  nombre: ''
+                  descripcion: ''
+                  referencia: ''
+                  cantidad: ''
+                  precioVenta: ''
+                  dto1: ''
+                  dto2: ''
+                  dto3: ''
+                  importeVenta: ''
+                  cantidad2: ''
+                  notaInterna: ''
+                  notaCliente: ''
+                  ivaid: ''
+                  nivelIngenieriaID: ''
+                  fechaEntrega: '2022-11-16'
+                  plazoEntrega: '2022-11-16'
+                  tipoPlazoEntregaID: ''
+                  referenciaCliente: ''
+              properties:
+                almacenid:
+                  type: string
+                articuloid:
+                  type: string
+                nombre:
+                  type: string
+                descripcion:
+                  type: string
+                referencia:
+                  type: string
+                cantidad:
+                  type: string
+                precioVenta:
+                  type: string
+                dto1:
+                  type: string
+                dto2:
+                  type: string
+                dto3:
+                  type: string
+                importeVenta:
+                  type: string
+                cantidad2:
+                  type: string
+                notaInterna:
+                  type: string
+                notaCliente:
+                  type: string
+                ivaid:
+                  type: string
+                nivelIngenieriaID:
+                  type: string
+                fechaEntrega:
+                  type: string
+                plazoEntrega:
+                  type: string
+                tipoPlazoEntregaID:
+                  type: string
+                referenciaCliente:
+                  type: string
+              required:
+                - articuloid
+            examples:
+              Example 1:
+                value:
+                  almacenid: ''
+                  articuloid: ''
+                  nombre: ''
+                  descripcion: ''
+                  referencia: ''
+                  cantidad: ''
+                  precioVenta: ''
+                  dto1: ''
+                  dto2: ''
+                  dto3: ''
+                  importeVenta: ''
+                  cantidad2: ''
+                  notaInterna: ''
+                  notaCliente: ''
+                  ivaid: ''
+                  nivelIngenieriaID: ''
+                  fechaEntrega: '2022-11-16'
+                  plazoEntrega: '2022-11-16'
+                  tipoPlazoEntregaID: ''
+                  referenciaCliente: ''
+        description: ''
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjI1NjkxLCAiZXhwIjoxNjY4NjMyODkxIH0.E0EcErEPyLZAYu55hZi-3Eoz3O0tQzm4yJmzdAl-alk
           in: header
           name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+  '/offers/{offerid}/lines/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: offerid
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: put-offers-offerid-lines-id
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "ofertaLineaID": 4419,
+                    "numeroLinea": 0,
+                    "stock": 19999732
+                }
+            }
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjI1NjkxLCAiZXhwIjoxNjY4NjMyODkxIH0.E0EcErEPyLZAYu55hZi-3Eoz3O0tQzm4yJmzdAl-alk
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                almacenid:
+                  type: string
+                articuloid:
+                  type: string
+                nombre:
+                  type: string
+                descripcion:
+                  type: string
+                referencia:
+                  type: string
+                cantidad:
+                  type: string
+                precioVenta:
+                  type: string
+                dto1:
+                  type: string
+                dto2:
+                  type: string
+                dto3:
+                  type: string
+                importeVenta:
+                  type: string
+                cantidad2:
+                  type: string
+                notaInterna:
+                  type: string
+                notaCliente:
+                  type: string
+                ivaid:
+                  type: string
+                nivelIngenieriaID:
+                  type: string
+                fechaEntrega:
+                  type: string
+                plazoEntrega:
+                  type: string
+                tipoPlazoEntregaID:
+                  type: string
+                referenciaCliente:
+                  type: string
+              x-examples:
+                Example 1:
+                  almacenid: '77'
+                  articuloid: '3517'
+                  nombre: ''
+                  descripcion: Descripcion de prueba
+                  referencia: ''
+                  cantidad: ''
+                  precioVenta: ''
+                  dto1: ''
+                  dto2: ''
+                  dto3: ''
+                  importeVenta: ''
+                  cantidad2: ''
+                  notaInterna: ''
+                  notaCliente: ''
+                  ivaid: ''
+                  nivelIngenieriaID: ''
+                  fechaEntrega: '2022-11-18'
+                  plazoEntrega: '2022-11-16'
+                  tipoPlazoEntregaID: ''
+                  referenciaCliente: ''
+    delete:
+      summary: ''
+      operationId: delete-offers-offerid-lines-id
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": null
+            }
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjI1NjkxLCAiZXhwIjoxNjY4NjMyODkxIH0.E0EcErEPyLZAYu55hZi-3Eoz3O0tQzm4yJmzdAl-alk
+          in: header
+          required: true
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  almacenid: '77'
+                  articuloid: '3517'
+                  nombre: ''
+                  descripcion: Descripcion de prueba
+                  referencia: ''
+                  cantidad: ''
+                  precioVenta: ''
+                  dto1: ''
+                  dto2: ''
+                  dto3: ''
+                  importeVenta: ''
+                  cantidad2: ''
+                  notaInterna: ''
+                  notaCliente: ''
+                  ivaid: ''
+                  nivelIngenieriaID: ''
+                  fechaEntrega: '2022-11-18'
+                  plazoEntrega: '2022-11-16'
+                  tipoPlazoEntregaID: ''
+                  referenciaCliente: ''
 components:
   parameters:
     token:
