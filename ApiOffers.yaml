@@ -2303,7 +2303,7 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
     delete:
-      summary: ''
+      summary: Remove
       operationId: delete-offers-id
       responses:
         '200':
@@ -2465,10 +2465,10 @@ paths:
             examples:
               Example 1:
                 value:
-                  almacenid: ''
-                  articuloid: ''
-                  nombre: ''
-                  descripcion: ''
+                  almacenid: '77'
+                  articuloid: '3517'
+                  nombre: Articulo prueba
+                  descripcion: Descripcion prueba
                   referencia: ''
                   cantidad: ''
                   precioVenta: ''
@@ -2509,7 +2509,7 @@ paths:
         required: true
         description: id de la línea de oferta
     put:
-      summary: ''
+      summary: UpdateLine
       operationId: put-offers-offerid-lines-id
       responses:
         '200':
@@ -2599,8 +2599,31 @@ paths:
                   plazoEntrega: '2022-11-16'
                   tipoPlazoEntregaID: ''
                   referenciaCliente: ''
+            examples:
+              Example 1:
+                value:
+                  almacenid: '77'
+                  articuloid: '3517'
+                  nombre: ''
+                  descripcion: Descripcion de prueba
+                  referencia: ''
+                  cantidad: ''
+                  precioVenta: ''
+                  dto1: ''
+                  dto2: ''
+                  dto3: ''
+                  importeVenta: ''
+                  cantidad2: ''
+                  notaInterna: ''
+                  notaCliente: ''
+                  ivaid: ''
+                  nivelIngenieriaID: ''
+                  fechaEntrega: '2022-11-18'
+                  plazoEntrega: '2022-11-16'
+                  tipoPlazoEntregaID: ''
+                  referenciaCliente: ''
     delete:
-      summary: ''
+      summary: RemoveLine
       operationId: delete-offers-offerid-lines-id
       responses:
         '200':

@@ -59,38 +59,6 @@ paths:
                 value:
                   user: admin@admin.com
                   pass: 0nyx2021
-        description: |-
-          {
-            "user": "admin@admin.com",
-            "pass": "0nyx2021"
-          }
-  /test:
-    post:
-      summary: ''
-      operationId: post-test
-      responses:
-        '200':
-          description: OK
-      description: ''
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                user:
-                  type: string
-                pass:
-                  type: string
-              x-examples:
-                Example 1:
-                  user: admin@admin.com
-                  pass: 0nyx2021
-            examples:
-              Example 1:
-                value:
-                  user: admin@admin.com
-                  pass: 0nyx2021
         description: ''
 components:
   parameters:
