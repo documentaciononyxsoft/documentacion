@@ -2361,6 +2361,7 @@ paths:
         name: offerid
         in: path
         required: true
+        description: id de la oferta
     get:
       summary: FindLinesByOffer
       tags: []
@@ -2500,11 +2501,13 @@ paths:
         name: offerid
         in: path
         required: true
+        description: id de la oferta
       - schema:
           type: string
         name: id
         in: path
         required: true
+        description: id de la línea de oferta
     put:
       summary: ''
       operationId: put-offers-offerid-lines-id
