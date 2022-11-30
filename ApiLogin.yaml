@@ -57,8 +57,8 @@ paths:
             examples:
               Example:
                 value:
-                  user: admin@admin.com
-                  pass: 0nyx2021
+                  user: user@example.com
+                  pass: mypass123
         description: ''
 components:
   parameters:
