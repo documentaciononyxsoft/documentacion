@@ -47,10 +47,10 @@ paths:
               properties:
                 user:
                   type: string
-                  description: 'Example: admin@admin.com'
+                  description: 'Example: user@example.com'
                 pass:
                   type: string
-                  description: 'Example: 0nyx2021'
+                  description: 'Example: mypass123'
               required:
                 - user
                 - pass
