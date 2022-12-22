@@ -52,7 +52,7 @@ paths:
                   TipoOperacionProvinciaID: '1'
               properties:
                 ProvinciaID:
-                  type: string
+                  type: number
                 Nombre:
                   type: string
                 ComunidadID:
@@ -60,9 +60,9 @@ paths:
                 Codigo:
                   type: string
                 PaisID:
-                  type: string
+                  type: number
                 TipoOperacionProvinciaID:
-                  type: string
+                  type: number
               required:
                 - Codigo
         description: ''
