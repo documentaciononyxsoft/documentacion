@@ -1,0 +1,1826 @@
+openapi: 3.1.0
+x-stoplight:
+  id: gedpcusmmg67w
+info:
+  title: ApiCountries
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/countries/continent/{continenteID}':
+    parameters:
+      - schema:
+          type: string
+        name: continenteID
+        in: path
+        required: true
+    get:
+      summary: Get User Info by User ID
+      tags: []
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "sql": "SELECT * FROM Pais WHERE Pais.ContinenteID = 1",
+                    "records": [
+                        {
+                            "PaisID": 5,
+                            "IsoNumerico": 24,
+                            "Nombre": "Angola",
+                            "ContinenteID": 1,
+                            "Iso2": "AO",
+                            "Iso3": "AGO",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 11,
+                            "IsoNumerico": 12,
+                            "Nombre": "Argelia",
+                            "ContinenteID": 1,
+                            "Iso2": "DZ",
+                            "Iso3": "DZA",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 24,
+                            "IsoNumerico": 204,
+                            "Nombre": "Benin",
+                            "ContinenteID": 1,
+                            "Iso2": "BJ",
+                            "Iso3": "BEN",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 30,
+                            "IsoNumerico": 72,
+                            "Nombre": "Botsuana",
+                            "ContinenteID": 1,
+                            "Iso2": "BW",
+                            "Iso3": "BWA",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 34,
+                            "IsoNumerico": 854,
+                            "Nombre": "Burkina Faso",
+                            "ContinenteID": 1,
+                            "Iso2": "BF",
+                            "Iso3": "BFA",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 35,
+                            "IsoNumerico": 108,
+                            "Nombre": "Burundi",
+                            "ContinenteID": 1,
+                            "Iso2": "BI",
+                            "Iso3": "BDI",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 36,
+                            "IsoNumerico": 132,
+                            "Nombre": "Cabo Verde",
+                            "ContinenteID": 1,
+                            "Iso2": "CV",
+                            "Iso3": "CPV",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 38,
+                            "IsoNumerico": 120,
+                            "Nombre": "Camerún",
+                            "ContinenteID": 1,
+                            "Iso2": "CM",
+                            "Iso3": "CMR",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 40,
+                            "IsoNumerico": 148,
+                            "Nombre": "Chad",
+                            "ContinenteID": 1,
+                            "Iso2": "TD",
+                            "Iso3": "TCD",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 46,
+                            "IsoNumerico": 174,
+                            "Nombre": "Comoras",
+                            "ContinenteID": 1,
+                            "Iso2": "KM",
+                            "Iso3": "COM",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 47,
+                            "IsoNumerico": 178,
+                            "Nombre": "Congo",
+                            "ContinenteID": 1,
+                            "Iso2": "CG",
+                            "Iso3": "COG",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 50,
+                            "IsoNumerico": 384,
+                            "Nombre": "Costa de Marfil",
+                            "ContinenteID": 1,
+                            "Iso2": "CI",
+                            "Iso3": "CIV",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 57,
+                            "IsoNumerico": 818,
+                            "Nombre": "Egipto",
+                            "ContinenteID": 1,
+                            "Iso2": "EG",
+                            "Iso3": "EGY",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 60,
+                            "IsoNumerico": 232,
+                            "Nombre": "Eritrea",
+                            "ContinenteID": 1,
+                            "Iso2": "ER",
+                            "Iso3": "ERI",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 66,
+                            "IsoNumerico": 231,
+                            "Nombre": "Etiopía",
+                            "ContinenteID": 1,
+                            "Iso2": "ET",
+                            "Iso3": "ETH",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 71,
+                            "IsoNumerico": 266,
+                            "Nombre": "Gabón",
+                            "ContinenteID": 1,
+                            "Iso2": "GA",
+                            "Iso3": "GAB",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 72,
+                            "IsoNumerico": 270,
+                            "Nombre": "Gambia",
+                            "ContinenteID": 1,
+                            "Iso2": "GM",
+                            "Iso3": "GMB",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 73,
+                            "IsoNumerico": 268,
+                            "Nombre": "Georgia",
+                            "ContinenteID": 1,
+                            "Iso2": "GE",
+                            "Iso3": "GEO",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 74,
+                            "IsoNumerico": 288,
+                            "Nombre": "Ghana",
+                            "ContinenteID": 1,
+                            "Iso2": "GH",
+                            "Iso3": "GHA",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 84,
+                            "IsoNumerico": 226,
+                            "Nombre": "Guinea Ecuatorial",
+                            "ContinenteID": 1,
+                            "Iso2": "GQ",
+                            "Iso3": "GNQ",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 85,
+                            "IsoNumerico": 624,
+                            "Nombre": "Guinea-Bissau",
+                            "ContinenteID": 1,
+                            "Iso2": "GW",
+                            "Iso3": "GNB",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 122,
+                            "IsoNumerico": 404,
+                            "Nombre": "Kenia",
+                            "ContinenteID": 1,
+                            "Iso2": "KE",
+                            "Iso3": "KEN",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 127,
+                            "IsoNumerico": 426,
+                            "Nombre": "Lesotho",
+                            "ContinenteID": 1,
+                            "Iso2": "LS",
+                            "Iso3": "LSO",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 130,
+                            "IsoNumerico": 430,
+                            "Nombre": "Liberia",
+                            "ContinenteID": 1,
+                            "Iso2": "LR",
+                            "Iso3": "LBR",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 131,
+                            "IsoNumerico": 434,
+                            "Nombre": "Libia",
+                            "ContinenteID": 1,
+                            "Iso2": "LY",
+                            "Iso3": "LBY",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 137,
+                            "IsoNumerico": 450,
+                            "Nombre": "Madagascar",
+                            "ContinenteID": 1,
+                            "Iso2": "MG",
+                            "Iso3": "MDG",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 139,
+                            "IsoNumerico": 454,
+                            "Nombre": "Malawi",
+                            "ContinenteID": 1,
+                            "Iso2": "MW",
+                            "Iso3": "MWI",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 141,
+                            "IsoNumerico": 466,
+                            "Nombre": "Malí",
+                            "ContinenteID": 1,
+                            "Iso2": "ML",
+                            "Iso3": "MLI",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 143,
+                            "IsoNumerico": 504,
+                            "Nombre": "Marruecos",
+                            "ContinenteID": 1,
+                            "Iso2": "MA",
+                            "Iso3": "MAR",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 145,
+                            "IsoNumerico": 480,
+                            "Nombre": "Mauricio",
+                            "ContinenteID": 1,
+                            "Iso2": "MU",
+                            "Iso3": "MUS",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 146,
+                            "IsoNumerico": 478,
+                            "Nombre": "Mauritania",
+                            "ContinenteID": 1,
+                            "Iso2": "MR",
+                            "Iso3": "MRT",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 147,
+                            "IsoNumerico": 175,
+                            "Nombre": "Mayotte",
+                            "ContinenteID": 1,
+                            "Iso2": "YT",
+                            "Iso3": "MYT",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 154,
+                            "IsoNumerico": 508,
+                            "Nombre": "Mozambique",
+                            "ContinenteID": 1,
+                            "Iso2": "MZ",
+                            "Iso3": "MOZ",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 156,
+                            "IsoNumerico": 516,
+                            "Nombre": "Namibia",
+                            "ContinenteID": 1,
+                            "Iso2": "NA",
+                            "Iso3": "NAM",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 160,
+                            "IsoNumerico": 562,
+                            "Nombre": "Níger",
+                            "ContinenteID": 1,
+                            "Iso2": "NE",
+                            "Iso3": "NER",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 161,
+                            "IsoNumerico": 566,
+                            "Nombre": "Nigeria",
+                            "ContinenteID": 1,
+                            "Iso2": "NG",
+                            "Iso3": "NGA",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 181,
+                            "IsoNumerico": 140,
+                            "Nombre": "República Centroafricana",
+                            "ContinenteID": 1,
+                            "Iso2": "CF",
+                            "Iso3": "CAF",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 183,
+                            "IsoNumerico": 180,
+                            "Nombre": "República Democrática del Congo",
+                            "ContinenteID": 1,
+                            "Iso2": "CD",
+                            "Iso3": "COD",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 185,
+                            "IsoNumerico": 638,
+                            "Nombre": "Reunión",
+                            "ContinenteID": 1,
+                            "Iso2": "RE",
+                            "Iso3": "REU",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 186,
+                            "IsoNumerico": 646,
+                            "Nombre": "Ruanda",
+                            "ContinenteID": 1,
+                            "Iso2": "RW",
+                            "Iso3": "RWA",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 189,
+                            "IsoNumerico": 732,
+                            "Nombre": "Sahara Occidental",
+                            "ContinenteID": 1,
+                            "Iso2": "EH",
+                            "Iso3": "ESH",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 196,
+                            "IsoNumerico": 654,
+                            "Nombre": "Santa Helena",
+                            "ContinenteID": 1,
+                            "Iso2": "SH",
+                            "Iso3": "SHN",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 198,
+                            "IsoNumerico": 678,
+                            "Nombre": "Santo Tomé y Príncipe",
+                            "ContinenteID": 1,
+                            "Iso2": "ST",
+                            "Iso3": "STP",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 199,
+                            "IsoNumerico": 686,
+                            "Nombre": "Senegal",
+                            "ContinenteID": 1,
+                            "Iso2": "SN",
+                            "Iso3": "SEN",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 201,
+                            "IsoNumerico": 690,
+                            "Nombre": "Seychelles",
+                            "ContinenteID": 1,
+                            "Iso2": "SC",
+                            "Iso3": "SYC",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 202,
+                            "IsoNumerico": 694,
+                            "Nombre": "Sierra Leona",
+                            "ContinenteID": 1,
+                            "Iso2": "SL",
+                            "Iso3": "SLE",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 205,
+                            "IsoNumerico": 706,
+                            "Nombre": "Somalia",
+                            "ContinenteID": 1,
+                            "Iso2": "SO",
+                            "Iso3": "SOM",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 207,
+                            "IsoNumerico": 748,
+                            "Nombre": "Suazilandia",
+                            "ContinenteID": 1,
+                            "Iso2": "SZ",
+                            "Iso3": "SWZ",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 208,
+                            "IsoNumerico": 710,
+                            "Nombre": "Sudáfrica",
+                            "ContinenteID": 1,
+                            "Iso2": "ZA",
+                            "Iso3": "ZAF",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 209,
+                            "IsoNumerico": 736,
+                            "Nombre": "Sudán",
+                            "ContinenteID": 1,
+                            "Iso2": "SD",
+                            "Iso3": "SDN",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 212,
+                            "IsoNumerico": 740,
+                            "Nombre": "Surinam",
+                            "ContinenteID": 1,
+                            "Iso2": "SR",
+                            "Iso3": "SUR",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 216,
+                            "IsoNumerico": 834,
+                            "Nombre": "Tanzania",
+                            "ContinenteID": 1,
+                            "Iso2": "TZ",
+                            "Iso3": "TZA",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 218,
+                            "IsoNumerico": 86,
+                            "Nombre": "Territorio Británico del Océano Índico",
+                            "ContinenteID": 1,
+                            "Iso2": "IO",
+                            "Iso3": "IOT",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 221,
+                            "IsoNumerico": 768,
+                            "Nombre": "Togo",
+                            "ContinenteID": 1,
+                            "Iso2": "TG",
+                            "Iso3": "TGO",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 225,
+                            "IsoNumerico": 788,
+                            "Nombre": "Túnez",
+                            "ContinenteID": 1,
+                            "Iso2": "TN",
+                            "Iso3": "TUN",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 230,
+                            "IsoNumerico": 800,
+                            "Nombre": "Uganda",
+                            "ContinenteID": 1,
+                            "Iso2": "UG",
+                            "Iso3": "UGA",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 238,
+                            "IsoNumerico": 262,
+                            "Nombre": "Yibuti",
+                            "ContinenteID": 1,
+                            "Iso2": "DJ",
+                            "Iso3": "DJI",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 239,
+                            "IsoNumerico": 894,
+                            "Nombre": "Zambia",
+                            "ContinenteID": 1,
+                            "Iso2": "ZM",
+                            "Iso3": "ZMB",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 240,
+                            "IsoNumerico": 716,
+                            "Nombre": "Zimbabue",
+                            "ContinenteID": 1,
+                            "Iso2": "ZW",
+                            "Iso3": "ZWE",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        },
+                        {
+                            "PaisID": 241,
+                            "IsoNumerico": 12,
+                            "Nombre": "REP. Yeison",
+                            "ContinenteID": 1,
+                            "Iso2": "23",
+                            "Iso3": "23",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 1
+                        },
+                        {
+                            "PaisID": 248,
+                            "IsoNumerico": 30,
+                            "Nombre": "yeik z",
+                            "ContinenteID": 1,
+                            "Iso2": "YA",
+                            "Iso3": "WEY",
+                            "OrigenOperacionFacturaID": 0,
+                            "ControlProvincia": 0
+                        }
+                    ]
+                }
+            }
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Get User Alice Smith:
+                  value:
+                    id: 142
+                    firstName: Alice
+                    lastName: Smith
+                    email: alice.smith@gmail.com
+                    dateOfBirth: '1997-10-31'
+                    emailVerified: true
+                    signUpDate: '2019-08-24'
+        '':
+          description: ''
+      operationId: get-users-userId
+      description: Retrieve the information of the user with the matching user ID.
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcxNTc3NzQ3LCAiZXhwIjoxNjcxNTg0OTQ3IH0.2l7Nkyw6DePLNm7GTfleH7fK7rlDeYTIIeKoCaQPEOA
+          in: header
+          name: accessToken
+          description: Token de validación de sesión.
+          required: true
+  /countries:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": [
+                    {
+                        "paisID": 1,
+                        "nombre": "Afganistán"
+                    },
+                    {
+                        "paisID": 2,
+                        "nombre": "Albania"
+                    },
+                    {
+                        "paisID": 3,
+                        "nombre": "Alemania"
+                    },
+                    {
+                        "paisID": 4,
+                        "nombre": "Andorra"
+                    },
+                    {
+                        "paisID": 5,
+                        "nombre": "Angola"
+                    },
+                    {
+                        "paisID": 6,
+                        "nombre": "Anguilla"
+                    },
+                    {
+                        "paisID": 7,
+                        "nombre": "Antártida"
+                    },
+                    {
+                        "paisID": 8,
+                        "nombre": "Antigua y Barbuda"
+                    },
+                    {
+                        "paisID": 9,
+                        "nombre": "Antillas Holandesas"
+                    },
+                    {
+                        "paisID": 10,
+                        "nombre": "Arabia Saudí"
+                    },
+                    {
+                        "paisID": 11,
+                        "nombre": "Argelia"
+                    },
+                    {
+                        "paisID": 12,
+                        "nombre": "Argentina"
+                    },
+                    {
+                        "paisID": 13,
+                        "nombre": "Armenia"
+                    },
+                    {
+                        "paisID": 14,
+                        "nombre": "Aruba"
+                    },
+                    {
+                        "paisID": 15,
+                        "nombre": "Australia"
+                    },
+                    {
+                        "paisID": 16,
+                        "nombre": "Austria"
+                    },
+                    {
+                        "paisID": 17,
+                        "nombre": "Azerbaiyán"
+                    },
+                    {
+                        "paisID": 18,
+                        "nombre": "Bahamas"
+                    },
+                    {
+                        "paisID": 19,
+                        "nombre": "Bahréin"
+                    },
+                    {
+                        "paisID": 20,
+                        "nombre": "Bangladesh"
+                    },
+                    {
+                        "paisID": 21,
+                        "nombre": "Barbados"
+                    },
+                    {
+                        "paisID": 22,
+                        "nombre": "Bélgica"
+                    },
+                    {
+                        "paisID": 23,
+                        "nombre": "Belice"
+                    },
+                    {
+                        "paisID": 24,
+                        "nombre": "Benin"
+                    },
+                    {
+                        "paisID": 25,
+                        "nombre": "Bermudas"
+                    },
+                    {
+                        "paisID": 26,
+                        "nombre": "Bhután"
+                    },
+                    {
+                        "paisID": 27,
+                        "nombre": "Bielorrusia"
+                    },
+                    {
+                        "paisID": 28,
+                        "nombre": "Bolivia"
+                    },
+                    {
+                        "paisID": 29,
+                        "nombre": "Bosnia y Herzegovina"
+                    },
+                    {
+                        "paisID": 30,
+                        "nombre": "Botsuana"
+                    },
+                    {
+                        "paisID": 31,
+                        "nombre": "Brasil"
+                    },
+                    {
+                        "paisID": 32,
+                        "nombre": "Brunéi"
+                    },
+                    {
+                        "paisID": 33,
+                        "nombre": "Bulgaria"
+                    },
+                    {
+                        "paisID": 34,
+                        "nombre": "Burkina Faso"
+                    },
+                    {
+                        "paisID": 35,
+                        "nombre": "Burundi"
+                    },
+                    {
+                        "paisID": 36,
+                        "nombre": "Cabo Verde"
+                    },
+                    {
+                        "paisID": 37,
+                        "nombre": "Camboya"
+                    },
+                    {
+                        "paisID": 38,
+                        "nombre": "Camerún"
+                    },
+                    {
+                        "paisID": 39,
+                        "nombre": "Canadá"
+                    },
+                    {
+                        "paisID": 40,
+                        "nombre": "Chad"
+                    },
+                    {
+                        "paisID": 41,
+                        "nombre": "Chile"
+                    },
+                    {
+                        "paisID": 42,
+                        "nombre": "China"
+                    },
+                    {
+                        "paisID": 43,
+                        "nombre": "Chipre"
+                    },
+                    {
+                        "paisID": 44,
+                        "nombre": "Ciudad del Vaticano"
+                    },
+                    {
+                        "paisID": 45,
+                        "nombre": "Colombia"
+                    },
+                    {
+                        "paisID": 46,
+                        "nombre": "Comoras"
+                    },
+                    {
+                        "paisID": 47,
+                        "nombre": "Congo"
+                    },
+                    {
+                        "paisID": 48,
+                        "nombre": "Corea del Norte"
+                    },
+                    {
+                        "paisID": 49,
+                        "nombre": "Corea del Sur"
+                    },
+                    {
+                        "paisID": 50,
+                        "nombre": "Costa de Marfil"
+                    },
+                    {
+                        "paisID": 51,
+                        "nombre": "Costa Rica"
+                    },
+                    {
+                        "paisID": 52,
+                        "nombre": "Croacia"
+                    },
+                    {
+                        "paisID": 53,
+                        "nombre": "Cuba"
+                    },
+                    {
+                        "paisID": 54,
+                        "nombre": "Dinamarca"
+                    },
+                    {
+                        "paisID": 55,
+                        "nombre": "Dominica"
+                    },
+                    {
+                        "paisID": 56,
+                        "nombre": "Ecuador"
+                    },
+                    {
+                        "paisID": 57,
+                        "nombre": "Egipto"
+                    },
+                    {
+                        "paisID": 58,
+                        "nombre": "El Salvador"
+                    },
+                    {
+                        "paisID": 59,
+                        "nombre": "Emiratos Árabes Unidos"
+                    },
+                    {
+                        "paisID": 60,
+                        "nombre": "Eritrea"
+                    },
+                    {
+                        "paisID": 61,
+                        "nombre": "Eslovaquia"
+                    },
+                    {
+                        "paisID": 62,
+                        "nombre": "Eslovenia"
+                    },
+                    {
+                        "paisID": 63,
+                        "nombre": "España"
+                    },
+                    {
+                        "paisID": 64,
+                        "nombre": "Estados Unidos"
+                    },
+                    {
+                        "paisID": 65,
+                        "nombre": "Estonia"
+                    },
+                    {
+                        "paisID": 66,
+                        "nombre": "Etiopía"
+                    },
+                    {
+                        "paisID": 67,
+                        "nombre": "Filipinas"
+                    },
+                    {
+                        "paisID": 68,
+                        "nombre": "Finlandia"
+                    },
+                    {
+                        "paisID": 69,
+                        "nombre": "Fiyi"
+                    },
+                    {
+                        "paisID": 70,
+                        "nombre": "Francia"
+                    },
+                    {
+                        "paisID": 71,
+                        "nombre": "Gabón"
+                    },
+                    {
+                        "paisID": 72,
+                        "nombre": "Gambia"
+                    },
+                    {
+                        "paisID": 73,
+                        "nombre": "Georgia"
+                    },
+                    {
+                        "paisID": 74,
+                        "nombre": "Ghana"
+                    },
+                    {
+                        "paisID": 75,
+                        "nombre": "Gibraltar"
+                    },
+                    {
+                        "paisID": 76,
+                        "nombre": "Granada"
+                    },
+                    {
+                        "paisID": 77,
+                        "nombre": "Grecia"
+                    },
+                    {
+                        "paisID": 78,
+                        "nombre": "Groenlandia"
+                    },
+                    {
+                        "paisID": 79,
+                        "nombre": "Guadalupe"
+                    },
+                    {
+                        "paisID": 80,
+                        "nombre": "Guam"
+                    },
+                    {
+                        "paisID": 81,
+                        "nombre": "Guatemala"
+                    },
+                    {
+                        "paisID": 82,
+                        "nombre": "Guayana Francesa"
+                    },
+                    {
+                        "paisID": 83,
+                        "nombre": "Guinea"
+                    },
+                    {
+                        "paisID": 84,
+                        "nombre": "Guinea Ecuatorial"
+                    },
+                    {
+                        "paisID": 85,
+                        "nombre": "Guinea-Bissau"
+                    },
+                    {
+                        "paisID": 86,
+                        "nombre": "Guyana"
+                    },
+                    {
+                        "paisID": 87,
+                        "nombre": "Haití"
+                    },
+                    {
+                        "paisID": 88,
+                        "nombre": "Honduras"
+                    },
+                    {
+                        "paisID": 89,
+                        "nombre": "Hong Kong"
+                    },
+                    {
+                        "paisID": 90,
+                        "nombre": "Hungría"
+                    },
+                    {
+                        "paisID": 91,
+                        "nombre": "India"
+                    },
+                    {
+                        "paisID": 92,
+                        "nombre": "Indonesia"
+                    },
+                    {
+                        "paisID": 93,
+                        "nombre": "Irán"
+                    },
+                    {
+                        "paisID": 94,
+                        "nombre": "Iraq"
+                    },
+                    {
+                        "paisID": 95,
+                        "nombre": "Irlanda"
+                    },
+                    {
+                        "paisID": 96,
+                        "nombre": "Isla Bouvet"
+                    },
+                    {
+                        "paisID": 97,
+                        "nombre": "Isla de Navidad"
+                    },
+                    {
+                        "paisID": 98,
+                        "nombre": "Isla Norfolk"
+                    },
+                    {
+                        "paisID": 99,
+                        "nombre": "Islandia"
+                    },
+                    {
+                        "paisID": 100,
+                        "nombre": "Islas Caimán"
+                    },
+                    {
+                        "paisID": 101,
+                        "nombre": "Islas Cocos"
+                    },
+                    {
+                        "paisID": 102,
+                        "nombre": "Islas Cook"
+                    },
+                    {
+                        "paisID": 103,
+                        "nombre": "Islas Feroe"
+                    },
+                    {
+                        "paisID": 104,
+                        "nombre": "Islas Georgias del Sur y Sandwich del Sur"
+                    },
+                    {
+                        "paisID": 105,
+                        "nombre": "Islas Gland"
+                    },
+                    {
+                        "paisID": 106,
+                        "nombre": "Islas Heard y McDonald"
+                    },
+                    {
+                        "paisID": 107,
+                        "nombre": "Islas Malvinas"
+                    },
+                    {
+                        "paisID": 108,
+                        "nombre": "Islas Marianas del Norte"
+                    },
+                    {
+                        "paisID": 109,
+                        "nombre": "Islas Marshall"
+                    },
+                    {
+                        "paisID": 110,
+                        "nombre": "Islas Pitcairn"
+                    },
+                    {
+                        "paisID": 111,
+                        "nombre": "Islas Salomón"
+                    },
+                    {
+                        "paisID": 112,
+                        "nombre": "Islas Turcas y Caicos"
+                    },
+                    {
+                        "paisID": 113,
+                        "nombre": "Islas ultramarinas de Estados Unidos"
+                    },
+                    {
+                        "paisID": 114,
+                        "nombre": "Islas Vírgenes Británicas"
+                    },
+                    {
+                        "paisID": 115,
+                        "nombre": "Islas Vírgenes de los Estados Unidos"
+                    },
+                    {
+                        "paisID": 116,
+                        "nombre": "Israel"
+                    },
+                    {
+                        "paisID": 117,
+                        "nombre": "Italia"
+                    },
+                    {
+                        "paisID": 118,
+                        "nombre": "Jamaica"
+                    },
+                    {
+                        "paisID": 119,
+                        "nombre": "Japón"
+                    },
+                    {
+                        "paisID": 120,
+                        "nombre": "Jordania"
+                    },
+                    {
+                        "paisID": 121,
+                        "nombre": "Kazajstán"
+                    },
+                    {
+                        "paisID": 122,
+                        "nombre": "Kenia"
+                    },
+                    {
+                        "paisID": 123,
+                        "nombre": "Kirguistán"
+                    },
+                    {
+                        "paisID": 124,
+                        "nombre": "Kiribati"
+                    },
+                    {
+                        "paisID": 125,
+                        "nombre": "Kuwait"
+                    },
+                    {
+                        "paisID": 126,
+                        "nombre": "Laos"
+                    },
+                    {
+                        "paisID": 127,
+                        "nombre": "Lesotho"
+                    },
+                    {
+                        "paisID": 128,
+                        "nombre": "Letonia"
+                    },
+                    {
+                        "paisID": 129,
+                        "nombre": "Líbano"
+                    },
+                    {
+                        "paisID": 130,
+                        "nombre": "Liberia"
+                    },
+                    {
+                        "paisID": 131,
+                        "nombre": "Libia"
+                    },
+                    {
+                        "paisID": 132,
+                        "nombre": "Liechtenstein"
+                    },
+                    {
+                        "paisID": 133,
+                        "nombre": "Lituania"
+                    },
+                    {
+                        "paisID": 134,
+                        "nombre": "Luxemburgo"
+                    },
+                    {
+                        "paisID": 135,
+                        "nombre": "Macao"
+                    },
+                    {
+                        "paisID": 136,
+                        "nombre": "Macedonia"
+                    },
+                    {
+                        "paisID": 137,
+                        "nombre": "Madagascar"
+                    },
+                    {
+                        "paisID": 138,
+                        "nombre": "Malasia"
+                    },
+                    {
+                        "paisID": 139,
+                        "nombre": "Malawi"
+                    },
+                    {
+                        "paisID": 140,
+                        "nombre": "Maldivas"
+                    },
+                    {
+                        "paisID": 141,
+                        "nombre": "Malí"
+                    },
+                    {
+                        "paisID": 142,
+                        "nombre": "Malta"
+                    },
+                    {
+                        "paisID": 143,
+                        "nombre": "Marruecos"
+                    },
+                    {
+                        "paisID": 144,
+                        "nombre": "Martinica"
+                    },
+                    {
+                        "paisID": 145,
+                        "nombre": "Mauricio"
+                    },
+                    {
+                        "paisID": 146,
+                        "nombre": "Mauritania"
+                    },
+                    {
+                        "paisID": 147,
+                        "nombre": "Mayotte"
+                    },
+                    {
+                        "paisID": 148,
+                        "nombre": "México"
+                    },
+                    {
+                        "paisID": 149,
+                        "nombre": "Micronesia"
+                    },
+                    {
+                        "paisID": 150,
+                        "nombre": "Moldavia"
+                    },
+                    {
+                        "paisID": 151,
+                        "nombre": "Mónaco"
+                    },
+                    {
+                        "paisID": 152,
+                        "nombre": "Mongolia"
+                    },
+                    {
+                        "paisID": 153,
+                        "nombre": "Montserrat"
+                    },
+                    {
+                        "paisID": 154,
+                        "nombre": "Mozambique"
+                    },
+                    {
+                        "paisID": 155,
+                        "nombre": "Myanmar"
+                    },
+                    {
+                        "paisID": 156,
+                        "nombre": "Namibia"
+                    },
+                    {
+                        "paisID": 157,
+                        "nombre": "Nauru"
+                    },
+                    {
+                        "paisID": 158,
+                        "nombre": "Nepal"
+                    },
+                    {
+                        "paisID": 159,
+                        "nombre": "Nicaragua"
+                    },
+                    {
+                        "paisID": 160,
+                        "nombre": "Níger"
+                    },
+                    {
+                        "paisID": 161,
+                        "nombre": "Nigeria"
+                    },
+                    {
+                        "paisID": 162,
+                        "nombre": "Niue"
+                    },
+                    {
+                        "paisID": 163,
+                        "nombre": "Noruega"
+                    },
+                    {
+                        "paisID": 164,
+                        "nombre": "Nueva Caledonia"
+                    },
+                    {
+                        "paisID": 165,
+                        "nombre": "Nueva Zelanda"
+                    },
+                    {
+                        "paisID": 166,
+                        "nombre": "Omán"
+                    },
+                    {
+                        "paisID": 167,
+                        "nombre": "Países Bajos"
+                    },
+                    {
+                        "paisID": 168,
+                        "nombre": "Pakistán"
+                    },
+                    {
+                        "paisID": 169,
+                        "nombre": "Palau"
+                    },
+                    {
+                        "paisID": 170,
+                        "nombre": "Palestina"
+                    },
+                    {
+                        "paisID": 171,
+                        "nombre": "Panamá"
+                    },
+                    {
+                        "paisID": 172,
+                        "nombre": "Papúa Nueva Guinea"
+                    },
+                    {
+                        "paisID": 173,
+                        "nombre": "Paraguay"
+                    },
+                    {
+                        "paisID": 174,
+                        "nombre": "Perú"
+                    },
+                    {
+                        "paisID": 175,
+                        "nombre": "Polinesia Francesa"
+                    },
+                    {
+                        "paisID": 176,
+                        "nombre": "Polonia"
+                    },
+                    {
+                        "paisID": 177,
+                        "nombre": "Portugal"
+                    },
+                    {
+                        "paisID": 178,
+                        "nombre": "Puerto Rico"
+                    },
+                    {
+                        "paisID": 179,
+                        "nombre": "Qatar"
+                    },
+                    {
+                        "paisID": 180,
+                        "nombre": "Reino Unido"
+                    },
+                    {
+                        "paisID": 241,
+                        "nombre": "REP. Yeison"
+                    },
+                    {
+                        "paisID": 181,
+                        "nombre": "República Centroafricana"
+                    },
+                    {
+                        "paisID": 182,
+                        "nombre": "República Checa"
+                    },
+                    {
+                        "paisID": 183,
+                        "nombre": "República Democrática del Congo"
+                    },
+                    {
+                        "paisID": 184,
+                        "nombre": "República Dominicana"
+                    },
+                    {
+                        "paisID": 185,
+                        "nombre": "Reunión"
+                    },
+                    {
+                        "paisID": 186,
+                        "nombre": "Ruanda"
+                    },
+                    {
+                        "paisID": 187,
+                        "nombre": "Rumania"
+                    },
+                    {
+                        "paisID": 188,
+                        "nombre": "Rusia"
+                    },
+                    {
+                        "paisID": 189,
+                        "nombre": "Sahara Occidental"
+                    },
+                    {
+                        "paisID": 190,
+                        "nombre": "Samoa"
+                    },
+                    {
+                        "paisID": 191,
+                        "nombre": "Samoa Americana"
+                    },
+                    {
+                        "paisID": 192,
+                        "nombre": "San Cristóbal y Nevis"
+                    },
+                    {
+                        "paisID": 193,
+                        "nombre": "San Marino"
+                    },
+                    {
+                        "paisID": 194,
+                        "nombre": "San Pedro y Miquelón"
+                    },
+                    {
+                        "paisID": 195,
+                        "nombre": "San Vicente y las Granadinas"
+                    },
+                    {
+                        "paisID": 196,
+                        "nombre": "Santa Helena"
+                    },
+                    {
+                        "paisID": 197,
+                        "nombre": "Santa Lucía"
+                    },
+                    {
+                        "paisID": 198,
+                        "nombre": "Santo Tomé y Príncipe"
+                    },
+                    {
+                        "paisID": 199,
+                        "nombre": "Senegal"
+                    },
+                    {
+                        "paisID": 200,
+                        "nombre": "Serbia y Montenegro"
+                    },
+                    {
+                        "paisID": 201,
+                        "nombre": "Seychelles"
+                    },
+                    {
+                        "paisID": 202,
+                        "nombre": "Sierra Leona"
+                    },
+                    {
+                        "paisID": 203,
+                        "nombre": "Singapur"
+                    },
+                    {
+                        "paisID": 204,
+                        "nombre": "Siria"
+                    },
+                    {
+                        "paisID": 205,
+                        "nombre": "Somalia"
+                    },
+                    {
+                        "paisID": 206,
+                        "nombre": "Sri Lanka"
+                    },
+                    {
+                        "paisID": 207,
+                        "nombre": "Suazilandia"
+                    },
+                    {
+                        "paisID": 208,
+                        "nombre": "Sudáfrica"
+                    },
+                    {
+                        "paisID": 209,
+                        "nombre": "Sudán"
+                    },
+                    {
+                        "paisID": 210,
+                        "nombre": "Suecia"
+                    },
+                    {
+                        "paisID": 211,
+                        "nombre": "Suiza"
+                    },
+                    {
+                        "paisID": 212,
+                        "nombre": "Surinam"
+                    },
+                    {
+                        "paisID": 213,
+                        "nombre": "Svalbard y Jan Mayen"
+                    },
+                    {
+                        "paisID": 214,
+                        "nombre": "Tailandia"
+                    },
+                    {
+                        "paisID": 215,
+                        "nombre": "Taiwán"
+                    },
+                    {
+                        "paisID": 216,
+                        "nombre": "Tanzania"
+                    },
+                    {
+                        "paisID": 217,
+                        "nombre": "Tayikistán"
+                    },
+                    {
+                        "paisID": 218,
+                        "nombre": "Territorio Británico del Océano Índico"
+                    },
+                    {
+                        "paisID": 219,
+                        "nombre": "Territorios Australes Franceses"
+                    },
+                    {
+                        "paisID": 220,
+                        "nombre": "Timor Oriental"
+                    },
+                    {
+                        "paisID": 221,
+                        "nombre": "Togo"
+                    },
+                    {
+                        "paisID": 222,
+                        "nombre": "Tokelau"
+                    },
+                    {
+                        "paisID": 223,
+                        "nombre": "Tonga"
+                    },
+                    {
+                        "paisID": 224,
+                        "nombre": "Trinidad y Tobago"
+                    },
+                    {
+                        "paisID": 225,
+                        "nombre": "Túnez"
+                    },
+                    {
+                        "paisID": 226,
+                        "nombre": "Turkmenistán"
+                    },
+                    {
+                        "paisID": 227,
+                        "nombre": "Turquía"
+                    },
+                    {
+                        "paisID": 228,
+                        "nombre": "Tuvalu"
+                    },
+                    {
+                        "paisID": 229,
+                        "nombre": "Ucrania"
+                    },
+                    {
+                        "paisID": 230,
+                        "nombre": "Uganda"
+                    },
+                    {
+                        "paisID": 231,
+                        "nombre": "Uruguay"
+                    },
+                    {
+                        "paisID": 232,
+                        "nombre": "Uzbekistán"
+                    },
+                    {
+                        "paisID": 233,
+                        "nombre": "Vanuatu"
+                    },
+                    {
+                        "paisID": 234,
+                        "nombre": "Venezuela"
+                    },
+                    {
+                        "paisID": 235,
+                        "nombre": "Vietnam"
+                    },
+                    {
+                        "paisID": 236,
+                        "nombre": "Wallis y Futuna"
+                    },
+                    {
+                        "paisID": 248,
+                        "nombre": "yeik z"
+                    },
+                    {
+                        "paisID": 237,
+                        "nombre": "Yemen"
+                    },
+                    {
+                        "paisID": 238,
+                        "nombre": "Yibuti"
+                    },
+                    {
+                        "paisID": 239,
+                        "nombre": "Zambia"
+                    },
+                    {
+                        "paisID": 240,
+                        "nombre": "Zimbabue"
+                    }
+                ]
+            }
+      operationId: get-countries
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcxNTc3NzQ3LCAiZXhwIjoxNjcxNTg0OTQ3IH0.2l7Nkyw6DePLNm7GTfleH7fK7rlDeYTIIeKoCaQPEOA
+          in: header
+          name: accessToken
+          description: Token de validación de sesión.
+          required: true
+    post:
+      summary: ''
+      operationId: post-countries
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "PaisID": 249,
+                    "FechaHoraUsuario": "2022-12-20T18:32:58.328",
+                    "NombreUsuario": "ADMINISTRADOR"
+                }
+            }
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcxNTc3NzQ3LCAiZXhwIjoxNjcxNTg0OTQ3IH0.2l7Nkyw6DePLNm7GTfleH7fK7rlDeYTIIeKoCaQPEOA
+          in: header
+          name: accessToken
+          description: Token de validación de sesión.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  PaisID: ''
+                  Nombre: holayei
+                  ContinenteID: '1'
+                  TipoOperacionTerceroID: '180'
+                  IsoNumerico: '25'
+                  Iso2: YY
+                  Iso3: YEY
+                  OrigenOperacionFacturaID: ''
+                  ControlProvincia: '1'
+              properties:
+                PaisID:
+                  type: string
+                Nombre:
+                  type: string
+                ContinenteID:
+                  type: string
+                TipoOperacionTerceroID:
+                  type: string
+                IsoNumerico:
+                  type: string
+                Iso2:
+                  type: string
+                Iso3:
+                  type: string
+                OrigenOperacionFacturaID:
+                  type: string
+                ControlProvincia:
+                  type: string
+              required:
+                - Nombre
+                - ContinenteID
+  '/countries/{paisID}':
+    parameters:
+      - schema:
+          type: string
+        name: paisID
+        in: path
+    put:
+      summary: ''
+      operationId: put-countries-paisID
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true
+                }
+            }
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  PaisID: ''
+                  Nombre: yeik real
+                  ContinenteID: '1'
+                  TipoOperacionTerceroID: '180'
+                  IsoNumerico: '30'
+                  Iso2: OE
+                  Iso3: YEI
+                  OrigenOperacionFacturaID: ''
+                  ControlProvincia: '1'
+              properties:
+                PaisID:
+                  type: string
+                Nombre:
+                  type: string
+                ContinenteID:
+                  type: string
+                TipoOperacionTerceroID:
+                  type: string
+                IsoNumerico:
+                  type: string
+                Iso2:
+                  type: string
+                Iso3:
+                  type: string
+                OrigenOperacionFacturaID:
+                  type: string
+                ControlProvincia:
+                  type: string
+              required:
+                - PaisID
+                - Nombre
+                - ContinenteID
+      parameters:
+        - schema:
+            type: string
+          in: header
+          description: Token de validación de sesión.
+          name: accessToken
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      examples:
+        - id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified

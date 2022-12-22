@@ -1,0 +1,157 @@
+openapi: 3.1.0
+x-stoplight:
+  id: cwacn1lpc104w
+info:
+  title: ApiPostalCodes
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/postalcodes/{municipioID}':
+    parameters:
+      - schema:
+          type: string
+        name: municipioID
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "resultadosBusqueda": [
+                        {
+                            "MunicipioID": 111,
+                            "CodigoPostalID": 255,
+                            "PaisID": 63,
+                            "Municipio": "ECATEPEC DE MORELOS ",
+                            "CodigoPostal": "02120"
+                        },
+                        {
+                            "MunicipioID": 111,
+                            "CodigoPostalID": 256,
+                            "PaisID": 63,
+                            "Municipio": "ECATEPEC DE MORELOS ",
+                            "CodigoPostal": "02127"
+                        },
+                        {
+                            "MunicipioID": 111,
+                            "CodigoPostalID": 257,
+                            "PaisID": 63,
+                            "Municipio": "ECATEPEC DE MORELOS ",
+                            "CodigoPostal": "02128"
+                        },
+                        {
+                            "MunicipioID": 111,
+                            "CodigoPostalID": 14957,
+                            "PaisID": 148,
+                            "Municipio": "ECATEPEC DE MORELOS ",
+                            "CodigoPostal": "55065"
+                        },
+                        {
+                            "MunicipioID": 111,
+                            "CodigoPostalID": 14972,
+                            "PaisID": 148,
+                            "Municipio": "ECATEPEC DE MORELOS ",
+                            "CodigoPostal": "55310"
+                        },
+                        {
+                            "MunicipioID": 111,
+                            "CodigoPostalID": 14980,
+                            "PaisID": 148,
+                            "Municipio": "ECATEPEC DE MORELOS ",
+                            "CodigoPostal": "55066"
+                        },
+                        {
+                            "MunicipioID": 111,
+                            "CodigoPostalID": 14997,
+                            "PaisID": 148,
+                            "Municipio": "ECATEPEC DE MORELOS ",
+                            "CodigoPostal": "55240"
+                        },
+                        {
+                            "MunicipioID": 111,
+                            "CodigoPostalID": 15043,
+                            "PaisID": 148,
+                            "Municipio": "ECATEPEC DE MORELOS ",
+                            "CodigoPostal": "55040"
+                        },
+                        {
+                            "MunicipioID": 111,
+                            "CodigoPostalID": 15048,
+                            "PaisID": 148,
+                            "Municipio": "ECATEPEC DE MORELOS ",
+                            "CodigoPostal": "55010"
+                        },
+                        {
+                            "MunicipioID": 111,
+                            "CodigoPostalID": 15057,
+                            "PaisID": 148,
+                            "Municipio": "ECATEPEC DE MORELOS ",
+                            "CodigoPostal": "55070"
+                        }
+                    ]
+                }
+            }
+      operationId: get-postalcodes-municipioID
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcxNTcwNDcwLCAiZXhwIjoxNjcxNTc3NjcwIH0.V54BUtjdMPoPG9OTao4uivCo8fi2pSDXvoqyB7BIsIs
+          in: header
+          description: Token de validación de sesión.
+          name: accessToken
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      examples:
+        - id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified

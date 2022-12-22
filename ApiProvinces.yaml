@@ -1,0 +1,352 @@
+openapi: 3.1.0
+x-stoplight:
+  id: ifldhoglcr5jj
+info:
+  title: ApiProvinces
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /provinces:
+    parameters: []
+    post:
+      summary: ''
+      operationId: post-provinces
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "ProvinciaID": 296
+                }
+            }
+        '400':
+          description: |-
+            {
+                "statusCode": 400,
+                "message": "Este Código de Provincia ya existe."
+            }
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcxNTYxMzA4LCAiZXhwIjoxNjcxNTY4NTA4IH0.T2gnRBbJHegCxBxCxHsMURYveynVjENgoyPxSBsyhcc
+          in: header
+          name: accessToken
+          description: Token de validación de sesión.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  ProvinciaID: ''
+                  Nombre: MiNuevoNpmbre
+                  ComunidadID: ''
+                  Codigo: 456asd
+                  PaisID: '148'
+                  TipoOperacionProvinciaID: '1'
+              properties:
+                ProvinciaID:
+                  type: string
+                Nombre:
+                  type: string
+                ComunidadID:
+                  type: string
+                Codigo:
+                  type: string
+                PaisID:
+                  type: string
+                TipoOperacionProvinciaID:
+                  type: string
+              required:
+                - Codigo
+        description: ''
+  '/provinces/{paisID}':
+    parameters:
+      - schema:
+          type: string
+        name: paisID
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: |-
+            O{
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": [
+                    {
+                        "provinciaID": 1,
+                        "nombre": "CHIAPAS"
+                    },
+                    {
+                        "provinciaID": 2,
+                        "nombre": "TABASCO"
+                    },
+                    {
+                        "provinciaID": 3,
+                        "nombre": "OAXACA"
+                    },
+                    {
+                        "provinciaID": 4,
+                        "nombre": "VERACRUZ"
+                    },
+                    {
+                        "provinciaID": 5,
+                        "nombre": "CAMPECHE"
+                    },
+                    {
+                        "provinciaID": 6,
+                        "nombre": "YUCATAN"
+                    },
+                    {
+                        "provinciaID": 7,
+                        "nombre": "QUINTANA ROO"
+                    },
+                    {
+                        "provinciaID": 8,
+                        "nombre": "PUEBLA"
+                    },
+                    {
+                        "provinciaID": 9,
+                        "nombre": "GUERRERO"
+                    },
+                    {
+                        "provinciaID": 10,
+                        "nombre": "CDMX"
+                    },
+                    {
+                        "provinciaID": 11,
+                        "nombre": "JALISCO"
+                    },
+                    {
+                        "provinciaID": 12,
+                        "nombre": "GUANAJUATO"
+                    },
+                    {
+                        "provinciaID": 13,
+                        "nombre": "CHIHUAHUA"
+                    },
+                    {
+                        "provinciaID": 17,
+                        "nombre": "COAHUILA"
+                    },
+                    {
+                        "provinciaID": 18,
+                        "nombre": "COLIMA"
+                    },
+                    {
+                        "provinciaID": 19,
+                        "nombre": "HIDALGO "
+                    },
+                    {
+                        "provinciaID": 20,
+                        "nombre": "MEXICO"
+                    },
+                    {
+                        "provinciaID": 21,
+                        "nombre": "MICHOACAN"
+                    },
+                    {
+                        "provinciaID": 22,
+                        "nombre": "MORELIA"
+                    },
+                    {
+                        "provinciaID": 23,
+                        "nombre": "NUEVO LEON "
+                    },
+                    {
+                        "provinciaID": 24,
+                        "nombre": "QUERETARO"
+                    },
+                    {
+                        "provinciaID": 25,
+                        "nombre": "SAN LUIS POTOSI"
+                    },
+                    {
+                        "provinciaID": 26,
+                        "nombre": "SINALOA"
+                    },
+                    {
+                        "provinciaID": 36,
+                        "nombre": "ZACATECAS"
+                    },
+                    {
+                        "provinciaID": 39,
+                        "nombre": "TAMAULIPAS "
+                    },
+                    {
+                        "provinciaID": 50,
+                        "nombre": "HERMOSILLO"
+                    },
+                    {
+                        "provinciaID": 285,
+                        "nombre": ""
+                    },
+                    {
+                        "provinciaID": 287,
+                        "nombre": "AGUASCALIENTES"
+                    },
+                    {
+                        "provinciaID": 288,
+                        "nombre": "MORELOS"
+                    },
+                    {
+                        "provinciaID": 294,
+                        "nombre": "MiNuevoNpmbre"
+                    },
+                    {
+                        "provinciaID": 296,
+                        "nombre": "MiNuevoNpmbre"
+                    },
+                    {
+                        "provinciaID": 299,
+                        "nombre": "MORELOS"
+                    }
+                ]
+            }
+      operationId: get-provinces-paisID
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcxNTcwNDcwLCAiZXhwIjoxNjcxNTc3NjcwIH0.V54BUtjdMPoPG9OTao4uivCo8fi2pSDXvoqyB7BIsIs
+          in: header
+          name: accessToken
+          description: Token de validación de sesión.
+          required: true
+  '/provinces/{provinciaID}':
+    parameters:
+      - schema:
+          type: string
+        name: provinciaID
+        in: path
+        required: true
+    delete:
+      summary: ''
+      operationId: delete-provinces-provinciaID
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true
+                }
+            }
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcxNTcwNDcwLCAiZXhwIjoxNjcxNTc3NjcwIH0.V54BUtjdMPoPG9OTao4uivCo8fi2pSDXvoqyB7BIsIs
+          in: header
+          name: accessToken
+          description: Token de validación de sesión.
+          required: true
+    put:
+      summary: ''
+      operationId: put-provinces-provinciaID
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true
+                }
+            }
+        '400':
+          description: |-
+            {
+                "statusCode": 400,
+                "message": "Este Código de Provincia ya existe."
+            }
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  ProvinciaID: ''
+                  Nombre: MiNuevoNpmbre
+                  ComunidadID: ''
+                  Codigo: 456asd
+                  PaisID: '148'
+                  TipoOperacionProvinciaID: '1'
+              properties:
+                ProvinciaID:
+                  type: string
+                Nombre:
+                  type: string
+                ComunidadID:
+                  type: string
+                Codigo:
+                  type: string
+                PaisID:
+                  type: string
+                TipoOperacionProvinciaID:
+                  type: string
+              required:
+                - ProvinciaID
+                - Codigo
+                - PaisID
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcxNTcwNDcwLCAiZXhwIjoxNjcxNTc3NjcwIH0.V54BUtjdMPoPG9OTao4uivCo8fi2pSDXvoqyB7BIsIs
+          in: header
+          name: accessToken
+          description: Token de validación de Sesión.
+          required: true
+      description: ''
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      examples:
+        - id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified

@@ -1,0 +1,329 @@
+openapi: 3.1.0
+x-stoplight:
+  id: ad4zcwc4qishu
+info:
+  title: ApiMunicipalities
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /municipalities:
+    post:
+      summary: Create New User
+      operationId: post-user
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "MunicipioID": 180
+                }
+            }
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                New User Bob Fellow:
+                  value:
+                    id: 12
+                    firstName: Bob
+                    lastName: Fellow
+                    email: bob.fellow@gmail.com
+                    dateOfBirth: '1996-08-24'
+                    emailVerified: false
+                    createDate: '2020-11-18'
+        '400':
+          description: |-
+            {
+                "statusCode": 400,
+                "message": "Este Municipio ya existe en esta Provincia"
+            }
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  MunicipioID: ''
+                  CodPostal: '1999'
+                  Nombre: YeiLand
+                  ProvinciaID: '3'
+                  Codigo: 19YEIi
+                  PaisID: '45'
+              properties:
+                MunicipioID:
+                  type: string
+                CodPostal:
+                  type: string
+                Nombre:
+                  type: string
+                ProvinciaID:
+                  type: string
+                Codigo:
+                  type: string
+                PaisID:
+                  type: string
+              required:
+                - ProvinciaID
+                - Codigo
+                - PaisID
+            examples:
+              Create User Bob Fellow:
+                value:
+                  firstName: Bob
+                  lastName: Fellow
+                  email: bob.fellow@gmail.com
+                  dateOfBirth: '1996-08-24'
+        description: Post the necessary fields for the API to create a new user.
+      description: Create a new user.
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcxNTcwNDcwLCAiZXhwIjoxNjcxNTc3NjcwIH0.V54BUtjdMPoPG9OTao4uivCo8fi2pSDXvoqyB7BIsIs
+          in: header
+          name: accessToken
+          description: Token de validación de sesión.
+          required: true
+    parameters: []
+  '/municipalities/{municipioID}':
+    parameters:
+      - schema:
+          type: string
+        name: municipioID
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: put-municipalities-municipioID
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcxNTcwNDcwLCAiZXhwIjoxNjcxNTc3NjcwIH0.V54BUtjdMPoPG9OTao4uivCo8fi2pSDXvoqyB7BIsIs
+          in: header
+          name: accessToken
+          description: Token de validación de sesión.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  MunicipioID: ''
+                  CodPostal: '1999'
+                  Nombre: YeiLand
+                  ProvinciaID: '3'
+                  Codigo: 19YEIi
+                  PaisID: '45'
+              properties:
+                MunicipioID:
+                  type: string
+                CodPostal:
+                  type: string
+                Nombre:
+                  type: string
+                ProvinciaID:
+                  type: string
+                Codigo:
+                  type: string
+                PaisID:
+                  type: string
+              required:
+                - MunicipioID
+                - CodPostal
+                - ProvinciaID
+                - Codigo
+                - PaisID
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true
+                }
+            }
+        '400':
+          description: |-
+            {
+                "statusCode": 400,
+                "message": "Ya existe un Municipio con el mismo Código Postal"
+            }
+    delete:
+      summary: ''
+      operationId: delete-municipalities-municipioID
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true
+                }
+            }
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcxNTcwNDcwLCAiZXhwIjoxNjcxNTc3NjcwIH0.V54BUtjdMPoPG9OTao4uivCo8fi2pSDXvoqyB7BIsIs
+          in: header
+          name: accessToken
+          description: Token de validación de sesión.
+          required: true
+  '/municipalities/{provinciaID}':
+    parameters:
+      - schema:
+          type: string
+        name: provinciaID
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": [
+                    {
+                        "municipioID": 32,
+                        "CodPostal": "9310",
+                        "Nombre": "IZTAPALAPA"
+                    },
+                    {
+                        "municipioID": 33,
+                        "CodPostal": "6400",
+                        "Nombre": "CUAUHTEMOC"
+                    },
+                    {
+                        "municipioID": 34,
+                        "CodPostal": "2610",
+                        "Nombre": "MEXICO"
+                    },
+                    {
+                        "municipioID": 35,
+                        "CodPostal": "11510",
+                        "Nombre": "MIGUEL HIDALGO"
+                    },
+                    {
+                        "municipioID": 36,
+                        "CodPostal": "7800",
+                        "Nombre": "GUSTAVO A MADERO"
+                    },
+                    {
+                        "municipioID": 37,
+                        "CodPostal": "11500",
+                        "Nombre": "DF"
+                    },
+                    {
+                        "municipioID": 38,
+                        "CodPostal": "54940",
+                        "Nombre": "TULTITLAN"
+                    },
+                    {
+                        "municipioID": 39,
+                        "CodPostal": "2099",
+                        "Nombre": "MEXICO DF AZCAPOTZALCO"
+                    },
+                    {
+                        "municipioID": 107,
+                        "CodPostal": "13210",
+                        "Nombre": "TLAHUAC"
+                    },
+                    {
+                        "municipioID": 112,
+                        "CodPostal": " 06500 ",
+                        "Nombre": "Cuatemoc"
+                    },
+                    {
+                        "municipioID": 118,
+                        "CodPostal": "01030",
+                        "Nombre": "ALVARO OBREGON"
+                    },
+                    {
+                        "municipioID": 121,
+                        "CodPostal": "03530",
+                        "Nombre": "BENITO JUAREZ"
+                    },
+                    {
+                        "municipioID": 126,
+                        "CodPostal": "08400",
+                        "Nombre": "IZTACALCO"
+                    },
+                    {
+                        "municipioID": 127,
+                        "CodPostal": "02630",
+                        "Nombre": "AZCAPOTZALCO"
+                    },
+                    {
+                        "municipioID": 130,
+                        "CodPostal": "15850",
+                        "Nombre": "VENUSTIANO CARRANZA"
+                    },
+                    {
+                        "municipioID": 153,
+                        "CodPostal": "05348",
+                        "Nombre": "CUAJIMALPA DE MORELOS "
+                    }
+                ]
+            }
+      operationId: get-municipalities-provinciaID
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcxNTcwNDcwLCAiZXhwIjoxNjcxNTc3NjcwIH0.V54BUtjdMPoPG9OTao4uivCo8fi2pSDXvoqyB7BIsIs
+          in: header
+          name: accessToken
+          description: Token de validación de sesión.
+          required: true
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      examples:
+        - id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified
