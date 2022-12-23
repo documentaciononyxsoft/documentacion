@@ -1,0 +1,295 @@
+openapi: 3.1.0
+x-stoplight:
+  id: ex3qawwky7ghx
+info:
+  title: ApiTranslations
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /translations:
+    post:
+      summary: Create
+      operationId: post-user
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "msg": "La Traduccion se ha Guardado exitosamente.",
+                    "TraduccionContenidoID": 10,
+                    "FechaHoraUsuario": "2022-12-22T19:23:24.446",
+                    "NombreUsuario": "ADMINISTRADOR"
+                }
+            }
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                New User Bob Fellow:
+                  value:
+                    id: 12
+                    firstName: Bob
+                    lastName: Fellow
+                    email: bob.fellow@gmail.com
+                    dateOfBirth: '1996-08-24'
+                    emailVerified: false
+                    createDate: '2020-11-18'
+        '400':
+          description: |-
+            {
+                "statusCode": 400,
+                "message": "El Campo ya esta Traducido."
+            }
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  TraduccionContenidoID: ''
+                  TablaOrigen: FormaPagoCobro
+                  TablaOrigenId: '12'
+                  Campo: Codigo
+                  IdiomaID: '570'
+                  Traduccion: codes yei
+              properties:
+                TraduccionContenidoID:
+                  type: number
+                TablaOrigen:
+                  type: string
+                TablaOrigenId:
+                  type: number
+                Campo:
+                  type: string
+                IdiomaID:
+                  type: number
+                Traduccion:
+                  type: string
+              required:
+                - TablaOrigen
+                - TablaOrigenId
+                - Campo
+                - IdiomaID
+            examples:
+              Create User Bob Fellow:
+                value:
+                  firstName: Bob
+                  lastName: Fellow
+                  email: bob.fellow@gmail.com
+                  dateOfBirth: '1996-08-24'
+        description: Post the necessary fields for the API to create a new user.
+      description: Create a new user.
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcxNzU0MDE4LCAiZXhwIjoxNjcxNzYxMjE4IH0.JD0j7PTqTFgXGP-pgdVdXrphh0hNFINK1Nkm9mtyKcc
+          in: header
+          name: accessToken
+          description: Token de Validación.
+          required: true
+    parameters: []
+  '/translations/{traduccionContenidoID}':
+    parameters:
+      - schema:
+          type: string
+        name: traduccionContenidoID
+        in: path
+        required: true
+    put:
+      summary: Update
+      operationId: put-translations-tablaOrigenID
+      responses:
+        '200':
+          description: OK
+        '':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "msg": "La Traduccion se ha modificado exitosamente."
+                }
+            }
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcxNzU0MDE4LCAiZXhwIjoxNjcxNzYxMjE4IH0.JD0j7PTqTFgXGP-pgdVdXrphh0hNFINK1Nkm9mtyKcc
+          in: header
+          name: accessToken
+          description: Token de Validación.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  TraduccionContenidoID: ''
+                  TablaOrigen: FormaPagoCobro
+                  TablaOrigenId: '12'
+                  Campo: Codigo
+                  IdiomaID: '571'
+                  Traduccion: codes yei franchesco
+              properties:
+                TraduccionContenidoID:
+                  type: string
+                TablaOrigen:
+                  type: string
+                TablaOrigenId:
+                  type: string
+                Campo:
+                  type: string
+                IdiomaID:
+                  type: string
+                Traduccion:
+                  type: string
+              required:
+                - TraduccionContenidoID
+                - TablaOrigen
+                - TablaOrigenId
+                - Campo
+                - IdiomaID
+    delete:
+      summary: Remove
+      operationId: delete-translations-traduccionContenidoID
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "msg": "La Traduccion ha sido Eliminada exitosamente."
+                }
+            }
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcxNzU0MDE4LCAiZXhwIjoxNjcxNzYxMjE4IH0.JD0j7PTqTFgXGP-pgdVdXrphh0hNFINK1Nkm9mtyKcc
+          in: header
+          name: accessToken
+          description: Token de Validación.
+          required: true
+  '/translations/{tablaOrigenID}':
+    parameters:
+      - schema:
+          type: string
+        name: tablaOrigenID
+        in: path
+        required: true
+    get:
+      summary: FindManyByOriginTable
+      tags: []
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "sql": "SELECT * \r\nFROM traduccioncontenido \r\nWHERE traduccioncontenido.EmpresaID = 1 AND\r\ntraduccioncontenido.CustomerID = 29 AND \r\ntraduccioncontenido.TablaOrigen = \"FormaPagoCobro\" AND\r\ntraduccioncontenido.TablaOrigenId = 12 ",
+                    "records": [
+                        {
+                            "TraduccionContenidoID": 10,
+                            "UsuarioID": 1,
+                            "FechaHoraUsuario": "2022-12-22T19:23:24.446",
+                            "TablaOrigen": "FormaPagoCobro",
+                            "TablaOrigenId": 12,
+                            "Campo": "Codigo",
+                            "IdiomaID": 571,
+                            "Traduccion": "codes yei franchesco"
+                        },
+                        {
+                            "TraduccionContenidoID": 15,
+                            "UsuarioID": 1,
+                            "FechaHoraUsuario": "2022-12-22T20:01:10.713",
+                            "TablaOrigen": "FormaPagoCobro",
+                            "TablaOrigenId": 12,
+                            "Campo": "Codigo Externo",
+                            "IdiomaID": 570,
+                            "Traduccion": "code extern yei"
+                        },
+                        {
+                            "TraduccionContenidoID": 16,
+                            "UsuarioID": 1,
+                            "FechaHoraUsuario": "2022-12-22T20:01:16.269",
+                            "TablaOrigen": "FormaPagoCobro",
+                            "TablaOrigenId": 12,
+                            "Campo": "Codigo Externo",
+                            "IdiomaID": 571,
+                            "Traduccion": "code extern yei"
+                        },
+                        {
+                            "TraduccionContenidoID": 14,
+                            "UsuarioID": 1,
+                            "FechaHoraUsuario": "2022-12-22T19:59:58.520",
+                            "TablaOrigen": "FormaPagoCobro",
+                            "TablaOrigenId": 12,
+                            "Campo": "Nombre",
+                            "IdiomaID": 570,
+                            "Traduccion": "Name yei"
+                        }
+                    ]
+                }
+            }
+      operationId: get-translations-tablaOrigenID
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcxNzU0MDE4LCAiZXhwIjoxNjcxNzYxMjE4IH0.JD0j7PTqTFgXGP-pgdVdXrphh0hNFINK1Nkm9mtyKcc
+          in: header
+          name: accessToken
+          description: Token de Validación.
+          required: true
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      examples:
+        - id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified

@@ -10,7 +10,7 @@ paths:
   /Ivas:
     parameters: []
     get:
-      summary: ''
+      summary: FindAll
       operationId: get-Ivas
       responses:
         '200':
@@ -243,7 +243,7 @@ paths:
           description: Token de validación de sesión.
           required: true
     post:
-      summary: ''
+      summary: Create
       operationId: post-Ivas
       responses:
         '200':
@@ -339,7 +339,7 @@ paths:
         in: path
         required: true
     put:
-      summary: ''
+      summary: Update
       operationId: put-Ivas-ivaID
       responses:
         '200':
@@ -422,7 +422,7 @@ paths:
                 - Nombre
                 - TipoIvaID
     delete:
-      summary: ''
+      summary: Remove
       operationId: delete-Ivas-ivaID
       responses:
         '200':

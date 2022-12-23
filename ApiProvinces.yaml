@@ -10,7 +10,7 @@ paths:
   /provinces:
     parameters: []
     post:
-      summary: ''
+      summary: Create
       operationId: post-provinces
       responses:
         '200':
@@ -74,7 +74,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Your GET endpoint
+      summary: FindManyByCountry
       tags: []
       responses:
         '200':
@@ -230,7 +230,7 @@ paths:
         in: path
         required: true
     delete:
-      summary: ''
+      summary: Remove
       operationId: delete-provinces-provinciaID
       responses:
         '200':
@@ -251,7 +251,7 @@ paths:
           description: Token de validación de sesión.
           required: true
     put:
-      summary: ''
+      summary: Update
       operationId: put-provinces-provinciaID
       responses:
         '200':
