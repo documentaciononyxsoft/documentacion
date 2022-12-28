@@ -7,9 +7,9 @@ info:
 servers:
   - url: 'http://15.236.85.216/'
 paths:
-  /sales/orders:
+  /sales/orders/:
     post:
-      summary: ''
+      summary: Create SaleOrder
       operationId: post-sales-orders
       responses:
         '200':
@@ -236,6 +236,20 @@ paths:
                     notaCliente: string
                     notaGeneral: string
       description: ''
+    parameters: []
+  '/sales/orders/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: put-sales-orders
+      responses:
+        '200':
+          description: OK
 components:
   schemas:
     User:
