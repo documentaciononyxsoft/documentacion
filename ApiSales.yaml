@@ -7435,8 +7435,9 @@ paths:
         name: saleorderid
         in: path
         required: true
+        description: ID del pedido
     post:
-      summary: ''
+      summary: Create Lines
       operationId: post-sales-orders-saleorderid-lines
       responses:
         '200':
@@ -7783,6 +7784,509 @@ paths:
         - schema:
             type: string
             example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzI0NjE4LCAiZXhwIjoxNjcyMzMxODE4IH0.gbz6m9KxwMuXwMh_bDQjXlQDBgr_ic9f3SAxvOs2gkM
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+  /sales/receipts:
+    post:
+      summary: Create Receipts
+      operationId: post-sales-receipts
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "AlbaranVentaCabeceraID": 2744,
+                    "numero": 12,
+                    "success": true
+                }
+            }
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzM0Mjg4LCAiZXhwIjoxNjcyMzQxNDg4IH0.UhH8yi-ah0ffeVORj47WjSn35LH1GnZoj39ufwvy8i0
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cabecera:
+                  type: object
+                  properties:
+                    SerieAlbaranID:
+                      type: string
+                    Numero:
+                      type: string
+                    AlmacenID:
+                      type: string
+                    Fecha:
+                      type: string
+                    ClienteID:
+                      type: string
+                    TelefonoEnvio:
+                      type: string
+                    TipoID:
+                      type: string
+                    FechaSalida:
+                      type: string
+                    Prestamo:
+                      type: string
+                    ControlEntrega:
+                      type: string
+                    NotaGeneral:
+                      type: string
+                    NotaCliente:
+                      type: string
+                    NotaAlmacen:
+                      type: string
+                    NotaEtiqueta:
+                      type: string
+                facturacion:
+                  type: object
+                  properties:
+                    ClienteFacturaID:
+                      type: string
+                    FormaPagoID:
+                      type: string
+                    NoFacturar:
+                      type: string
+                    NumeroVencimiento:
+                      type: string
+                    DiasPrimerVencimiento:
+                      type: string
+                    DiasResto:
+                      type: string
+                    DiaFijoPago1:
+                      type: string
+                    DiaFijoPago2:
+                      type: string
+                    DiaFijoPago3:
+                      type: string
+                    DiaFijoPago4:
+                      type: string
+                    MesVacacion:
+                      type: string
+                    DiaSiguientePago:
+                      type: string
+                    PorcentajeDtoComercial1:
+                      type: string
+                    PorcentajeDtoComercial2:
+                      type: string
+                    PorcentajeDtoComercial3:
+                      type: string
+                    PorcentajeDtoProntoPago:
+                      type: string
+                    PorcentajeDtoEspecial1:
+                      type: string
+                    PorcentajeDtoEspecial2:
+                      type: string
+                    IvaGastoFinancieroID:
+                      type: string
+                    NumeroCopiasFactura:
+                      type: string
+                    AgruparAlbaran:
+                      type: string
+                    MonedaID:
+                      type: string
+                    MonedaCambio:
+                      type: string
+                    ImporteOtroGasto:
+                      type: string
+                    IvaID:
+                      type: string
+                    SerieFacturaID:
+                      type: string
+                    TipoFacturacionID:
+                      type: string
+                    TipoRetencionID:
+                      type: string
+                    PorcentajeRetencionGarantia:
+                      type: string
+                    AlbaranValorado:
+                      type: string
+                    DireccionFacturaID:
+                      type: string
+                    DireccionEnvioFacturaID:
+                      type: string
+                    Banco:
+                      type: string
+                    cuentaAnticipoID:
+                      type: string
+              x-examples:
+                Example 1:
+                  cabecera:
+                    SerieAlbaranID: ''
+                    Numero: ''
+                    AlmacenID: ''
+                    Fecha: ''
+                    ClienteID: ''
+                    TelefonoEnvio: ''
+                    TipoID: ''
+                    FechaSalida: ''
+                    Prestamo: ''
+                    ControlEntrega: ''
+                    NotaGeneral: pruebaAlbaran
+                    NotaCliente: prueba  cliente
+                    NotaAlmacen: prueba almacen
+                    NotaEtiqueta: ''
+                  facturacion:
+                    ClienteFacturaID: ''
+                    FormaPagoID: ''
+                    NoFacturar: ''
+                    NumeroVencimiento: ''
+                    DiasPrimerVencimiento: ''
+                    DiasResto: ''
+                    DiaFijoPago1: ''
+                    DiaFijoPago2: ''
+                    DiaFijoPago3: ''
+                    DiaFijoPago4: ''
+                    MesVacacion: ''
+                    DiaSiguientePago: ''
+                    PorcentajeDtoComercial1: ''
+                    PorcentajeDtoComercial2: ''
+                    PorcentajeDtoComercial3: ''
+                    PorcentajeDtoProntoPago: ''
+                    PorcentajeDtoEspecial1: ''
+                    PorcentajeDtoEspecial2: ''
+                    IvaGastoFinancieroID: ''
+                    NumeroCopiasFactura: ''
+                    AgruparAlbaran: ''
+                    MonedaID: ''
+                    MonedaCambio: ''
+                    ImporteOtroGasto: ''
+                    IvaID: ''
+                    SerieFacturaID: ''
+                    TipoFacturacionID: ''
+                    TipoRetencionID: ''
+                    PorcentajeRetencionGarantia: ''
+                    AlbaranValorado: ''
+                    DireccionFacturaID: ''
+                    DireccionEnvioFacturaID: ''
+                    Banco: ''
+                    cuentaAnticipoID: ''
+            examples:
+              Example 1:
+                value:
+                  cabecera:
+                    SerieAlbaranID: string
+                    Numero: string
+                    AlmacenID: string
+                    Fecha: string
+                    ClienteID: string
+                    TelefonoEnvio: string
+                    TipoID: string
+                    FechaSalida: string
+                    Prestamo: string
+                    ControlEntrega: string
+                    NotaGeneral: string
+                    NotaCliente: string
+                    NotaAlmacen: string
+                    NotaEtiqueta: string
+                  facturacion:
+                    ClienteFacturaID: string
+                    FormaPagoID: string
+                    NoFacturar: string
+                    NumeroVencimiento: string
+                    DiasPrimerVencimiento: string
+                    DiasResto: string
+                    DiaFijoPago1: string
+                    DiaFijoPago2: string
+                    DiaFijoPago3: string
+                    DiaFijoPago4: string
+                    MesVacacion: string
+                    DiaSiguientePago: string
+                    PorcentajeDtoComercial1: string
+                    PorcentajeDtoComercial2: string
+                    PorcentajeDtoComercial3: string
+                    PorcentajeDtoProntoPago: string
+                    PorcentajeDtoEspecial1: string
+                    PorcentajeDtoEspecial2: string
+                    IvaGastoFinancieroID: string
+                    NumeroCopiasFactura: string
+                    AgruparAlbaran: string
+                    MonedaID: string
+                    MonedaCambio: string
+                    ImporteOtroGasto: string
+                    IvaID: string
+                    SerieFacturaID: string
+                    TipoFacturacionID: string
+                    TipoRetencionID: string
+                    PorcentajeRetencionGarantia: string
+                    AlbaranValorado: string
+                    DireccionFacturaID: string
+                    DireccionEnvioFacturaID: string
+                    Banco: string
+                    cuentaAnticipoID: string
+  '/sales/receipts/{id}':
+    parameters:
+      - schema:
+          type: string
+          example: '2744'
+        name: id
+        in: path
+        required: true
+        description: 'ID del recibo de venta '
+    put:
+      summary: ''
+      operationId: put-sales-receipts-id
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "AlbaranVentaCabeceraID": 2745,
+                    "numero": 13,
+                    "success": true
+                }
+            }
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzM0Mjg4LCAiZXhwIjoxNjcyMzQxNDg4IH0.UhH8yi-ah0ffeVORj47WjSn35LH1GnZoj39ufwvy8i0
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cabecera:
+                  type: object
+                  properties:
+                    SerieAlbaranID:
+                      type: string
+                    Numero:
+                      type: string
+                    AlmacenID:
+                      type: string
+                    Fecha:
+                      type: string
+                    ClienteID:
+                      type: string
+                    TelefonoEnvio:
+                      type: string
+                    TipoID:
+                      type: string
+                    FechaSalida:
+                      type: string
+                    Prestamo:
+                      type: string
+                    ControlEntrega:
+                      type: string
+                    NotaGeneral:
+                      type: string
+                    NotaCliente:
+                      type: string
+                    NotaAlmacen:
+                      type: string
+                    NotaEtiqueta:
+                      type: string
+                facturacion:
+                  type: object
+                  properties:
+                    ClienteFacturaID:
+                      type: string
+                    FormaPagoID:
+                      type: string
+                    NoFacturar:
+                      type: string
+                    NumeroVencimiento:
+                      type: string
+                    DiasPrimerVencimiento:
+                      type: string
+                    DiasResto:
+                      type: string
+                    DiaFijoPago1:
+                      type: string
+                    DiaFijoPago2:
+                      type: string
+                    DiaFijoPago3:
+                      type: string
+                    DiaFijoPago4:
+                      type: string
+                    MesVacacion:
+                      type: string
+                    DiaSiguientePago:
+                      type: string
+                    PorcentajeDtoComercial1:
+                      type: string
+                    PorcentajeDtoComercial2:
+                      type: string
+                    PorcentajeDtoComercial3:
+                      type: string
+                    PorcentajeDtoProntoPago:
+                      type: string
+                    PorcentajeDtoEspecial1:
+                      type: string
+                    PorcentajeDtoEspecial2:
+                      type: string
+                    IvaGastoFinancieroID:
+                      type: string
+                    NumeroCopiasFactura:
+                      type: string
+                    AgruparAlbaran:
+                      type: string
+                    MonedaID:
+                      type: string
+                    MonedaCambio:
+                      type: string
+                    ImporteOtroGasto:
+                      type: string
+                    IvaID:
+                      type: string
+                    SerieFacturaID:
+                      type: string
+                    TipoFacturacionID:
+                      type: string
+                    TipoRetencionID:
+                      type: string
+                    PorcentajeRetencionGarantia:
+                      type: string
+                    AlbaranValorado:
+                      type: string
+                    DireccionFacturaID:
+                      type: string
+                    DireccionEnvioFacturaID:
+                      type: string
+                    Banco:
+                      type: string
+                    cuentaAnticipoID:
+                      type: string
+              x-examples:
+                Example 1:
+                  cabecera:
+                    SerieAlbaranID: ''
+                    Numero: ''
+                    AlmacenID: ''
+                    Fecha: ''
+                    ClienteID: ''
+                    TelefonoEnvio: ''
+                    TipoID: ''
+                    FechaSalida: ''
+                    Prestamo: ''
+                    ControlEntrega: ''
+                    NotaGeneral: pruebaAlbaran actualizado
+                    NotaCliente: prueba  cliente
+                    NotaAlmacen: prueba almacen
+                    NotaEtiqueta: ''
+                  facturacion:
+                    ClienteFacturaID: ''
+                    FormaPagoID: ''
+                    NoFacturar: ''
+                    NumeroVencimiento: ''
+                    DiasPrimerVencimiento: ''
+                    DiasResto: ''
+                    DiaFijoPago1: ''
+                    DiaFijoPago2: ''
+                    DiaFijoPago3: ''
+                    DiaFijoPago4: ''
+                    MesVacacion: ''
+                    DiaSiguientePago: ''
+                    PorcentajeDtoComercial1: ''
+                    PorcentajeDtoComercial2: ''
+                    PorcentajeDtoComercial3: ''
+                    PorcentajeDtoProntoPago: ''
+                    PorcentajeDtoEspecial1: ''
+                    PorcentajeDtoEspecial2: ''
+                    IvaGastoFinancieroID: ''
+                    NumeroCopiasFactura: ''
+                    AgruparAlbaran: ''
+                    MonedaID: ''
+                    MonedaCambio: ''
+                    ImporteOtroGasto: ''
+                    IvaID: ''
+                    SerieFacturaID: ''
+                    TipoFacturacionID: ''
+                    TipoRetencionID: ''
+                    PorcentajeRetencionGarantia: ''
+                    AlbaranValorado: ''
+                    DireccionFacturaID: ''
+                    DireccionEnvioFacturaID: ''
+                    Banco: ''
+                    cuentaAnticipoID: ''
+            examples:
+              Example 1:
+                value:
+                  cabecera:
+                    SerieAlbaranID: string
+                    Numero: string
+                    AlmacenID: string
+                    Fecha: string
+                    ClienteID: string
+                    TelefonoEnvio: string
+                    TipoID: string
+                    FechaSalida: string
+                    Prestamo: string
+                    ControlEntrega: string
+                    NotaGeneral: string
+                    NotaCliente: string
+                    NotaAlmacen: string
+                    NotaEtiqueta: string
+                  facturacion:
+                    ClienteFacturaID: string
+                    FormaPagoID: string
+                    NoFacturar: string
+                    NumeroVencimiento: string
+                    DiasPrimerVencimiento: string
+                    DiasResto: string
+                    DiaFijoPago1: string
+                    DiaFijoPago2: string
+                    DiaFijoPago3: string
+                    DiaFijoPago4: string
+                    MesVacacion: string
+                    DiaSiguientePago: string
+                    PorcentajeDtoComercial1: string
+                    PorcentajeDtoComercial2: string
+                    PorcentajeDtoComercial3: string
+                    PorcentajeDtoProntoPago: string
+                    PorcentajeDtoEspecial1: string
+                    PorcentajeDtoEspecial2: string
+                    IvaGastoFinancieroID: string
+                    NumeroCopiasFactura: string
+                    AgruparAlbaran: string
+                    MonedaID: string
+                    MonedaCambio: string
+                    ImporteOtroGasto: string
+                    IvaID: string
+                    SerieFacturaID: string
+                    TipoFacturacionID: string
+                    TipoRetencionID: string
+                    PorcentajeRetencionGarantia: string
+                    AlbaranValorado: string
+                    DireccionFacturaID: string
+                    DireccionEnvioFacturaID: string
+                    Banco: string
+                    cuentaAnticipoID: string
+    delete:
+      summary: ''
+      operationId: delete-sales-receipts-id
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true
+                }
+            }
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzM0Mjg4LCAiZXhwIjoxNjcyMzQxNDg4IH0.UhH8yi-ah0ffeVORj47WjSn35LH1GnZoj39ufwvy8i0
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
