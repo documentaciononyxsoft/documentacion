@@ -7207,6 +7207,7 @@ paths:
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
       requestBody:
         content:
           application/json:
@@ -7593,6 +7594,199 @@ paths:
                     CrossdockingImporte: string
                     PorcentajeComision: string
                     ComisionImporte: string
+  '/sales/orders/{saleorderid}/lines/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: saleorderid
+        in: path
+        required: true
+        description: id del pedido
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: id de la linea de pedido
+    put:
+      summary: UpdateLines
+      operationId: put-sales-orders-saleorderid-lines-id
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "pedidoVentaLineaID": 4973,
+                    "numeroLinea": 20
+                }
+            }
+      description: ''
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzI0NjE4LCAiZXhwIjoxNjcyMzMxODE4IH0.gbz6m9KxwMuXwMh_bDQjXlQDBgr_ic9f3SAxvOs2gkM
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pedidoVentaLineaData:
+                  type: object
+                  properties:
+                    pedidoventaLineaID:
+                      type: string
+                    pedidoVentaCabeceraID:
+                      type: string
+                    linea:
+                      type: string
+                    almacenID:
+                      type: string
+                    articuloID:
+                      type: string
+                    NombreArticulo:
+                      type: string
+                    descripcion:
+                      type: string
+                    referencia:
+                      type: string
+                    cantidad:
+                      type: string
+                    cajas:
+                      type: string
+                    precio:
+                      type: string
+                    ivaID:
+                      type: string
+                    PorcentajeIVA:
+                      type: string
+                    nivelIngenieriaID:
+                      type: string
+                    Dto1:
+                      type: string
+                    Dto2:
+                      type: string
+                    Dto3:
+                      type: string
+                    FechaEntregaPrevistaInterna:
+                      type: string
+                    FechaEntregaPrevistaCliente:
+                      type: string
+                    confirmado:
+                      type: string
+                    Proyecto_OFID:
+                      type: string
+                    ReferenciaCliente:
+                      type: string
+                    NotaInterna:
+                      type: string
+                    NotaCliente:
+                      type: string
+                    RappelPorcentaje:
+                      type: string
+                    RappelImporte:
+                      type: string
+                    CrossdockingPorcentaje:
+                      type: string
+                    CrossdockingImporte:
+                      type: string
+                    PorcentajeComision:
+                      type: string
+                    ComisionImporte:
+                      type: string
+              x-examples:
+                Example 1:
+                  pedidoVentaLineaData:
+                    pedidoventaLineaID: ''
+                    pedidoVentaCabeceraID: ''
+                    linea: ''
+                    almacenID: '77'
+                    articuloID: '3517'
+                    NombreArticulo: Prueba LAPTOP DELL INSPIRON 15 3501 15.6 INTEL CORE i5 1135G7
+                    descripcion: LAPTOP DELL INSPIRON 15 3501 15.6 INTEL CORE i5 1135G7 DISCODURO 256 GB SSD RAM 8 GB WINDOWS 10 HOME
+                    referencia: ''
+                    cantidad: '100'
+                    cajas: ''
+                    precio: ''
+                    ivaID: ''
+                    PorcentajeIVA: ''
+                    nivelIngenieriaID: ''
+                    Dto1: ''
+                    Dto2: ''
+                    Dto3: ''
+                    FechaEntregaPrevistaInterna: ''
+                    FechaEntregaPrevistaCliente: ''
+                    confirmado: ''
+                    Proyecto_OFID: ''
+                    ReferenciaCliente: ''
+                    NotaInterna: pedido prueba
+                    NotaCliente: descripcion prueba
+                    RappelPorcentaje: ''
+                    RappelImporte: ''
+                    CrossdockingPorcentaje: ''
+                    CrossdockingImporte: ''
+                    PorcentajeComision: ''
+                    ComisionImporte: ''
+            examples:
+              Example 1:
+                value:
+                  pedidoVentaLineaData:
+                    pedidoventaLineaID: string
+                    pedidoVentaCabeceraID: string
+                    linea: string
+                    almacenID: string
+                    articuloID: string
+                    NombreArticulo: string
+                    descripcion: string
+                    referencia: string
+                    cantidad: string
+                    cajas: string
+                    precio: string
+                    ivaID: string
+                    PorcentajeIVA: string
+                    nivelIngenieriaID: string
+                    Dto1: string
+                    Dto2: string
+                    Dto3: string
+                    FechaEntregaPrevistaInterna: string
+                    FechaEntregaPrevistaCliente: string
+                    confirmado: string
+                    Proyecto_OFID: string
+                    ReferenciaCliente: string
+                    NotaInterna: string
+                    NotaCliente: string
+                    RappelPorcentaje: string
+                    RappelImporte: string
+                    CrossdockingPorcentaje: string
+                    CrossdockingImporte: string
+                    PorcentajeComision: string
+                    ComisionImporte: string
+    delete:
+      summary: DeleteLines
+      operationId: delete-sales-orders-saleorderid-lines-id
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {}
+            }
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzI0NjE4LCAiZXhwIjoxNjcyMzMxODE4IH0.gbz6m9KxwMuXwMh_bDQjXlQDBgr_ic9f3SAxvOs2gkM
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas:
     User:
