@@ -239,8 +239,8 @@ paths:
       description: ''
     parameters: []
     get:
-      summary: OrderList
-      operationId: get-sales-orders
+      summary: findMany
+      tags: []
       responses:
         '200':
           description: |-
@@ -250,9 +250,9 @@ paths:
                 "content": {
                     "listaPedidosVenta": [
                         {
-                            "PedidoVentaCabeceraID": 2182,
+                            "PedidoVentaCabeceraID": 2185,
                             "seriepedidoid": 0,
-                            "Numero": 71,
+                            "Numero": 74,
                             "fecha": "",
                             "almacenid": 0,
                             "ClienteID": 0,
@@ -261,7 +261,41 @@ paths:
                             "fechaCaptacion": "",
                             "fechaentregaprevistainterna": "",
                             "fechaentregaprevistacliente": "",
-                            "fechahorausuario": "2022-10-07T14:29:18.653",
+                            "fechahorausuario": "2022-12-30T14:49:39.023",
+                            "DireccionEnvioID": 0,
+                            "Codigo": "",
+                            "nombreCliente": "",
+                            "codigoDireccion": 0,
+                            "nombreDireccion": "",
+                            "Municipio": "",
+                            "CodigoPostalID": 0,
+                            "CodigoPostal": "",
+                            "telefono": "",
+                            "UsuarioCreacion": "ADMINISTRADOR",
+                            "estado": "",
+                            "provincia": "",
+                            "pais": "",
+                            "email": "",
+                            "NotaCliente": "",
+                            "NotaGeneral": "",
+                            "Descripcion": "0",
+                            "abreviaturaMoneda": "MXN",
+                            "nombreMoned": "Peso Mexicano",
+                            "lineas": null
+                        },
+                        {
+                            "PedidoVentaCabeceraID": 2184,
+                            "seriepedidoid": 0,
+                            "Numero": 73,
+                            "fecha": "",
+                            "almacenid": 0,
+                            "ClienteID": 0,
+                            "referenciacliente": "0",
+                            "TipoPedidoID": 0,
+                            "fechaCaptacion": "",
+                            "fechaentregaprevistainterna": "",
+                            "fechaentregaprevistacliente": "",
+                            "fechahorausuario": "2022-12-30T14:47:09.921",
                             "DireccionEnvioID": 0,
                             "Codigo": "",
                             "nombreCliente": "",
@@ -420,22 +454,22 @@ paths:
                                     "pedidoventalineaid": 4977,
                                     "linea": 20,
                                     "almacenNombre": "",
-                                    "articuloID": 3517,
-                                    "codigoArticulo": "V9T2R",
-                                    "nombreArticulo": "LAPTOP DELL INSPIRON 15 3501 15.6\" INTEL CORE i5 1135G7",
-                                    "Referencia": "",
-                                    "Cantidad": 5,
+                                    "articuloID": 0,
+                                    "codigoArticulo": "",
+                                    "nombreArticulo": "",
+                                    "Referencia": "0",
+                                    "Cantidad": 0,
                                     "CantidadEntregada": 0,
-                                    "PrecioVenta": 50,
-                                    "Dto1": 10,
-                                    "Dto2": 5,
+                                    "PrecioVenta": 0,
+                                    "Dto1": 0,
+                                    "Dto2": 0,
                                     "Dto3": 0,
-                                    "ImporteVenta": 213.75,
-                                    "entregado": 0,
+                                    "ImporteVenta": 0,
+                                    "entregado": 1,
                                     "Numero": 69,
                                     "CodigoProyecto_OF": 0,
-                                    "FechaEntregaPrevistaInterna": "20221005",
-                                    "FechaEntregaPrevistaCliente": "",
+                                    "FechaEntregaPrevistaInterna": "",
+                                    "FechaEntregaPrevistaCliente": "00000101",
                                     "NotaInterna": "",
                                     "codigoIVA": "",
                                     "PorcentajeIva": 0,
@@ -449,7 +483,7 @@ paths:
                                     "PrecioCoste": 0,
                                     "proyectoID": 0,
                                     "cajas": 0,
-                                    "ReferenciaCliente": "",
+                                    "ReferenciaCliente": "0",
                                     "notacliente": "",
                                     "cantidadProf": 0,
                                     "porcentajeCrossdocking": 0,
@@ -462,9 +496,9 @@ paths:
                                     "Confirmado": 0,
                                     "nombreProyecto": "",
                                     "ivaNombre": "",
-                                    "descripcionArticulo": "LAPTOP DELL INSPIRON 15 3501 15.6\" INTEL CORE i5 1135G7\r\nDISCODURO 256 GB SSD RAM 8 GB WINDOWS 10 HOME\r\n",
+                                    "descripcionArticulo": "",
                                     "AlmacenID": 0,
-                                    "ivaID": 2
+                                    "ivaID": 0
                                 },
                                 {
                                     "pedidoventalineaid": 4978,
@@ -565,67 +599,32 @@ paths:
                                     "descripcionArticulo": "",
                                     "AlmacenID": 0,
                                     "ivaID": 1
-                                }
-                            ]
-                        },
-                        {
-                            "PedidoVentaCabeceraID": 2179,
-                            "seriepedidoid": 4,
-                            "Numero": 2092,
-                            "fecha": "20220928",
-                            "almacenid": 77,
-                            "ClienteID": 84,
-                            "referenciacliente": "",
-                            "TipoPedidoID": 127,
-                            "fechaCaptacion": "20220928",
-                            "fechaentregaprevistainterna": "20220928",
-                            "fechaentregaprevistacliente": "20220928",
-                            "fechahorausuario": "2022-09-28T10:57:22.581",
-                            "DireccionEnvioID": 7,
-                            "Codigo": "10300010084",
-                            "nombreCliente": "TIENDAS TRES B S A DE C V",
-                            "codigoDireccion": 1,
-                            "nombreDireccion": "1008 PUEBLA",
-                            "Municipio": "HUEJOTZINGO",
-                            "CodigoPostalID": 14951,
-                            "CodigoPostal": "74160",
-                            "telefono": "312222222",
-                            "UsuarioCreacion": "ADMINISTRADOR",
-                            "estado": "EN",
-                            "provincia": "PUEBLA",
-                            "pais": "México",
-                            "email": "",
-                            "NotaCliente": "",
-                            "NotaGeneral": "",
-                            "Descripcion": "0",
-                            "abreviaturaMoneda": "MXN",
-                            "nombreMoned": "Peso Mexicano",
-                            "lineas": [
+                                },
                                 {
-                                    "pedidoventalineaid": 4975,
-                                    "linea": 10,
-                                    "almacenNombre": "ADMINISTRACION",
-                                    "articuloID": 3517,
-                                    "codigoArticulo": "V9T2R",
-                                    "nombreArticulo": "LAPTOP DELL INSPIRON 15 3501 15.6\" INTEL CORE i5 1135G7",
-                                    "Referencia": "",
-                                    "Cantidad": 1,
-                                    "CantidadEntregada": 1,
-                                    "PrecioVenta": 500,
-                                    "Dto1": 10,
-                                    "Dto2": 15,
+                                    "pedidoventalineaid": 4986,
+                                    "linea": 30,
+                                    "almacenNombre": "",
+                                    "articuloID": 0,
+                                    "codigoArticulo": "",
+                                    "nombreArticulo": "",
+                                    "Referencia": "0",
+                                    "Cantidad": 0,
+                                    "CantidadEntregada": 0,
+                                    "PrecioVenta": 0,
+                                    "Dto1": 0,
+                                    "Dto2": 0,
                                     "Dto3": 0,
-                                    "ImporteVenta": 382.5,
+                                    "ImporteVenta": 0,
                                     "entregado": 1,
-                                    "Numero": 2092,
+                                    "Numero": 69,
                                     "CodigoProyecto_OF": 0,
-                                    "FechaEntregaPrevistaInterna": "20220928",
-                                    "FechaEntregaPrevistaCliente": "",
+                                    "FechaEntregaPrevistaInterna": "",
+                                    "FechaEntregaPrevistaCliente": "00000101",
                                     "NotaInterna": "",
-                                    "codigoIVA": "IVA",
-                                    "PorcentajeIva": 16,
+                                    "codigoIVA": "",
+                                    "PorcentajeIva": 0,
                                     "PorcentajeRecargo": 0,
-                                    "PorcentajeIvaLinea": 16,
+                                    "PorcentajeIvaLinea": 0,
                                     "PorcentajeRecargoLinea": 0,
                                     "Cantidad2": 0,
                                     "Factor": 1,
@@ -634,7 +633,7 @@ paths:
                                     "PrecioCoste": 0,
                                     "proyectoID": 0,
                                     "cajas": 0,
-                                    "ReferenciaCliente": "",
+                                    "ReferenciaCliente": "0",
                                     "notacliente": "",
                                     "cantidadProf": 0,
                                     "porcentajeCrossdocking": 0,
@@ -646,45 +645,79 @@ paths:
                                     "ParaProforma": 0,
                                     "Confirmado": 0,
                                     "nombreProyecto": "",
-                                    "ivaNombre": "IVA16, ventas, gastos",
-                                    "descripcionArticulo": "LAPTOP DELL INSPIRON 15 3501 15.6\" INTEL CORE i5 1135G7\r\nDISCODURO 256 GB SSD RAM 8 GB WINDOWS 10 HOME\r\n",
-                                    "AlmacenID": 77,
-                                    "ivaID": 1
+                                    "ivaNombre": "",
+                                    "descripcionArticulo": "",
+                                    "AlmacenID": 0,
+                                    "ivaID": 0
                                 }
                             ]
                         },
                         {
-                            "PedidoVentaCabeceraID": 2178,
-                            "seriepedidoid": 2,
-                            "Numero": 68,
-                            "fecha": "20220927",
-                            "almacenid": 77,
-                            "ClienteID": 84,
-                            "referenciacliente": "",
+                            "PedidoVentaCabeceraID": 2179,
+                            "seriepedidoid": 0,
+                            "Numero": 2092,
+                            "fecha": "",
+                            "almacenid": 0,
+                            "ClienteID": 0,
+                            "referenciacliente": "0",
                             "TipoPedidoID": 0,
-                            "fechaCaptacion": "20220927",
-                            "fechaentregaprevistainterna": "20220927",
-                            "fechaentregaprevistacliente": "20220927",
-                            "fechahorausuario": "2022-09-27T17:25:25.665",
-                            "DireccionEnvioID": 7,
-                            "Codigo": "10300010084",
-                            "nombreCliente": "TIENDAS TRES B S A DE C V",
-                            "codigoDireccion": 1,
-                            "nombreDireccion": "1008 PUEBLA",
-                            "Municipio": "HUEJOTZINGO",
-                            "CodigoPostalID": 14951,
-                            "CodigoPostal": "74160",
-                            "telefono": "312222222",
+                            "fechaCaptacion": "",
+                            "fechaentregaprevistainterna": "",
+                            "fechaentregaprevistacliente": "",
+                            "fechahorausuario": "2022-12-29T20:19:09.504",
+                            "DireccionEnvioID": 0,
+                            "Codigo": "",
+                            "nombreCliente": "",
+                            "codigoDireccion": 0,
+                            "nombreDireccion": "",
+                            "Municipio": "",
+                            "CodigoPostalID": 0,
+                            "CodigoPostal": "",
+                            "telefono": "",
                             "UsuarioCreacion": "ADMINISTRADOR",
-                            "estado": "",
-                            "provincia": "PUEBLA",
-                            "pais": "México",
+                            "estado": "EN",
+                            "provincia": "",
+                            "pais": "",
                             "email": "",
                             "NotaCliente": "",
                             "NotaGeneral": "",
                             "Descripcion": "0",
-                            "abreviaturaMoneda": "",
-                            "nombreMoned": "",
+                            "abreviaturaMoneda": "MXN",
+                            "nombreMoned": "Peso Mexicano",
+                            "lineas": null
+                        },
+                        {
+                            "PedidoVentaCabeceraID": 2178,
+                            "seriepedidoid": 0,
+                            "Numero": 68,
+                            "fecha": "",
+                            "almacenid": 0,
+                            "ClienteID": 0,
+                            "referenciacliente": "0",
+                            "TipoPedidoID": 0,
+                            "fechaCaptacion": "",
+                            "fechaentregaprevistainterna": "",
+                            "fechaentregaprevistacliente": "",
+                            "fechahorausuario": "2022-12-30T14:58:59.898",
+                            "DireccionEnvioID": 0,
+                            "Codigo": "",
+                            "nombreCliente": "",
+                            "codigoDireccion": 0,
+                            "nombreDireccion": "",
+                            "Municipio": "",
+                            "CodigoPostalID": 0,
+                            "CodigoPostal": "",
+                            "telefono": "",
+                            "UsuarioCreacion": "ADMINISTRADOR",
+                            "estado": "",
+                            "provincia": "",
+                            "pais": "",
+                            "email": "",
+                            "NotaCliente": "",
+                            "NotaGeneral": "",
+                            "Descripcion": "0",
+                            "abreviaturaMoneda": "MXN",
+                            "nombreMoned": "Peso Mexicano",
                             "lineas": [
                                 {
                                     "pedidoventalineaid": 4971,
@@ -765,106 +798,6 @@ paths:
                                     "Cantidad2": 1,
                                     "Factor": 1,
                                     "FactorCantidad": 1,
-                                    "MargenComercial": 0,
-                                    "PrecioCoste": 0,
-                                    "proyectoID": 0,
-                                    "cajas": 0,
-                                    "ReferenciaCliente": "",
-                                    "notacliente": "",
-                                    "cantidadProf": 0,
-                                    "porcentajeCrossdocking": 0,
-                                    "importeCrossdocking": 0,
-                                    "porcentajeComision": 0,
-                                    "importeComision": 0,
-                                    "RappelPorcentaje": 0,
-                                    "RappelImporte": 0,
-                                    "ParaProforma": 0,
-                                    "Confirmado": 0,
-                                    "nombreProyecto": "",
-                                    "ivaNombre": "",
-                                    "descripcionArticulo": "LAPTOP DELL INSPIRON 15 3501 15.6\" INTEL CORE i5 1135G7\r\nDISCODURO 256 GB SSD RAM 8 GB WINDOWS 10 HOME\r\n",
-                                    "AlmacenID": 77,
-                                    "ivaID": 0
-                                },
-                                {
-                                    "pedidoventalineaid": 4973,
-                                    "linea": 20,
-                                    "almacenNombre": "ADMINISTRACION",
-                                    "articuloID": 3517,
-                                    "codigoArticulo": "V9T2R",
-                                    "nombreArticulo": "LAPTOP DELL INSPIRON 15 3501 15.6\" INTEL CORE i5 1135G7",
-                                    "Referencia": "",
-                                    "Cantidad": 2,
-                                    "CantidadEntregada": 0,
-                                    "PrecioVenta": 900,
-                                    "Dto1": 5,
-                                    "Dto2": 0,
-                                    "Dto3": 0,
-                                    "ImporteVenta": 1710,
-                                    "entregado": 0,
-                                    "Numero": 68,
-                                    "CodigoProyecto_OF": 0,
-                                    "FechaEntregaPrevistaInterna": "20220927",
-                                    "FechaEntregaPrevistaCliente": "20220927",
-                                    "NotaInterna": "",
-                                    "codigoIVA": "",
-                                    "PorcentajeIva": 0,
-                                    "PorcentajeRecargo": 0,
-                                    "PorcentajeIvaLinea": 0,
-                                    "PorcentajeRecargoLinea": 0,
-                                    "Cantidad2": 0,
-                                    "Factor": 1,
-                                    "FactorCantidad": 0,
-                                    "MargenComercial": 0,
-                                    "PrecioCoste": 0,
-                                    "proyectoID": 0,
-                                    "cajas": 0,
-                                    "ReferenciaCliente": "",
-                                    "notacliente": "",
-                                    "cantidadProf": 0,
-                                    "porcentajeCrossdocking": 0,
-                                    "importeCrossdocking": 0,
-                                    "porcentajeComision": 0,
-                                    "importeComision": 0,
-                                    "RappelPorcentaje": 0,
-                                    "RappelImporte": 0,
-                                    "ParaProforma": 0,
-                                    "Confirmado": 0,
-                                    "nombreProyecto": "",
-                                    "ivaNombre": "",
-                                    "descripcionArticulo": "LAPTOP DELL INSPIRON 15 3501 15.6\" INTEL CORE i5 1135G7\r\nDISCODURO 256 GB SSD RAM 8 GB WINDOWS 10 HOME\r\n",
-                                    "AlmacenID": 77,
-                                    "ivaID": 0
-                                },
-                                {
-                                    "pedidoventalineaid": 4974,
-                                    "linea": 40,
-                                    "almacenNombre": "ADMINISTRACION",
-                                    "articuloID": 3517,
-                                    "codigoArticulo": "V9T2R",
-                                    "nombreArticulo": "LAPTOP DELL INSPIRON 15 3501 15.6\" INTEL CORE i5 1135G7",
-                                    "Referencia": "",
-                                    "Cantidad": 1,
-                                    "CantidadEntregada": 0,
-                                    "PrecioVenta": 900,
-                                    "Dto1": 5,
-                                    "Dto2": 0,
-                                    "Dto3": 0,
-                                    "ImporteVenta": 855,
-                                    "entregado": 0,
-                                    "Numero": 68,
-                                    "CodigoProyecto_OF": 0,
-                                    "FechaEntregaPrevistaInterna": "20220927",
-                                    "FechaEntregaPrevistaCliente": "20220927",
-                                    "NotaInterna": "",
-                                    "codigoIVA": "",
-                                    "PorcentajeIva": 0,
-                                    "PorcentajeRecargo": 0,
-                                    "PorcentajeIvaLinea": 0,
-                                    "PorcentajeRecargoLinea": 0,
-                                    "Cantidad2": 0,
-                                    "Factor": 1,
-                                    "FactorCantidad": 0,
                                     "MargenComercial": 0,
                                     "PrecioCoste": 0,
                                     "proyectoID": 0,
@@ -7059,103 +6992,12 @@ paths:
                                     "ivaID": 9
                                 }
                             ]
-                        },
-                        {
-                            "PedidoVentaCabeceraID": 2130,
-                            "seriepedidoid": 4,
-                            "Numero": 2071,
-                            "fecha": "20220914",
-                            "almacenid": 77,
-                            "ClienteID": 84,
-                            "referenciacliente": "",
-                            "TipoPedidoID": 127,
-                            "fechaCaptacion": "20220914",
-                            "fechaentregaprevistainterna": "20220914",
-                            "fechaentregaprevistacliente": "20220914",
-                            "fechahorausuario": "2022-09-14T14:31:05.850",
-                            "DireccionEnvioID": 7,
-                            "Codigo": "10300010084",
-                            "nombreCliente": "TIENDAS TRES B S A DE C V",
-                            "codigoDireccion": 1,
-                            "nombreDireccion": "1008 PUEBLA",
-                            "Municipio": "HUEJOTZINGO",
-                            "CodigoPostalID": 14951,
-                            "CodigoPostal": "74160",
-                            "telefono": "312222222",
-                            "UsuarioCreacion": "Pruebas",
-                            "estado": "",
-                            "provincia": "PUEBLA",
-                            "pais": "México",
-                            "email": "",
-                            "NotaCliente": "",
-                            "NotaGeneral": "",
-                            "Descripcion": "0",
-                            "abreviaturaMoneda": "MXN",
-                            "nombreMoned": "Peso Mexicano",
-                            "lineas": [
-                                {
-                                    "pedidoventalineaid": 4874,
-                                    "linea": 10,
-                                    "almacenNombre": "ADMINISTRACION",
-                                    "articuloID": 3517,
-                                    "codigoArticulo": "V9T2R",
-                                    "nombreArticulo": "LAPTOP DELL INSPIRON 15 3501 15.6\" INTEL CORE i5 1135G7",
-                                    "Referencia": "",
-                                    "Cantidad": 1,
-                                    "CantidadEntregada": 0,
-                                    "PrecioVenta": 90,
-                                    "Dto1": 5,
-                                    "Dto2": 0,
-                                    "Dto3": 0,
-                                    "ImporteVenta": 85.5,
-                                    "entregado": 0,
-                                    "Numero": 2071,
-                                    "CodigoProyecto_OF": 0,
-                                    "FechaEntregaPrevistaInterna": "20220914",
-                                    "FechaEntregaPrevistaCliente": "20220914",
-                                    "NotaInterna": "",
-                                    "codigoIVA": "",
-                                    "PorcentajeIva": 0,
-                                    "PorcentajeRecargo": 0,
-                                    "PorcentajeIvaLinea": 0,
-                                    "PorcentajeRecargoLinea": 0,
-                                    "Cantidad2": 0,
-                                    "Factor": 1,
-                                    "FactorCantidad": 0,
-                                    "MargenComercial": 0,
-                                    "PrecioCoste": 0,
-                                    "proyectoID": 0,
-                                    "cajas": 0,
-                                    "ReferenciaCliente": "",
-                                    "notacliente": "",
-                                    "cantidadProf": 0,
-                                    "porcentajeCrossdocking": 0,
-                                    "importeCrossdocking": 0,
-                                    "porcentajeComision": 0,
-                                    "importeComision": 0,
-                                    "RappelPorcentaje": 0,
-                                    "RappelImporte": 0,
-                                    "ParaProforma": 0,
-                                    "Confirmado": 0,
-                                    "nombreProyecto": "",
-                                    "ivaNombre": "",
-                                    "descripcionArticulo": "LAPTOP DELL INSPIRON 15 3501 15.6\" INTEL CORE i5 1135G7\r\nDISCODURO 256 GB SSD RAM 8 GB WINDOWS 10 HOME\r\n",
-                                    "AlmacenID": 77,
-                                    "ivaID": 0
-                                }
-                            ]
                         }
                     ]
                 }
             }
+      operationId: get-sales-orders
       parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzI0NjE4LCAiZXhwIjoxNjcyMzMxODE4IH0.gbz6m9KxwMuXwMh_bDQjXlQDBgr_ic9f3SAxvOs2gkM
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
         - schema:
             type: string
             example: '0'
@@ -7165,7 +7007,7 @@ paths:
           required: true
         - schema:
             type: string
-            example: '50'
+            example: '10'
           in: query
           name: limit
           description: 'Límite de registros que trae la consulta. Si se envía por ejemplo el número 50, si la tabla tiene 2000 registros solo se traerán 50.'
@@ -7176,6 +7018,13 @@ paths:
           in: query
           name: order
           description: 'Esta valor determina si los registros de leerán desde arriba hacia abajo, o desde abajo hacia arriba en la tabla. Si por ejemplo la tabla cuenta con 100 registros'
+          required: true
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzM0Mjg4LCAiZXhwIjoxNjcyMzQxNDg4IH0.UhH8yi-ah0ffeVORj47WjSn35LH1GnZoj39ufwvy8i0
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
   '/sales/orders/{id}':
     parameters:
@@ -10577,6 +10426,7 @@ paths:
               type: object
               properties: {}
         description: ''
+      description: ''
   '/sales/receipts/{id}':
     parameters:
       - schema:
@@ -16374,6 +16224,12 @@ paths:
         in: path
         required: true
         description: ID de la tarifa de venta que se va a actualizar o eliminar
+  /sales/order:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-sales-order
 components:
   schemas:
     User:
