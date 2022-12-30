@@ -9,7 +9,7 @@ servers:
 paths:
   /crm/accounts:
     get:
-      summary: Your GET endpoint
+      summary: FindMany
       tags: []
       responses:
         '200':
@@ -1403,6 +1403,137 @@ paths:
           description: 'Esta valor determina si los registros de leerán desde arriba hacia abajo, o desde abajo hacia arriba en la tabla. Si por ejemplo la tabla cuenta con 100 registros'
           name: order
           required: true
+      description: ''
+    post:
+      summary: ''
+      operationId: post-crm-accounts
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dataMailing:
+                  type: object
+                  properties:
+                    mailingID:
+                      type: string
+                    TipoMailID:
+                      type: string
+                    ReferenciaCodigo:
+                      type: string
+                    CIF:
+                      type: string
+                    activo:
+                      type: string
+                    nombre:
+                      type: string
+                    nombrecomercial:
+                      type: string
+                    email:
+                      type: string
+                    web:
+                      type: string
+                    telefono:
+                      type: string
+                    fax:
+                      type: string
+                    monedaid:
+                      type: string
+                    horario:
+                      type: string
+                    tomacontactoid:
+                      type: string
+                    representanteid:
+                      type: string
+                    actividadID:
+                      type: string
+                    sectorid:
+                      type: string
+                    zonaid:
+                      type: string
+                    PaisID:
+                      type: string
+                    provinciaID:
+                      type: string
+                    municipioID:
+                      type: string
+                    municipio:
+                      type: string
+                    direccion:
+                      type: string
+                    latitud:
+                      type: string
+                    longitud:
+                      type: string
+              x-examples:
+                Example 1:
+                  dataMailing:
+                    mailingID: ''
+                    TipoMailID: '15'
+                    ReferenciaCodigo: ''
+                    CIF: ''
+                    activo: ''
+                    nombre: Prueba
+                    nombrecomercial: ''
+                    email: ''
+                    web: ''
+                    telefono: ''
+                    fax: ''
+                    monedaid: '1'
+                    horario: 1 a 10
+                    tomacontactoid: ''
+                    representanteid: ''
+                    actividadID: ''
+                    sectorid: ''
+                    zonaid: ''
+                    PaisID: ''
+                    provinciaID: ''
+                    municipioID: ''
+                    municipio: ''
+                    direccion: ''
+                    latitud: ''
+                    longitud: ''
+            examples:
+              Example 1:
+                value:
+                  dataMailing:
+                    mailingID: string
+                    TipoMailID: string
+                    ReferenciaCodigo: string
+                    CIF: string
+                    activo: string
+                    nombre: string
+                    nombrecomercial: string
+                    email: string
+                    web: string
+                    telefono: string
+                    fax: string
+                    monedaid: string
+                    horario: string
+                    tomacontactoid: string
+                    representanteid: string
+                    actividadID: string
+                    sectorid: string
+                    zonaid: string
+                    PaisID: string
+                    provinciaID: string
+                    municipioID: string
+                    municipio: string
+                    direccion: string
+                    latitud: string
+                    longitud: string
   '/crm/accounts/{id}':
     parameters:
       - schema:
@@ -1410,7 +1541,7 @@ paths:
         name: id
         in: path
         required: true
-        description: ID de mailing
+        description: ID de mailing que se va a actualizar o eliminar
     delete:
       summary: Delete Mailing
       operationId: delete-crm-accounts-id
@@ -1429,6 +1560,132 @@ paths:
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+    put:
+      summary: Update Mailing
+      operationId: put-crm-accounts-id
+      responses:
+        '200':
+          description: ''
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dataMailing:
+                  type: object
+                  properties:
+                    TipoMailID:
+                      type: string
+                    ReferenciaCodigo:
+                      type: string
+                    CIF:
+                      type: string
+                    activo:
+                      type: string
+                    nombre:
+                      type: string
+                    nombrecomercial:
+                      type: string
+                    email:
+                      type: string
+                    web:
+                      type: string
+                    telefono:
+                      type: string
+                    fax:
+                      type: string
+                    monedaid:
+                      type: string
+                    horario:
+                      type: string
+                    tomacontactoid:
+                      type: string
+                    representanteid:
+                      type: string
+                    actividadID:
+                      type: string
+                    sectorid:
+                      type: string
+                    zonaid:
+                      type: string
+                    PaisID:
+                      type: string
+                    provinciaID:
+                      type: string
+                    municipioID:
+                      type: string
+                    municipio:
+                      type: string
+                    direccion:
+                      type: string
+                    latitud:
+                      type: string
+                    longitud:
+                      type: string
+              x-examples:
+                Example 1:
+                  dataMailing:
+                    TipoMailID: '6'
+                    ReferenciaCodigo: ''
+                    CIF: ''
+                    activo: ''
+                    nombre: Prueba
+                    nombrecomercial: ''
+                    email: ''
+                    web: ''
+                    telefono: ''
+                    fax: ''
+                    monedaid: '3'
+                    horario: ''
+                    tomacontactoid: ''
+                    representanteid: ''
+                    actividadID: ''
+                    sectorid: ''
+                    zonaid: ''
+                    PaisID: ''
+                    provinciaID: ''
+                    municipioID: ''
+                    municipio: ''
+                    direccion: ''
+                    latitud: ''
+                    longitud: ''
+            examples:
+              Example 1:
+                value:
+                  dataMailing:
+                    TipoMailID: string
+                    ReferenciaCodigo: string
+                    CIF: string
+                    activo: string
+                    nombre: string
+                    nombrecomercial: string
+                    email: string
+                    web: string
+                    telefono: string
+                    fax: string
+                    monedaid: string
+                    horario: string
+                    tomacontactoid: string
+                    representanteid: string
+                    actividadID: string
+                    sectorid: string
+                    zonaid: string
+                    PaisID: string
+                    provinciaID: string
+                    municipioID: string
+                    municipio: string
+                    direccion: string
+                    latitud: string
+                    longitud: string
 components:
   schemas:
     User:
