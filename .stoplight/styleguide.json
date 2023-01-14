@@ -2,6 +2,9 @@
   "name": "Documentacion",
   "description": "",
   "spectralExtends": [],
+  "extends": [
+    "cHJqOjEyMzU4Ng@33"
+  ],
   "formats": [
     "oas2",
     "oas3",
@@ -14,9 +17,6 @@
     }
   },
   "rules": {},
-  "extends": [
-    "cHJqOjEyMzU4Ng@33"
-  ],
   "extendedStyleguides": [
     {
       "id": "cHJqOjEyMzU4Ng",

@@ -247,14 +247,7 @@ paths:
       operationId: post-Ivas
       responses:
         '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true
-                }
-            }
+          description: "{\n    \"statusCode\": 200,\n    \"message\": \"Request processed successfully\",\n    \"content\": {\n\t\"success\":true,\n\t\"IvaID\":14,\n\t\"TipoIvaID\":138,\n\t\"NomTipoIva\":\"Exenta por otros\",\n\t\"CodTipoIva\":\"E6\",\n\t\"IvaSoporadoID\":1088,\n\t\"NomIvaSoportado\":\"TRANSPORTES SUVI SA DE CV\",\n\t\"CodIvaSoportado\":\"10300010018\",\n\t\"IvaRepercutidoID\":1996,\n\t\"NomIvaRepercutido\":\"BANAMEX\",\n\t\"CodIvaRepercutido\":\"10200010001\",\n\t\"IvaSopCriterioCajaID\":1975,\n\t\"NomIvaSopCriterioCaja\":\"IVA ACRED 0%\",\n\t\"CodIvaSopCriterioCaja\":\"1200012\",\n\t\"IvaRepCriterioCajaID\":1974,\n\t\"NomIvaRepCriterioCaja\":\"IVA ACRED EXCENTO\",\n\t\"CodIvaRepCriterioCaja\":\"1200011\"\n}\n}"
         '400':
           description: |-
             {
@@ -343,14 +336,7 @@ paths:
       operationId: put-Ivas-ivaID
       responses:
         '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true
-                }
-            }
+          description: "{\n    \"statusCode\": 200,\n    \"message\": \"Request processed successfully\",\n    \"content\": {\n\t\"success\":true,\n\t\"IvaID\":14,\n\t\"TipoIvaID\":138,\n\t\"NomTipoIva\":\"Exenta por otros\",\n\t\"CodTipoIva\":\"E6\",\n\t\"IvaSoporadoID\":1088,\n\t\"NomIvaSoportado\":\"TRANSPORTES SUVI SA DE CV\",\n\t\"CodIvaSoportado\":\"10300010018\",\n\t\"IvaRepercutidoID\":1996,\n\t\"NomIvaRepercutido\":\"BANAMEX\",\n\t\"CodIvaRepercutido\":\"10200010001\",\n\t\"IvaSopCriterioCajaID\":1975,\n\t\"NomIvaSopCriterioCaja\":\"IVA ACRED 0%\",\n\t\"CodIvaSopCriterioCaja\":\"1200012\",\n\t\"IvaRepCriterioCajaID\":1974,\n\t\"NomIvaRepCriterioCaja\":\"IVA ACRED EXCENTO\",\n\t\"CodIvaRepCriterioCaja\":\"1200011\"\n}\n}"
       parameters:
         - schema:
             type: string
