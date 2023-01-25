@@ -1,0 +1,1160 @@
+openapi: 3.1.0
+x-stoplight:
+  id: qjh0v5a9iwl70
+info:
+  title: documentManagement
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/documentManagement/GD/{table}/{fieldID}':
+    parameters:
+      - schema:
+          type: string
+        name: table
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: fieldID
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-documentManagement-GD-table-fieldID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  TypeFilter: []
+                  Extra:
+                    Filtros: ''
+                    SoloRelToMailing: 0
+                    CarpetaGDFilter: 0
+              properties:
+                TypeFilter:
+                  type: array
+                  items:
+                    type: string
+                Extra:
+                  type: object
+                  properties:
+                    Filtros:
+                      type: string
+                    SoloRelToMailing:
+                      type: boolean
+                    CarpetaGDFilter:
+                      type: integer
+        description: ''
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: startDate
+        - schema:
+            type: string
+          in: query
+          name: endDate
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+        - schema:
+            type: string
+          in: header
+  /documentManagement/call:
+    post:
+      summary: ''
+      operationId: post-documentManagement-call
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  startCall: ''
+                  endCall: ''
+                  callData:
+                    mailingID: ''
+                    contactoID: ''
+                    motivoID: ''
+                    TrabajoID: ''
+                    Concepto: ''
+                    Notas: ''
+                    ProcesoID: ''
+                    Descripcion: ''
+                    Asunto: ''
+              properties:
+                startCall:
+                  type: string
+                endCall:
+                  type: string
+                callData:
+                  type: object
+                  properties:
+                    mailingID:
+                      type: integer
+                    contactoID:
+                      type: integer
+                    motivoID:
+                      type: integer
+                    TrabajoID:
+                      type: integer
+                    Concepto:
+                      type: string
+                    Notas:
+                      type: string
+                    ProcesoID:
+                      type: integer
+                    Descripcion:
+                      type: string
+                    Asunto:
+                      type: string
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+    parameters: []
+  /documentManagement/callinitialization:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-documentManagement-callinitialization
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  MailingID: ''
+                  Alternativo: ''
+                  RegistroID: ''
+                  Tabla: ''
+              properties:
+                MailingID:
+                  type: integer
+                Alternativo:
+                  type: string
+                RegistroID:
+                  type: integer
+                Tabla:
+                  type: string
+  /documentManagement/document:
+    post:
+      summary: ''
+      operationId: post-documentManagement-document
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  Ruta: ''
+                  PublicadoWEb: ''
+                  Tabla: ''
+                  TablaAlternativa: ''
+                  RegistroID: ''
+                  NombreFichero: ''
+                  Fecha: ''
+                  CreadoPorID: ''
+                  Refrencia: ''
+                  TipoDocumentoID: ''
+                  Origen: ''
+                  Privado: ''
+                  Publicar: ''
+                  Activo: ''
+                  Descripcion: ''
+                  Observaciones: ''
+                  CarpetaGestionDocumentalPadreID: ''
+              properties:
+                Ruta:
+                  type: string
+                PublicadoWEb:
+                  type: boolean
+                Tabla:
+                  type: string
+                TablaAlternativa:
+                  type: string
+                RegistroID:
+                  type: integer
+                NombreFichero:
+                  type: string
+                Fecha:
+                  type: string
+                CreadoPorID:
+                  type: integer
+                  description: UsuarioID
+                Refrencia:
+                  type: string
+                TipoDocumentoID:
+                  type: integer
+                  description: TablaGeneralID
+                Origen:
+                  type: integer
+                  description: TablaGeneralID
+                Privado:
+                  type: boolean
+                Publicar:
+                  type: boolean
+                Activo:
+                  type: boolean
+                Descripcion:
+                  type: string
+                Observaciones:
+                  type: string
+                CarpetaGestionDocumentalPadreID:
+                  type: integer
+    put:
+      summary: ''
+      operationId: put-documentManagement-document
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  DocumentoID: ''
+                  Descripcion: ''
+                  Fecha: ''
+                  Referencia: ''
+                  TipoDocumentoID: ''
+                  Privado: ''
+                  Activo: ''
+                  Publicar: ''
+                  origen: ''
+                  CreadoPorID: ''
+                  Observaciones: ''
+              properties:
+                DocumentoID:
+                  type: integer
+                Descripcion:
+                  type: string
+                Fecha:
+                  type: string
+                Referencia:
+                  type: string
+                TipoDocumentoID:
+                  type: integer
+                  description: TablaGeneral
+                Privado:
+                  type: boolean
+                Activo:
+                  type: boolean
+                Publicar:
+                  type: boolean
+                origen:
+                  type: integer
+                  description: TablaGeneralID
+                CreadoPorID:
+                  type: integer
+                  description: UsuarioID
+                Observaciones:
+                  type: string
+    parameters: []
+  '/documentManagement/call/{fieldID}':
+    parameters:
+      - schema:
+          type: string
+        name: fieldID
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-documentManagement-call-fieldID
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+  '/documentManagement/document/{fieldID}':
+    parameters:
+      - schema:
+          type: string
+        name: fieldID
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-documentManagement-document-fieldID
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+    delete:
+      summary: ''
+      operationId: delete-documentManagement-document-fieldID
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      description: ''
+  '/documentManagement/email/{type}/{fieldID}':
+    parameters:
+      - schema:
+          type: string
+        name: type
+        in: path
+        required: true
+        description: ENVIADO | RECIBIDO
+      - schema:
+          type: string
+        name: fieldID
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-documentManagement-email-type-fieldID
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+  /documentManagement/email/save:
+    post:
+      summary: ''
+      operationId: post-documentManagement-email-save
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  CuentaEmailID: ''
+                  FechaHoraProgramado: ''
+                  EmailData:
+                    Asunto: ''
+                    Retenido: ''
+                    Contenido: ''
+                    MailingID: ''
+                    Destinatarios:
+                      - ContactoID: ''
+                        Email: ''
+                        Tipo: ''
+                    Adjuntos:
+                      - AdjuntoID: ''
+                        Ruta: ''
+                        NombreFichero: ''
+              properties:
+                emailAccountID:
+                  type: boolean
+                dateTimeProgrammed:
+                  type: string
+                emailData:
+                  type: object
+                  properties:
+                    Asunto:
+                      type: string
+                    Retenido:
+                      type: boolean
+                    Contenido:
+                      type: string
+                    MailingID:
+                      type: boolean
+                    Destinatarios:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          ContactoID:
+                            type: integer
+                          Email:
+                            type: string
+                          Tipo:
+                            type: string
+                    Adjuntos:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          AdjuntoID:
+                            type: integer
+                          Ruta:
+                            type: string
+                          NombreFichero:
+                            type: string
+  /documentManagement/email/send:
+    post:
+      summary: ''
+      operationId: post-documentManagement-email-send
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  emailAccountID: ''
+                  emailData:
+                    Asunto: ''
+                    Retenido: ''
+                    Contenido: ''
+                    MailingID: ''
+                    Destinatarios:
+                      - ContactoID: ''
+                        Email: ''
+                        Tipo: ''
+                    Adjuntos:
+                      - AdjuntoID: ''
+                        Ruta: ''
+                        NombreFichero: ''
+              properties:
+                emailAccountID:
+                  type: integer
+                emailData:
+                  type: object
+                  properties:
+                    Asunto:
+                      type: string
+                    Retenido:
+                      type: boolean
+                    Contenido:
+                      type: string
+                    MailingID:
+                      type: integer
+                    Destinatarios:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          ContactoID:
+                            type: integer
+                          Email:
+                            type: string
+                          Tipo:
+                            type: string
+                    Adjuntos:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          AdjuntoID:
+                            type: integer
+                          Ruta:
+                            type: string
+                          NombreFichero:
+                            type: string
+  /documentManagement/emailAccount:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-documentManagement-emailAccount
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+  /documentManagement/emailInvoice/check:
+    put:
+      summary: ''
+      operationId: put-documentManagement-emailInvoice-check
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                documentRelations:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      Padre:
+                        type: string
+                      TablaPadreValorID:
+                        type: string
+                attachments:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      NombreFichero:
+                        type: string
+              x-examples:
+                Example 1:
+                  documentRelations:
+                    - Padre: ''
+                      TablaPadreValorID: ''
+                  attachments:
+                    - NombreFichero: ''
+  /documentManagement/emailTemplates:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-documentManagement-emailTemplates
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      description: ''
+  '/documentManagement/emailTemplates/{table}/{fieldID}/{TemplateID}':
+    parameters:
+      - schema:
+          type: string
+        name: table
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: fieldID
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: TemplateID
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-documentManagement-emailTemplates-table-fieldID-TemplateID
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+  /documentManagement/folder:
+    post:
+      summary: ''
+      operationId: post-documentManagement-folder
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  table: ''
+                  fieldID: ''
+                  name: ''
+                  CarpetaGestionDocumentalIDPadre: ''
+              properties:
+                table:
+                  type: string
+                fieldID:
+                  type: integer
+                name:
+                  type: string
+                CarpetaGestionDocumentalIDPadre:
+                  type: integer
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+  '/documentManagement/folder/{fieldID}':
+    parameters:
+      - schema:
+          type: string
+        name: fieldID
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: put-documentManagement-folder-fieldID
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Nombre:
+                  type: string
+                CarpetaGestionDocumentalPadreID:
+                  type: string
+              x-examples:
+                Example 1:
+                  Nombre: ''
+                  CarpetaGestionDocumentalPadreID: ''
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      description: ''
+    delete:
+      summary: ''
+      operationId: delete-documentManagement-folder-fieldID
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+  '/documentManagement/folder/{table}/{fieldID}':
+    parameters:
+      - schema:
+          type: string
+        name: table
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: fieldID
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-documentManagement-folder-table-fieldID
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: folderParentID
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+  '/documentManagement/folder/permissions/{fieldID}':
+    parameters:
+      - schema:
+          type: string
+        name: fieldID
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: put-documentManagement-folder-permissions-fieldID
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              x-examples:
+                Example 1:
+                  - UsuarioPermitidoId: ''
+                    ZDBGrupoUsuarioPermisosID: ''
+                  - UsuarioPermitidoId: ''
+                    ZDBGrupoUsuarioPermisosID: ''
+              items:
+                type: object
+                properties:
+                  UsuarioPermitidoId:
+                    type: integer
+                  ZDBGrupoUsuarioPermisosID:
+                    type: string
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+  /documentManagement/note:
+    post:
+      summary: ''
+      operationId: post-documentManagement-note
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  mailingid: ''
+                  fecha: ''
+                  asunto: ''
+                  contenido: ''
+                  requiereRespuesta: ''
+                  tipoNotaID: ''
+                  Destinatarios:
+                    - DestinatarioUsuarioId: ''
+                      zDBGrupoID: ''
+                      NotaTipoID: ''
+                  NewAdjuntos:
+                    - Ruta: ''
+                      NombreFichero: ''
+              properties:
+                notaID:
+                  type: string
+                mailingid:
+                  type: integer
+                fecha:
+                  type: string
+                asunto:
+                  type: string
+                contenido:
+                  type: string
+                requiereRespuesta:
+                  type: boolean
+                tipoNotaID:
+                  type: integer
+                Destinatarios:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      DestinatarioUsuarioId:
+                        type: integer
+                      zDBGrupoID:
+                        type: integer
+                      NotaTipoID:
+                        type: integer
+                NewAdjuntos:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      NombreFichero:
+                        type: string
+                      Ruta:
+                        type: string
+    put:
+      summary: ''
+      operationId: put-documentManagement-note
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  mailingid: ''
+                  fecha: ''
+                  asunto: ''
+                  contenido: ''
+                  requiereRespuesta: ''
+                  tipoNotaID: ''
+                  Destinatarios:
+                    - DestinatarioUsuarioId: ''
+                      zDBGrupoID: ''
+                      NotaTipoID: ''
+                  NewAdjuntos:
+                    - Ruta: ''
+                      NombreFichero: ''
+              properties:
+                mailingid:
+                  type: string
+                fecha:
+                  type: string
+                asunto:
+                  type: string
+                contenido:
+                  type: string
+                requiereRespuesta:
+                  type: string
+                tipoNotaID:
+                  type: string
+                Destinatarios:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      DestinatarioUsuarioId:
+                        type: string
+                      zDBGrupoID:
+                        type: string
+                      NotaTipoID:
+                        type: string
+                NewAdjuntos:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      Ruta:
+                        type: string
+                      NombreFichero:
+                        type: string
+  /documentManagement/noteinitialization:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-documentManagement-noteinitialization
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  mailingid: ''
+                  Alternativo: ''
+                  RegistroID: ''
+                  Tabla: ''
+              properties:
+                mailingid:
+                  type: integer
+                Alternativo:
+                  type: string
+                RegistroID:
+                  type: integer
+                Tabla:
+                  type: string
+  /documentManagement/notetype:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-documentManagement-notetype
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+  '/documentManagement/permission/{table}/{fieldID}':
+    parameters:
+      - schema:
+          type: string
+        name: table
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: fieldID
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-documentManagement-permission-table-fieldID
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+    put:
+      summary: ''
+      operationId: put-documentManagement-permission-table-fieldID
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  UsuarioPermitidoId:
+                    type: string
+                  ZDBGrupoUsuarioPermisosID:
+                    type: string
+              x-examples:
+                Example 1:
+                  - UsuarioPermitidoId: ''
+                    ZDBGrupoUsuarioPermisosID: ''
+                  - UsuarioPermitidoId: ''
+                    ZDBGrupoUsuarioPermisosID: ''
+  /documentManagement/permission/copy:
+    put:
+      summary: ''
+      operationId: put-documentManagement-permission-copy
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sourceTable:
+                  type: string
+                sourceTableID:
+                  type: string
+                destinationTable:
+                  type: string
+                destinationTableID:
+                  type: string
+              x-examples:
+                Example 1:
+                  sourceTable: ''
+                  sourceTableID: ''
+                  destinationTable: ''
+                  destinationTableID: ''
+  /documentManagement/permission/group:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-documentManagement-permission-group
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      description: ''
+  '/documentManagement/permission/group/{FieldID}/user':
+    parameters:
+      - schema:
+          type: string
+        name: FieldID
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-documentManagement-permission-group-FieldID-user
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      description: ''
+  /documentManagement/relation:
+    post:
+      summary: ''
+      operationId: post-documentManagement-relation
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  table: ''
+                  fieldID: ''
+                  relationData:
+                    RelacionesGestionDocumentalID: ''
+                    TablaPadre: ''
+                    TablaPadreValorID: ''
+                    Motivo: ''
+              properties:
+                table:
+                  type: string
+                fieldID:
+                  type: integer
+                relationData:
+                  type: object
+                  properties:
+                    RelacionesGestionDocumentalID:
+                      type: integer
+                    TablaPadre:
+                      type: string
+                    TablaPadreValorID:
+                      type: integer
+                    Motivo:
+                      type: string
+  '/documentManagement/relation/{fieldID}':
+    parameters:
+      - schema:
+          type: string
+        name: fieldID
+        in: path
+        required: true
+    delete:
+      summary: ''
+      operationId: delete-documentManagement-relation-fieldID
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      description: ''
+  '/documentManagement/relation/{table}/{fieldID}':
+    parameters:
+      - schema:
+          type: string
+        name: table
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: fieldID
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-documentManagement-relation-table-fieldID
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+        - schema:
+            type: string
+          in: header
+  /documentManagement/relation/table:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-documentManagement-relation-table
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      description: ''
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      examples:
+        - id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified
