@@ -11,7 +11,7 @@ paths:
     parameters: []
   /tables/companies:
     get:
-      summary: FindManyCompanies
+      summary: FindManyCompanies of Companies
       tags: []
       responses:
         '200':
