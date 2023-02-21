@@ -1,0 +1,129 @@
+openapi: 3.1.0
+x-stoplight:
+  id: 7m3ag8yy35c5e
+info:
+  title: ApiContinents
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /continents:
+    parameters: []
+    get:
+      summary: Get User Info by User ID
+      tags: []
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "sql": "SELECT * FROM Continente\r\nWHERE Continente.CustomerID = 29",
+                    "records": [
+                        {
+                            "ContinenteID": 1,
+                            "Nombre": "Africa",
+                            "CustomerID": 29,
+                            "UsuarioID": 1
+                        },
+                        {
+                            "ContinenteID": 2,
+                            "Nombre": "America",
+                            "CustomerID": 29,
+                            "UsuarioID": 1
+                        },
+                        {
+                            "ContinenteID": 3,
+                            "Nombre": "Asia",
+                            "CustomerID": 29,
+                            "UsuarioID": 1
+                        },
+                        {
+                            "ContinenteID": 4,
+                            "Nombre": "Europa",
+                            "CustomerID": 29,
+                            "UsuarioID": 1
+                        },
+                        {
+                            "ContinenteID": 5,
+                            "Nombre": "Oceania",
+                            "CustomerID": 29,
+                            "UsuarioID": 1
+                        },
+                        {
+                            "ContinenteID": 6,
+                            "Nombre": "Antártida",
+                            "CustomerID": 29,
+                            "UsuarioID": 1
+                        }
+                    ]
+                }
+            }
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Get User Alice Smith:
+                  value:
+                    id: 142
+                    firstName: Alice
+                    lastName: Smith
+                    email: alice.smith@gmail.com
+                    dateOfBirth: '1997-10-31'
+                    emailVerified: true
+                    signUpDate: '2019-08-24'
+      operationId: get-users-userId
+      description: Retrieve the information of the user with the matching user ID.
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcxNTc3NzQ3LCAiZXhwIjoxNjcxNTg0OTQ3IH0.2l7Nkyw6DePLNm7GTfleH7fK7rlDeYTIIeKoCaQPEOA
+          in: header
+          name: accessToken
+          description: Token de validación de sesión.
+          required: true
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      examples:
+        - id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified
