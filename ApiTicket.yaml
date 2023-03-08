@@ -1,0 +1,81 @@
+openapi: 3.1.0
+x-stoplight:
+  id: 68a3lu8db9gxy
+info:
+  title: ApiTicket
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /tickets:
+    get:
+      summary: FindManyByFilters
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "success":true, "sql":"SELECT AvisoTicket.*,\r\nAvisoTicketElemento.ElementoID, \r\nElemento.NumeroSerie,\r\nElemento.Nombre AS NombreEquipo,\r\nMailing.ReferenciaCodigo,\r\nMailing.Nombre AS NombreMailing,\r\nDireccion.Codigo AS CodigoDireccion,\r\nDireccion.Nombre AS NombreDireccion,\r\nTablaGeneral.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneral.Descripcion AS TipoTicketTexto,\r\nAvisoTicketPrioridad.Nombre AS NombrePrioridad,\r\nAvisoTicketPrioridad.Icono AS IconoPrioridad\r\nFROM AvisoTicket\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nLEFT OUTER JOIN AvisoTicketElemento ON AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Elemento ON Elemento.ElementoID = AvisoTicketElemento.ElementoID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = AvisoTicket.DireccionID\r\nLEFT OUTER JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN AvisoTicketPrioridad ON AvisoTicket.AvisoTicketPrioridadID = AvisoTicketPrioridad.AvisoTicketPrioridadID\r\nWHERE AvisoTicket.CustomerID = 29\r\nAND\tAvisoTicket.EmpresaID = 1\r\n AND (AvisoTicket.FechaHoraUsuario >= 20020220 AND DATE(AvisoTicket.FechaHoraUsuario) <= 20230520 AND AvisoTicket.AvisoTicketPrioridadID IN (3,4))\r\nlimit 50 \r\noffset 0", "records":[ { "AvisoTicketID":29, "TipoAvisoID":337, "TipoTicketAbreviatura":"AVE", "AvisoTicketPrioridadID":3, "ElementoID":0, "EstadoTicketTexto":"PP", "DireccionID":0, "CuentaID":60, "FechaAltaTicket":"2023-03-03T09:45:01.000", "NombrePrioridad":"PRUEBALUIS24", "iconoPrioridad":3, "NumeroTicket":23, "DescripcionTicket":"", "CodigoEquipo":"", "NombreEquipo":"", "EstadoEquipo":"", "CodigoCuenta":"43999999", "NombreCuenta":"CLIENTES VARIOS", "CodigoUbicacion":0, "NombreUbicacion":"", "TipoTicketImagen":"Averia", "EstadoTicket":"" }, { "AvisoTicketID":30, "TipoAvisoID":337, "TipoTicketAbreviatura":"AVE", "AvisoTicketPrioridadID":4, "ElementoID":1, "EstadoTicketTexto":"PP", "DireccionID":13, "CuentaID":4, "FechaAltaTicket":"2023-03-03T09:45:50.000", "NombrePrioridad":"PRUEBALUIS25", "iconoPrioridad":4, "NumeroTicket":24, "DescripcionTicket":"", "CodigoEquipo":"3442342", "NombreEquipo":"EXTINTOR", "EstadoEquipo":"", "CodigoCuenta":"43000001", "NombreCuenta":"dario", "CodigoUbicacion":1, "NombreUbicacion":"SAT MADRID 1", "TipoTicketImagen":"Averia", "EstadoTicket":"" } ] }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-tickets
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"TokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: tipoTicket
+          description: '1'
+        - schema:
+            type: integer
+          in: query
+          name: ticket
+          description: '1'
+        - schema:
+            type: integer
+          in: query
+          name: estadoTicket
+          description: '1'
+        - schema:
+            type: string
+          in: query
+          name: fechaDesdeIn
+          description: '20000512'
+        - schema:
+            type: string
+          in: query
+          name: fechaHastaIn
+          description: '20230812'
+        - schema:
+            type: string
+          in: query
+          name: mailingID
+        - schema:
+            type: string
+          in: query
+          name: prioridadID
+          description: '3,4'
+        - schema:
+            type: string
+          in: query
+          name: equipoID
+        - schema:
+            type: string
+          in: query
+          name: ubicacionID
+  /ticket/priority:
+    get:
+      summary: findManyForConsultTicket
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "success":true, "sql":"SELECT\r\nAvisoTicketPrioridad.*\r\nFROM\r\nAvisoTicketPrioridad\r\nWHERE\r\nAvisoTicketPrioridad.CustomerID = 29\r\n", "records":[ { "ID":1, "Nombre":"1", "Codigo":1 }, { "ID":2, "Nombre":"pruebaLUIS23", "Codigo":2 }, { "ID":3, "Nombre":"PRUEBALUIS24", "Codigo":3 }, { "ID":4, "Nombre":"PRUEBALUIS25", "Codigo":4 } ] }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-ticket-priority
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"TokenReciente"'
+components:
+  schemas: {}
