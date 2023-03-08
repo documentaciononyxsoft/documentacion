@@ -336,5 +336,104 @@ paths:
           in: header
           name: 'accessToken '
           description: '"TokenReciente"'
+  '/tickets/{sBusqueda}':
+    parameters:
+      - schema:
+          type: string
+        name: sBusqueda
+        in: path
+        required: true
+        description: '"3"'
+    get:
+      summary: findManyByFilter
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "sql":"SELECT AvisoTicket.*,\r\nAvisoTicketElemento.ElementoID, \r\nElemento.NumeroSerie,\r\nElemento.Nombre AS NombreEquipo,\r\nelemento.FechaInstalacion AS FechaInicioGarantia,\r\nelemento.FechaBaja AS FechaFinGarantia,\r\nMailing.ReferenciaCodigo,\r\nmailing.Horario ,\r\nmailing.Telefono ,\r\nMailing.Nombre AS NombreMailing,\r\nmailing.Municipio AS MunicipioNombre,\r\nDireccion.Codigo AS CodigoDireccion,\r\nDireccion.Nombre AS NombreDireccion,\r\ndireccion.Direccion ,\r\ndireccion.municipio AS UbicacionMunicipio,\r\ndireccion.Latitud,\r\ndireccion.Longitud,\r\nTablaGeneralAbrev.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneralAbrev.Descripcion AS TipoTicketTexto,\r\nAvisoTicketPrioridad.Nombre AS NombrePrioridad,\r\nAvisoTicketPrioridad.Icono AS IconoPrioridad,\r\ncodigopostal.CodigoPostal AS NombreCodigoPostal,\r\nprovincia.Nombre AS ProvinciaNombre,\r\npais.Nombre AS PaisNombre,\r\ncontacto.Nombre AS ContactoNombre,\r\navisotickettipoproblema.Nombre AS TipoProblemaNombre,\r\nservicio.Descripcion AS ServicioNombre,\r\ncodigoPostalUbicacion.CodigoPostal AS NombreCodigoPostalUbicacion,\r\nprovinciaUbicacion.Nombre AS NombreUbicacionProvincia,\r\nusuario.NombreUsuario AS usuarioAlta,\r\nempleado.Nombre AS nombreTecnico,\r\nempleado.Codigo AS codigoTecnico,\r\nusuarioCierre.NombreUsuario AS usuarioCierre\r\n\r\n\r\n\r\nFROM avisoticket\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nLEFT OUTER JOIN AvisoTicketElemento ON AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Elemento ON Elemento.ElementoID = AvisoTicketElemento.ElementoID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = AvisoTicket.DireccionID\r\nLEFT OUTER JOIN TablaGeneral AS TablaGeneralAbrev ON TablaGeneralAbrev.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN AvisoTicketPrioridad ON AvisoTicket.AvisoTicketPrioridadID = AvisoTicketPrioridad.AvisoTicketPrioridadID\r\nLEFT JOIN avisotickettipoproblema ON avisoticket.AvisoTicketTipoProblemaID = avisotickettipoproblema.AvisoTicketTipoProblemaID\r\nLEFT JOIN codigopostal ON codigopostal.CodigoPostalID = mailing.CodigoPostalID\r\nLEFT JOIN codigopostal AS codigoPostalUbicacion ON codigoPostalUbicacion.CodigoPostalID = direccion.CodigoPostalID\r\n\r\nLEFT JOIN empleado ON avisoticket.EmpleadoID = empleado.EmpleadoID\r\nLEFT JOIN usuario ON usuario.UsuarioID = avisoticket.UsuarioID\r\nLEFT JOIN usuario AS usuarioCierre ON usuarioCierre.UsuarioID = avisoticket.UsuarioCierreID\r\n\r\nLEFT JOIN provincia ON provincia.ProvinciaID = mailing.ProvinciaID\r\nLEFT JOIN provincia AS provinciaUbicacion  ON provinciaUbicacion.ProvinciaID = direccion.ProvinciaID\r\nLEFT JOIN pais ON pais.PaisID = mailing.PaisID\r\nLEFT JOIN contacto ON contacto.ContactoID = avisoticket.ContactoID \r\nLEFT OUTER JOIN TablaGeneral AS Servicio ON Servicio.TablaGeneralID = avisoticket.ServicioID\r\n\r\nWHERE (AvisoTicket.Numero like \"3\")\r\nand (AvisoTicket.EmpresaID = 1 AND AvisoTicket.CustomerID = 29)", "records":{ "records":[ { "TicketID":4, "Numero":3, "FechaHoraAlta":"2019-02-20T17:48:25.000", "DescripcionEstado":"", "nombreTecnico":"DARIO ESPARZA CIMARRO", "codigoTecnico":"86", "usuarioCierre":"", "FechaHoraCierre":"0000-00-00T00:00:00.000", "CodigoCliente":"43000001", "NombreCliente":"dario", "Horario":"1", "PaisNombre":"Afganist\u00c3\u00a1n", "MunicipioNombre":"", "ProvinciaNombre":"", "NombreCodigoPostal":"", "ContactoNombre":"Ainhoa", "Telefono":"", "TipoTicket":"Averia", "NombrePrioridad":"", "ServicioNombre":"3333", "TipoProblemaNombre":"", "Descripcion":"Est\u00c3\u00a1 vacio\r\n", "UbicacionNombre":"SAT MADRID 1", "UbicacionCodigo":1, "Direccion":"Calle de los comuneros de Castilla, 18", "UbicacionCodigoPostal":"28000", "UbicacionMunicipio":"MADRID", "UbicacionProvincia":"Araba", "Longitud":"54545", "Latitud":"48755", "Equipo":"3442342", "NombreEquipo":"EXTINTOR", "FechaInicioGarantia":"20180322", "FechaFinGarantia":"20230303" } ], "success":true }, "success":true }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-tickets-sBusqueda
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"TokenReciente"'
+  '/tickets/employeeList/{sBusqueda}':
+    parameters:
+      - schema:
+          type: string
+        name: sBusqueda
+        in: path
+        required: true
+    get:
+      summary: findOneSearch
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "success":true, "sql":"SELECT empleado.EmpleadoID AS ID,\r\nempleado.Codigo,\r\nempleado.Nombre\r\nFROM empleado \r\nWHERE empleado.CustomerID = 29\r\nAND empleado.EmpresaID = 1\r\nAND empleado.DeBaja = 0\r\nAND empleado.Codigo LIKE ''%juan%'' OR empleado.Nombre LIKE ''%juan%'' \r\nLIMIT 10", "records":[ { "ID":2, "Nombre":"JUAN GUERRA", "Codigo":"3" }, { "ID":59, "Nombre":"Juana Ceballos", "Codigo":"02JP" } ] }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-tickets-employeeList-sBusqueda
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"TokenReciente"'
+  /tickets/problemType:
+    get:
+      summary: findManyForTickets
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "success":true, "sql":"SELECT * FROM AvisoTicketTipoProblema\r\nINNER JOIN TablaGeneral AS Agrupa ON Agrupa.TablaGeneralID=AvisoTicketTipoProblema.TablaGeneralID\r\nWHERE AvisoTicketTipoProblema.TablaGeneralID=1234 AND\r\nAvisoTicketTipoProblema.CustomerID=29", "records":[ { "ID":1, "Nombre":"GFF", "Codigo":1 } ] }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-tickets-problemType
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: grupoID
+          description: '1234'
+  /tickets/contact:
+    get:
+      summary: findManyForTickets
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "success":true, "sql":"SELECT \r\nContacto.*,\r\nMailing.*,\r\nMailing.Activo AS ActivoMailing,\r\nMailing.Nombre AS NombreMailing,\r\nMailing.ReferenciaCodigo AS CodigoMailing,\r\nTablaGeneral.Descripcion\r\nFROM \r\nContacto LEFT JOIN TablaGeneral ON Contacto.DepartamentoID = TablaGeneral.TablaGeneralID\r\nLEFT JOIN Mailing ON Contacto.MailingID = Mailing.MailingID\r\nLEFT JOIN Provincia ON Provincia.ProvinciaID=Contacto.ProvinciaID\r\nWHERE\r\nContacto.MailingID = 4\r\nAND Contacto.CustomerID = 29\r\nAND Contacto.EmpresaID = 1\r\nAND Contacto.Activo = 1\r\nORDER BY \r\nContacto.Nombre ASC \r\n", "records":[ { "ID":100, "Nombre":"Ainhoa", "Codigo":"43000001" }, { "ID":4, "Nombre":"ANDER", "Codigo":"43000001" }, { "ID":3, "Nombre":"Edgos", "Codigo":"43000001" }, { "ID":79, "Nombre":"Leire", "Codigo":"43000001" } ] }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-tickets-contact
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: clienteID
+          description: '4'
+  '/generalTable/{sBusqueda}':
+    parameters:
+      - schema:
+          type: string
+        name: sBusqueda
+        in: path
+        required: true
+        description: '"CLAVETABLAGENERAL"'
+    get:
+      summary: findOneSearch
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "success":true, "sql":"SELECT tablageneral.TablaGeneralID AS ID,\r\ntablageneral.Descripcion AS Nombre,\r\ntablageneral.Abreviatura AS Codigo \r\nFROM tablageneral \r\nWHERE tablageneral.CustomerID = 29 \r\nAND tablageneral.Clave = \"GPROBLEMASAT\"", "records":[ { "ID":1234, "Nombre":"FDGDFDDF", "Codigo":"DFGDFGF" }, { "ID":1235, "Nombre":"NNBM", "Codigo":"NN" } ] }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-generalTable-sBusqueda
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accesToken '
 components:
   schemas: {}
