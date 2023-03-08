@@ -246,17 +246,84 @@ paths:
         name: ticketID
         in: path
         required: true
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-tickets-ticketID
+        description: '41'
     put:
       summary: Update
       operationId: put-tickets-ticketID
       responses:
         '200':
-          description: OK
+          description: '{ "fContent":{ "success":true, "records":{ "success":true, "sql":"SELECT AvisoTicket.*,\r\nAvisoTicketElemento.ElementoID, \r\nElemento.NumeroSerie,\r\nElemento.Nombre AS NombreEquipo,\r\nelemento.FechaInstalacion AS FechaInicioGarantia,\r\nelemento.FechaBaja AS FechaFinGarantia,\r\nMailing.ReferenciaCodigo,\r\nmailing.Horario ,\r\nmailing.Telefono ,\r\nMailing.Nombre AS NombreMailing,\r\nmailing.Municipio AS MunicipioNombre,\r\nDireccion.Codigo AS CodigoDireccion,\r\nDireccion.Nombre AS NombreDireccion,\r\ndireccion.Direccion ,\r\ndireccion.municipio AS UbicacionMunicipio,\r\ndireccion.Latitud,\r\ndireccion.Longitud,\r\nTablaGeneralAbrev.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneralAbrev.Descripcion AS TipoTicketTexto,\r\nAvisoTicketPrioridad.Nombre AS NombrePrioridad,\r\nAvisoTicketPrioridad.Icono AS IconoPrioridad,\r\ncodigopostal.CodigoPostal AS NombreCodigoPostal,\r\nprovincia.Nombre AS ProvinciaNombre,\r\npais.Nombre AS PaisNombre,\r\ncontacto.Nombre AS ContactoNombre,\r\navisotickettipoproblema.Nombre AS TipoProblemaNombre,\r\nservicio.Descripcion AS ServicioNombre,\r\ncodigoPostalUbicacion.CodigoPostal AS NombreCodigoPostalUbicacion,\r\nprovinciaUbicacion.Nombre AS NombreUbicacionProvincia,\r\nusuario.NombreUsuario AS usuarioAlta,\r\nempleado.Nombre AS nombreTecnico,\r\nempleado.Codigo AS codigoTecnico,\r\nusuarioCierre.NombreUsuario AS usuarioCierre\r\n\r\n\r\n\r\nFROM avisoticket\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nLEFT OUTER JOIN AvisoTicketElemento ON AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Elemento ON Elemento.ElementoID = AvisoTicketElemento.ElementoID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = AvisoTicket.DireccionID\r\nLEFT OUTER JOIN TablaGeneral AS TablaGeneralAbrev ON TablaGeneralAbrev.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN AvisoTicketPrioridad ON AvisoTicket.AvisoTicketPrioridadID = AvisoTicketPrioridad.AvisoTicketPrioridadID\r\nLEFT JOIN avisotickettipoproblema ON avisoticket.AvisoTicketTipoProblemaID = avisotickettipoproblema.AvisoTicketTipoProblemaID\r\nLEFT JOIN codigopostal ON codigopostal.CodigoPostalID = mailing.CodigoPostalID\r\nLEFT JOIN codigopostal AS codigoPostalUbicacion ON codigoPostalUbicacion.CodigoPostalID = direccion.CodigoPostalID\r\n\r\nLEFT JOIN empleado ON avisoticket.EmpleadoID = empleado.EmpleadoID\r\nLEFT JOIN usuario ON usuario.UsuarioID = avisoticket.UsuarioID\r\nLEFT JOIN usuario AS usuarioCierre ON usuarioCierre.UsuarioID = avisoticket.UsuarioCierreID\r\n\r\nLEFT JOIN provincia ON provincia.ProvinciaID = mailing.ProvinciaID\r\nLEFT JOIN provincia AS provinciaUbicacion  ON provinciaUbicacion.ProvinciaID = direccion.ProvinciaID\r\nLEFT JOIN pais ON pais.PaisID = mailing.PaisID\r\nLEFT JOIN contacto ON contacto.ContactoID = avisoticket.ContactoID \r\nLEFT OUTER JOIN TablaGeneral AS Servicio ON Servicio.TablaGeneralID = avisoticket.ServicioID\r\n\r\nWHERE AvisoTicket.CustomerID = 29\r\nAND\tAvisoTicket.EmpresaID = 1\r\nAND\tAvisoTicket.AvisoTicketID = 41", "records":[ { "TicketID":41, "Numero":28, "FechaHoraAlta":"2023-03-06T16:50:43.000", "DescripcionEstado":"Pendiente T\u00e9cnico", "nombreTecnico":"Juana Ceballos", "codigoTecnico":"02JP", "usuarioCierre":"", "FechaHoraCierre":"0000-00-00T00:00:00.000", "CodigoCliente":"43020007", "NombreCliente":"TID TECNICAS INDUSTRIALES", "Horario":"fewfew", "PaisNombre":"Colombia", "MunicipioNombre":"BOGOTA DC", "ProvinciaNombre":"BOGOTA DC", "NombreCodigoPostal":"01193", "ContactoNombre":"Leire", "Telefono":"3218316755", "TipoTicket":"Averia", "NombrePrioridad":"pruebaLUIS23", "ServicioNombre":"3333", "TipoProblemaNombre":"GFF", "Descripcion":"pruebassss274", "UbicacionNombre":"SAT MADRID 1", "UbicacionCodigo":1, "Direccion":"Calle de los comuneros de Castilla, 18", "UbicacionCodigoPostal":"28000", "UbicacionMunicipio":"MADRID", "UbicacionProvincia":"Araba", "Longitud":"54545", "Latitud":"48755", "Equipo":"3442342", "NombreEquipo":"EXTINTOR", "FechaInicioGarantia":"20180322", "FechaFinGarantia":"20230303" } ] } }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: TecnicoID
+          description: '59'
+        - schema:
+            type: string
+          in: query
+          name: ContactoID
+          description: '79'
+        - schema:
+            type: string
+          in: query
+          name: clienteID
+          description: '77'
+        - schema:
+            type: string
+          in: query
+          name: PrioridadID
+          description: '2'
+        - schema:
+            type: string
+          in: query
+          name: ServicioID
+          description: '1'
+        - schema:
+            type: string
+          in: query
+          name: TipoProblemaID
+          description: '1'
+        - schema:
+            type: string
+          in: query
+          name: TipoTicketID
+          description: '337'
+        - schema:
+            type: string
+          in: query
+          name: Descripcion
+          description: '"pruebassss274"'
+        - schema:
+            type: string
+          in: query
+          name: UbicacionID
+          description: '13'
+        - schema:
+            type: string
+          in: query
+          name: EquipoID
+          description: '1'
+        - schema:
+            type: boolean
+          in: query
+          name: realizarPlanificacion
+          description: 'True'
+        - schema:
+            type: string
+          in: query
+          name: FechaInicialPlanificacion
+          description: '20220306160119'
+        - schema:
+            type: string
+          in: query
+          name: FechaFinalPlanificacion
+          description: '20230306160119'
     delete:
       summary: Remove
       operationId: delete-tickets-ticketID
