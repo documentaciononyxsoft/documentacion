@@ -2568,5 +2568,67 @@ paths:
           in: query
           description: '20'
           name: cantidad
+  '/intervention/clienList/{sBusqueda}':
+    parameters:
+      - schema:
+          type: string
+        name: sBusqueda
+        in: path
+        required: true
+        description: '"an"'
+    get:
+      summary: findOneSearch
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "success":true, "sql":"SELECT cliente.ClienteID,mailing.MailingID,mailing.Nombre ,cliente.Codigo\r\nFROM cliente\r\nLEFT JOIN mailing\r\nON cliente.MailingID = mailing.MailingID\r\nWHERE mailing.Activo = TRUE AND cliente.CustomerID = 29 AND cliente.EmpresaID = 1\r\nAND cliente.Codigo LIKE ''%an%'' OR mailing.Nombre LIKE ''%an%'' \r\nLIMIT 10", "records":[ { "ID":57, "Nombre":"RESTAURANTE ALDAN-ONDO", "Codigo":"43020005" }, { "ID":59, "Nombre":"KARL BERRANG", "Codigo":"43000004" }, { "ID":90, "Nombre":"JORDAN SINCRE", "Codigo":"43028001" }, { "ID":138, "Nombre":"ANER, SISTEMAS INFORMACTICOS S.L.", "Codigo":"43020013" }, { "ID":144, "Nombre":"INDUSTRIAS MECANICAS LEON", "Codigo":"43020017" }, { "ID":172, "Nombre":"TALLERES MECANICOS SALVAT", "Codigo":"43020025" }, { "ID":191, "Nombre":"TALLERES MECANICOS ORIA", "Codigo":"43020028" }, { "ID":1, "Nombre":"LA GUIPUZCOANA-edgos", "Codigo":"01" }, { "ID":17, "Nombre":"ESTEFANIA RODRIGUEZ SUAREZ", "Codigo":"017" }, { "ID":868, "Nombre":"Cristian G", "Codigo":"43000428" } ] }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-intervention-clienList-sBusqueda
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+  '/intervention/ubicationList/{sBusqueda}':
+    parameters:
+      - schema:
+          type: string
+        name: sBusqueda
+        in: path
+        required: true
+        description: '"A"'
+    get:
+      summary: findOneSearch
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "success":true, "sql":"SELECT direccion.DireccionID,direccion.Nombre,direccion.Codigo\r\nFROM direccion\r\nWHERE Direccion.Clave = ''SAT''  AND direccion.CustomerID = 29 AND direccion.EmpresaID = 1\r\nAND direccion.Codigo LIKE ''%A%'' OR direccion.Nombre LIKE ''%A%'' \r\nLIMIT 10", "records":[ { "ID":1, "Nombre":"Tienda del Norte", "Codigo":1 }, { "ID":4, "Nombre":"Industrias Envio Norte", "Codigo":2 }, { "ID":5, "Nombre":"EL CORTE INGLES EIBAR", "Codigo":1 }, { "ID":6, "Nombre":"Almacen principal", "Codigo":1 }, { "ID":7, "Nombre":"Almacen San Sebastian", "Codigo":2 }, { "ID":10, "Nombre":"DIR FACT TELLERIA", "Codigo":3 }, { "ID":11, "Nombre":"Almacen Cantabria", "Codigo":0 }, { "ID":12, "Nombre":"ALMACEN NORTE AST", "Codigo":1 }, { "ID":13, "Nombre":"SAT MADRID 1", "Codigo":1 }, { "ID":14, "Nombre":"ANER VITORIA", "Codigo":2 } ] }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-intervention-ubicationList-sBusqueda
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"TokenReciente"'
+  '/intervention/equipmentList/{sBusqueda}}':
+    parameters:
+      - schema:
+          type: string
+        name: sBusqueda
+        in: path
+        required: true
+        description: '"pruebaLUIS"'
+    get:
+      summary: findOneSearch
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "success":true, "sql":"SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1\r\nAND elemento.NumeroSerie LIKE ''%pruebaLUIS%'' OR elemento.Nombre LIKE ''%pruebaLUIS%'' \r\nLIMIT 10", "records":[ { "ID":9, "Nombre":"pruebaluis", "Codigo":"5698" } ] }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-intervention-equipmentList-sBusqueda
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas: {}
