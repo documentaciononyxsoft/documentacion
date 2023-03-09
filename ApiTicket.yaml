@@ -435,5 +435,81 @@ paths:
             type: string
           in: header
           name: 'accesToken '
+  /ticket/cronology:
+    get:
+      summary: Cronology
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "records":[ { "Fecha":"20220317171116670", "Descripcion":"Intervenci\u00f3n n\u00ba 13 realizada.", "Usuario":"PRO" }, { "Fecha":"20220317170937916", "Descripcion":"Ticket planificado.", "Usuario":"PRO" }, { "Fecha":"20220317170902000", "Descripcion":"Ticket n\u00ba 16 creado.", "Usuario":"PRO" } ], "success":true, "sql":"select avisoticketcronologia.*,usuario.NombreUsuario\r\n\r\nfrom avisoticketcronologia \r\nleft join usuario on usuario.usuarioid = AvisoTicketCronologia.UsuarioID\r\nleft join AvisoTicket on AvisoTicket.AvisoTicketID = AvisoTicketCronologia.AvisoTicketID\r\n\r\nwhere AvisoTicketCronologia.customerid = 29 \r\nand AvisoTicketCronologia.empresaid = 1 \r\nand AvisoTicketCronologia.AvisoTicketID = 22\r\n\r\norder by AvisoTicketCronologia.FechaHoraUsuario desc" }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-ticket-cronology
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: ticketID
+          description: '22'
+  /ticket/expenses:
+    get:
+      summary: Expenses
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "records":[ { "concepto":"KILOMETRAJE", "cantidad":150, "precio":0.25, "importe":37.5, "fecha":"20181113", "notas":"" } ], "success":true, "sql":"SELECT * \r\nFROM ProcesoGasto\r\nLEFT OUTER JOIN Proceso ON Proceso.ProcesoID = ProcesoGasto.ProcesoID\r\nLEFT JOIN TipoProcesoGasto ON TipoProcesoGasto.TipoProcesoGastoID = ProcesoGasto.TipoProcesoGastoID\r\nWHERE ProcesoGasto.CustomerID = 29\r\nAND ProcesoGasto.EmpresaID = 1\r\nAND ProcesoGasto.ProcesoID IN (3784)\r\n" }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-ticket-expenses
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: ticketID
+          description: '3'
+  /ticket/hours:
+    get:
+      summary: Hours
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "records":[ { "FechaHoraInicio":"20181113080000000", "FechaHoraFin":"20181113122000000", "Empleado":"1", "NombreEmpleado":"Antonio Lopez Rubio", "Precio":10, "Horas":"04:20:00.000", "Importe":"43.33333" }, { "FechaHoraInicio":"20230303120000000", "FechaHoraFin":"20230303150000000", "Empleado":"3", "NombreEmpleado":"JUAN GUERRA", "Precio":50000, "Horas":"03:00:00.000", "Importe":"150000" } ], "success":true, "sql":"SELECT\r\nTiempoTrabajo.*,\r\nTipoRechazo.Nombre AS TipoRechazoNombre,\r\nTipoInterrupcion.Nombre AS TipoInterrupcionNombre,\r\nTablaGeneral.Descripcion AS TurnoNombre,\r\nEmpleado.Nombre AS EmpleadoNombre,\r\nEmpleado.Codigo AS EmpleadoCodigo\r\n\r\nFROM TiempoTrabajo \r\nLEFT OUTER JOIN TipoInterrupcion ON TiempoTrabajo.TipoInterrupcionID = TipoInterrupcion.TipoInterrupcionID\r\nLEFT OUTER JOIN TipoRechazo ON TiempoTrabajo.TipoRechazoID = TipoRechazo.TipoRechazoID\r\nLEFT OUTER JOIN TablaGeneral ON TiempoTrabajo.TurnoID = TablaGeneral.TablaGeneralID\r\nLEFT OUTER JOIN Empleado ON TiempoTrabajo.EmpleadoID = Empleado.EmpleadoID\r\n\r\nWHERE\r\nTiempoTrabajo.CustomerID = 29 AND\r\nTiempoTrabajo.EmpresaID = 1 AND\r\nTiempoTrabajo.ProcesoID IN (3784)\r\n" }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-ticket-hours
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: ticketID
+          description: '3'
+  /ticket/materials:
+    get:
+      summary: Materials
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "records":[ { "Fecha":"20181113", "CodigoMaterial":"01ARM3R", "Material":"ARANDELA M3 RIZADA T2631", "Cantidad":100, "Precio":0.12, "Importe":12 }, { "Fecha":"20230216", "CodigoMaterial":"APL2", "Material":"ARTICULO POR LOTES 2", "Cantidad":3, "Precio":10, "Importe":30 }, { "Fecha":"20230216", "CodigoMaterial":"APL2", "Material":"ARTICULO POR LOTES 2", "Cantidad":3, "Precio":10, "Importe":30 }, { "Fecha":"20230216", "CodigoMaterial":"APL2", "Material":"ARTICULO POR LOTES 2", "Cantidad":3, "Precio":10, "Importe":30 }, { "Fecha":"20230216", "CodigoMaterial":"APL2", "Material":"ARTICULO POR LOTES 2", "Cantidad":9, "Precio":10, "Importe":90 } ], "success":true, "sql":"SELECT \r\nMovimientoAlmacen.*,\r\nArticulo.Codigo AS CodigoMaterial,\r\nArticulo.Nombre AS NombreMaterial\r\n\r\nFROM\r\nMovimientoAlmacen LEFT OUTER JOIN Articulo ON Articulo.ArticuloID = MovimientoAlmacen.ArticuloID\r\n\r\nWHERE\r\nMovimientoAlmacen.ProcesoID IN (3784)\r\n" }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-ticket-materials
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: ticketID
+          description: '3'
 components:
   schemas: {}
