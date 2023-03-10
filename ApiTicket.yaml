@@ -530,5 +530,29 @@ paths:
           in: query
           name: ticketID
           description: '55'
+  /ticket/outsourcing:
+    get:
+      summary: Outsourcing
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "success":true, "records":{ "success":true, "sql":"SELECT \r\nDISTINCT \r\nPedidoCompraLinea.FechaRecepcionPrevista,\r\nPedidoCompraCabecera.*,\r\nPedidoCompraLinea.*,\r\nArticulo.Codigo AS CodigoArticulo,\r\nArticulo.Nombre AS NombreArticulo1,\r\nproveedor.Codigo as CodigoProveedor,\r\nMailing.Nombre AS NombreProveedor,\r\nSerie.Serie AS Serie,\r\nProyecto_OF.CodigoProyecto_OF as CodigoProyecto,\r\nProyecto_OF.Proyecto_OFID as OrdenID,\r\nProceso.NumeroProceso as CodigoProceso,\r\nProceso.Nombre as NombreProceso,\r\nPedidoCompraLinea.Recibido as Recibidos,\r\nPedidoCompraLinea.Factor as Factor1,\r\nusuario.NombreUsuario,\r\nProyecto_OF.EsObraOf,\r\nproyecto_of.FechaEntrega,\r\nPedidoCompraLinea.FechaRecepcionPrevista as LineaFechaRecepcionPrevista,\r\nPedidoCompraLinea.FechaEntregaProveedor as LineaFechaEntregaProveedor,\r\nProceso.ProcesoID\r\nFROM \r\n((((((((((PedidoCompraCabecera LEFT JOIN PedidoCompraLinea on pedidocompralinea.PedidoCompraCabeceraID = PedidoCompraCabecera.PedidoCompraCabeceraID)\r\nLEFT join Proveedor ON PedidoCompraCabecera.ProveedorID=Proveedor.proveedorID)\r\nLeft join Mailing on Proveedor.MailingID = mailing.MailingID)\r\nLEFT JOIN Serie ON PedidoCompraCabecera.SeriePedidoID=Serie.SerieID)\r\nleft JOIN Articulo ON PedidoCompraLinea.ArticuloID=Articulo.ArticuloID)\r\nLEFT JOIN Familia ON Articulo.FamiliaID=Familia.FamiliaID)\r\nLeft Join PedidoCompraLineaProceso on PedidoCompraLineaProceso.PedidoCompraLineaID=PedidoCompraLinea.PedidoCompraLineaID)\r\nLEFT JOIN Proceso On Proceso.ProcesoID = PedidoCompraLineaProceso.ProcesoID)\r\nLEFT JOIN Proyecto_OF on Proyecto_OF.Proyecto_OFID = proceso.Proyecto_OFID)\r\nLEFT JOIN Operacion on Operacion.OperacionID = proceso.OperacionID)\r\nLEFT JOIN Usuario on PedidoCompraCabecera.UsuarioID = usuario.UsuarioID\r\n\r\nWHERE PedidoCompraCabecera.CustomerID = 29 and\r\nPedidoCompraCabecera.EmpresaID = 1\r\n\r\n AND (PedidoCompraCabecera.EsSubcontratacion = 1 AND Proyecto_OF.Proyecto_OFID IN (1087))", "records":[ { "Serie":"Sin", "Numero":1, "Nombre":"ASASSASS", "FechaPedido":"20191210", "FechaRecepcion":"20191210", "CodigoProveedor":"40001001", "NombreProveedor":"TRATAMIENTOS ABC", "NumeroProyectoOF":16, "CodigoArticulo":"", "NombreArticulo":"", "Cantidad":564, "CantidadRecibida":0, "PrecioCompra":15, "ImporteCompra":750.44, "Estado":"", "Tipo":"" }, { "Serie":"Sin", "Numero":246, "Nombre":"SSSSSS", "FechaPedido":"20190913", "FechaRecepcion":"20190913", "CodigoProveedor":"40000002", "NombreProveedor":"SUM.IND.BARCELONESES, S.L.", "NumeroProyectoOF":16, "CodigoArticulo":"", "NombreArticulo":"", "Cantidad":251, "CantidadRecibida":0, "PrecioCompra":4, "ImporteCompra":885.62, "Estado":"Parcial", "Tipo":"" } ] } }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-ticket-outsourcing
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: ticketID
+          description: '27'
+        - schema:
+            type: string
+          in: query
+          name: radio
+          description: '2'
 components:
   schemas: {}
