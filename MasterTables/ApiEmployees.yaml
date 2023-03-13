@@ -1,0 +1,418 @@
+openapi: 3.0.0
+x-stoplight:
+  id: 7okj8wmrb3lwb
+info:
+  title: ApiEmployees
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /Empleado:
+    post:
+      summary: ''
+      operationId: post-Empleado
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiY3Rva2VuIjoiIiwgImlhdCI6MTY3NzAxMDMyMCwgImV4cCI6MTY4MDYxMDMyMCB9.yzmsybQuztPQRHseGSzBu_1Acp-iUyUnItSuzP1hTmo
+          in: header
+          name: accessToken
+          description: Token de validación de sesión.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  EmpleadoID: ''
+                  HorasJornada: ''
+                  Direccion: ''
+                  MunicipioID: ''
+                  Dni: ''
+                  Nota: ''
+                  NumeroSS: ''
+                  FechaIngreso: ''
+                  FechaFin: ''
+                  FechaNacimiento: ''
+                  CuentaCorriente: ''
+                  PrecioHora: ''
+                  DescripcionFuncion: ''
+                  NOmbreBanco: ''
+                  Email: ''
+                  OnyxCaptor: ''
+                  Nombre: Andrea Quintero
+                  Codigo: '565656656'
+                  Id_SatMovil: ''
+                  FechaHoraUsuario: ''
+                  DeBaja: ''
+                  CustomerIDId_SatMovil: ''
+                  seccion: ''
+                  VisibleEnCaptador: ''
+                  SeccionID: ''
+                  Iban: ''
+                  Swift: ''
+                  Sucursal: ''
+                  NumeroTarjeta: '666'
+                  ClaveCaptador: ''
+                  FechaHoraNuevo: ''
+                  FechaHoraModificado: ''
+                  FechaHoraBorrado: ''
+                  EmpleadoUsuarioID: ''
+                  CodigoEmpresaID: ''
+                  GrupoPrecioHoraId: ''
+                  PaisID: '148'
+                  ProvinciaID: ''
+                  Telefono: ''
+                  CodigoPostalID: ''
+                  RolID: ''
+                  Movil: ''
+                  NegocioID: ''
+                  Municipio: ''
+                  Situacion: ''
+              properties:
+                EmpleadoID:
+                  type: number
+                HorasJornada:
+                  type: string
+                Direccion:
+                  type: string
+                MunicipioID:
+                  type: string
+                Dni:
+                  type: string
+                Nota:
+                  type: string
+                NumeroSS:
+                  type: string
+                FechaIngreso:
+                  type: string
+                FechaFin:
+                  type: string
+                FechaNacimiento:
+                  type: string
+                CuentaCorriente:
+                  type: string
+                PrecioHora:
+                  type: string
+                DescripcionFuncion:
+                  type: string
+                NOmbreBanco:
+                  type: string
+                Email:
+                  type: string
+                OnyxCaptor:
+                  type: string
+                Nombre:
+                  type: string
+                Codigo:
+                  type: string
+                Id_SatMovil:
+                  type: string
+                FechaHoraUsuario:
+                  type: string
+                DeBaja:
+                  type: string
+                CustomerIDId_SatMovil:
+                  type: string
+                seccion:
+                  type: string
+                VisibleEnCaptador:
+                  type: string
+                SeccionID:
+                  type: string
+                Iban:
+                  type: string
+                Swift:
+                  type: string
+                Sucursal:
+                  type: string
+                NumeroTarjeta:
+                  type: string
+                ClaveCaptador:
+                  type: string
+                FechaHoraNuevo:
+                  type: string
+                FechaHoraModificado:
+                  type: string
+                FechaHoraBorrado:
+                  type: string
+                EmpleadoUsuarioID:
+                  type: string
+                CodigoEmpresaID:
+                  type: string
+                GrupoPrecioHoraId:
+                  type: string
+                PaisID:
+                  type: string
+                ProvinciaID:
+                  type: string
+                Telefono:
+                  type: string
+                CodigoPostalID:
+                  type: string
+                RolID:
+                  type: string
+                Movil:
+                  type: string
+                NegocioID:
+                  type: string
+                Municipio:
+                  type: string
+                Situacion:
+                  type: string
+  '/Empleado/{EmpleadoID}':
+    parameters:
+      - schema:
+          type: string
+        name: EmpleadoID
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: put-Empleado-EmpleadoID
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+      description: ''
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiY3Rva2VuIjoiIiwgImlhdCI6MTY3NzAxMDMyMCwgImV4cCI6MTY4MDYxMDMyMCB9.yzmsybQuztPQRHseGSzBu_1Acp-iUyUnItSuzP1hTmo
+          in: header
+          name: accessToken
+          description: Token de validación de sesión.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                EmpleadoID:
+                  type: string
+                HorasJornada:
+                  type: string
+                Direccion:
+                  type: string
+                MunicipioID:
+                  type: string
+                Dni:
+                  type: string
+                Nota:
+                  type: string
+                NumeroSS:
+                  type: string
+                FechaIngreso:
+                  type: string
+                FechaFin:
+                  type: string
+                FechaNacimiento:
+                  type: string
+                CuentaCorriente:
+                  type: string
+                PrecioHora:
+                  type: string
+                DescripcionFuncion:
+                  type: string
+                NOmbreBanco:
+                  type: string
+                Email:
+                  type: string
+                OnyxCaptor:
+                  type: string
+                Nombre:
+                  type: string
+                Codigo:
+                  type: string
+                Id_SatMovil:
+                  type: string
+                FechaHoraUsuario:
+                  type: string
+                DeBaja:
+                  type: string
+                CustomerIDId_SatMovil:
+                  type: string
+                seccion:
+                  type: string
+                VisibleEnCaptador:
+                  type: string
+                SeccionID:
+                  type: string
+                Iban:
+                  type: string
+                Swift:
+                  type: string
+                Sucursal:
+                  type: string
+                NumeroTarjeta:
+                  type: string
+                ClaveCaptador:
+                  type: string
+                FechaHoraNuevo:
+                  type: string
+                FechaHoraModificado:
+                  type: string
+                FechaHoraBorrado:
+                  type: string
+                EmpleadoUsuarioID:
+                  type: string
+                CodigoEmpresaID:
+                  type: string
+                GrupoPrecioHoraId:
+                  type: string
+                PaisID:
+                  type: string
+                ProvinciaID:
+                  type: string
+                Telefono:
+                  type: string
+                CodigoPostalID:
+                  type: string
+                RolID:
+                  type: string
+                Movil:
+                  type: string
+                NegocioID:
+                  type: string
+                Municipio:
+                  type: string
+                Situacion:
+                  type: string
+              x-examples:
+                Example 1:
+                  EmpleadoID: '347'
+                  HorasJornada: ''
+                  Direccion: ''
+                  MunicipioID: ''
+                  Dni: ''
+                  Nota: ''
+                  NumeroSS: ''
+                  FechaIngreso: ''
+                  FechaFin: ''
+                  FechaNacimiento: ''
+                  CuentaCorriente: ''
+                  PrecioHora: ''
+                  DescripcionFuncion: ''
+                  NOmbreBanco: ''
+                  Email: ''
+                  OnyxCaptor: ''
+                  Nombre: Andrea Quintero
+                  Codigo: '565656656'
+                  Id_SatMovil: ''
+                  FechaHoraUsuario: ''
+                  DeBaja: ''
+                  CustomerIDId_SatMovil: ''
+                  seccion: ''
+                  VisibleEnCaptador: ''
+                  SeccionID: ''
+                  Iban: ''
+                  Swift: ''
+                  Sucursal: ''
+                  NumeroTarjeta: '666'
+                  ClaveCaptador: ''
+                  FechaHoraNuevo: ''
+                  FechaHoraModificado: ''
+                  FechaHoraBorrado: ''
+                  EmpleadoUsuarioID: ''
+                  CodigoEmpresaID: ''
+                  GrupoPrecioHoraId: ''
+                  PaisID: '148'
+                  ProvinciaID: ''
+                  Telefono: ''
+                  CodigoPostalID: ''
+                  RolID: ''
+                  Movil: ''
+                  NegocioID: ''
+                  Municipio: ''
+                  Situacion: ''
+        description: ''
+    delete:
+      summary: ''
+      operationId: delete-Empleado-EmpleadoID
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiY3Rva2VuIjoiIiwgImlhdCI6MTY3NzAxMDMyMCwgImV4cCI6MTY4MDYxMDMyMCB9.yzmsybQuztPQRHseGSzBu_1Acp-iUyUnItSuzP1hTmo
+          in: header
+          name: accessToken
+          description: Token de validación de sesión.
+          required: true
+        - schema:
+            type: string
+            example: '347'
+          in: query
+          name: EmpleadoID
+          description: ID del Empleado
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+      description: ''
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      x-examples:
+        Alice Smith:
+          id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified

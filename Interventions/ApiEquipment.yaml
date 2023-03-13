@@ -1,0 +1,216 @@
+openapi: 3.0.0
+x-stoplight:
+  id: 2ysqw7pzkbohs
+info:
+  title: ApiInterventions
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/intervention/equipment/{avisoTicketID}':
+    parameters:
+      - schema:
+          type: string
+        name: avisoTicketID
+        in: path
+        required: true
+    get:
+      summary: Get User Info by User ID
+      tags: []
+      responses:
+        '200':
+          description: User Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Get User Alice Smith:
+                  value:
+                    id: 142
+                    firstName: Alice
+                    lastName: Smith
+                    email: alice.smith@gmail.com
+                    dateOfBirth: '1997-10-31'
+                    emailVerified: true
+                    signUpDate: '2019-08-24'
+        '404':
+          description: User Not Found
+      operationId: get-users-userId
+      description: Retrieve the information of the user with the matching user ID.
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: Token de validación de sesión
+        - schema:
+            type: string
+          in: query
+          name: avisoTicketID
+          description: ID del Aviso Ticket
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ElementoID:
+                  type: string
+                CustomerID:
+                  type: string
+                EmpresaID:
+                  type: string
+                Id_SatMovil:
+                  type: string
+                NumeroSerie:
+                  type: string
+                Nombre:
+                  type: string
+                ArticuloID:
+                  type: string
+                ClienteID:
+                  type: string
+                DireccionID:
+                  type: string
+                Ubicacion:
+                  type: string
+                FechaInstalacion:
+                  type: string
+                FechaBaja:
+                  type: string
+                MotivoBaja:
+                  type: string
+                InicioGarantia:
+                  type: string
+                FinalGarantia:
+                  type: string
+                Notas:
+                  type: string
+                UsuarioID:
+                  type: string
+                FechaHoraUsuario:
+                  type: string
+                CustomerIDId_SatMovil:
+                  type: string
+                Modelo:
+                  type: string
+                Marca:
+                  type: string
+                TipoEquipoID:
+                  type: string
+                NumeroSerieCliente:
+                  type: string
+                Gmao_LayoutID:
+                  type: string
+                Proyecto_OFID:
+                  type: string
+                AlbaranCompraCabeceraID:
+                  type: string
+                AlbaranVentaCabeceraID:
+                  type: string
+                CheckListApartadoID:
+                  type: string
+                Observaciones:
+                  type: string
+                WebID:
+                  type: string
+              x-examples:
+                Example 1:
+                  ElementoID: ''
+                  CustomerID: ''
+                  EmpresaID: ''
+                  Id_SatMovil: ''
+                  NumeroSerie: ''
+                  Nombre: ''
+                  ArticuloID: ''
+                  ClienteID: ''
+                  DireccionID: ''
+                  Ubicacion: ''
+                  FechaInstalacion: ''
+                  FechaBaja: ''
+                  MotivoBaja: ''
+                  InicioGarantia: ''
+                  FinalGarantia: ''
+                  Notas: ''
+                  UsuarioID: ''
+                  FechaHoraUsuario: ''
+                  CustomerIDId_SatMovil: ''
+                  Modelo: ''
+                  Marca: ''
+                  TipoEquipoID: ''
+                  NumeroSerieCliente: ''
+                  Gmao_LayoutID: ''
+                  Proyecto_OFID: ''
+                  AlbaranCompraCabeceraID: ''
+                  AlbaranVentaCabeceraID: ''
+                  CheckListApartadoID: ''
+                  Observaciones: ''
+                  WebID: ''
+  '/intervention/equipmentList/{sBusqueda}':
+    get:
+      summary: ''
+      operationId: get-user
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: Token de validación de sesión
+        - schema:
+            type: string
+          in: query
+          name: sBusqueda
+          description: sBusqueda
+    parameters:
+      - schema:
+          type: string
+        name: sBusqueda
+        in: path
+        required: true
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      x-examples:
+        Alice Smith:
+          id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified
