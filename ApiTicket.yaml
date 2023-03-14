@@ -632,7 +632,7 @@ paths:
           in: query
   /ticket/closeTicket:
     get:
-      summary: Your GET endpoint
+      summary: closeTicket
       tags: []
       responses:
         '200':
@@ -649,5 +649,23 @@ paths:
           in: query
           name: ticketID
           description: '71'
+  /preventiveTicket/generate:
+    post:
+      summary: Generate
+      operationId: post-preventiveTicket-generate
+      responses:
+        '200':
+          description: '{ "fContent":{ "success":true }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: 'data '
+          description: "{ \t\"ArrayData\": \t[ \t\t{ \t\t\t\"MantenimientoID\":9, \t\t\t\"FechaPrevisto\":\"20200601\", \t\t\t\"TipoPreventivo\":\"Equipo\" \t\t} \t] }"
 components:
   schemas: {}
