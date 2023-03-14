@@ -2630,5 +2630,32 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  /intervention/openIntervention:
+    get:
+      summary: openIntervention
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "success":true, "data":{ "success":true, "sql":"SELECT proyecto_of.CodigoProyecto_OF,\r\nproyecto_of.Proyecto_OFID,\r\nproyecto_of.FechaCreacion,\r\nproyecto_of.FechaHoraUsuario,\r\nproyecto_of.FechaHoraUsuarioCierre,\r\nproyecto_of.Observaciones,\r\nproyecto_of.UsuarioIDCierre,\r\nproyecto_of.Estado,\r\navisoticketintervencion.AvisoTicketID,\r\navisoticket.DescripcionProblema,\r\navisoticket.Numero,\r\navisoticketintervencion.Notas,\r\navisoticketintervencion.VehiculoID,\r\navisoticketintervencion.ContadorInicial,\r\navisoticketintervencion.ContadorFinal,\r\navisoticketintervencion.Kilometros,\r\nvehiculo.Matricula,\r\nvehiculo.Codigo,\r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre,\r\navisoticketplanificacion.AvisoTicketPlanificacionID,\r\navisoticketplanificacion.FechaHoraPlanificacionInicio,\r\navisoticketplanificacion.FechaHoraPlanificacionFinal,\r\nusuario.NombreUsuario \r\n\r\nFROM proyecto_of\r\nLEFT JOIN avisoticketintervencion \r\nON proyecto_of.Proyecto_OFID = avisoticketintervencion.Proyecto_OFID\r\nLEFT JOIN vehiculo \r\nON avisoticketintervencion.VehiculoID = vehiculo.VehiculoID\r\nLEFT JOIN avisoticket\r\nON avisoticketintervencion.AvisoTicketID = avisoticket.AvisoTicketID\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nLEFT JOIN avisoticketplanificacion\r\nON avisoticket.AvisoTicketID= avisoticketplanificacion.AvisoTicketID \r\nLEFT JOIN usuario\r\nON usuario.UsuarioID  = proyecto_of.UsuarioIDCierre\r\n\r\n\r\nWHERE proyecto_of.EsObraOf = ''S'' AND proyecto_of.CustomerID = 29 \r\nAND proyecto_of.Proyecto_OFID = 1140\r\n", "records":[ { "Numero":1140, "Proyecto_OFID":66672, "FechaIntervencion":"20230103", "NumeroTicketID":4, "NumeroTicketCodigo":3, "NumeroTicketNombre":"\r\n<BODY><P>Est\u00c3\u00a1 vacio<\/P><\/BODY>", "UsuarioCreacion":"MARIA.ES", "FechaHoraCreacion":"2023-03-09T14:14:33.000", "PlanificacionIntervencionID":0, "PlanificacionIntervencionNombre":"Planificaci\u00f3n del 00\/00\/00 00:00:00", "TiempoPrevisto":"5 Horas", "UsuarioCierreID":0, "nombreUsuarioCierre":"", "FechaHoraCierre":"0000-00-00T00:00:00.000", "NAlbaran":"", "Descripcion":"", "ObservacionInterna":"", "VehiculoId":0, "VehiculoNombre":"", "VehiculoCodigo":"", "ContadorInicial":0, "ContadorFinal":0, "Kilometros":"0", "FechaAltaTicket":"2019-02-20T17:48:25.000", "TipoTicket":"Averia", "Prioridad":"", "DescripcionTicket":"\r\n<BODY><P>Est\u00c3\u00a1 vacio<\/P><\/BODY>", "Cliente":"dario", "ClienteCodigo":"43000001", "Ubicacion":"SAT MADRID 1", "UbicacionCodigo":1, "Equipo":"EXTINTOR", "EquipoCodigo":"3442342", "tipoEquipoNombre":"", "Estado":"", "EstadoTexto":"" } ] } }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-intervention-openIntervention
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: proyecto_OFID
+          description: '1140'
+        - schema:
+            type: string
+          in: query
+          name: numero
+          description: '4'
+        - schema:
+            type: string
+          in: query
 components:
   schemas: {}
