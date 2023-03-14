@@ -649,7 +649,7 @@ paths:
           in: query
           name: ticketID
           description: '71'
-  /preventiveTicket/generate:
+  /preventiveTickets/generate:
     post:
       summary: Generate
       operationId: post-preventiveTicket-generate
@@ -667,5 +667,50 @@ paths:
           in: query
           name: 'data '
           description: "{ \t\"ArrayData\": \t[ \t\t{ \t\t\t\"MantenimientoID\":9, \t\t\t\"FechaPrevisto\":\"20200601\", \t\t\t\"TipoPreventivo\":\"Equipo\" \t\t} \t] }"
+    parameters: []
+  /preventiveTickets:
+    get:
+      summary: findManyByFilters
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "sql":"", "resultado":{ "contador":7, "data":[ { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20230410", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20230508", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20230605", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20230703", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20230731", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20230828", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20230925", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20231023", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20231120", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20231218", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20240115", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20240212", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20240311", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20240408", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20240506", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20240603", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20240701", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20240729", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20240826", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20240923", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20241021", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20241118", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20241216", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20250113", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20250210", "TipoPreventivo":"Equipo" }, { "MantenimientoID":10, "EquipoID":9, "DireccionID":0, "contratoID":0, "NumeroSerie":"5698", "Equipo":"pruebaluis", "Modelo":"ghhgjghjgh", "Marca":"delvalle", "Ubicacion":"", "Direccion":"", "Municipio":"", "NumeroContrato":"", "Concepto":"yujyuhnvgbng", "Periodo":"Mes", "DesdeHora":"20:00:00.000", "HastaHora":"22:00:00.000", "FechaPrevisto":"20250310", "TipoPreventivo":"Equipo" } ] }, "success":true }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-preventiveTickets
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: offset
+          description: '0'
+        - schema:
+            type: string
+          in: query
+          name: limit
+          description: '50'
+        - schema:
+            type: string
+          in: query
+          name: tipoEquipoID
+          description: '""'
+        - schema:
+            type: string
+          in: query
+          description: '20000312'
+          name: fechaDesdeIn
+        - schema:
+            type: string
+          in: query
+          description: '20250313'
+          name: fechaHastaIn
+        - schema:
+            type: string
+          in: query
+          name: equipoID
+          description: '""'
 components:
   schemas: {}
