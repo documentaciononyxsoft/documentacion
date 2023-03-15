@@ -712,5 +712,28 @@ paths:
           in: query
           name: equipoID
           description: '""'
+  '/ticket/mailing/{sBusqueda}':
+    get:
+      summary: findOneSearchMailing
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "success":true, "sql":"SELECT mailing.MailingID,mailing.Nombre ,mailing.ReferenciaCodigo\r\nFROM mailing\r\nWHERE  mailing.CustomerID = 29 AND mailing.EmpresaID = 1\r\nAND (mailing.ReferenciaCodigo LIKE ''%%'' OR mailing.Nombre LIKE ''%%'' \r\nOR mailing.NombreComercial LIKE ''%%'')\r\nLIMIT 10", "records":[ { "ID":1, "Nombre":"LA GUIPUZCOANA-edgos", "Codigo":"01 " }, { "ID":2, "Nombre":"SUM.IND.BARCELONESES, S.L.", "Codigo":"40000002" }, { "ID":3, "Nombre":"DEUTSCHE RECU", "Codigo":"40000003" }, { "ID":4, "Nombre":"dario", "Codigo":"43000001" }, { "ID":5, "Nombre":"MUEBLES RUIZ, S.L.", "Codigo":"43000002" }, { "ID":6, "Nombre":"DEUTSCHE COMMERC", "Codigo":"43000003" }, { "ID":7, "Nombre":"TALLERES J", "Codigo":"000002" }, { "ID":8, "Nombre":"PRUEBAS", "Codigo":"PRUEBAS" }, { "ID":9, "Nombre":"I\u00c3\u0091GO BERGARA (DEMOS)", "Codigo":"T0002" }, { "ID":10, "Nombre":"JON GUERRA", "Codigo":"T0003" } ] }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+        '':
+          description: '{ "fContent":{ "success":true, "sql":"SELECT mailing.MailingID,mailing.Nombre ,mailing.ReferenciaCodigo\r\nFROM mailing\r\nWHERE  mailing.CustomerID = 29 AND mailing.EmpresaID = 1\r\nAND (mailing.ReferenciaCodigo LIKE ''%%'' OR mailing.Nombre LIKE ''%%'' \r\nOR mailing.NombreComercial LIKE ''%%'')\r\nLIMIT 10", "records":[ { "ID":1, "Nombre":"LA GUIPUZCOANA-edgos", "Codigo":"01 " }, { "ID":2, "Nombre":"SUM.IND.BARCELONESES, S.L.", "Codigo":"40000002" }, { "ID":3, "Nombre":"DEUTSCHE RECU", "Codigo":"40000003" }, { "ID":4, "Nombre":"dario", "Codigo":"43000001" }, { "ID":5, "Nombre":"MUEBLES RUIZ, S.L.", "Codigo":"43000002" }, { "ID":6, "Nombre":"DEUTSCHE COMMERC", "Codigo":"43000003" }, { "ID":7, "Nombre":"TALLERES J", "Codigo":"000002" }, { "ID":8, "Nombre":"PRUEBAS", "Codigo":"PRUEBAS" }, { "ID":9, "Nombre":"I\u00c3\u0091GO BERGARA (DEMOS)", "Codigo":"T0002" }, { "ID":10, "Nombre":"JON GUERRA", "Codigo":"T0003" } ] }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-ticket-mailing
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+    parameters:
+      - schema:
+          type: string
+        name: sBusqueda
+        in: path
+        required: true
+        description: '""'
 components:
   schemas: {}
