@@ -754,5 +754,24 @@ paths:
           in: query
           name: avisoTicketPlanificadoID
           description: '46'
+  /generateTickets/Generate:
+    get:
+      summary: generateTickets
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "success":true, "ticket":91, "intervencion":48 }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-generateTickets-Generate
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: data
+          description: "{ \t\"clienteID\":4, \t\"ubicacionID\":13, \t\"equipoID\":1, \t\"tipoTicket\":337, \t\"prioridadID\":2, \t\"servicioID\":1, \t\"tipoProblemaID\":1, \t\"observacionInterna\":\"PRUEBAOBSERVACIONINTERNA\", \t\"descripcionIntervencion\":\"PRUEBALL\", \t\"descripcionTicket\":\"PRUEBALL2\", \t\"generarIntervencion\":true, \t\"Tprevisto\":4 }"
 components:
   schemas: {}
