@@ -821,5 +821,52 @@ paths:
           in: query
           name: avisoTicketPlanificadoID
           description: '46'
+  /groups:
+    get:
+      summary: findManyForTickets
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "records":[ { "ID":1, "Codigo":"1", "Nombre":"prg" }, { "ID":2, "Codigo":"AP01", "Nombre":"prueba" } ], "success":true, "sql":"select * ,\r\nAlmacen.nombre as NombreAlmacen,\r\ntablageneral.Descripcion as NombreRutaEntrega \r\n\r\nfrom \r\n\r\nEmpleadoGrupoSATCabecera\r\nleft join almacen on almacen.almacenid = EmpleadoGrupoSatCabecera.almacenid\r\nleft join Tablageneral on tablageneral.tablageneralID = EmpleadoGrupoSatCabecera.RutaEntregaID\r\nleft join EmpleadoGrupoSatLinea on EmpleadoGrupoSatLinea.EmpleadoGrupoSatCabeceraID = EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraId\r\n\r\nwhere \r\nEmpleadoGrupoSatCabecera.CustomerID = 29 and\r\nEmpleadoGrupoSatCabecera.Empresaid = 1\r\n\r\nGROUP BY EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraID\r\nORDER BY EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraID" }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-groups
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+  /tickets/employee/groups:
+    get:
+      summary: FindManyForGroups
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "success":true, "sql":"SELECT empleadogruposatlinea.*,empleado.EmpleadoID,empleado.Codigo,empleado.Nombre\r\nFROM empleadogruposatlinea\r\nLEFT JOIN empleado \r\nON empleadogruposatlinea.EmpleadoID = empleado.EmpleadoID\r\nWHERE empleadogruposatlinea.EmpleadoGrupoSatCabeceraID = 2\r\nAND empleadogruposatlinea.CustomerID = 29\r\nAND empleadogruposatlinea.UsuarioID = 1\r\n", "records":[ { "ID":13, "Nombre":"ANDREA PUJOL GUTIERREZ", "Codigo":"97" } ] }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-tickets-employee-groups
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: grupoID
+          description: '2'
+  /tickets/employee:
+    get:
+      summary: findMany
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "success":true, "sql":"SELECT empleado.EmpleadoID AS ID,\r\nempleado.Codigo,\r\nempleado.Nombre\r\nFROM empleado \r\nWHERE empleado.CustomerID = 29\r\nAND empleado.EmpresaID = 1\r\nAND empleado.DeBaja = 0\r\nlimit 50\r\nOFFSET 0", "records":[ { "ID":1, "Nombre":"I\u00f1igo Vergara", "Codigo":"2" }, { "ID":2, "Nombre":"JUAN GUERRA", "Codigo":"3" }, { "ID":3, "Nombre":"LORENA SAEZ NAVARRO", "Codigo":"4" }, { "ID":4, "Nombre":"SILVIA PEREZ LACALLE", "Codigo":"5" }, { "ID":5, "Nombre":"SILVIO PACHECO ABASCAL", "Codigo":"6" }, { "ID":6, "Nombre":"LUIS CASILLAS PUJOL", "Codigo":"7" }, { "ID":7, "Nombre":"BORJA LOPEZ ESTEBAN", "Codigo":"49" }, { "ID":8, "Nombre":"MIGUEL GARCIA LORO\u00c3\u0091O", "Codigo":"66" }, { "ID":9, "Nombre":"ESTEFANIA RODRIGUEZ SUAREZ", "Codigo":"82" }, { "ID":10, "Nombre":"DARIO ESPARZA CIMARRO", "Codigo":"86" }, { "ID":11, "Nombre":"SARA VARELA LOINAZ", "Codigo":"91" }, { "ID":12, "Nombre":"SILVIA PROENZA MONTENEGRO", "Codigo":"94" }, { "ID":13, "Nombre":"ANDREA PUJOL GUTIERREZ", "Codigo":"97" }, { "ID":14, "Nombre":"ARTURO ALONSO LEE", "Codigo":"98" }, { "ID":15, "Nombre":"LUCIA CANTALAPIEDRA UNANUE", "Codigo":"99" }, { "ID":16, "Nombre":"SERGIO BRAVO MURILLO", "Codigo":"100" }, { "ID":17, "Nombre":"AITOR VILLA LANDA", "Codigo":"101" }, { "ID":18, "Nombre":"MILLAN GUERRA PEREZ", "Codigo":"102" }, { "ID":19, "Nombre":"BELEN IGLESIAS SUAREZ", "Codigo":"103" }, { "ID":20, "Nombre":"ELENA ROMAN SANCHEZ", "Codigo":"104" }, { "ID":21, "Nombre":"FERNANDO SORIA FERNANDEZ", "Codigo":"105" }, { "ID":22, "Nombre":"PATRICIA GOMEZ SORIA", "Codigo":"106" }, { "ID":24, "Nombre":"Antonio Lopez Rubio", "Codigo":"1" }, { "ID":25, "Nombre":"Jose Antonio Ruiz", "Codigo":"150" }, { "ID":26, "Nombre":"Antonio Hernandez", "Codigo":"151" }, { "ID":29, "Nombre":"Marta Cortes Hernandez", "Codigo":"205" }, { "ID":30, "Nombre":"ARANTZA MENDIARAIZ ", "Codigo":"250" }, { "ID":31, "Nombre":"PEDRO RODRIGUEZ VELAZQUEZ", "Codigo":"251" }, { "ID":34, "Nombre":"ROBERTO FERNANDEZ", "Codigo":"003" }, { "ID":37, "Nombre":"ADRIAN COSTA ", "Codigo":"001" }, { "ID":43, "Nombre":"edgos", "Codigo":"123" }, { "ID":44, "Nombre":"Randy Marsh", "Codigo":"120002" }, { "ID":45, "Nombre":"Stanley marsh", "Codigo":"2121020" }, { "ID":46, "Nombre":"Nuevo empleado", "Codigo":"EDG" }, { "ID":47, "Nombre":"William Forbes", "Codigo":"1020" }, { "ID":48, "Nombre":"The new", "Codigo":"210" }, { "ID":49, "Nombre":"Daniel C", "Codigo":"EWQ" }, { "ID":50, "Nombre":"Leandro Requena ", "Codigo":"G01" }, { "ID":51, "Nombre":"Maria Caama\u00f1o ", "Codigo":"DF01" }, { "ID":52, "Nombre":"Alicia Villegas ", "Codigo":"DP01" }, { "ID":53, "Nombre":"Edurne Arias", "Codigo":"OP01" }, { "ID":54, "Nombre":"Albert Madrid", "Codigo":"OP02" }, { "ID":55, "Nombre":"Josep Herreros", "Codigo":"OP03" }, { "ID":56, "Nombre":"Alejo Bernab\u00e9u", "Codigo":"OP4" }, { "ID":57, "Nombre":"Margarita Corrales", "Codigo":"OP05" }, { "ID":58, "Nombre":"Julio Perez", "Codigo":"01JP" }, { "ID":59, "Nombre":"Juana Ceballos", "Codigo":"02JP" }, { "ID":60, "Nombre":"practicas", "Codigo":"0106" }, { "ID":62, "Nombre":"Michael Villegas", "Codigo":"167" }, { "ID":63, "Nombre":"DAVID VILLEGAS", "Codigo":"1000" } ] }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-tickets-employee
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas: {}
