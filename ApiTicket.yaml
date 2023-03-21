@@ -773,5 +773,34 @@ paths:
           in: query
           name: data
           description: "{ \t\"clienteID\":4, \t\"ubicacionID\":13, \t\"equipoID\":1, \t\"tipoTicket\":337, \t\"prioridadID\":2, \t\"servicioID\":1, \t\"tipoProblemaID\":1, \t\"observacionInterna\":\"PRUEBAOBSERVACIONINTERNA\", \t\"descripcionIntervencion\":\"PRUEBALL\", \t\"descripcionTicket\":\"PRUEBALL2\", \t\"generarIntervencion\":true, \t\"Tprevisto\":4 }"
+  /tickets/planification:
+    get:
+      summary: findManyForTickets
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "PlanificacionGrayed":false, "CambiarEstadoGrayed":false, "records":[ { "AvisoTicketPlanificacionID":45, "FechaHoraInicio":"2023-03-16T00:00:00.000", "FechaHoraFin":"2023-03-17T00:00:00.000", "Situacion":"Aceptado Operario" }, { "AvisoTicketPlanificacionID":46, "FechaHoraInicio":"2000-05-12T00:00:00.000", "FechaHoraFin":"2012-05-12T00:00:00.000", "Situacion":"Aceptado Operario" }, { "AvisoTicketPlanificacionID":50, "FechaHoraInicio":"0000-00-00T00:00:00.000", "FechaHoraFin":"0000-00-00T00:00:00.000", "Situacion":"Pendiente Operario" }, { "AvisoTicketPlanificacionID":51, "FechaHoraInicio":"2023-02-15T23:00:00.000", "FechaHoraFin":"2028-02-15T23:00:00.000", "Situacion":"Pendiente Operario" }, { "AvisoTicketPlanificacionID":52, "FechaHoraInicio":"0000-00-00T00:00:00.000", "FechaHoraFin":"0000-00-00T00:00:00.000", "Situacion":"Pendiente Operario" }, { "AvisoTicketPlanificacionID":53, "FechaHoraInicio":"2023-02-15T05:00:00.000", "FechaHoraFin":"2028-02-15T05:00:00.000", "Situacion":"Pendiente Operario" }, { "AvisoTicketPlanificacionID":54, "FechaHoraInicio":"2023-02-15T05:30:00.000", "FechaHoraFin":"2028-02-15T05:30:00.000", "Situacion":"Pendiente Operario" }, { "AvisoTicketPlanificacionID":55, "FechaHoraInicio":"2023-02-15T05:23:00.000", "FechaHoraFin":"2028-02-15T05:23:00.000", "Situacion":"Pendiente Operario" }, { "AvisoTicketPlanificacionID":58, "FechaHoraInicio":"2023-02-15T05:23:00.000", "FechaHoraFin":"2028-02-15T05:23:00.000", "Situacion":"Pendiente Operario" }, { "AvisoTicketPlanificacionID":59, "FechaHoraInicio":"2023-02-15T05:23:00.000", "FechaHoraFin":"2028-02-15T05:23:00.000", "Situacion":"Pendiente Operario" }, { "AvisoTicketPlanificacionID":60, "FechaHoraInicio":"2023-02-15T05:23:00.000", "FechaHoraFin":"2028-02-15T05:23:00.000", "Situacion":"Pendiente Operario" }, { "AvisoTicketPlanificacionID":61, "FechaHoraInicio":"2023-02-15T05:23:00.000", "FechaHoraFin":"2028-02-15T05:23:00.000", "Situacion":"Pendiente Operario" }, { "AvisoTicketPlanificacionID":62, "FechaHoraInicio":"2023-02-15T05:23:00.000", "FechaHoraFin":"2028-02-15T05:23:00.000", "Situacion":"Pendiente Operario" }, { "AvisoTicketPlanificacionID":63, "FechaHoraInicio":"2023-02-15T05:23:00.000", "FechaHoraFin":"2028-02-15T05:23:00.000", "Situacion":"Pendiente Operario" }, { "AvisoTicketPlanificacionID":64, "FechaHoraInicio":"2023-02-15T05:23:00.000", "FechaHoraFin":"2028-02-15T05:23:00.000", "Situacion":"Pendiente Operario" }, { "AvisoTicketPlanificacionID":65, "FechaHoraInicio":"2023-02-15T05:23:00.000", "FechaHoraFin":"2028-02-15T05:23:00.000", "Situacion":"Pendiente Operario" }, { "AvisoTicketPlanificacionID":66, "FechaHoraInicio":"2023-02-15T05:23:00.000", "FechaHoraFin":"2028-02-15T05:23:00.000", "Situacion":"Pendiente Operario" }, { "AvisoTicketPlanificacionID":67, "FechaHoraInicio":"2023-02-15T05:23:00.000", "FechaHoraFin":"2028-02-15T05:23:00.000", "Situacion":"Pendiente Operario" }, { "AvisoTicketPlanificacionID":68, "FechaHoraInicio":"2023-02-15T05:23:00.000", "FechaHoraFin":"2028-02-15T05:23:00.000", "Situacion":"Pendiente Operario" }, { "AvisoTicketPlanificacionID":69, "FechaHoraInicio":"2023-02-15T05:23:00.000", "FechaHoraFin":"2028-02-15T05:23:00.000", "Situacion":"Pendiente Operario" }, { "AvisoTicketPlanificacionID":70, "FechaHoraInicio":"2023-02-15T05:23:00.000", "FechaHoraFin":"2028-02-15T05:23:00.000", "Situacion":"Pendiente Operario" } ], "success":true, "sql":"SELECT \r\n\tAvisoTicketPlanificacion.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID,\t\r\n\tAvisoTicketPlanificacion.AvisoTicketID AS AvisoTicketID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionInicio AS FechaHoraPlanificacionInicio,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionFinal AS FechaHoraPlanificacionFinal,\t\r\n\tAvisoTicketPlanificacion.CustomerID AS CustomerID,\t\r\n\tAvisoTicketPlanificacion.EmpresaID AS EmpresaID,\t\r\n\tAvisoTicketPlanificacion.UsuarioID AS UsuarioID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraUsuario AS FechaHoraUsuario,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionEmpleadoID AS AvisoTicketPlanificacionEmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpleadoID AS EmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.Situacion AS Situacion,\t\r\n\tAvisoTicketPlanificacionEmpleado.CustomerID AS CustomerID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpresaID AS EmpresaID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.UsuarioID AS UsuarioID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.FechaHoraUsuario AS FechaHoraUsuario_Av,\r\n\templeado.Nombre as NombreEmpleado\r\n\t\r\nFROM AvisoTicketPlanificacion\r\nleft join AvisoTicketPlanificacionEmpleado on AvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID=AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\nLEFT JOIn Empleado on empleado.EmpleadoID=AvisoTicketPlanificacionEmpleado.EmpleadoID\r\n\r\nwhere AvisoTicketPlanificacion.CustomerID = 29 \r\nAND AvisoTicketPlanificacion.EmpresaID = 1 \r\nAND AvisoTicketPlanificacion.AvisoTicketID = 3\r\nGroup By AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\nLIMIT 50 \r\nOFFSET 0" }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-tickets-planification
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: ticketID
+          description: '3'
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: '50'
+        - schema:
+            type: integer
+          in: query
+          name: offset
+          description: '0'
 components:
   schemas: {}
