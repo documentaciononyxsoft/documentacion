@@ -839,5 +839,40 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  /employee/changeState:
+    get:
+      summary: changeState
+      tags: []
+      responses:
+        '200':
+          description: '{ "fContent":{ "estadoEmpleado":"RE", "estadoTicket":"RE", "estadoEmpleadoNombre":"Rechazado", "estadoTicketNombre":"Rechazado", "success":true }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      operationId: get-employee-changeState
+      description: ''
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: ticketID
+          description: '3'
+        - schema:
+            type: integer
+          in: query
+          name: avisoTicketPlanificadoID
+          description: '46'
+        - schema:
+            type: integer
+          in: query
+          name: avisoTicketPlanificadoEmpleadoID
+          description: '13'
+        - schema:
+            type: integer
+          in: query
+          name: opcion
+          description: '2'
 components:
   schemas: {}
