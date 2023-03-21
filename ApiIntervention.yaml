@@ -2765,6 +2765,38 @@ paths:
           in: query
           name: offset
           description: '0'
+    post:
+      summary: save
+      operationId: post-tickets-planification
+      responses:
+        '200':
+          description: '{ "fContent":{ "data":{ "PlanificacionGrayed":false, "CambiarEstadoGrayed":false, "records":[ { "AvisoTicketPlanificacionID":71, "FechaHoraInicio":"2023-02-15T05:23:00.000", "FechaHoraFin":"2028-02-15T05:23:00.000", "Situacion":"Pendiente Operario" } ], "success":true, "sql":"SELECT \r\n\tAvisoTicketPlanificacion.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID,\t\r\n\tAvisoTicketPlanificacion.AvisoTicketID AS AvisoTicketID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionInicio AS FechaHoraPlanificacionInicio,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionFinal AS FechaHoraPlanificacionFinal,\t\r\n\tAvisoTicketPlanificacion.CustomerID AS CustomerID,\t\r\n\tAvisoTicketPlanificacion.EmpresaID AS EmpresaID,\t\r\n\tAvisoTicketPlanificacion.UsuarioID AS UsuarioID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraUsuario AS FechaHoraUsuario,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionEmpleadoID AS AvisoTicketPlanificacionEmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpleadoID AS EmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.Situacion AS Situacion,\t\r\n\tAvisoTicketPlanificacionEmpleado.CustomerID AS CustomerID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpresaID AS EmpresaID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.UsuarioID AS UsuarioID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.FechaHoraUsuario AS FechaHoraUsuario_Av,\r\n\templeado.Nombre as NombreEmpleado\r\n\t\r\nFROM AvisoTicketPlanificacion\r\nleft join AvisoTicketPlanificacionEmpleado on AvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID=AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\nLEFT JOIn Empleado on empleado.EmpleadoID=AvisoTicketPlanificacionEmpleado.EmpleadoID\r\n\r\nwhere AvisoTicketPlanificacion.CustomerID = 29 \r\nAND AvisoTicketPlanificacion.EmpresaID = 1 \r\nAND AvisoTicketPlanificacion.AvisoTicketID = 3\r\nAND AvisoTicketPlanificacion.AvisoTicketPlanificacionID = 71\r\nGroup By AvisoTicketPlanificacion.AvisoTicketPlanificacionID" }, "success":true }, "fMessage":"Request processed successfully", "fStatusCode":200 } '
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: fechaDesdeIN
+          description: '"20230215052300"'
+        - schema:
+            type: string
+          in: query
+          name: fechaHastaIN
+          description: '"20280215052300"'
+        - schema:
+            type: string
+          in: query
+          name: empleados
+          description: '"1,2"'
+        - schema:
+            type: string
+          in: query
+          name: ticketID
+          description: '3'
   /generateTickets/ubication:
     get:
       summary: findManyForGenerationTickets
