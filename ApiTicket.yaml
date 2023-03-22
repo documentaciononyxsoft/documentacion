@@ -874,5 +874,75 @@ paths:
           in: query
           name: opcion
           description: '2'
+  /contracts:
+    get:
+      summary: findManyByFilters
+      tags: []
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "records":[ { "ContratoMantenimientoID":8, "NContrato":"3", "FechaAlta":"20230321", "TipoContratoID":10003, "ClienteID":8, "ContactoID":17, "Notas":"FDFDGHFHGHFHFHF", "ClienteNombre":"TID TECNICAS INDUSTRIALES", "TipoContratoNombre":"GGGGHGH", "ContactoNombre":"TID TECNICAS INDUSTRIALES", "FechaInicio":"20230321", "FechaFin":"20240321" } ], "success":true, "sql":"select \r\nContratoMantenimiento.*\r\n\r\n from ContratoMantenimiento\r\n \r\n WHERE \r\n \r\nContratoMantenimiento.CustomerID = 29\r\nAND ContratoMantenimiento.EmpresaID = 1 AND (ContratoMantenimiento.ClienteID IN (8,2) AND ContratoMantenimiento.TipoContratoMantenimientoID IN (10003,1) AND DATE(ContratoMantenimiento.FechaHoraUsuario) >= 20040422 AND DATE(ContratoMantenimiento.FechaHoraUsuario) <= 20230321 AND DATE(ContratoMantenimiento.FechaInicio) >= 20030422 AND DATE(ContratoMantenimiento.FechaInicio) <= 20240321 AND DATE(ContratoMantenimiento.FechaBaja) >= 20020422 AND DATE(ContratoMantenimiento.FechaBaja) <= 20250321 AND ContratoMantenimiento.Activo = 0)\r\nlimit 50 \r\noffset 0" } } '
+      operationId: get-contracts
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: offset
+          description: '0'
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: '50'
+        - schema:
+            type: string
+          in: query
+          name: fechaAltaIn
+          description: '20040422'
+        - schema:
+            type: string
+          in: query
+          name: fechaAltaOut
+          description: '20230321'
+        - schema:
+            type: string
+          in: query
+          name: fechaInicioIn
+          description: '20030422'
+        - schema:
+            type: string
+          in: query
+          name: fechaInicioOut
+          description: '20240321'
+        - schema:
+            type: string
+          in: query
+          name: fechaBajaIn
+          description: '20020422'
+        - schema:
+            type: string
+          in: query
+          name: fechaBajaOut
+          description: '20250321'
+        - schema:
+            type: string
+          in: query
+          name: estado
+          description: '3'
+        - schema:
+            type: string
+          in: query
+          name: clientes
+          description: '8,2'
+        - schema:
+            type: string
+          in: query
+          name: tipoContrato
+          description: '10003,1'
+    parameters: []
 components:
   schemas: {}
