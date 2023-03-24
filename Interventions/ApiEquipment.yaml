@@ -1,12 +1,129 @@
-openapi: 3.0.0
+openapi: 3.1.0
 x-stoplight:
-  id: 2ysqw7pzkbohs
+  id: rjtj30tt94h1a
 info:
-  title: ApiInterventions
+  title: ApiEquipment
   version: '1.0'
 servers:
   - url: 'http://localhost:3000'
 paths:
+  /consult/equipment:
+    get:
+      summary: findManyByFilters
+      tags: []
+      responses:
+        '200':
+          description: "{\n\t\"fContent\":\n\t{\n\t\t\"records\":\n\t\t[\n\t\t\t{\n\t\t\t\t\"ElementoID\":1,\n\t\t\t\t\"NumeroEquipo\":\"3442342\",\n\t\t\t\t\"nombre\":\"EXTINTOR\",\n\t\t\t\t\"Marca\":\"BABESA\",\n\t\t\t\t\"Modelo\":\"XR-190\",\n\t\t\t\t\"TipoEquipoID\":9999,\n\t\t\t\t\"TipoEquipoNombre\":\"Proveedores por prueba\",\n\t\t\t\t\"ArticuloID\":606,\n\t\t\t\t\"CodigoArticulo\":\"Z12007\",\n\t\t\t\t\"NombreArticulo\":\"BOMBA HIDRONEUMATICA S\\/E 2LTS\",\n\t\t\t\t\"ClienteID\":1,\n\t\t\t\t\"CodigoCliente\":\"43000001\",\n\t\t\t\t\"NombreCliente\":\"dario\",\n\t\t\t\t\"DireccionID\":13,\n\t\t\t\t\"CodigoUbicacion\":1,\n\t\t\t\t\"NombreUbicacion\":\"SAT MADRID 1\",\n\t\t\t\t\"Emplazamiento\":\"\",\n\t\t\t\t\"FechaInstalacion\":\"20180322\",\n\t\t\t\t\"FechaBaja\":\"20230303\",\n\t\t\t\t\"MotivoBaja\":\"\",\n\t\t\t\t\"FechaInicioGarantia\":\"20180322\",\n\t\t\t\t\"FechaFinGarantia\":\"20190831\",\n\t\t\t\t\"Notas\":\"\"\n\t\t\t}\n\t\t],\n\t\t\"success\":true,\n\t\t\"sql\":\"SELECT Elemento.*,\\r\\nArticulo.Codigo AS CodigoArticulo,\\r\\nArticulo.Nombre AS NombreArticulo,\\r\\nCliente.Codigo AS CodigoCliente,\\r\\nMailing.Nombre AS NombreMailing,\\r\\nDireccion.Codigo AS CodigoUbicacion,\\r\\nDireccion.Nombre AS NombreUbicacion,\\r\\nTipoEquipo.Descripcion AS TipoEquipoTexto\\r\\nFROM Elemento\\r\\nLEFT OUTER JOIN Articulo ON Articulo.ArticuloID = ElementO.ArticuloID\\r\\nLEFT OUTER JOIN Cliente ON Cliente.ClienteID = Elemento.ClienteID\\r\\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\\r\\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = Elemento.DireccionID\\r\\nLEFT OUTER JOIN TablaGeneral AS TipoEquipo ON TipoEquipo.TablaGeneralID = Elemento.TipoEquipoID\\r\\nWHERE Elemento.CustomerID = 29\\r\\nAND Elemento.EmpresaID = 1\\r\\n AND (Elemento.NumeroSerie LIKE '%344%' AND Elemento.TipoEquipoID IN (9999) AND Elemento.FechaInstalacion >= 0 AND DATE(Elemento.FechaInstalacion) <= 20280406 AND Elemento.Nombre LIKE '%EX%' AND Elemento.ClienteID IN (1) AND Elemento.ArticuloID IN (606) AND Elemento.DireccionID IN (13) AND Elemento.FinalGarantia >= 0 AND Elemento.FinalGarantia <= 20280406)\\r\\nlimit 50 \\r\\noffset 0\"\n\t},\n\t\"fMessage\":\"Request processed successfully\",\n\t\"fStatusCode\":200\n}"
+      operationId: get-consult-equipment
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: fechaGarantiaIn
+          description: '0'
+        - schema:
+            type: string
+          in: query
+          name: fechaGarantiaOut
+          description: '20280406'
+        - schema:
+            type: string
+          in: query
+          name: fechaInstalacionIn
+          description: '0'
+        - schema:
+            type: string
+          in: query
+          name: fechaInstalacionOut
+          description: '20280406'
+        - schema:
+            type: integer
+          in: query
+          name: estado
+          description: '1'
+        - schema:
+            type: integer
+          in: query
+          name: garantia
+          description: '1'
+        - schema:
+            type: string
+          in: query
+          name: clientes
+          description: '1'
+        - schema:
+            type: string
+          in: query
+          name: articulos
+          description: '606'
+        - schema:
+            type: string
+          in: query
+          name: ubicaciones
+          description: '13'
+        - schema:
+            type: string
+          in: query
+          name: numero
+          description: '344'
+        - schema:
+            type: string
+          in: query
+          name: nombre
+          description: EX
+        - schema:
+            type: string
+          in: query
+          name: tipoEquipo
+          description: '9999'
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      examples:
+        - id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified
+
   '/intervention/equipment/{avisoTicketID}':
     parameters:
       - schema:
@@ -171,46 +288,55 @@ paths:
         name: sBusqueda
         in: path
         required: true
-components:
-  schemas:
-    User:
-      title: User
-      type: object
-      description: ''
-      x-examples:
-        Alice Smith:
-          id: 142
-          firstName: Alice
-          lastName: Smith
-          email: alice.smith@gmail.com
-          dateOfBirth: '1997-10-31'
-          emailVerified: true
-          signUpDate: '2019-08-24'
-      properties:
-        id:
-          type: integer
-          description: Unique identifier for the given user.
-        firstName:
-          type: string
-        lastName:
-          type: string
-        email:
-          type: string
-          format: email
-        dateOfBirth:
-          type: string
-          format: date
-          example: '1997-10-31'
-        emailVerified:
-          type: boolean
-          description: Set to true if the user's email has been verified.
-        createDate:
-          type: string
-          format: date
-          description: The date that the user was created.
-      required:
-        - id
-        - firstName
-        - lastName
-        - email
-        - emailVerified
+  components:
+    schemas:
+      User:
+        title: User
+        type: object
+        description: ''
+        x-examples:
+          Alice Smith:
+            id: 142
+            firstName: Alice
+            lastName: Smith
+            email: alice.smith@gmail.com
+            dateOfBirth: '1997-10-31'
+            emailVerified: true
+            signUpDate: '2019-08-24'
+        properties:
+          id:
+            type: integer
+            description: Unique identifier for the given user.
+          firstName:
+            type: string
+          lastName:
+            type: string
+          email:
+            type: string
+            format: email
+          dateOfBirth:
+            type: string
+            format: date
+            example: '1997-10-31'
+          emailVerified:
+            type: boolean
+            description: Set to true if the user's email has been verified.
+          createDate:
+            type: string
+            format: date
+            description: The date that the user was created.
+        required:
+          - id
+          - firstName
+          - lastName
+          - email
+          - emailVerified
+
+
+
+
+
+
+
+      x-stoplight:
+        id: k04voay400i27
