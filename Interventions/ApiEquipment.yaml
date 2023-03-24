@@ -7,7 +7,7 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  /consult/equipment:
+  '/consult/equipment':
     get:
       summary: findManyByFilters
       tags: []
