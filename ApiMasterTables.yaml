@@ -13924,6 +13924,25 @@ paths:
         in: path
         required: true
         description: '"dario"'
+  /tables/article:
+    get:
+      summary: findManyByParam
+      tags: []
+      responses:
+        '200':
+          description: "{\n\t\"fContent\":\n\t{\n\t\t\"success\":true,\n\t\t\"records\":\n\t\t[\n\t\t\t{\n\t\t\t\t\"ArticuloID\":14,\n\t\t\t\t\"Nombre\":\"BARRA METALICA REF. 5700001409\",\n\t\t\t\t\"Codigo\":\"5700001409\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ArticuloID\":16,\n\t\t\t\t\"Nombre\":\"PS POLYSTYROL 165H HXG21 CRISTAL\",\n\t\t\t\t\"Codigo\":\"PS 05\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ArticuloID\":22,\n\t\t\t\t\"Nombre\":\"SINKRAL L-320 SUV BLANCO 17572\",\n\t\t\t\t\"Codigo\":\"ABS 25\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ArticuloID\":27,\n\t\t\t\t\"Nombre\":\"CINTA MARRON EMBALAJE-BOLSAS PLASTICO-CL\",\n\t\t\t\t\"Codigo\":\"VARIOS\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ArticuloID\":33,\n\t\t\t\t\"Nombre\":\"ROLLO CALIBRADO\",\n\t\t\t\t\"Codigo\":\"M00425\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ArticuloID\":44,\n\t\t\t\t\"Nombre\":\"CONJ.VALVULA 660 SIN TARAR\",\n\t\t\t\t\"Codigo\":\"17C0006\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ArticuloID\":45,\n\t\t\t\t\"Nombre\":\"MUELLE VALVULA GATO-BOMBA\",\n\t\t\t\t\"Codigo\":\"13D0002\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ArticuloID\":47,\n\t\t\t\t\"Nombre\":\"PULSADOR VALVULA GATO -BOMBA\",\n\t\t\t\t\"Codigo\":\"15N0003\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ArticuloID\":49,\n\t\t\t\t\"Nombre\":\"CUERPO VALVULA BOMBA 660 CM\",\n\t\t\t\t\"Codigo\":\"52Y0002\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ArticuloID\":55,\n\t\t\t\t\"Nombre\":\"BARRA HUECA ERTALON 6 180*90\",\n\t\t\t\t\"Codigo\":\"08D0051\"\n\t\t\t}\n\t\t],\n\t\t\"sql\":\"SELECT \\r\\narticulo.ArticuloID,\\r\\narticulo.Nombre,\\r\\narticulo.Codigo\\r\\n\\r\\nFROM articulo \\r\\n\\r\\nWHERE articulo.CustomerID = 29 AND articulo.EmpresaID = 1\\r\\nAND (articulo.Nombre LIKE '%al%' OR articulo.Codigo LIKE '%al%' )\\r\\nORDER BY articulo.ArticuloID LIMIT 10 \"\n\t},\n\t\"fMessage\":\"Request processed successfully\",\n\t\"fStatusCode\":200\n}"
+      operationId: get-tables-article
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: param
+          description: al
 components:
   schemas:
     User:
