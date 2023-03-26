@@ -944,5 +944,61 @@ paths:
           name: tipoContrato
           description: '10003,1'
     parameters: []
+  /equipment/consult/ticket:
+    get:
+      summary: findManyByFiltersForEquipment
+      tags: []
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "sql":"SELECT AvisoTicket.*,\r\nAvisoTicketElemento.ElementoID, \r\nElemento.NumeroSerie,\r\nElemento.Nombre AS NombreEquipo,\r\nMailing.ReferenciaCodigo,\r\nMailing.Nombre AS NombreMailing,\r\nDireccion.Codigo AS CodigoDireccion,\r\nDireccion.Nombre AS NombreDireccion,\r\nTablaGeneral.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneral.Descripcion AS TipoTicketTexto,\r\nAvisoTicketPrioridad.Nombre AS NombrePrioridad,\r\nAvisoTicketPrioridad.Icono AS IconoPrioridad\r\nFROM AvisoTicket\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nLEFT OUTER JOIN AvisoTicketElemento ON AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Elemento ON Elemento.ElementoID = AvisoTicketElemento.ElementoID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = AvisoTicket.DireccionID\r\nLEFT OUTER JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN AvisoTicketPrioridad ON AvisoTicket.AvisoTicketPrioridadID = AvisoTicketPrioridad.AvisoTicketPrioridadID\r\nWHERE AvisoTicket.CustomerID = 29\r\nAND\tAvisoTicket.EmpresaID = 1\r\n AND (AvisoTicketElemento.ElementoID IN (1) AND AvisoTicket.Numero >= ''1'' AND AvisoTicket.Numero <= ''1000'' AND AvisoTicket.AvisoTicketPrioridadID IN (2) AND AvisoTicket.TipoAvisoID IN (337))\r\nlimit 50 \r\noffset 0", "records":[ { "NumeroTicket":28, "CodigoCuenta":"43020007", "NombreCuenta":"TID TECNICAS INDUSTRIALES", "CodigoUbicacion":1, "NombreUbicacion":"SAT MADRID 1", "CodigoEquipo":"3442342", "NombreEquipo":"EXTINTOR", "TipoTicket":"Averia", "Prioridad":"pruebaLUIS23", "Estado":"PD" }, { "NumeroTicket":29, "CodigoCuenta":"43020007", "NombreCuenta":"TID TECNICAS INDUSTRIALES", "CodigoUbicacion":1, "NombreUbicacion":"SAT MADRID 1", "CodigoEquipo":"3442342", "NombreEquipo":"EXTINTOR", "TipoTicket":"Averia", "Prioridad":"pruebaLUIS23", "Estado":"PD" }, { "NumeroTicket":31, "CodigoCuenta":"43020007", "NombreCuenta":"TID TECNICAS INDUSTRIALES", "CodigoUbicacion":1, "NombreUbicacion":"SAT MADRID 1", "CodigoEquipo":"3442342", "NombreEquipo":"EXTINTOR", "TipoTicket":"Averia", "Prioridad":"pruebaLUIS23", "Estado":"PD" }, { "NumeroTicket":33, "CodigoCuenta":"43020007", "NombreCuenta":"TID TECNICAS INDUSTRIALES", "CodigoUbicacion":1, "NombreUbicacion":"SAT MADRID 1", "CodigoEquipo":"3442342", "NombreEquipo":"EXTINTOR", "TipoTicket":"Averia", "Prioridad":"pruebaLUIS23", "Estado":"" }, { "NumeroTicket":34, "CodigoCuenta":"43020007", "NombreCuenta":"TID TECNICAS INDUSTRIALES", "CodigoUbicacion":1, "NombreUbicacion":"SAT MADRID 1", "CodigoEquipo":"3442342", "NombreEquipo":"EXTINTOR", "TipoTicket":"Averia", "Prioridad":"pruebaLUIS23", "Estado":"PD" }, { "NumeroTicket":35, "CodigoCuenta":"43020007", "NombreCuenta":"TID TECNICAS INDUSTRIALES", "CodigoUbicacion":1, "NombreUbicacion":"SAT MADRID 1", "CodigoEquipo":"3442342", "NombreEquipo":"EXTINTOR", "TipoTicket":"Averia", "Prioridad":"pruebaLUIS23", "Estado":"PD" }, { "NumeroTicket":68, "CodigoCuenta":"43020005", "NombreCuenta":"RESTAURANTE ALDAN-ONDO", "CodigoUbicacion":1, "NombreUbicacion":"SAT MADRID 1", "CodigoEquipo":"3442342", "NombreEquipo":"EXTINTOR", "TipoTicket":"Averia", "Prioridad":"pruebaLUIS23", "Estado":"" }, { "NumeroTicket":69, "CodigoCuenta":"43020005", "NombreCuenta":"RESTAURANTE ALDAN-ONDO", "CodigoUbicacion":1, "NombreUbicacion":"SAT MADRID 1", "CodigoEquipo":"3442342", "NombreEquipo":"EXTINTOR", "TipoTicket":"Averia", "Prioridad":"pruebaLUIS23", "Estado":"" }, { "NumeroTicket":70, "CodigoCuenta":"43020005", "NombreCuenta":"RESTAURANTE ALDAN-ONDO", "CodigoUbicacion":1, "NombreUbicacion":"SAT MADRID 1", "CodigoEquipo":"3442342", "NombreEquipo":"EXTINTOR", "TipoTicket":"Averia", "Prioridad":"pruebaLUIS23", "Estado":"" }, { "NumeroTicket":71, "CodigoCuenta":"43020005", "NombreCuenta":"RESTAURANTE ALDAN-ONDO", "CodigoUbicacion":1, "NombreUbicacion":"SAT MADRID 1", "CodigoEquipo":"3442342", "NombreEquipo":"EXTINTOR", "TipoTicket":"Averia", "Prioridad":"pruebaLUIS23", "Estado":"" }, { "NumeroTicket":72, "CodigoCuenta":"43020005", "NombreCuenta":"RESTAURANTE ALDAN-ONDO", "CodigoUbicacion":1, "NombreUbicacion":"SAT MADRID 1", "CodigoEquipo":"3442342", "NombreEquipo":"EXTINTOR", "TipoTicket":"Averia", "Prioridad":"pruebaLUIS23", "Estado":"" }, { "NumeroTicket":73, "CodigoCuenta":"43020005", "NombreCuenta":"RESTAURANTE ALDAN-ONDO", "CodigoUbicacion":1, "NombreUbicacion":"SAT MADRID 1", "CodigoEquipo":"3442342", "NombreEquipo":"EXTINTOR", "TipoTicket":"Averia", "Prioridad":"pruebaLUIS23", "Estado":"" } ] } } '
+      operationId: get-equipment-consult-ticket
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: '50'
+        - schema:
+            type: integer
+          in: query
+          name: offset
+          description: '0'
+        - schema:
+            type: string
+          in: query
+          name: tipoTicketID
+          description: '337'
+        - schema:
+            type: integer
+          in: query
+          name: mailingID
+        - schema:
+            type: integer
+          in: query
+          name: ubicacionID
+        - schema:
+            type: string
+          in: query
+          name: prioridadID
+          description: '2'
+        - schema:
+            type: integer
+          in: query
+          name: equipoID
+        - schema:
+            type: string
+          in: query
+          name: numeroTicketDesde
+          description: '1'
+        - schema:
+            type: string
+          in: query
+          name: numeroTicketHasta
+          description: '1000'
 components:
   schemas: {}
