@@ -13943,6 +13943,39 @@ paths:
           in: query
           name: param
           description: al
+  /tables/accounts/light:
+    get:
+      summary: findLightList
+      tags: []
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "sql":"SELECT mailing.MailingID,mailing.Nombre ,mailing.ReferenciaCodigo\r\nFROM mailing\r\nWHERE mailing.Activo= TRUE AND mailing.CustomerID = 29 AND mailing.EmpresaID = 1\r\nAND (mailing.ReferenciaCodigo LIKE ''%a%'' OR mailing.Nombre LIKE ''%a%'' \r\nOR mailing.NombreComercial LIKE ''%a%'')\r\nLIMIT 10", "records":[ { "ID":1, "Nombre":"LA GUIPUZCOANA-edgos", "Codigo":"01 " }, { "ID":2, "Nombre":"SUM.IND.BARCELONESES, S.L.", "Codigo":"40000002" }, { "ID":4, "Nombre":"dario", "Codigo":"43000001" }, { "ID":54, "Nombre":"SAL IZAR", "Codigo":"40020004" }, { "ID":55, "Nombre":"EUROETIQUETAS, S.L.", "Codigo":"40020005" }, { "ID":56, "Nombre":"ENCARNA LOPEZ", "Codigo":"40020006" }, { "ID":57, "Nombre":"RESTAURANTE ALDAN-ONDO", "Codigo":"43020005" }, { "ID":59, "Nombre":"KARL BERRANG", "Codigo":"43000004" }, { "ID":60, "Nombre":"CLIENTES VARIOS", "Codigo":"43999999" }, { "ID":76, "Nombre":"EMPRESA MEYPU", "Codigo":"43000008" } ] } } '
+      operationId: get-tables-accounts-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+  /tables/account:
+    get:
+      summary: findManyByParam
+      tags: []
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "sql":"SELECT mailing.MailingID,mailing.Nombre ,mailing.ReferenciaCodigo\r\nFROM mailing\r\nWHERE mailing.Activo= TRUE AND mailing.CustomerID = 29 AND mailing.EmpresaID = 1\r\nAND (mailing.ReferenciaCodigo LIKE ''%a%'' OR mailing.Nombre LIKE ''%a%'' \r\nOR mailing.NombreComercial LIKE ''%a%'')\r\nLIMIT 10", "records":[ { "ID":1, "Nombre":"LA GUIPUZCOANA-edgos", "Codigo":"01 " }, { "ID":2, "Nombre":"SUM.IND.BARCELONESES, S.L.", "Codigo":"40000002" }, { "ID":4, "Nombre":"dario", "Codigo":"43000001" }, { "ID":54, "Nombre":"SAL IZAR", "Codigo":"40020004" }, { "ID":55, "Nombre":"EUROETIQUETAS, S.L.", "Codigo":"40020005" }, { "ID":56, "Nombre":"ENCARNA LOPEZ", "Codigo":"40020006" }, { "ID":57, "Nombre":"RESTAURANTE ALDAN-ONDO", "Codigo":"43020005" }, { "ID":59, "Nombre":"KARL BERRANG", "Codigo":"43000004" }, { "ID":60, "Nombre":"CLIENTES VARIOS", "Codigo":"43999999" }, { "ID":76, "Nombre":"EMPRESA MEYPU", "Codigo":"43000008" } ] } } '
+      operationId: get-tables-account
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: param
+          description: a
 components:
   schemas:
     User:
