@@ -7,7 +7,7 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  /tickets:
+  consult/tickets:
     get:
       summary: FindManyByFilters
       tags: []
@@ -140,7 +140,8 @@ paths:
           in: query
           name: FechaFinalPlanificacion
           description: '20230306160119'
-  /ticket/priority:
+    parameters: []
+  /tickets/priority:
     get:
       summary: findManyForConsultTickets
       operationId: get-ticket-priority
@@ -153,7 +154,8 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
-  /ticket:
+    parameters: []
+  /tickets:
     get:
       summary: findMany
       tags: []
@@ -183,7 +185,8 @@ paths:
           name: order
           description: ASC
       description: ''
-  /ticket/afterClient:
+    parameters: []
+  /tickets/afterClient:
     get:
       summary: afterClient
       tags: []
@@ -202,7 +205,8 @@ paths:
           in: query
           name: clienteID
           description: '77'
-  /ticket/afterUbication:
+    parameters: []
+  /tickets/afterUbication:
     get:
       summary: afterUbication
       tags: []
@@ -221,7 +225,8 @@ paths:
           in: query
           name: ubicacionID
           description: '13'
-  /ticket/afterEquipment:
+    parameters: []
+  /tickets/afterEquipment:
     get:
       summary: afterEquipment
       tags: []
@@ -239,7 +244,8 @@ paths:
             type: string
           in: header
           name: equipoID
-  '/tickets/{ticketID}':
+    parameters: []
+  '/ticket/{ticketID}':
     parameters:
       - schema:
           type: string
@@ -336,7 +342,7 @@ paths:
           in: header
           name: 'accessToken '
           description: '"TokenReciente"'
-  '/tickets/{sBusqueda}':
+  '/tickets/quicksearch/{sBusqueda}':
     parameters:
       - schema:
           type: string
@@ -435,7 +441,7 @@ paths:
             type: string
           in: header
           name: 'accesToken '
-  /ticket/cronology:
+  /tickets/cronology:
     get:
       summary: Cronology
       tags: []
@@ -454,7 +460,8 @@ paths:
           in: query
           name: ticketID
           description: '22'
-  /ticket/expenses:
+    parameters: []
+  /tickets/expenses:
     get:
       summary: Expenses
       tags: []
@@ -473,7 +480,8 @@ paths:
           in: query
           name: ticketID
           description: '3'
-  /ticket/hours:
+    parameters: []
+  /tickets/hours:
     get:
       summary: Hours
       tags: []
@@ -492,7 +500,8 @@ paths:
           in: query
           name: ticketID
           description: '3'
-  /ticket/materials:
+    parameters: []
+  /tickets/materials:
     get:
       summary: Materials
       tags: []
@@ -511,7 +520,8 @@ paths:
           in: query
           name: ticketID
           description: '3'
-  /ticket/shopping:
+    parameters: []
+  /tickets/shopping:
     get:
       summary: Shopping
       tags: []
@@ -530,7 +540,8 @@ paths:
           in: query
           name: ticketID
           description: '55'
-  /ticket/outsourcing:
+    parameters: []
+  /tickets/outsourcing:
     get:
       summary: Outsourcing
       tags: []
@@ -554,6 +565,7 @@ paths:
           in: query
           name: radio
           description: '2'
+    parameters: []
   /incidents:
     get:
       summary: FindManyByFilters
@@ -608,7 +620,7 @@ paths:
           in: query
           name: offset
           description: '0'
-  /ticket/openTicket:
+  /tickets/openTicket:
     get:
       summary: openTicket
       tags: []
@@ -630,7 +642,8 @@ paths:
         - schema:
             type: string
           in: query
-  /ticket/closeTicket:
+    parameters: []
+  /tickets/closeTicket:
     get:
       summary: closeTicket
       tags: []
@@ -649,6 +662,7 @@ paths:
           in: query
           name: ticketID
           description: '71'
+    parameters: []
   /preventiveTickets/generate:
     post:
       summary: Generate
@@ -712,7 +726,7 @@ paths:
           in: query
           name: equipoID
           description: '""'
-  '/ticket/mailing/{sBusqueda}':
+  '/tickets/mailing/{sBusqueda}':
     get:
       summary: findOneSearchMailing
       tags: []
