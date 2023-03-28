@@ -13976,14 +13976,34 @@ paths:
           in: query
           name: param
           description: a
-  /tables/checkListGroup:
-    get:
+  '/tables/checkListGroup/{CheckListDefinicionGrupoID}':
+    post:
       summary: Create
-      tags: []
+      operationId: post-tables-checkListGroup
       responses:
         '200':
           description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "CheckListDefinicionGrupoID":11 } } '
-      operationId: get-tables-checkListGroup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+        description: "{\n\t\"Codigo\":\"nihili997587\",\n\t\"Orden\":41,\n\t\"Activo\":false,\n\t\"Nombre\":\"pruebaNombreFTTF\",\n\t\"Notas\":\"Notas\"\n}"
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+    put:
+      summary: Update
+      operationId: put-tables-checkListGroup
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true } } '
+        '':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true } } '
       parameters:
         - schema:
             type: string
@@ -13997,6 +14017,25 @@ paths:
               type: object
               properties: {}
         description: "{\n\t\"Codigo\":\"nihili997587\",\n\t\"Orden\":41,\n\t\"Activo\":false,\n\t\"Nombre\":\"pruebaNombreFTTF\",\n\t\"Notas\":\"Notas\"\n}"
+    parameters:
+      - schema:
+          type: string
+        name: CheckListDefinicionGrupoID
+        in: path
+        required: true
+        description: '9'
+    delete:
+      summary: ''
+      operationId: delete-tables-checkListGroup-CheckListDefinicionGrupoID
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true } } '
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas:
     User:
