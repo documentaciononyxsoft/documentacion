@@ -13976,6 +13976,27 @@ paths:
           in: query
           name: param
           description: a
+  /tables/checkListGroup:
+    get:
+      summary: Create
+      tags: []
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "CheckListDefinicionGrupoID":11 } } '
+      operationId: get-tables-checkListGroup
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+        description: "{\n\t\"Codigo\":\"nihili997587\",\n\t\"Orden\":41,\n\t\"Activo\":false,\n\t\"Nombre\":\"pruebaNombreFTTF\",\n\t\"Notas\":\"Notas\"\n}"
 components:
   schemas:
     User:
