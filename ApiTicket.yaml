@@ -1083,5 +1083,24 @@ paths:
           in: query
           name: equipoID
           description: '9'
+  /equipment/preventiveMaintenance:
+    get:
+      summary: createForEquipment
+      tags: []
+      responses: {}
+      operationId: get-equipment-preventiveMaintenance
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+        description: "{\n\t\"fechaAlta\":\"20240402\",\n\t\"fechaBaja\":\"20200408\",\n\t\"concepto\":\"pruebaLUIS\",\n\t\"frecuencia\":2,\n\t\"periodo\":\"ME\",\n\t\"dia\":5,\n\t\"desdeHora\":\"5:40\",\n\t\"hastaHora\":\"7:00\",\n\t\"equipoID\":9\n}"
 components:
   schemas: {}
