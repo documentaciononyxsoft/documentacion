@@ -14025,11 +14025,25 @@ paths:
         required: true
         description: '9'
     delete:
-      summary: ''
+      summary: Delete
       operationId: delete-tables-checkListGroup-CheckListDefinicionGrupoID
       responses:
         '200':
           description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true } } '
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+  /tables/checkListGroups:
+    get:
+      summary: findMany
+      tags: []
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "sql":"SELECT * \r\nFROM CheckListDefinicionGrupo\r\nWHERE CheckListDefinicionGrupo.CustomerID = 29\r\nAND CheckListDefinicionGrupo.EmpresaID = 1\r\nAND CheckListDefinicionGrupo.Tipo = ''SAT''\r\norder BY CheckListDefinicionGrupoID  ASC \r\nlimit 50\r\noffset 0 \r\n\r\n", "records":[ { "CheckListDefinicionGrupoID":5, "Orden":1, "Codigo":"JJJJ", "Nombre":"PRUEBA", "Notas":"GEWGEGE", "Activo":1 }, { "CheckListDefinicionGrupoID":6, "Orden":35, "Codigo":"jkbbbn", "Nombre":"fgghf", "Notas":"fggfhgfhgfh", "Activo":1 }, { "CheckListDefinicionGrupoID":8, "Orden":412, "Codigo":"nihili99MOD", "Nombre":"pruebaNombreSD", "Notas":"NotasFG", "Activo":0 }, { "CheckListDefinicionGrupoID":9, "Orden":41, "Codigo":"nihili99", "Nombre":"pruebaNombre", "Notas":"Notas", "Activo":0 } ] } } '
+      operationId: get-tables-checkListGroups
       parameters:
         - schema:
             type: string
