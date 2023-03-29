@@ -14050,6 +14050,25 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  /tables/checkList/checkListGroup:
+    get:
+      summary: findManyByCheckListGroup
+      tags: []
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "sql":"SELECT CheckListDefinicion.*,\r\nCheckListDefinicionGrupo.Orden AS OrdenGrupo,\r\nCheckListDefinicionGrupo.Nombre AS NombreGrupo\r\nFROM CheckListDefinicion\r\nLEFT OUTER JOIN CheckListDefinicionGrupo ON CheckListDefinicionGrupo.CheckListDefinicionGrupoID = CheckListDefinicion.CheckListDefinicionGrupoID\r\nWHERE CheckListDefinicion.CustomerID = 29\r\nAND CheckListDefinicion.EmpresaID = 1\r\nAND CheckListDefinicion.CheckListDefinicionGrupoID = 5\r\nORDER BY CheckListDefinicion.Orden,CheckListDefinicionGrupo.Orden \r\n\r\n", "records":[ { "TipoCampo":"TEXTO", "Apartado":"4551", "Orden":1, "Texto":"dsfdsfds", "Valores":"sadasdas", "Notas":"dsfdsf", "Activo":1 } ] } } '
+      operationId: get-tables-checkList-checkListGroup
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: CheckListDefinicionGrupoID
+          description: '5'
 components:
   schemas:
     User:
