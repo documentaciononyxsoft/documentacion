@@ -10,7 +10,7 @@ paths:
   /DDMRP/login:
     parameters: []
     post:
-      summary: ''
+      summary: Login
       operationId: post-DDMRP-login
       responses:
         '200':
@@ -51,7 +51,7 @@ paths:
   /DDMRP/articlesByFilter:
     parameters: []
     get:
-      summary: ''
+      summary: findArticlesByFilter
       operationId: get-DDMRP-articlesByFilter
       responses:
         '200':
@@ -288,7 +288,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Your GET endpoint
+      summary: FindOneArticle
       tags: []
       responses:
         '200':
@@ -317,7 +317,7 @@ paths:
           name: AccessToken
   /DDMRP/articlesPriorityCount:
     get:
-      summary: Your GET endpoint
+      summary: findAllPriorities
       tags: []
       responses:
         '200':
@@ -365,7 +365,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Your GET endpoint
+      summary: License
       tags: []
       responses:
         '200':
@@ -395,7 +395,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Your GET endpoint
+      summary: FindAllMouvement
       tags: []
       responses:
         '200':
@@ -457,7 +457,7 @@ paths:
           name: AccessToken
   /DDMRP/articlesTypes:
     get:
-      summary: Your GET endpoint
+      summary: findAllArticlesType
       tags: []
       responses:
         '200':
@@ -493,7 +493,7 @@ paths:
           name: AccessToken
   /DDMRP/bufferTypes:
     get:
-      summary: Your GET endpoint
+      summary: FindAllBuffersType
       tags: []
       responses:
         '200':
@@ -529,7 +529,7 @@ paths:
           name: AccessToken
   /DDMRP/materialTypes:
     get:
-      summary: Your GET endpoint
+      summary: FindAllMaterialsType
       tags: []
       responses:
         '200':
@@ -568,7 +568,7 @@ paths:
           name: AccessToken
   /DDMRP/articlesPlanners:
     get:
-      summary: Your GET endpoint
+      summary: findAllPlanners
       tags: []
       responses:
         '200':
@@ -603,7 +603,7 @@ paths:
           name: AccessToken
   /DDMRP/articlesStores:
     get:
-      summary: Your GET endpoint
+      summary: FindAllStores
       tags: []
       responses:
         '200':
@@ -638,7 +638,7 @@ paths:
           name: AccessToken
   /DDMRP/articlesSuppliers:
     get:
-      summary: Your GET endpoint
+      summary: FindAllSuppliers
       tags: []
       responses:
         '200':
@@ -680,7 +680,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Your GET endpoint
+      summary: FindBufferByArticleCode
       tags: []
       responses:
         '200':
@@ -752,7 +752,7 @@ paths:
           name: AccessToken
   /DDMRP/userAuth:
     get:
-      summary: Your GET endpoint
+      summary: UserAuth
       tags: []
       responses:
         '200':
@@ -794,7 +794,7 @@ paths:
           name: AccessToken
   /DDMRP/internal/loadFiles:
     post:
-      summary: ''
+      summary: loadFiles
       operationId: post-DDMRP-internal-loadFiles
       responses:
         '200':
@@ -831,7 +831,7 @@ paths:
           demand
   /DDMRP/FlujoAndStockCount:
     get:
-      summary: Your GET endpoint
+      summary: findFlujoAndStockCount
       tags: []
       responses:
         '200':
@@ -867,7 +867,7 @@ paths:
           name: AccessToken
   /DDMRP/articlesFlujo:
     get:
-      summary: Your GET endpoint
+      summary: findArticlesFlujo
       tags: []
       responses:
         '200':
@@ -929,7 +929,7 @@ paths:
           name: AccessToken
   /DDMRP/articlesStock:
     get:
-      summary: Your GET endpoint
+      summary: findArticlesStock
       tags: []
       responses:
         '200':
