@@ -455,6 +455,540 @@ paths:
             type: string
           in: header
           name: AccessToken
+  /DDMRP/articlesTypes:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        TipoArticulo_Nombre:
+                          type: string
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: true
+                    data:
+                      - TipoArticulo_Nombre: Comprado
+                      - TipoArticulo_Nombre: Fabricado
+                    message: ''
+      operationId: get-DDMRP-articlesTypes
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: AccessToken
+  /DDMRP/bufferTypes:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        Tipo_Buffer:
+                          type: string
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: true
+                    data:
+                      - Tipo_Buffer: Buffer
+                      - Tipo_Buffer: MinMax
+                    message: ''
+      operationId: get-DDMRP-bufferTypes
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: AccessToken
+  /DDMRP/materialTypes:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        Familiamaterial:
+                          type: string
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: true
+                    data:
+                      - Familiamaterial: '1005'
+                      - Familiamaterial: '1100'
+                      - Familiamaterial: '1115'
+                      - Familiamaterial: '1204'
+                      - Familiamaterial: '1207'
+                    message: ''
+      operationId: get-DDMRP-materialTypes
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: AccessToken
+  /DDMRP/articlesPlanners:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        planificador:
+                          type: string
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: true
+                    data:
+                      - planificador: Rollo
+                    message: ''
+      operationId: get-DDMRP-articlesPlanners
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: AccessToken
+  /DDMRP/articlesStores:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        almacen:
+                          type: string
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: true
+                    data:
+                      - almacen: ECENARRO
+                    message: ''
+      operationId: get-DDMRP-articlesStores
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: AccessToken
+  /DDMRP/articlesSuppliers:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        Nombreproveedor:
+                          type: string
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: true
+                    data:
+                      - Nombreproveedor: 'GLOBAL SPECIAL STEEL PRODUCTS, S.A.U.'
+                      - Nombreproveedor: 'SIDENOR ACEROS ESPECIALES, S.L.'
+                    message: ''
+      operationId: get-DDMRP-articlesSuppliers
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: AccessToken
+  '/DDMRP/articles/buffer/{code}':
+    parameters:
+      - schema:
+          type: string
+        name: code
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                    properties:
+                      TopeVerdeCalculado:
+                        type: number
+                      TopeAmarilloCalculado:
+                        type: number
+                      TopeRojoseguridadcalculado:
+                        type: number
+                      TopeRojoCalculado:
+                        type: number
+                      CantidadInventario:
+                        type: integer
+                      Factor_AP:
+                        type: integer
+                      FlujoNeto:
+                        type: integer
+                      Cantidadapedir:
+                        type: number
+                      Cantidad_Umbral_Pico:
+                        type: integer
+                      Fecha_Inicial:
+                        type: string
+                      Fecha_Final:
+                        type: string
+                      Cant_Pedidos_Pico:
+                        type: integer
+                      TopeVerde:
+                        type: integer
+                      Buffer_Fijo:
+                        type: string
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: true
+                    data:
+                      TopeVerdeCalculado: 8850.510459
+                      TopeAmarilloCalculado: 6861.503999
+                      TopeRojoseguridadcalculado: 1178.628399
+                      TopeRojoCalculado: 2144.717251
+                      CantidadInventario: 0
+                      Factor_AP: 0
+                      FlujoNeto: -9480
+                      Cantidadapedir: 18330.510459
+                      Cantidad_Umbral_Pico: 589
+                      Fecha_Inicial: ''
+                      Fecha_Final: ''
+                      Cant_Pedidos_Pico: 0
+                      TopeVerde: 0
+                      Buffer_Fijo: 'N'
+                    message: ''
+      operationId: get-DDMRP-articles-buffer-code
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: AccessToken
+  /DDMRP/userAuth:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                    properties:
+                      xUsuarioID:
+                        type: string
+                      xNombreUsuario:
+                        type: string
+                      xnombreCustomer:
+                        type: string
+                      dU_F_Actualizacion:
+                        type: string
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: true
+                    data:
+                      xUsuarioID: '19'
+                      xNombreUsuario: Antonio Perez Gomez
+                      xnombreCustomer: 'Tecnologia y Metales '
+                      dU_F_Actualizacion: '20230328161335000'
+                    message: ''
+      operationId: get-DDMRP-userAuth
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: AccessToken
+  /DDMRP/internal/loadFiles:
+    post:
+      summary: ''
+      operationId: post-DDMRP-internal-loadFiles
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: 'null'
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: true
+                    data: null
+                    message: Los archivos se están procesando
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties: {}
+        description: |-
+          se pone la llave form
+          parts
+          billofmaterial
+          partbuffersizing
+          partinventory
+          supply
+          demand
+  /DDMRP/FlujoAndStockCount:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                    properties:
+                      cantstock:
+                        type: integer
+                      cantflujoneto:
+                        type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: true
+                    data:
+                      cantstock: 4
+                      cantflujoneto: 4
+                    message: ''
+      operationId: get-DDMRP-FlujoAndStockCount
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: AccessToken
+  /DDMRP/articlesFlujo:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        CodigoArticulo:
+                          type: string
+                        Nombre:
+                          type: string
+                        Nivelingenieria:
+                          type: string
+                        Almacen:
+                          type: string
+                        Demanda_Act_Retr:
+                          type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: true
+                    data:
+                      - CodigoArticulo: 12304S2570
+                        Nombre: 'ROLLO CALIBRADO 23B2 D=25,70'
+                        Nivelingenieria: ''
+                        Almacen: ECENARRO
+                        Demanda_Act_Retr: 9480
+                      - CodigoArticulo: 12423S1875
+                        Nombre: 'ROLLO CALIBRADO 41CRS4 Al D=18,75'
+                        Nivelingenieria: ''
+                        Almacen: ECENARRO
+                        Demanda_Act_Retr: 44880
+                      - CodigoArticulo: 13202S1180
+                        Nombre: 'ROLLO CALIBRADO C10C D=11,80'
+                        Nivelingenieria: ''
+                        Almacen: ECENARRO
+                        Demanda_Act_Retr: 3450
+                      - CodigoArticulo: 13243S1710
+                        Nombre: 'ROLLO CALIBRADO 36MNB4 D=17,10'
+                        Nivelingenieria: ''
+                        Almacen: ECENARRO
+                        Demanda_Act_Retr: 8640
+                    message: ''
+      operationId: get-DDMRP-articlesFlujo
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: AccessToken
+  /DDMRP/articlesStock:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        CodigoArticulo:
+                          type: string
+                        Nombre:
+                          type: string
+                        Nivelingenieria:
+                          type: string
+                        Almacen:
+                          type: string
+                        Demanda_Act_Retr:
+                          type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: true
+                    data:
+                      - CodigoArticulo: 12304S2570
+                        Nombre: 'ROLLO CALIBRADO 23B2 D=25,70'
+                        Nivelingenieria: ''
+                        Almacen: ECENARRO
+                        Demanda_Act_Retr: 9480
+                      - CodigoArticulo: 13202S1180
+                        Nombre: 'ROLLO CALIBRADO C10C D=11,80'
+                        Nivelingenieria: ''
+                        Almacen: ECENARRO
+                        Demanda_Act_Retr: 3450
+                      - CodigoArticulo: 13243S1710
+                        Nombre: 'ROLLO CALIBRADO 36MNB4 D=17,10'
+                        Nivelingenieria: ''
+                        Almacen: ECENARRO
+                        Demanda_Act_Retr: 8640
+                      - CodigoArticulo: 13513S1660
+                        Nombre: 'ROLLO CALIBRADO 34CRMO4 D=16,60'
+                        Nivelingenieria: ''
+                        Almacen: ECENARRO
+                        Demanda_Act_Retr: 2610
+                    message: ''
+      operationId: get-DDMRP-articlesStock
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: AccessToken
 components:
   schemas:
     User:
