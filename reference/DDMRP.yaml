@@ -7,144 +7,454 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  '/users/{userId}':
+  /DDMRP/login:
+    parameters: []
+    post:
+      summary: ''
+      operationId: post-DDMRP-login
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  Accesstoken:
+                    type: string
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: true
+                    Accesstoken: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAieEN1c3RvbWVySUQiOiIxIiwgInhVc3VhcmlvSUQiOiIxOSIsICJ4Tm9tYnJlVXN1YXJpbyI6IkFudG9uaW8gUGVyZXogR29tZXoiLCAieG5vbWJyZUN1c3RvbWVyIjoiVGVjbm9sb2dpYSB5IE1ldGFsZXMgIiwgIm5UaXBvVXN1YXJpbyI6IjAiLCAiblVsdGltYUFjdHVhbGl6YWNpb24iOiI3NzQiLCAiZFVfRl9BY3R1YWxpemFjaW9uIjoiMjAyMzAzMjgxNjEzMzUwMDAiLCAiY3Rva2VuIjoiWm05bVVWektxdWRuVDBvODR3c0JnWElvWUNTQnpZUEx0NzVQbkFuSmlwc1BDckk1bk9sTWxQaDZXRVljYnZCZkdhZDRMYU9VTm5aMHdscllcclxud3AyOExYZkVaVVEwWUFuSjNOckxaWWprUlR5ZURRdEVkMFZnVk4zMExMM3BYbjE4Nlwvanh2UVAzIiwgImlhdCI6MTY4MDEzMzMwMSwgImV4cCI6MTY4MzczMzMwMSB9.qKJvjkjiVCbz4BokopPOjLVFRF68g0fiin3Yuss-JEQ
+                    message: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: string
+                password:
+                  type: string
+                ctoken:
+                  type: string
+              x-examples:
+                Example 1:
+                  user: ANTO
+                  password: TN
+                  ctoken: "Zm9mUVzKqudnT0o84wsBgXIoYCSBzYPLt75PnAnJipsPCrI5nOlMlPh6WEYcbvBfGad4LaOUNnZ0wlrY\r\nwp28LXfEZUQ0YAnJ3NrLZYjkRTyeDQtEd0VgVN30LL3pXn186/jxvQP3"
+  /DDMRP/articlesByFilter:
+    parameters: []
+    get:
+      summary: ''
+      operationId: get-DDMRP-articlesByFilter
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        Seleccion:
+                          type: string
+                        GrupoRelacion:
+                          type: string
+                        Nombreproveedor:
+                          type: string
+                        CodigoArticulo:
+                          type: string
+                        Menu:
+                          type: string
+                        Nombre:
+                          type: string
+                        Carrito:
+                          type: string
+                        Nivelingenieria:
+                          type: string
+                        Almacen:
+                          type: string
+                        Tipo_Buffer:
+                          type: string
+                        Priorida_Nombre:
+                          type: string
+                        CantPedirGrid:
+                          type: integer
+                        FlujoNeto:
+                          type: integer
+                        NetFlowPercent:
+                          type: number
+                        Stock:
+                          type: integer
+                        Suministro:
+                          type: integer
+                        Demanda:
+                          type: integer
+                        IMG_PICO:
+                          type: string
+                        UnidadMedida:
+                          type: string
+                        TipoArticuloN:
+                          type: integer
+                        Codigoproveedor:
+                          type: string
+                        PerfilBuffer:
+                          type: string
+                        Consumomediodiario:
+                          type: number
+                        Plazoentregafijo:
+                          type: integer
+                        notas:
+                          type: string
+                        Busqueda:
+                          type: string
+                        Planificador:
+                          type: string
+                        Familiamaterial:
+                          type: string
+                        Priorida_CodigoGrid:
+                          type: integer
+                        Cantidadminimapedido:
+                          type: integer
+                        Cantidadmultiplopedido:
+                          type: integer
+                        Articulos_Pedir:
+                          type: string
+                        Libreusuario1:
+                          type: string
+                        Libreusuario2:
+                          type: string
+                        Libreusuario3:
+                          type: string
+                        Libreusuario4:
+                          type: string
+                        Libreusuario5:
+                          type: string
+                        Libreusuario6:
+                          type: string
+                        Libreusuario7:
+                          type: string
+                        Libreusuario8:
+                          type: string
+                        tipoarticulonombre:
+                          type: string
+                        prioridadnombre:
+                          type: string
+                        articuloid:
+                          type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: true
+                    data:
+                      - Seleccion: ''
+                        GrupoRelacion: 3321ECENARRO12304S2570
+                        Nombreproveedor: 'GLOBAL SPECIAL STEEL PRODUCTS, S.A.U.'
+                        CodigoArticulo: 12304S2570
+                        Menu: ''
+                        Nombre: 'ROLLO CALIBRADO 23B2 D=25,70'
+                        Carrito: ''
+                        Nivelingenieria: ''
+                        Almacen: ECENARRO
+                        Tipo_Buffer: Buffer
+                        Priorida_Nombre: Prioridad_6.png
+                        CantPedirGrid: 19500
+                        FlujoNeto: -9480
+                        NetFlowPercent: -107.112466
+                        Stock: 0
+                        Suministro: 0
+                        Demanda: 9480
+                        IMG_PICO: ''
+                        UnidadMedida: Kg
+                        TipoArticuloN: 1
+                        Codigoproveedor: '400039003'
+                        PerfilBuffer: B12
+                        Consumomediodiario: 142.07189
+                        Plazoentregafijo: 40
+                        notas: '93090056001'
+                        Busqueda: '12304S2570ROLLO CALIBRADO 23B2 D=25,70'
+                        Planificador: Rollo
+                        Familiamaterial: '1100'
+                        Priorida_CodigoGrid: 6
+                        Cantidadminimapedido: 1500
+                        Cantidadmultiplopedido: 1500
+                        Articulos_Pedir: PEDIR
+                        Libreusuario1: ''
+                        Libreusuario2: ''
+                        Libreusuario3: ''
+                        Libreusuario4: ''
+                        Libreusuario5: '0'
+                        Libreusuario6: ''
+                        Libreusuario7: ''
+                        Libreusuario8: ''
+                        tipoarticulonombre: Comprado
+                        prioridadnombre: Critico
+                        articuloid: 341371
+                      - Seleccion: ''
+                        GrupoRelacion: 3321ECENARRO12423S1875
+                        Nombreproveedor: 'SIDENOR ACEROS ESPECIALES, S.L.'
+                        CodigoArticulo: 12423S1875
+                        Menu: ''
+                        Nombre: 'ROLLO CALIBRADO 41CRS4 Al D=18,75'
+                        Carrito: ''
+                        Nivelingenieria: ''
+                        Almacen: ECENARRO
+                        Tipo_Buffer: Buffer
+                        Priorida_Nombre: Prioridad_6.png
+                        CantPedirGrid: 45000
+                        FlujoNeto: -11187
+                        NetFlowPercent: -33.366335
+                        Stock: 12948
+                        Suministro: 20745
+                        Demanda: 44880
+                        IMG_PICO: ''
+                        UnidadMedida: Kg
+                        TipoArticuloN: 1
+                        Codigoproveedor: '400001003'
+                        PerfilBuffer: B11
+                        Consumomediodiario: 583.09228
+                        Plazoentregafijo: 40
+                        notas: 90480204002 - 90480204004 - 90480204006 - 90480204007 - 99040504001 - 99040504006 - 99040506005
+                        Busqueda: '12423S1875ROLLO CALIBRADO 41CRS4 Al D=18,75'
+                        Planificador: Rollo
+                        Familiamaterial: '1204'
+                        Priorida_CodigoGrid: 6
+                        Cantidadminimapedido: 1500
+                        Cantidadmultiplopedido: 1500
+                        Articulos_Pedir: PEDIR
+                        Libreusuario1: ''
+                        Libreusuario2: ''
+                        Libreusuario3: ''
+                        Libreusuario4: ''
+                        Libreusuario5: '12948'
+                        Libreusuario6: ''
+                        Libreusuario7: ''
+                        Libreusuario8: ''
+                        tipoarticulonombre: Comprado
+                        prioridadnombre: Critico
+                        articuloid: 341372
+                    message: ''
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: planificador
+        - schema:
+            type: string
+          in: query
+          name: almacen
+        - schema:
+            type: string
+          in: query
+          name: tipobuffer
+        - schema:
+            type: string
+          in: query
+          name: tipomaterial
+        - schema:
+            type: string
+          in: query
+          name: tipoarticulo
+        - schema:
+            type: string
+          in: query
+          name: proveedor
+        - schema:
+            type: string
+          in: query
+          name: prioridad
+        - schema:
+            type: string
+          in: header
+          name: AccessToken
+  '/DDMRP/articles/{code}':
     parameters:
       - schema:
-          type: integer
-        name: userId
+          type: string
+        name: code
         in: path
         required: true
-        description: Id of an existing user.
     get:
-      summary: Get User Info by User ID
+      summary: Your GET endpoint
       tags: []
       responses:
         '200':
-          description: User Found
+          description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
-              examples:
-                Get User Alice Smith:
-                  value:
-                    id: 142
-                    firstName: Alice
-                    lastName: Smith
-                    email: alice.smith@gmail.com
-                    dateOfBirth: '1997-10-31'
-                    emailVerified: true
-                    signUpDate: '2019-08-24'
-        '404':
-          description: User Not Found
-      operationId: get-users-userId
-      description: Retrieve the information of the user with the matching user ID.
-    patch:
-      summary: Update User Information
-      operationId: patch-users-userId
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: 'null'
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: true
+                    data: null
+                    message: ''
+      operationId: get-DDMRP-articles-code
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: AccessToken
+  /DDMRP/articlesPriorityCount:
+    get:
+      summary: Your GET endpoint
+      tags: []
       responses:
         '200':
-          description: User Updated
+          description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
-              examples:
-                Updated User Rebecca Baker:
-                  value:
-                    id: 13
-                    firstName: Rebecca
-                    lastName: Baker
-                    email: rebecca@gmail.com
-                    dateOfBirth: '1985-10-02'
-                    emailVerified: false
-                    createDate: '2019-08-24'
-        '404':
-          description: User Not Found
-        '409':
-          description: Email Already Taken
-      description: Update the information of an existing user.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                firstName:
-                  type: string
-                lastName:
-                  type: string
-                email:
-                  type: string
-                  description: 'If a new email is given, the user''s email verified property will be set to false.'
-                dateOfBirth:
-                  type: string
-            examples:
-              Update First Name:
-                value:
-                  firstName: Rebecca
-              Update Email:
-                value:
-                  email: rebecca@gmail.com
-              Update Last Name & Date of Birth:
-                value:
-                  lastName: Baker
-                  dateOfBirth: '1985-10-02'
-        description: Patch user properties to update.
-  /user:
-    post:
-      summary: Create New User
-      operationId: post-user
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        nombre:
+                          type: string
+                        cantidadprio:
+                          type: string
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: true
+                    data:
+                      - nombre: Exceso
+                        cantidadprio: '1'
+                      - nombre: Alto
+                        cantidadprio: '1'
+                      - nombre: Critico
+                        cantidadprio: '3'
+                    message: ''
+      operationId: get-DDMRP-articlesPriorityCount
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: AccessToken
+  '/DDMRP/ddmrpLicense/{code}':
+    parameters:
+      - schema:
+          type: string
+        name: code
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
       responses:
         '200':
-          description: User Created
+          description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
-              examples:
-                New User Bob Fellow:
-                  value:
-                    id: 12
-                    firstName: Bob
-                    lastName: Fellow
-                    email: bob.fellow@gmail.com
-                    dateOfBirth: '1996-08-24'
-                    emailVerified: false
-                    createDate: '2020-11-18'
-        '400':
-          description: Missing Required Information
-        '409':
-          description: Email Already Taken
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                firstName:
-                  type: string
-                lastName:
-                  type: string
-                email:
-                  type: string
-                dateOfBirth:
-                  type: string
-                  format: date
-              required:
-                - firstName
-                - lastName
-                - email
-                - dateOfBirth
-            examples:
-              Create User Bob Fellow:
-                value:
-                  firstName: Bob
-                  lastName: Fellow
-                  email: bob.fellow@gmail.com
-                  dateOfBirth: '1996-08-24'
-        description: Post the necessary fields for the API to create a new user.
-      description: Create a new user.
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  ctoken:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    ctoken: "Zm9mUVzKqudnT0o84wsBgXIoYCSBzYPLt75PnAnJipsPCrI5nOlMlPh6WEYcbvBfGad4LaOUNnZ0wlrY\r\nwp28LXfEZUQ0YAnJ3NrLZYjkRTyeDQtEd0VgVN30LL3pXn186/jxvQP3"
+      operationId: get-DDMRP-ddmrpLicense-code
+  '/DDMRP/articles/mouvement/{code}':
+    parameters:
+      - schema:
+          type: string
+        name: code
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        Fecha:
+                          type: string
+                        Tipo:
+                          type: string
+                        Nro_Pedido:
+                          type: string
+                        ProvCli:
+                          type: string
+                        Cantidad:
+                          type: integer
+                        total:
+                          type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: true
+                    data:
+                      - Fecha: '20200115'
+                        Tipo: STOCK FISICO
+                        Nro_Pedido: ''
+                        ProvCli: ''
+                        Cantidad: 0
+                        total: 0
+                      - Fecha: '20221214'
+                        Tipo: SUMINISTRO
+                        Nro_Pedido: '23611_150420'
+                        ProvCli: 'GLOBAL SPECIAL STEEL PRODUCTS, S.A.U.'
+                        Cantidad: 9000
+                        total: 9000
+                      - Fecha: '20221221'
+                        Tipo: Demanda
+                        Nro_Pedido: '51463_133608_1'
+                        ProvCli: ''
+                        Cantidad: -8640
+                        total: 360
+                    message: ''
+      operationId: get-DDMRP-articles-mouvement-code
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: AccessToken
 components:
   schemas:
     User:
