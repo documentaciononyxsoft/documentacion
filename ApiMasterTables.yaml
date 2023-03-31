@@ -14216,6 +14216,83 @@ paths:
           in: query
           name: 'param '
           description: a
+  '/tables/checkListSection/{CheckListApartadoID}':
+    post:
+      summary: Create
+      operationId: post-tables-checkListSection
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "CheckListApartadoID":6 } } '
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+        description: |-
+          {
+                "Apartado":7854
+          }
+    put:
+      summary: Update
+      operationId: put-tables-checkListSection
+      responses:
+        '200':
+          description: OK
+        '':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true } } '
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+        description: "{\n\t\"Apartado\":78547,\n\t\"CheckListApartadoID\":4\n}"
+    parameters:
+      - schema:
+          type: string
+        name: CheckListApartadoID
+        in: path
+        required: true
+        description: '28'
+    delete:
+      summary: Remove
+      operationId: delete-tables-checkListSection-CheckListApartadoID
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true } } '
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+  /tables/checkListSections:
+    get:
+      summary: findMany
+      tags: []
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "sql":"SELECT * FROM CheckListApartado\r\nWHERE CheckListApartado.CustomerID = 29\r\nAND CheckListApartado.EmpresaID = 1\r\norder BY CheckListApartadoID  ASC \r\n\r\n\r\n", "records":[ { "CheckListApartadoID":1, "Apartado":"4551" }, { "CheckListApartadoID":2, "Apartado":"65221" }, { "CheckListApartadoID":4, "Apartado":"78547" } ] } } '
+      operationId: get-tables-checkListSections
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas:
     User:
