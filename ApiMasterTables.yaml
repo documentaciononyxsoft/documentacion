@@ -14069,6 +14069,87 @@ paths:
           in: query
           name: CheckListDefinicionGrupoID
           description: '5'
+  '/tables/checkList/{CheckListDefinicionID}':
+    post:
+      summary: Create
+      operationId: post-tables-checkList
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "CheckListDefinicionID":30 } } '
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+        description: "{\n\t\"checkListDefinicionGrupoID\":5,\n\t\"texto\":\"textoPrueba\",\n\t\"activo\":true,\n\t\"orden\":56,\n\t\"tipoCampoID\":5,\n\t\"notas\":\"pruebaDTH\",\n\t\"valores\":\"pruebaaValores\",\n\t\"apartadoCheckListID\":1\n}"
+    delete:
+      summary: Remove
+      operationId: delete-tables-checkList
+      responses:
+        '200':
+          description: OK
+        '':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true } } '
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+    parameters:
+      - schema:
+          type: string
+        name: CheckListDefinicionID
+        in: path
+        required: true
+        description: '29'
+    put:
+      summary: Update
+      operationId: put-tables-checkList-CheckListDefinicionID
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true } } '
+      description: ''
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: tokenReciente
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+        description: "{\n\t\"checkListDefinicionGrupoID\":5,\n\t\"texto\":\"textoPruebamod\",\n\t\"activo\":true,\n\t\"orden\":56,\n\t\"tipoCampoID\":5,\n\t\"notas\":\"pruebaDTHmod\",\n\t\"valores\":\"pruebaaValoresmod\",\n\t\"apartadoCheckListID\":1,\n\t\"checkListDefinicionID\":29\n}"
+  /tables/checkListSection/checkList:
+    get:
+      summary: findManyByCheckListSection
+      tags: []
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "sql":"SELECT CheckListDefinicion.*,\r\nCheckListDefinicionGrupo.Orden AS OrdenGrupo,\r\nCheckListDefinicionGrupo.Nombre AS NombreGrupo,\r\nCheckListDefinicionGrupo.Activo AS ActivoGrupo,\r\nCONCAT(CheckListDefinicionGrupo.Orden,CheckListDefinicion.Orden) AS OrdenTotal \r\nFROM CheckListDefinicion\r\nLEFT OUTER JOIN CheckListDefinicionGrupo ON CheckListDefinicionGrupo.CheckListDefinicionGrupoID = CheckListDefinicion.CheckListDefinicionGrupoID\r\nWHERE CheckListDefinicion.CustomerID = 29\r\nAND CheckListDefinicion.EmpresaID = 1\r\nAND CheckListDefinicion.CheckListApartadoID = 1\r\nORDER BY CheckListDefinicionGrupo.Orden, CheckListDefinicion.Orden\r\n\r\n", "records":[ { "Orden":3, "Grupo":"PRUEBA", "Texto":"SADSAD", "TipoCampo":"LOGICO", "Valores":"", "Activo":1 }, { "Orden":4, "Grupo":"PRUEBA", "Texto":"454545", "TipoCampo":"COMBOBOX", "Valores":"SDSDSA", "Activo":1 }, { "Orden":2, "Grupo":"fgghf", "Texto":"dsfdsfds", "TipoCampo":"LISTABOX", "Valores":"PRUBEAHHH", "Activo":1 } ] } } '
+      operationId: get-tables-checkListSection-checkList
+      description: ''
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: CheckListApartadoID
+          description: '1'
 components:
   schemas:
     User:
