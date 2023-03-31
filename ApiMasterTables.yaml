@@ -14150,6 +14150,25 @@ paths:
           in: query
           name: CheckListApartadoID
           description: '1'
+  /tables/checkList/afterFieldType:
+    get:
+      summary: afterFieldType
+      tags: []
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "valores":false, "notas":true } } '
+      operationId: get-tables-checkList-afterFieldType
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: tipoCampoID
+          description: '1'
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas:
     User:
