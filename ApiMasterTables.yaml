@@ -14183,6 +14183,39 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  /tables/checkListGroups/light:
+    get:
+      summary: findLightList
+      tags: []
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "sql":"SELECT * \r\nFROM CheckListDefinicionGrupo\r\nWHERE CheckListDefinicionGrupo.CustomerID = 29\r\nAND CheckListDefinicionGrupo.EmpresaID = 1\r\nAND CheckListDefinicionGrupo.Tipo = ''SAT''\r\norder BY CheckListDefinicionGrupoID  ASC \r\n \r\n\r\n", "records":[ { "CheckListDefinicionGrupoID":5, "Codigo":"JJJJ", "Nombre":"PRUEBA" }, { "CheckListDefinicionGrupoID":6, "Codigo":"jkbbbn", "Nombre":"fgghf" }, { "CheckListDefinicionGrupoID":8, "Codigo":"nihili997587", "Nombre":"pruebaNombreFTTF" }, { "CheckListDefinicionGrupoID":11, "Codigo":"nihili997587", "Nombre":"pruebaNombreFTTF" } ] } } '
+      operationId: get-tables-checkListGroups-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+  /tables/checkListGroup:
+    get:
+      summary: findManyByParam
+      tags: []
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "sql":"SELECT * \r\nFROM CheckListDefinicionGrupo\r\nWHERE CheckListDefinicionGrupo.CustomerID = 29\r\nAND CheckListDefinicionGrupo.EmpresaID = 1\r\nAND CheckListDefinicionGrupo.Tipo = ''SAT''\r\nAND (CheckListDefinicionGrupo.Codigo LIKE ''%a%'' OR CheckListDefinicionGrupo.Nombre LIKE ''%a%'') \r\norder BY CheckListDefinicionGrupoID  ASC\r\nLIMIT 10 \r\n\r\n", "records":[ { "CheckListDefinicionGrupoID":5, "Codigo":"JJJJ", "Nombre":"PRUEBA" }, { "CheckListDefinicionGrupoID":8, "Codigo":"nihili997587", "Nombre":"pruebaNombreFTTF" }, { "CheckListDefinicionGrupoID":11, "Codigo":"nihili997587", "Nombre":"pruebaNombreFTTF" } ] } } '
+      operationId: get-tables-checkListGroup
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: tokenReciente
+        - schema:
+            type: string
+          in: query
+          name: 'param '
+          description: a
 components:
   schemas:
     User:
