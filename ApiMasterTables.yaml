@@ -14293,6 +14293,54 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  /tables/municipaly/checkMunicipaly:
+    get:
+      summary: checkMunicipaly
+      tags: []
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "sCodigoPostal":"001", "sIDCodigoPostal":14768, "MunicipioID":8149, "MunicipioNombre":"Pereira" } } '
+      operationId: get-tables-municipaly-checkMunicipaly
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: sMunicipio
+          description: pereira
+        - schema:
+            type: integer
+          in: query
+          name: paisID
+          description: '45'
+  /tables/postalCode/checkPostalCode:
+    get:
+      summary: checkPostalCode
+      tags: []
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "codigoPostalID":14768, "codigoPostal":"001", "municipioID":8149, "municipioNombre":"Pereira" } } '
+      operationId: get-tables-postalCode-checkPostalCode
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: codigoPostal
+          description: '001'
+        - schema:
+            type: integer
+          in: query
+          name: paisID
+          description: '45'
 components:
   schemas:
     User:
