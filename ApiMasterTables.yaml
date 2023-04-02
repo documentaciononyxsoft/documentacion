@@ -14341,6 +14341,46 @@ paths:
           in: query
           name: paisID
           description: '45'
+  /tables/employee/account:
+    get:
+      summary: findOneForEmployeeSAT
+      tags: []
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "sql":"SELECT\r\nMailing.*,\r\nPais.Nombre as paisNombre,\r\nProvincia.Nombre provinciaNombre,\r\nUsuario.NombreUsuario \r\nFROM\r\nMailing\r\nLEFT JOIN Pais ON Mailing.PaisID = Pais.PaisID\r\nLEFT JOIN Provincia ON Mailing.ProvinciaID = Provincia.ProvinciaID\r\nLEFT JOIN Usuario ON Mailing.UsuarioID\t   = Usuario.UsuarioID \r\nWHERE\r\nMailing.CustomerID = 29 AND\r\nMailing.EmpresaID  = 1 AND\r\nMailing.MailingID  = 845", "records":[ { "Codigo":"43000416", "RFC":"54567", "Activo":0, "NmFiscal":"PRUEBAmod3", "NmCom":"pruebaMOD4", "Telefono":"3218326755", "Email":"SDFDS@ASDSAD", "Horario":"SADASD", "Web":"ASDASDAS.COM", "PaisID":45, "ProvinciaID":53, "Municipio":"Pereira", "CodigoPostalID":14768, "Direccion":"SADFBSAHFVSAJFVAT", "Observacion":"DSFDSFDSFD", "UsuarioAlta":"SUPERVISOR", "FechaAlta":"2022-04-25", "sectorID":19, "actividadID":20, "nombreSector":"COM", "nombreActividad":"ASISTENCIA TECNICA", "codigoSector":"COMERCIAL", "codigoActividad":"TEC" } ] } } '
+      operationId: get-tables-employee-account
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: mailingID
+          description: '845'
+      requestBody:
+        content: {}
+    put:
+      summary: updateForEmployeeSAT
+      operationId: put-tables-employee-account
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "msg":"" } } '
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+        description: "{\n\t\"MailingID\":845,\n\t\"RFC\":\"54567\",\n\t\"Activo\":false,\n\t\"NombreFiscal\":\"PRUEBAmod3\",\n\t\"NombreComercial\":\"pruebaMOD4\",\n\t\"Telefono\":\"3218326755\",\n\t\"Horario\":\"SADASD\",\n\t\"Email\":\"SDFDS@ASDSAD\",\n\t\"PaisID\":45,\n\t\"ProvinciaID\":53,\n\t\"MunicipioID\":8149,\n\t\"Municipio\":\"Pereira\",\n\t\"Observacion\":\"DSFDSFDSFD\",\n\t\"Direccion\":\"SADFBSAHFVSAJFVAT\",\n\t\"Web\":\"ASDASDAS.COM\",\n\t\"CodigoPostalID\":14768\n}"
 components:
   schemas:
     User:
