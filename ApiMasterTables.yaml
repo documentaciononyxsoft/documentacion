@@ -14381,6 +14381,25 @@ paths:
               type: object
               properties: {}
         description: "{\n\t\"MailingID\":845,\n\t\"RFC\":\"54567\",\n\t\"Activo\":false,\n\t\"NombreFiscal\":\"PRUEBAmod3\",\n\t\"NombreComercial\":\"pruebaMOD4\",\n\t\"Telefono\":\"3218326755\",\n\t\"Horario\":\"SADASD\",\n\t\"Email\":\"SDFDS@ASDSAD\",\n\t\"PaisID\":45,\n\t\"ProvinciaID\":53,\n\t\"MunicipioID\":8149,\n\t\"Municipio\":\"Pereira\",\n\t\"Observacion\":\"DSFDSFDSFD\",\n\t\"Direccion\":\"SADFBSAHFVSAJFVAT\",\n\t\"Web\":\"ASDASDAS.COM\",\n\t\"CodigoPostalID\":14768\n}"
+  /tables/workTime/work:
+    get:
+      summary: FindByWorkTime
+      tags: []
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "CodigoCuenta":"43000001", "NombreCuenta":"dario", "Concepto":"Conceptotrabajo", "CodigoProyecto":"25", "NombreProyecto":"PRUEBALUIS", "CodigoTarea":"30", "NombreTarea":"PRUEBAS TARJETAS PRUEBA", "NombreMotivo":"3333", "NombreContacto":"Edgos", "Viaje":false, "NombreClave":"3333", "HorasDef":"01:00:00:00", "Notas":"nota trabajo", "success":true } } '
+      operationId: get-tables-workTime-work
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: tiempoTrabajoID
+          description: '1'
 components:
   schemas:
     User:
