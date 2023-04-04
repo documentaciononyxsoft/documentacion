@@ -1149,5 +1149,38 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  /contract:
+    get:
+      summary: findManyByParam
+      tags: []
+      responses:
+        '200':
+          description: ' "statusCode":200, "message":"Request processed successfully", "content":{ "records":[ { "contratoID":5, "Numero":"1546878", "Nombre":"Oscar Guevara" } ], "success":true } } '
+      operationId: get-contract
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: param
+          description: a
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+  /contracts/light:
+    get:
+      summary: findLightList
+      tags: []
+      responses:
+        '200':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "records":[ { "contratoID":1, "Numero":"", "Nombre":"" }, { "contratoID":5, "Numero":"1546878", "Nombre":"Oscar Guevara" }, { "contratoID":6, "Numero":"1", "Nombre":"" }, { "contratoID":7, "Numero":"2", "Nombre":"" }, { "contratoID":8, "Numero":"3", "Nombre":"" }, { "contratoID":9, "Numero":"4", "Nombre":"" } ], "success":true } } '
+      operationId: get-contracts-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas: {}
