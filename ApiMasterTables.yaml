@@ -14401,6 +14401,86 @@ paths:
           name: tiempoTrabajoID
           description: '1'
     parameters: []
+  /tables/employees/theme:
+    get:
+      summary: findByThemeParam
+      tags: []
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "data": [
+                        {
+                            "ID": 2,
+                            "Nombre": "MANEJO DE CARRETILLA",
+                            "Codigo": "02"
+                        },
+                        {
+                            "ID": 4,
+                            "Nombre": "CURSO DEL PROGRAMA DE CAPTURA EL PLANTA",
+                            "Codigo": "03"
+                        }
+                    ]
+                }
+            }
+      operationId: get-tables-employees-theme
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          description: '"a"'
+  /tables/employees/light/theme:
+    get:
+      summary: findByThemeLightList
+      tags: []
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "data": [
+                        {
+                            "ID": 1,
+                            "Nombre": "CURSO DE INGLES",
+                            "Codigo": "01"
+                        },
+                        {
+                            "ID": 2,
+                            "Nombre": "MANEJO DE CARRETILLA",
+                            "Codigo": "02"
+                        },
+                        {
+                            "ID": 4,
+                            "Nombre": "CURSO DEL PROGRAMA DE CAPTURA EL PLANTA",
+                            "Codigo": "03"
+                        },
+                        {
+                            "ID": 5,
+                            "Nombre": "Office 365",
+                            "Codigo": "04"
+                        }
+                    ]
+                }
+            }
+      operationId: get-tables-employees-light-theme
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas:
     User:
