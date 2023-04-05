@@ -14381,9 +14381,9 @@ paths:
               type: object
               properties: {}
         description: "{\n\t\"MailingID\":845,\n\t\"RFC\":\"54567\",\n\t\"Activo\":false,\n\t\"NombreFiscal\":\"PRUEBAmod3\",\n\t\"NombreComercial\":\"pruebaMOD4\",\n\t\"Telefono\":\"3218326755\",\n\t\"Horario\":\"SADASD\",\n\t\"Email\":\"SDFDS@ASDSAD\",\n\t\"PaisID\":45,\n\t\"ProvinciaID\":53,\n\t\"MunicipioID\":8149,\n\t\"Municipio\":\"Pereira\",\n\t\"Observacion\":\"DSFDSFDSFD\",\n\t\"Direccion\":\"SADFBSAHFVSAJFVAT\",\n\t\"Web\":\"ASDASDAS.COM\",\n\t\"CodigoPostalID\":14768\n}"
-  /tables/workTime/work:
+  /tables/employees/work:
     get:
-      summary: FindByWorkTime
+      summary: FindByEmployees
       tags: []
       responses:
         '200':
@@ -14400,6 +14400,7 @@ paths:
           in: query
           name: tiempoTrabajoID
           description: '1'
+    parameters: []
 components:
   schemas:
     User:
