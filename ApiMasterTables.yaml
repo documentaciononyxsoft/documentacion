@@ -14481,6 +14481,93 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  '/http://localhost:8026/tables/employees/consult/formation':
+    get:
+      summary: findManyByFilters
+      tags: []
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "sql": "SELECT DISTINCT CursoFormacion.*\r\nFROM CursoFormacion\r\nLEFT JOIN CursoFormacionConvocado ON CursoFormacionConvocado.cursoFormacionID = CursoFormacion.CursoFormacionID\r\nWHERE CursoFormacion.CustomerID = 29\r\nAND CursoFormacion.EmpresaID = 1\r\nAND CursoFormacion.EsCursoReal = 1\r\n AND (CursoFormacionConvocado.EmpleadoID = 3 AND CursoFormacion.FechaHoraInicioReal >= 20000202 AND CursoFormacion.FechaHoraInicioReal <= 20230404)\r\nORDER BY CursoFormacion.Numero\r\nlimit 50 \r\noffset 0",
+                    "records": [
+                        {
+                            "Numero": 12,
+                            "Nombre": "Prueba yei 2",
+                            "Descripcion": "",
+                            "Tema": ""
+                        },
+                        {
+                            "Numero": 15,
+                            "Nombre": "Plan Paris prueba 3",
+                            "Descripcion": "saffasd po",
+                            "Tema": ""
+                        }
+                    ]
+                }
+            }
+      operationId: 'get-http:-localhost:8026-tables-employees-consult-formation'
+      description: ''
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: '50'
+        - schema:
+            type: integer
+          in: query
+          name: offset
+          description: '0'
+        - schema:
+            type: integer
+          in: query
+          name: EmpleadoID
+          description: '3'
+        - schema:
+            type: integer
+          in: query
+          name: TipoFormacion
+          description: '3'
+        - schema:
+            type: string
+          in: query
+          name: Nombre
+          description: '""'
+        - schema:
+            type: string
+          in: query
+          name: Numero
+          description: '""'
+        - schema:
+            type: string
+          in: query
+          name: 'Descripcion '
+          description: '""'
+        - schema:
+            type: string
+          in: query
+          name: EmpleadoTemasFormacionID
+          description: '""'
+        - schema:
+            type: string
+          in: query
+          name: 'fechaDesdeIn '
+          description: '20000202'
+        - schema:
+            type: string
+          in: query
+          description: '20230404'
+          name: fechaHastaIn
 components:
   schemas:
     User:
