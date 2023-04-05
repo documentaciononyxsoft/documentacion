@@ -14568,6 +14568,88 @@ paths:
           in: query
           description: '20230404'
           name: fechaHastaIn
+  /tables/light/generalTable:
+    get:
+      summary: findLightList
+      tags: []
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "sql": "SELECT tablageneral.TablaGeneralID AS ID,\r\ntablageneral.Descripcion AS Nombre,\r\ntablageneral.Abreviatura AS Codigo \r\nFROM tablageneral \r\nWHERE tablageneral.CustomerID = 29 \r\nAND tablageneral.Clave = \"RUTAENTREGA\"\r\nAND (tablageneral.Descripcion LIKE '%%' OR tablageneral.Abreviatura LIKE '%%' )\r\nLIMIT 10",
+                    "records": [
+                        {
+                            "ID": 10004,
+                            "Nombre": "aaaaaaaaaa",
+                            "Codigo": "aaaa"
+                        },
+                        {
+                            "ID": 10005,
+                            "Nombre": "bbbbbbbbbbb",
+                            "Codigo": "bbbb"
+                        }
+                    ]
+                }
+            }
+      operationId: get-tables-generalTable
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: sBusqueda
+          description: RUTAENTREGA
+        - schema:
+            type: string
+          in: query
+    parameters: []
+  /tables/generalTable:
+    get:
+      summary: findManyByParam
+      tags: []
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "sql": "SELECT tablageneral.TablaGeneralID AS ID,\r\ntablageneral.Descripcion AS Nombre,\r\ntablageneral.Abreviatura AS Codigo \r\nFROM tablageneral \r\nWHERE tablageneral.CustomerID = 29 \r\nAND tablageneral.Clave = \"RUTAENTREGA\"\r\nAND (tablageneral.Descripcion LIKE '%a%' OR tablageneral.Abreviatura LIKE '%a%' )\r\nLIMIT 10",
+                    "records": [
+                        {
+                            "ID": 10004,
+                            "Nombre": "aaaaaaaaaa",
+                            "Codigo": "aaaa"
+                        }
+                    ]
+                }
+            }
+      operationId: get-tables-generalTable
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: param
+          description: a
+        - schema:
+            type: string
+          in: query
+          name: sBusqueda
+          description: RUTAENTREGA
 components:
   schemas:
     User:
