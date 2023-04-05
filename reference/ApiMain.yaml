@@ -1,0 +1,92 @@
+openapi: 3.1.0
+x-stoplight:
+  id: 13j8r1zfdbfnn
+info:
+  title: ApiMain
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/municipalities/light/{provinciaID}':
+    get:
+      summary: findManyByProvinceLight
+      tags: []
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "records": [
+                        {
+                            "municipioid": 8148,
+                            "nombre": "Dosquebradas",
+                            "codigo": "170"
+                        },
+                        {
+                            "municipioid": 8149,
+                            "nombre": "Pereira",
+                            "codigo": "001"
+                        }
+                    ]
+                }
+            }
+      operationId: get-municipalities-light
+      description: ''
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: tokenReciente
+    parameters:
+      - schema:
+          type: string
+        name: provinciaID
+        in: path
+        required: true
+        description: '53'
+  '/http://localhost:8026/municipalities/{provinciaID}':
+    get:
+      summary: findManyByProvince
+      tags: []
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "records": [
+                        {
+                            "municipioid": 8148,
+                            "nombre": "Dosquebradas",
+                            "codigo": "170"
+                        }
+                    ]
+                }
+            }
+      operationId: 'get-http:-localhost:8026-municipalities'
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: 'param '
+          description: dos
+    parameters:
+      - schema:
+          type: string
+        name: provinciaID
+        in: path
+        required: true
+        description: '53'
+components:
+  schemas: {}
