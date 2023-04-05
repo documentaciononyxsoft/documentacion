@@ -48,7 +48,7 @@ paths:
         in: path
         required: true
         description: '53'
-  '/http://localhost:8026/municipalities/{provinciaID}':
+  '/municipalities/{provinciaID}':
     get:
       summary: findManyByProvince
       tags: []
