@@ -123,5 +123,40 @@ paths:
           in: query
           name: sMunicipio
           description: 'pereira '
+  /postalcode/checkPostalCode:
+    get:
+      summary: checkPostalCode
+      tags: []
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "codigoPostalID": 14768,
+                    "codigoPostal": "001",
+                    "municipioID": 8149,
+                    "municipioNombre": "Pereira"
+                }
+            }
+      operationId: get-postalcode-checkPostalCode
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: paisID
+          description: '45'
+        - schema:
+            type: string
+          in: query
+          name: codigoPostal
+          description: '001'
 components:
   schemas: {}
