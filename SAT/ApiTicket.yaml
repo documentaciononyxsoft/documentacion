@@ -795,7 +795,7 @@ paths:
                   FechaFinalPlanificacion: '20230306160119'
   '/tickets/quicksearch/{sBusqueda}':
     get:
-      summary: findManyByFilter
+      summary: findManyByFilterForTickets
       tags: []
       responses:
         '200':
@@ -999,7 +999,7 @@ paths:
         description: '70'
   /ticket:
     post:
-      summary: Create
+      summary: CreateForTickets
       operationId: post-ticket
       responses:
         '200':
@@ -1258,7 +1258,7 @@ paths:
                   FechaFinalPlanificacion: '20230306160119'
   /tickets/consult:
     get:
-      summary: findManyByFilters
+      summary: findManyByFiltersForTickets
       tags: []
       responses:
         '200':
@@ -1541,7 +1541,7 @@ paths:
           description: '0'
   /tickets/afterClient:
     get:
-      summary: afterClient
+      summary: afterClientForTickets
       tags: []
       responses:
         '200':
