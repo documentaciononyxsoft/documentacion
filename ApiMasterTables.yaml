@@ -14650,6 +14650,93 @@ paths:
           in: query
           name: sBusqueda
           description: RUTAENTREGA
+  '/http://localhost:8026/tables/clients/contacts/all':
+    get:
+      summary: findAllByClientForContacts
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT \r\nContacto.*,\r\nMailing.*,\r\nMailing.Activo AS ActivoMailing,\r\nMailing.Nombre AS NombreMailing,\r\nMailing.ReferenciaCodigo AS CodigoMailing,\r\nTablaGeneral.Descripcion\r\nFROM \r\nContacto LEFT JOIN TablaGeneral ON Contacto.DepartamentoID = TablaGeneral.TablaGeneralID\r\nLEFT JOIN Mailing ON Contacto.MailingID = Mailing.MailingID\r\nLEFT JOIN Provincia ON Provincia.ProvinciaID=Contacto.ProvinciaID\r\nWHERE\r\nContacto.MailingID = 4\r\nAND Contacto.CustomerID = 29\r\nAND Contacto.EmpresaID = 1\r\nAND Contacto.Activo = 1\r\nORDER BY \r\nContacto.Nombre ASC \r\n"
+                      records:
+                        - ID: 100
+                          Nombre: Ainhoa
+                          Codigo: '43000001'
+                        - ID: 4
+                          Nombre: ANDER
+                          Codigo: '43000001'
+                        - ID: 3
+                          Nombre: Edgos
+                          Codigo: '43000001'
+                        - ID: 79
+                          Nombre: Leire
+                          Codigo: '43000001'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT \r\nContacto.*,\r\nMailing.*,\r\nMailing.Activo AS ActivoMailing,\r\nMailing.Nombre AS NombreMailing,\r\nMailing.ReferenciaCodigo AS CodigoMailing,\r\nTablaGeneral.Descripcion\r\nFROM \r\nContacto LEFT JOIN TablaGeneral ON Contacto.DepartamentoID = TablaGeneral.TablaGeneralID\r\nLEFT JOIN Mailing ON Contacto.MailingID = Mailing.MailingID\r\nLEFT JOIN Provincia ON Provincia.ProvinciaID=Contacto.ProvinciaID\r\nWHERE\r\nContacto.MailingID = 4\r\nAND Contacto.CustomerID = 29\r\nAND Contacto.EmpresaID = 1\r\nAND Contacto.Activo = 1\r\nORDER BY \r\nContacto.Nombre ASC \r\n"
+                      records:
+                        - ID: 100
+                          Nombre: Ainhoa
+                          Codigo: '43000001'
+                        - ID: 4
+                          Nombre: ANDER
+                          Codigo: '43000001'
+                        - ID: 3
+                          Nombre: Edgos
+                          Codigo: '43000001'
+                        - ID: 79
+                          Nombre: Leire
+                          Codigo: '43000001'
+      operationId: 'get-http:-localhost:8026-tables-clients-contacts-all'
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: clienteID
+          description: '4'
 components:
   schemas:
     User:
