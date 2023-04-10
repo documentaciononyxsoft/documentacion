@@ -97,6 +97,65 @@ paths:
           in: query
           name: order
           description: ASC
+  '/ubications/quicksearch/{sBusqueda}':
+    get:
+      summary: findManyByFilter
+      tags: []
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "sql": "select \r\ndireccion.direccionID,\r\ndireccion.codigo,\r\ndireccion.nombre,\r\ndireccion.fechahoraUsuario,\r\ndireccion.direccion,\r\ndireccion.paisid,\r\npais.nombre as nombrePais,\r\ndireccion.municipio,\r\ndireccion.provinciaID,\r\nprovincia.nombre as nombreProvincia,\r\ncontratomantenimientodireccion.referenciacliente,\r\ndireccion.activo,\r\ndireccion.mailingID,\r\nmailing.nombre as NombreCliente,\r\ncliente.codigo as codigoCliente,\r\ndireccion.telefono,\r\ndireccion.fax,\r\ndireccion.email,\r\ndireccion.rutaEntregaID,\r\ntablageneral.abreviatura as codigoRuta,\r\ntablageneral.descripcion as nombreRuta,\r\ndireccion.movil,\r\ndireccion.longitud,\r\ndireccion.latitud,\r\ncodigoPostal.codigoPostalID,\r\ncodigoPostal.codigoPostal,\r\nusuario.nombreUsuario\r\nfrom direccion\r\nleft join contratomantenimientodireccion on contratomantenimientodireccion.direccionID = direccion.direccionID\r\nleft join pais on pais.paisid = direccion.paisid\r\nleft join provincia on provincia.provinciaID = direccion.provinciaID\r\nleft join mailing on mailing.mailingid = direccion.mailingid\r\nleft join cliente on mailing.mailingid = cliente.mailingID\r\nleft join tablageneral on tablageneral.tablageneralid = direccion.rutaentregaID\r\nleft join codigoPostal on direccion.codigoPostalID = codigoPostal.codigoPostalID\r\nleft join usuario on usuario.usuarioid = direccion.usuarioID\r\nwhere Direccion.Clave = 'SAT' and  direccion.CustomerID = 29\r\nand direccion.empresaID = 1\r\nand direccion.codigo = '44'\r\ngroup by Direccion.direccionID\r\norder by direccion.codigo",
+                    "records": [
+                        {
+                            "direccionID": 33,
+                            "codigo": 44,
+                            "nombre": "DireccionSoloNombre",
+                            "FechaHoraCreacion": "2022-12-12T17:16:50.000",
+                            "direccion": "DireccionPrueba",
+                            "paisid": 63,
+                            "nombrePais": "España",
+                            "municipio": "Abejar",
+                            "provinciaID": 0,
+                            "nombreProvincia": "",
+                            "referenciacliente": "",
+                            "activo": 1,
+                            "mailingID": 873,
+                            "NombreCliente": "Lola",
+                            "codigoCliente": "43000432",
+                            "telefono": "",
+                            "fax": "",
+                            "email": "",
+                            "rutaEntregaID": 0,
+                            "codigoRuta": "",
+                            "nombreRuta": "",
+                            "movil": "",
+                            "longitud": "",
+                            "codigoPostalID": 12129,
+                            "codigoPostal": "42146",
+                            "usuarioCreacion": "DEMO"
+                        }
+                    ]
+                }
+            }
+      operationId: get-ubications-quicksearch
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+    parameters:
+      - schema:
+          type: string
+        name: sBusqueda
+        in: path
+        required: true
+        description: '44'
 components:
   schemas:
     User:
