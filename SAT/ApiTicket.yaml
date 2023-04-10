@@ -9,7 +9,7 @@ servers:
 paths:
   /tickets:
     get:
-      summary: findMany
+      summary: findManyForTickets
       tags: []
       responses:
         '200':
