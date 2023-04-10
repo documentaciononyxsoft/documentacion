@@ -1644,5 +1644,75 @@ paths:
           description: '"tokenReciente"'
       requestBody:
         content: {}
+  /technician:
+    get:
+      summary: findManyByParamForTechnician
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT empleado.EmpleadoID AS ID,\r\nempleado.Codigo,\r\nempleado.Nombre\r\nFROM empleado \r\nWHERE empleado.CustomerID = 29\r\nAND empleado.EmpresaID = 1\r\nAND empleado.DeBaja = 0\r\nAND empleado.Codigo LIKE '%juan%' OR empleado.Nombre LIKE '%juan%' \r\nLIMIT 10"
+                      records:
+                        - ID: 2
+                          Nombre: JUAN GUERRA
+                          Codigo: '3'
+                        - ID: 59
+                          Nombre: Juana Ceballos
+                          Codigo: 02JP
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT empleado.EmpleadoID AS ID,\r\nempleado.Codigo,\r\nempleado.Nombre\r\nFROM empleado \r\nWHERE empleado.CustomerID = 29\r\nAND empleado.EmpresaID = 1\r\nAND empleado.DeBaja = 0\r\nAND empleado.Codigo LIKE '%juan%' OR empleado.Nombre LIKE '%juan%' \r\nLIMIT 10"
+                      records:
+                        - ID: 2
+                          Nombre: JUAN GUERRA
+                          Codigo: '3'
+                        - ID: 59
+                          Nombre: Juana Ceballos
+                          Codigo: 02JP
+      operationId: get-technician
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas: {}
