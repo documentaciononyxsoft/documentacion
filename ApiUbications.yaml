@@ -74,7 +74,461 @@ paths:
       tags: []
       responses:
         '200':
-          description: "{\n    \"statusCode\": 200,\n    \"message\": \"Request processed successfully\",\n    \"content\": {\n        \"success\": true,\n        \"sql\": \"select \\r\\ndireccion.direccionID,\\r\\ndireccion.codigo,\\r\\ndireccion.nombre,\\r\\ndireccion.fechahoraUsuario,\\r\\ndireccion.direccion,\\r\\ndireccion.paisid,\\r\\npais.nombre as nombrePais,\\r\\ndireccion.municipio,\\r\\ndireccion.provinciaID,\\r\\nprovincia.nombre as nombreProvincia,\\r\\ncontratomantenimientodireccion.referenciacliente,\\r\\ndireccion.activo,\\r\\ndireccion.mailingID,\\r\\nmailing.nombre as NombreCliente,\\r\\ncliente.codigo as codigoCliente,\\r\\ndireccion.telefono,\\r\\ndireccion.fax,\\r\\ndireccion.email,\\r\\ndireccion.rutaEntregaID,\\r\\ntablageneral.abreviatura as codigoRuta,\\r\\ntablageneral.descripcion as nombreRuta,\\r\\ndireccion.movil,\\r\\ndireccion.longitud,\\r\\ndireccion.latitud,\\r\\ncodigoPostal.codigoPostalID,\\r\\ncodigoPostal.codigoPostal,\\r\\nusuario.nombreUsuario\\r\\nfrom direccion\\r\\nleft join contratomantenimientodireccion on contratomantenimientodireccion.direccionID = direccion.direccionID\\r\\nleft join pais on pais.paisid = direccion.paisid\\r\\nleft join provincia on provincia.provinciaID = direccion.provinciaID\\r\\nleft join mailing on mailing.mailingid = direccion.mailingid\\r\\nleft join cliente on mailing.mailingid = cliente.mailingID\\r\\nleft join tablageneral on tablageneral.tablageneralid = direccion.rutaentregaID\\r\\nleft join codigoPostal on direccion.codigoPostalID = codigoPostal.codigoPostalID\\r\\nleft join usuario on usuario.usuarioid = direccion.usuarioID\\r\\nwhere Direccion.Clave = 'SAT' and  direccion.CustomerID = 29\\r\\nand direccion.empresaID = 1\\r\\ngroup by Direccion.direccionID\\r\\norder by Direccion.direccionID ASC\\r\\nlimit 50\\r\\noffset 0 \",\n        \"records\": [\n            {\n                \"direccionID\": 13,\n                \"codigo\": 1,\n                \"nombre\": \"SAT MADRID 1\",\n                \"FechaHoraCreacion\": \"2018-04-10T09:11:29.000\",\n                \"direccion\": \"Calle de los comuneros de Castilla, 18\",\n                \"paisid\": 63,\n                \"nombrePais\": \"España\",\n                \"municipio\": \"MADRID\",\n                \"provinciaID\": 1,\n                \"nombreProvincia\": \"Araba\",\n                \"referenciacliente\": \"\",\n                \"activo\": 1,\n                \"mailingID\": 4,\n                \"NombreCliente\": \"dario\",\n                \"codigoCliente\": \"43000001\",\n                \"telefono\": \"3218316754\",\n                \"fax\": \"\",\n                \"email\": \"\",\n                \"rutaEntregaID\": 0,\n                \"codigoRuta\": \"\",\n                \"nombreRuta\": \"\",\n                \"movil\": \"\",\n                \"longitud\": \"54545\",\n                \"codigoPostalID\": 7772,\n                \"codigoPostal\": \"28000\",\n                \"usuarioCreacion\": \"DEMOS\"\n            },\n            {\n                \"direccionID\": 14,\n                \"codigo\": 2,\n                \"nombre\": \"ANER VITORIA\",\n                \"FechaHoraCreacion\": \"2018-04-10T09:19:22.000\",\n                \"direccion\": \"Zumar Hiribidea, 1\",\n                \"paisid\": 63,\n                \"nombrePais\": \"España\",\n                \"municipio\": \"\",\n                \"provinciaID\": 1,\n                \"nombreProvincia\": \"Araba\",\n                \"referenciacliente\": \"\",\n                \"activo\": 1,\n                \"mailingID\": 4,\n                \"NombreCliente\": \"dario\",\n                \"codigoCliente\": \"43000001\",\n                \"telefono\": \"3218316754\",\n                \"fax\": \"\",\n                \"email\": \"\",\n                \"rutaEntregaID\": 0,\n                \"codigoRuta\": \"\",\n                \"nombreRuta\": \"\",\n                \"movil\": \"\",\n                \"longitud\": \"\",\n                \"codigoPostalID\": 14728,\n                \"codigoPostal\": \"\",\n                \"usuarioCreacion\": \"DEMOS\"\n            },\n            {\n                \"direccionID\": 31,\n                \"codigo\": 3,\n                \"nombre\": \"FERFWE\",\n                \"FechaHoraCreacion\": \"2022-11-21T14:29:35.000\",\n                \"direccion\": \"DIRECCION SAT\",\n                \"paisid\": 45,\n                \"nombrePais\": \"Colombia\",\n                \"municipio\": \"Pereira\",\n                \"provinciaID\": 53,\n                \"nombreProvincia\": \"Risaralda\",\n                \"referenciacliente\": \"\",\n                \"activo\": 1,\n                \"mailingID\": 870,\n                \"NombreCliente\": \"CarlitosM\",\n                \"codigoCliente\": \"43000429\",\n                \"telefono\": \"488\",\n                \"fax\": \"545455\",\n                \"email\": \"fgdgfs@ssa.com\",\n                \"rutaEntregaID\": 10005,\n                \"codigoRuta\": \"bbbb\",\n                \"nombreRuta\": \"bbbbbbbbbbb\",\n                \"movil\": \"14545454\",\n                \"longitud\": \"12554\",\n                \"codigoPostalID\": 14828,\n                \"codigoPostal\": \"001\",\n                \"usuarioCreacion\": \"DEMO\"\n            },\n            {\n                \"direccionID\": 32,\n                \"codigo\": 43,\n                \"nombre\": \"DireccionNUEVA\",\n                \"FechaHoraCreacion\": \"2022-11-22T15:20:53.000\",\n                \"direccion\": \"NUEVA\",\n                \"paisid\": 63,\n                \"nombrePais\": \"España\",\n                \"municipio\": \"Abegondo\",\n                \"provinciaID\": 5,\n                \"nombreProvincia\": \"Ã\x81vila\",\n                \"referenciacliente\": \"\",\n                \"activo\": 1,\n                \"mailingID\": 873,\n                \"NombreCliente\": \"Lola\",\n                \"codigoCliente\": \"43000432\",\n                \"telefono\": \"4877/8\",\n                \"fax\": \"\",\n                \"email\": \"\",\n                \"rutaEntregaID\": 0,\n                \"codigoRuta\": \"\",\n                \"nombreRuta\": \"\",\n                \"movil\": \"\",\n                \"longitud\": \"\",\n                \"codigoPostalID\": 3378,\n                \"codigoPostal\": \"15318\",\n                \"usuarioCreacion\": \"DEMO\"\n            },\n            {\n                \"direccionID\": 33,\n                \"codigo\": 44,\n                \"nombre\": \"DireccionSoloNombre\",\n                \"FechaHoraCreacion\": \"2022-12-12T17:16:50.000\",\n                \"direccion\": \"DireccionPrueba\",\n                \"paisid\": 63,\n                \"nombrePais\": \"España\",\n                \"municipio\": \"Abejar\",\n                \"provinciaID\": 0,\n                \"nombreProvincia\": \"\",\n                \"referenciacliente\": \"\",\n                \"activo\": 1,\n                \"mailingID\": 873,\n                \"NombreCliente\": \"Lola\",\n                \"codigoCliente\": \"43000432\",\n                \"telefono\": \"\",\n                \"fax\": \"\",\n                \"email\": \"\",\n                \"rutaEntregaID\": 0,\n                \"codigoRuta\": \"\",\n                \"nombreRuta\": \"\",\n                \"movil\": \"\",\n                \"longitud\": \"\",\n                \"codigoPostalID\": 12129,\n                \"codigoPostal\": \"42146\",\n                \"usuarioCreacion\": \"DEMO\"\n            },\n            {\n                \"direccionID\": 34,\n                \"codigo\": 45,\n                \"nombre\": \"PR-NUEVA\",\n                \"FechaHoraCreacion\": \"2022-12-13T11:44:14.000\",\n                \"direccion\": \"\",\n                \"paisid\": 0,\n                \"nombrePais\": \"\",\n                \"municipio\": \"\",\n                \"provinciaID\": 0,\n                \"nombreProvincia\": \"\",\n                \"referenciacliente\": \"\",\n                \"activo\": 1,\n                \"mailingID\": 875,\n                \"NombreCliente\": \"Juanito\",\n                \"codigoCliente\": \"43000434\",\n                \"telefono\": \"\",\n                \"fax\": \"\",\n                \"email\": \"\",\n                \"rutaEntregaID\": 0,\n                \"codigoRuta\": \"\",\n                \"nombreRuta\": \"\",\n                \"movil\": \"\",\n                \"longitud\": \"\",\n                \"codigoPostalID\": 14870,\n                \"codigoPostal\": \"\",\n                \"usuarioCreacion\": \"DEMO\"\n            },\n            {\n                \"direccionID\": 52,\n                \"codigo\": 46,\n                \"nombre\": \"wewe\",\n                \"FechaHoraCreacion\": \"2023-03-24T12:19:35.000\",\n                \"direccion\": \"\",\n                \"paisid\": 0,\n                \"nombrePais\": \"\",\n                \"municipio\": \"\",\n                \"provinciaID\": 0,\n                \"nombreProvincia\": \"\",\n                \"referenciacliente\": \"\",\n                \"activo\": 1,\n                \"mailingID\": 4,\n                \"NombreCliente\": \"dario\",\n                \"codigoCliente\": \"43000001\",\n                \"telefono\": \"\",\n                \"fax\": \"\",\n                \"email\": \"\",\n                \"rutaEntregaID\": 0,\n                \"codigoRuta\": \"\",\n                \"nombreRuta\": \"\",\n                \"movil\": \"\",\n                \"longitud\": \"\",\n                \"codigoPostalID\": 14875,\n                \"codigoPostal\": \"\",\n                \"usuarioCreacion\": \"SUPERVISOR\"\n            }\n        ]\n    }\n}"
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            direccionID:
+                              type: integer
+                            codigo:
+                              type: integer
+                            nombre:
+                              type: string
+                            FechaHoraCreacion:
+                              type: string
+                            direccion:
+                              type: string
+                            paisid:
+                              type: integer
+                            nombrePais:
+                              type: string
+                            municipio:
+                              type: string
+                            provinciaID:
+                              type: integer
+                            nombreProvincia:
+                              type: string
+                            referenciacliente:
+                              type: string
+                            activo:
+                              type: integer
+                            mailingID:
+                              type: integer
+                            NombreCliente:
+                              type: string
+                            codigoCliente:
+                              type: string
+                            telefono:
+                              type: string
+                            fax:
+                              type: string
+                            email:
+                              type: string
+                            rutaEntregaID:
+                              type: integer
+                            codigoRuta:
+                              type: string
+                            nombreRuta:
+                              type: string
+                            movil:
+                              type: string
+                            longitud:
+                              type: string
+                            codigoPostalID:
+                              type: integer
+                            codigoPostal:
+                              type: string
+                            usuarioCreacion:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "select \r\ndireccion.direccionID,\r\ndireccion.codigo,\r\ndireccion.nombre,\r\ndireccion.fechahoraUsuario,\r\ndireccion.direccion,\r\ndireccion.paisid,\r\npais.nombre as nombrePais,\r\ndireccion.municipio,\r\ndireccion.provinciaID,\r\nprovincia.nombre as nombreProvincia,\r\ncontratomantenimientodireccion.referenciacliente,\r\ndireccion.activo,\r\ndireccion.mailingID,\r\nmailing.nombre as NombreCliente,\r\ncliente.codigo as codigoCliente,\r\ndireccion.telefono,\r\ndireccion.fax,\r\ndireccion.email,\r\ndireccion.rutaEntregaID,\r\ntablageneral.abreviatura as codigoRuta,\r\ntablageneral.descripcion as nombreRuta,\r\ndireccion.movil,\r\ndireccion.longitud,\r\ndireccion.latitud,\r\ncodigoPostal.codigoPostalID,\r\ncodigoPostal.codigoPostal,\r\nusuario.nombreUsuario\r\nfrom direccion\r\nleft join contratomantenimientodireccion on contratomantenimientodireccion.direccionID = direccion.direccionID\r\nleft join pais on pais.paisid = direccion.paisid\r\nleft join provincia on provincia.provinciaID = direccion.provinciaID\r\nleft join mailing on mailing.mailingid = direccion.mailingid\r\nleft join cliente on mailing.mailingid = cliente.mailingID\r\nleft join tablageneral on tablageneral.tablageneralid = direccion.rutaentregaID\r\nleft join codigoPostal on direccion.codigoPostalID = codigoPostal.codigoPostalID\r\nleft join usuario on usuario.usuarioid = direccion.usuarioID\r\nwhere Direccion.Clave = 'SAT' and  direccion.CustomerID = 29\r\nand direccion.empresaID = 1\r\ngroup by Direccion.direccionID\r\norder by Direccion.direccionID ASC\r\nlimit 50\r\noffset 0 "
+                      records:
+                        - direccionID: 13
+                          codigo: 1
+                          nombre: SAT MADRID 1
+                          FechaHoraCreacion: '2018-04-10T09:11:29.000'
+                          direccion: 'Calle de los comuneros de Castilla, 18'
+                          paisid: 63
+                          nombrePais: España
+                          municipio: MADRID
+                          provinciaID: 1
+                          nombreProvincia: Araba
+                          referenciacliente: ''
+                          activo: 1
+                          mailingID: 4
+                          NombreCliente: dario
+                          codigoCliente: '43000001'
+                          telefono: '3218316754'
+                          fax: ''
+                          email: ''
+                          rutaEntregaID: 0
+                          codigoRuta: ''
+                          nombreRuta: ''
+                          movil: ''
+                          longitud: '54545'
+                          codigoPostalID: 7772
+                          codigoPostal: '28000'
+                          usuarioCreacion: DEMOS
+                        - direccionID: 14
+                          codigo: 2
+                          nombre: ANER VITORIA
+                          FechaHoraCreacion: '2018-04-10T09:19:22.000'
+                          direccion: 'Zumar Hiribidea, 1'
+                          paisid: 63
+                          nombrePais: España
+                          municipio: ''
+                          provinciaID: 1
+                          nombreProvincia: Araba
+                          referenciacliente: ''
+                          activo: 1
+                          mailingID: 4
+                          NombreCliente: dario
+                          codigoCliente: '43000001'
+                          telefono: '3218316754'
+                          fax: ''
+                          email: ''
+                          rutaEntregaID: 0
+                          codigoRuta: ''
+                          nombreRuta: ''
+                          movil: ''
+                          longitud: ''
+                          codigoPostalID: 14728
+                          codigoPostal: ''
+                          usuarioCreacion: DEMOS
+                        - direccionID: 31
+                          codigo: 3
+                          nombre: FERFWE
+                          FechaHoraCreacion: '2022-11-21T14:29:35.000'
+                          direccion: DIRECCION SAT
+                          paisid: 45
+                          nombrePais: Colombia
+                          municipio: Pereira
+                          provinciaID: 53
+                          nombreProvincia: Risaralda
+                          referenciacliente: ''
+                          activo: 1
+                          mailingID: 870
+                          NombreCliente: CarlitosM
+                          codigoCliente: '43000429'
+                          telefono: '488'
+                          fax: '545455'
+                          email: fgdgfs@ssa.com
+                          rutaEntregaID: 10005
+                          codigoRuta: bbbb
+                          nombreRuta: bbbbbbbbbbb
+                          movil: '14545454'
+                          longitud: '12554'
+                          codigoPostalID: 14828
+                          codigoPostal: '001'
+                          usuarioCreacion: DEMO
+                        - direccionID: 32
+                          codigo: 43
+                          nombre: DireccionNUEVA
+                          FechaHoraCreacion: '2022-11-22T15:20:53.000'
+                          direccion: NUEVA
+                          paisid: 63
+                          nombrePais: España
+                          municipio: Abegondo
+                          provinciaID: 5
+                          nombreProvincia: "Ã\x81vila"
+                          referenciacliente: ''
+                          activo: 1
+                          mailingID: 873
+                          NombreCliente: Lola
+                          codigoCliente: '43000432'
+                          telefono: 4877/8
+                          fax: ''
+                          email: ''
+                          rutaEntregaID: 0
+                          codigoRuta: ''
+                          nombreRuta: ''
+                          movil: ''
+                          longitud: ''
+                          codigoPostalID: 3378
+                          codigoPostal: '15318'
+                          usuarioCreacion: DEMO
+                        - direccionID: 33
+                          codigo: 44
+                          nombre: DireccionSoloNombre
+                          FechaHoraCreacion: '2022-12-12T17:16:50.000'
+                          direccion: DireccionPrueba
+                          paisid: 63
+                          nombrePais: España
+                          municipio: Abejar
+                          provinciaID: 0
+                          nombreProvincia: ''
+                          referenciacliente: ''
+                          activo: 1
+                          mailingID: 873
+                          NombreCliente: Lola
+                          codigoCliente: '43000432'
+                          telefono: ''
+                          fax: ''
+                          email: ''
+                          rutaEntregaID: 0
+                          codigoRuta: ''
+                          nombreRuta: ''
+                          movil: ''
+                          longitud: ''
+                          codigoPostalID: 12129
+                          codigoPostal: '42146'
+                          usuarioCreacion: DEMO
+                        - direccionID: 34
+                          codigo: 45
+                          nombre: PR-NUEVA
+                          FechaHoraCreacion: '2022-12-13T11:44:14.000'
+                          direccion: ''
+                          paisid: 0
+                          nombrePais: ''
+                          municipio: ''
+                          provinciaID: 0
+                          nombreProvincia: ''
+                          referenciacliente: ''
+                          activo: 1
+                          mailingID: 875
+                          NombreCliente: Juanito
+                          codigoCliente: '43000434'
+                          telefono: ''
+                          fax: ''
+                          email: ''
+                          rutaEntregaID: 0
+                          codigoRuta: ''
+                          nombreRuta: ''
+                          movil: ''
+                          longitud: ''
+                          codigoPostalID: 14870
+                          codigoPostal: ''
+                          usuarioCreacion: DEMO
+                        - direccionID: 52
+                          codigo: 46
+                          nombre: wewe
+                          FechaHoraCreacion: '2023-03-24T12:19:35.000'
+                          direccion: ''
+                          paisid: 0
+                          nombrePais: ''
+                          municipio: ''
+                          provinciaID: 0
+                          nombreProvincia: ''
+                          referenciacliente: ''
+                          activo: 1
+                          mailingID: 4
+                          NombreCliente: dario
+                          codigoCliente: '43000001'
+                          telefono: ''
+                          fax: ''
+                          email: ''
+                          rutaEntregaID: 0
+                          codigoRuta: ''
+                          nombreRuta: ''
+                          movil: ''
+                          longitud: ''
+                          codigoPostalID: 14875
+                          codigoPostal: ''
+                          usuarioCreacion: SUPERVISOR
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "select \r\ndireccion.direccionID,\r\ndireccion.codigo,\r\ndireccion.nombre,\r\ndireccion.fechahoraUsuario,\r\ndireccion.direccion,\r\ndireccion.paisid,\r\npais.nombre as nombrePais,\r\ndireccion.municipio,\r\ndireccion.provinciaID,\r\nprovincia.nombre as nombreProvincia,\r\ncontratomantenimientodireccion.referenciacliente,\r\ndireccion.activo,\r\ndireccion.mailingID,\r\nmailing.nombre as NombreCliente,\r\ncliente.codigo as codigoCliente,\r\ndireccion.telefono,\r\ndireccion.fax,\r\ndireccion.email,\r\ndireccion.rutaEntregaID,\r\ntablageneral.abreviatura as codigoRuta,\r\ntablageneral.descripcion as nombreRuta,\r\ndireccion.movil,\r\ndireccion.longitud,\r\ndireccion.latitud,\r\ncodigoPostal.codigoPostalID,\r\ncodigoPostal.codigoPostal,\r\nusuario.nombreUsuario\r\nfrom direccion\r\nleft join contratomantenimientodireccion on contratomantenimientodireccion.direccionID = direccion.direccionID\r\nleft join pais on pais.paisid = direccion.paisid\r\nleft join provincia on provincia.provinciaID = direccion.provinciaID\r\nleft join mailing on mailing.mailingid = direccion.mailingid\r\nleft join cliente on mailing.mailingid = cliente.mailingID\r\nleft join tablageneral on tablageneral.tablageneralid = direccion.rutaentregaID\r\nleft join codigoPostal on direccion.codigoPostalID = codigoPostal.codigoPostalID\r\nleft join usuario on usuario.usuarioid = direccion.usuarioID\r\nwhere Direccion.Clave = 'SAT' and  direccion.CustomerID = 29\r\nand direccion.empresaID = 1\r\ngroup by Direccion.direccionID\r\norder by Direccion.direccionID ASC\r\nlimit 50\r\noffset 0 "
+                      records:
+                        - direccionID: 13
+                          codigo: 1
+                          nombre: SAT MADRID 1
+                          FechaHoraCreacion: '2018-04-10T09:11:29.000'
+                          direccion: 'Calle de los comuneros de Castilla, 18'
+                          paisid: 63
+                          nombrePais: España
+                          municipio: MADRID
+                          provinciaID: 1
+                          nombreProvincia: Araba
+                          referenciacliente: ''
+                          activo: 1
+                          mailingID: 4
+                          NombreCliente: dario
+                          codigoCliente: '43000001'
+                          telefono: '3218316754'
+                          fax: ''
+                          email: ''
+                          rutaEntregaID: 0
+                          codigoRuta: ''
+                          nombreRuta: ''
+                          movil: ''
+                          longitud: '54545'
+                          codigoPostalID: 7772
+                          codigoPostal: '28000'
+                          usuarioCreacion: DEMOS
+                        - direccionID: 14
+                          codigo: 2
+                          nombre: ANER VITORIA
+                          FechaHoraCreacion: '2018-04-10T09:19:22.000'
+                          direccion: 'Zumar Hiribidea, 1'
+                          paisid: 63
+                          nombrePais: España
+                          municipio: ''
+                          provinciaID: 1
+                          nombreProvincia: Araba
+                          referenciacliente: ''
+                          activo: 1
+                          mailingID: 4
+                          NombreCliente: dario
+                          codigoCliente: '43000001'
+                          telefono: '3218316754'
+                          fax: ''
+                          email: ''
+                          rutaEntregaID: 0
+                          codigoRuta: ''
+                          nombreRuta: ''
+                          movil: ''
+                          longitud: ''
+                          codigoPostalID: 14728
+                          codigoPostal: ''
+                          usuarioCreacion: DEMOS
+                        - direccionID: 31
+                          codigo: 3
+                          nombre: FERFWE
+                          FechaHoraCreacion: '2022-11-21T14:29:35.000'
+                          direccion: DIRECCION SAT
+                          paisid: 45
+                          nombrePais: Colombia
+                          municipio: Pereira
+                          provinciaID: 53
+                          nombreProvincia: Risaralda
+                          referenciacliente: ''
+                          activo: 1
+                          mailingID: 870
+                          NombreCliente: CarlitosM
+                          codigoCliente: '43000429'
+                          telefono: '488'
+                          fax: '545455'
+                          email: fgdgfs@ssa.com
+                          rutaEntregaID: 10005
+                          codigoRuta: bbbb
+                          nombreRuta: bbbbbbbbbbb
+                          movil: '14545454'
+                          longitud: '12554'
+                          codigoPostalID: 14828
+                          codigoPostal: '001'
+                          usuarioCreacion: DEMO
+                        - direccionID: 32
+                          codigo: 43
+                          nombre: DireccionNUEVA
+                          FechaHoraCreacion: '2022-11-22T15:20:53.000'
+                          direccion: NUEVA
+                          paisid: 63
+                          nombrePais: España
+                          municipio: Abegondo
+                          provinciaID: 5
+                          nombreProvincia: "Ã\x81vila"
+                          referenciacliente: ''
+                          activo: 1
+                          mailingID: 873
+                          NombreCliente: Lola
+                          codigoCliente: '43000432'
+                          telefono: 4877/8
+                          fax: ''
+                          email: ''
+                          rutaEntregaID: 0
+                          codigoRuta: ''
+                          nombreRuta: ''
+                          movil: ''
+                          longitud: ''
+                          codigoPostalID: 3378
+                          codigoPostal: '15318'
+                          usuarioCreacion: DEMO
+                        - direccionID: 33
+                          codigo: 44
+                          nombre: DireccionSoloNombre
+                          FechaHoraCreacion: '2022-12-12T17:16:50.000'
+                          direccion: DireccionPrueba
+                          paisid: 63
+                          nombrePais: España
+                          municipio: Abejar
+                          provinciaID: 0
+                          nombreProvincia: ''
+                          referenciacliente: ''
+                          activo: 1
+                          mailingID: 873
+                          NombreCliente: Lola
+                          codigoCliente: '43000432'
+                          telefono: ''
+                          fax: ''
+                          email: ''
+                          rutaEntregaID: 0
+                          codigoRuta: ''
+                          nombreRuta: ''
+                          movil: ''
+                          longitud: ''
+                          codigoPostalID: 12129
+                          codigoPostal: '42146'
+                          usuarioCreacion: DEMO
+                        - direccionID: 34
+                          codigo: 45
+                          nombre: PR-NUEVA
+                          FechaHoraCreacion: '2022-12-13T11:44:14.000'
+                          direccion: ''
+                          paisid: 0
+                          nombrePais: ''
+                          municipio: ''
+                          provinciaID: 0
+                          nombreProvincia: ''
+                          referenciacliente: ''
+                          activo: 1
+                          mailingID: 875
+                          NombreCliente: Juanito
+                          codigoCliente: '43000434'
+                          telefono: ''
+                          fax: ''
+                          email: ''
+                          rutaEntregaID: 0
+                          codigoRuta: ''
+                          nombreRuta: ''
+                          movil: ''
+                          longitud: ''
+                          codigoPostalID: 14870
+                          codigoPostal: ''
+                          usuarioCreacion: DEMO
+                        - direccionID: 52
+                          codigo: 46
+                          nombre: wewe
+                          FechaHoraCreacion: '2023-03-24T12:19:35.000'
+                          direccion: ''
+                          paisid: 0
+                          nombrePais: ''
+                          municipio: ''
+                          provinciaID: 0
+                          nombreProvincia: ''
+                          referenciacliente: ''
+                          activo: 1
+                          mailingID: 4
+                          NombreCliente: dario
+                          codigoCliente: '43000001'
+                          telefono: ''
+                          fax: ''
+                          email: ''
+                          rutaEntregaID: 0
+                          codigoRuta: ''
+                          nombreRuta: ''
+                          movil: ''
+                          longitud: ''
+                          codigoPostalID: 14875
+                          codigoPostal: ''
+                          usuarioCreacion: SUPERVISOR
       operationId: get-ubications
       parameters:
         - schema:
