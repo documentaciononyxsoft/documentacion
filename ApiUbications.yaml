@@ -156,6 +156,41 @@ paths:
         in: path
         required: true
         description: '44'
+  '/ubication/{ubicacionID}':
+    put:
+      summary: ''
+      operationId: put-ubication
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: Remove
+      operationId: delete-ubication
+      responses:
+        '200':
+          description: ''
+        '':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true
+                }
+            }
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+    parameters:
+      - schema:
+          type: string
+        name: ubicacionID
+        in: path
+        required: true
+        description: '59'
 components:
   schemas:
     User:
