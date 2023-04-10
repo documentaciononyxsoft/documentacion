@@ -9,7 +9,7 @@ servers:
 paths:
   /consult/equipment:
     get:
-      summary: findManyByFilters
+      summary: findManyByFiltersForEquipment
       tags: []
       responses:
         '200':
