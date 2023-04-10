@@ -13873,41 +13873,85 @@ paths:
       tags: []
       responses:
         '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true,
-                    "sql": "SELECT cliente.ClienteID,mailing.MailingID,mailing.Nombre ,cliente.Codigo\r\nFROM cliente\r\nLEFT JOIN mailing\r\nON cliente.MailingID = mailing.MailingID\r\nWHERE mailing.Activo = TRUE AND cliente.CustomerID = 29 AND cliente.EmpresaID = 1\r\nAND cliente.Codigo LIKE '%dario%' OR mailing.Nombre LIKE '%dario%' \r\nLIMIT 10",
-                    "records": [
-                        {
-                            "ID": 4,
-                            "ClienteID": 1,
-                            "Nombre": "dario",
-                            "Codigo": "43000001"
-                        },
-                        {
-                            "ID": 4,
-                            "ClienteID": 340,
-                            "Nombre": "dario",
-                            "Codigo": "43000299"
-                        },
-                        {
-                            "ID": 4,
-                            "ClienteID": 341,
-                            "Nombre": "dario",
-                            "Codigo": "43000301"
-                        },
-                        {
-                            "ID": 666,
-                            "ClienteID": 343,
-                            "Nombre": "dariogonzalez",
-                            "Codigo": "43000303"
-                        }
-                    ]
-                }
-            }
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            ClienteID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT cliente.ClienteID,mailing.MailingID,mailing.Nombre ,cliente.Codigo\r\nFROM cliente\r\nLEFT JOIN mailing\r\nON cliente.MailingID = mailing.MailingID\r\nWHERE mailing.Activo = TRUE AND cliente.CustomerID = 29 AND cliente.EmpresaID = 1\r\nAND cliente.Codigo LIKE '%dario%' OR mailing.Nombre LIKE '%dario%' \r\nLIMIT 10"
+                      records:
+                        - ID: 4
+                          ClienteID: 1
+                          Nombre: dario
+                          Codigo: '43000001'
+                        - ID: 4
+                          ClienteID: 340
+                          Nombre: dario
+                          Codigo: '43000299'
+                        - ID: 4
+                          ClienteID: 341
+                          Nombre: dario
+                          Codigo: '43000301'
+                        - ID: 666
+                          ClienteID: 343
+                          Nombre: dariogonzalez
+                          Codigo: '43000303'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT cliente.ClienteID,mailing.MailingID,mailing.Nombre ,cliente.Codigo\r\nFROM cliente\r\nLEFT JOIN mailing\r\nON cliente.MailingID = mailing.MailingID\r\nWHERE mailing.Activo = TRUE AND cliente.CustomerID = 29 AND cliente.EmpresaID = 1\r\nAND cliente.Codigo LIKE '%dario%' OR mailing.Nombre LIKE '%dario%' \r\nLIMIT 10"
+                      records:
+                        - ID: 4
+                          ClienteID: 1
+                          Nombre: dario
+                          Codigo: '43000001'
+                        - ID: 4
+                          ClienteID: 340
+                          Nombre: dario
+                          Codigo: '43000299'
+                        - ID: 4
+                          ClienteID: 341
+                          Nombre: dario
+                          Codigo: '43000301'
+                        - ID: 666
+                          ClienteID: 343
+                          Nombre: dariogonzalez
+                          Codigo: '43000303'
         '':
           description: ''
       operationId: get-tables-clients
