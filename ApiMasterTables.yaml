@@ -14650,9 +14650,9 @@ paths:
           in: query
           name: sBusqueda
           description: RUTAENTREGA
-  '/http://localhost:8026/tables/clients/contacts/all':
+  /tables/clients/contacts/all:
     get:
-      summary: findAllByClientForContacts
+      summary: findLightListByClientForContacts
       tags: []
       responses:
         '200':
@@ -14737,6 +14737,7 @@ paths:
           in: query
           name: clienteID
           description: '4'
+    parameters: []
 components:
   schemas:
     User:
