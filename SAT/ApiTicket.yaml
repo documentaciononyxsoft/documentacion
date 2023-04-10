@@ -1539,5 +1539,19 @@ paths:
           in: query
           name: ubicacionID
           description: '0'
+  /tickets/afterClient:
+    get:
+      summary: afterClient
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-tickets-afterClient
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas: {}
