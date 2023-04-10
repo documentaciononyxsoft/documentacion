@@ -484,7 +484,7 @@ paths:
           description: ASC
   '/ticket/{ticketID}':
     delete:
-      summary: Remove
+      summary: RemoveForTickets
       operationId: delete-ticket
       responses:
         '200':
@@ -536,7 +536,7 @@ paths:
         required: true
         description: '91'
     put:
-      summary: Update
+      summary: UpdateForTickets
       operationId: put-ticket-ticketID
       responses:
         '200':
