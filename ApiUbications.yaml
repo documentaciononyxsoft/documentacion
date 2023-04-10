@@ -13,7 +13,157 @@ paths:
       tags: []
       responses:
         '200':
-          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "records":[ { "DireccionID":13, "Codigo":1, "Nombre":"SAT MADRID 1", "Direccion":"Calle de los comuneros de Castilla, 18", "Municipio":"MADRID", "CodigoPostal":"28000", "Pais":"Espa\u00f1a", "Provincia":"Araba", "CodigoCliente":"43000001", "NombreCliente":"dario", "Telefono":"3218316754", "Email":"", "codigoContrato":"", "NombreContrato":"" }, { "DireccionID":14, "Codigo":2, "Nombre":"ANER VITORIA", "Direccion":"Zumar Hiribidea, 1", "Municipio":"", "CodigoPostal":"", "Pais":"Espa\u00f1a", "Provincia":"Araba", "CodigoCliente":"43000001", "NombreCliente":"dario", "Telefono":"3218316754", "Email":"", "codigoContrato":"", "NombreContrato":"" }, { "DireccionID":52, "Codigo":46, "Nombre":"wewe", "Direccion":"", "Municipio":"", "CodigoPostal":"", "Pais":"", "Provincia":"", "CodigoCliente":"43000001", "NombreCliente":"dario", "Telefono":"", "Email":"", "codigoContrato":"", "NombreContrato":"" } ], "sql":"SELECT DISTINCT Direccion.*,\r\nPais.Nombre AS NombrePais,\r\nProvincia.Nombre AS NombreProvincia,\r\nCodigoPostal.CodigoPostal AS NombreCodigoPostal,\r\nMailing.ReferenciaCodigo AS CodigoMailing,\r\nMailing.Nombre AS NombreMailing \r\nFROM Direccion\r\nLEFT OUTER JOIN Elemento ON Elemento.DireccionID = Direccion.DireccionID\r\nLEFT OUTER JOIN Pais ON Pais.PaisID = Direccion.PaisID\r\nLEFT OUTER JOIN Provincia ON Provincia.ProvinciaID = Direccion.ProvinciaID\r\nLEFT OUTER JOIN CodigoPostal ON CodigoPostal.CodigoPostalID = Direccion.CodigoPostalID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Direccion.MailingID\r\nWHERE Direccion.CustomerID = 29\r\nAND Direccion.EmpresaID = 1\r\nAND Direccion.Clave IN (''SAT'')\r\n AND (Direccion.MailingID IN (4))\r\nlimit 50 \r\noffset 0", "success":true } } '
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            DireccionID:
+                              type: integer
+                            Codigo:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Direccion:
+                              type: string
+                            Municipio:
+                              type: string
+                            CodigoPostal:
+                              type: string
+                            Pais:
+                              type: string
+                            Provincia:
+                              type: string
+                            CodigoCliente:
+                              type: string
+                            NombreCliente:
+                              type: string
+                            Telefono:
+                              type: string
+                            Email:
+                              type: string
+                            codigoContrato:
+                              type: string
+                            NombreContrato:
+                              type: string
+                      sql:
+                        type: string
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - DireccionID: 13
+                          Codigo: 1
+                          Nombre: SAT MADRID 1
+                          Direccion: 'Calle de los comuneros de Castilla, 18'
+                          Municipio: MADRID
+                          CodigoPostal: '28000'
+                          Pais: España
+                          Provincia: Araba
+                          CodigoCliente: '43000001'
+                          NombreCliente: dario
+                          Telefono: '3218316754'
+                          Email: ''
+                          codigoContrato: ''
+                          NombreContrato: ''
+                        - DireccionID: 14
+                          Codigo: 2
+                          Nombre: ANER VITORIA
+                          Direccion: 'Zumar Hiribidea, 1'
+                          Municipio: ''
+                          CodigoPostal: ''
+                          Pais: España
+                          Provincia: Araba
+                          CodigoCliente: '43000001'
+                          NombreCliente: dario
+                          Telefono: '3218316754'
+                          Email: ''
+                          codigoContrato: ''
+                          NombreContrato: ''
+                        - DireccionID: 52
+                          Codigo: 46
+                          Nombre: wewe
+                          Direccion: ''
+                          Municipio: ''
+                          CodigoPostal: ''
+                          Pais: ''
+                          Provincia: ''
+                          CodigoCliente: '43000001'
+                          NombreCliente: dario
+                          Telefono: ''
+                          Email: ''
+                          codigoContrato: ''
+                          NombreContrato: ''
+                      sql: "SELECT DISTINCT Direccion.*,\r\nPais.Nombre AS NombrePais,\r\nProvincia.Nombre AS NombreProvincia,\r\nCodigoPostal.CodigoPostal AS NombreCodigoPostal,\r\nMailing.ReferenciaCodigo AS CodigoMailing,\r\nMailing.Nombre AS NombreMailing \r\nFROM Direccion\r\nLEFT OUTER JOIN Elemento ON Elemento.DireccionID = Direccion.DireccionID\r\nLEFT OUTER JOIN Pais ON Pais.PaisID = Direccion.PaisID\r\nLEFT OUTER JOIN Provincia ON Provincia.ProvinciaID = Direccion.ProvinciaID\r\nLEFT OUTER JOIN CodigoPostal ON CodigoPostal.CodigoPostalID = Direccion.CodigoPostalID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Direccion.MailingID\r\nWHERE Direccion.CustomerID = 29\r\nAND Direccion.EmpresaID = 1\r\nAND Direccion.Clave IN ('SAT')\r\n AND (Direccion.MailingID IN (4))\r\nlimit 50 \r\noffset 0"
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - DireccionID: 13
+                          Codigo: 1
+                          Nombre: SAT MADRID 1
+                          Direccion: 'Calle de los comuneros de Castilla, 18'
+                          Municipio: MADRID
+                          CodigoPostal: '28000'
+                          Pais: España
+                          Provincia: Araba
+                          CodigoCliente: '43000001'
+                          NombreCliente: dario
+                          Telefono: '3218316754'
+                          Email: ''
+                          codigoContrato: ''
+                          NombreContrato: ''
+                        - DireccionID: 14
+                          Codigo: 2
+                          Nombre: ANER VITORIA
+                          Direccion: 'Zumar Hiribidea, 1'
+                          Municipio: ''
+                          CodigoPostal: ''
+                          Pais: España
+                          Provincia: Araba
+                          CodigoCliente: '43000001'
+                          NombreCliente: dario
+                          Telefono: '3218316754'
+                          Email: ''
+                          codigoContrato: ''
+                          NombreContrato: ''
+                        - DireccionID: 52
+                          Codigo: 46
+                          Nombre: wewe
+                          Direccion: ''
+                          Municipio: ''
+                          CodigoPostal: ''
+                          Pais: ''
+                          Provincia: ''
+                          CodigoCliente: '43000001'
+                          NombreCliente: dario
+                          Telefono: ''
+                          Email: ''
+                          codigoContrato: ''
+                          NombreContrato: ''
+                      sql: "SELECT DISTINCT Direccion.*,\r\nPais.Nombre AS NombrePais,\r\nProvincia.Nombre AS NombreProvincia,\r\nCodigoPostal.CodigoPostal AS NombreCodigoPostal,\r\nMailing.ReferenciaCodigo AS CodigoMailing,\r\nMailing.Nombre AS NombreMailing \r\nFROM Direccion\r\nLEFT OUTER JOIN Elemento ON Elemento.DireccionID = Direccion.DireccionID\r\nLEFT OUTER JOIN Pais ON Pais.PaisID = Direccion.PaisID\r\nLEFT OUTER JOIN Provincia ON Provincia.ProvinciaID = Direccion.ProvinciaID\r\nLEFT OUTER JOIN CodigoPostal ON CodigoPostal.CodigoPostalID = Direccion.CodigoPostalID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Direccion.MailingID\r\nWHERE Direccion.CustomerID = 29\r\nAND Direccion.EmpresaID = 1\r\nAND Direccion.Clave IN ('SAT')\r\n AND (Direccion.MailingID IN (4))\r\nlimit 50 \r\noffset 0"
+                      success: true
       operationId: get-consult-ubications
       parameters:
         - schema:
