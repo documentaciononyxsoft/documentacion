@@ -1555,7 +1555,7 @@ paths:
           description: '"tokenReciente"'
   /priority/all:
     get:
-      summary: findAll
+      summary: findAllForPriority
       tags: []
       responses:
         '200':
