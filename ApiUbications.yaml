@@ -417,6 +417,25 @@ paths:
                   codigoPostalID: ''
                   referenciaCliente: dasdas
                   actualizarContrato: 0
+            examples:
+              Example 1:
+                value:
+                  nombre: Edgos v2
+                  paisID: '1'
+                  Direccion: Calle falsa 123
+                  ProvinciaID: '1'
+                  Municipio: Dosquebradas
+                  Activo: '1'
+                  mailingID: '4'
+                  telefono: '33333'
+                  fax: '44444'
+                  email: a@a.com
+                  rutaEntregaID: ''
+                  longitud: '343'
+                  latitud: '32432'
+                  codigoPostalID: ''
+                  referenciaCliente: dasdas
+                  actualizarContrato: 0
         description: ''
       description: ''
 components:
