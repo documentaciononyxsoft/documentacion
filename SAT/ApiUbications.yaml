@@ -1,6 +1,6 @@
 openapi: 3.1.0
 x-stoplight:
-  id: d3lumlet7sj8g
+  id: c7whz2xm1t7ec
 info:
   title: ApiUbications
   version: '1.0'
@@ -1204,4 +1204,4 @@ components:
         - email
         - emailVerified
       x-stoplight:
-        id: yphuwvbd59e76
+        id: hwe7d42eun433
