@@ -9,7 +9,7 @@ servers:
 paths:
   /consult/ubications:
     get:
-      summary: findManyByFilters
+      summary: findManyByFiltersForUbication
       tags: []
       responses:
         '200':
@@ -220,7 +220,7 @@ paths:
           name: codigoPostal
   /ubications:
     get:
-      summary: findMany
+      summary: findManyForUbication
       tags: []
       responses:
         '200':
@@ -703,7 +703,7 @@ paths:
           description: ASC
   '/ubications/quicksearch/{sBusqueda}':
     get:
-      summary: findManyByFilter
+      summary: findManyByFilterForUbication
       tags: []
       responses:
         '200':
@@ -867,7 +867,7 @@ paths:
         description: '44'
   '/ubication/{ubicacionID}':
     put:
-      summary: Update
+      summary: UpdateForUbication
       operationId: put-ubication
       responses:
         '200':
@@ -1042,7 +1042,7 @@ paths:
         description: '62'
   /ubication:
     post:
-      summary: Create
+      summary: CreateForUbication
       operationId: post-ubication
       responses:
         '200':
