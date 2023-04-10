@@ -212,6 +212,35 @@ paths:
         in: path
         required: true
         description: '62'
+  /ubication:
+    post:
+      summary: Create
+      operationId: post-ubication
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "ubicacionID": 64
+                }
+            }
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+        description: "{\n\t\t\"nombre\": \"Edgos v2\",\n\t\t\"paisID\": \"1\",\n\t\t\"Direccion\": \"Calle falsa 123\",\n\t\t\"ProvinciaID\": \"1\",\n\t\t\"Municipio\": \"Dosquebradas\",\n\t\t\"Activo\": \"1\",\n\t\t\"mailingID\": \"4\",\n\t\t\"telefono\": \"33333\",\n\t\t\"fax\": \"44444\",\n\t\t\"email\": \"a@a.com\",\n\t\t\"rutaEntregaID\": \"\",\n\t\t\"longitud\": \"343\",\n\t\t\"latitud\": \"32432\",\n\t\t\"codigoPostalID\": \"\",\n\t\t\"referenciaCliente\": \"dasdas\",\n\t\t\"actualizarContrato\": 0\n\t}"
+      description: ''
 components:
   schemas:
     User:
