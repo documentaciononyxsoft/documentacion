@@ -13854,7 +13854,7 @@ paths:
           required: true
   /tables/clients/light:
     get:
-      summary: findLightList
+      summary: findLightListForClient
       tags: []
       responses:
         '200':
@@ -13939,7 +13939,7 @@ paths:
     parameters: []
   '/tables/client/{Param}':
     get:
-      summary: findManyByParam
+      summary: findManyByParamForClient
       tags: []
       responses:
         '200':
