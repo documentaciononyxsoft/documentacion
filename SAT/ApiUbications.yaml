@@ -986,7 +986,7 @@ paths:
                   actualizarContrato: 0
         description: ''
     delete:
-      summary: Remove
+      summary: RemoveForUbication
       operationId: delete-ubication
       responses:
         '200':
