@@ -13,7 +13,7 @@ paths:
       tags: []
       responses:
         '200':
-          description: ''
+          description: OK
           content:
             application/json:
               schema:
@@ -482,5 +482,58 @@ paths:
           in: query
           name: order
           description: ASC
+  '/ticket/{ticketID}':
+    delete:
+      summary: Remove
+      operationId: delete-ticket
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: ''
+        '':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+    parameters:
+      - schema:
+          type: string
+        name: ticketID
+        in: path
+        required: true
+        description: '91'
 components:
   schemas: {}
