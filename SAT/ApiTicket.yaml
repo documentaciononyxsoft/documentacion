@@ -2386,5 +2386,86 @@ paths:
           in: query
           name: offset
           description: '0'
+  /tickets/cronology:
+    get:
+      summary: cronologyForTickets
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Fecha:
+                              type: string
+                            Descripcion:
+                              type: string
+                            Usuario:
+                              type: string
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - Fecha: '20220317171116670'
+                          Descripcion: Intervención nº 13 realizada.
+                          Usuario: PRO
+                        - Fecha: '20220317170937916'
+                          Descripcion: Ticket planificado.
+                          Usuario: PRO
+                        - Fecha: '20220317170902000'
+                          Descripcion: Ticket nº 16 creado.
+                          Usuario: PRO
+                      success: true
+                      sql: "select avisoticketcronologia.*,usuario.NombreUsuario\r\n\r\nfrom avisoticketcronologia \r\nleft join usuario on usuario.usuarioid = AvisoTicketCronologia.UsuarioID\r\nleft join AvisoTicket on AvisoTicket.AvisoTicketID = AvisoTicketCronologia.AvisoTicketID\r\n\r\nwhere AvisoTicketCronologia.customerid = 29 \r\nand AvisoTicketCronologia.empresaid = 1 \r\nand AvisoTicketCronologia.AvisoTicketID = 22\r\n\r\norder by AvisoTicketCronologia.FechaHoraUsuario desc"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - Fecha: '20220317171116670'
+                          Descripcion: Intervención nº 13 realizada.
+                          Usuario: PRO
+                        - Fecha: '20220317170937916'
+                          Descripcion: Ticket planificado.
+                          Usuario: PRO
+                        - Fecha: '20220317170902000'
+                          Descripcion: Ticket nº 16 creado.
+                          Usuario: PRO
+                      success: true
+                      sql: "select avisoticketcronologia.*,usuario.NombreUsuario\r\n\r\nfrom avisoticketcronologia \r\nleft join usuario on usuario.usuarioid = AvisoTicketCronologia.UsuarioID\r\nleft join AvisoTicket on AvisoTicket.AvisoTicketID = AvisoTicketCronologia.AvisoTicketID\r\n\r\nwhere AvisoTicketCronologia.customerid = 29 \r\nand AvisoTicketCronologia.empresaid = 1 \r\nand AvisoTicketCronologia.AvisoTicketID = 22\r\n\r\norder by AvisoTicketCronologia.FechaHoraUsuario desc"
+      operationId: get-tickets-cronology
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: ticketID
+          description: '22'
 components:
   schemas: {}
