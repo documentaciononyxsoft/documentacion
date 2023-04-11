@@ -2948,5 +2948,174 @@ paths:
           in: query
           name: ticketID
           description: '3'
+  /tickets/shopping:
+    get:
+      summary: shoppingForTickets
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            serie:
+                              type: string
+                            numeroPedido:
+                              type: integer
+                            fechaPedido:
+                              type: string
+                            fechaRecepcion:
+                              type: string
+                            proveedor:
+                              type: string
+                            nombre:
+                              type: string
+                            articulo:
+                              type: string
+                            nombrePedido:
+                              type: string
+                            cantidadReservada:
+                              type: integer
+                            cantidadRecibida:
+                              type: integer
+                            precio:
+                              type: integer
+                            Dto1:
+                              type: integer
+                            Dto2:
+                              type: integer
+                            Dto3:
+                              type: integer
+                            importe:
+                              type:
+                                - integer
+                                - number
+                            numeroProyectoOF:
+                              type: integer
+                            tipo:
+                              type: string
+                            fechaEntrega:
+                              type: string
+                            estado:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - serie: Sin
+                          numeroPedido: 28232
+                          fechaPedido: '20220725'
+                          fechaRecepcion: '20220725'
+                          proveedor: '01 '
+                          nombre: LA GUIPUZCOANA-edgos
+                          articulo: S1
+                          nombrePedido: SUBCONJUNTO 1
+                          cantidadReservada: 10
+                          cantidadRecibida: 0
+                          precio: 25
+                          Dto1: 2
+                          Dto2: 1
+                          Dto3: 1
+                          importe: 240.12
+                          numeroProyectoOF: 18
+                          tipo: ''
+                          fechaEntrega: '20220725'
+                          estado: ''
+                        - serie: Sin
+                          numeroPedido: 28232
+                          fechaPedido: '20220725'
+                          fechaRecepcion: '20220725'
+                          proveedor: '01 '
+                          nombre: LA GUIPUZCOANA-edgos
+                          articulo: '5700001409'
+                          nombrePedido: BARRA METALICA REF. 5700001409
+                          cantidadReservada: 10
+                          cantidadRecibida: 0
+                          precio: 0
+                          Dto1: 2
+                          Dto2: 0
+                          Dto3: 0
+                          importe: 0
+                          numeroProyectoOF: 18
+                          tipo: ''
+                          fechaEntrega: '20220725'
+                          estado: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - serie: Sin
+                          numeroPedido: 28232
+                          fechaPedido: '20220725'
+                          fechaRecepcion: '20220725'
+                          proveedor: '01 '
+                          nombre: LA GUIPUZCOANA-edgos
+                          articulo: S1
+                          nombrePedido: SUBCONJUNTO 1
+                          cantidadReservada: 10
+                          cantidadRecibida: 0
+                          precio: 25
+                          Dto1: 2
+                          Dto2: 1
+                          Dto3: 1
+                          importe: 240.12
+                          numeroProyectoOF: 18
+                          tipo: ''
+                          fechaEntrega: '20220725'
+                          estado: ''
+                        - serie: Sin
+                          numeroPedido: 28232
+                          fechaPedido: '20220725'
+                          fechaRecepcion: '20220725'
+                          proveedor: '01 '
+                          nombre: LA GUIPUZCOANA-edgos
+                          articulo: '5700001409'
+                          nombrePedido: BARRA METALICA REF. 5700001409
+                          cantidadReservada: 10
+                          cantidadRecibida: 0
+                          precio: 0
+                          Dto1: 2
+                          Dto2: 0
+                          Dto3: 0
+                          importe: 0
+                          numeroProyectoOF: 18
+                          tipo: ''
+                          fechaEntrega: '20220725'
+                          estado: ''
+      operationId: get-tickets-shopping
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: ticketID
+          description: '55'
 components:
   schemas: {}
