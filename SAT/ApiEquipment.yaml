@@ -13,7 +13,137 @@ paths:
       tags: []
       responses:
         '200':
-          description: "{\n\t\"fContent\":\n\t{\n\t\t\"records\":\n\t\t[\n\t\t\t{\n\t\t\t\t\"ElementoID\":1,\n\t\t\t\t\"NumeroEquipo\":\"3442342\",\n\t\t\t\t\"nombre\":\"EXTINTOR\",\n\t\t\t\t\"Marca\":\"BABESA\",\n\t\t\t\t\"Modelo\":\"XR-190\",\n\t\t\t\t\"TipoEquipoID\":9999,\n\t\t\t\t\"TipoEquipoNombre\":\"Proveedores por prueba\",\n\t\t\t\t\"ArticuloID\":606,\n\t\t\t\t\"CodigoArticulo\":\"Z12007\",\n\t\t\t\t\"NombreArticulo\":\"BOMBA HIDRONEUMATICA S\\/E 2LTS\",\n\t\t\t\t\"ClienteID\":1,\n\t\t\t\t\"CodigoCliente\":\"43000001\",\n\t\t\t\t\"NombreCliente\":\"dario\",\n\t\t\t\t\"DireccionID\":13,\n\t\t\t\t\"CodigoUbicacion\":1,\n\t\t\t\t\"NombreUbicacion\":\"SAT MADRID 1\",\n\t\t\t\t\"Emplazamiento\":\"\",\n\t\t\t\t\"FechaInstalacion\":\"20180322\",\n\t\t\t\t\"FechaBaja\":\"20230303\",\n\t\t\t\t\"MotivoBaja\":\"\",\n\t\t\t\t\"FechaInicioGarantia\":\"20180322\",\n\t\t\t\t\"FechaFinGarantia\":\"20190831\",\n\t\t\t\t\"Notas\":\"\"\n\t\t\t}\n\t\t],\n\t\t\"success\":true,\n\t\t\"sql\":\"SELECT Elemento.*,\\r\\nArticulo.Codigo AS CodigoArticulo,\\r\\nArticulo.Nombre AS NombreArticulo,\\r\\nCliente.Codigo AS CodigoCliente,\\r\\nMailing.Nombre AS NombreMailing,\\r\\nDireccion.Codigo AS CodigoUbicacion,\\r\\nDireccion.Nombre AS NombreUbicacion,\\r\\nTipoEquipo.Descripcion AS TipoEquipoTexto\\r\\nFROM Elemento\\r\\nLEFT OUTER JOIN Articulo ON Articulo.ArticuloID = ElementO.ArticuloID\\r\\nLEFT OUTER JOIN Cliente ON Cliente.ClienteID = Elemento.ClienteID\\r\\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\\r\\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = Elemento.DireccionID\\r\\nLEFT OUTER JOIN TablaGeneral AS TipoEquipo ON TipoEquipo.TablaGeneralID = Elemento.TipoEquipoID\\r\\nWHERE Elemento.CustomerID = 29\\r\\nAND Elemento.EmpresaID = 1\\r\\n AND (Elemento.NumeroSerie LIKE '%344%' AND Elemento.TipoEquipoID IN (9999) AND Elemento.FechaInstalacion >= 0 AND DATE(Elemento.FechaInstalacion) <= 20280406 AND Elemento.Nombre LIKE '%EX%' AND Elemento.ClienteID IN (1) AND Elemento.ArticuloID IN (606) AND Elemento.DireccionID IN (13) AND Elemento.FinalGarantia >= 0 AND Elemento.FinalGarantia <= 20280406)\\r\\nlimit 50 \\r\\noffset 0\"\n\t},\n\t\"fMessage\":\"Request processed successfully\",\n\t\"fStatusCode\":200\n}"
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ElementoID:
+                              type: integer
+                            NumeroEquipo:
+                              type: string
+                            nombre:
+                              type: string
+                            Marca:
+                              type: string
+                            Modelo:
+                              type: string
+                            TipoEquipoID:
+                              type: integer
+                            TipoEquipoNombre:
+                              type: string
+                            ArticuloID:
+                              type: integer
+                            CodigoArticulo:
+                              type: string
+                            NombreArticulo:
+                              type: string
+                            ClienteID:
+                              type: integer
+                            CodigoCliente:
+                              type: string
+                            NombreCliente:
+                              type: string
+                            DireccionID:
+                              type: integer
+                            CodigoUbicacion:
+                              type: integer
+                            NombreUbicacion:
+                              type: string
+                            Emplazamiento:
+                              type: string
+                            FechaInstalacion:
+                              type: string
+                            FechaBaja:
+                              type: string
+                            MotivoBaja:
+                              type: string
+                            FechaInicioGarantia:
+                              type: string
+                            FechaFinGarantia:
+                              type: string
+                            Notas:
+                              type: string
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - ElementoID: 1
+                          NumeroEquipo: '3442342'
+                          nombre: EXTINTOR
+                          Marca: BABESA
+                          Modelo: XR-190
+                          TipoEquipoID: 9999
+                          TipoEquipoNombre: Proveedores por prueba
+                          ArticuloID: 606
+                          CodigoArticulo: Z12007
+                          NombreArticulo: BOMBA HIDRONEUMATICA S/E 2LTS
+                          ClienteID: 1
+                          CodigoCliente: '43000001'
+                          NombreCliente: dario
+                          DireccionID: 13
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          Emplazamiento: ''
+                          FechaInstalacion: '20180322'
+                          FechaBaja: '20230303'
+                          MotivoBaja: ''
+                          FechaInicioGarantia: '20180322'
+                          FechaFinGarantia: '20190831'
+                          Notas: ''
+                      success: true
+                      sql: "SELECT Elemento.*,\r\nArticulo.Codigo AS CodigoArticulo,\r\nArticulo.Nombre AS NombreArticulo,\r\nCliente.Codigo AS CodigoCliente,\r\nMailing.Nombre AS NombreMailing,\r\nDireccion.Codigo AS CodigoUbicacion,\r\nDireccion.Nombre AS NombreUbicacion,\r\nTipoEquipo.Descripcion AS TipoEquipoTexto\r\nFROM Elemento\r\nLEFT OUTER JOIN Articulo ON Articulo.ArticuloID = ElementO.ArticuloID\r\nLEFT OUTER JOIN Cliente ON Cliente.ClienteID = Elemento.ClienteID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = Elemento.DireccionID\r\nLEFT OUTER JOIN TablaGeneral AS TipoEquipo ON TipoEquipo.TablaGeneralID = Elemento.TipoEquipoID\r\nWHERE Elemento.CustomerID = 29\r\nAND Elemento.EmpresaID = 1\r\n AND (Elemento.NumeroSerie LIKE '%344%' AND Elemento.TipoEquipoID IN (9999) AND Elemento.FechaInstalacion >= 0 AND DATE(Elemento.FechaInstalacion) <= 20280406 AND Elemento.Nombre LIKE '%EX%' AND Elemento.ClienteID IN (1) AND Elemento.ArticuloID IN (606) AND Elemento.DireccionID IN (13) AND Elemento.FinalGarantia >= 0 AND Elemento.FinalGarantia <= 20280406)\r\nlimit 50 \r\noffset 0"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - ElementoID: 1
+                          NumeroEquipo: '3442342'
+                          nombre: EXTINTOR
+                          Marca: BABESA
+                          Modelo: XR-190
+                          TipoEquipoID: 9999
+                          TipoEquipoNombre: Proveedores por prueba
+                          ArticuloID: 606
+                          CodigoArticulo: Z12007
+                          NombreArticulo: BOMBA HIDRONEUMATICA S/E 2LTS
+                          ClienteID: 1
+                          CodigoCliente: '43000001'
+                          NombreCliente: dario
+                          DireccionID: 13
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          Emplazamiento: ''
+                          FechaInstalacion: '20180322'
+                          FechaBaja: '20230303'
+                          MotivoBaja: ''
+                          FechaInicioGarantia: '20180322'
+                          FechaFinGarantia: '20190831'
+                          Notas: ''
+                      success: true
+                      sql: "SELECT Elemento.*,\r\nArticulo.Codigo AS CodigoArticulo,\r\nArticulo.Nombre AS NombreArticulo,\r\nCliente.Codigo AS CodigoCliente,\r\nMailing.Nombre AS NombreMailing,\r\nDireccion.Codigo AS CodigoUbicacion,\r\nDireccion.Nombre AS NombreUbicacion,\r\nTipoEquipo.Descripcion AS TipoEquipoTexto\r\nFROM Elemento\r\nLEFT OUTER JOIN Articulo ON Articulo.ArticuloID = ElementO.ArticuloID\r\nLEFT OUTER JOIN Cliente ON Cliente.ClienteID = Elemento.ClienteID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = Elemento.DireccionID\r\nLEFT OUTER JOIN TablaGeneral AS TipoEquipo ON TipoEquipo.TablaGeneralID = Elemento.TipoEquipoID\r\nWHERE Elemento.CustomerID = 29\r\nAND Elemento.EmpresaID = 1\r\n AND (Elemento.NumeroSerie LIKE '%344%' AND Elemento.TipoEquipoID IN (9999) AND Elemento.FechaInstalacion >= 0 AND DATE(Elemento.FechaInstalacion) <= 20280406 AND Elemento.Nombre LIKE '%EX%' AND Elemento.ClienteID IN (1) AND Elemento.ArticuloID IN (606) AND Elemento.DireccionID IN (13) AND Elemento.FinalGarantia >= 0 AND Elemento.FinalGarantia <= 20280406)\r\nlimit 50 \r\noffset 0"
       operationId: get-consult-equipment
       parameters:
         - schema:
@@ -81,6 +211,16 @@ paths:
           in: query
           name: tipoEquipo
           description: '9999'
+        - schema:
+            type: string
+          in: query
+          name: limit
+          description: '50'
+        - schema:
+            type: string
+          in: query
+          name: offset
+          description: '0'
   /equipment:
     get:
       summary: findManyByParamForEquipment
