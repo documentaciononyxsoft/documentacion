@@ -2748,5 +2748,86 @@ paths:
           in: query
           name: ticketID
           description: '22'
+  /tickets/expenses:
+    get:
+      summary: expensesForTickets
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            concepto:
+                              type: string
+                            cantidad:
+                              type: integer
+                            precio:
+                              type: number
+                            importe:
+                              type: number
+                            fecha:
+                              type: string
+                            notas:
+                              type: string
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - concepto: KILOMETRAJE
+                          cantidad: 150
+                          precio: 0.25
+                          importe: 37.5
+                          fecha: '20181113'
+                          notas: ''
+                      success: true
+                      sql: "SELECT * \r\nFROM ProcesoGasto\r\nLEFT OUTER JOIN Proceso ON Proceso.ProcesoID = ProcesoGasto.ProcesoID\r\nLEFT JOIN TipoProcesoGasto ON TipoProcesoGasto.TipoProcesoGastoID = ProcesoGasto.TipoProcesoGastoID\r\nWHERE ProcesoGasto.CustomerID = 29\r\nAND ProcesoGasto.EmpresaID = 1\r\nAND ProcesoGasto.ProcesoID IN (3784,5313)\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - concepto: KILOMETRAJE
+                          cantidad: 150
+                          precio: 0.25
+                          importe: 37.5
+                          fecha: '20181113'
+                          notas: ''
+                      success: true
+                      sql: "SELECT * \r\nFROM ProcesoGasto\r\nLEFT OUTER JOIN Proceso ON Proceso.ProcesoID = ProcesoGasto.ProcesoID\r\nLEFT JOIN TipoProcesoGasto ON TipoProcesoGasto.TipoProcesoGastoID = ProcesoGasto.TipoProcesoGastoID\r\nWHERE ProcesoGasto.CustomerID = 29\r\nAND ProcesoGasto.EmpresaID = 1\r\nAND ProcesoGasto.ProcesoID IN (3784,5313)\r\n"
+      operationId: get-tickets-expenses
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"Token Reciente"'
+        - schema:
+            type: string
+          in: query
+          name: ticketID
+          description: '3'
 components:
   schemas: {}
