@@ -170,7 +170,7 @@ paths:
           description: a
   /equipment/light:
     get:
-      summary: findLightList
+      summary: findLightListForEquipment
       tags: []
       responses:
         '200':
