@@ -1546,6 +1546,66 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: object
+                        properties:
+                          Horario:
+                            type: string
+                          Direccion:
+                            type: string
+                          Pais:
+                            type: string
+                          Municipio:
+                            type: string
+                          CodigoPostal:
+                            type: string
+                          Provincia:
+                            type: string
+                          Telefono:
+                            type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        Horario: fewfew
+                        Direccion: scdscdscdscds
+                        Pais: Colombia
+                        Municipio: BOGOTA DC
+                        CodigoPostal: '01193'
+                        Provincia: BOGOTA DC
+                        Telefono: '3218316755'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        Horario: fewfew
+                        Direccion: scdscdscdscds
+                        Pais: Colombia
+                        Municipio: BOGOTA DC
+                        CodigoPostal: '01193'
+                        Provincia: BOGOTA DC
+                        Telefono: '3218316755'
       operationId: get-tickets-afterClient
       parameters:
         - schema:
@@ -1553,6 +1613,11 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: clienteID
+          description: '77'
   /priority/all:
     get:
       summary: findAllForPriority
