@@ -1,0 +1,182 @@
+openapi: 3.1.0
+x-stoplight:
+  id: 7230fin6ixf3n
+info:
+  title: ApiIntervention
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /interventions/consult/tickets:
+    get:
+      summary: findManyForFiltersForInterventionsByTickets
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Numero:
+                              type: integer
+                            Fecha:
+                              type: string
+                            Descripcion:
+                              type: string
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                            FechaCierre:
+                              type: string
+                            CosteMO:
+                              type:
+                                - integer
+                                - number
+                            CosteMaterial:
+                              type:
+                                - integer
+                                - number
+                            Gastos:
+                              type:
+                                - integer
+                                - number
+                            Subcontratación:
+                              type: integer
+                            NumeroAlbaran:
+                              type: integer
+                            ProcesoID:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT \r\nAvisoTicketIntervencion.*,\r\nProyecto_OF.CodigoProyecto_OF,\r\nProyecto_OF.FechaHoraUsuarioCierre,\r\nProyecto_OF.Observaciones,\r\nTablaGeneral.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneral.Descripcion AS TipoTicketTexto,\r\nAvisoTicket.MailingID,\r\nMailing.ReferenciaCodigo,\r\nMailing.Nombre, AlbaranVentaCabecera.Numero, Proceso.ProcesoID\r\nFROM AvisoTicketIntervencion\r\nLEFT OUTER JOIN AvisoTicket ON AvisoTIcket.AvisoTicketID = AvisoTicketIntervencion.AvisoTicketID\r\nleft outer join AvisoTicketElemento on AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Proyecto_OF ON Proyecto_OF.Proyecto_OFID = AvisoTicketIntervencion.Proyecto_OFID\r\nLEFT OUTER JOIN Proceso ON Proceso.Proyecto_OFID = Proyecto_OF.Proyecto_OFID\r\nLEFT OUTER JOIN AlbaranVentaCabecera ON AlbaranVentaCabecera.AlbaranVentaCabeceraID = AvisoTicketIntervencion.AlbaranVentaCabeceraID\r\nLEFT OUTER JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nWHERE AvisoTicketIntervencion.CustomerID = 29\r\nAND AvisoTicket.EmpresaID = 1\r\n AND (AvisoTicketIntervencion.Fecha >= 20000220 AND DATE(AvisoTicketIntervencion.Fecha) <= 20260220 AND AvisoTicketIntervencion.AvisoTicketID IN (3))\r\nLIMIT 50 \r\nOFFSET 0"
+                      records:
+                        - Numero: 1
+                          Fecha: '20181113'
+                          Descripcion: SOL PROBLEMA
+                          Codigo: '43000001'
+                          Nombre: dario
+                          FechaCierre: '20230315'
+                          CosteMO: 2922.62497
+                          CosteMaterial: 2922.62497
+                          Gastos: 37.5
+                          Subcontratación: 0
+                          NumeroAlbaran: 61
+                          ProcesoID: 3784
+                        - Numero: 19
+                          Fecha: '20230315'
+                          Descripcion: VGCGC
+                          Codigo: '43000001'
+                          Nombre: dario
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 5313
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT \r\nAvisoTicketIntervencion.*,\r\nProyecto_OF.CodigoProyecto_OF,\r\nProyecto_OF.FechaHoraUsuarioCierre,\r\nProyecto_OF.Observaciones,\r\nTablaGeneral.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneral.Descripcion AS TipoTicketTexto,\r\nAvisoTicket.MailingID,\r\nMailing.ReferenciaCodigo,\r\nMailing.Nombre, AlbaranVentaCabecera.Numero, Proceso.ProcesoID\r\nFROM AvisoTicketIntervencion\r\nLEFT OUTER JOIN AvisoTicket ON AvisoTIcket.AvisoTicketID = AvisoTicketIntervencion.AvisoTicketID\r\nleft outer join AvisoTicketElemento on AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Proyecto_OF ON Proyecto_OF.Proyecto_OFID = AvisoTicketIntervencion.Proyecto_OFID\r\nLEFT OUTER JOIN Proceso ON Proceso.Proyecto_OFID = Proyecto_OF.Proyecto_OFID\r\nLEFT OUTER JOIN AlbaranVentaCabecera ON AlbaranVentaCabecera.AlbaranVentaCabeceraID = AvisoTicketIntervencion.AlbaranVentaCabeceraID\r\nLEFT OUTER JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nWHERE AvisoTicketIntervencion.CustomerID = 29\r\nAND AvisoTicket.EmpresaID = 1\r\n AND (AvisoTicketIntervencion.Fecha >= 20000220 AND DATE(AvisoTicketIntervencion.Fecha) <= 20260220 AND AvisoTicketIntervencion.AvisoTicketID IN (3))\r\nLIMIT 50 \r\nOFFSET 0"
+                      records:
+                        - Numero: 1
+                          Fecha: '20181113'
+                          Descripcion: SOL PROBLEMA
+                          Codigo: '43000001'
+                          Nombre: dario
+                          FechaCierre: '20230315'
+                          CosteMO: 2922.62497
+                          CosteMaterial: 2922.62497
+                          Gastos: 37.5
+                          Subcontratación: 0
+                          NumeroAlbaran: 61
+                          ProcesoID: 3784
+                        - Numero: 19
+                          Fecha: '20230315'
+                          Descripcion: VGCGC
+                          Codigo: '43000001'
+                          Nombre: dario
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 5313
+      operationId: get-interventions-consult-tickets
+      description: ''
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: offset
+          description: '0'
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: '50'
+        - schema:
+            type: string
+          in: query
+          name: fechaDesdeIn
+          description: '20000220'
+        - schema:
+            type: string
+          in: query
+          name: fechaHastaIn
+          description: '20260220'
+        - schema:
+            type: integer
+          in: query
+          name: ticketID
+          description: '3'
+        - schema:
+            type: integer
+          in: query
+          name: mailingID
+          description: '0'
+        - schema:
+            type: integer
+          in: query
+          description: '0'
+          name: equipoID
+        - schema:
+            type: integer
+          in: query
+          description: '0'
+          name: ubicacionID
+components:
+  schemas: {}
