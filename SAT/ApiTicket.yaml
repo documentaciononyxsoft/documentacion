@@ -1781,7 +1781,7 @@ paths:
           description: '"tokenReciente"'
   /tickets/afterUbication:
     get:
-      summary: afterUbicationForTicket
+      summary: afterUbicationForTickets
       tags: []
       responses:
         '200':
