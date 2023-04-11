@@ -14982,7 +14982,7 @@ paths:
           name: fechaHastaIn
   /tables/light/generalTable:
     get:
-      summary: findLightList
+      summary: findLightListForGeneralTable
       tags: []
       responses:
         '200':
@@ -15025,7 +15025,7 @@ paths:
     parameters: []
   /tables/generalTable:
     get:
-      summary: findManyByParam
+      summary: findManyByParamForGeneralTable
       tags: []
       responses:
         '200':
