@@ -81,6 +81,93 @@ paths:
           in: query
           name: tipoEquipo
           description: '9999'
+  /equipment:
+    get:
+      summary: findManyByParam
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1\r\nAND elemento.NumeroSerie LIKE '%a%' OR elemento.Nombre LIKE '%a%' \r\nLIMIT 10"
+                      records:
+                        - ID: 2
+                          Nombre: Plegadora
+                          Codigo: '123'
+                        - ID: 7
+                          Nombre: ''
+                          Codigo: EQ-JUANITO-1
+                        - ID: 9
+                          Nombre: pruebaluis
+                          Codigo: '5698'
+                        - ID: 10
+                          Nombre: nfjdgfdsgPRUEBA
+                          Codigo: '17578242'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1\r\nAND elemento.NumeroSerie LIKE '%a%' OR elemento.Nombre LIKE '%a%' \r\nLIMIT 10"
+                      records:
+                        - ID: 2
+                          Nombre: Plegadora
+                          Codigo: '123'
+                        - ID: 7
+                          Nombre: ''
+                          Codigo: EQ-JUANITO-1
+                        - ID: 9
+                          Nombre: pruebaluis
+                          Codigo: '5698'
+                        - ID: 10
+                          Nombre: nfjdgfdsgPRUEBA
+                          Codigo: '17578242'
+      operationId: get-equipment
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: 'param '
+          description: a
 components:
   schemas:
     User:
