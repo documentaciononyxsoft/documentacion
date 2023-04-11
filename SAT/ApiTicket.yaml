@@ -1779,5 +1779,80 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  /tickets/afterUbication:
+    get:
+      summary: afterUbicationForTicket
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: object
+                        properties:
+                          DireccionUbicacion:
+                            type: string
+                          MunicipioUbicacion:
+                            type: string
+                          CodigoPostalUbicacion:
+                            type: string
+                          ProvinciaUbicacion:
+                            type: string
+                          Longitud:
+                            type: string
+                          Latitud:
+                            type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        DireccionUbicacion: 'Calle de los comuneros de Castilla, 18'
+                        MunicipioUbicacion: MADRID
+                        CodigoPostalUbicacion: '28000'
+                        ProvinciaUbicacion: Araba
+                        Longitud: '54545'
+                        Latitud: '48755'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        DireccionUbicacion: 'Calle de los comuneros de Castilla, 18'
+                        MunicipioUbicacion: MADRID
+                        CodigoPostalUbicacion: '28000'
+                        ProvinciaUbicacion: Araba
+                        Longitud: '54545'
+                        Latitud: '48755'
+      operationId: get-tickets-afterUbication
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: 'ubicacionID '
+          description: '13'
 components:
   schemas: {}
