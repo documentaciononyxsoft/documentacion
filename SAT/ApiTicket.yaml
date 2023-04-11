@@ -2467,5 +2467,286 @@ paths:
           in: query
           name: ticketID
           description: '22'
+  /tickets/hours:
+    get:
+      summary: hoursForTickets
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            FechaHoraInicio:
+                              type: string
+                            FechaHoraFin:
+                              type: string
+                            Empleado:
+                              type: string
+                            NombreEmpleado:
+                              type: string
+                            Precio:
+                              type: integer
+                            Horas:
+                              type: string
+                            Importe:
+                              type: string
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - FechaHoraInicio: '20181113080000000'
+                          FechaHoraFin: '20181113122000000'
+                          Empleado: '1'
+                          NombreEmpleado: Antonio Lopez Rubio
+                          Precio: 10
+                          Horas: '04:20:00.000'
+                          Importe: '43.33333'
+                        - FechaHoraInicio: '20230310000000000'
+                          FechaHoraFin: '20230310000000000'
+                          Empleado: '3'
+                          NombreEmpleado: JUAN GUERRA
+                          Precio: 5000
+                          Horas: '00:00:00.000'
+                          Importe: '0.01'
+                        - FechaHoraInicio: '20230310000000000'
+                          FechaHoraFin: '20230310000000000'
+                          Empleado: '3'
+                          NombreEmpleado: JUAN GUERRA
+                          Precio: 500
+                          Horas: '00:00:00.000'
+                          Importe: '0.0025'
+                        - FechaHoraInicio: '20230310000000000'
+                          FechaHoraFin: '20230310000000000'
+                          Empleado: '3'
+                          NombreEmpleado: JUAN GUERRA
+                          Precio: 500
+                          Horas: '00:00:00.000'
+                          Importe: '0.004'
+                        - FechaHoraInicio: '20230310000000000'
+                          FechaHoraFin: '20230310000000000'
+                          Empleado: '123'
+                          NombreEmpleado: edgos
+                          Precio: 5
+                          Horas: '00:00:00.000'
+                          Importe: '0.00001'
+                        - FechaHoraInicio: '20230307000000000'
+                          FechaHoraFin: '20230307000000000'
+                          Empleado: '6'
+                          NombreEmpleado: SILVIO PACHECO ABASCAL
+                          Precio: 500
+                          Horas: '00:00:00.000'
+                          Importe: '0.004'
+                        - FechaHoraInicio: '20230307013000000'
+                          FechaHoraFin: '20230307070000000'
+                          Empleado: '6'
+                          NombreEmpleado: SILVIO PACHECO ABASCAL
+                          Precio: 500
+                          Horas: '00:00:00.000'
+                          Importe: '0.004'
+                        - FechaHoraInicio: '20230307013000000'
+                          FechaHoraFin: '20230307070000000'
+                          Empleado: '6'
+                          NombreEmpleado: SILVIO PACHECO ABASCAL
+                          Precio: 500
+                          Horas: '00:00:00.000'
+                          Importe: '0.0005'
+                        - FechaHoraInicio: '20230310144000000'
+                          FechaHoraFin: '20230310170000000'
+                          Empleado: '3'
+                          NombreEmpleado: JUAN GUERRA
+                          Precio: 100
+                          Horas: '02:20:00.000'
+                          Importe: '233.3333'
+                        - FechaHoraInicio: '20230307013000000'
+                          FechaHoraFin: '20230307070000000'
+                          Empleado: '6'
+                          NombreEmpleado: SILVIO PACHECO ABASCAL
+                          Precio: 500
+                          Horas: '00:00:00.000'
+                          Importe: '0.05'
+                        - FechaHoraInicio: '20230307013000000'
+                          FechaHoraFin: '20230307013600000'
+                          Empleado: '6'
+                          NombreEmpleado: SILVIO PACHECO ABASCAL
+                          Precio: 500
+                          Horas: '00:00:00.000'
+                          Importe: '0.05'
+                        - FechaHoraInicio: '20230303000000000'
+                          FechaHoraFin: '20230303000000000'
+                          Empleado: '4'
+                          NombreEmpleado: LORENA SAEZ NAVARRO
+                          Precio: 1000
+                          Horas: '00:36:00.000'
+                          Importe: '600'
+                        - FechaHoraInicio: '20230303000000000'
+                          FechaHoraFin: '20230303000000000'
+                          Empleado: '4'
+                          NombreEmpleado: LORENA SAEZ NAVARRO
+                          Precio: 10000
+                          Horas: '00:06:00.000'
+                          Importe: '1000'
+                        - FechaHoraInicio: '20230303000000000'
+                          FechaHoraFin: '20230303000000000'
+                          Empleado: '5'
+                          NombreEmpleado: SILVIA PEREZ LACALLE
+                          Precio: 10
+                          Horas: '04:35:00.000'
+                          Importe: '45.83333'
+                        - FechaHoraInicio: '20230310150000000'
+                          FechaHoraFin: '20230310170000000'
+                          Empleado: '3'
+                          NombreEmpleado: JUAN GUERRA
+                          Precio: 500
+                          Horas: '02:00:00.000'
+                          Importe: '1000'
+                      success: true
+                      sql: "SELECT\r\nTiempoTrabajo.*,\r\nTipoRechazo.Nombre AS TipoRechazoNombre,\r\nTipoInterrupcion.Nombre AS TipoInterrupcionNombre,\r\nTablaGeneral.Descripcion AS TurnoNombre,\r\nEmpleado.Nombre AS EmpleadoNombre,\r\nEmpleado.Codigo AS EmpleadoCodigo\r\n\r\nFROM TiempoTrabajo \r\nLEFT OUTER JOIN TipoInterrupcion ON TiempoTrabajo.TipoInterrupcionID = TipoInterrupcion.TipoInterrupcionID\r\nLEFT OUTER JOIN TipoRechazo ON TiempoTrabajo.TipoRechazoID = TipoRechazo.TipoRechazoID\r\nLEFT OUTER JOIN TablaGeneral ON TiempoTrabajo.TurnoID = TablaGeneral.TablaGeneralID\r\nLEFT OUTER JOIN Empleado ON TiempoTrabajo.EmpleadoID = Empleado.EmpleadoID\r\n\r\nWHERE\r\nTiempoTrabajo.CustomerID = 29 AND\r\nTiempoTrabajo.EmpresaID = 1 AND\r\nTiempoTrabajo.ProcesoID IN (3784,5313)\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - FechaHoraInicio: '20181113080000000'
+                          FechaHoraFin: '20181113122000000'
+                          Empleado: '1'
+                          NombreEmpleado: Antonio Lopez Rubio
+                          Precio: 10
+                          Horas: '04:20:00.000'
+                          Importe: '43.33333'
+                        - FechaHoraInicio: '20230310000000000'
+                          FechaHoraFin: '20230310000000000'
+                          Empleado: '3'
+                          NombreEmpleado: JUAN GUERRA
+                          Precio: 5000
+                          Horas: '00:00:00.000'
+                          Importe: '0.01'
+                        - FechaHoraInicio: '20230310000000000'
+                          FechaHoraFin: '20230310000000000'
+                          Empleado: '3'
+                          NombreEmpleado: JUAN GUERRA
+                          Precio: 500
+                          Horas: '00:00:00.000'
+                          Importe: '0.0025'
+                        - FechaHoraInicio: '20230310000000000'
+                          FechaHoraFin: '20230310000000000'
+                          Empleado: '3'
+                          NombreEmpleado: JUAN GUERRA
+                          Precio: 500
+                          Horas: '00:00:00.000'
+                          Importe: '0.004'
+                        - FechaHoraInicio: '20230310000000000'
+                          FechaHoraFin: '20230310000000000'
+                          Empleado: '123'
+                          NombreEmpleado: edgos
+                          Precio: 5
+                          Horas: '00:00:00.000'
+                          Importe: '0.00001'
+                        - FechaHoraInicio: '20230307000000000'
+                          FechaHoraFin: '20230307000000000'
+                          Empleado: '6'
+                          NombreEmpleado: SILVIO PACHECO ABASCAL
+                          Precio: 500
+                          Horas: '00:00:00.000'
+                          Importe: '0.004'
+                        - FechaHoraInicio: '20230307013000000'
+                          FechaHoraFin: '20230307070000000'
+                          Empleado: '6'
+                          NombreEmpleado: SILVIO PACHECO ABASCAL
+                          Precio: 500
+                          Horas: '00:00:00.000'
+                          Importe: '0.004'
+                        - FechaHoraInicio: '20230307013000000'
+                          FechaHoraFin: '20230307070000000'
+                          Empleado: '6'
+                          NombreEmpleado: SILVIO PACHECO ABASCAL
+                          Precio: 500
+                          Horas: '00:00:00.000'
+                          Importe: '0.0005'
+                        - FechaHoraInicio: '20230310144000000'
+                          FechaHoraFin: '20230310170000000'
+                          Empleado: '3'
+                          NombreEmpleado: JUAN GUERRA
+                          Precio: 100
+                          Horas: '02:20:00.000'
+                          Importe: '233.3333'
+                        - FechaHoraInicio: '20230307013000000'
+                          FechaHoraFin: '20230307070000000'
+                          Empleado: '6'
+                          NombreEmpleado: SILVIO PACHECO ABASCAL
+                          Precio: 500
+                          Horas: '00:00:00.000'
+                          Importe: '0.05'
+                        - FechaHoraInicio: '20230307013000000'
+                          FechaHoraFin: '20230307013600000'
+                          Empleado: '6'
+                          NombreEmpleado: SILVIO PACHECO ABASCAL
+                          Precio: 500
+                          Horas: '00:00:00.000'
+                          Importe: '0.05'
+                        - FechaHoraInicio: '20230303000000000'
+                          FechaHoraFin: '20230303000000000'
+                          Empleado: '4'
+                          NombreEmpleado: LORENA SAEZ NAVARRO
+                          Precio: 1000
+                          Horas: '00:36:00.000'
+                          Importe: '600'
+                        - FechaHoraInicio: '20230303000000000'
+                          FechaHoraFin: '20230303000000000'
+                          Empleado: '4'
+                          NombreEmpleado: LORENA SAEZ NAVARRO
+                          Precio: 10000
+                          Horas: '00:06:00.000'
+                          Importe: '1000'
+                        - FechaHoraInicio: '20230303000000000'
+                          FechaHoraFin: '20230303000000000'
+                          Empleado: '5'
+                          NombreEmpleado: SILVIA PEREZ LACALLE
+                          Precio: 10
+                          Horas: '04:35:00.000'
+                          Importe: '45.83333'
+                        - FechaHoraInicio: '20230310150000000'
+                          FechaHoraFin: '20230310170000000'
+                          Empleado: '3'
+                          NombreEmpleado: JUAN GUERRA
+                          Precio: 500
+                          Horas: '02:00:00.000'
+                          Importe: '1000'
+                      success: true
+                      sql: "SELECT\r\nTiempoTrabajo.*,\r\nTipoRechazo.Nombre AS TipoRechazoNombre,\r\nTipoInterrupcion.Nombre AS TipoInterrupcionNombre,\r\nTablaGeneral.Descripcion AS TurnoNombre,\r\nEmpleado.Nombre AS EmpleadoNombre,\r\nEmpleado.Codigo AS EmpleadoCodigo\r\n\r\nFROM TiempoTrabajo \r\nLEFT OUTER JOIN TipoInterrupcion ON TiempoTrabajo.TipoInterrupcionID = TipoInterrupcion.TipoInterrupcionID\r\nLEFT OUTER JOIN TipoRechazo ON TiempoTrabajo.TipoRechazoID = TipoRechazo.TipoRechazoID\r\nLEFT OUTER JOIN TablaGeneral ON TiempoTrabajo.TurnoID = TablaGeneral.TablaGeneralID\r\nLEFT OUTER JOIN Empleado ON TiempoTrabajo.EmpleadoID = Empleado.EmpleadoID\r\n\r\nWHERE\r\nTiempoTrabajo.CustomerID = 29 AND\r\nTiempoTrabajo.EmpresaID = 1 AND\r\nTiempoTrabajo.ProcesoID IN (3784,5313)\r\n"
+      operationId: get-tickets-hours
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: ticketID
+          description: '22'
 components:
   schemas: {}
