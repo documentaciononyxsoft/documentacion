@@ -1246,6 +1246,12 @@ paths:
           in: query
           name: 'param '
           description: a
+  /ubication/light:
+    get:
+      summary: findLightListForUbication
+      tags: []
+      responses: {}
+      operationId: get-ubication-light
 components:
   schemas:
     User:
