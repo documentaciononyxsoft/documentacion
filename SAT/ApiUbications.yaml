@@ -1250,8 +1250,132 @@ paths:
     get:
       summary: findLightListForUbication
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1"
+                      records:
+                        - ID: 1
+                          Nombre: EXTINTOR
+                          Codigo: '3442342'
+                        - ID: 2
+                          Nombre: Plegadora
+                          Codigo: '123'
+                        - ID: 3
+                          Nombre: EquipNuevo
+                          Codigo: EQ-C1
+                        - ID: 4
+                          Nombre: Equip-2
+                          Codigo: EQ-C2
+                        - ID: 5
+                          Nombre: EQUIP-1
+                          Codigo: EQUI1
+                        - ID: 6
+                          Nombre: EQUI-NEW
+                          Codigo: EQUI2
+                        - ID: 7
+                          Nombre: ''
+                          Codigo: EQ-JUANITO-1
+                        - ID: 8
+                          Nombre: ''
+                          Codigo: '88888'
+                        - ID: 9
+                          Nombre: pruebaluis
+                          Codigo: '5698'
+                        - ID: 10
+                          Nombre: nfjdgfdsgPRUEBA
+                          Codigo: '17578242'
+                        - ID: 11
+                          Nombre: ''
+                          Codigo: '587411'
+                        - ID: 12
+                          Nombre: ''
+                          Codigo: '1213545'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1"
+                      records:
+                        - ID: 1
+                          Nombre: EXTINTOR
+                          Codigo: '3442342'
+                        - ID: 2
+                          Nombre: Plegadora
+                          Codigo: '123'
+                        - ID: 3
+                          Nombre: EquipNuevo
+                          Codigo: EQ-C1
+                        - ID: 4
+                          Nombre: Equip-2
+                          Codigo: EQ-C2
+                        - ID: 5
+                          Nombre: EQUIP-1
+                          Codigo: EQUI1
+                        - ID: 6
+                          Nombre: EQUI-NEW
+                          Codigo: EQUI2
+                        - ID: 7
+                          Nombre: ''
+                          Codigo: EQ-JUANITO-1
+                        - ID: 8
+                          Nombre: ''
+                          Codigo: '88888'
+                        - ID: 9
+                          Nombre: pruebaluis
+                          Codigo: '5698'
+                        - ID: 10
+                          Nombre: nfjdgfdsgPRUEBA
+                          Codigo: '17578242'
+                        - ID: 11
+                          Nombre: ''
+                          Codigo: '587411'
+                        - ID: 12
+                          Nombre: ''
+                          Codigo: '1213545'
       operationId: get-ubication-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas:
     User:
