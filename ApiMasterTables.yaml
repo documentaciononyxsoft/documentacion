@@ -15283,5 +15283,110 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  /tables/employeeSAT/planification:
+    get:
+      summary: findManyForEmployeesSATByPlanification
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            AvisoTicketPlanificacionID:
+                              type: integer
+                            AvisoTicketPlanificacionEmpleadoID:
+                              type: integer
+                            NombreEmpleado:
+                              type: string
+                            Situacion:
+                              type: string
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - AvisoTicketPlanificacionID: 46
+                          AvisoTicketPlanificacionEmpleadoID: 9
+                          NombreEmpleado: DAVID VILLEGAS
+                          Situacion: Aceptado Operario
+                        - AvisoTicketPlanificacionID: 46
+                          AvisoTicketPlanificacionEmpleadoID: 10
+                          NombreEmpleado: edgos
+                          Situacion: Aceptado Operario
+                        - AvisoTicketPlanificacionID: 46
+                          AvisoTicketPlanificacionEmpleadoID: 11
+                          NombreEmpleado: Edurne Arias
+                          Situacion: Aceptado Operario
+                        - AvisoTicketPlanificacionID: 46
+                          AvisoTicketPlanificacionEmpleadoID: 12
+                          NombreEmpleado: ELENA ROMAN SANCHEZ
+                          Situacion: Aceptado Operario
+                        - AvisoTicketPlanificacionID: 46
+                          AvisoTicketPlanificacionEmpleadoID: 13
+                          NombreEmpleado: Empleado21Nov
+                          Situacion: Rechazado
+                      success: true
+                      sql: "SELECT\r\n\r\n\tAvisoTicketPlanificacionEmpleado.*,\r\n\tEmpleado.Nombre AS NombreEmpleado\r\nFROM\r\n\tAvisoTicketPlanificacionEmpleado\r\n\tLEFT JOIN\r\n\tAvisoTicketPlanificacion\r\n\tON AvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID=AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\n\tLEFT JOIN\r\n\tEmpleado\r\n\tON Empleado.EmpleadoID=AvisoTicketPlanificacionEmpleado.EmpleadoID\r\nWHERE\r\n\tAvisoTicketPlanificacion.CustomerID = 29\r\n\tAND\r\n\tAvisoTicketPlanificacion.EmpresaID = 1\r\n\tAND\r\n\tAvisoTicketPlanificacion.AvisoTicketPlanificacionID = 46\r\n\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - AvisoTicketPlanificacionID: 46
+                          AvisoTicketPlanificacionEmpleadoID: 9
+                          NombreEmpleado: DAVID VILLEGAS
+                          Situacion: Aceptado Operario
+                        - AvisoTicketPlanificacionID: 46
+                          AvisoTicketPlanificacionEmpleadoID: 10
+                          NombreEmpleado: edgos
+                          Situacion: Aceptado Operario
+                        - AvisoTicketPlanificacionID: 46
+                          AvisoTicketPlanificacionEmpleadoID: 11
+                          NombreEmpleado: Edurne Arias
+                          Situacion: Aceptado Operario
+                        - AvisoTicketPlanificacionID: 46
+                          AvisoTicketPlanificacionEmpleadoID: 12
+                          NombreEmpleado: ELENA ROMAN SANCHEZ
+                          Situacion: Aceptado Operario
+                        - AvisoTicketPlanificacionID: 46
+                          AvisoTicketPlanificacionEmpleadoID: 13
+                          NombreEmpleado: Empleado21Nov
+                          Situacion: Rechazado
+                      success: true
+                      sql: "SELECT\r\n\r\n\tAvisoTicketPlanificacionEmpleado.*,\r\n\tEmpleado.Nombre AS NombreEmpleado\r\nFROM\r\n\tAvisoTicketPlanificacionEmpleado\r\n\tLEFT JOIN\r\n\tAvisoTicketPlanificacion\r\n\tON AvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID=AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\n\tLEFT JOIN\r\n\tEmpleado\r\n\tON Empleado.EmpleadoID=AvisoTicketPlanificacionEmpleado.EmpleadoID\r\nWHERE\r\n\tAvisoTicketPlanificacion.CustomerID = 29\r\n\tAND\r\n\tAvisoTicketPlanificacion.EmpresaID = 1\r\n\tAND\r\n\tAvisoTicketPlanificacion.AvisoTicketPlanificacionID = 46\r\n\r\n"
+      operationId: get-tables-employeeSAT-planification
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: avisoTicketPlanificadoID
+          description: '46'
 components:
   schemas: {}
