@@ -1854,5 +1854,64 @@ paths:
           in: query
           name: 'ubicacionID '
           description: '13'
+  /tickets/afterEquipment:
+    get:
+      summary: afterEquipmentForTickets
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      data:
+                        type: object
+                        properties:
+                          FechaInicioGarantia:
+                            type: string
+                          FechaFinGarantia:
+                            type: string
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      data:
+                        FechaInicioGarantia: '20180322'
+                        FechaFinGarantia: '20230303'
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      data:
+                        FechaInicioGarantia: '20180322'
+                        FechaFinGarantia: '20230303'
+                      success: true
+      operationId: get-tickets-afterEquipment
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: 'equipoID '
+          description: '1'
 components:
   schemas: {}
