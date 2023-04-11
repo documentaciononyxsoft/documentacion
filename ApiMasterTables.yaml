@@ -14040,7 +14040,7 @@ paths:
         description: '"dario"'
   /tables/article:
     get:
-      summary: findManyByParam
+      summary: findManyByParamForArticle
       tags: []
       responses:
         '200':
