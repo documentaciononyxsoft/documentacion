@@ -15150,6 +15150,25 @@ paths:
           name: clienteID
           description: '4'
     parameters: []
+  /tables/articles/light:
+    get:
+      summary: findLightListForArticle
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+      operationId: get-tables-articles-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas:
     User:
