@@ -14059,11 +14059,101 @@ paths:
           description: al
   /tables/accounts/light:
     get:
-      summary: findLightList
+      summary: findLightListForAccount
       tags: []
       responses:
         '200':
-          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "sql":"SELECT mailing.MailingID,mailing.Nombre ,mailing.ReferenciaCodigo\r\nFROM mailing\r\nWHERE mailing.Activo= TRUE AND mailing.CustomerID = 29 AND mailing.EmpresaID = 1\r\nAND (mailing.ReferenciaCodigo LIKE ''%a%'' OR mailing.Nombre LIKE ''%a%'' \r\nOR mailing.NombreComercial LIKE ''%a%'')\r\nLIMIT 10", "records":[ { "ID":1, "Nombre":"LA GUIPUZCOANA-edgos", "Codigo":"01 " }, { "ID":2, "Nombre":"SUM.IND.BARCELONESES, S.L.", "Codigo":"40000002" }, { "ID":4, "Nombre":"dario", "Codigo":"43000001" }, { "ID":54, "Nombre":"SAL IZAR", "Codigo":"40020004" }, { "ID":55, "Nombre":"EUROETIQUETAS, S.L.", "Codigo":"40020005" }, { "ID":56, "Nombre":"ENCARNA LOPEZ", "Codigo":"40020006" }, { "ID":57, "Nombre":"RESTAURANTE ALDAN-ONDO", "Codigo":"43020005" }, { "ID":59, "Nombre":"KARL BERRANG", "Codigo":"43000004" }, { "ID":60, "Nombre":"CLIENTES VARIOS", "Codigo":"43999999" }, { "ID":76, "Nombre":"EMPRESA MEYPU", "Codigo":"43000008" } ] } } '
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                            Contador:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT mailing.MailingID,mailing.Nombre ,mailing.ReferenciaCodigo\r\nFROM mailing\r\nWHERE mailing.Activo =TRUE AND\r\nmailing.CustomerID = 29 AND mailing.EmpresaID = 1\r\n"
+                      records:
+                        - ID: 1
+                          Nombre: LA GUIPUZCOANA-edgos
+                          Codigo: '01 '
+                          Contador: 1
+                        - ID: 2
+                          Nombre: 'TTES. SEUR                              '
+                          Codigo: '40000002'
+                          Contador: 2
+                        - ID: 3
+                          Nombre: DEUTSCHE RECU
+                          Codigo: '40000003'
+                          Contador: 3
+                        - ID: 4
+                          Nombre: dario
+                          Codigo: '43000001'
+                          Contador: 4
+                        - ID: 5
+                          Nombre: 'MUEBLES RUIZ, S.L.'
+                          Codigo: '43000002'
+                          Contador: 5
+                        - ID: 6
+                          Nombre: DEUTSCHE COMMERC
+                          Codigo: '43000003'
+                          Contador: 6
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT mailing.MailingID,mailing.Nombre ,mailing.ReferenciaCodigo\r\nFROM mailing\r\nWHERE mailing.Activo =TRUE AND\r\nmailing.CustomerID = 29 AND mailing.EmpresaID = 1\r\n"
+                      records:
+                        - ID: 1
+                          Nombre: LA GUIPUZCOANA-edgos
+                          Codigo: '01 '
+                          Contador: 1
+                        - ID: 2
+                          Nombre: 'TTES. SEUR                              '
+                          Codigo: '40000002'
+                          Contador: 2
+                        - ID: 3
+                          Nombre: DEUTSCHE RECU
+                          Codigo: '40000003'
+                          Contador: 3
+                        - ID: 4
+                          Nombre: dario
+                          Codigo: '43000001'
+                          Contador: 4
+                        - ID: 5
+                          Nombre: 'MUEBLES RUIZ, S.L.'
+                          Codigo: '43000002'
+                          Contador: 5
       operationId: get-tables-accounts-light
       parameters:
         - schema:
@@ -14073,7 +14163,7 @@ paths:
           description: '"tokenReciente"'
   /tables/account:
     get:
-      summary: findManyByParam
+      summary: findManyByParamForAccount
       tags: []
       responses:
         '200':
