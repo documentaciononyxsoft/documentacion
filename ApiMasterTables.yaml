@@ -15065,22 +15065,57 @@ paths:
       tags: []
       responses:
         '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true,
-                    "sql": "SELECT tablageneral.TablaGeneralID AS ID,\r\ntablageneral.Descripcion AS Nombre,\r\ntablageneral.Abreviatura AS Codigo \r\nFROM tablageneral \r\nWHERE tablageneral.CustomerID = 29 \r\nAND tablageneral.Clave = \"RUTAENTREGA\"\r\nAND (tablageneral.Descripcion LIKE '%a%' OR tablageneral.Abreviatura LIKE '%a%' )\r\nLIMIT 10",
-                    "records": [
-                        {
-                            "ID": 10004,
-                            "Nombre": "aaaaaaaaaa",
-                            "Codigo": "aaaa"
-                        }
-                    ]
-                }
-            }
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT tablageneral.TablaGeneralID AS ID,\r\ntablageneral.Descripcion AS Nombre,\r\ntablageneral.Abreviatura AS Codigo \r\nFROM tablageneral \r\nWHERE tablageneral.CustomerID = 29 \r\nAND tablageneral.Clave = \"RUTAENTREGA\"\r\nAND (tablageneral.Descripcion LIKE '%a%' OR tablageneral.Abreviatura LIKE '%a%' )\r\nLIMIT 10"
+                      records:
+                        - ID: 10004
+                          Nombre: aaaaaaaaaa
+                          Codigo: aaaa
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT tablageneral.TablaGeneralID AS ID,\r\ntablageneral.Descripcion AS Nombre,\r\ntablageneral.Abreviatura AS Codigo \r\nFROM tablageneral \r\nWHERE tablageneral.CustomerID = 29 \r\nAND tablageneral.Clave = \"RUTAENTREGA\"\r\nAND (tablageneral.Descripcion LIKE '%a%' OR tablageneral.Abreviatura LIKE '%a%' )\r\nLIMIT 10"
+                      records:
+                        - ID: 10004
+                          Nombre: aaaaaaaaaa
+                          Codigo: aaaa
       operationId: get-tables-generalTable
       parameters:
         - schema:
