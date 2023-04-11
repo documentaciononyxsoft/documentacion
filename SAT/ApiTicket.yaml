@@ -1618,9 +1618,9 @@ paths:
           in: query
           name: clienteID
           description: '77'
-  /priority/all:
+  /priority/light:
     get:
-      summary: findAllForPriority
+      summary: findLightListForPriority
       tags: []
       responses:
         '200':
@@ -1709,6 +1709,7 @@ paths:
           description: '"tokenReciente"'
       requestBody:
         content: {}
+    parameters: []
   /technician:
     get:
       summary: findManyByParamForTechnician
