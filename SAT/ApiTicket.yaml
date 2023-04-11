@@ -2322,9 +2322,9 @@ paths:
           in: query
           name: ticketID
           description: '104'
-  /tickets/technician:
+  /groups/problemType/light:
     get:
-      summary: findManyByParamForTechnician
+      summary: findLightListForGroups
       tags: []
       responses:
         '200':
@@ -2355,21 +2355,18 @@ paths:
                             Nombre:
                               type: string
                             Codigo:
-                              type: string
+                              type: integer
                 x-examples:
                   Example 1:
                     statusCode: 200
                     message: Request processed successfully
                     content:
                       success: true
-                      sql: "SELECT empleado.EmpleadoID AS ID,\r\nempleado.Codigo,\r\nempleado.Nombre\r\nFROM empleado \r\nWHERE empleado.CustomerID = 29\r\nAND empleado.EmpresaID = 1\r\nAND empleado.DeBaja = 0\r\nAND empleado.Codigo LIKE '%juan%' OR empleado.Nombre LIKE '%juan%' \r\nLIMIT 10"
+                      sql: "SELECT * FROM AvisoTicketTipoProblema\r\nINNER JOIN TablaGeneral AS Agrupa ON Agrupa.TablaGeneralID=AvisoTicketTipoProblema.TablaGeneralID\r\nWHERE AvisoTicketTipoProblema.TablaGeneralID=1234 AND\r\nAvisoTicketTipoProblema.CustomerID=29"
                       records:
-                        - ID: 2
-                          Nombre: JUAN GUERRA
-                          Codigo: '3'
-                        - ID: 59
-                          Nombre: Juana Ceballos
-                          Codigo: 02JP
+                        - ID: 1
+                          Nombre: GFF
+                          Codigo: 1
               examples:
                 Example 1:
                   value:
@@ -2377,20 +2374,22 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      sql: "SELECT empleado.EmpleadoID AS ID,\r\nempleado.Codigo,\r\nempleado.Nombre\r\nFROM empleado \r\nWHERE empleado.CustomerID = 29\r\nAND empleado.EmpresaID = 1\r\nAND empleado.DeBaja = 0\r\nAND empleado.Codigo LIKE '%juan%' OR empleado.Nombre LIKE '%juan%' \r\nLIMIT 10"
+                      sql: "SELECT * FROM AvisoTicketTipoProblema\r\nINNER JOIN TablaGeneral AS Agrupa ON Agrupa.TablaGeneralID=AvisoTicketTipoProblema.TablaGeneralID\r\nWHERE AvisoTicketTipoProblema.TablaGeneralID=1234 AND\r\nAvisoTicketTipoProblema.CustomerID=29"
                       records:
-                        - ID: 2
-                          Nombre: JUAN GUERRA
-                          Codigo: '3'
-                        - ID: 59
-                          Nombre: Juana Ceballos
-                          Codigo: 02JP
-      operationId: get-tickets-technician
+                        - ID: 1
+                          Nombre: GFF
+                          Codigo: 1
+      operationId: get-groups-problemType-light
       parameters:
         - schema:
             type: string
           in: header
-          name: accessToken
+          name: 'accessToken '
           description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: grupoID
+          description: '1234'
 components:
   schemas: {}
