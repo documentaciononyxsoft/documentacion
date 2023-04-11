@@ -15161,7 +15161,50 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      Articulos:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ArticuloID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      Articulos:
+                        - ArticuloID: 1
+                          Codigo: .
+                          Nombre: Articulo ...3
+                        - ArticuloID: 2
+                          Codigo: ART1
+                          Nombre: ARTICULO DE VENTA 1
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      Articulos:
+                        - ArticuloID: 1
+                          Codigo: .
+                          Nombre: Articulo ...3
+                        - ArticuloID: 2
+                          Codigo: ART1
+                          Nombre: ARTICULO DE VENTA 1
       operationId: get-tables-articles-light
       parameters:
         - schema:
