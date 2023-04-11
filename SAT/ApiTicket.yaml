@@ -2829,5 +2829,124 @@ paths:
           in: query
           name: ticketID
           description: '3'
+  /tickets/materials:
+    get:
+      summary: materialsForTickets
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Fecha:
+                              type: string
+                            CodigoMaterial:
+                              type: string
+                            Material:
+                              type: string
+                            Cantidad:
+                              type: integer
+                            Precio:
+                              type:
+                                - integer
+                                - number
+                            Importe:
+                              type: integer
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - Fecha: '20181113'
+                          CodigoMaterial: 01ARM3R
+                          Material: ARANDELA M3 RIZADA T2631
+                          Cantidad: 100
+                          Precio: 0.12
+                          Importe: 12
+                        - Fecha: '20230216'
+                          CodigoMaterial: APL2
+                          Material: ARTICULO POR LOTES 2
+                          Cantidad: 3
+                          Precio: 10
+                          Importe: 30
+                        - Fecha: '20230216'
+                          CodigoMaterial: APL2
+                          Material: ARTICULO POR LOTES 2
+                          Cantidad: 3
+                          Precio: 10
+                          Importe: 30
+                        - Fecha: '20230216'
+                          CodigoMaterial: APL2
+                          Material: ARTICULO POR LOTES 2
+                          Cantidad: 3
+                          Precio: 10
+                          Importe: 30
+                      success: true
+                      sql: "SELECT \r\nMovimientoAlmacen.*,\r\nArticulo.Codigo AS CodigoMaterial,\r\nArticulo.Nombre AS NombreMaterial\r\n\r\nFROM\r\nMovimientoAlmacen LEFT OUTER JOIN Articulo ON Articulo.ArticuloID = MovimientoAlmacen.ArticuloID\r\n\r\nWHERE\r\nMovimientoAlmacen.ProcesoID IN (3784,5313)\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - Fecha: '20181113'
+                          CodigoMaterial: 01ARM3R
+                          Material: ARANDELA M3 RIZADA T2631
+                          Cantidad: 100
+                          Precio: 0.12
+                          Importe: 12
+                        - Fecha: '20230216'
+                          CodigoMaterial: APL2
+                          Material: ARTICULO POR LOTES 2
+                          Cantidad: 3
+                          Precio: 10
+                          Importe: 30
+                        - Fecha: '20230216'
+                          CodigoMaterial: APL2
+                          Material: ARTICULO POR LOTES 2
+                          Cantidad: 3
+                          Precio: 10
+                          Importe: 30
+                        - Fecha: '20230216'
+                          CodigoMaterial: APL2
+                          Material: ARTICULO POR LOTES 2
+                          Cantidad: 3
+                          Precio: 10
+                          Importe: 30
+                      success: true
+                      sql: "SELECT \r\nMovimientoAlmacen.*,\r\nArticulo.Codigo AS CodigoMaterial,\r\nArticulo.Nombre AS NombreMaterial\r\n\r\nFROM\r\nMovimientoAlmacen LEFT OUTER JOIN Articulo ON Articulo.ArticuloID = MovimientoAlmacen.ArticuloID\r\n\r\nWHERE\r\nMovimientoAlmacen.ProcesoID IN (3784,5313)\r\n"
+      operationId: get-tickets-materials
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: ticketID
+          description: '3'
 components:
   schemas: {}
