@@ -3537,5 +3537,1064 @@ paths:
                   descripcionTicket: PRUEBALL2
                   generarIntervencion: true
                   Tprevisto: 4
+  /consult/preventiveTickets:
+    get:
+      summary: findManyByFiltersForPreventiveTickets
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      sql:
+                        type: string
+                      resultado:
+                        type: object
+                        properties:
+                          contador:
+                            type: integer
+                          data:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                MantenimientoID:
+                                  type: integer
+                                EquipoID:
+                                  type: integer
+                                DireccionID:
+                                  type: integer
+                                contratoID:
+                                  type: integer
+                                NumeroSerie:
+                                  type: string
+                                Equipo:
+                                  type: string
+                                Modelo:
+                                  type: string
+                                Marca:
+                                  type: string
+                                Ubicacion:
+                                  type: string
+                                Direccion:
+                                  type: string
+                                Municipio:
+                                  type: string
+                                NumeroContrato:
+                                  type: string
+                                Concepto:
+                                  type: string
+                                Periodo:
+                                  type: string
+                                DesdeHora:
+                                  type: string
+                                HastaHora:
+                                  type: string
+                                FechaPrevisto:
+                                  type: string
+                                TipoPreventivo:
+                                  type: string
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      sql: ''
+                      resultado:
+                        contador: 4
+                        data:
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20230410'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20230508'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20230605'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20230703'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20230731'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20230828'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20230925'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20231023'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20231120'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20231218'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20240115'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20240212'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20240311'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20240408'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20240506'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20240603'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20240701'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20240729'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20240826'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20240923'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20241021'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20241118'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20241216'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20250113'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20250210'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20250310'
+                            TipoPreventivo: Equipo
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      sql: ''
+                      resultado:
+                        contador: 4
+                        data:
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20230410'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20230508'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20230605'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20230703'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20230731'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20230828'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20230925'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20231023'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20231120'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20231218'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20240115'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20240212'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20240311'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20240408'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20240506'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20240603'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20240701'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20240729'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20240826'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20240923'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20241021'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20241118'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20241216'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20250113'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20250210'
+                            TipoPreventivo: Equipo
+                          - MantenimientoID: 10
+                            EquipoID: 9
+                            DireccionID: 0
+                            contratoID: 0
+                            NumeroSerie: '5698'
+                            Equipo: pruebaluis
+                            Modelo: ghhgjghjgh
+                            Marca: delvalle
+                            Ubicacion: ''
+                            Direccion: ''
+                            Municipio: ''
+                            NumeroContrato: ''
+                            Concepto: yujyuhnvgbng
+                            Periodo: Mes
+                            DesdeHora: '20:00:00.000'
+                            HastaHora: '22:00:00.000'
+                            FechaPrevisto: '20250310'
+                            TipoPreventivo: Equipo
+                      success: true
+      operationId: get-consult-preventiveTickets
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: tipoEquipoID
+        - schema:
+            type: string
+          in: query
+          name: fechaDesdeIn
+        - schema:
+            type: string
+          in: query
+          name: fechaHastaIn
+        - schema:
+            type: string
+          in: query
+          name: equipoID
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: '50'
+        - schema:
+            type: integer
+          in: query
+          name: offset
+          description: '0'
 components:
   schemas: {}
