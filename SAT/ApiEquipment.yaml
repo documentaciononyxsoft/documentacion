@@ -438,7 +438,7 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
-  /equipments/ubications:
+  /equipments/ubications/light:
     get:
       summary: findLighListForEquipmentByUbication
       tags: []
@@ -537,6 +537,7 @@ paths:
           in: query
           name: ubicacionID
           description: '13'
+    parameters: []
 components:
   schemas: {}
   '/intervention/equipment/{avisoTicketID}':
