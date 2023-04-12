@@ -438,50 +438,107 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  /equipments/ubications:
+    get:
+      summary: findLighListForEquipmentsByUbication
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1\r\nAND (elemento.NumeroSerie LIKE '%%' OR elemento.Nombre LIKE '%%' )\r\nAND (elemento.DireccionID = 13)\r\n\r\nLIMIT 10"
+                      records:
+                        - ID: 1
+                          Nombre: EXTINTOR
+                          Codigo: '3442342'
+                        - ID: 2
+                          Nombre: Plegadora
+                          Codigo: '123'
+                        - ID: 9
+                          Nombre: pruebaluis
+                          Codigo: '5698'
+                        - ID: 10
+                          Nombre: nfjdgfdsgPRUEBA
+                          Codigo: '17578242'
+                        - ID: 11
+                          Nombre: ''
+                          Codigo: '587411'
+                        - ID: 12
+                          Nombre: ''
+                          Codigo: '1213545'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1\r\nAND (elemento.NumeroSerie LIKE '%%' OR elemento.Nombre LIKE '%%' )\r\nAND (elemento.DireccionID = 13)\r\n\r\nLIMIT 10"
+                      records:
+                        - ID: 1
+                          Nombre: EXTINTOR
+                          Codigo: '3442342'
+                        - ID: 2
+                          Nombre: Plegadora
+                          Codigo: '123'
+                        - ID: 9
+                          Nombre: pruebaluis
+                          Codigo: '5698'
+                        - ID: 10
+                          Nombre: nfjdgfdsgPRUEBA
+                          Codigo: '17578242'
+                        - ID: 11
+                          Nombre: ''
+                          Codigo: '587411'
+                        - ID: 12
+                          Nombre: ''
+                          Codigo: '1213545'
+      operationId: get-equipments-ubications
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: ubicacionID
+          description: '13'
 components:
-  schemas:
-    User:
-      title: User
-      type: object
-      description: ''
-      examples:
-        - id: 142
-          firstName: Alice
-          lastName: Smith
-          email: alice.smith@gmail.com
-          dateOfBirth: '1997-10-31'
-          emailVerified: true
-          signUpDate: '2019-08-24'
-      properties:
-        id:
-          type: integer
-          description: Unique identifier for the given user.
-        firstName:
-          type: string
-        lastName:
-          type: string
-        email:
-          type: string
-          format: email
-        dateOfBirth:
-          type: string
-          format: date
-          example: '1997-10-31'
-        emailVerified:
-          type: boolean
-          description: Set to true if the user's email has been verified.
-        createDate:
-          type: string
-          format: date
-          description: The date that the user was created.
-      required:
-        - id
-        - firstName
-        - lastName
-        - email
-        - emailVerified
-      x-stoplight:
-        id: ukzfyk66vyboy
+  schemas: {}
   '/intervention/equipment/{avisoTicketID}':
     parameters:
       - schema:
