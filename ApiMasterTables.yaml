@@ -15388,5 +15388,69 @@ paths:
           in: query
           name: avisoTicketPlanificadoID
           description: '46'
+  /tables/employeeSAT/groups:
+    get:
+      summary: findManyForEmployeesSATByGroup
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT empleadogruposatlinea.*,empleado.EmpleadoID,empleado.Codigo,empleado.Nombre\r\nFROM empleadogruposatlinea\r\nLEFT JOIN empleado \r\nON empleadogruposatlinea.EmpleadoID = empleado.EmpleadoID\r\nWHERE empleadogruposatlinea.EmpleadoGrupoSatCabeceraID = 2\r\nAND empleadogruposatlinea.CustomerID = 29\r\nAND empleadogruposatlinea.UsuarioID = 1\r\n"
+                      records:
+                        - ID: 13
+                          Nombre: ANDREA PUJOL GUTIERREZ
+                          Codigo: '97'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT empleadogruposatlinea.*,empleado.EmpleadoID,empleado.Codigo,empleado.Nombre\r\nFROM empleadogruposatlinea\r\nLEFT JOIN empleado \r\nON empleadogruposatlinea.EmpleadoID = empleado.EmpleadoID\r\nWHERE empleadogruposatlinea.EmpleadoGrupoSatCabeceraID = 2\r\nAND empleadogruposatlinea.CustomerID = 29\r\nAND empleadogruposatlinea.UsuarioID = 1\r\n"
+                      records:
+                        - ID: 13
+                          Nombre: ANDREA PUJOL GUTIERREZ
+                          Codigo: '97'
+      operationId: get-tables-employeeSAT-groups
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
 components:
   schemas: {}
