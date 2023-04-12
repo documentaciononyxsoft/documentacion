@@ -178,5 +178,75 @@ paths:
           in: query
           description: '0'
           name: ubicacionID
+  /groups/light:
+    get:
+      summary: findLightListForGroup
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - ID: 1
+                          Codigo: '1'
+                          Nombre: prg
+                        - ID: 2
+                          Codigo: AP01
+                          Nombre: prueba
+                      success: true
+                      sql: "select * ,\r\nAlmacen.nombre as NombreAlmacen,\r\ntablageneral.Descripcion as NombreRutaEntrega \r\n\r\nfrom \r\n\r\nEmpleadoGrupoSATCabecera\r\nleft join almacen on almacen.almacenid = EmpleadoGrupoSatCabecera.almacenid\r\nleft join Tablageneral on tablageneral.tablageneralID = EmpleadoGrupoSatCabecera.RutaEntregaID\r\nleft join EmpleadoGrupoSatLinea on EmpleadoGrupoSatLinea.EmpleadoGrupoSatCabeceraID = EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraId\r\n\r\nwhere \r\nEmpleadoGrupoSatCabecera.CustomerID = 29 and\r\nEmpleadoGrupoSatCabecera.Empresaid = 1\r\n\r\nGROUP BY EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraID\r\nORDER BY EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraID"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - ID: 1
+                          Codigo: '1'
+                          Nombre: prg
+                        - ID: 2
+                          Codigo: AP01
+                          Nombre: prueba
+                      success: true
+                      sql: "select * ,\r\nAlmacen.nombre as NombreAlmacen,\r\ntablageneral.Descripcion as NombreRutaEntrega \r\n\r\nfrom \r\n\r\nEmpleadoGrupoSATCabecera\r\nleft join almacen on almacen.almacenid = EmpleadoGrupoSatCabecera.almacenid\r\nleft join Tablageneral on tablageneral.tablageneralID = EmpleadoGrupoSatCabecera.RutaEntregaID\r\nleft join EmpleadoGrupoSatLinea on EmpleadoGrupoSatLinea.EmpleadoGrupoSatCabeceraID = EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraId\r\n\r\nwhere \r\nEmpleadoGrupoSatCabecera.CustomerID = 29 and\r\nEmpleadoGrupoSatCabecera.Empresaid = 1\r\n\r\nGROUP BY EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraID\r\nORDER BY EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraID"
+      operationId: get-groups-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas: {}
