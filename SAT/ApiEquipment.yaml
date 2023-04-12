@@ -542,7 +542,59 @@ paths:
     get:
       summary: findManyByParamForEquipmentByUbication
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1\r\nAND (elemento.NumeroSerie LIKE '%EXT%' OR elemento.Nombre LIKE '%EXT%' )\r\nAND (elemento.DireccionID = 13)\r\n\r\nLIMIT 10"
+                      records:
+                        - ID: 1
+                          Nombre: EXTINTOR
+                          Codigo: '3442342'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1\r\nAND (elemento.NumeroSerie LIKE '%EXT%' OR elemento.Nombre LIKE '%EXT%' )\r\nAND (elemento.DireccionID = 13)\r\n\r\nLIMIT 10"
+                      records:
+                        - ID: 1
+                          Nombre: EXTINTOR
+                          Codigo: '3442342'
       operationId: get-equipments-ubications
       parameters:
         - schema:
@@ -558,6 +610,8 @@ paths:
         - schema:
             type: string
           in: query
+          name: param
+          description: EXT
 components:
   schemas: {}
   '/intervention/equipment/{avisoTicketID}':
