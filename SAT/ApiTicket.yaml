@@ -4380,5 +4380,96 @@ paths:
                       FechaPrevisto: '20200601'
                       TipoPreventivo: Equipo
     parameters: []
+  /ticket/expenseAnalysis:
+    get:
+      summary: expenseAnalysisForTickets
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      datosGrafica:
+                        type: object
+                        properties:
+                          CostesIntervencion:
+                            type: integer
+                          ImporteAlbaranado:
+                            type: integer
+                          ImporteFacturado:
+                            type: integer
+                          ImporteManoObra:
+                            type: integer
+                          ImporteMaterial:
+                            type: number
+                          ImporteGastos:
+                            type: number
+                          NumeroIntervenciones:
+                            type: integer
+                          Horas:
+                            type: number
+                          Margen:
+                            type: integer
+                      ImporteOferta:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      datosGrafica:
+                        CostesIntervencion: 170
+                        ImporteAlbaranado: 0
+                        ImporteFacturado: 0
+                        ImporteManoObra: 45
+                        ImporteMaterial: 12.5
+                        ImporteGastos: 112.5
+                        NumeroIntervenciones: 2
+                        Horas: 4.5
+                        Margen: 0
+                      ImporteOferta: 0
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      datosGrafica:
+                        CostesIntervencion: 170
+                        ImporteAlbaranado: 0
+                        ImporteFacturado: 0
+                        ImporteManoObra: 45
+                        ImporteMaterial: 12.5
+                        ImporteGastos: 112.5
+                        NumeroIntervenciones: 2
+                        Horas: 4.5
+                        Margen: 0
+                      ImporteOferta: 0
+      operationId: get-ticket-expenseAnalysis
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: ticketID
+          description: '2'
 components:
   schemas: {}
