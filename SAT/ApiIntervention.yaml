@@ -540,14 +540,6 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
-            application/xml:
-              schema:
-                type: object
-                properties: {}
-            multipart/form-data:
-              schema:
-                type: object
                 properties:
                   statusCode:
                     type: integer
@@ -615,6 +607,10 @@ paths:
                         success: true
                         sql: "SELECT \r\n\tAvisoTicketPlanificacion.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID,\t\r\n\tAvisoTicketPlanificacion.AvisoTicketID AS AvisoTicketID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionInicio AS FechaHoraPlanificacionInicio,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionFinal AS FechaHoraPlanificacionFinal,\t\r\n\tAvisoTicketPlanificacion.CustomerID AS CustomerID,\t\r\n\tAvisoTicketPlanificacion.EmpresaID AS EmpresaID,\t\r\n\tAvisoTicketPlanificacion.UsuarioID AS UsuarioID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraUsuario AS FechaHoraUsuario,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionEmpleadoID AS AvisoTicketPlanificacionEmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpleadoID AS EmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.Situacion AS Situacion,\t\r\n\tAvisoTicketPlanificacionEmpleado.CustomerID AS CustomerID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpresaID AS EmpresaID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.UsuarioID AS UsuarioID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.FechaHoraUsuario AS FechaHoraUsuario_Av,\r\n\templeado.Nombre as NombreEmpleado\r\n\t\r\nFROM AvisoTicketPlanificacion\r\nleft join AvisoTicketPlanificacionEmpleado on AvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID=AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\nLEFT JOIn Empleado on empleado.EmpleadoID=AvisoTicketPlanificacionEmpleado.EmpleadoID\r\n\r\nwhere AvisoTicketPlanificacion.CustomerID = 29 \r\nAND AvisoTicketPlanificacion.EmpresaID = 1 \r\nAND AvisoTicketPlanificacion.AvisoTicketID = 2\r\nAND AvisoTicketPlanificacion.AvisoTicketPlanificacionID = 92\r\nGroup By AvisoTicketPlanificacion.AvisoTicketPlanificacionID"
                       success: true
+            application/xml:
+              schema:
+                type: object
+                properties: {}
       parameters:
         - schema:
             type: string
