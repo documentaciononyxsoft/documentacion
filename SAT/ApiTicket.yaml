@@ -4308,7 +4308,7 @@ paths:
           in: query
           name: offset
           description: '0'
-  /preventiveTickets/Generate:
+  /preventiveTickets/generate:
     get:
       summary: generatePreventiveTickets
       tags: []
@@ -4379,5 +4379,6 @@ paths:
                     - MantenimientoID: 9
                       FechaPrevisto: '20200601'
                       TipoPreventivo: Equipo
+    parameters: []
 components:
   schemas: {}
