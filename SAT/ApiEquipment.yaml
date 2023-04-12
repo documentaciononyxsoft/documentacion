@@ -478,7 +478,7 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1\r\nAND (elemento.NumeroSerie LIKE '%%' OR elemento.Nombre LIKE '%%' )\r\nAND (elemento.DireccionID = 13)\r\n\r\nLIMIT 10"
+                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1\r\nAND (elemento.DireccionID = 13)\r\n\r\n"
                       records:
                         - ID: 1
                           Nombre: EXTINTOR
@@ -505,7 +505,7 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1\r\nAND (elemento.NumeroSerie LIKE '%%' OR elemento.Nombre LIKE '%%' )\r\nAND (elemento.DireccionID = 13)\r\n\r\nLIMIT 10"
+                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1\r\nAND (elemento.DireccionID = 13)\r\n\r\n"
                       records:
                         - ID: 1
                           Nombre: EXTINTOR
@@ -538,6 +538,26 @@ paths:
           name: ubicacionID
           description: '13'
     parameters: []
+  /equipments/ubications:
+    get:
+      summary: findManyByParamForEquipmentByUbication
+      tags: []
+      responses: {}
+      operationId: get-equipments-ubications
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: ubicacionID
+          description: '13'
+        - schema:
+            type: string
+          in: query
 components:
   schemas: {}
   '/intervention/equipment/{avisoTicketID}':
