@@ -4308,5 +4308,76 @@ paths:
           in: query
           name: offset
           description: '0'
+  /preventiveTickets/Generate:
+    get:
+      summary: generatePreventiveTickets
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+      operationId: get-preventiveTickets-Generate
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ArrayData:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      MantenimientoID:
+                        type: integer
+                      FechaPrevisto:
+                        type: string
+                      TipoPreventivo:
+                        type: string
+              x-examples:
+                Example 1:
+                  ArrayData:
+                    - MantenimientoID: 9
+                      FechaPrevisto: '20200601'
+                      TipoPreventivo: Equipo
+            examples:
+              Example 1:
+                value:
+                  ArrayData:
+                    - MantenimientoID: 9
+                      FechaPrevisto: '20200601'
+                      TipoPreventivo: Equipo
 components:
   schemas: {}
