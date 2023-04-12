@@ -15763,5 +15763,82 @@ paths:
           in: query
           name: offset
           description: '0'
+  /tables/employeeSAT/changeState:
+    get:
+      summary: changeStateForEmployeeSAT
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      estadoEmpleado:
+                        type: string
+                      estadoTicket:
+                        type: string
+                      estadoEmpleadoNombre:
+                        type: string
+                      estadoTicketNombre:
+                        type: string
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      estadoEmpleado: AC
+                      estadoTicket: AC
+                      estadoEmpleadoNombre: Aceptado
+                      estadoTicketNombre: Aceptado
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      estadoEmpleado: AC
+                      estadoTicket: AC
+                      estadoEmpleadoNombre: Aceptado
+                      estadoTicketNombre: Aceptado
+                      success: true
+      operationId: get-tables-employeeSAT-changeState
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: ticketID
+          description: '3'
+        - schema:
+            type: integer
+          in: query
+          name: avisoTicketPlanificadoID
+          description: '46'
+        - schema:
+            type: integer
+          in: query
+          name: avisoTicketPlanificadoEmpleadoID
+          description: '13'
+        - schema:
+            type: integer
+          in: query
+          name: opcion
+          description: '1'
 components:
   schemas: {}
