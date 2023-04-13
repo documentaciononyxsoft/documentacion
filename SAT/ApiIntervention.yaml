@@ -942,5 +942,39 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  /interventions:
+    get:
+      summary: findManyForIntervention
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+      operationId: get-interventions
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: '50'
+        - schema:
+            type: integer
+          in: query
+          name: offset
+          description: '0'
+        - schema:
+            type: string
+          in: query
+          name: order
+          description: DSC
 components:
   schemas: {}
