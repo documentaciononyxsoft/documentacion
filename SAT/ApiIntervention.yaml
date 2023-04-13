@@ -644,5 +644,99 @@ paths:
                   fechaDesdeIN: '20230404000000'
                   fechaHastaIN: '20230404000000'
                   empleados: '66'
+  /vehicle/light:
+    get:
+      summary: findLightListForVehicle
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT vehiculo.VehiculoID , vehiculo.Codigo ,vehiculo.Matricula\r\nFROM vehiculo \r\nWHERE vehiculo.CustomerID = 29 AND vehiculo.EmpresaID = 1 \r\n"
+                      records:
+                        - ID: 1
+                          Nombre: '242342'
+                          Codigo: '231231'
+                        - ID: 2
+                          Nombre: 3525 GSM
+                          Codigo: '1'
+                        - ID: 7
+                          Nombre: QWEERRTY
+                          Codigo: '6'
+                        - ID: 8
+                          Nombre: FDSFDSFDS
+                          Codigo: '7'
+                        - ID: 12
+                          Nombre: WREWRW
+                          Codigo: '11'
+                        - ID: 13
+                          Nombre: SDADAS
+                          Codigo: '12'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT vehiculo.VehiculoID , vehiculo.Codigo ,vehiculo.Matricula\r\nFROM vehiculo \r\nWHERE vehiculo.CustomerID = 29 AND vehiculo.EmpresaID = 1 \r\n"
+                      records:
+                        - ID: 1
+                          Nombre: '242342'
+                          Codigo: '231231'
+                        - ID: 2
+                          Nombre: 3525 GSM
+                          Codigo: '1'
+                        - ID: 7
+                          Nombre: QWEERRTY
+                          Codigo: '6'
+                        - ID: 8
+                          Nombre: FDSFDSFDS
+                          Codigo: '7'
+                        - ID: 12
+                          Nombre: WREWRW
+                          Codigo: '11'
+                        - ID: 13
+                          Nombre: SDADAS
+                          Codigo: '12'
+      operationId: get-vehicle-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas: {}
