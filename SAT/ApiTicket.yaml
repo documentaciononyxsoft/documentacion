@@ -4949,7 +4949,7 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
-  /tickets/intervention:
+  /interventions/tickets:
     get:
       summary: findOneForTicketsByIntervention
       tags: []
@@ -5050,5 +5050,6 @@ paths:
           in: query
           name: ticketID
           description: '8'
+    parameters: []
 components:
   schemas: {}
