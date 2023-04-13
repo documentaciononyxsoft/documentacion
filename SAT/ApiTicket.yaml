@@ -4949,5 +4949,106 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  /tickets/intervention:
+    get:
+      summary: findOneForTicketsByIntervention
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            FechaAltaTicket:
+                              type: string
+                            TipoTicket:
+                              type: string
+                            Prioridad:
+                              type: string
+                            DescripcionTicket:
+                              type: string
+                            Cliente:
+                              type: string
+                            ClienteCodigo:
+                              type: string
+                            Ubicacion:
+                              type: string
+                            UbicacionCodigo:
+                              type: integer
+                            Equipo:
+                              type: string
+                            EquipoCodigo:
+                              type: string
+                            tipoEquipoNombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT \r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre\r\n\r\n\r\nFROM AvisoTicket\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nwhere AvisoTicket.CustomerID = 29 AND AvisoTicket.EmpresaID = 1 AND AvisoTicket.Cerrado = False AND\r\nAvisoTicket.AvisoTicketID =8"
+                      records:
+                        - FechaAltaTicket: '2019-02-28T14:59:49.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: "Se enciende luz de alarma y se queda bloqueado\r\n"
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: ANER VITORIA
+                          UbicacionCodigo: 2
+                          Equipo: Plegadora
+                          EquipoCodigo: '123'
+                          tipoEquipoNombre: Proveedores por tipo
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT \r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre\r\n\r\n\r\nFROM AvisoTicket\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nwhere AvisoTicket.CustomerID = 29 AND AvisoTicket.EmpresaID = 1 AND AvisoTicket.Cerrado = False AND\r\nAvisoTicket.AvisoTicketID =8"
+                      records:
+                        - FechaAltaTicket: '2019-02-28T14:59:49.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: "Se enciende luz de alarma y se queda bloqueado\r\n"
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: ANER VITORIA
+                          UbicacionCodigo: 2
+                          Equipo: Plegadora
+                          EquipoCodigo: '123'
+                          tipoEquipoNombre: Proveedores por tipo
+      operationId: get-tickets-intervention
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: ticketID
+          description: '8'
 components:
   schemas: {}
