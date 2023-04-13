@@ -953,7 +953,2038 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Numero:
+                              type: integer
+                            Proyecto_OFID:
+                              type: integer
+                            FechaIntervencion:
+                              type: string
+                            NumeroTicketID:
+                              type: integer
+                            NumeroTicketCodigo:
+                              type: integer
+                            NumeroTicketNombre:
+                              type: string
+                            UsuarioCreacion:
+                              type: string
+                            FechaHoraCreacion:
+                              type: string
+                            PlanificacionIntervencionID:
+                              type: integer
+                            PlanificacionIntervencionNombre:
+                              type: string
+                            TiempoPrevisto:
+                              type: string
+                            UsuarioCierreID:
+                              type: integer
+                            nombreUsuarioCierre:
+                              type: string
+                            FechaHoraCierre:
+                              type: string
+                            NAlbaran:
+                              type: string
+                            Descripcion:
+                              type: string
+                            ObservacionInterna:
+                              type: string
+                            VehiculoId:
+                              type: integer
+                            VehiculoNombre:
+                              type: string
+                            VehiculoCodigo:
+                              type: string
+                            ContadorInicial:
+                              type: integer
+                            ContadorFinal:
+                              type: integer
+                            Kilometros:
+                              type: string
+                            FechaAltaTicket:
+                              type: string
+                            TipoTicket:
+                              type: string
+                            Prioridad:
+                              type: string
+                            DescripcionTicket:
+                              type: string
+                            Cliente:
+                              type: string
+                            ClienteCodigo:
+                              type: string
+                            Ubicacion:
+                              type: string
+                            UbicacionCodigo:
+                              type: integer
+                            Equipo:
+                              type: string
+                            EquipoCodigo:
+                              type: string
+                            tipoEquipoNombre:
+                              type: string
+                            sProcesoID:
+                              type: integer
+                            Estado:
+                              type: string
+                            EstadoTexto:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT proyecto_of.CodigoProyecto_OF,\r\nproyecto_of.Estado,\r\nproyecto_of.Proyecto_OFID,\r\nproyecto_of.FechaCreacion,\r\nproyecto_of.FechaHoraUsuario,\r\nproyecto_of.FechaHoraUsuarioCierre,\r\nproyecto_of.Observaciones,\r\nproyecto_of.UsuarioIDCierre,\r\navisoticketintervencion.AvisoTicketID,\r\navisoticket.DescripcionProblema,\r\navisoticket.Numero,\r\navisoticketintervencion.Notas,\r\navisoticketintervencion.VehiculoID,\r\navisoticketintervencion.ContadorInicial,\r\navisoticketintervencion.ContadorFinal,\r\navisoticketintervencion.Kilometros,\r\nvehiculo.Matricula,\r\nvehiculo.Codigo,\r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre,\r\navisoticketplanificacion.AvisoTicketPlanificacionID,\r\navisoticketplanificacion.FechaHoraPlanificacionInicio,\r\navisoticketplanificacion.FechaHoraPlanificacionFinal,\r\nusuario.NombreUsuario \r\n\r\nFROM proyecto_of\r\nLEFT JOIN avisoticketintervencion \r\nON proyecto_of.Proyecto_OFID = avisoticketintervencion.Proyecto_OFID\r\nLEFT JOIN vehiculo \r\nON avisoticketintervencion.VehiculoID = vehiculo.VehiculoID\r\nLEFT JOIN avisoticket\r\nON avisoticketintervencion.AvisoTicketID = avisoticket.AvisoTicketID\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nLEFT JOIN avisoticketplanificacion\r\nON avisoticket.AvisoTicketID= avisoticketplanificacion.AvisoTicketID \r\nLEFT JOIN usuario\r\nON usuario.UsuarioID  = proyecto_of.UsuarioIDCierre\r\n\r\n\r\nWHERE proyecto_of.EsObraOf = 'S' AND proyecto_of.CustomerID = 29 \r\norder by proyecto_of.Proyecto_OFID ASC\r\nlimit 50\r\noffset 0\r\n"
+                      records:
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 45
+                          PlanificacionIntervencionNombre: 'Planificación del 16/03/2023 00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 46
+                          PlanificacionIntervencionNombre: 'Planificación del 12/05/2000 00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 50
+                          PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 51
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 23:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 52
+                          PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 53
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 54
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:30'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 55
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:23'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 58
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:23'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 59
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:23'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 60
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:23'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 61
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:23'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 62
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:23'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 63
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:23'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 64
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:23'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 65
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:23'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 66
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:23'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 67
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:23'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 68
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:23'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 69
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:23'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 70
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:23'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 71
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:23'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 72
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:23'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 75
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:23'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 76
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:23'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 47
+                          PlanificacionIntervencionNombre: 'Planificación del 15/03/2023 16:18'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 48
+                          PlanificacionIntervencionNombre: 'Planificación del 09/03/2023 05:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 49
+                          PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 57
+                          PlanificacionIntervencionNombre: 'Planificación del 16/03/2023 00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 73
+                          PlanificacionIntervencionNombre: 'Planificación del 31/03/2023 00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 74
+                          PlanificacionIntervencionNombre: 'Planificación del 31/03/2023 00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 77
+                          PlanificacionIntervencionNombre: 'Planificación del 15/02/2023 05:23'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 78
+                          PlanificacionIntervencionNombre: 'Planificación del 04/04/2023 00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 79
+                          PlanificacionIntervencionNombre: 'Planificación del 04/04/2023 00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 80
+                          PlanificacionIntervencionNombre: 'Planificación del 04/04/2023 00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 81
+                          PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 82
+                          PlanificacionIntervencionNombre: 'Planificación del 04/04/2023 00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 83
+                          PlanificacionIntervencionNombre: 'Planificación del 04/04/2023 00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 84
+                          PlanificacionIntervencionNombre: 'Planificación del 04/04/2023 00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 85
+                          PlanificacionIntervencionNombre: 'Planificación del 04/04/2023 00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 86
+                          PlanificacionIntervencionNombre: 'Planificación del 05/04/2023 00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 88
+                          PlanificacionIntervencionNombre: 'Planificación del 04/04/2023 00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 89
+                          PlanificacionIntervencionNombre: 'Planificación del 04/04/2023 00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 90
+                          PlanificacionIntervencionNombre: 'Planificación del 04/04/2023 00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 91
+                          PlanificacionIntervencionNombre: 'Planificación del 04/04/2023 00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 2
+                          Proyecto_OFID: 718
+                          FechaIntervencion: ''
+                          NumeroTicketID: 2
+                          NumeroTicketCodigo: 1
+                          NumeroTicketNombre: No enciende
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-12-04T11:42:49.000'
+                          PlanificacionIntervencionID: 92
+                          PlanificacionIntervencionNombre: 'Planificación del 04/04/2023 00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: CAMBIAR FUSIBLE
+                          ObservacionInterna: CAMBIAR FUSIBLE
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-05-10T15:28:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: No enciende
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4028
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 3
+                          Proyecto_OFID: 769
+                          FechaIntervencion: '20190220'
+                          NumeroTicketID: 4
+                          NumeroTicketCodigo: 3
+                          NumeroTicketNombre: "EstÃ¡ vacio\r\n"
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2019-02-20T17:49:01.000'
+                          PlanificacionIntervencionID: 0
+                          PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: EstÃ¡ vacÃ­o
+                          ObservacionInterna: Hemos llamado al tÃ©cnico para que venga con urgencia
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: '0'
+                          FechaAltaTicket: '2019-02-20T17:48:25.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: "EstÃ¡ vacio\r\n"
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4222
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 4
+                          Proyecto_OFID: 771
+                          FechaIntervencion: '20190227'
+                          NumeroTicketID: 5
+                          NumeroTicketCodigo: 4
+                          NumeroTicketNombre: ''
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2019-02-27T09:13:15.000'
+                          PlanificacionIntervencionID: 0
+                          PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-14T15:39:27.000'
+                          NAlbaran: ''
+                          Descripcion: ''
+                          ObservacionInterna: ''
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2019-02-27T09:13:15.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: ''
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: ANER VITORIA
+                          UbicacionCodigo: 2
+                          Equipo: Plegadora
+                          EquipoCodigo: '123'
+                          tipoEquipoNombre: Proveedores por tipo
+                          sProcesoID: 4226
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 5
+                          Proyecto_OFID: 772
+                          FechaIntervencion: ''
+                          NumeroTicketID: 5
+                          NumeroTicketCodigo: 4
+                          NumeroTicketNombre: ''
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2019-02-27T09:22:59.000'
+                          PlanificacionIntervencionID: 0
+                          PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: prueba
+                          ObservacionInterna: ''
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: '0'
+                          FechaAltaTicket: '2019-02-27T09:13:15.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: ''
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: ANER VITORIA
+                          UbicacionCodigo: 2
+                          Equipo: Plegadora
+                          EquipoCodigo: '123'
+                          tipoEquipoNombre: Proveedores por tipo
+                          sProcesoID: 4227
+                          Estado: ''
+                          EstadoTexto: ''
+                        - Numero: 6
+                          Proyecto_OFID: 773
+                          FechaIntervencion: ''
+                          NumeroTicketID: 6
+                          NumeroTicketCodigo: 5
+                          NumeroTicketNombre: ''
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2019-02-27T09:25:54.000'
+                          PlanificacionIntervencionID: 0
+                          PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 0
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '0000-00-00T00:00:00.000'
+                          NAlbaran: ''
+                          Descripcion: ljkhgfd
+                          ObservacionInterna: ''
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: '0'
+                          FechaAltaTicket: '2019-02-27T09:25:27.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: ''
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 4228
+                          Estado: ''
+                          EstadoTexto: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT proyecto_of.CodigoProyecto_OF,\r\nproyecto_of.Estado,\r\nproyecto_of.Proyecto_OFID,\r\nproyecto_of.FechaCreacion,\r\nproyecto_of.FechaHoraUsuario,\r\nproyecto_of.FechaHoraUsuarioCierre,\r\nproyecto_of.Observaciones,\r\nproyecto_of.UsuarioIDCierre,\r\navisoticketintervencion.AvisoTicketID,\r\navisoticket.DescripcionProblema,\r\navisoticket.Numero,\r\navisoticketintervencion.Notas,\r\navisoticketintervencion.VehiculoID,\r\navisoticketintervencion.ContadorInicial,\r\navisoticketintervencion.ContadorFinal,\r\navisoticketintervencion.Kilometros,\r\nvehiculo.Matricula,\r\nvehiculo.Codigo,\r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre,\r\navisoticketplanificacion.AvisoTicketPlanificacionID,\r\navisoticketplanificacion.FechaHoraPlanificacionInicio,\r\navisoticketplanificacion.FechaHoraPlanificacionFinal,\r\nusuario.NombreUsuario \r\n\r\nFROM proyecto_of\r\nLEFT JOIN avisoticketintervencion \r\nON proyecto_of.Proyecto_OFID = avisoticketintervencion.Proyecto_OFID\r\nLEFT JOIN vehiculo \r\nON avisoticketintervencion.VehiculoID = vehiculo.VehiculoID\r\nLEFT JOIN avisoticket\r\nON avisoticketintervencion.AvisoTicketID = avisoticket.AvisoTicketID\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nLEFT JOIN avisoticketplanificacion\r\nON avisoticket.AvisoTicketID= avisoticketplanificacion.AvisoTicketID \r\nLEFT JOIN usuario\r\nON usuario.UsuarioID  = proyecto_of.UsuarioIDCierre\r\n\r\n\r\nWHERE proyecto_of.EsObraOf = 'S' AND proyecto_of.CustomerID = 29 \r\norder by proyecto_of.Proyecto_OFID ASC\r\nlimit 50\r\noffset 0\r\n"
+                      records:
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 45
+                          PlanificacionIntervencionNombre: 'Planificación del 16/03/2023 00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
+                        - Numero: 1
+                          Proyecto_OFID: 698
+                          FechaIntervencion: '20181113'
+                          NumeroTicketID: 3
+                          NumeroTicketCodigo: 2
+                          NumeroTicketNombre: se ha averiado el xxxxxx
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2018-11-13T09:19:55.000'
+                          PlanificacionIntervencionID: 46
+                          PlanificacionIntervencionNombre: 'Planificación del 12/05/2000 00:00'
+                          TiempoPrevisto: 0 Horas
+                          UsuarioCierreID: 1
+                          nombreUsuarioCierre: SUPERVISOR
+                          FechaHoraCierre: '2023-03-15T13:31:16.000'
+                          NAlbaran: ''
+                          Descripcion: SOL PROBLEMA
+                          ObservacionInterna: SOL PROBLEMA
+                          VehiculoId: 0
+                          VehiculoNombre: ''
+                          VehiculoCodigo: ''
+                          ContadorInicial: 0
+                          ContadorFinal: 0
+                          Kilometros: ''
+                          FechaAltaTicket: '2018-07-05T11:48:39.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: se ha averiado el xxxxxx
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: SAT MADRID 1
+                          UbicacionCodigo: 1
+                          Equipo: EXTINTOR
+                          EquipoCodigo: '3442342'
+                          tipoEquipoNombre: Proveedores por prueba
+                          sProcesoID: 3784
+                          Estado: FI
+                          EstadoTexto: Cerrado
       operationId: get-interventions
       parameters:
         - schema:
