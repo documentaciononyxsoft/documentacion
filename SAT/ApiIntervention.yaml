@@ -3007,5 +3007,37 @@ paths:
           in: query
           name: order
           description: DSC
+  '/intervention/{intervencionID}':
+    parameters:
+      - schema:
+          type: string
+        name: intervencionID
+        in: path
+        required: true
+        description: '5'
+    delete:
+      summary: DeleteIntervention
+      operationId: delete-intervention-intervencionID
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+    put:
+      summary: UpdateIntervention
+      operationId: put-intervention-intervencionID
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas: {}
