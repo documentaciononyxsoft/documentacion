@@ -3257,5 +3257,691 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  /interventions/quicksearch:
+    get:
+      summary: findManyByFilterForIntervention
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      sql:
+                        type: string
+                      records:
+                        type: object
+                        properties:
+                          records:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                Numero:
+                                  type: integer
+                                FechaIntervencion:
+                                  type: string
+                                NumeroTicketID:
+                                  type: integer
+                                NumeroTicketCodigo:
+                                  type: integer
+                                NumeroTicketNombre:
+                                  type: string
+                                UsuarioCreacion:
+                                  type: string
+                                FechaHoraCreacion:
+                                  type: string
+                                PlanificacionIntervencionID:
+                                  type: integer
+                                PlanificacionIntervencionNombre:
+                                  type: string
+                                TiempoPrevisto:
+                                  type: string
+                                UsuarioCierreID:
+                                  type: integer
+                                nombreUsuarioCierre:
+                                  type: string
+                                FechaHoraCierre:
+                                  type: string
+                                NAlbaran:
+                                  type: string
+                                Descripcion:
+                                  type: string
+                                ObservacionInterna:
+                                  type: string
+                                VehiculoId:
+                                  type: integer
+                                VehiculoNombre:
+                                  type: string
+                                VehiculoCodigo:
+                                  type: string
+                                ContadorInicial:
+                                  type: integer
+                                ContadorFinal:
+                                  type: integer
+                                Kilometros:
+                                  type: string
+                                FechaAltaTicket:
+                                  type: string
+                                TipoTicket:
+                                  type: string
+                                Prioridad:
+                                  type: string
+                                DescripcionTicket:
+                                  type: string
+                                Cliente:
+                                  type: string
+                                ClienteCodigo:
+                                  type: string
+                                Equipo:
+                                  type: string
+                                EquipoCodigo:
+                                  type: string
+                                tipoEquipoNombre:
+                                  type: string
+                          success:
+                            type: boolean
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      sql: "SELECT Proyecto_OF.CodigoProyecto_OF,\r\nProyecto_OF.Proyecto_OFID,\r\nProyecto_OF.FechaCreacion,\r\nProyecto_OF.FechaHoraUsuario,\r\nProyecto_OF.FechaHoraUsuarioCierre,\r\nProyecto_OF.Observaciones,\r\nProyecto_OF.UsuarioIDCierre,\r\nAvisoTicketIntervencion.AvisoTicketID,\r\nAvisoTicket.DescripcionProblema,\r\nAvisoTicket.Numero,\r\nAvisoTicketIntervencion.Notas,\r\nAvisoTicketIntervencion.VehiculoID,\r\nAvisoTicketIntervencion.ContadorInicial,\r\nAvisoTicketIntervencion.ContadorFinal,\r\nAvisoTicketIntervencion.Kilometros,\r\nVehiculo.Matricula,\r\nVehiculo.Codigo,\r\nAvisoTicket.FechaHoraUsuario AS FechaAltaTicket,\r\nTablaGeneral.Abreviatura,\r\nAvisoTicket.AvisoTicketPrioridadID,\r\nAvisoTicketPrioridad.Nombre AS nombrePrioridad,\r\nAvisoTicket.DescripcionProblema,\r\nMailing.ReferenciaCodigo AS mailingCodigo,\r\nMailing.Nombre AS mailingNombre,\r\nDireccion.Nombre AS direccionNombre,\r\nDireccion.Codigo AS direccionCodigo,\r\nElemento.Nombre AS equipoNombre,\r\nElemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre,\r\nAvisoTicketPlanificacion.AvisoTicketPlanificacionID,\r\nAvisoTicketPlanificacion.FechaHoraPlanificacionInicio,\r\nAvisoTicketPlanificacion.FechaHoraPlanificacionFinal,\r\nUsuario.NombreUsuario \r\n\r\nFROM Proyecto_OF\r\nLeft JOIN AvisoTicketIntervencion \r\nON Proyecto_OF.Proyecto_OFID = AvisoTicketIntervencion.Proyecto_OFID\r\nLeft JOIN Vehiculo \r\nON AvisoTicketIntervencion.VehiculoID = Vehiculo.VehiculoID\r\nLeft JOIN AvisoTicket\r\nON AvisoTicketIntervencion.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLeft JOIN TablaGeneral \r\nON TablaGeneral.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLeft JOIN AvisoTicketPrioridad\r\nON  AvisoTicket.AvisoTicketPrioridadID = AvisoTicketPrioridad.AvisoTicketPrioridadID\r\nLeft JOIN Mailing\r\nON AvisoTicket.MailingID\t= Mailing.MailingID\r\nLeft JOIN Direccion \r\nON AvisoTicket.DireccionID = Direccion.DireccionID\r\nLeft JOIN AvisoTicketElemento\r\nON AvisoTicket.AvisoTicketID = AvisoTicketElemento.AvisoTicketID\r\nLeft JOIN Elemento \r\nON AvisoTicketElemento.ElementoID = Elemento.ElementoID\r\nLeft JOIN TablaGeneral TipoEquipo\r\nON tipoequipo.tablageneralid =  Elemento.TipoEquipoID\r\nLeft JOIN AvisoTicketPlanificacion\r\nON AvisoTicket.AvisoTicketID= AvisoTicketPlanificacion.AvisoTicketID \r\nLeft JOIN Usuario\r\nON Usuario.UsuarioID  = Proyecto_OF.UsuarioIDCierre\r\n\r\n\r\nWHERE (proyecto_of.CodigoProyecto_OF like \"PRUEBA\" or avisoticket.Numero like \"PRUEBA\" or mailing.ReferenciaCodigo like \"PRUEBA\" or\r\nproyecto_of.Observaciones like \"%PRUEBA%\")\r\nand (Proyecto_OF.EsObraOf = 'S' AND Proyecto_OF.CustomerID = 29)"
+                      records:
+                        records:
+                          - Numero: 5
+                            FechaIntervencion: ''
+                            NumeroTicketID: 5
+                            NumeroTicketCodigo: 4
+                            NumeroTicketNombre: "\r\n<BODY bgColor=#ffffff></BODY>"
+                            UsuarioCreacion: ''
+                            FechaHoraCreacion: '2019-02-27T09:22:59.000'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 0 Horas
+                            UsuarioCierreID: 0
+                            nombreUsuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            NAlbaran: ''
+                            Descripcion: prueba
+                            ObservacionInterna: ''
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: '0'
+                            FechaAltaTicket: '2019-02-27T09:13:15.000'
+                            TipoTicket: Averia
+                            Prioridad: ''
+                            DescripcionTicket: "\r\n<BODY bgColor=#ffffff></BODY>"
+                            Cliente: dario
+                            ClienteCodigo: '43000001'
+                            Equipo: Plegadora
+                            EquipoCodigo: '123'
+                            tipoEquipoNombre: Proveedores por tipo
+                          - Numero: 21
+                            FechaIntervencion: '20230317'
+                            NumeroTicketID: 86
+                            NumeroTicketCodigo: 68
+                            NumeroTicketNombre: PRUEBALL2
+                            UsuarioCreacion: ''
+                            FechaHoraCreacion: '2023-03-17T13:04:04.000'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 4 Horas
+                            UsuarioCierreID: 0
+                            nombreUsuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            NAlbaran: ''
+                            Descripcion: PRUEBALL
+                            ObservacionInterna: PRUEBAOBSERVACIONINTERNA
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: ''
+                            FechaAltaTicket: '2023-03-17T13:04:03.000'
+                            TipoTicket: Averia
+                            Prioridad: pruebaLUIS23
+                            DescripcionTicket: PRUEBALL2
+                            Cliente: RESTAURANTE ALDAN-ONDO
+                            ClienteCodigo: '43020005'
+                            Equipo: EXTINTOR
+                            EquipoCodigo: '3442342'
+                            tipoEquipoNombre: Proveedores por prueba
+                          - Numero: 22
+                            FechaIntervencion: '20230317'
+                            NumeroTicketID: 87
+                            NumeroTicketCodigo: 69
+                            NumeroTicketNombre: PRUEBALL2
+                            UsuarioCreacion: ''
+                            FechaHoraCreacion: '2023-03-17T13:07:22.000'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 4 Horas
+                            UsuarioCierreID: 0
+                            nombreUsuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            NAlbaran: ''
+                            Descripcion: PRUEBALL
+                            ObservacionInterna: PRUEBAOBSERVACIONINTERNA
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: ''
+                            FechaAltaTicket: '2023-03-17T13:07:10.000'
+                            TipoTicket: Averia
+                            Prioridad: pruebaLUIS23
+                            DescripcionTicket: PRUEBALL2
+                            Cliente: RESTAURANTE ALDAN-ONDO
+                            ClienteCodigo: '43020005'
+                            Equipo: EXTINTOR
+                            EquipoCodigo: '3442342'
+                            tipoEquipoNombre: Proveedores por prueba
+                          - Numero: 23
+                            FechaIntervencion: '20230317'
+                            NumeroTicketID: 88
+                            NumeroTicketCodigo: 70
+                            NumeroTicketNombre: PRUEBALL2
+                            UsuarioCreacion: ''
+                            FechaHoraCreacion: '2023-03-17T13:14:14.000'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 4 Horas
+                            UsuarioCierreID: 0
+                            nombreUsuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            NAlbaran: ''
+                            Descripcion: PRUEBALL
+                            ObservacionInterna: PRUEBAOBSERVACIONINTERNA
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: ''
+                            FechaAltaTicket: '2023-03-17T13:14:14.000'
+                            TipoTicket: Averia
+                            Prioridad: pruebaLUIS23
+                            DescripcionTicket: PRUEBALL2
+                            Cliente: RESTAURANTE ALDAN-ONDO
+                            ClienteCodigo: '43020005'
+                            Equipo: EXTINTOR
+                            EquipoCodigo: '3442342'
+                            tipoEquipoNombre: Proveedores por prueba
+                          - Numero: 24
+                            FechaIntervencion: '20230317'
+                            NumeroTicketID: 89
+                            NumeroTicketCodigo: 71
+                            NumeroTicketNombre: PRUEBALL2
+                            UsuarioCreacion: ''
+                            FechaHoraCreacion: '2023-03-17T15:12:54.000'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 4 Horas
+                            UsuarioCierreID: 0
+                            nombreUsuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            NAlbaran: ''
+                            Descripcion: PRUEBALL
+                            ObservacionInterna: PRUEBAOBSERVACIONINTERNA
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: ''
+                            FechaAltaTicket: '2023-03-17T15:12:54.000'
+                            TipoTicket: Averia
+                            Prioridad: pruebaLUIS23
+                            DescripcionTicket: PRUEBALL2
+                            Cliente: RESTAURANTE ALDAN-ONDO
+                            ClienteCodigo: '43020005'
+                            Equipo: EXTINTOR
+                            EquipoCodigo: '3442342'
+                            tipoEquipoNombre: Proveedores por prueba
+                          - Numero: 25
+                            FechaIntervencion: '20230317'
+                            NumeroTicketID: 90
+                            NumeroTicketCodigo: 72
+                            NumeroTicketNombre: PRUEBALL2
+                            UsuarioCreacion: ''
+                            FechaHoraCreacion: '2023-03-17T15:39:03.000'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 4 Horas
+                            UsuarioCierreID: 0
+                            nombreUsuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            NAlbaran: ''
+                            Descripcion: PRUEBALL
+                            ObservacionInterna: PRUEBAOBSERVACIONINTERNA
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: ''
+                            FechaAltaTicket: '2023-03-17T15:39:03.000'
+                            TipoTicket: Averia
+                            Prioridad: pruebaLUIS23
+                            DescripcionTicket: PRUEBALL2
+                            Cliente: RESTAURANTE ALDAN-ONDO
+                            ClienteCodigo: '43020005'
+                            Equipo: EXTINTOR
+                            EquipoCodigo: '3442342'
+                            tipoEquipoNombre: Proveedores por prueba
+                          - Numero: 26
+                            FechaIntervencion: '20230317'
+                            NumeroTicketID: 91
+                            NumeroTicketCodigo: 73
+                            NumeroTicketNombre: PRUEBALL2
+                            UsuarioCreacion: ''
+                            FechaHoraCreacion: '2023-03-17T15:39:13.000'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 4 Horas
+                            UsuarioCierreID: 0
+                            nombreUsuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            NAlbaran: ''
+                            Descripcion: PRUEBALL
+                            ObservacionInterna: PRUEBAOBSERVACIONINTERNA
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: ''
+                            FechaAltaTicket: '2023-03-17T15:39:12.000'
+                            TipoTicket: Averia
+                            Prioridad: pruebaLUIS23
+                            DescripcionTicket: PRUEBALL2
+                            Cliente: RESTAURANTE ALDAN-ONDO
+                            ClienteCodigo: '43020005'
+                            Equipo: EXTINTOR
+                            EquipoCodigo: '3442342'
+                            tipoEquipoNombre: Proveedores por prueba
+                          - Numero: 29
+                            FechaIntervencion: '20230412'
+                            NumeroTicketID: 105
+                            NumeroTicketCodigo: 81
+                            NumeroTicketNombre: PRUEBALL2
+                            UsuarioCreacion: ''
+                            FechaHoraCreacion: '2023-04-12T11:56:44.000'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 4 Horas
+                            UsuarioCierreID: 0
+                            nombreUsuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            NAlbaran: ''
+                            Descripcion: PRUEBALL
+                            ObservacionInterna: PRUEBAOBSERVACIONINTERNA
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: ''
+                            FechaAltaTicket: '2023-04-12T11:56:43.000'
+                            TipoTicket: Averia
+                            Prioridad: pruebaLUIS23
+                            DescripcionTicket: PRUEBALL2
+                            Cliente: RESTAURANTE ALDAN-ONDO
+                            ClienteCodigo: '43020005'
+                            Equipo: EXTINTOR
+                            EquipoCodigo: '3442342'
+                            tipoEquipoNombre: Proveedores por prueba
+                          - Numero: 30
+                            FechaIntervencion: '20230412'
+                            NumeroTicketID: 106
+                            NumeroTicketCodigo: 82
+                            NumeroTicketNombre: PRUEBALL2
+                            UsuarioCreacion: ''
+                            FechaHoraCreacion: '2023-04-12T12:07:52.000'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 4 Horas
+                            UsuarioCierreID: 0
+                            nombreUsuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            NAlbaran: ''
+                            Descripcion: PRUEBALL
+                            ObservacionInterna: PRUEBAOBSERVACIONINTERNA
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: ''
+                            FechaAltaTicket: '2023-04-12T12:07:52.000'
+                            TipoTicket: Averia
+                            Prioridad: pruebaLUIS23
+                            DescripcionTicket: PRUEBALL2
+                            Cliente: RESTAURANTE ALDAN-ONDO
+                            ClienteCodigo: '43020005'
+                            Equipo: EXTINTOR
+                            EquipoCodigo: '3442342'
+                            tipoEquipoNombre: Proveedores por prueba
+                        success: true
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      sql: "SELECT Proyecto_OF.CodigoProyecto_OF,\r\nProyecto_OF.Proyecto_OFID,\r\nProyecto_OF.FechaCreacion,\r\nProyecto_OF.FechaHoraUsuario,\r\nProyecto_OF.FechaHoraUsuarioCierre,\r\nProyecto_OF.Observaciones,\r\nProyecto_OF.UsuarioIDCierre,\r\nAvisoTicketIntervencion.AvisoTicketID,\r\nAvisoTicket.DescripcionProblema,\r\nAvisoTicket.Numero,\r\nAvisoTicketIntervencion.Notas,\r\nAvisoTicketIntervencion.VehiculoID,\r\nAvisoTicketIntervencion.ContadorInicial,\r\nAvisoTicketIntervencion.ContadorFinal,\r\nAvisoTicketIntervencion.Kilometros,\r\nVehiculo.Matricula,\r\nVehiculo.Codigo,\r\nAvisoTicket.FechaHoraUsuario AS FechaAltaTicket,\r\nTablaGeneral.Abreviatura,\r\nAvisoTicket.AvisoTicketPrioridadID,\r\nAvisoTicketPrioridad.Nombre AS nombrePrioridad,\r\nAvisoTicket.DescripcionProblema,\r\nMailing.ReferenciaCodigo AS mailingCodigo,\r\nMailing.Nombre AS mailingNombre,\r\nDireccion.Nombre AS direccionNombre,\r\nDireccion.Codigo AS direccionCodigo,\r\nElemento.Nombre AS equipoNombre,\r\nElemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre,\r\nAvisoTicketPlanificacion.AvisoTicketPlanificacionID,\r\nAvisoTicketPlanificacion.FechaHoraPlanificacionInicio,\r\nAvisoTicketPlanificacion.FechaHoraPlanificacionFinal,\r\nUsuario.NombreUsuario \r\n\r\nFROM Proyecto_OF\r\nLeft JOIN AvisoTicketIntervencion \r\nON Proyecto_OF.Proyecto_OFID = AvisoTicketIntervencion.Proyecto_OFID\r\nLeft JOIN Vehiculo \r\nON AvisoTicketIntervencion.VehiculoID = Vehiculo.VehiculoID\r\nLeft JOIN AvisoTicket\r\nON AvisoTicketIntervencion.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLeft JOIN TablaGeneral \r\nON TablaGeneral.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLeft JOIN AvisoTicketPrioridad\r\nON  AvisoTicket.AvisoTicketPrioridadID = AvisoTicketPrioridad.AvisoTicketPrioridadID\r\nLeft JOIN Mailing\r\nON AvisoTicket.MailingID\t= Mailing.MailingID\r\nLeft JOIN Direccion \r\nON AvisoTicket.DireccionID = Direccion.DireccionID\r\nLeft JOIN AvisoTicketElemento\r\nON AvisoTicket.AvisoTicketID = AvisoTicketElemento.AvisoTicketID\r\nLeft JOIN Elemento \r\nON AvisoTicketElemento.ElementoID = Elemento.ElementoID\r\nLeft JOIN TablaGeneral TipoEquipo\r\nON tipoequipo.tablageneralid =  Elemento.TipoEquipoID\r\nLeft JOIN AvisoTicketPlanificacion\r\nON AvisoTicket.AvisoTicketID= AvisoTicketPlanificacion.AvisoTicketID \r\nLeft JOIN Usuario\r\nON Usuario.UsuarioID  = Proyecto_OF.UsuarioIDCierre\r\n\r\n\r\nWHERE (proyecto_of.CodigoProyecto_OF like \"PRUEBA\" or avisoticket.Numero like \"PRUEBA\" or mailing.ReferenciaCodigo like \"PRUEBA\" or\r\nproyecto_of.Observaciones like \"%PRUEBA%\")\r\nand (Proyecto_OF.EsObraOf = 'S' AND Proyecto_OF.CustomerID = 29)"
+                      records:
+                        records:
+                          - Numero: 5
+                            FechaIntervencion: ''
+                            NumeroTicketID: 5
+                            NumeroTicketCodigo: 4
+                            NumeroTicketNombre: "\r\n<BODY bgColor=#ffffff></BODY>"
+                            UsuarioCreacion: ''
+                            FechaHoraCreacion: '2019-02-27T09:22:59.000'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 0 Horas
+                            UsuarioCierreID: 0
+                            nombreUsuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            NAlbaran: ''
+                            Descripcion: prueba
+                            ObservacionInterna: ''
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: '0'
+                            FechaAltaTicket: '2019-02-27T09:13:15.000'
+                            TipoTicket: Averia
+                            Prioridad: ''
+                            DescripcionTicket: "\r\n<BODY bgColor=#ffffff></BODY>"
+                            Cliente: dario
+                            ClienteCodigo: '43000001'
+                            Equipo: Plegadora
+                            EquipoCodigo: '123'
+                            tipoEquipoNombre: Proveedores por tipo
+                          - Numero: 21
+                            FechaIntervencion: '20230317'
+                            NumeroTicketID: 86
+                            NumeroTicketCodigo: 68
+                            NumeroTicketNombre: PRUEBALL2
+                            UsuarioCreacion: ''
+                            FechaHoraCreacion: '2023-03-17T13:04:04.000'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 4 Horas
+                            UsuarioCierreID: 0
+                            nombreUsuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            NAlbaran: ''
+                            Descripcion: PRUEBALL
+                            ObservacionInterna: PRUEBAOBSERVACIONINTERNA
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: ''
+                            FechaAltaTicket: '2023-03-17T13:04:03.000'
+                            TipoTicket: Averia
+                            Prioridad: pruebaLUIS23
+                            DescripcionTicket: PRUEBALL2
+                            Cliente: RESTAURANTE ALDAN-ONDO
+                            ClienteCodigo: '43020005'
+                            Equipo: EXTINTOR
+                            EquipoCodigo: '3442342'
+                            tipoEquipoNombre: Proveedores por prueba
+                          - Numero: 22
+                            FechaIntervencion: '20230317'
+                            NumeroTicketID: 87
+                            NumeroTicketCodigo: 69
+                            NumeroTicketNombre: PRUEBALL2
+                            UsuarioCreacion: ''
+                            FechaHoraCreacion: '2023-03-17T13:07:22.000'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 4 Horas
+                            UsuarioCierreID: 0
+                            nombreUsuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            NAlbaran: ''
+                            Descripcion: PRUEBALL
+                            ObservacionInterna: PRUEBAOBSERVACIONINTERNA
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: ''
+                            FechaAltaTicket: '2023-03-17T13:07:10.000'
+                            TipoTicket: Averia
+                            Prioridad: pruebaLUIS23
+                            DescripcionTicket: PRUEBALL2
+                            Cliente: RESTAURANTE ALDAN-ONDO
+                            ClienteCodigo: '43020005'
+                            Equipo: EXTINTOR
+                            EquipoCodigo: '3442342'
+                            tipoEquipoNombre: Proveedores por prueba
+                          - Numero: 23
+                            FechaIntervencion: '20230317'
+                            NumeroTicketID: 88
+                            NumeroTicketCodigo: 70
+                            NumeroTicketNombre: PRUEBALL2
+                            UsuarioCreacion: ''
+                            FechaHoraCreacion: '2023-03-17T13:14:14.000'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 4 Horas
+                            UsuarioCierreID: 0
+                            nombreUsuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            NAlbaran: ''
+                            Descripcion: PRUEBALL
+                            ObservacionInterna: PRUEBAOBSERVACIONINTERNA
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: ''
+                            FechaAltaTicket: '2023-03-17T13:14:14.000'
+                            TipoTicket: Averia
+                            Prioridad: pruebaLUIS23
+                            DescripcionTicket: PRUEBALL2
+                            Cliente: RESTAURANTE ALDAN-ONDO
+                            ClienteCodigo: '43020005'
+                            Equipo: EXTINTOR
+                            EquipoCodigo: '3442342'
+                            tipoEquipoNombre: Proveedores por prueba
+                          - Numero: 24
+                            FechaIntervencion: '20230317'
+                            NumeroTicketID: 89
+                            NumeroTicketCodigo: 71
+                            NumeroTicketNombre: PRUEBALL2
+                            UsuarioCreacion: ''
+                            FechaHoraCreacion: '2023-03-17T15:12:54.000'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 4 Horas
+                            UsuarioCierreID: 0
+                            nombreUsuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            NAlbaran: ''
+                            Descripcion: PRUEBALL
+                            ObservacionInterna: PRUEBAOBSERVACIONINTERNA
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: ''
+                            FechaAltaTicket: '2023-03-17T15:12:54.000'
+                            TipoTicket: Averia
+                            Prioridad: pruebaLUIS23
+                            DescripcionTicket: PRUEBALL2
+                            Cliente: RESTAURANTE ALDAN-ONDO
+                            ClienteCodigo: '43020005'
+                            Equipo: EXTINTOR
+                            EquipoCodigo: '3442342'
+                            tipoEquipoNombre: Proveedores por prueba
+                          - Numero: 25
+                            FechaIntervencion: '20230317'
+                            NumeroTicketID: 90
+                            NumeroTicketCodigo: 72
+                            NumeroTicketNombre: PRUEBALL2
+                            UsuarioCreacion: ''
+                            FechaHoraCreacion: '2023-03-17T15:39:03.000'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 4 Horas
+                            UsuarioCierreID: 0
+                            nombreUsuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            NAlbaran: ''
+                            Descripcion: PRUEBALL
+                            ObservacionInterna: PRUEBAOBSERVACIONINTERNA
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: ''
+                            FechaAltaTicket: '2023-03-17T15:39:03.000'
+                            TipoTicket: Averia
+                            Prioridad: pruebaLUIS23
+                            DescripcionTicket: PRUEBALL2
+                            Cliente: RESTAURANTE ALDAN-ONDO
+                            ClienteCodigo: '43020005'
+                            Equipo: EXTINTOR
+                            EquipoCodigo: '3442342'
+                            tipoEquipoNombre: Proveedores por prueba
+                          - Numero: 26
+                            FechaIntervencion: '20230317'
+                            NumeroTicketID: 91
+                            NumeroTicketCodigo: 73
+                            NumeroTicketNombre: PRUEBALL2
+                            UsuarioCreacion: ''
+                            FechaHoraCreacion: '2023-03-17T15:39:13.000'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 4 Horas
+                            UsuarioCierreID: 0
+                            nombreUsuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            NAlbaran: ''
+                            Descripcion: PRUEBALL
+                            ObservacionInterna: PRUEBAOBSERVACIONINTERNA
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: ''
+                            FechaAltaTicket: '2023-03-17T15:39:12.000'
+                            TipoTicket: Averia
+                            Prioridad: pruebaLUIS23
+                            DescripcionTicket: PRUEBALL2
+                            Cliente: RESTAURANTE ALDAN-ONDO
+                            ClienteCodigo: '43020005'
+                            Equipo: EXTINTOR
+                            EquipoCodigo: '3442342'
+                            tipoEquipoNombre: Proveedores por prueba
+                          - Numero: 29
+                            FechaIntervencion: '20230412'
+                            NumeroTicketID: 105
+                            NumeroTicketCodigo: 81
+                            NumeroTicketNombre: PRUEBALL2
+                            UsuarioCreacion: ''
+                            FechaHoraCreacion: '2023-04-12T11:56:44.000'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 4 Horas
+                            UsuarioCierreID: 0
+                            nombreUsuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            NAlbaran: ''
+                            Descripcion: PRUEBALL
+                            ObservacionInterna: PRUEBAOBSERVACIONINTERNA
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: ''
+                            FechaAltaTicket: '2023-04-12T11:56:43.000'
+                            TipoTicket: Averia
+                            Prioridad: pruebaLUIS23
+                            DescripcionTicket: PRUEBALL2
+                            Cliente: RESTAURANTE ALDAN-ONDO
+                            ClienteCodigo: '43020005'
+                            Equipo: EXTINTOR
+                            EquipoCodigo: '3442342'
+                            tipoEquipoNombre: Proveedores por prueba
+                          - Numero: 30
+                            FechaIntervencion: '20230412'
+                            NumeroTicketID: 106
+                            NumeroTicketCodigo: 82
+                            NumeroTicketNombre: PRUEBALL2
+                            UsuarioCreacion: ''
+                            FechaHoraCreacion: '2023-04-12T12:07:52.000'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 4 Horas
+                            UsuarioCierreID: 0
+                            nombreUsuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            NAlbaran: ''
+                            Descripcion: PRUEBALL
+                            ObservacionInterna: PRUEBAOBSERVACIONINTERNA
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: ''
+                            FechaAltaTicket: '2023-04-12T12:07:52.000'
+                            TipoTicket: Averia
+                            Prioridad: pruebaLUIS23
+                            DescripcionTicket: PRUEBALL2
+                            Cliente: RESTAURANTE ALDAN-ONDO
+                            ClienteCodigo: '43020005'
+                            Equipo: EXTINTOR
+                            EquipoCodigo: '3442342'
+                            tipoEquipoNombre: Proveedores por prueba
+                        success: true
+                      success: true
+      operationId: get-interventions-quicksearch
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: sBusqueda
+          description: PRUEBA
 components:
   schemas: {}
