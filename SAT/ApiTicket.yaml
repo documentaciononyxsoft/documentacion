@@ -4471,5 +4471,483 @@ paths:
           in: query
           name: ticketID
           description: '2'
+  /tickets/activeTicket:
+    get:
+      summary: activeTicket
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT avisoticket.AvisoTicketID,avisoticket.Numero,avisoticket.DescripcionProblema\r\nFROM avisoticket\r\nWHERE avisoticket.CustomerID = 29 AND avisoticket.EmpresaID = 1 AND avisoticket.Cerrado = FALSE"
+                      records:
+                        - ID: 2
+                          Nombre: "\r\n<BODY>No enciende</BODY>"
+                          Codigo: 1
+                        - ID: 3
+                          Nombre: "\r\n<BODY>se ha averiado el xxxxxx</BODY>"
+                          Codigo: 2
+                        - ID: 4
+                          Nombre: "\r\n<BODY><P>EstÃ¡ vacio</P></BODY>"
+                          Codigo: 3
+                        - ID: 5
+                          Nombre: "\r\n<BODY bgColor=#ffffff></BODY>"
+                          Codigo: 4
+                        - ID: 6
+                          Nombre: "\r\n<BODY bgColor=#ffffff></BODY>"
+                          Codigo: 5
+                        - ID: 7
+                          Nombre: "\r\n<BODY bgColor=#ffffff><P><FONT face=\"MS Shell Dlg\">No funciona</FONT></P></BODY>"
+                          Codigo: 6
+                        - ID: 8
+                          Nombre: "\r\n<BODY bgColor=#ffffff><P><FONT face=\"MS Shell Dlg\">Se enciende luz de alarma y se queda bloqueado</FONT></P></BODY>"
+                          Codigo: 7
+                        - ID: 9
+                          Nombre: "\r\n<BODY bgColor=#ffffff><P><FONT face=\"MS Shell Dlg\">Problemas con la boquilla</FONT></P></BODY>"
+                          Codigo: 8
+                        - ID: 11
+                          Nombre: "\r\n<BODY bgColor=#ffffff><FONT face=\"MS Shell Dlg\">SE HA ESTRROPEADO EL ASCENSOR</FONT></BODY>"
+                          Codigo: 9
+                        - ID: 12
+                          Nombre: "\r\n<BODY bgColor=#ffffff><P><FONT face=\"MS Shell Dlg\">Se ha parado el ascensor</FONT></P></BODY>"
+                          Codigo: 10
+                        - ID: 21
+                          Nombre: "\r\n<BODY></BODY>"
+                          Codigo: 15
+                        - ID: 22
+                          Nombre: "\r\n<BODY></BODY>"
+                          Codigo: 16
+                        - ID: 23
+                          Nombre: "\r\n<BODY><P>Reparación bomba gas (cambio manómetro)</P></BODY>"
+                          Codigo: 17
+                        - ID: 24
+                          Nombre: "\r\n<BODY>Mantenimiento general torres de comunicación Madrid España</BODY>"
+                          Codigo: 18
+                        - ID: 26
+                          Nombre: "\r\n<BODY bgColor=#ffffff><FONT face=\"MS Shell Dlg\">Subida 20221122.1532</FONT></BODY>"
+                          Codigo: 20
+                        - ID: 27
+                          Nombre: "\r\n<BODY>Cambio de llantas</BODY>"
+                          Codigo: 21
+                        - ID: 29
+                          Nombre: "\r\n<BODY></BODY>"
+                          Codigo: 23
+                        - ID: 30
+                          Nombre: "\r\n<BODY>sdcdscvdsvvsdds cc</BODY>"
+                          Codigo: 24
+                        - ID: 32
+                          Nombre: "\r\n<BODY></BODY>"
+                          Codigo: 25
+                        - ID: 33
+                          Nombre: "\r\n<BODY>BVNBVNBVNBVNBVNBVNBNBVNBVNVB</BODY>"
+                          Codigo: 26
+                        - ID: 34
+                          Nombre: "\r\n<BODY></BODY>"
+                          Codigo: 27
+                        - ID: 41
+                          Nombre: pruebassss274
+                          Codigo: 28
+                        - ID: 42
+                          Nombre: pruebassss274
+                          Codigo: 29
+                        - ID: 43
+                          Nombre: "\r\n<BODY></BODY>"
+                          Codigo: 30
+                        - ID: 44
+                          Nombre: pruebassss25
+                          Codigo: 31
+                        - ID: 46
+                          Nombre: pruebassss25
+                          Codigo: 33
+                        - ID: 53
+                          Nombre: pruebassss274
+                          Codigo: 34
+                        - ID: 54
+                          Nombre: pruebassss274
+                          Codigo: 35
+                        - ID: 56
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ertfyghujikñl</span></p>\r\n"
+                          Codigo: 38
+                        - ID: 57
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ertfyghujikñl</span></p>\r\n"
+                          Codigo: 39
+                        - ID: 58
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ertfyghujikñl</span></p>\r\n"
+                          Codigo: 40
+                        - ID: 59
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ertfyghujikñl</span></p>\r\n"
+                          Codigo: 41
+                        - ID: 60
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ertfyghujikñl</span></p>\r\n"
+                          Codigo: 42
+                        - ID: 61
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ertfyghujikñl</span></p>\r\n"
+                          Codigo: 43
+                        - ID: 62
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ertfyghujikñl</span></p>\r\n"
+                          Codigo: 44
+                        - ID: 63
+                          Nombre: "\r\n<BODY>hjfhfghdghgf</BODY>"
+                          Codigo: 45
+                        - ID: 64
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ddsfdsfdsf</span></p>\r\n"
+                          Codigo: 46
+                        - ID: 65
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ddsfdsfdsf</span></p>\r\n"
+                          Codigo: 47
+                        - ID: 66
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ddsfdsfdsf</span></p>\r\n"
+                          Codigo: 48
+                        - ID: 67
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ddsfdsfdsf</span></p>\r\n"
+                          Codigo: 49
+                        - ID: 68
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">vghcdgfgfdfdfdf</span></p>\r\n"
+                          Codigo: 50
+                        - ID: 69
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">vcdxvdsvdsvdsvdsvdsvdsvdsvdsv</span></p>\r\n"
+                          Codigo: 51
+                        - ID: 70
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">vcdxvdsvdsvdsvdsvdsvdsvdsvdsv</span></p>\r\n"
+                          Codigo: 52
+                        - ID: 72
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">jjhtgfyhtfhgfhgfhgf</span></p>\r\n"
+                          Codigo: 54
+                        - ID: 73
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">jjhtgfyhtfhgfhgfhgf</span></p>\r\n"
+                          Codigo: 55
+                        - ID: 74
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">jjhtgfyhtfhgfhgfhgf</span></p>\r\n"
+                          Codigo: 56
+                        - ID: 75
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">jjhtgfyhtfhgfhgfhgf</span></p>\r\n"
+                          Codigo: 57
+                        - ID: 76
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">´{pohjukjlkjlkjlkjlkjl</span></p>\r\n"
+                          Codigo: 58
+                        - ID: 77
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">´{pohjukjlkjlkjlkjlkjl</span></p>\r\n"
+                          Codigo: 59
+                        - ID: 78
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">´{pohjukjlkjlkjlkjlkjl</span></p>\r\n"
+                          Codigo: 60
+                        - ID: 79
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">´{pohjukjlkjlkjlkjlkjl</span></p>\r\n"
+                          Codigo: 61
+                        - ID: 80
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ddsfdsfdsf</span></p>\r\n"
+                          Codigo: 62
+                        - ID: 81
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">vcdxvdsvdsvdsvdsvdsvdsvdsvdsv</span></p>\r\n"
+                          Codigo: 63
+                        - ID: 82
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">´{pohjukjlkjlkjlkjlkjl</span></p>\r\n"
+                          Codigo: 64
+                        - ID: 83
+                          Nombre: "\r\n<BODY></BODY>"
+                          Codigo: 65
+                        - ID: 84
+                          Nombre: "\r\n<BODY>gnfngfngfnfgngfngfnfg</BODY>"
+                          Codigo: 66
+                        - ID: 85
+                          Nombre: "\r\n<BODY></BODY>"
+                          Codigo: 67
+                        - ID: 86
+                          Nombre: PRUEBALL2
+                          Codigo: 68
+                        - ID: 87
+                          Nombre: PRUEBALL2
+                          Codigo: 69
+                        - ID: 88
+                          Nombre: PRUEBALL2
+                          Codigo: 70
+                        - ID: 89
+                          Nombre: PRUEBALL2
+                          Codigo: 71
+                        - ID: 90
+                          Nombre: PRUEBALL2
+                          Codigo: 72
+                        - ID: 91
+                          Nombre: PRUEBALL2
+                          Codigo: 73
+                        - ID: 92
+                          Nombre: "\r\n<BODY>reterterte</BODY>"
+                          Codigo: 74
+                        - ID: 93
+                          Nombre: '0'
+                          Codigo: 75
+                        - ID: 101
+                          Nombre: pruebassss25
+                          Codigo: 78
+                        - ID: 103
+                          Nombre: pruebassss25
+                          Codigo: 79
+                        - ID: 104
+                          Nombre: pruebassss274
+                          Codigo: 80
+                        - ID: 105
+                          Nombre: PRUEBALL2
+                          Codigo: 81
+                        - ID: 106
+                          Nombre: PRUEBALL2
+                          Codigo: 82
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT avisoticket.AvisoTicketID,avisoticket.Numero,avisoticket.DescripcionProblema\r\nFROM avisoticket\r\nWHERE avisoticket.CustomerID = 29 AND avisoticket.EmpresaID = 1 AND avisoticket.Cerrado = FALSE"
+                      records:
+                        - ID: 2
+                          Nombre: "\r\n<BODY>No enciende</BODY>"
+                          Codigo: 1
+                        - ID: 3
+                          Nombre: "\r\n<BODY>se ha averiado el xxxxxx</BODY>"
+                          Codigo: 2
+                        - ID: 4
+                          Nombre: "\r\n<BODY><P>EstÃ¡ vacio</P></BODY>"
+                          Codigo: 3
+                        - ID: 5
+                          Nombre: "\r\n<BODY bgColor=#ffffff></BODY>"
+                          Codigo: 4
+                        - ID: 6
+                          Nombre: "\r\n<BODY bgColor=#ffffff></BODY>"
+                          Codigo: 5
+                        - ID: 7
+                          Nombre: "\r\n<BODY bgColor=#ffffff><P><FONT face=\"MS Shell Dlg\">No funciona</FONT></P></BODY>"
+                          Codigo: 6
+                        - ID: 8
+                          Nombre: "\r\n<BODY bgColor=#ffffff><P><FONT face=\"MS Shell Dlg\">Se enciende luz de alarma y se queda bloqueado</FONT></P></BODY>"
+                          Codigo: 7
+                        - ID: 9
+                          Nombre: "\r\n<BODY bgColor=#ffffff><P><FONT face=\"MS Shell Dlg\">Problemas con la boquilla</FONT></P></BODY>"
+                          Codigo: 8
+                        - ID: 11
+                          Nombre: "\r\n<BODY bgColor=#ffffff><FONT face=\"MS Shell Dlg\">SE HA ESTRROPEADO EL ASCENSOR</FONT></BODY>"
+                          Codigo: 9
+                        - ID: 12
+                          Nombre: "\r\n<BODY bgColor=#ffffff><P><FONT face=\"MS Shell Dlg\">Se ha parado el ascensor</FONT></P></BODY>"
+                          Codigo: 10
+                        - ID: 21
+                          Nombre: "\r\n<BODY></BODY>"
+                          Codigo: 15
+                        - ID: 22
+                          Nombre: "\r\n<BODY></BODY>"
+                          Codigo: 16
+                        - ID: 23
+                          Nombre: "\r\n<BODY><P>Reparación bomba gas (cambio manómetro)</P></BODY>"
+                          Codigo: 17
+                        - ID: 24
+                          Nombre: "\r\n<BODY>Mantenimiento general torres de comunicación Madrid España</BODY>"
+                          Codigo: 18
+                        - ID: 26
+                          Nombre: "\r\n<BODY bgColor=#ffffff><FONT face=\"MS Shell Dlg\">Subida 20221122.1532</FONT></BODY>"
+                          Codigo: 20
+                        - ID: 27
+                          Nombre: "\r\n<BODY>Cambio de llantas</BODY>"
+                          Codigo: 21
+                        - ID: 29
+                          Nombre: "\r\n<BODY></BODY>"
+                          Codigo: 23
+                        - ID: 30
+                          Nombre: "\r\n<BODY>sdcdscvdsvvsdds cc</BODY>"
+                          Codigo: 24
+                        - ID: 32
+                          Nombre: "\r\n<BODY></BODY>"
+                          Codigo: 25
+                        - ID: 33
+                          Nombre: "\r\n<BODY>BVNBVNBVNBVNBVNBVNBNBVNBVNVB</BODY>"
+                          Codigo: 26
+                        - ID: 34
+                          Nombre: "\r\n<BODY></BODY>"
+                          Codigo: 27
+                        - ID: 41
+                          Nombre: pruebassss274
+                          Codigo: 28
+                        - ID: 42
+                          Nombre: pruebassss274
+                          Codigo: 29
+                        - ID: 43
+                          Nombre: "\r\n<BODY></BODY>"
+                          Codigo: 30
+                        - ID: 44
+                          Nombre: pruebassss25
+                          Codigo: 31
+                        - ID: 46
+                          Nombre: pruebassss25
+                          Codigo: 33
+                        - ID: 53
+                          Nombre: pruebassss274
+                          Codigo: 34
+                        - ID: 54
+                          Nombre: pruebassss274
+                          Codigo: 35
+                        - ID: 56
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ertfyghujikñl</span></p>\r\n"
+                          Codigo: 38
+                        - ID: 57
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ertfyghujikñl</span></p>\r\n"
+                          Codigo: 39
+                        - ID: 58
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ertfyghujikñl</span></p>\r\n"
+                          Codigo: 40
+                        - ID: 59
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ertfyghujikñl</span></p>\r\n"
+                          Codigo: 41
+                        - ID: 60
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ertfyghujikñl</span></p>\r\n"
+                          Codigo: 42
+                        - ID: 61
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ertfyghujikñl</span></p>\r\n"
+                          Codigo: 43
+                        - ID: 62
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ertfyghujikñl</span></p>\r\n"
+                          Codigo: 44
+                        - ID: 63
+                          Nombre: "\r\n<BODY>hjfhfghdghgf</BODY>"
+                          Codigo: 45
+                        - ID: 64
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ddsfdsfdsf</span></p>\r\n"
+                          Codigo: 46
+                        - ID: 65
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ddsfdsfdsf</span></p>\r\n"
+                          Codigo: 47
+                        - ID: 66
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ddsfdsfdsf</span></p>\r\n"
+                          Codigo: 48
+                        - ID: 67
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ddsfdsfdsf</span></p>\r\n"
+                          Codigo: 49
+                        - ID: 68
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">vghcdgfgfdfdfdf</span></p>\r\n"
+                          Codigo: 50
+                        - ID: 69
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">vcdxvdsvdsvdsvdsvdsvdsvdsvdsv</span></p>\r\n"
+                          Codigo: 51
+                        - ID: 70
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">vcdxvdsvdsvdsvdsvdsvdsvdsvdsv</span></p>\r\n"
+                          Codigo: 52
+                        - ID: 72
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">jjhtgfyhtfhgfhgfhgf</span></p>\r\n"
+                          Codigo: 54
+                        - ID: 73
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">jjhtgfyhtfhgfhgfhgf</span></p>\r\n"
+                          Codigo: 55
+                        - ID: 74
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">jjhtgfyhtfhgfhgfhgf</span></p>\r\n"
+                          Codigo: 56
+                        - ID: 75
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">jjhtgfyhtfhgfhgfhgf</span></p>\r\n"
+                          Codigo: 57
+                        - ID: 76
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">´{pohjukjlkjlkjlkjlkjl</span></p>\r\n"
+                          Codigo: 58
+                        - ID: 77
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">´{pohjukjlkjlkjlkjlkjl</span></p>\r\n"
+                          Codigo: 59
+                        - ID: 78
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">´{pohjukjlkjlkjlkjlkjl</span></p>\r\n"
+                          Codigo: 60
+                        - ID: 79
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">´{pohjukjlkjlkjlkjlkjl</span></p>\r\n"
+                          Codigo: 61
+                        - ID: 80
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">ddsfdsfdsf</span></p>\r\n"
+                          Codigo: 62
+                        - ID: 81
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">vcdxvdsvdsvdsvdsvdsvdsvdsvdsv</span></p>\r\n"
+                          Codigo: 63
+                        - ID: 82
+                          Nombre: "<p style=\"margin:0;\"><span style=\"font-family:Tahoma;font-size:8.5pt;\">´{pohjukjlkjlkjlkjlkjl</span></p>\r\n"
+                          Codigo: 64
+                        - ID: 83
+                          Nombre: "\r\n<BODY></BODY>"
+                          Codigo: 65
+                        - ID: 84
+                          Nombre: "\r\n<BODY>gnfngfngfnfgngfngfnfg</BODY>"
+                          Codigo: 66
+                        - ID: 85
+                          Nombre: "\r\n<BODY></BODY>"
+                          Codigo: 67
+                        - ID: 86
+                          Nombre: PRUEBALL2
+                          Codigo: 68
+                        - ID: 87
+                          Nombre: PRUEBALL2
+                          Codigo: 69
+                        - ID: 88
+                          Nombre: PRUEBALL2
+                          Codigo: 70
+                        - ID: 89
+                          Nombre: PRUEBALL2
+                          Codigo: 71
+                        - ID: 90
+                          Nombre: PRUEBALL2
+                          Codigo: 72
+                        - ID: 91
+                          Nombre: PRUEBALL2
+                          Codigo: 73
+                        - ID: 92
+                          Nombre: "\r\n<BODY>reterterte</BODY>"
+                          Codigo: 74
+                        - ID: 93
+                          Nombre: '0'
+                          Codigo: 75
+                        - ID: 101
+                          Nombre: pruebassss25
+                          Codigo: 78
+                        - ID: 103
+                          Nombre: pruebassss25
+                          Codigo: 79
+                        - ID: 104
+                          Nombre: pruebassss274
+                          Codigo: 80
+                        - ID: 105
+                          Nombre: PRUEBALL2
+                          Codigo: 81
+                        - ID: 106
+                          Nombre: PRUEBALL2
+                          Codigo: 82
+      operationId: get-tickets-activeTicket
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas: {}
