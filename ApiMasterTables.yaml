@@ -15840,5 +15840,11 @@ paths:
           in: query
           name: opcion
           description: '1'
+  /tables/employeeSAT/light:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-tables-employeeSAT-light
 components:
   schemas: {}
