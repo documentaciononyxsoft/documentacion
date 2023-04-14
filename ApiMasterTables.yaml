@@ -15844,12 +15844,223 @@ paths:
     get:
       summary: findLightListForEmployeeSAT
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            EmpleadoID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - EmpleadoID: 1
+                          Nombre: Iñigo Vergara
+                          Codigo: '2'
+                        - EmpleadoID: 2
+                          Nombre: JUAN GUERRA
+                          Codigo: '3'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - EmpleadoID: 1
+                          Nombre: Iñigo Vergara
+                          Codigo: '2'
+                        - EmpleadoID: 2
+                          Nombre: JUAN GUERRA
+                          Codigo: '3'
+                        - EmpleadoID: 3
+                          Nombre: LORENA SAEZ NAVARRO
+                          Codigo: '4'
+                        - EmpleadoID: 4
+                          Nombre: SILVIA PEREZ LACALLE
+                          Codigo: '5'
+                        - EmpleadoID: 5
+                          Nombre: SILVIO PACHECO ABASCAL
+                          Codigo: '6'
+                        - EmpleadoID: 6
+                          Nombre: LUIS CASILLAS PUJOL
+                          Codigo: '7'
+                        - EmpleadoID: 7
+                          Nombre: BORJA LOPEZ ESTEBAN
+                          Codigo: '49'
+                        - EmpleadoID: 8
+                          Nombre: "MIGUEL GARCIA LOROÃ\x91O"
+                          Codigo: '66'
+                        - EmpleadoID: 9
+                          Nombre: ESTEFANIA RODRIGUEZ SUAREZ
+                          Codigo: '82'
+                        - EmpleadoID: 10
+                          Nombre: DARIO ESPARZA CIMARRO
+                          Codigo: '86'
+                        - EmpleadoID: 11
+                          Nombre: SARA VARELA LOINAZ
+                          Codigo: '91'
+                        - EmpleadoID: 12
+                          Nombre: SILVIA PROENZA MONTENEGRO
+                          Codigo: '94'
+                        - EmpleadoID: 13
+                          Nombre: ANDREA PUJOL GUTIERREZ
+                          Codigo: '97'
+                        - EmpleadoID: 14
+                          Nombre: ARTURO ALONSO LEE
+                          Codigo: '98'
+                        - EmpleadoID: 15
+                          Nombre: LUCIA CANTALAPIEDRA UNANUE
+                          Codigo: '99'
+                        - EmpleadoID: 16
+                          Nombre: SERGIO BRAVO MURILLO
+                          Codigo: '100'
+                        - EmpleadoID: 17
+                          Nombre: AITOR VILLA LANDA
+                          Codigo: '101'
+                        - EmpleadoID: 18
+                          Nombre: MILLAN GUERRA PEREZ
+                          Codigo: '102'
+                        - EmpleadoID: 19
+                          Nombre: BELEN IGLESIAS SUAREZ
+                          Codigo: '103'
+                        - EmpleadoID: 20
+                          Nombre: ELENA ROMAN SANCHEZ
+                          Codigo: '104'
+                        - EmpleadoID: 21
+                          Nombre: FERNANDO SORIA FERNANDEZ
+                          Codigo: '105'
+                        - EmpleadoID: 22
+                          Nombre: PATRICIA GOMEZ SORIA
+                          Codigo: '106'
+                        - EmpleadoID: 24
+                          Nombre: Antonio Lopez Rubio
+                          Codigo: '1'
+                        - EmpleadoID: 25
+                          Nombre: Jose Antonio Ruiz
+                          Codigo: '150'
+                        - EmpleadoID: 26
+                          Nombre: Antonio Hernandez
+                          Codigo: '151'
+                        - EmpleadoID: 29
+                          Nombre: Marta Cortes Hernandez
+                          Codigo: '205'
+                        - EmpleadoID: 30
+                          Nombre: 'ARANTZA MENDIARAIZ '
+                          Codigo: '250'
+                        - EmpleadoID: 31
+                          Nombre: PEDRO RODRIGUEZ VELAZQUEZ
+                          Codigo: '251'
+                        - EmpleadoID: 34
+                          Nombre: ROBERTO FERNANDEZ
+                          Codigo: '003'
+                        - EmpleadoID: 37
+                          Nombre: 'ADRIAN COSTA '
+                          Codigo: '001'
+                        - EmpleadoID: 41
+                          Nombre: efren dario
+                          Codigo: ADSAD
+                        - EmpleadoID: 43
+                          Nombre: edgos
+                          Codigo: '123'
+                        - EmpleadoID: 44
+                          Nombre: Randy Marsh
+                          Codigo: '120002'
+                        - EmpleadoID: 45
+                          Nombre: Stanley marsh
+                          Codigo: '2121020'
+                        - EmpleadoID: 46
+                          Nombre: Nuevo empleado
+                          Codigo: EDG
+                        - EmpleadoID: 47
+                          Nombre: William Forbes
+                          Codigo: '1020'
+                        - EmpleadoID: 48
+                          Nombre: The new
+                          Codigo: '210'
+                        - EmpleadoID: 49
+                          Nombre: Daniel C
+                          Codigo: EWQ
+                        - EmpleadoID: 50
+                          Nombre: 'Leandro Requena '
+                          Codigo: G01
+                        - EmpleadoID: 51
+                          Nombre: 'Maria Caamaño '
+                          Codigo: DF01
+                        - EmpleadoID: 52
+                          Nombre: 'Alicia Villegas '
+                          Codigo: DP01
+                        - EmpleadoID: 53
+                          Nombre: Edurne Arias
+                          Codigo: OP01
+                        - EmpleadoID: 54
+                          Nombre: Albert Madrid
+                          Codigo: OP02
+                        - EmpleadoID: 55
+                          Nombre: Josep Herreros
+                          Codigo: OP03
+                        - EmpleadoID: 56
+                          Nombre: Alejo Bernabéu
+                          Codigo: OP4
+                        - EmpleadoID: 57
+                          Nombre: Margarita Corrales
+                          Codigo: OP05
+                        - EmpleadoID: 58
+                          Nombre: Julio Perez
+                          Codigo: 01JP
+                        - EmpleadoID: 59
+                          Nombre: Juana Ceballos
+                          Codigo: 02JP
+                        - EmpleadoID: 60
+                          Nombre: practicas
+                          Codigo: '0106'
+                        - EmpleadoID: 62
+                          Nombre: Michael Villegas
+                          Codigo: '167'
+                        - EmpleadoID: 63
+                          Nombre: DAVID VILLEGAS
+                          Codigo: '1000'
+                        - EmpleadoID: 64
+                          Nombre: Empleado21Nov
+                          Codigo: FDSVDF
+                        - EmpleadoID: 65
+                          Nombre: Nico
+                          Codigo: '3443434'
+                        - EmpleadoID: 66
+                          Nombre: yeison David Sanchez
+                          Codigo: '100011999'
       operationId: get-tables-employeeSAT-light
       parameters:
         - schema:
             type: string
           in: header
-          name: A
+          name: accessToken
+          description: '"tokenReciente"'
 components:
   schemas: {}
