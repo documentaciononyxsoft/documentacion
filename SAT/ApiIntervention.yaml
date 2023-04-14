@@ -4148,6 +4148,16 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: proyecto_OFID
+          description: '1158'
+        - schema:
+            type: integer
+          in: query
+          name: numero
+          description: '66674'
       requestBody:
         content:
           application/json:
