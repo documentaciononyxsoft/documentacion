@@ -4591,7 +4591,7 @@ paths:
         required: true
         description: '119'
     delete:
-      summary: deleteForExpense
+      summary: deleteExpenseForIntervention
       operationId: delete-intervention-expense-procesoGastoID
       responses:
         '200':
@@ -4633,7 +4633,7 @@ paths:
         content: {}
   /intervention/expense:
     post:
-      summary: createForExpense
+      summary: createExpenseForIntervention
       operationId: post-intervention-expense
       responses:
         '200':
