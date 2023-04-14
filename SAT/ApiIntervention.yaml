@@ -4193,6 +4193,148 @@ paths:
           application/json:
             schema:
               type: object
-              properties: {}
+              properties:
+                statusCode:
+                  type: integer
+                message:
+                  type: string
+                content:
+                  type: object
+                  properties:
+                    msg:
+                      type: string
+                    success:
+                      type: boolean
+                    data:
+                      type: object
+                      properties:
+                        success:
+                          type: boolean
+                        sql:
+                          type: string
+                        records:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              Numero:
+                                type: integer
+                              Proyecto_OFID:
+                                type: integer
+                              FechaIntervencion:
+                                type: string
+                              NumeroTicketID:
+                                type: integer
+                              NumeroTicketCodigo:
+                                type: integer
+                              NumeroTicketNombre:
+                                type: string
+                              UsuarioCreacion:
+                                type: string
+                              FechaHoraCreacion:
+                                type: string
+                              PlanificacionIntervencionID:
+                                type: integer
+                              PlanificacionIntervencionNombre:
+                                type: string
+                              TiempoPrevisto:
+                                type: string
+                              UsuarioCierreID:
+                                type: integer
+                              nombreUsuarioCierre:
+                                type: string
+                              FechaHoraCierre:
+                                type: string
+                              NAlbaran:
+                                type: string
+                              Descripcion:
+                                type: string
+                              ObservacionInterna:
+                                type: string
+                              VehiculoId:
+                                type: integer
+                              VehiculoNombre:
+                                type: string
+                              VehiculoCodigo:
+                                type: string
+                              ContadorInicial:
+                                type: integer
+                              ContadorFinal:
+                                type: integer
+                              Kilometros:
+                                type: string
+                              FechaAltaTicket:
+                                type: string
+                              TipoTicket:
+                                type: string
+                              Prioridad:
+                                type: string
+                              DescripcionTicket:
+                                type: string
+                              Cliente:
+                                type: string
+                              ClienteCodigo:
+                                type: string
+                              Ubicacion:
+                                type: string
+                              UbicacionCodigo:
+                                type: integer
+                              Equipo:
+                                type: string
+                              EquipoCodigo:
+                                type: string
+                              tipoEquipoNombre:
+                                type: string
+                              Estado:
+                                type: string
+                              EstadoTexto:
+                                type: string
+              x-examples:
+                Example 1:
+                  statusCode: 200
+                  message: Request processed successfully
+                  content:
+                    msg: Intervencion cerrada correctamente
+                    success: true
+                    data:
+                      success: true
+                      sql: "SELECT proyecto_of.CodigoProyecto_OF,\r\nproyecto_of.Proyecto_OFID,\r\nproyecto_of.FechaCreacion,\r\nproyecto_of.FechaHoraUsuario,\r\nproyecto_of.FechaHoraUsuarioCierre,\r\nproyecto_of.Observaciones,\r\nproyecto_of.UsuarioIDCierre,\r\nproyecto_of.Estado,\r\navisoticketintervencion.AvisoTicketID,\r\navisoticket.DescripcionProblema,\r\navisoticket.Numero,\r\navisoticketintervencion.Notas,\r\navisoticketintervencion.VehiculoID,\r\navisoticketintervencion.ContadorInicial,\r\navisoticketintervencion.ContadorFinal,\r\navisoticketintervencion.Kilometros,\r\nvehiculo.Matricula,\r\nvehiculo.Codigo,\r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre,\r\navisoticketplanificacion.AvisoTicketPlanificacionID,\r\navisoticketplanificacion.FechaHoraPlanificacionInicio,\r\navisoticketplanificacion.FechaHoraPlanificacionFinal,\r\nusuario.NombreUsuario \r\n\r\nFROM proyecto_of\r\nLEFT JOIN avisoticketintervencion \r\nON proyecto_of.Proyecto_OFID = avisoticketintervencion.Proyecto_OFID\r\nLEFT JOIN vehiculo \r\nON avisoticketintervencion.VehiculoID = vehiculo.VehiculoID\r\nLEFT JOIN avisoticket\r\nON avisoticketintervencion.AvisoTicketID = avisoticket.AvisoTicketID\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nLEFT JOIN avisoticketplanificacion\r\nON avisoticket.AvisoTicketID= avisoticketplanificacion.AvisoTicketID \r\nLEFT JOIN usuario\r\nON usuario.UsuarioID  = proyecto_of.UsuarioIDCierre\r\n\r\n\r\nWHERE proyecto_of.EsObraOf = 'S' AND proyecto_of.CustomerID = 29 \r\nAND proyecto_of.Proyecto_OFID = 1158\r\n"
+                      records:
+                        - Numero: 1158
+                          Proyecto_OFID: 66674
+                          FechaIntervencion: '20230216'
+                          NumeroTicketID: 9
+                          NumeroTicketCodigo: 8
+                          NumeroTicketNombre: "\r\n<BODY bgColor=#ffffff><P><FONT face=\"MS Shell Dlg\">Problemas con la boquilla</FONT></P></BODY>"
+                          UsuarioCreacion: ''
+                          FechaHoraCreacion: '2023-04-13T12:05:41.000'
+                          PlanificacionIntervencionID: 0
+                          PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                          TiempoPrevisto: 6 Horas
+                          UsuarioCierreID: 34
+                          nombreUsuarioCierre: ''
+                          FechaHoraCierre: '2023-04-14T14:48:51.000'
+                          NAlbaran: ''
+                          Descripcion: JULLL36NT
+                          ObservacionInterna: JULLL36NT
+                          VehiculoId: 1
+                          VehiculoNombre: '242342'
+                          VehiculoCodigo: '231231'
+                          ContadorInicial: 10
+                          ContadorFinal: 20
+                          Kilometros: '10'
+                          FechaAltaTicket: '2019-04-05T07:44:33.000'
+                          TipoTicket: Averia
+                          Prioridad: ''
+                          DescripcionTicket: "\r\n<BODY bgColor=#ffffff><P><FONT face=\"MS Shell Dlg\">Problemas con la boquilla</FONT></P></BODY>"
+                          Cliente: dario
+                          ClienteCodigo: '43000001'
+                          Ubicacion: ANER VITORIA
+                          UbicacionCodigo: 2
+                          Equipo: Plegadora
+                          EquipoCodigo: '123'
+                          tipoEquipoNombre: Proveedores por tipo
+                          Estado: FI
+                          EstadoTexto: Cerrado
 components:
   schemas: {}
