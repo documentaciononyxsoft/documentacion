@@ -15842,9 +15842,14 @@ paths:
           description: '1'
   /tables/employeeSAT/light:
     get:
-      summary: Your GET endpoint
+      summary: findLightListForEmployeeSAT
       tags: []
       responses: {}
       operationId: get-tables-employeeSAT-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: A
 components:
   schemas: {}
