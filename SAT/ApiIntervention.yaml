@@ -4477,116 +4477,6 @@ paths:
           name: 'accessToken '
           description: '"tokenReciente"'
   '/intervention/expense/{procesoGastoID}':
-    post:
-      summary: createExpenseForIntervention
-      operationId: post-intervention-expense
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      ProcesoGastoID:
-                        type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      ProcesoGastoID: 119
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      ProcesoGastoID: 119
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                Fecha:
-                  type: string
-                ProcesoID:
-                  type: string
-                Cantidad:
-                  type: string
-                Precio:
-                  type: string
-                Importe:
-                  type: string
-                Notas:
-                  type: string
-                EmpleadoID:
-                  type: string
-                TipoProcesoGastoID:
-                  type: string
-                TiempoTrabajoID:
-                  type: string
-                FechaHoraModificado:
-                  type: string
-                ExcluirDePago:
-                  type: string
-                FechaHoraPagado:
-                  type: string
-                UsuarioPagoID:
-                  type: string
-                WebID:
-                  type: string
-              x-examples:
-                Example 1:
-                  Fecha: '20230223'
-                  ProcesoID: '5198'
-                  Cantidad: '2'
-                  Precio: '1000'
-                  Importe: '100'
-                  Notas: hola q mas xd
-                  EmpleadoID: '3'
-                  TipoProcesoGastoID: '3'
-                  TiempoTrabajoID: ''
-                  FechaHoraModificado: ''
-                  ExcluirDePago: ''
-                  FechaHoraPagado: ''
-                  UsuarioPagoID: ''
-                  WebID: ''
-            examples:
-              Example 1:
-                value:
-                  Fecha: '20230223'
-                  ProcesoID: '5198'
-                  Cantidad: '2'
-                  Precio: '1000'
-                  Importe: '100'
-                  Notas: hola q mas xd
-                  EmpleadoID: '3'
-                  TipoProcesoGastoID: '3'
-                  TiempoTrabajoID: ''
-                  FechaHoraModificado: ''
-                  ExcluirDePago: ''
-                  FechaHoraPagado: ''
-                  UsuarioPagoID: ''
-                  WebID: ''
     put:
       summary: updateExpenseForIntervention
       operationId: put-intervention-expense
@@ -4710,18 +4600,35 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
       parameters:
         - schema:
             type: string
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
-        - schema:
-            type: string
-          in: query
-          name: procesoGastoID
-          description: '119'
       requestBody:
         content: {}
   /intervention/expense:
