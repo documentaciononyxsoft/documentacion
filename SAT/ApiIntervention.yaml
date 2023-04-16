@@ -4927,11 +4927,6 @@ paths:
                   WebID: ''
                   ProcesoUtillajeID: ''
   '/intervention/material/{id}':
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-intervention-material
     parameters:
       - schema:
           type: string
@@ -5117,5 +5112,37 @@ paths:
                   IncidenciaCalidadCabeceraID: ''
                   WebID: ''
                   ProcesoUtillajeID: ''
+    delete:
+      summary: deletetInterventionForMaterial
+      operationId: delete-intervention-material-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas: {}
