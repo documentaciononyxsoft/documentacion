@@ -5113,7 +5113,7 @@ paths:
                   WebID: ''
                   ProcesoUtillajeID: ''
     delete:
-      summary: deletetInterventionForMaterial
+      summary: deleteMaterialForIntervention
       operationId: delete-intervention-material-id
       responses:
         '200':
@@ -5144,5 +5144,272 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  '/intervention/materials/{procesoID}':
+    get:
+      summary: findManyMaterialsForIntervention
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            TipoMovimientoID:
+                              type: integer
+                            ReservaMaterialID:
+                              type: integer
+                            UsuarioID:
+                              type: integer
+                            Fecha:
+                              type: string
+                            AlmacenID:
+                              type: integer
+                            ArticuloID:
+                              type: integer
+                            UbicacionID:
+                              type: integer
+                            MailingID:
+                              type: integer
+                            CantidadAlmacen:
+                              type: integer
+                            CantidadPrecio:
+                              type: integer
+                            Precio:
+                              type:
+                                - integer
+                                - number
+                            Concepto:
+                              type: string
+                            FicheroOrigen:
+                              type: string
+                            MovimientoAlmacenID:
+                              type: integer
+                            Factor:
+                              type: integer
+                            LoteID:
+                              type: integer
+                            ExistenciaUbicacionLoteID:
+                              type: integer
+                            ArticuloXAlmacenID:
+                              type: integer
+                            CodigoMaterial:
+                              type: string
+                            NombreMaterial:
+                              type: string
+                            ProcesoID:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - TipoMovimientoID: 0
+                          ReservaMaterialID: 4183
+                          UsuarioID: 3
+                          Fecha: '20181113'
+                          AlmacenID: 1
+                          ArticuloID: 77
+                          UbicacionID: 0
+                          MailingID: 0
+                          CantidadAlmacen: 100
+                          CantidadPrecio: 100
+                          Precio: 0.12
+                          Concepto: O.T. 1
+                          FicheroOrigen: ''
+                          MovimientoAlmacenID: 17340
+                          Factor: 0
+                          LoteID: 0
+                          ExistenciaUbicacionLoteID: 0
+                          ArticuloXAlmacenID: 0
+                          CodigoMaterial: 01ARM3R
+                          NombreMaterial: ARANDELA M3 RIZADA T2631
+                          ProcesoID: 3784
+                        - TipoMovimientoID: 4
+                          ReservaMaterialID: 4767
+                          UsuarioID: 1
+                          Fecha: '20230216'
+                          AlmacenID: 2
+                          ArticuloID: 10
+                          UbicacionID: 0
+                          MailingID: 4
+                          CantidadAlmacen: 3
+                          CantidadPrecio: 3
+                          Precio: 10
+                          Concepto: Intervención 1
+                          FicheroOrigen: ReservaMaterial
+                          MovimientoAlmacenID: 28660
+                          Factor: 1
+                          LoteID: 95
+                          ExistenciaUbicacionLoteID: 203
+                          ArticuloXAlmacenID: 29
+                          CodigoMaterial: APL2
+                          NombreMaterial: ARTICULO POR LOTES 2
+                          ProcesoID: 3784
+                        - TipoMovimientoID: 4
+                          ReservaMaterialID: 4767
+                          UsuarioID: 1
+                          Fecha: '20230216'
+                          AlmacenID: 2
+                          ArticuloID: 10
+                          UbicacionID: 0
+                          MailingID: 4
+                          CantidadAlmacen: 3
+                          CantidadPrecio: 3
+                          Precio: 10
+                          Concepto: Intervención 1
+                          FicheroOrigen: ReservaMaterial
+                          MovimientoAlmacenID: 28661
+                          Factor: 1
+                          LoteID: 95
+                          ExistenciaUbicacionLoteID: 203
+                          ArticuloXAlmacenID: 29
+                          CodigoMaterial: APL2
+                          NombreMaterial: ARTICULO POR LOTES 2
+                          ProcesoID: 3784
+                        - TipoMovimientoID: 4
+                          ReservaMaterialID: 4767
+                          UsuarioID: 1
+                          Fecha: '20230216'
+                          AlmacenID: 2
+                          ArticuloID: 10
+                          UbicacionID: 0
+                          MailingID: 4
+                          CantidadAlmacen: 3
+                          CantidadPrecio: 3
+                          Precio: 10
+                          Concepto: Intervención 1
+                          FicheroOrigen: ReservaMaterial
+                          MovimientoAlmacenID: 28662
+                          Factor: 1
+                          LoteID: 95
+                          ExistenciaUbicacionLoteID: 203
+                          ArticuloXAlmacenID: 29
+                          CodigoMaterial: APL2
+                          NombreMaterial: ARTICULO POR LOTES 2
+                          ProcesoID: 3784
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - TipoMovimientoID: 0
+                          ReservaMaterialID: 4183
+                          UsuarioID: 3
+                          Fecha: '20181113'
+                          AlmacenID: 1
+                          ArticuloID: 77
+                          UbicacionID: 0
+                          MailingID: 0
+                          CantidadAlmacen: 100
+                          CantidadPrecio: 100
+                          Precio: 0.12
+                          Concepto: O.T. 1
+                          FicheroOrigen: ''
+                          MovimientoAlmacenID: 17340
+                          Factor: 0
+                          LoteID: 0
+                          ExistenciaUbicacionLoteID: 0
+                          ArticuloXAlmacenID: 0
+                          CodigoMaterial: 01ARM3R
+                          NombreMaterial: ARANDELA M3 RIZADA T2631
+                          ProcesoID: 3784
+                        - TipoMovimientoID: 4
+                          ReservaMaterialID: 4767
+                          UsuarioID: 1
+                          Fecha: '20230216'
+                          AlmacenID: 2
+                          ArticuloID: 10
+                          UbicacionID: 0
+                          MailingID: 4
+                          CantidadAlmacen: 3
+                          CantidadPrecio: 3
+                          Precio: 10
+                          Concepto: Intervención 1
+                          FicheroOrigen: ReservaMaterial
+                          MovimientoAlmacenID: 28660
+                          Factor: 1
+                          LoteID: 95
+                          ExistenciaUbicacionLoteID: 203
+                          ArticuloXAlmacenID: 29
+                          CodigoMaterial: APL2
+                          NombreMaterial: ARTICULO POR LOTES 2
+                          ProcesoID: 3784
+                        - TipoMovimientoID: 4
+                          ReservaMaterialID: 4767
+                          UsuarioID: 1
+                          Fecha: '20230216'
+                          AlmacenID: 2
+                          ArticuloID: 10
+                          UbicacionID: 0
+                          MailingID: 4
+                          CantidadAlmacen: 3
+                          CantidadPrecio: 3
+                          Precio: 10
+                          Concepto: Intervención 1
+                          FicheroOrigen: ReservaMaterial
+                          MovimientoAlmacenID: 28661
+                          Factor: 1
+                          LoteID: 95
+                          ExistenciaUbicacionLoteID: 203
+                          ArticuloXAlmacenID: 29
+                          CodigoMaterial: APL2
+                          NombreMaterial: ARTICULO POR LOTES 2
+                          ProcesoID: 3784
+                        - TipoMovimientoID: 4
+                          ReservaMaterialID: 4767
+                          UsuarioID: 1
+                          Fecha: '20230216'
+                          AlmacenID: 2
+                          ArticuloID: 10
+                          UbicacionID: 0
+                          MailingID: 4
+                          CantidadAlmacen: 3
+                          CantidadPrecio: 3
+                          Precio: 10
+                          Concepto: Intervención 1
+                          FicheroOrigen: ReservaMaterial
+                          MovimientoAlmacenID: 28662
+                          Factor: 1
+                          LoteID: 95
+                          ExistenciaUbicacionLoteID: 203
+                          ArticuloXAlmacenID: 29
+                          CodigoMaterial: APL2
+                          NombreMaterial: ARTICULO POR LOTES 2
+                          ProcesoID: 3784
+      operationId: get-intervention-materials
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+    parameters:
+      - schema:
+          type: string
+        name: procesoID
+        in: path
+        required: true
+        description: '3784'
 components:
   schemas: {}
