@@ -4926,5 +4926,196 @@ paths:
                   IncidenciaCalidadCabeceraID: ''
                   WebID: ''
                   ProcesoUtillajeID: ''
+  '/intervention/material/{id}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-intervention-material
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: '35124'
+    put:
+      summary: updateMaterialForIntervention
+      operationId: put-intervention-material-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                TipoMovimientoID:
+                  type: string
+                ReservaMaterialID:
+                  type: string
+                Fecha:
+                  type: string
+                AlmacenID:
+                  type: string
+                ArticuloID:
+                  type: string
+                MailingID:
+                  type: string
+                CantidadAlmacen:
+                  type: string
+                CantidadPrecio:
+                  type: string
+                Precio:
+                  type: string
+                Concepto:
+                  type: string
+                FicheroOrigen:
+                  type: string
+                IndiceUnico:
+                  type: string
+                Hora:
+                  type: string
+                ProcesoID:
+                  type: string
+                ExcluirInventario:
+                  type: string
+                FechaHoraModificado:
+                  type: string
+                Factor:
+                  type: string
+                FechaHora:
+                  type: string
+                ExistenciaUbicacionLoteID:
+                  type: string
+                Cantidad2:
+                  type: string
+                ArticuloXAlmacenID:
+                  type: string
+                GastoCompra:
+                  type: string
+                EmpleadoID:
+                  type: string
+                FactorCantidad:
+                  type: string
+                GastoCompraCantidad2:
+                  type: string
+                UsuarioVerificacionID:
+                  type: string
+                FechaHoraVerificacion:
+                  type: string
+                EmpleadoVerificacionID:
+                  type: string
+                CuentaVerificacionID:
+                  type: string
+                IncidenciaCalidadCabeceraID:
+                  type: string
+                WebID:
+                  type: string
+                ProcesoUtillajeID:
+                  type: string
+              x-examples:
+                Example 1:
+                  TipoMovimientoID: '4'
+                  ReservaMaterialID: '4789'
+                  Fecha: '20230224'
+                  AlmacenID: '2'
+                  ArticuloID: '555'
+                  MailingID: '873'
+                  CantidadAlmacen: '10'
+                  CantidadPrecio: '4'
+                  Precio: '10'
+                  Concepto: Intervención 16
+                  FicheroOrigen: ReservaMaterial
+                  IndiceUnico: '4759'
+                  Hora: ''
+                  ProcesoID: '5198'
+                  ExcluirInventario: '0'
+                  FechaHoraModificado: ''
+                  Factor: '1'
+                  FechaHora: ''
+                  ExistenciaUbicacionLoteID: ''
+                  Cantidad2: ''
+                  ArticuloXAlmacenID: ''
+                  GastoCompra: ''
+                  EmpleadoID: ''
+                  FactorCantidad: ''
+                  GastoCompraCantidad2: ''
+                  UsuarioVerificacionID: ''
+                  FechaHoraVerificacion: ''
+                  EmpleadoVerificacionID: ''
+                  CuentaVerificacionID: ''
+                  IncidenciaCalidadCabeceraID: ''
+                  WebID: ''
+                  ProcesoUtillajeID: ''
+            examples:
+              Example 1:
+                value:
+                  TipoMovimientoID: '4'
+                  ReservaMaterialID: '4789'
+                  Fecha: '20230224'
+                  AlmacenID: '2'
+                  ArticuloID: '555'
+                  MailingID: '873'
+                  CantidadAlmacen: '10'
+                  CantidadPrecio: '4'
+                  Precio: '10'
+                  Concepto: Intervención 16
+                  FicheroOrigen: ReservaMaterial
+                  IndiceUnico: '4759'
+                  Hora: ''
+                  ProcesoID: '5198'
+                  ExcluirInventario: '0'
+                  FechaHoraModificado: ''
+                  Factor: '1'
+                  FechaHora: ''
+                  ExistenciaUbicacionLoteID: ''
+                  Cantidad2: ''
+                  ArticuloXAlmacenID: ''
+                  GastoCompra: ''
+                  EmpleadoID: ''
+                  FactorCantidad: ''
+                  GastoCompraCantidad2: ''
+                  UsuarioVerificacionID: ''
+                  FechaHoraVerificacion: ''
+                  EmpleadoVerificacionID: ''
+                  CuentaVerificacionID: ''
+                  IncidenciaCalidadCabeceraID: ''
+                  WebID: ''
+                  ProcesoUtillajeID: ''
 components:
   schemas: {}
