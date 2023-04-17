@@ -6248,5 +6248,92 @@ paths:
           in: header
           name: 'accessToken '
       x-extension-1: null
+  /intervention/externalWork:
+    post:
+      summary: createExternalWorkForIntervention
+      operationId: post-intervention-externalWork
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      ProcesoTrabajoExteriorID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      ProcesoTrabajoExteriorID: 60
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      ProcesoTrabajoExteriorID: 60
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Fecha:
+                  type: string
+                Importe:
+                  type: string
+                MailingID:
+                  type: string
+                Notas:
+                  type: string
+                NumeroFactura:
+                  type: string
+                AlbaranCompraLineaID:
+                  type: string
+                FechaFactura:
+                  type: string
+                ProcesoID:
+                  type: string
+              x-examples:
+                Example 1:
+                  Fecha: '20230224'
+                  Importe: '16000'
+                  MailingID: '170'
+                  Notas: Revision de Componentes
+                  NumeroFactura: '1546'
+                  AlbaranCompraLineaID: ''
+                  FechaFactura: ''
+                  ProcesoID: '5198'
+            examples:
+              Example 1:
+                value:
+                  Fecha: '20230224'
+                  Importe: '16000'
+                  MailingID: '170'
+                  Notas: Revision de Componentes
+                  NumeroFactura: '1546'
+                  AlbaranCompraLineaID: ''
+                  FechaFactura: ''
+                  ProcesoID: '5198'
 components:
   schemas: {}
