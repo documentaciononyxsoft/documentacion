@@ -5411,5 +5411,77 @@ paths:
         in: path
         required: true
         description: '3784'
+  /intervention/typeOfTime/light:
+    get:
+      summary: findLightListForTypeOfTime
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            TipoHoraID:
+                              type: integer
+                            Nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - TipoHoraID: 1
+                          Nombre: Normal
+                        - TipoHoraID: 2
+                          Nombre: Extra
+                        - TipoHoraID: 3
+                          Nombre: Festiva
+                        - TipoHoraID: 4
+                          Nombre: Fin de Semana
+                        - TipoHoraID: 5
+                          Nombre: Nocturna
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - TipoHoraID: 1
+                          Nombre: Normal
+                        - TipoHoraID: 2
+                          Nombre: Extra
+                        - TipoHoraID: 3
+                          Nombre: Festiva
+                        - TipoHoraID: 4
+                          Nombre: Fin de Semana
+                        - TipoHoraID: 5
+                          Nombre: Nocturna
+      operationId: get-intervention-typeOfTime-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
 components:
   schemas: {}
