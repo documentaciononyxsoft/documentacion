@@ -612,6 +612,175 @@ paths:
           in: query
           name: param
           description: EXT
+  '/ticket/equipment/{ticketID}':
+    get:
+      summary: FindManyForEquipmentByTicket
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: object
+                        properties:
+                          ElementoID:
+                            type: integer
+                          CustomerID:
+                            type: integer
+                          EmpresaID:
+                            type: integer
+                          Id_SatMovil:
+                            type: integer
+                          NumeroSerie:
+                            type: string
+                          Nombre:
+                            type: string
+                          ArticuloID:
+                            type: integer
+                          ClienteID:
+                            type: integer
+                          DireccionID:
+                            type: integer
+                          Ubicacion:
+                            type: string
+                          FechaInstalacion:
+                            type: string
+                          FechaBaja:
+                            type: string
+                          MotivoBaja:
+                            type: string
+                          InicioGarantia:
+                            type: string
+                          FinalGarantia:
+                            type: string
+                          Notas:
+                            type: string
+                          UsuarioID:
+                            type: integer
+                          FechaHoraUsuario:
+                            type: string
+                          Modelo:
+                            type: string
+                          Marca:
+                            type: string
+                          TipoEquipoID:
+                            type: integer
+                          NumeroSerieCliente:
+                            type: string
+                          Gmao_LayoutID:
+                            type: integer
+                          Proyecto_OFID:
+                            type: integer
+                          AlbaranCompraCabeceraID:
+                            type: integer
+                          AlbaranVentaCabeceraID:
+                            type: integer
+                          CheckListApartadoID:
+                            type: integer
+                          Observaciones:
+                            type: string
+                          WebID:
+                            type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        ElementoID: 1
+                        CustomerID: 29
+                        EmpresaID: 1
+                        Id_SatMovil: 0
+                        NumeroSerie: '3442342'
+                        Nombre: EXTINTOR
+                        ArticuloID: 606
+                        ClienteID: 1
+                        DireccionID: 13
+                        Ubicacion: ''
+                        FechaInstalacion: '20180322'
+                        FechaBaja: '20230303'
+                        MotivoBaja: ''
+                        InicioGarantia: '20180322'
+                        FinalGarantia: '20190831'
+                        Notas: ''
+                        UsuarioID: 3
+                        FechaHoraUsuario: '2018-03-22T09:45:41.000'
+                        Modelo: XR-190
+                        Marca: BABESA
+                        TipoEquipoID: 9999
+                        NumeroSerieCliente: '345345345'
+                        Gmao_LayoutID: 5
+                        Proyecto_OFID: 0
+                        AlbaranCompraCabeceraID: 0
+                        AlbaranVentaCabeceraID: 0
+                        CheckListApartadoID: 4
+                        Observaciones: ''
+                        WebID: 0
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        ElementoID: 1
+                        CustomerID: 29
+                        EmpresaID: 1
+                        Id_SatMovil: 0
+                        NumeroSerie: '3442342'
+                        Nombre: EXTINTOR
+                        ArticuloID: 606
+                        ClienteID: 1
+                        DireccionID: 13
+                        Ubicacion: ''
+                        FechaInstalacion: '20180322'
+                        FechaBaja: '20230303'
+                        MotivoBaja: ''
+                        InicioGarantia: '20180322'
+                        FinalGarantia: '20190831'
+                        Notas: ''
+                        UsuarioID: 3
+                        FechaHoraUsuario: '2018-03-22T09:45:41.000'
+                        Modelo: XR-190
+                        Marca: BABESA
+                        TipoEquipoID: 9999
+                        NumeroSerieCliente: '345345345'
+                        Gmao_LayoutID: 5
+                        Proyecto_OFID: 0
+                        AlbaranCompraCabeceraID: 0
+                        AlbaranVentaCabeceraID: 0
+                        CheckListApartadoID: 4
+                        Observaciones: ''
+                        WebID: 0
+      operationId: get-ticket-equipment
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+    parameters:
+      - schema:
+          type: string
+        name: ticketID
+        in: path
+        required: true
+        description: '3'
 components:
   schemas: {}
   '/intervention/equipment/{avisoTicketID}':
