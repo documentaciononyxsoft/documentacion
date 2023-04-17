@@ -5677,5 +5677,232 @@ paths:
                           EmpleadoNombre: Antonio Lopez Rubio
                           EmpleadoCodigo: '1'
       operationId: get-intervention-labor-proyectoOFID
+  /intervention/labor:
+    post:
+      summary: createLaborForIntervention
+      operationId: post-intervention-labor
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      TiempoTrabajoID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      TiempoTrabajoID: 19374
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      TiempoTrabajoID: 19374
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ProcesoID:
+                  type: string
+                Inicio:
+                  type: string
+                Final:
+                  type: string
+                Tiempo:
+                  type: string
+                Concepto:
+                  type: string
+                EmpleadoID:
+                  type: string
+                Viaje:
+                  type: string
+                Notas:
+                  type: string
+                FichajeCaptadorID:
+                  type: string
+                TrabajoID:
+                  type: string
+                motivoID:
+                  type: string
+                AvisoTicketIntervencionID:
+                  type: string
+                Fechaimputacion:
+                  type: string
+                ContactID:
+                  type: string
+                TipoInterrupcionID:
+                  type: string
+                CantidadFabricada:
+                  type: string
+                OptimCompKey_Usuar_Fecha:
+                  type: string
+                ProcesoGastoID:
+                  type: string
+                MailingID:
+                  type: string
+                TiempoTrabajoID1:
+                  type: string
+                MaquinaID:
+                  type: string
+                TipoRechazoID:
+                  type: string
+                TurnoID:
+                  type: string
+                ClaveTrabajo:
+                  type: string
+                CantidadRechazada:
+                  type: string
+                FactorMaquina:
+                  type: string
+                FactorOperario:
+                  type: string
+                AlbaranVentaCabeceraID:
+                  type: string
+                FechaHoraNuevo:
+                  type: string
+                FechaHoraModificado:
+                  type: string
+                FechaHoraEliminado:
+                  type: string
+                TipoHora_GrupoPrecioHoraID:
+                  type: string
+                TasaOperario:
+                  type: string
+                TasaPreparacion:
+                  type: string
+                TasaProduccion:
+                  type: string
+                TrabajoAsignadoKanbanProcesoTrabajoID:
+                  type: string
+                TipoTurnoID:
+                  type: string
+                Proyecto_OFAgrupamientoProcesosLineasID:
+                  type: string
+                AlbaranVentaLineaID:
+                  type: string
+                PesoChatarra:
+                  type: string
+                PesoPieza:
+                  type: string
+                AlbaranCompraLineaID:
+                  type: string
+                WebID:
+                  type: string
+              x-examples:
+                Example 1:
+                  ProcesoID: '5198'
+                  Inicio: '20230224022305'
+                  Final: '20230225022305'
+                  Tiempo: '5000'
+                  Concepto: PRUEBALUIS
+                  EmpleadoID: '5'
+                  Viaje: ''
+                  Notas: testeo 123
+                  FichajeCaptadorID: ''
+                  TrabajoID: ''
+                  motivoID: ''
+                  AvisoTicketIntervencionID: ''
+                  Fechaimputacion: ''
+                  ContactID: ''
+                  TipoInterrupcionID: ''
+                  CantidadFabricada: ''
+                  OptimCompKey_Usuar_Fecha: ''
+                  ProcesoGastoID: ''
+                  MailingID: ''
+                  TiempoTrabajoID1: ''
+                  MaquinaID: ''
+                  TipoRechazoID: ''
+                  TurnoID: ''
+                  ClaveTrabajo: ''
+                  CantidadRechazada: ''
+                  FactorMaquina: ''
+                  FactorOperario: ''
+                  AlbaranVentaCabeceraID: ''
+                  FechaHoraNuevo: ''
+                  FechaHoraModificado: ''
+                  FechaHoraEliminado: ''
+                  TipoHora_GrupoPrecioHoraID: '2'
+                  TasaOperario: ''
+                  TasaPreparacion: ''
+                  TasaProduccion: ''
+                  TrabajoAsignadoKanbanProcesoTrabajoID: ''
+                  TipoTurnoID: ''
+                  Proyecto_OFAgrupamientoProcesosLineasID: ''
+                  AlbaranVentaLineaID: ''
+                  PesoChatarra: ''
+                  PesoPieza: ''
+                  AlbaranCompraLineaID: ''
+                  WebID: ''
+            examples:
+              Example 1:
+                value:
+                  ProcesoID: '5198'
+                  Inicio: '20230224022305'
+                  Final: '20230225022305'
+                  Tiempo: '5000'
+                  Concepto: PRUEBALUIS
+                  EmpleadoID: '5'
+                  Viaje: ''
+                  Notas: testeo 123
+                  FichajeCaptadorID: ''
+                  TrabajoID: ''
+                  motivoID: ''
+                  AvisoTicketIntervencionID: ''
+                  Fechaimputacion: ''
+                  ContactID: ''
+                  TipoInterrupcionID: ''
+                  CantidadFabricada: ''
+                  OptimCompKey_Usuar_Fecha: ''
+                  ProcesoGastoID: ''
+                  MailingID: ''
+                  TiempoTrabajoID1: ''
+                  MaquinaID: ''
+                  TipoRechazoID: ''
+                  TurnoID: ''
+                  ClaveTrabajo: ''
+                  CantidadRechazada: ''
+                  FactorMaquina: ''
+                  FactorOperario: ''
+                  AlbaranVentaCabeceraID: ''
+                  FechaHoraNuevo: ''
+                  FechaHoraModificado: ''
+                  FechaHoraEliminado: ''
+                  TipoHora_GrupoPrecioHoraID: '2'
+                  TasaOperario: ''
+                  TasaPreparacion: ''
+                  TasaProduccion: ''
+                  TrabajoAsignadoKanbanProcesoTrabajoID: ''
+                  TipoTurnoID: ''
+                  Proyecto_OFAgrupamientoProcesosLineasID: ''
+                  AlbaranVentaLineaID: ''
+                  PesoChatarra: ''
+                  PesoPieza: ''
+                  AlbaranCompraLineaID: ''
+                  WebID: ''
 components:
   schemas: {}
