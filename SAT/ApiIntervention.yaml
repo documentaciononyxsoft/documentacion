@@ -6136,7 +6136,7 @@ paths:
         required: true
         description: '3784'
     get:
-      summary: findManyExternalWorkForIntervention
+      summary: FindManyExternalWorkForIntervention
       tags: []
       responses:
         '200':
@@ -6250,7 +6250,7 @@ paths:
       x-extension-1: null
   /intervention/externalWork:
     post:
-      summary: createExternalWorkForIntervention
+      summary: CreateExternalWorkForIntervention
       operationId: post-intervention-externalWork
       responses:
         '200':
