@@ -5483,5 +5483,199 @@ paths:
           in: header
           name: accessToken
           description: '"tokenReciente"'
+  '/intervention/labor/{proyectoOFID}':
+    parameters:
+      - schema:
+          type: string
+        name: proyectoOFID
+        in: path
+        required: true
+        description: '689'
+    get:
+      summary: findManyLaborForIntervention
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            AlbaranCompraLineaID:
+                              type: integer
+                            AlbaranVentaCabeceraID:
+                              type: integer
+                            AlbaranVentaLineaID:
+                              type: integer
+                            AvisoTicketIntervencionID:
+                              type: integer
+                            CantidadFabricada:
+                              type: integer
+                            CantidadRechazada:
+                              type: integer
+                            ClaveTrabajo:
+                              type: string
+                            Concepto:
+                              type: string
+                            ContactID:
+                              type: integer
+                            CustomerID:
+                              type: integer
+                            EmpleadoID:
+                              type: integer
+                            EmpresaID:
+                              type: integer
+                            FactorMaquina:
+                              type: integer
+                            FactorOperario:
+                              type: integer
+                            FechaHoraEliminado:
+                              type: string
+                            FechaHoraModificado:
+                              type: string
+                            FechaHoraNuevo:
+                              type: string
+                            FechaHoraUsuario:
+                              type: string
+                            Fechaimputacion:
+                              type: string
+                            FichajeCaptadorID:
+                              type: integer
+                            Final:
+                              type: string
+                            Inicio:
+                              type: string
+                            MailingID:
+                              type: integer
+                            MaquinaID:
+                              type: integer
+                            motivoID:
+                              type: integer
+                            Notas:
+                              type: string
+                            PesoChatarra:
+                              type: integer
+                            PesoPieza:
+                              type: integer
+                            ProcesoGastoID:
+                              type: integer
+                            ProcesoID:
+                              type: integer
+                            TasaOperario:
+                              type: integer
+                            TasaPreparacion:
+                              type: integer
+                            TasaProduccion:
+                              type: integer
+                            Tiempo:
+                              type: integer
+                            TiempoTrabajoID:
+                              type: integer
+                            TiempoTrabajoID1:
+                              type: integer
+                            TipoHora_GrupoPrecioHoraID:
+                              type: integer
+                            TipoInterrupcionID:
+                              type: integer
+                            TipoRechazoID:
+                              type: integer
+                            TipoTurnoID:
+                              type: integer
+                            TrabajoAsignadoKanbanProcesoTrabajoID:
+                              type: integer
+                            TrabajoID:
+                              type: integer
+                            TurnoID:
+                              type: integer
+                            UsuarioID:
+                              type: integer
+                            Viaje:
+                              type: integer
+                            WebID:
+                              type: integer
+                            TipoRechazoNombre:
+                              type: string
+                            TipoInterrupcionNombre:
+                              type: string
+                            TurnoNombre:
+                              type: string
+                            EmpleadoNombre:
+                              type: string
+                            EmpleadoCodigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - AlbaranCompraLineaID: 0
+                          AlbaranVentaCabeceraID: 0
+                          AlbaranVentaLineaID: 0
+                          AvisoTicketIntervencionID: 0
+                          CantidadFabricada: 0
+                          CantidadRechazada: 0
+                          ClaveTrabajo: ''
+                          Concepto: ''
+                          ContactID: 0
+                          CustomerID: 29
+                          EmpleadoID: 24
+                          EmpresaID: 1
+                          FactorMaquina: 0
+                          FactorOperario: 0
+                          FechaHoraEliminado: '0000-00-00T00:00:00.000'
+                          FechaHoraModificado: '0000-00-00T00:00:00.000'
+                          FechaHoraNuevo: '0000-00-00T00:00:00.000'
+                          FechaHoraUsuario: '2018-10-19T11:37:47.000'
+                          Fechaimputacion: ''
+                          FichajeCaptadorID: 0
+                          Final: '2018-10-19T10:25:00.000'
+                          Inicio: '2018-10-19T06:00:00.000'
+                          MailingID: 0
+                          MaquinaID: 0
+                          motivoID: 0
+                          Notas: Ajuste y revision del ....
+                          PesoChatarra: 0
+                          PesoPieza: 0
+                          ProcesoGastoID: 0
+                          ProcesoID: 3742
+                          TasaOperario: 15
+                          TasaPreparacion: 0
+                          TasaProduccion: 0
+                          Tiempo: 15900000
+                          TiempoTrabajoID: 16302
+                          TiempoTrabajoID1: 0
+                          TipoHora_GrupoPrecioHoraID: 24
+                          TipoInterrupcionID: 0
+                          TipoRechazoID: 0
+                          TipoTurnoID: 0
+                          TrabajoAsignadoKanbanProcesoTrabajoID: 0
+                          TrabajoID: 0
+                          TurnoID: 0
+                          UsuarioID: 3
+                          Viaje: 0
+                          WebID: 0
+                          TipoRechazoNombre: ''
+                          TipoInterrupcionNombre: ''
+                          TurnoNombre: ''
+                          EmpleadoNombre: Antonio Lopez Rubio
+                          EmpleadoCodigo: '1'
+      operationId: get-intervention-labor-proyectoOFID
 components:
   schemas: {}
