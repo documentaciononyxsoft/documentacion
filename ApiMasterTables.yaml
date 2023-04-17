@@ -16062,5 +16062,71 @@ paths:
           in: header
           name: accessToken
           description: '"tokenReciente"'
+  /tables/suppliers/light:
+    get:
+      summary: findLightListForSupplier
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ProveedorID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ProveedorID: 1
+                          Nombre: LA GUIPUZCOANA-edgos
+                          Codigo: '01 '
+                        - ProveedorID: 2
+                          Nombre: 'TTES. SEUR                              '
+                          Codigo: '40000002'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ProveedorID: 1
+                          Nombre: LA GUIPUZCOANA-edgos
+                          Codigo: '01 '
+                        - ProveedorID: 2
+                          Nombre: 'TTES. SEUR                              '
+                          Codigo: '40000002'
+      operationId: get-tables-suppliers-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas: {}

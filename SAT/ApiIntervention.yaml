@@ -6468,5 +6468,391 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  /consult/interventions:
+    get:
+      summary: findManyByFiltersForIntervention
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            AvisoTicketIntervencionID:
+                              type: integer
+                            NombreCuenta:
+                              type: string
+                            CodigoCuenta:
+                              type: string
+                            Numero:
+                              type: integer
+                            Fecha:
+                              type: string
+                            Descripcion:
+                              type: string
+                            MailingID:
+                              type: integer
+                            AvisoTicketID:
+                              type: integer
+                            Proyecto_OFID:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT \r\nAvisoTicketIntervencion.*,\r\nProyecto_OF.CodigoProyecto_OF,\r\nProyecto_OF.FechaHoraUsuarioCierre,\r\nProyecto_OF.Observaciones,\r\nTablaGeneral.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneral.Descripcion AS TipoTicketTexto,\r\nAvisoTicket.MailingID,\r\nMailing.ReferenciaCodigo,\r\nMailing.Nombre\r\nFROM AvisoTicketIntervencion\r\nLEFT OUTER JOIN AvisoTicket ON AvisoTIcket.AvisoTicketID = AvisoTicketIntervencion.AvisoTicketID\r\nleft outer join AvisoTicketElemento on AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Proyecto_OF ON Proyecto_OF.Proyecto_OFID = AvisoTicketIntervencion.Proyecto_OFID\r\nLEFT OUTER JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nWHERE AvisoTicketIntervencion.CustomerID = 29\r\nAND AvisoTicket.EmpresaID = 1\r\n AND (AvisoTicketIntervencion.Fecha >= 20020220 AND DATE(AvisoTicketIntervencion.Fecha) <= 20230220)\r\nLIMIT 50 \r\nOFFSET 0"
+                      records:
+                        - AvisoTicketIntervencionID: 1
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 1
+                          Fecha: '20230220'
+                          Descripcion: 1232S
+                          MailingID: 455
+                          AvisoTicketID: 1
+                          Proyecto_OFID: 1769
+                        - AvisoTicketIntervencionID: 8
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 8
+                          Fecha: '20230216'
+                          Descripcion: adwqdqwd
+                          MailingID: 455
+                          AvisoTicketID: 1
+                          Proyecto_OFID: 1776
+                        - AvisoTicketIntervencionID: 11
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 11
+                          Fecha: '20230215'
+                          Descripcion: PRUEBALU33333RT
+                          MailingID: 455
+                          AvisoTicketID: 1
+                          Proyecto_OFID: 1781
+                        - AvisoTicketIntervencionID: 9
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 0
+                          Fecha: '20230215'
+                          Descripcion: ''
+                          MailingID: 455
+                          AvisoTicketID: 9
+                          Proyecto_OFID: 1779
+                        - AvisoTicketIntervencionID: 10
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 0
+                          Fecha: '20230215'
+                          Descripcion: ''
+                          MailingID: 455
+                          AvisoTicketID: 9
+                          Proyecto_OFID: 1780
+                        - AvisoTicketIntervencionID: 19
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 16
+                          Fecha: '20230215'
+                          Descripcion: JULLL
+                          MailingID: 455
+                          AvisoTicketID: 9
+                          Proyecto_OFID: 1789
+                        - AvisoTicketIntervencionID: 21
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 18
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          MailingID: 455
+                          AvisoTicketID: 9
+                          Proyecto_OFID: 1791
+                        - AvisoTicketIntervencionID: 26
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 20
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          MailingID: 455
+                          AvisoTicketID: 9
+                          Proyecto_OFID: 1796
+                        - AvisoTicketIntervencionID: 27
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 21
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          MailingID: 455
+                          AvisoTicketID: 9
+                          Proyecto_OFID: 1797
+                        - AvisoTicketIntervencionID: 28
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 22
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          MailingID: 455
+                          AvisoTicketID: 9
+                          Proyecto_OFID: 1798
+                        - AvisoTicketIntervencionID: 30
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 23
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          MailingID: 455
+                          AvisoTicketID: 9
+                          Proyecto_OFID: 1823
+                        - AvisoTicketIntervencionID: 31
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 24
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          MailingID: 455
+                          AvisoTicketID: 9
+                          Proyecto_OFID: 1824
+                        - AvisoTicketIntervencionID: 32
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 25
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          MailingID: 455
+                          AvisoTicketID: 9
+                          Proyecto_OFID: 1825
+                        - AvisoTicketIntervencionID: 15
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 13
+                          Fecha: '20230215'
+                          Descripcion: PRUEBALU33333RT
+                          MailingID: 455
+                          AvisoTicketID: 10
+                          Proyecto_OFID: 1785
+                        - AvisoTicketIntervencionID: 12
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 12
+                          Fecha: '20230215'
+                          Descripcion: PRUEBALU33333RT
+                          MailingID: 455
+                          AvisoTicketID: 11
+                          Proyecto_OFID: 1782
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT \r\nAvisoTicketIntervencion.*,\r\nProyecto_OF.CodigoProyecto_OF,\r\nProyecto_OF.FechaHoraUsuarioCierre,\r\nProyecto_OF.Observaciones,\r\nTablaGeneral.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneral.Descripcion AS TipoTicketTexto,\r\nAvisoTicket.MailingID,\r\nMailing.ReferenciaCodigo,\r\nMailing.Nombre\r\nFROM AvisoTicketIntervencion\r\nLEFT OUTER JOIN AvisoTicket ON AvisoTIcket.AvisoTicketID = AvisoTicketIntervencion.AvisoTicketID\r\nleft outer join AvisoTicketElemento on AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Proyecto_OF ON Proyecto_OF.Proyecto_OFID = AvisoTicketIntervencion.Proyecto_OFID\r\nLEFT OUTER JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nWHERE AvisoTicketIntervencion.CustomerID = 29\r\nAND AvisoTicket.EmpresaID = 1\r\n AND (AvisoTicketIntervencion.Fecha >= 20020220 AND DATE(AvisoTicketIntervencion.Fecha) <= 20230220)\r\nLIMIT 50 \r\nOFFSET 0"
+                      records:
+                        - AvisoTicketIntervencionID: 1
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 1
+                          Fecha: '20230220'
+                          Descripcion: 1232S
+                          MailingID: 455
+                          AvisoTicketID: 1
+                          Proyecto_OFID: 1769
+                        - AvisoTicketIntervencionID: 8
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 8
+                          Fecha: '20230216'
+                          Descripcion: adwqdqwd
+                          MailingID: 455
+                          AvisoTicketID: 1
+                          Proyecto_OFID: 1776
+                        - AvisoTicketIntervencionID: 11
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 11
+                          Fecha: '20230215'
+                          Descripcion: PRUEBALU33333RT
+                          MailingID: 455
+                          AvisoTicketID: 1
+                          Proyecto_OFID: 1781
+                        - AvisoTicketIntervencionID: 9
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 0
+                          Fecha: '20230215'
+                          Descripcion: ''
+                          MailingID: 455
+                          AvisoTicketID: 9
+                          Proyecto_OFID: 1779
+                        - AvisoTicketIntervencionID: 10
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 0
+                          Fecha: '20230215'
+                          Descripcion: ''
+                          MailingID: 455
+                          AvisoTicketID: 9
+                          Proyecto_OFID: 1780
+                        - AvisoTicketIntervencionID: 19
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 16
+                          Fecha: '20230215'
+                          Descripcion: JULLL
+                          MailingID: 455
+                          AvisoTicketID: 9
+                          Proyecto_OFID: 1789
+                        - AvisoTicketIntervencionID: 21
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 18
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          MailingID: 455
+                          AvisoTicketID: 9
+                          Proyecto_OFID: 1791
+                        - AvisoTicketIntervencionID: 26
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 20
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          MailingID: 455
+                          AvisoTicketID: 9
+                          Proyecto_OFID: 1796
+                        - AvisoTicketIntervencionID: 27
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 21
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          MailingID: 455
+                          AvisoTicketID: 9
+                          Proyecto_OFID: 1797
+                        - AvisoTicketIntervencionID: 28
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 22
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          MailingID: 455
+                          AvisoTicketID: 9
+                          Proyecto_OFID: 1798
+                        - AvisoTicketIntervencionID: 30
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 23
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          MailingID: 455
+                          AvisoTicketID: 9
+                          Proyecto_OFID: 1823
+                        - AvisoTicketIntervencionID: 31
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 24
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          MailingID: 455
+                          AvisoTicketID: 9
+                          Proyecto_OFID: 1824
+                        - AvisoTicketIntervencionID: 32
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 25
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          MailingID: 455
+                          AvisoTicketID: 9
+                          Proyecto_OFID: 1825
+                        - AvisoTicketIntervencionID: 15
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 13
+                          Fecha: '20230215'
+                          Descripcion: PRUEBALU33333RT
+                          MailingID: 455
+                          AvisoTicketID: 10
+                          Proyecto_OFID: 1785
+                        - AvisoTicketIntervencionID: 12
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          CodigoCuenta: '10300010329'
+                          Numero: 12
+                          Fecha: '20230215'
+                          Descripcion: PRUEBALU33333RT
+                          MailingID: 455
+                          AvisoTicketID: 11
+                          Proyecto_OFID: 1782
+      operationId: get-consult-interventions
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: limit
+          description: '50'
+        - schema:
+            type: string
+          in: query
+          name: offset
+          description: '0'
+        - schema:
+            type: string
+          in: query
+          name: tipoTicket
+          description: '1'
+        - schema:
+            type: string
+          in: query
+          name: intervencion
+          description: '1'
+        - schema:
+            type: string
+          in: query
+          name: fechaDesdeIn
+          description: '20020220'
+        - schema:
+            type: string
+          in: query
+          name: fechaHastaIn
+          description: '20230220'
+        - schema:
+            type: string
+          in: query
+          name: ticketID
+        - schema:
+            type: string
+          in: query
+          name: mailingID
+        - schema:
+            type: string
+          in: query
+          name: equipoID
+        - schema:
+            type: string
+          in: query
+          name: ubicacionID
 components:
   schemas: {}
