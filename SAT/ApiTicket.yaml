@@ -5203,5 +5203,42 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: fechaDesdeIn
+          description: '19990223'
+        - schema:
+            type: string
+          in: query
+          name: fechaHastaIn
+          description: '20230327'
+        - schema:
+            type: string
+          in: query
+          name: ticketID
+        - schema:
+            type: string
+          in: query
+          name: mailingID
+        - schema:
+            type: string
+          in: query
+          name: equipoID
+          description: '1'
+        - schema:
+            type: string
+          in: query
+          name: ubicacionID
+        - schema:
+            type: string
+          in: query
+          name: offset
+          description: '0'
+        - schema:
+            type: string
+          in: query
+          name: limit
+          description: '4'
 components:
   schemas: {}
