@@ -308,6 +308,138 @@ paths:
           in: query
           name: 'param '
           description: a
+    post:
+      summary: createForEquipment
+      operationId: post-equipment
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      ElementoID:
+                        type: integer
+                      FechaHoraUsuario:
+                        type: string
+                      UsuarioID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      ElementoID: 22
+                      FechaHoraUsuario: '2023-04-18T15:55:04.122'
+                      UsuarioID: 34
+            application/xml:
+              schema:
+                type: object
+                properties: {}
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ArticuloID:
+                  type: integer
+                ClienteID:
+                  type: integer
+                DireccionID:
+                  type: integer
+                NumeroSerie:
+                  type: string
+                Nombre:
+                  type: string
+                Ubicacion:
+                  type: string
+                FechaInstalacion:
+                  type: string
+                FechaBaja:
+                  type: string
+                MotivoBaja:
+                  type: string
+                InicioGarantia:
+                  type: string
+                FinalGarantia:
+                  type: string
+                Notas:
+                  type: string
+                Modelo:
+                  type: string
+                Marca:
+                  type: string
+                TipoEquipoID:
+                  type: integer
+                NumeroSerieCliente:
+                  type: string
+                Gmao_LayoutID:
+                  type: integer
+                CheckListApartadoID:
+                  type: integer
+                Observaciones:
+                  type: string
+              x-examples:
+                Example 1:
+                  ArticuloID: 395
+                  ClienteID: 84
+                  DireccionID: 63
+                  NumeroSerie: '191920'
+                  Nombre: YEI GUARDAR - Actualizar
+                  Ubicacion: Emplazamineto Prueba
+                  FechaInstalacion: '2023-04-11'
+                  FechaBaja: '2023-04-11'
+                  MotivoBaja: Porque si the flies
+                  InicioGarantia: '2023-03-26'
+                  FinalGarantia: '2023-03-26'
+                  Notas: Buenas tardes mis estimados
+                  Modelo: '1998'
+                  Marca: '1998'
+                  TipoEquipoID: 748
+                  NumeroSerieCliente: '555555'
+                  Gmao_LayoutID: 11
+                  CheckListApartadoID: 1
+                  Observaciones: dfgdg jijiji
+            examples:
+              Example 1:
+                value:
+                  ArticuloID: 395
+                  ClienteID: 84
+                  DireccionID: 63
+                  NumeroSerie: '191920'
+                  Nombre: YEI GUARDAR - Actualizar
+                  Ubicacion: Emplazamineto Prueba
+                  FechaInstalacion: '2023-04-11'
+                  FechaBaja: '2023-04-11'
+                  MotivoBaja: Porque si the flies
+                  InicioGarantia: '2023-03-26'
+                  FinalGarantia: '2023-03-26'
+                  Notas: Buenas tardes mis estimados
+                  Modelo: '1998'
+                  Marca: '1998'
+                  TipoEquipoID: 748
+                  NumeroSerieCliente: '555555'
+                  Gmao_LayoutID: 11
+                  CheckListApartadoID: 1
+                  Observaciones: dfgdg jijiji
   /equipment/light:
     get:
       summary: findLightListForEquipment
