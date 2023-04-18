@@ -845,6 +845,11 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: direccionID
+          description: '14'
   /layout:
     get:
       summary: findManyByParamForLayout
