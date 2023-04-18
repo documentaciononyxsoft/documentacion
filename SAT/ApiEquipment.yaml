@@ -897,15 +897,7 @@ paths:
                           Titulo: Edificio
                           Descripcion: ''
                           DireccionID: 14
-                        - Gmao_LayoutID: 22
-                          Titulo: Planta
-                          Descripcion: ''
-                          DireccionID: 14
-                        - Gmao_LayoutID: 23
-                          Titulo: Planta 2
-                          Descripcion: ''
-                          DireccionID: 14
-                      sql: "SELECT\r\ngmao_layout.Gmao_LayoutID,\r\ngmao_layout.Titulo,\r\ngmao_layout.Descripcion,\r\ngmao_layout.DireccionID\r\n\r\nFROM \r\ngmao_layout\r\n \r\nWHERE \r\ngmao_layout.CustomerID = 29 AND\r\ngmao_layout.EmpresaID = 1 AND\r\ngmao_layout.DireccionID = 14\r\n"
+                      sql: "SELECT\r\ngmao_layout.Gmao_LayoutID,\r\ngmao_layout.Titulo,\r\ngmao_layout.Descripcion,\r\ngmao_layout.DireccionID\r\n\r\nFROM \r\ngmao_layout\r\n \r\nWHERE \r\ngmao_layout.CustomerID = 29 AND\r\ngmao_layout.EmpresaID = 1 AND\r\ngmao_layout.DireccionID = 14 AND\r\n(gmao_layout.Titulo LIKE '%edificio%' OR gmao_layout.Descripcion LIKE '%edificio%')\r\n\r\nLIMIT 10\r\n"
               examples:
                 Example 1:
                   value:
@@ -918,15 +910,7 @@ paths:
                           Titulo: Edificio
                           Descripcion: ''
                           DireccionID: 14
-                        - Gmao_LayoutID: 22
-                          Titulo: Planta
-                          Descripcion: ''
-                          DireccionID: 14
-                        - Gmao_LayoutID: 23
-                          Titulo: Planta 2
-                          Descripcion: ''
-                          DireccionID: 14
-                      sql: "SELECT\r\ngmao_layout.Gmao_LayoutID,\r\ngmao_layout.Titulo,\r\ngmao_layout.Descripcion,\r\ngmao_layout.DireccionID\r\n\r\nFROM \r\ngmao_layout\r\n \r\nWHERE \r\ngmao_layout.CustomerID = 29 AND\r\ngmao_layout.EmpresaID = 1 AND\r\ngmao_layout.DireccionID = 14\r\n"
+                      sql: "SELECT\r\ngmao_layout.Gmao_LayoutID,\r\ngmao_layout.Titulo,\r\ngmao_layout.Descripcion,\r\ngmao_layout.DireccionID\r\n\r\nFROM \r\ngmao_layout\r\n \r\nWHERE \r\ngmao_layout.CustomerID = 29 AND\r\ngmao_layout.EmpresaID = 1 AND\r\ngmao_layout.DireccionID = 14 AND\r\n(gmao_layout.Titulo LIKE '%edificio%' OR gmao_layout.Descripcion LIKE '%edificio%')\r\n\r\nLIMIT 10\r\n"
       operationId: get-layout
       parameters:
         - schema:
