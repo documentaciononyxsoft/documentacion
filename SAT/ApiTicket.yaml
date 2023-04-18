@@ -5362,5 +5362,6 @@ paths:
             type: string
           in: query
           name: equipoID
+          description: '4'
 components:
   schemas: {}
