@@ -16128,5 +16128,81 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  /tables/checkList/light:
+    get:
+      summary: findLightListForCheckList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            CheckListApartadoID:
+                              type: integer
+                            Apartado:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - CheckListApartadoID: 1
+                          Apartado: '4551'
+                        - CheckListApartadoID: 2
+                          Apartado: '65221'
+                        - CheckListApartadoID: 4
+                          Apartado: '78547'
+                        - CheckListApartadoID: 6
+                          Apartado: '7853'
+                        - CheckListApartadoID: 7
+                          Apartado: '500'
+                      sql: "SELECT\r\nchecklistapartado.CheckListApartadoID,\r\nchecklistapartado.Apartado\r\nFROM\r\nchecklistapartado\r\nWHERE\r\nchecklistapartado.CustomerID = 29 AND\r\nchecklistapartado.EmpresaID = 1\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - CheckListApartadoID: 1
+                          Apartado: '4551'
+                        - CheckListApartadoID: 2
+                          Apartado: '65221'
+                        - CheckListApartadoID: 4
+                          Apartado: '78547'
+                        - CheckListApartadoID: 6
+                          Apartado: '7853'
+                        - CheckListApartadoID: 7
+                          Apartado: '500'
+                      sql: "SELECT\r\nchecklistapartado.CheckListApartadoID,\r\nchecklistapartado.Apartado\r\nFROM\r\nchecklistapartado\r\nWHERE\r\nchecklistapartado.CustomerID = 29 AND\r\nchecklistapartado.EmpresaID = 1\r\n"
+      operationId: get-tables-checkList-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas: {}
