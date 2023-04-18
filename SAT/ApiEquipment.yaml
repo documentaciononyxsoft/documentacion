@@ -928,6 +928,1441 @@ paths:
           in: query
           name: direccionID
           description: '14'
+  /equipments:
+    get:
+      summary: findManyForEquipments
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ElementoID:
+                              type: integer
+                            CustomerID:
+                              type: integer
+                            EmpresaID:
+                              type: integer
+                            ArticuloID:
+                              type: integer
+                            ClienteID:
+                              type: integer
+                            DireccionID:
+                              type: integer
+                            NumeroSerie:
+                              type: string
+                            Nombre:
+                              type: string
+                            Ubicacion:
+                              type: string
+                            FechaInstalacion:
+                              type: string
+                            FechaBaja:
+                              type: string
+                            MotivoBaja:
+                              type: string
+                            InicioGarantia:
+                              type: string
+                            FinalGarantia:
+                              type: string
+                            Notas:
+                              type: string
+                            UsuarioID:
+                              type: integer
+                            FechaHoraUsuario:
+                              type: string
+                            Id_SatMovil:
+                              type: integer
+                            Modelo:
+                              type: string
+                            Marca:
+                              type: string
+                            TipoEquipoID:
+                              type: integer
+                            NumeroSerieCliente:
+                              type: string
+                            Gmao_LayoutID:
+                              type: integer
+                            Proyecto_OFID:
+                              type: integer
+                            AlbaranCompraCabeceraID:
+                              type: integer
+                            AlbaranVentaCabeceraID:
+                              type: integer
+                            CheckListApartadoID:
+                              type: integer
+                            Observaciones:
+                              type: string
+                            WebID:
+                              type: integer
+                            CodigoArticulo:
+                              type: string
+                            NombreArticulo:
+                              type: string
+                            CodigoCliente:
+                              type: string
+                            NombreMailing:
+                              type: string
+                            CodigoUbicacion:
+                              type: integer
+                            NombreUbicacion:
+                              type: string
+                            GmaoTitulo:
+                              type: string
+                            Apartado:
+                              type: string
+                            TipoEquipoTexto:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - ElementoID: 1
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 606
+                          ClienteID: 1
+                          DireccionID: 13
+                          NumeroSerie: '3442342'
+                          Nombre: EXTINTOR
+                          Ubicacion: ''
+                          FechaInstalacion: '20180322'
+                          FechaBaja: '20230303'
+                          MotivoBaja: ''
+                          InicioGarantia: '20180322'
+                          FinalGarantia: '20190831'
+                          Notas: ''
+                          UsuarioID: 3
+                          FechaHoraUsuario: '2018-03-22T09:45:41.000'
+                          Id_SatMovil: 0
+                          Modelo: XR-190
+                          Marca: BABESA
+                          TipoEquipoID: 9999
+                          NumeroSerieCliente: '345345345'
+                          Gmao_LayoutID: 5
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 4
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: Z12007
+                          NombreArticulo: BOMBA HIDRONEUMATICA S/E 2LTS
+                          CodigoCliente: '43000001'
+                          NombreMailing: dario
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          GmaoTitulo: AlmacÃ©n
+                          Apartado: '78547'
+                          TipoEquipoTexto: Proveedores por prueba
+                        - ElementoID: 2
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 5
+                          ClienteID: 1
+                          DireccionID: 13
+                          NumeroSerie: '123'
+                          Nombre: Plegadora
+                          Ubicacion: ''
+                          FechaInstalacion: '20190227'
+                          FechaBaja: ''
+                          MotivoBaja: ''
+                          InicioGarantia: ''
+                          FinalGarantia: ''
+                          Notas: ''
+                          UsuarioID: 3
+                          FechaHoraUsuario: '2019-02-27T09:12:16.000'
+                          Id_SatMovil: 0
+                          Modelo: '2026'
+                          Marca: RENAULT
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: ''
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: ACE1
+                          NombreArticulo: ACERO TIPO 1
+                          CodigoCliente: '43000001'
+                          NombreMailing: dario
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                        - ElementoID: 3
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 3442
+                          ClienteID: 1137
+                          DireccionID: 31
+                          NumeroSerie: EQ-C1
+                          Nombre: EquipNuevo
+                          Ubicacion: ''
+                          FechaInstalacion: '20221121'
+                          FechaBaja: ''
+                          MotivoBaja: ''
+                          InicioGarantia: ''
+                          FinalGarantia: ''
+                          Notas: ''
+                          UsuarioID: 2
+                          FechaHoraUsuario: '2022-11-21T14:31:12.000'
+                          Id_SatMovil: 0
+                          Modelo: Nuevo
+                          Marca: Nueva
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: '232'
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 2649
+                          CodigoArticulo: ART-C4
+                          NombreArticulo: articuloC4
+                          CodigoCliente: '43000429'
+                          NombreMailing: CarlitosM
+                          CodigoUbicacion: 3
+                          NombreUbicacion: FERFWE
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                        - ElementoID: 4
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 3439
+                          ClienteID: 1137
+                          DireccionID: 31
+                          NumeroSerie: EQ-C2
+                          Nombre: Equip-2
+                          Ubicacion: ''
+                          FechaInstalacion: '20221121'
+                          FechaBaja: '20230615'
+                          MotivoBaja: rew
+                          InicioGarantia: ''
+                          FinalGarantia: ''
+                          Notas: ''
+                          UsuarioID: 2
+                          FechaHoraUsuario: '2022-11-21T14:32:14.000'
+                          Id_SatMovil: 0
+                          Modelo: '12'
+                          Marca: '11'
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: '12344'
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 2650
+                          CodigoArticulo: ART-C1
+                          NombreArticulo: ARTICULO C1
+                          CodigoCliente: '43000429'
+                          NombreMailing: CarlitosM
+                          CodigoUbicacion: 3
+                          NombreUbicacion: FERFWE
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                        - ElementoID: 5
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 3444
+                          ClienteID: 1140
+                          DireccionID: 32
+                          NumeroSerie: EQUI1
+                          Nombre: EQUIP-1
+                          Ubicacion: ''
+                          FechaInstalacion: '20221122'
+                          FechaBaja: ''
+                          MotivoBaja: ''
+                          InicioGarantia: '20221122'
+                          FinalGarantia: '20230422'
+                          Notas: TYYT
+                          UsuarioID: 2
+                          FechaHoraUsuario: '2022-11-22T15:24:10.000'
+                          Id_SatMovil: 0
+                          Modelo: '122'
+                          Marca: '12'
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: '3434'
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 2651
+                          CodigoArticulo: ARTICULO-PR
+                          NombreArticulo: ArticuloPrincipal
+                          CodigoCliente: '43000432'
+                          NombreMailing: Lola
+                          CodigoUbicacion: 43
+                          NombreUbicacion: DireccionNUEVA
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                        - ElementoID: 6
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 3444
+                          ClienteID: 1140
+                          DireccionID: 32
+                          NumeroSerie: EQUI2
+                          Nombre: EQUI-NEW
+                          Ubicacion: ''
+                          FechaInstalacion: '20221126'
+                          FechaBaja: ''
+                          MotivoBaja: ''
+                          InicioGarantia: '20221122'
+                          FinalGarantia: '20230808'
+                          Notas: ''
+                          UsuarioID: 2
+                          FechaHoraUsuario: '2022-11-22T15:28:39.000'
+                          Id_SatMovil: 0
+                          Modelo: zzz
+                          Marca: Nuevaa
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: '223'
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 2652
+                          CodigoArticulo: ARTICULO-PR
+                          NombreArticulo: ArticuloPrincipal
+                          CodigoCliente: '43000432'
+                          NombreMailing: Lola
+                          CodigoUbicacion: 43
+                          NombreUbicacion: DireccionNUEVA
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                        - ElementoID: 7
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 0
+                          ClienteID: 1142
+                          DireccionID: 34
+                          NumeroSerie: EQ-JUANITO-1
+                          Nombre: ''
+                          Ubicacion: ''
+                          FechaInstalacion: '20221213'
+                          FechaBaja: ''
+                          MotivoBaja: ''
+                          InicioGarantia: ''
+                          FinalGarantia: ''
+                          Notas: ''
+                          UsuarioID: 2
+                          FechaHoraUsuario: '2022-12-13T11:48:16.000'
+                          Id_SatMovil: 0
+                          Modelo: ''
+                          Marca: ''
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: ''
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 2654
+                          CodigoArticulo: ''
+                          NombreArticulo: ''
+                          CodigoCliente: '43000434'
+                          NombreMailing: Juanito
+                          CodigoUbicacion: 45
+                          NombreUbicacion: PR-NUEVA
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                        - ElementoID: 8
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 0
+                          ClienteID: 0
+                          DireccionID: 0
+                          NumeroSerie: '88888'
+                          Nombre: ''
+                          Ubicacion: ''
+                          FechaInstalacion: '20230216'
+                          FechaBaja: ''
+                          MotivoBaja: ''
+                          InicioGarantia: ''
+                          FinalGarantia: ''
+                          Notas: ''
+                          UsuarioID: 2
+                          FechaHoraUsuario: '2023-02-16T15:58:39.000'
+                          Id_SatMovil: 0
+                          Modelo: ''
+                          Marca: ''
+                          TipoEquipoID: -1
+                          NumeroSerieCliente: ''
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: ''
+                          NombreArticulo: ''
+                          CodigoCliente: ''
+                          NombreMailing: ''
+                          CodigoUbicacion: 0
+                          NombreUbicacion: ''
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: ''
+                        - ElementoID: 9
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 2
+                          ClienteID: 1
+                          DireccionID: 13
+                          NumeroSerie: '5698'
+                          Nombre: pruebaluis
+                          Ubicacion: dssdsds
+                          FechaInstalacion: '20230303'
+                          FechaBaja: '20230331'
+                          MotivoBaja: dessdsds
+                          InicioGarantia: '20230317'
+                          FinalGarantia: '20230324'
+                          Notas: dfgdfgdfgdfgdfg
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-03-03T13:56:56.000'
+                          Id_SatMovil: 0
+                          Modelo: ghhgjghjgh
+                          Marca: delvalle
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: 584NM
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: ART1
+                          NombreArticulo: ARTICULO DE VENTA 1
+                          CodigoCliente: '43000001'
+                          NombreMailing: dario
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                        - ElementoID: 10
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 1
+                          ClienteID: 1
+                          DireccionID: 13
+                          NumeroSerie: '17578242'
+                          Nombre: nfjdgfdsgPRUEBA
+                          Ubicacion: '54254254'
+                          FechaInstalacion: '20230303'
+                          FechaBaja: '20230309'
+                          MotivoBaja: kjrttgbrttrgrt
+                          InicioGarantia: '20230322'
+                          FinalGarantia: '20230331'
+                          Notas: tgtrgrtgrtgtrgtrgtrg
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-03-03T14:21:36.000'
+                          Id_SatMovil: 0
+                          Modelo: ''
+                          Marca: ''
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: ''
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: .
+                          NombreArticulo: Articulo ...3
+                          CodigoCliente: '43000001'
+                          NombreMailing: dario
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                        - ElementoID: 11
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 2
+                          ClienteID: 1
+                          DireccionID: 13
+                          NumeroSerie: '587411'
+                          Nombre: ''
+                          Ubicacion: '4545'
+                          FechaInstalacion: '20230317'
+                          FechaBaja: ''
+                          MotivoBaja: ''
+                          InicioGarantia: ''
+                          FinalGarantia: ''
+                          Notas: ''
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-03-17T10:17:50.000'
+                          Id_SatMovil: 0
+                          Modelo: ''
+                          Marca: ''
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: ''
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: ART1
+                          NombreArticulo: ARTICULO DE VENTA 1
+                          CodigoCliente: '43000001'
+                          NombreMailing: dario
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                        - ElementoID: 12
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 2
+                          ClienteID: 1
+                          DireccionID: 13
+                          NumeroSerie: '1213545'
+                          Nombre: ''
+                          Ubicacion: ''
+                          FechaInstalacion: '20230324'
+                          FechaBaja: ''
+                          MotivoBaja: ffasdfasdfasd
+                          InicioGarantia: ''
+                          FinalGarantia: ''
+                          Notas: ''
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-03-24T11:51:06.000'
+                          Id_SatMovil: 0
+                          Modelo: ''
+                          Marca: ''
+                          TipoEquipoID: 9999
+                          NumeroSerieCliente: ''
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: ART1
+                          NombreArticulo: ARTICULO DE VENTA 1
+                          CodigoCliente: '43000001'
+                          NombreMailing: dario
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por prueba
+                        - ElementoID: 14
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 395
+                          ClienteID: 84
+                          DireccionID: 63
+                          NumeroSerie: '191920'
+                          Nombre: YEI GUARDAR - Actualizar
+                          Ubicacion: Emplazamineto Prueba
+                          FechaInstalacion: '20230411'
+                          FechaBaja: '20230411'
+                          MotivoBaja: Porque si the flies
+                          InicioGarantia: '20230326'
+                          FinalGarantia: '20230326'
+                          Notas: Buenas tardes mis estimados
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-04-18T11:43:04.000'
+                          Id_SatMovil: 0
+                          Modelo: '1998'
+                          Marca: '1998'
+                          TipoEquipoID: 748
+                          NumeroSerieCliente: '555555'
+                          Gmao_LayoutID: 11
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 1
+                          Observaciones: dfgdg jijiji
+                          WebID: 0
+                          CodigoArticulo: 12RLB19543
+                          NombreArticulo: 'BASE 9563 - 1 CONTACTO,+'
+                          CodigoCliente: '43000036'
+                          NombreMailing: nombre fiscaleuMsh
+                          CodigoUbicacion: 57
+                          NombreUbicacion: Edgos v2
+                          GmaoTitulo: AdministraciÃ³n
+                          Apartado: '4551'
+                          TipoEquipoTexto: ''
+                        - ElementoID: 15
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 395
+                          ClienteID: 84
+                          DireccionID: 63
+                          NumeroSerie: '191920'
+                          Nombre: YEI GUARDAR - Actualizar
+                          Ubicacion: Emplazamineto Prueba
+                          FechaInstalacion: '20230411'
+                          FechaBaja: '20230411'
+                          MotivoBaja: Porque si the flies
+                          InicioGarantia: '20230326'
+                          FinalGarantia: '20230326'
+                          Notas: Buenas tardes mis estimados
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-04-18T11:43:11.000'
+                          Id_SatMovil: 0
+                          Modelo: '1998'
+                          Marca: '1998'
+                          TipoEquipoID: 748
+                          NumeroSerieCliente: '555555'
+                          Gmao_LayoutID: 11
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 1
+                          Observaciones: dfgdg jijiji
+                          WebID: 0
+                          CodigoArticulo: 12RLB19543
+                          NombreArticulo: 'BASE 9563 - 1 CONTACTO,+'
+                          CodigoCliente: '43000036'
+                          NombreMailing: nombre fiscaleuMsh
+                          CodigoUbicacion: 57
+                          NombreUbicacion: Edgos v2
+                          GmaoTitulo: AdministraciÃ³n
+                          Apartado: '4551'
+                          TipoEquipoTexto: ''
+                        - ElementoID: 16
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 395
+                          ClienteID: 84
+                          DireccionID: 63
+                          NumeroSerie: '191920'
+                          Nombre: YEI GUARDAR - Actualizar
+                          Ubicacion: Emplazamineto Prueba
+                          FechaInstalacion: '20230411'
+                          FechaBaja: '20230411'
+                          MotivoBaja: Porque si the flies
+                          InicioGarantia: '20230326'
+                          FinalGarantia: '20230326'
+                          Notas: Buenas tardes mis estimados
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-04-18T11:43:23.000'
+                          Id_SatMovil: 0
+                          Modelo: '1998'
+                          Marca: '1998'
+                          TipoEquipoID: 748
+                          NumeroSerieCliente: '555555'
+                          Gmao_LayoutID: 11
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 1
+                          Observaciones: dfgdg jijiji
+                          WebID: 0
+                          CodigoArticulo: 12RLB19543
+                          NombreArticulo: 'BASE 9563 - 1 CONTACTO,+'
+                          CodigoCliente: '43000036'
+                          NombreMailing: nombre fiscaleuMsh
+                          CodigoUbicacion: 57
+                          NombreUbicacion: Edgos v2
+                          GmaoTitulo: AdministraciÃ³n
+                          Apartado: '4551'
+                          TipoEquipoTexto: ''
+                        - ElementoID: 19
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 395
+                          ClienteID: 84
+                          DireccionID: 63
+                          NumeroSerie: '191920'
+                          Nombre: YEI GUARDAR - Actualizar
+                          Ubicacion: Emplazamineto Prueba
+                          FechaInstalacion: '20230411'
+                          FechaBaja: '20230411'
+                          MotivoBaja: Porque si the flies
+                          InicioGarantia: '20230326'
+                          FinalGarantia: '20230326'
+                          Notas: Buenas tardes mis estimados
+                          UsuarioID: 34
+                          FechaHoraUsuario: '2023-04-18T11:53:56.000'
+                          Id_SatMovil: 0
+                          Modelo: '1998'
+                          Marca: '1998'
+                          TipoEquipoID: 748
+                          NumeroSerieCliente: '555555'
+                          Gmao_LayoutID: 11
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 1
+                          Observaciones: dfgdg jijiji
+                          WebID: 0
+                          CodigoArticulo: 12RLB19543
+                          NombreArticulo: 'BASE 9563 - 1 CONTACTO,+'
+                          CodigoCliente: '43000036'
+                          NombreMailing: nombre fiscaleuMsh
+                          CodigoUbicacion: 57
+                          NombreUbicacion: Edgos v2
+                          GmaoTitulo: AdministraciÃ³n
+                          Apartado: '4551'
+                          TipoEquipoTexto: ''
+                        - ElementoID: 20
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 395
+                          ClienteID: 84
+                          DireccionID: 63
+                          NumeroSerie: '191920'
+                          Nombre: YEI GUARDAR - Actualizar
+                          Ubicacion: Emplazamineto Prueba
+                          FechaInstalacion: '20230411'
+                          FechaBaja: '20230411'
+                          MotivoBaja: Porque si the flies
+                          InicioGarantia: '20230326'
+                          FinalGarantia: '20230326'
+                          Notas: Buenas tardes mis estimados
+                          UsuarioID: 34
+                          FechaHoraUsuario: '2023-04-18T11:54:39.000'
+                          Id_SatMovil: 0
+                          Modelo: '1998'
+                          Marca: '1998'
+                          TipoEquipoID: 748
+                          NumeroSerieCliente: '555555'
+                          Gmao_LayoutID: 11
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 1
+                          Observaciones: dfgdg jijiji
+                          WebID: 0
+                          CodigoArticulo: 12RLB19543
+                          NombreArticulo: 'BASE 9563 - 1 CONTACTO,+'
+                          CodigoCliente: '43000036'
+                          NombreMailing: nombre fiscaleuMsh
+                          CodigoUbicacion: 57
+                          NombreUbicacion: Edgos v2
+                          GmaoTitulo: AdministraciÃ³n
+                          Apartado: '4551'
+                          TipoEquipoTexto: ''
+                      sql: "SELECT Elemento.*,\r\nArticulo.Codigo AS CodigoArticulo,\r\nArticulo.Nombre AS NombreArticulo,\r\nCliente.Codigo AS CodigoCliente,\r\nMailing.Nombre AS NombreMailing,\r\nDireccion.Codigo AS CodigoUbicacion,\r\nDireccion.Nombre AS NombreUbicacion,\r\ngmao_layout.Titulo AS GmaoTitulo,\r\nchecklistapartado.Apartado,\r\nTipoEquipo.Descripcion AS TipoEquipoTexto\r\nFROM Elemento\r\nLEFT OUTER JOIN Articulo ON Articulo.ArticuloID = ElementO.ArticuloID\r\nLEFT OUTER JOIN Cliente ON Cliente.ClienteID = Elemento.ClienteID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = Elemento.DireccionID\r\nLEFT OUTER JOIN gmao_layout ON gmao_layout.Gmao_LayoutID = elemento.Gmao_LayoutID\r\nLEFT OUTER JOIN checklistapartado ON checklistapartado.CheckListApartadoID = elemento.CheckListApartadoID\r\nLEFT OUTER JOIN TablaGeneral AS TipoEquipo ON TipoEquipo.TablaGeneralID = Elemento.TipoEquipoID\r\n\r\nWHERE Elemento.CustomerID = 29\r\nAND Elemento.EmpresaID = 1\r\n\r\nORDER BY elemento.ElementoID ASC\r\nLIMIT 50\r\nOFFSET 0"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - ElementoID: 1
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 606
+                          ClienteID: 1
+                          DireccionID: 13
+                          NumeroSerie: '3442342'
+                          Nombre: EXTINTOR
+                          Ubicacion: ''
+                          FechaInstalacion: '20180322'
+                          FechaBaja: '20230303'
+                          MotivoBaja: ''
+                          InicioGarantia: '20180322'
+                          FinalGarantia: '20190831'
+                          Notas: ''
+                          UsuarioID: 3
+                          FechaHoraUsuario: '2018-03-22T09:45:41.000'
+                          Id_SatMovil: 0
+                          Modelo: XR-190
+                          Marca: BABESA
+                          TipoEquipoID: 9999
+                          NumeroSerieCliente: '345345345'
+                          Gmao_LayoutID: 5
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 4
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: Z12007
+                          NombreArticulo: BOMBA HIDRONEUMATICA S/E 2LTS
+                          CodigoCliente: '43000001'
+                          NombreMailing: dario
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          GmaoTitulo: AlmacÃ©n
+                          Apartado: '78547'
+                          TipoEquipoTexto: Proveedores por prueba
+                        - ElementoID: 2
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 5
+                          ClienteID: 1
+                          DireccionID: 13
+                          NumeroSerie: '123'
+                          Nombre: Plegadora
+                          Ubicacion: ''
+                          FechaInstalacion: '20190227'
+                          FechaBaja: ''
+                          MotivoBaja: ''
+                          InicioGarantia: ''
+                          FinalGarantia: ''
+                          Notas: ''
+                          UsuarioID: 3
+                          FechaHoraUsuario: '2019-02-27T09:12:16.000'
+                          Id_SatMovil: 0
+                          Modelo: '2026'
+                          Marca: RENAULT
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: ''
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: ACE1
+                          NombreArticulo: ACERO TIPO 1
+                          CodigoCliente: '43000001'
+                          NombreMailing: dario
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                        - ElementoID: 3
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 3442
+                          ClienteID: 1137
+                          DireccionID: 31
+                          NumeroSerie: EQ-C1
+                          Nombre: EquipNuevo
+                          Ubicacion: ''
+                          FechaInstalacion: '20221121'
+                          FechaBaja: ''
+                          MotivoBaja: ''
+                          InicioGarantia: ''
+                          FinalGarantia: ''
+                          Notas: ''
+                          UsuarioID: 2
+                          FechaHoraUsuario: '2022-11-21T14:31:12.000'
+                          Id_SatMovil: 0
+                          Modelo: Nuevo
+                          Marca: Nueva
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: '232'
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 2649
+                          CodigoArticulo: ART-C4
+                          NombreArticulo: articuloC4
+                          CodigoCliente: '43000429'
+                          NombreMailing: CarlitosM
+                          CodigoUbicacion: 3
+                          NombreUbicacion: FERFWE
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                        - ElementoID: 4
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 3439
+                          ClienteID: 1137
+                          DireccionID: 31
+                          NumeroSerie: EQ-C2
+                          Nombre: Equip-2
+                          Ubicacion: ''
+                          FechaInstalacion: '20221121'
+                          FechaBaja: '20230615'
+                          MotivoBaja: rew
+                          InicioGarantia: ''
+                          FinalGarantia: ''
+                          Notas: ''
+                          UsuarioID: 2
+                          FechaHoraUsuario: '2022-11-21T14:32:14.000'
+                          Id_SatMovil: 0
+                          Modelo: '12'
+                          Marca: '11'
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: '12344'
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 2650
+                          CodigoArticulo: ART-C1
+                          NombreArticulo: ARTICULO C1
+                          CodigoCliente: '43000429'
+                          NombreMailing: CarlitosM
+                          CodigoUbicacion: 3
+                          NombreUbicacion: FERFWE
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                        - ElementoID: 5
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 3444
+                          ClienteID: 1140
+                          DireccionID: 32
+                          NumeroSerie: EQUI1
+                          Nombre: EQUIP-1
+                          Ubicacion: ''
+                          FechaInstalacion: '20221122'
+                          FechaBaja: ''
+                          MotivoBaja: ''
+                          InicioGarantia: '20221122'
+                          FinalGarantia: '20230422'
+                          Notas: TYYT
+                          UsuarioID: 2
+                          FechaHoraUsuario: '2022-11-22T15:24:10.000'
+                          Id_SatMovil: 0
+                          Modelo: '122'
+                          Marca: '12'
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: '3434'
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 2651
+                          CodigoArticulo: ARTICULO-PR
+                          NombreArticulo: ArticuloPrincipal
+                          CodigoCliente: '43000432'
+                          NombreMailing: Lola
+                          CodigoUbicacion: 43
+                          NombreUbicacion: DireccionNUEVA
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                        - ElementoID: 6
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 3444
+                          ClienteID: 1140
+                          DireccionID: 32
+                          NumeroSerie: EQUI2
+                          Nombre: EQUI-NEW
+                          Ubicacion: ''
+                          FechaInstalacion: '20221126'
+                          FechaBaja: ''
+                          MotivoBaja: ''
+                          InicioGarantia: '20221122'
+                          FinalGarantia: '20230808'
+                          Notas: ''
+                          UsuarioID: 2
+                          FechaHoraUsuario: '2022-11-22T15:28:39.000'
+                          Id_SatMovil: 0
+                          Modelo: zzz
+                          Marca: Nuevaa
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: '223'
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 2652
+                          CodigoArticulo: ARTICULO-PR
+                          NombreArticulo: ArticuloPrincipal
+                          CodigoCliente: '43000432'
+                          NombreMailing: Lola
+                          CodigoUbicacion: 43
+                          NombreUbicacion: DireccionNUEVA
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                        - ElementoID: 7
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 0
+                          ClienteID: 1142
+                          DireccionID: 34
+                          NumeroSerie: EQ-JUANITO-1
+                          Nombre: ''
+                          Ubicacion: ''
+                          FechaInstalacion: '20221213'
+                          FechaBaja: ''
+                          MotivoBaja: ''
+                          InicioGarantia: ''
+                          FinalGarantia: ''
+                          Notas: ''
+                          UsuarioID: 2
+                          FechaHoraUsuario: '2022-12-13T11:48:16.000'
+                          Id_SatMovil: 0
+                          Modelo: ''
+                          Marca: ''
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: ''
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 2654
+                          CodigoArticulo: ''
+                          NombreArticulo: ''
+                          CodigoCliente: '43000434'
+                          NombreMailing: Juanito
+                          CodigoUbicacion: 45
+                          NombreUbicacion: PR-NUEVA
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                        - ElementoID: 8
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 0
+                          ClienteID: 0
+                          DireccionID: 0
+                          NumeroSerie: '88888'
+                          Nombre: ''
+                          Ubicacion: ''
+                          FechaInstalacion: '20230216'
+                          FechaBaja: ''
+                          MotivoBaja: ''
+                          InicioGarantia: ''
+                          FinalGarantia: ''
+                          Notas: ''
+                          UsuarioID: 2
+                          FechaHoraUsuario: '2023-02-16T15:58:39.000'
+                          Id_SatMovil: 0
+                          Modelo: ''
+                          Marca: ''
+                          TipoEquipoID: -1
+                          NumeroSerieCliente: ''
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: ''
+                          NombreArticulo: ''
+                          CodigoCliente: ''
+                          NombreMailing: ''
+                          CodigoUbicacion: 0
+                          NombreUbicacion: ''
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: ''
+                        - ElementoID: 9
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 2
+                          ClienteID: 1
+                          DireccionID: 13
+                          NumeroSerie: '5698'
+                          Nombre: pruebaluis
+                          Ubicacion: dssdsds
+                          FechaInstalacion: '20230303'
+                          FechaBaja: '20230331'
+                          MotivoBaja: dessdsds
+                          InicioGarantia: '20230317'
+                          FinalGarantia: '20230324'
+                          Notas: dfgdfgdfgdfgdfg
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-03-03T13:56:56.000'
+                          Id_SatMovil: 0
+                          Modelo: ghhgjghjgh
+                          Marca: delvalle
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: 584NM
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: ART1
+                          NombreArticulo: ARTICULO DE VENTA 1
+                          CodigoCliente: '43000001'
+                          NombreMailing: dario
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                        - ElementoID: 10
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 1
+                          ClienteID: 1
+                          DireccionID: 13
+                          NumeroSerie: '17578242'
+                          Nombre: nfjdgfdsgPRUEBA
+                          Ubicacion: '54254254'
+                          FechaInstalacion: '20230303'
+                          FechaBaja: '20230309'
+                          MotivoBaja: kjrttgbrttrgrt
+                          InicioGarantia: '20230322'
+                          FinalGarantia: '20230331'
+                          Notas: tgtrgrtgrtgtrgtrgtrg
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-03-03T14:21:36.000'
+                          Id_SatMovil: 0
+                          Modelo: ''
+                          Marca: ''
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: ''
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: .
+                          NombreArticulo: Articulo ...3
+                          CodigoCliente: '43000001'
+                          NombreMailing: dario
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                        - ElementoID: 11
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 2
+                          ClienteID: 1
+                          DireccionID: 13
+                          NumeroSerie: '587411'
+                          Nombre: ''
+                          Ubicacion: '4545'
+                          FechaInstalacion: '20230317'
+                          FechaBaja: ''
+                          MotivoBaja: ''
+                          InicioGarantia: ''
+                          FinalGarantia: ''
+                          Notas: ''
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-03-17T10:17:50.000'
+                          Id_SatMovil: 0
+                          Modelo: ''
+                          Marca: ''
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: ''
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: ART1
+                          NombreArticulo: ARTICULO DE VENTA 1
+                          CodigoCliente: '43000001'
+                          NombreMailing: dario
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                        - ElementoID: 12
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 2
+                          ClienteID: 1
+                          DireccionID: 13
+                          NumeroSerie: '1213545'
+                          Nombre: ''
+                          Ubicacion: ''
+                          FechaInstalacion: '20230324'
+                          FechaBaja: ''
+                          MotivoBaja: ffasdfasdfasd
+                          InicioGarantia: ''
+                          FinalGarantia: ''
+                          Notas: ''
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-03-24T11:51:06.000'
+                          Id_SatMovil: 0
+                          Modelo: ''
+                          Marca: ''
+                          TipoEquipoID: 9999
+                          NumeroSerieCliente: ''
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: ART1
+                          NombreArticulo: ARTICULO DE VENTA 1
+                          CodigoCliente: '43000001'
+                          NombreMailing: dario
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por prueba
+                        - ElementoID: 14
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 395
+                          ClienteID: 84
+                          DireccionID: 63
+                          NumeroSerie: '191920'
+                          Nombre: YEI GUARDAR - Actualizar
+                          Ubicacion: Emplazamineto Prueba
+                          FechaInstalacion: '20230411'
+                          FechaBaja: '20230411'
+                          MotivoBaja: Porque si the flies
+                          InicioGarantia: '20230326'
+                          FinalGarantia: '20230326'
+                          Notas: Buenas tardes mis estimados
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-04-18T11:43:04.000'
+                          Id_SatMovil: 0
+                          Modelo: '1998'
+                          Marca: '1998'
+                          TipoEquipoID: 748
+                          NumeroSerieCliente: '555555'
+                          Gmao_LayoutID: 11
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 1
+                          Observaciones: dfgdg jijiji
+                          WebID: 0
+                          CodigoArticulo: 12RLB19543
+                          NombreArticulo: 'BASE 9563 - 1 CONTACTO,+'
+                          CodigoCliente: '43000036'
+                          NombreMailing: nombre fiscaleuMsh
+                          CodigoUbicacion: 57
+                          NombreUbicacion: Edgos v2
+                          GmaoTitulo: AdministraciÃ³n
+                          Apartado: '4551'
+                          TipoEquipoTexto: ''
+                        - ElementoID: 15
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 395
+                          ClienteID: 84
+                          DireccionID: 63
+                          NumeroSerie: '191920'
+                          Nombre: YEI GUARDAR - Actualizar
+                          Ubicacion: Emplazamineto Prueba
+                          FechaInstalacion: '20230411'
+                          FechaBaja: '20230411'
+                          MotivoBaja: Porque si the flies
+                          InicioGarantia: '20230326'
+                          FinalGarantia: '20230326'
+                          Notas: Buenas tardes mis estimados
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-04-18T11:43:11.000'
+                          Id_SatMovil: 0
+                          Modelo: '1998'
+                          Marca: '1998'
+                          TipoEquipoID: 748
+                          NumeroSerieCliente: '555555'
+                          Gmao_LayoutID: 11
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 1
+                          Observaciones: dfgdg jijiji
+                          WebID: 0
+                          CodigoArticulo: 12RLB19543
+                          NombreArticulo: 'BASE 9563 - 1 CONTACTO,+'
+                          CodigoCliente: '43000036'
+                          NombreMailing: nombre fiscaleuMsh
+                          CodigoUbicacion: 57
+                          NombreUbicacion: Edgos v2
+                          GmaoTitulo: AdministraciÃ³n
+                          Apartado: '4551'
+                          TipoEquipoTexto: ''
+                        - ElementoID: 16
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 395
+                          ClienteID: 84
+                          DireccionID: 63
+                          NumeroSerie: '191920'
+                          Nombre: YEI GUARDAR - Actualizar
+                          Ubicacion: Emplazamineto Prueba
+                          FechaInstalacion: '20230411'
+                          FechaBaja: '20230411'
+                          MotivoBaja: Porque si the flies
+                          InicioGarantia: '20230326'
+                          FinalGarantia: '20230326'
+                          Notas: Buenas tardes mis estimados
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-04-18T11:43:23.000'
+                          Id_SatMovil: 0
+                          Modelo: '1998'
+                          Marca: '1998'
+                          TipoEquipoID: 748
+                          NumeroSerieCliente: '555555'
+                          Gmao_LayoutID: 11
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 1
+                          Observaciones: dfgdg jijiji
+                          WebID: 0
+                          CodigoArticulo: 12RLB19543
+                          NombreArticulo: 'BASE 9563 - 1 CONTACTO,+'
+                          CodigoCliente: '43000036'
+                          NombreMailing: nombre fiscaleuMsh
+                          CodigoUbicacion: 57
+                          NombreUbicacion: Edgos v2
+                          GmaoTitulo: AdministraciÃ³n
+                          Apartado: '4551'
+                          TipoEquipoTexto: ''
+                        - ElementoID: 19
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 395
+                          ClienteID: 84
+                          DireccionID: 63
+                          NumeroSerie: '191920'
+                          Nombre: YEI GUARDAR - Actualizar
+                          Ubicacion: Emplazamineto Prueba
+                          FechaInstalacion: '20230411'
+                          FechaBaja: '20230411'
+                          MotivoBaja: Porque si the flies
+                          InicioGarantia: '20230326'
+                          FinalGarantia: '20230326'
+                          Notas: Buenas tardes mis estimados
+                          UsuarioID: 34
+                          FechaHoraUsuario: '2023-04-18T11:53:56.000'
+                          Id_SatMovil: 0
+                          Modelo: '1998'
+                          Marca: '1998'
+                          TipoEquipoID: 748
+                          NumeroSerieCliente: '555555'
+                          Gmao_LayoutID: 11
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 1
+                          Observaciones: dfgdg jijiji
+                          WebID: 0
+                          CodigoArticulo: 12RLB19543
+                          NombreArticulo: 'BASE 9563 - 1 CONTACTO,+'
+                          CodigoCliente: '43000036'
+                          NombreMailing: nombre fiscaleuMsh
+                          CodigoUbicacion: 57
+                          NombreUbicacion: Edgos v2
+                          GmaoTitulo: AdministraciÃ³n
+                          Apartado: '4551'
+                          TipoEquipoTexto: ''
+                        - ElementoID: 20
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 395
+                          ClienteID: 84
+                          DireccionID: 63
+                          NumeroSerie: '191920'
+                          Nombre: YEI GUARDAR - Actualizar
+                          Ubicacion: Emplazamineto Prueba
+                          FechaInstalacion: '20230411'
+                          FechaBaja: '20230411'
+                          MotivoBaja: Porque si the flies
+                          InicioGarantia: '20230326'
+                          FinalGarantia: '20230326'
+                          Notas: Buenas tardes mis estimados
+                          UsuarioID: 34
+                          FechaHoraUsuario: '2023-04-18T11:54:39.000'
+                          Id_SatMovil: 0
+                          Modelo: '1998'
+                          Marca: '1998'
+                          TipoEquipoID: 748
+                          NumeroSerieCliente: '555555'
+                          Gmao_LayoutID: 11
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 1
+                          Observaciones: dfgdg jijiji
+                          WebID: 0
+                          CodigoArticulo: 12RLB19543
+                          NombreArticulo: 'BASE 9563 - 1 CONTACTO,+'
+                          CodigoCliente: '43000036'
+                          NombreMailing: nombre fiscaleuMsh
+                          CodigoUbicacion: 57
+                          NombreUbicacion: Edgos v2
+                          GmaoTitulo: AdministraciÃ³n
+                          Apartado: '4551'
+                          TipoEquipoTexto: ''
+                      sql: "SELECT Elemento.*,\r\nArticulo.Codigo AS CodigoArticulo,\r\nArticulo.Nombre AS NombreArticulo,\r\nCliente.Codigo AS CodigoCliente,\r\nMailing.Nombre AS NombreMailing,\r\nDireccion.Codigo AS CodigoUbicacion,\r\nDireccion.Nombre AS NombreUbicacion,\r\ngmao_layout.Titulo AS GmaoTitulo,\r\nchecklistapartado.Apartado,\r\nTipoEquipo.Descripcion AS TipoEquipoTexto\r\nFROM Elemento\r\nLEFT OUTER JOIN Articulo ON Articulo.ArticuloID = ElementO.ArticuloID\r\nLEFT OUTER JOIN Cliente ON Cliente.ClienteID = Elemento.ClienteID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = Elemento.DireccionID\r\nLEFT OUTER JOIN gmao_layout ON gmao_layout.Gmao_LayoutID = elemento.Gmao_LayoutID\r\nLEFT OUTER JOIN checklistapartado ON checklistapartado.CheckListApartadoID = elemento.CheckListApartadoID\r\nLEFT OUTER JOIN TablaGeneral AS TipoEquipo ON TipoEquipo.TablaGeneralID = Elemento.TipoEquipoID\r\n\r\nWHERE Elemento.CustomerID = 29\r\nAND Elemento.EmpresaID = 1\r\n\r\nORDER BY elemento.ElementoID ASC\r\nLIMIT 50\r\nOFFSET 0"
+      operationId: get-equipments
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: limit
+          description: '50'
+        - schema:
+            type: string
+          in: query
+          name: offset
+          description: '0'
+        - schema:
+            type: string
+          in: query
+          name: 'order '
+          description: ASC
 components:
   schemas: {}
   '/intervention/equipment/{avisoTicketID}':
