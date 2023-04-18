@@ -849,17 +849,96 @@ paths:
     get:
       summary: findManyByParamForLayout
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Gmao_LayoutID:
+                              type: integer
+                            Titulo:
+                              type: string
+                            Descripcion:
+                              type: string
+                            DireccionID:
+                              type: integer
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - Gmao_LayoutID: 21
+                          Titulo: Edificio
+                          Descripcion: ''
+                          DireccionID: 14
+                        - Gmao_LayoutID: 22
+                          Titulo: Planta
+                          Descripcion: ''
+                          DireccionID: 14
+                        - Gmao_LayoutID: 23
+                          Titulo: Planta 2
+                          Descripcion: ''
+                          DireccionID: 14
+                      sql: "SELECT\r\ngmao_layout.Gmao_LayoutID,\r\ngmao_layout.Titulo,\r\ngmao_layout.Descripcion,\r\ngmao_layout.DireccionID\r\n\r\nFROM \r\ngmao_layout\r\n \r\nWHERE \r\ngmao_layout.CustomerID = 29 AND\r\ngmao_layout.EmpresaID = 1 AND\r\ngmao_layout.DireccionID = 14\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - Gmao_LayoutID: 21
+                          Titulo: Edificio
+                          Descripcion: ''
+                          DireccionID: 14
+                        - Gmao_LayoutID: 22
+                          Titulo: Planta
+                          Descripcion: ''
+                          DireccionID: 14
+                        - Gmao_LayoutID: 23
+                          Titulo: Planta 2
+                          Descripcion: ''
+                          DireccionID: 14
+                      sql: "SELECT\r\ngmao_layout.Gmao_LayoutID,\r\ngmao_layout.Titulo,\r\ngmao_layout.Descripcion,\r\ngmao_layout.DireccionID\r\n\r\nFROM \r\ngmao_layout\r\n \r\nWHERE \r\ngmao_layout.CustomerID = 29 AND\r\ngmao_layout.EmpresaID = 1 AND\r\ngmao_layout.DireccionID = 14\r\n"
       operationId: get-layout
       parameters:
         - schema:
             type: string
           in: header
           name: 'accessToken '
+          description: '"tokenReciente"'
         - schema:
             type: string
           in: query
           name: 'param '
+          description: edificio
+        - schema:
+            type: string
+          in: query
+          name: direccionID
+          description: '14'
 components:
   schemas: {}
   '/intervention/equipment/{avisoTicketID}':
