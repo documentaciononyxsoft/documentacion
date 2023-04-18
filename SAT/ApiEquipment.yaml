@@ -2186,6 +2186,292 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  '/equipment/quicksearch/{sBusqueda}':
+    parameters:
+      - schema:
+          type: string
+        name: sBusqueda
+        in: path
+        required: true
+        description: PRUEBA
+    get:
+      summary: FindManyByFilterForEquipment
+      tags: []
+      responses: {}
+      operationId: get-equipment-quicksearch-sBusqueda
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                statusCode:
+                  type: integer
+                message:
+                  type: string
+                content:
+                  type: object
+                  properties:
+                    success:
+                      type: boolean
+                    records:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          ElementoID:
+                            type: integer
+                          CustomerID:
+                            type: integer
+                          EmpresaID:
+                            type: integer
+                          ArticuloID:
+                            type: integer
+                          ClienteID:
+                            type: integer
+                          DireccionID:
+                            type: integer
+                          NumeroSerie:
+                            type: string
+                          Nombre:
+                            type: string
+                          Ubicacion:
+                            type: string
+                          FechaInstalacion:
+                            type: string
+                          FechaBaja:
+                            type: string
+                          MotivoBaja:
+                            type: string
+                          InicioGarantia:
+                            type: string
+                          FinalGarantia:
+                            type: string
+                          Notas:
+                            type: string
+                          UsuarioID:
+                            type: integer
+                          FechaHoraUsuario:
+                            type: string
+                          Id_SatMovil:
+                            type: integer
+                          Modelo:
+                            type: string
+                          Marca:
+                            type: string
+                          TipoEquipoID:
+                            type: integer
+                          NumeroSerieCliente:
+                            type: string
+                          Gmao_LayoutID:
+                            type: integer
+                          Proyecto_OFID:
+                            type: integer
+                          AlbaranCompraCabeceraID:
+                            type: integer
+                          AlbaranVentaCabeceraID:
+                            type: integer
+                          CheckListApartadoID:
+                            type: integer
+                          Observaciones:
+                            type: string
+                          WebID:
+                            type: integer
+                          CodigoArticulo:
+                            type: string
+                          NombreArticulo:
+                            type: string
+                          CodigoCliente:
+                            type: string
+                          NombreMailing:
+                            type: string
+                          CodigoUbicacion:
+                            type: integer
+                          NombreUbicacion:
+                            type: string
+                          GmaoTitulo:
+                            type: string
+                          Apartado:
+                            type: string
+                          TipoEquipoTexto:
+                            type: string
+                    sql:
+                      type: string
+              x-examples:
+                Example 1:
+                  statusCode: 200
+                  message: Request processed successfully
+                  content:
+                    success: true
+                    records:
+                      - ElementoID: 10
+                        CustomerID: 29
+                        EmpresaID: 1
+                        ArticuloID: 1
+                        ClienteID: 1
+                        DireccionID: 13
+                        NumeroSerie: '17578242'
+                        Nombre: nfjdgfdsgPRUEBA
+                        Ubicacion: '54254254'
+                        FechaInstalacion: '20230303'
+                        FechaBaja: '20230309'
+                        MotivoBaja: kjrttgbrttrgrt
+                        InicioGarantia: '20230322'
+                        FinalGarantia: '20230331'
+                        Notas: tgtrgrtgrtgtrgtrgtrg
+                        UsuarioID: 1
+                        FechaHoraUsuario: '2023-03-03T14:21:36.000'
+                        Id_SatMovil: 0
+                        Modelo: ''
+                        Marca: ''
+                        TipoEquipoID: 1233
+                        NumeroSerieCliente: ''
+                        Gmao_LayoutID: 0
+                        Proyecto_OFID: 0
+                        AlbaranCompraCabeceraID: 0
+                        AlbaranVentaCabeceraID: 0
+                        CheckListApartadoID: 0
+                        Observaciones: ''
+                        WebID: 0
+                        CodigoArticulo: .
+                        NombreArticulo: Articulo ...3
+                        CodigoCliente: '43000001'
+                        NombreMailing: dario
+                        CodigoUbicacion: 1
+                        NombreUbicacion: SAT MADRID 1
+                        GmaoTitulo: ''
+                        Apartado: ''
+                        TipoEquipoTexto: Proveedores por tipo
+                      - ElementoID: 9
+                        CustomerID: 29
+                        EmpresaID: 1
+                        ArticuloID: 2
+                        ClienteID: 1
+                        DireccionID: 13
+                        NumeroSerie: '5698'
+                        Nombre: pruebaluis
+                        Ubicacion: dssdsds
+                        FechaInstalacion: '20230303'
+                        FechaBaja: '20230331'
+                        MotivoBaja: dessdsds
+                        InicioGarantia: '20230317'
+                        FinalGarantia: '20230324'
+                        Notas: dfgdfgdfgdfgdfg
+                        UsuarioID: 1
+                        FechaHoraUsuario: '2023-03-03T13:56:56.000'
+                        Id_SatMovil: 0
+                        Modelo: ghhgjghjgh
+                        Marca: delvalle
+                        TipoEquipoID: 1233
+                        NumeroSerieCliente: 584NM
+                        Gmao_LayoutID: 0
+                        Proyecto_OFID: 0
+                        AlbaranCompraCabeceraID: 0
+                        AlbaranVentaCabeceraID: 0
+                        CheckListApartadoID: 0
+                        Observaciones: ''
+                        WebID: 0
+                        CodigoArticulo: ART1
+                        NombreArticulo: ARTICULO DE VENTA 1
+                        CodigoCliente: '43000001'
+                        NombreMailing: dario
+                        CodigoUbicacion: 1
+                        NombreUbicacion: SAT MADRID 1
+                        GmaoTitulo: ''
+                        Apartado: ''
+                        TipoEquipoTexto: Proveedores por tipo
+                    sql: "SELECT Elemento.*,\r\nArticulo.Codigo AS CodigoArticulo,\r\nArticulo.Nombre AS NombreArticulo,\r\nCliente.Codigo AS CodigoCliente,\r\nMailing.Nombre AS NombreMailing,\r\nDireccion.Codigo AS CodigoUbicacion,\r\nDireccion.Nombre AS NombreUbicacion,\r\ngmao_layout.Titulo AS GmaoTitulo,\r\nchecklistapartado.Apartado,\r\nTipoEquipo.Descripcion AS TipoEquipoTexto\r\nFROM Elemento\r\nLEFT OUTER JOIN Articulo ON Articulo.ArticuloID = ElementO.ArticuloID\r\nLEFT OUTER JOIN Cliente ON Cliente.ClienteID = Elemento.ClienteID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = Elemento.DireccionID\r\nLEFT OUTER JOIN gmao_layout ON gmao_layout.Gmao_LayoutID = elemento.Gmao_LayoutID\r\nLEFT OUTER JOIN checklistapartado ON checklistapartado.CheckListApartadoID = elemento.CheckListApartadoID\r\nLEFT OUTER JOIN TablaGeneral AS TipoEquipo ON TipoEquipo.TablaGeneralID = Elemento.TipoEquipoID\r\n\r\nWHERE Elemento.CustomerID = 29\r\nAND Elemento.EmpresaID = 1 AND\r\n(elemento.NumeroSerie LIKE '%PRUEBA%' OR elemento.Nombre LIKE '%PRUEBA%' OR elemento.NumeroSerieCliente LIKE '%PRUEBA%')\r\n\r\nORDER BY elemento.NumeroSerie"
+            examples:
+              Example 1:
+                value:
+                  statusCode: 200
+                  message: Request processed successfully
+                  content:
+                    success: true
+                    records:
+                      - ElementoID: 10
+                        CustomerID: 29
+                        EmpresaID: 1
+                        ArticuloID: 1
+                        ClienteID: 1
+                        DireccionID: 13
+                        NumeroSerie: '17578242'
+                        Nombre: nfjdgfdsgPRUEBA
+                        Ubicacion: '54254254'
+                        FechaInstalacion: '20230303'
+                        FechaBaja: '20230309'
+                        MotivoBaja: kjrttgbrttrgrt
+                        InicioGarantia: '20230322'
+                        FinalGarantia: '20230331'
+                        Notas: tgtrgrtgrtgtrgtrgtrg
+                        UsuarioID: 1
+                        FechaHoraUsuario: '2023-03-03T14:21:36.000'
+                        Id_SatMovil: 0
+                        Modelo: ''
+                        Marca: ''
+                        TipoEquipoID: 1233
+                        NumeroSerieCliente: ''
+                        Gmao_LayoutID: 0
+                        Proyecto_OFID: 0
+                        AlbaranCompraCabeceraID: 0
+                        AlbaranVentaCabeceraID: 0
+                        CheckListApartadoID: 0
+                        Observaciones: ''
+                        WebID: 0
+                        CodigoArticulo: .
+                        NombreArticulo: Articulo ...3
+                        CodigoCliente: '43000001'
+                        NombreMailing: dario
+                        CodigoUbicacion: 1
+                        NombreUbicacion: SAT MADRID 1
+                        GmaoTitulo: ''
+                        Apartado: ''
+                        TipoEquipoTexto: Proveedores por tipo
+                      - ElementoID: 9
+                        CustomerID: 29
+                        EmpresaID: 1
+                        ArticuloID: 2
+                        ClienteID: 1
+                        DireccionID: 13
+                        NumeroSerie: '5698'
+                        Nombre: pruebaluis
+                        Ubicacion: dssdsds
+                        FechaInstalacion: '20230303'
+                        FechaBaja: '20230331'
+                        MotivoBaja: dessdsds
+                        InicioGarantia: '20230317'
+                        FinalGarantia: '20230324'
+                        Notas: dfgdfgdfgdfgdfg
+                        UsuarioID: 1
+                        FechaHoraUsuario: '2023-03-03T13:56:56.000'
+                        Id_SatMovil: 0
+                        Modelo: ghhgjghjgh
+                        Marca: delvalle
+                        TipoEquipoID: 1233
+                        NumeroSerieCliente: 584NM
+                        Gmao_LayoutID: 0
+                        Proyecto_OFID: 0
+                        AlbaranCompraCabeceraID: 0
+                        AlbaranVentaCabeceraID: 0
+                        CheckListApartadoID: 0
+                        Observaciones: ''
+                        WebID: 0
+                        CodigoArticulo: ART1
+                        NombreArticulo: ARTICULO DE VENTA 1
+                        CodigoCliente: '43000001'
+                        NombreMailing: dario
+                        CodigoUbicacion: 1
+                        NombreUbicacion: SAT MADRID 1
+                        GmaoTitulo: ''
+                        Apartado: ''
+                        TipoEquipoTexto: Proveedores por tipo
+                    sql: "SELECT Elemento.*,\r\nArticulo.Codigo AS CodigoArticulo,\r\nArticulo.Nombre AS NombreArticulo,\r\nCliente.Codigo AS CodigoCliente,\r\nMailing.Nombre AS NombreMailing,\r\nDireccion.Codigo AS CodigoUbicacion,\r\nDireccion.Nombre AS NombreUbicacion,\r\ngmao_layout.Titulo AS GmaoTitulo,\r\nchecklistapartado.Apartado,\r\nTipoEquipo.Descripcion AS TipoEquipoTexto\r\nFROM Elemento\r\nLEFT OUTER JOIN Articulo ON Articulo.ArticuloID = ElementO.ArticuloID\r\nLEFT OUTER JOIN Cliente ON Cliente.ClienteID = Elemento.ClienteID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = Elemento.DireccionID\r\nLEFT OUTER JOIN gmao_layout ON gmao_layout.Gmao_LayoutID = elemento.Gmao_LayoutID\r\nLEFT OUTER JOIN checklistapartado ON checklistapartado.CheckListApartadoID = elemento.CheckListApartadoID\r\nLEFT OUTER JOIN TablaGeneral AS TipoEquipo ON TipoEquipo.TablaGeneralID = Elemento.TipoEquipoID\r\n\r\nWHERE Elemento.CustomerID = 29\r\nAND Elemento.EmpresaID = 1 AND\r\n(elemento.NumeroSerie LIKE '%PRUEBA%' OR elemento.Nombre LIKE '%PRUEBA%' OR elemento.NumeroSerieCliente LIKE '%PRUEBA%')\r\n\r\nORDER BY elemento.NumeroSerie"
 components:
   schemas: {}
   '/intervention/equipment/{avisoTicketID}':
