@@ -2001,6 +2001,25 @@ paths:
           in: query
           name: 'order '
           description: ASC
+  '/equipment/{elementoID}':
+    parameters:
+      - schema:
+          type: string
+        name: elementoID
+        in: path
+        required: true
+    put:
+      summary: UpdateForEquipment
+      operationId: put-equipment-elementoID
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: DeleteForEquipment
+      operationId: delete-equipment-elementoID
+      responses:
+        '200':
+          description: OK
 components:
   schemas: {}
   '/intervention/equipment/{avisoTicketID}':
