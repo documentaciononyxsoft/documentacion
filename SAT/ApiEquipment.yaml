@@ -2679,6 +2679,97 @@ paths:
         in: path
         required: true
         description: '9'
+  /equipment/preventiveMaintenance:
+    post:
+      summary: createPreventiveMaintenanceForEquipment
+      operationId: post-equipment-preventiveMaintenance
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      mantenimientoPreventivoID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      mantenimientoPreventivoID: 20
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      mantenimientoPreventivoID: 20
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fechaAlta:
+                  type: string
+                fechaBaja:
+                  type: string
+                concepto:
+                  type: string
+                frecuencia:
+                  type: integer
+                periodo:
+                  type: string
+                dia:
+                  type: integer
+                desdeHora:
+                  type: string
+                hastaHora:
+                  type: string
+                equipoID:
+                  type: integer
+              x-examples:
+                Example 1:
+                  fechaAlta: '20240402'
+                  fechaBaja: '20200408'
+                  concepto: pruebaLUIS
+                  frecuencia: 2
+                  periodo: ME
+                  dia: 5
+                  desdeHora: '5:40'
+                  hastaHora: '7:00'
+                  equipoID: 9
+            examples:
+              Example 1:
+                value:
+                  fechaAlta: '20240402'
+                  fechaBaja: '20200408'
+                  concepto: pruebaLUIS
+                  frecuencia: 2
+                  periodo: ME
+                  dia: 5
+                  desdeHora: '5:40'
+                  hastaHora: '7:00'
+                  equipoID: 9
 components:
   schemas: {}
   '/intervention/equipment/{avisoTicketID}':
