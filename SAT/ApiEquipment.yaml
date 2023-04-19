@@ -2475,7 +2475,7 @@ paths:
           description: '"tokenReciente"'
       requestBody:
         content: {}
-  '/equipment/preventiveMaintenance/{equipoID}':
+  '/equipment/preventivesMaintenance/{equipoID}':
     get:
       summary: FindManyForPreventiveMaintenanceByEquipment
       tags: []
