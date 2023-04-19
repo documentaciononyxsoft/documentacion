@@ -7035,5 +7035,107 @@ paths:
             schema:
               type: object
               properties: {}
+  /materialsImputation/material:
+    get:
+      summary: FindLightListForMaterialByImputation
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                            Contador:
+                              type: integer
+                            Stock:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT articulo.ArticuloID,articulo.Codigo,articulo.Nombre,articulologistica.StockActual\r\nFROM articulo\r\nLEFT JOIN articulologistica\r\nON  articulo.ArticuloID = articulologistica.ArticuloID\r\nWHERE articulo.Activo = TRUE \r\nAND Articulo.CustomerID = 29\r\nAND Articulo.EmpresaID = 1 \r\nAND articulologistica.StockActual > 0 \r\nORDER BY articulo.Codigo ASC "
+                      records:
+                        - ID: 1125
+                          Nombre: PRUEBA
+                          Codigo: '000001'
+                          Contador: 1
+                          Stock: 44
+                        - ID: 1284
+                          Nombre: PIEZA DE PRUEBA 2
+                          Codigo: '0001502'
+                          Contador: 2
+                          Stock: 9
+                        - ID: 1143
+                          Nombre: Tapa wc SEMIELABORADO
+                          Codigo: '0004731'
+                          Contador: 3
+                          Stock: 441
+                        - ID: 256
+                          Nombre: ABRAZADERA UNEX 2225-0 (N
+                          Codigo: 01ABR2225
+                          Contador: 4
+                          Stock: 49
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT articulo.ArticuloID,articulo.Codigo,articulo.Nombre,articulologistica.StockActual\r\nFROM articulo\r\nLEFT JOIN articulologistica\r\nON  articulo.ArticuloID = articulologistica.ArticuloID\r\nWHERE articulo.Activo = TRUE \r\nAND Articulo.CustomerID = 29\r\nAND Articulo.EmpresaID = 1 \r\nAND articulologistica.StockActual > 0 \r\nORDER BY articulo.Codigo ASC "
+                      records:
+                        - ID: 1125
+                          Nombre: PRUEBA
+                          Codigo: '000001'
+                          Contador: 1
+                          Stock: 44
+                        - ID: 1284
+                          Nombre: PIEZA DE PRUEBA 2
+                          Codigo: '0001502'
+                          Contador: 2
+                          Stock: 9
+                        - ID: 1143
+                          Nombre: Tapa wc SEMIELABORADO
+                          Codigo: '0004731'
+                          Contador: 3
+                          Stock: 441
+                        - ID: 256
+                          Nombre: ABRAZADERA UNEX 2225-0 (N
+                          Codigo: 01ABR2225
+                          Contador: 4
+                          Stock: 49
+      operationId: get-materialsImputation-material
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
 components:
   schemas: {}
