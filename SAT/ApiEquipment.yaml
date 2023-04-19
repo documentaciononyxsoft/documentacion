@@ -2475,6 +2475,210 @@ paths:
           description: '"tokenReciente"'
       requestBody:
         content: {}
+  '/equipment/preventiveMaintenance/{equipoID}':
+    get:
+      summary: FindManyForPreventiveMaintenanceByEquipment
+      tags: []
+      responses:
+        '200':
+          description: OK
+        '':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            MantenimientoPreventivoID:
+                              type: integer
+                            FechaAlta:
+                              type: string
+                            FechaBaja:
+                              type: string
+                            Concepto:
+                              type: string
+                            Frecuencia:
+                              type: integer
+                            Dia:
+                              type: integer
+                            Periodo:
+                              type: string
+                            DesdeHora:
+                              type: string
+                            HastaHora:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT\r\nMantenimientoPreventivo.*,\r\nElemento.*,\r\nUsuario.*,\r\nArticulo.Nombre AS ArticuloNombre,\r\nArticulo.Codigo AS ArticuloCodigo,\r\nMailing.ReferenciaCodigo AS ClienteCodigo,\r\nMailing.Nombre AS ClienteNombre,\r\nDireccion.Direccion,\r\nUsuario.NombreUsuario,\r\nTablaGeneral.Descripcion AS tipoEquipo\r\n\r\nFROM MantenimientoPreventivo LEFT JOIN Elemento ON MantenimientoPreventivo.ElementoID = Elemento.ElementoID\r\nLEFT JOIN Articulo ON Elemento.ArticuloID = Articulo.ArticuloID\r\nLEFT JOIN Usuario ON MantenimientoPreventivo.UsuarioID = Usuario.UsuarioID\r\nLEFT JOIN Cliente ON Cliente.ClienteID=Elemento.ClienteID\r\nLEFT JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT JOIN Direccion ON Direccion.DireccionID = MantenimientoPreventivo.DireccionID\r\nLEFT JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = Elemento.TipoEquipoID\r\nLEFT JOIN TablaGeneral AS TipoEquipo ON TipoEquipo.TablaGeneralID = MantenimientoPreventivo.TipoEquipoID\r\n\r\nWHERE\r\n\r\n\r\nElemento.ElementoID = 9 AND\r\nMantenimientoPreventivo.CustomerID = 29 AND\r\nMantenimientoPreventivo.EmpresaID = 1\r\n"
+                      records:
+                        - MantenimientoPreventivoID: 8
+                          FechaAlta: '20230315'
+                          FechaBaja: '20230317'
+                          Concepto: pruebaMOD
+                          Frecuencia: 8
+                          Dia: 5
+                          Periodo: Años
+                          DesdeHora: '02:00:00.000'
+                          HastaHora: '23:00:00.000'
+                        - MantenimientoPreventivoID: 10
+                          FechaAlta: '20230314'
+                          FechaBaja: '20280201'
+                          Concepto: yujyuhnvgbng
+                          Frecuencia: 1
+                          Dia: 1
+                          Periodo: Meses
+                          DesdeHora: '20:00:00.000'
+                          HastaHora: '22:00:00.000'
+                        - MantenimientoPreventivoID: 12
+                          FechaAlta: '20230327'
+                          FechaBaja: '20230318'
+                          Concepto: gfbgfbgfbbgfbgfbgfbgf
+                          Frecuencia: 4
+                          Dia: 3
+                          Periodo: Años
+                          DesdeHora: '20:00:00.000'
+                          HastaHora: '23:00:00.000'
+                        - MantenimientoPreventivoID: 13
+                          FechaAlta: '20230327'
+                          FechaBaja: '20230326'
+                          Concepto: XASASXASXASXAS
+                          Frecuencia: 2
+                          Dia: 4
+                          Periodo: Años
+                          DesdeHora: '02:00:00.000'
+                          HastaHora: '20:00:00.000'
+                        - MantenimientoPreventivoID: 14
+                          FechaAlta: '20240402'
+                          FechaBaja: '20200408'
+                          Concepto: pruebaLUIS
+                          Frecuencia: 2
+                          Dia: 5
+                          Periodo: Meses
+                          DesdeHora: '05:40:00.000'
+                          HastaHora: '07:00:00.000'
+                        - MantenimientoPreventivoID: 16
+                          FechaAlta: '20280402'
+                          FechaBaja: '20200408'
+                          Concepto: pruebaLUISMOD
+                          Frecuencia: 2
+                          Dia: 5
+                          Periodo: Meses
+                          DesdeHora: '05:40:00.000'
+                          HastaHora: '07:00:00.000'
+                        - MantenimientoPreventivoID: 17
+                          FechaAlta: '20250402'
+                          FechaBaja: '20210408'
+                          Concepto: pruebaLUISMOD
+                          Frecuencia: 6
+                          Dia: 7
+                          Periodo: Meses
+                          DesdeHora: '02:40:00.000'
+                          HastaHora: '07:00:00.000'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT\r\nMantenimientoPreventivo.*,\r\nElemento.*,\r\nUsuario.*,\r\nArticulo.Nombre AS ArticuloNombre,\r\nArticulo.Codigo AS ArticuloCodigo,\r\nMailing.ReferenciaCodigo AS ClienteCodigo,\r\nMailing.Nombre AS ClienteNombre,\r\nDireccion.Direccion,\r\nUsuario.NombreUsuario,\r\nTablaGeneral.Descripcion AS tipoEquipo\r\n\r\nFROM MantenimientoPreventivo LEFT JOIN Elemento ON MantenimientoPreventivo.ElementoID = Elemento.ElementoID\r\nLEFT JOIN Articulo ON Elemento.ArticuloID = Articulo.ArticuloID\r\nLEFT JOIN Usuario ON MantenimientoPreventivo.UsuarioID = Usuario.UsuarioID\r\nLEFT JOIN Cliente ON Cliente.ClienteID=Elemento.ClienteID\r\nLEFT JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT JOIN Direccion ON Direccion.DireccionID = MantenimientoPreventivo.DireccionID\r\nLEFT JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = Elemento.TipoEquipoID\r\nLEFT JOIN TablaGeneral AS TipoEquipo ON TipoEquipo.TablaGeneralID = MantenimientoPreventivo.TipoEquipoID\r\n\r\nWHERE\r\n\r\n\r\nElemento.ElementoID = 9 AND\r\nMantenimientoPreventivo.CustomerID = 29 AND\r\nMantenimientoPreventivo.EmpresaID = 1\r\n"
+                      records:
+                        - MantenimientoPreventivoID: 8
+                          FechaAlta: '20230315'
+                          FechaBaja: '20230317'
+                          Concepto: pruebaMOD
+                          Frecuencia: 8
+                          Dia: 5
+                          Periodo: Años
+                          DesdeHora: '02:00:00.000'
+                          HastaHora: '23:00:00.000'
+                        - MantenimientoPreventivoID: 10
+                          FechaAlta: '20230314'
+                          FechaBaja: '20280201'
+                          Concepto: yujyuhnvgbng
+                          Frecuencia: 1
+                          Dia: 1
+                          Periodo: Meses
+                          DesdeHora: '20:00:00.000'
+                          HastaHora: '22:00:00.000'
+                        - MantenimientoPreventivoID: 12
+                          FechaAlta: '20230327'
+                          FechaBaja: '20230318'
+                          Concepto: gfbgfbgfbbgfbgfbgfbgf
+                          Frecuencia: 4
+                          Dia: 3
+                          Periodo: Años
+                          DesdeHora: '20:00:00.000'
+                          HastaHora: '23:00:00.000'
+                        - MantenimientoPreventivoID: 13
+                          FechaAlta: '20230327'
+                          FechaBaja: '20230326'
+                          Concepto: XASASXASXASXAS
+                          Frecuencia: 2
+                          Dia: 4
+                          Periodo: Años
+                          DesdeHora: '02:00:00.000'
+                          HastaHora: '20:00:00.000'
+                        - MantenimientoPreventivoID: 14
+                          FechaAlta: '20240402'
+                          FechaBaja: '20200408'
+                          Concepto: pruebaLUIS
+                          Frecuencia: 2
+                          Dia: 5
+                          Periodo: Meses
+                          DesdeHora: '05:40:00.000'
+                          HastaHora: '07:00:00.000'
+                        - MantenimientoPreventivoID: 16
+                          FechaAlta: '20280402'
+                          FechaBaja: '20200408'
+                          Concepto: pruebaLUISMOD
+                          Frecuencia: 2
+                          Dia: 5
+                          Periodo: Meses
+                          DesdeHora: '05:40:00.000'
+                          HastaHora: '07:00:00.000'
+                        - MantenimientoPreventivoID: 17
+                          FechaAlta: '20250402'
+                          FechaBaja: '20210408'
+                          Concepto: pruebaLUISMOD
+                          Frecuencia: 6
+                          Dia: 7
+                          Periodo: Meses
+                          DesdeHora: '02:40:00.000'
+                          HastaHora: '07:00:00.000'
+      operationId: get-equipment-preventiveMaintenance
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+    parameters:
+      - schema:
+          type: string
+        name: equipoID
+        in: path
+        required: true
+        description: '9'
 components:
   schemas: {}
   '/intervention/equipment/{avisoTicketID}':
