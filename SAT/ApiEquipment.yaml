@@ -2814,7 +2814,6 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      mantenimientoPreventivoID: 20
       parameters:
         - schema:
             type: string
@@ -2869,11 +2868,22 @@ paths:
                   hastaHora: '7:00'
                   equipoID: 9
     delete:
-      summary: ''
+      summary: DeletePreventiveMaintenanceForEquipment
       operationId: delete-equipment-preventiveMaintenance-mantenimientoPreventivoID
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas: {}
   '/intervention/equipment/{avisoTicketID}':
