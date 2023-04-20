@@ -7387,5 +7387,17 @@ paths:
                   cantidad: 20
                   precio: 2500
     parameters: []
+  '/http://localhost:8026/materialsImputation/{movimientoID}':
+    parameters:
+      - schema:
+          type: string
+        name: movimientoID
+        in: path
+        required: true
+    get:
+      summary: UpdateMaterialsImputation
+      tags: []
+      responses: {}
+      operationId: 'get-http:-localhost:8026-materialsImputation-movimientoID'
 components:
   schemas: {}
