@@ -7186,7 +7186,7 @@ paths:
           description: '10'
   /materialsImputation/validateUbication:
     get:
-      summary: validateUbication
+      summary: validateUbicationForMaterialsImputation
       tags: []
       responses:
         '200':
