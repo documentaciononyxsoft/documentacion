@@ -7236,7 +7236,7 @@ paths:
           description: '986'
   /materialsImputation/:
     get:
-      summary: saveMaterialsImputation
+      summary: CreateMaterialsImputation
       tags: []
       responses:
         '200':
