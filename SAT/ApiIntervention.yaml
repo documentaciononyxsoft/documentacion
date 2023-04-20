@@ -7555,7 +7555,184 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            IntervencionID:
+                              type: integer
+                            MovimientoID:
+                              type: integer
+                            ReservaMaterial:
+                              type: integer
+                            Fecha:
+                              type: string
+                            Intervencion:
+                              type: integer
+                            DescripcionProblema:
+                              type: string
+                            CodigoMaterial:
+                              type: string
+                            NombreMaterial:
+                              type: string
+                            NombreAlmacen:
+                              type: string
+                            Cantidad:
+                              type: integer
+                            Precio:
+                              type: integer
+                            Importe:
+                              type: integer
+                            NombreUsuario:
+                              type: string
+                            FechaHoraUsuario:
+                              type: string
+                            ticket:
+                              type: integer
+                            tipoTicket:
+                              type: string
+                            prioridad:
+                              type: string
+                            descripcionTicket:
+                              type: string
+                            codigoCuenta:
+                              type: string
+                            nombreCuenta:
+                              type: string
+                            codigoUbicacion:
+                              type: string
+                            nombreUbicacion:
+                              type: string
+                            codigoEquipo:
+                              type: string
+                            nombreEquipo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT\r\nMovimientoAlmacen.*,\r\nArticulo.Codigo AS CodigoMaterial,\r\nArticulo.Nombre AS NombreMaterial,\r\nProyecto_OF.CodigoProyecto_OF,\r\nProyecto_OF.Proyecto_OFID,\r\nAvisoTicket.DescripcionProblema,\r\nAlmacen.AlmacenID,\r\nAlmacen.Codigo AS CodigoAlmacen,\r\nAlmacen.Nombre AS NombreAlmacen,\r\nMovimientoAlmacen.CantidadAlmacen * MovimientoAlmacen.Precio AS Importe,\r\nReservaMaterial.CantidadPrevista, \r\nReservaMaterial.CantidadReal,\r\nUsuario.NombreUsuario\t\r\nFROM\r\n((((((((MovimientoAlmacen INNER JOIN Articulo ON Articulo.ArticuloID = MovimientoAlmacen.ArticuloID)\r\nINNER JOIN ReservaMaterial ON MovimientoAlmacen.ReservaMaterialID=ReservaMaterial.ReservaMaterialID)\r\nINNER JOIN Proceso ON ReservaMaterial.ProcesoID=Proceso.ProcesoID)\r\nINNER JOIN Proyecto_OF ON Proceso.Proyecto_OFID=Proyecto_OF.Proyecto_OFID)\r\nINNER JOIN Almacen ON MovimientoAlmacen.AlmacenID = Almacen.AlmacenID)\r\nINNER JOIN TipoMovimiento ON MovimientoAlmacen.TipoMovimientoID = TipoMovimiento.TipoMovimientoID)\r\nINNER JOIN AvisoTicketIntervencion ON Proyecto_OF.Proyecto_OFID=AvisoTicketIntervencion.Proyecto_OFID)\r\nINNER JOIN AvisoTicket ON AvisoTicketIntervencion.AvisoTicketID=AvisoTicket.AvisoTicketID)\r\nLEFT JOIN Lote ON Lote.LoteID = MovimientoAlmacen.LoteID\r\nLEFT JOIN Usuario ON MovimientoAlmacen.UsuarioID = Usuario.UsuarioID\r\nWHERE \r\nmovimientoalmacen.fecha = 20230215 AND \r\nMovimientoAlmacen.EmpresaID= 1 AND\r\nMovimientoAlmacen.CustomerID= 29 AND\r\nTipoMovimiento.Tipo = 'SF' AND\r\nMovimientoAlmacen.ReservaMaterialID IS NOT NULL AND\r\nProyecto_OF.EsObraOf= 'S'"
+                      records:
+                        - IntervencionID: 1161
+                          MovimientoID: 35139
+                          ReservaMaterial: 4812
+                          Fecha: '20230215'
+                          Intervencion: 34
+                          DescripcionProblema: PRUEBALL2
+                          CodigoMaterial: 01TOM306
+                          NombreMaterial: TORNILLO M3x6 CABEZA CILI
+                          NombreAlmacen: Almacén interno
+                          Cantidad: 20
+                          Precio: 2500
+                          Importe: 50000
+                          NombreUsuario: SUPERVISOR
+                          FechaHoraUsuario: '2023-04-19T11:19:22.000'
+                          ticket: 82
+                          tipoTicket: Averia
+                          prioridad: pruebaLUIS23
+                          descripcionTicket: PRUEBALL2
+                          codigoCuenta: '43020005'
+                          nombreCuenta: RESTAURANTE ALDAN-ONDO
+                          codigoUbicacion: '1'
+                          nombreUbicacion: SAT MADRID 1
+                          codigoEquipo: '3442342'
+                          nombreEquipo: EXTINTOR
+                        - IntervencionID: 1161
+                          MovimientoID: 35140
+                          ReservaMaterial: 4812
+                          Fecha: '20230215'
+                          Intervencion: 34
+                          DescripcionProblema: PRUEBALL2
+                          CodigoMaterial: 01TOM306
+                          NombreMaterial: TORNILLO M3x6 CABEZA CILI
+                          NombreAlmacen: Almacén interno
+                          Cantidad: 20
+                          Precio: 2500
+                          Importe: 50000
+                          NombreUsuario: SUPERVISOR
+                          FechaHoraUsuario: '2023-04-19T11:19:38.000'
+                          ticket: 82
+                          tipoTicket: Averia
+                          prioridad: pruebaLUIS23
+                          descripcionTicket: PRUEBALL2
+                          codigoCuenta: '43020005'
+                          nombreCuenta: RESTAURANTE ALDAN-ONDO
+                          codigoUbicacion: '1'
+                          nombreUbicacion: SAT MADRID 1
+                          codigoEquipo: '3442342'
+                          nombreEquipo: EXTINTOR
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT\r\nMovimientoAlmacen.*,\r\nArticulo.Codigo AS CodigoMaterial,\r\nArticulo.Nombre AS NombreMaterial,\r\nProyecto_OF.CodigoProyecto_OF,\r\nProyecto_OF.Proyecto_OFID,\r\nAvisoTicket.DescripcionProblema,\r\nAlmacen.AlmacenID,\r\nAlmacen.Codigo AS CodigoAlmacen,\r\nAlmacen.Nombre AS NombreAlmacen,\r\nMovimientoAlmacen.CantidadAlmacen * MovimientoAlmacen.Precio AS Importe,\r\nReservaMaterial.CantidadPrevista, \r\nReservaMaterial.CantidadReal,\r\nUsuario.NombreUsuario\t\r\nFROM\r\n((((((((MovimientoAlmacen INNER JOIN Articulo ON Articulo.ArticuloID = MovimientoAlmacen.ArticuloID)\r\nINNER JOIN ReservaMaterial ON MovimientoAlmacen.ReservaMaterialID=ReservaMaterial.ReservaMaterialID)\r\nINNER JOIN Proceso ON ReservaMaterial.ProcesoID=Proceso.ProcesoID)\r\nINNER JOIN Proyecto_OF ON Proceso.Proyecto_OFID=Proyecto_OF.Proyecto_OFID)\r\nINNER JOIN Almacen ON MovimientoAlmacen.AlmacenID = Almacen.AlmacenID)\r\nINNER JOIN TipoMovimiento ON MovimientoAlmacen.TipoMovimientoID = TipoMovimiento.TipoMovimientoID)\r\nINNER JOIN AvisoTicketIntervencion ON Proyecto_OF.Proyecto_OFID=AvisoTicketIntervencion.Proyecto_OFID)\r\nINNER JOIN AvisoTicket ON AvisoTicketIntervencion.AvisoTicketID=AvisoTicket.AvisoTicketID)\r\nLEFT JOIN Lote ON Lote.LoteID = MovimientoAlmacen.LoteID\r\nLEFT JOIN Usuario ON MovimientoAlmacen.UsuarioID = Usuario.UsuarioID\r\nWHERE \r\nmovimientoalmacen.fecha = 20230215 AND \r\nMovimientoAlmacen.EmpresaID= 1 AND\r\nMovimientoAlmacen.CustomerID= 29 AND\r\nTipoMovimiento.Tipo = 'SF' AND\r\nMovimientoAlmacen.ReservaMaterialID IS NOT NULL AND\r\nProyecto_OF.EsObraOf= 'S'"
+                      records:
+                        - IntervencionID: 1161
+                          MovimientoID: 35139
+                          ReservaMaterial: 4812
+                          Fecha: '20230215'
+                          Intervencion: 34
+                          DescripcionProblema: PRUEBALL2
+                          CodigoMaterial: 01TOM306
+                          NombreMaterial: TORNILLO M3x6 CABEZA CILI
+                          NombreAlmacen: Almacén interno
+                          Cantidad: 20
+                          Precio: 2500
+                          Importe: 50000
+                          NombreUsuario: SUPERVISOR
+                          FechaHoraUsuario: '2023-04-19T11:19:22.000'
+                          ticket: 82
+                          tipoTicket: Averia
+                          prioridad: pruebaLUIS23
+                          descripcionTicket: PRUEBALL2
+                          codigoCuenta: '43020005'
+                          nombreCuenta: RESTAURANTE ALDAN-ONDO
+                          codigoUbicacion: '1'
+                          nombreUbicacion: SAT MADRID 1
+                          codigoEquipo: '3442342'
+                          nombreEquipo: EXTINTOR
+                        - IntervencionID: 1161
+                          MovimientoID: 35140
+                          ReservaMaterial: 4812
+                          Fecha: '20230215'
+                          Intervencion: 34
+                          DescripcionProblema: PRUEBALL2
+                          CodigoMaterial: 01TOM306
+                          NombreMaterial: TORNILLO M3x6 CABEZA CILI
+                          NombreAlmacen: Almacén interno
+                          Cantidad: 20
+                          Precio: 2500
+                          Importe: 50000
+                          NombreUsuario: SUPERVISOR
+                          FechaHoraUsuario: '2023-04-19T11:19:38.000'
+                          ticket: 82
+                          tipoTicket: Averia
+                          prioridad: pruebaLUIS23
+                          descripcionTicket: PRUEBALL2
+                          codigoCuenta: '43020005'
+                          nombreCuenta: RESTAURANTE ALDAN-ONDO
+                          codigoUbicacion: '1'
+                          nombreUbicacion: SAT MADRID 1
+                          codigoEquipo: '3442342'
+                          nombreEquipo: EXTINTOR
       operationId: get-materialsImputations
       parameters:
         - schema:
