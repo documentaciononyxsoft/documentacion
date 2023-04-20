@@ -7544,5 +7544,29 @@ paths:
                   materialID: 256
                   cantidad: 20
                   precio: 2500
+  /materialsImputations:
+    get:
+      summary: findManyMaterialsImputation
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+      operationId: get-materialsImputations
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: 'fecha '
+          description: '20230215'
 components:
   schemas: {}
