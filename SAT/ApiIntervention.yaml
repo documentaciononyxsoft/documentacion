@@ -7137,5 +7137,102 @@ paths:
           in: header
           name: accessToken
           description: '"tokenReciente"'
+  /materialsImputation/validateQuantity:
+    get:
+      summary: validateQuantityForMaterialsImputation
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      precio:
+                        type: integer
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      precio: 0
+                      success: true
+      operationId: get-materialsImputation-validateQuantity
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: materialID
+          description: '2066'
+        - schema:
+            type: string
+          in: query
+          name: cantidad
+          description: '10'
+  /materialsImputation/validateUbication:
+    get:
+      summary: validateUbication
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      ubicacionLote:
+                        type: boolean
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      ubicacionLote: false
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      ubicacionLote: false
+                      success: true
+      operationId: get-materialsImputation-validateUbication
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: materialID
+          description: '986'
 components:
   schemas: {}
