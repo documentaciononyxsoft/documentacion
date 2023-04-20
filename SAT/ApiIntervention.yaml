@@ -7235,9 +7235,10 @@ paths:
           name: materialID
           description: '986'
   /materialsImputation/:
-    get:
+    parameters: []
+    post:
       summary: CreateMaterialsImputation
-      tags: []
+      operationId: post-materialsImputation
       responses:
         '200':
           description: OK
@@ -7344,7 +7345,6 @@ paths:
                             NombreUsuario: ''
                             FechaHoraUsuario: '2023-04-20T10:21:13.000'
                       success: true
-      operationId: get-materialsImputation
       parameters:
         - schema:
             type: string
@@ -7386,7 +7386,6 @@ paths:
                   materialID: 256
                   cantidad: 20
                   precio: 2500
-    parameters: []
   '/http://localhost:8026/materialsImputation/{movimientoID}':
     parameters:
       - schema:
