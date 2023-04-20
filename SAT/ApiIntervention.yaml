@@ -7568,5 +7568,62 @@ paths:
           in: query
           name: 'fecha '
           description: '20230215'
+  '/http://localhost:8026/materialsImputation/{movimientoID}/{reservaMaterialID}':
+    parameters:
+      - schema:
+          type: string
+        name: movimientoID
+        in: path
+        required: true
+        description: '35158'
+      - schema:
+          type: string
+        name: reservaMaterialID
+        in: path
+        required: true
+        description: '4813'
+    delete:
+      summary: DeleteMaterialsImputation
+      operationId: 'delete-http:-localhost:8026-materialsImputation-movimientoID-reservaMaterialID'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: ''
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas: {}
