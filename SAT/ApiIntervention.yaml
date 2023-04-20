@@ -7234,7 +7234,7 @@ paths:
           in: query
           name: materialID
           description: '986'
-  '/materialsImputation/{materialID}/{movimientoID}':
+  /materialsImputation/:
     get:
       summary: saveMaterialsImputation
       tags: []
@@ -7386,16 +7386,6 @@ paths:
                   materialID: 256
                   cantidad: 20
                   precio: 2500
-    parameters:
-      - schema:
-          type: string
-        name: materialID
-        in: path
-        required: true
-      - schema:
-          type: string
-        name: movimientoID
-        in: path
-        required: true
+    parameters: []
 components:
   schemas: {}
