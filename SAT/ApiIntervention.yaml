@@ -7961,7 +7961,7 @@ paths:
           name: Pedidos
   /consult/intervention/salesReceipts:
     get:
-      summary: findManyByFiltersForSaleseceipts
+      summary: findManyByFiltersForSalesReceipts
       tags: []
       responses:
         '200':
