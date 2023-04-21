@@ -14671,7 +14671,69 @@ paths:
       tags: []
       responses:
         '200':
-          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "sql":"SELECT * \r\nFROM CheckListDefinicionGrupo\r\nWHERE CheckListDefinicionGrupo.CustomerID = 29\r\nAND CheckListDefinicionGrupo.EmpresaID = 1\r\nAND CheckListDefinicionGrupo.Tipo = ''SAT''\r\nAND (CheckListDefinicionGrupo.Codigo LIKE ''%a%'' OR CheckListDefinicionGrupo.Nombre LIKE ''%a%'') \r\norder BY CheckListDefinicionGrupoID  ASC\r\nLIMIT 10 \r\n\r\n", "records":[ { "CheckListDefinicionGrupoID":5, "Codigo":"JJJJ", "Nombre":"PRUEBA" }, { "CheckListDefinicionGrupoID":8, "Codigo":"nihili997587", "Nombre":"pruebaNombreFTTF" }, { "CheckListDefinicionGrupoID":11, "Codigo":"nihili997587", "Nombre":"pruebaNombreFTTF" } ] } } '
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            CheckListDefinicionGrupoID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT * \r\nFROM CheckListDefinicionGrupo\r\nWHERE CheckListDefinicionGrupo.CustomerID = 29\r\nAND CheckListDefinicionGrupo.EmpresaID = 1\r\nAND CheckListDefinicionGrupo.Tipo = 'SAT'\r\nAND (CheckListDefinicionGrupo.Codigo LIKE '%a%' OR CheckListDefinicionGrupo.Nombre LIKE '%a%') \r\norder BY CheckListDefinicionGrupoID  ASC\r\nLIMIT 10 \r\n\r\n"
+                      records:
+                        - CheckListDefinicionGrupoID: 5
+                          Codigo: JJJJ
+                          Nombre: PRUEBA
+                        - CheckListDefinicionGrupoID: 8
+                          Codigo: nihili997587
+                          Nombre: pruebaNombreFTTF
+                        - CheckListDefinicionGrupoID: 11
+                          Codigo: nihili997587
+                          Nombre: pruebaNombreFTTF
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT * \r\nFROM CheckListDefinicionGrupo\r\nWHERE CheckListDefinicionGrupo.CustomerID = 29\r\nAND CheckListDefinicionGrupo.EmpresaID = 1\r\nAND CheckListDefinicionGrupo.Tipo = 'SAT'\r\nAND (CheckListDefinicionGrupo.Codigo LIKE '%a%' OR CheckListDefinicionGrupo.Nombre LIKE '%a%') \r\norder BY CheckListDefinicionGrupoID  ASC\r\nLIMIT 10 \r\n\r\n"
+                      records:
+                        - CheckListDefinicionGrupoID: 5
+                          Codigo: JJJJ
+                          Nombre: PRUEBA
+                        - CheckListDefinicionGrupoID: 8
+                          Codigo: nihili997587
+                          Nombre: pruebaNombreFTTF
+                        - CheckListDefinicionGrupoID: 11
+                          Codigo: nihili997587
+                          Nombre: pruebaNombreFTTF
       operationId: get-tables-checkListGroup
       parameters:
         - schema:
@@ -16329,5 +16391,12 @@ paths:
           in: query
           name: 'param '
           description: '1'
+  /tables/checkListGroup/:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-tables-checkListGroup
+      description: ''
 components:
   schemas: {}
