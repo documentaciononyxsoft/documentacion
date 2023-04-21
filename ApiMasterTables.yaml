@@ -14798,31 +14798,15 @@ paths:
               Example 1:
                 value:
                   Apartado: 7854
-  '/tables/checkListSection/{CheckListApartadoID}':
-    post:
-      summary: Create
-      operationId: post-tables-checkListSection
-      responses:
-        '200':
-          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "CheckListApartadoID":6 } } '
       parameters:
         - schema:
             type: string
           in: header
-          name: accessToken
+          name: 'accessToken '
           description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties: {}
-        description: |-
-          {
-                "Apartado":7854
-          }
+  '/tables/checkListSection/{CheckListApartadoID}':
     put:
-      summary: Update
+      summary: UpdateForCheckListSection
       operationId: put-tables-checkListSection
       responses:
         '200':
@@ -14840,8 +14824,25 @@ paths:
           application/json:
             schema:
               type: object
+              properties:
+                Apartado:
+                  type: integer
+                CheckListApartadoID:
+                  type: integer
+              x-examples:
+                Example 1:
+                  Apartado: 78547
+                  CheckListApartadoID: 4
+            examples:
+              Example 1:
+                value:
+                  Apartado: 78547
+                  CheckListApartadoID: 4
+          application/xml:
+            schema:
+              type: object
               properties: {}
-        description: "{\n\t\"Apartado\":78547,\n\t\"CheckListApartadoID\":4\n}"
+        description: ''
     parameters:
       - schema:
           type: string
@@ -14863,11 +14864,65 @@ paths:
           description: '"tokenReciente"'
   /tables/checkListSections:
     get:
-      summary: findMany
+      summary: findManyForCheckListSection
       tags: []
       responses:
         '200':
-          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "sql":"SELECT * FROM CheckListApartado\r\nWHERE CheckListApartado.CustomerID = 29\r\nAND CheckListApartado.EmpresaID = 1\r\norder BY CheckListApartadoID  ASC \r\n\r\n\r\n", "records":[ { "CheckListApartadoID":1, "Apartado":"4551" }, { "CheckListApartadoID":2, "Apartado":"65221" }, { "CheckListApartadoID":4, "Apartado":"78547" } ] } } '
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            CheckListApartadoID:
+                              type: integer
+                            Apartado:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT * FROM CheckListApartado\r\nWHERE CheckListApartado.CustomerID = 29\r\nAND CheckListApartado.EmpresaID = 1\r\norder BY CheckListApartadoID  ASC \r\n\r\n\r\n"
+                      records:
+                        - CheckListApartadoID: 1
+                          Apartado: '4551'
+                        - CheckListApartadoID: 2
+                          Apartado: '65221'
+                        - CheckListApartadoID: 4
+                          Apartado: '78547'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT * FROM CheckListApartado\r\nWHERE CheckListApartado.CustomerID = 29\r\nAND CheckListApartado.EmpresaID = 1\r\norder BY CheckListApartadoID  ASC \r\n\r\n\r\n"
+                      records:
+                        - CheckListApartadoID: 1
+                          Apartado: '4551'
+                        - CheckListApartadoID: 2
+                          Apartado: '65221'
+                        - CheckListApartadoID: 4
+                          Apartado: '78547'
       operationId: get-tables-checkListSections
       parameters:
         - schema:
