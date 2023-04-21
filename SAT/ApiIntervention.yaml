@@ -7802,5 +7802,162 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  /consult/intervention/salesOrders:
+    get:
+      summary: findManyByFiltersForSalesOrders
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            PedidoVentaCabeceraID:
+                              type: integer
+                            Serie:
+                              type: string
+                            Numero:
+                              type: integer
+                            Fecha:
+                              type: string
+                            Codigo:
+                              type: string
+                            NombreMailing:
+                              type: string
+                            CodigoAlmacen:
+                              type: string
+                            NombreRepresentante:
+                              type: string
+                            PorcComision:
+                              type: integer
+                            PorcComision2:
+                              type: integer
+                            NombreRepresentante2:
+                              type: string
+                            PedidoPor:
+                              type: string
+                            FechaEntregaPrevistaInterna:
+                              type: string
+                            FechaEntregaPrevistaCliente:
+                              type: string
+                            RepresentanteID:
+                              type: integer
+                            ClienteID:
+                              type: integer
+                            Proyecto_OFID:
+                              type: integer
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - PedidoVentaCabeceraID: 1322
+                          Serie: Test
+                          Numero: 11
+                          Fecha: '20220930'
+                          Codigo: '43020014'
+                          NombreMailing: TALLERES DE COMUNICACION XX
+                          CodigoAlmacen: '1'
+                          NombreRepresentante: ''
+                          PorcComision: 0
+                          PorcComision2: 0
+                          NombreRepresentante2: ''
+                          PedidoPor: ''
+                          FechaEntregaPrevistaInterna: ''
+                          FechaEntregaPrevistaCliente: '20220930'
+                          RepresentanteID: 0
+                          ClienteID: 17
+                          Proyecto_OFID: 0
+                      sql: "SELECT \r\nPedidoVentaCabecera.*,\r\nCliente.Codigo,\r\nMailing.NombreComercial,\r\nAlmacen.Nombre,\r\nAlmacen.Codigo AS CodigoAlmacen,\r\nSeriePedidoAlbaranVenta.Serie,\r\nMailing.Nombre AS NombreMailing,\r\nMailing.Direccion AS DirMailing,\r\nCodigoPostal.CodigoPostal AS CPMailing,\r\nMailing.Municipio AS NombreMunicipio,\r\nProvincia.Nombre AS NombreProvincia,\r\nProyecto_OFCabecera.CodigoProyecto_OF AS ProyectoOFCabecera,\r\nMailingRepresentante.Nombre AS NombreRepresentante,\r\nPedidoVentaCabecera.Descripcion AS DescripcionCabecera,\r\nTipoPedido.Descripcion AS PedidoTipo,\r\nUsuario.NombreUsuario AS UsuarioCreacion,\r\nRutaEntrega.Descripcion AS RutaEntrega,\r\nMailingRepresentante2.Nombre AS NombreRepresentante2,\r\nPedidoVentaCabecera.PorcentajeComision AS PorcComision,\r\nPedidoVentaCabecera.PorcentajeComision2 AS PorcComision2\r\nFROM \r\n((((((((((PedidoVentaCabecera LEFT JOIN SeriePedidoAlbaranVenta ON PedidoVentaCabecera.SeriePedidoID = SeriePedidoAlbaranVenta.SeriePedidoAlbaranVentaID)\r\nLEFT JOIN Cliente ON PedidoVentaCabecera.ClienteID = Cliente.ClienteID)\r\nLEFT JOIN Representante ON PedidoVentaCabecera.RepresentanteID = Representante.RepresentanteID)\r\nLEFT JOIN Mailing AS MailingRepresentante ON MailingRepresentante.MailingID = Representante.MailingID)\r\nLEFT JOIN Mailing ON Mailing.MailingID = Cliente.MailingID)\r\nLEFT JOIN Municipio ON Mailing.MunicipioID = Municipio.MunicipioID)\r\nLEFT JOIN Provincia ON Mailing.ProvinciaID = Provincia.ProvinciaID)\r\nLEFT JOIN CodigoPostal ON CodigoPostal.CodigoPostalID=Mailing.CodigoPostalID)\r\nLEFT JOIN Almacen ON PedidoVentaCabecera.AlmacenID = Almacen.AlmacenID)\r\nLEFT JOIN Proyecto_OF AS Proyecto_OFCabecera ON Proyecto_OFCabecera.Proyecto_OFID = PedidoVentaCabecera.Proyecto_OFID)\r\nLEFT JOIN TablaGeneral AS TipoPedido ON TipoPedido.TablaGeneralID = PedidoVentaCabecera.TipoPedidoID\r\nLEFT JOIN Usuario ON PedidoVentaCabecera.UsuarioID = Usuario.UsuarioID\r\nLEFT JOIN TablaGeneral AS RutaEntrega ON RutaEntrega.TablaGeneralID = PedidoVentaCabecera.RutaEntregaID\r\nLEFT JOIN Representante AS Representante2 ON PedidoVentaCabecera.Representante2ID = Representante2.RepresentanteID\r\nLEFT JOIN Mailing AS MailingRepresentante2 ON MailingRepresentante2.MailingID = Representante2.MailingID\r\nleft join pedidoventalinea on pedidoventalinea.pedidoventacabeceraid = pedidoventacabecera.pedidoventacabeceraid left join articulo on pedidoventalinea.articuloid = articulo.articuloid LEFT JOIN Familia ON Articulo.FamiliaID = Familia.FamiliaID\r\n\r\nWHERE \r\nPedidoVentaCabecera.Estado <> 'AN' AND\r\nPedidoVentaCabecera.CustomerID = 29 AND\r\nPedidoVentaCabecera.EmpresaID = 1\r\nAND (PedidoVentaLinea.OfertaLineaID IN (457)) \r\nAND PedidoVentaCabecera.Fecha <= '20500520' GROUP BY PedidoVentaCabeceraID\r\n\r\nORDER BY\r\nCliente.Codigo,\r\nPedidoVentaCabecera.Numero,\r\nSeriePedidoAlbaranVenta.Serie\r\n\r\nLIMIT 10\r\nOFFSET 0"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - PedidoVentaCabeceraID: 1322
+                          Serie: Test
+                          Numero: 11
+                          Fecha: '20220930'
+                          Codigo: '43020014'
+                          NombreMailing: TALLERES DE COMUNICACION XX
+                          CodigoAlmacen: '1'
+                          NombreRepresentante: ''
+                          PorcComision: 0
+                          PorcComision2: 0
+                          NombreRepresentante2: ''
+                          PedidoPor: ''
+                          FechaEntregaPrevistaInterna: ''
+                          FechaEntregaPrevistaCliente: '20220930'
+                          RepresentanteID: 0
+                          ClienteID: 17
+                          Proyecto_OFID: 0
+                      sql: "SELECT \r\nPedidoVentaCabecera.*,\r\nCliente.Codigo,\r\nMailing.NombreComercial,\r\nAlmacen.Nombre,\r\nAlmacen.Codigo AS CodigoAlmacen,\r\nSeriePedidoAlbaranVenta.Serie,\r\nMailing.Nombre AS NombreMailing,\r\nMailing.Direccion AS DirMailing,\r\nCodigoPostal.CodigoPostal AS CPMailing,\r\nMailing.Municipio AS NombreMunicipio,\r\nProvincia.Nombre AS NombreProvincia,\r\nProyecto_OFCabecera.CodigoProyecto_OF AS ProyectoOFCabecera,\r\nMailingRepresentante.Nombre AS NombreRepresentante,\r\nPedidoVentaCabecera.Descripcion AS DescripcionCabecera,\r\nTipoPedido.Descripcion AS PedidoTipo,\r\nUsuario.NombreUsuario AS UsuarioCreacion,\r\nRutaEntrega.Descripcion AS RutaEntrega,\r\nMailingRepresentante2.Nombre AS NombreRepresentante2,\r\nPedidoVentaCabecera.PorcentajeComision AS PorcComision,\r\nPedidoVentaCabecera.PorcentajeComision2 AS PorcComision2\r\nFROM \r\n((((((((((PedidoVentaCabecera LEFT JOIN SeriePedidoAlbaranVenta ON PedidoVentaCabecera.SeriePedidoID = SeriePedidoAlbaranVenta.SeriePedidoAlbaranVentaID)\r\nLEFT JOIN Cliente ON PedidoVentaCabecera.ClienteID = Cliente.ClienteID)\r\nLEFT JOIN Representante ON PedidoVentaCabecera.RepresentanteID = Representante.RepresentanteID)\r\nLEFT JOIN Mailing AS MailingRepresentante ON MailingRepresentante.MailingID = Representante.MailingID)\r\nLEFT JOIN Mailing ON Mailing.MailingID = Cliente.MailingID)\r\nLEFT JOIN Municipio ON Mailing.MunicipioID = Municipio.MunicipioID)\r\nLEFT JOIN Provincia ON Mailing.ProvinciaID = Provincia.ProvinciaID)\r\nLEFT JOIN CodigoPostal ON CodigoPostal.CodigoPostalID=Mailing.CodigoPostalID)\r\nLEFT JOIN Almacen ON PedidoVentaCabecera.AlmacenID = Almacen.AlmacenID)\r\nLEFT JOIN Proyecto_OF AS Proyecto_OFCabecera ON Proyecto_OFCabecera.Proyecto_OFID = PedidoVentaCabecera.Proyecto_OFID)\r\nLEFT JOIN TablaGeneral AS TipoPedido ON TipoPedido.TablaGeneralID = PedidoVentaCabecera.TipoPedidoID\r\nLEFT JOIN Usuario ON PedidoVentaCabecera.UsuarioID = Usuario.UsuarioID\r\nLEFT JOIN TablaGeneral AS RutaEntrega ON RutaEntrega.TablaGeneralID = PedidoVentaCabecera.RutaEntregaID\r\nLEFT JOIN Representante AS Representante2 ON PedidoVentaCabecera.Representante2ID = Representante2.RepresentanteID\r\nLEFT JOIN Mailing AS MailingRepresentante2 ON MailingRepresentante2.MailingID = Representante2.MailingID\r\nleft join pedidoventalinea on pedidoventalinea.pedidoventacabeceraid = pedidoventacabecera.pedidoventacabeceraid left join articulo on pedidoventalinea.articuloid = articulo.articuloid LEFT JOIN Familia ON Articulo.FamiliaID = Familia.FamiliaID\r\n\r\nWHERE \r\nPedidoVentaCabecera.Estado <> 'AN' AND\r\nPedidoVentaCabecera.CustomerID = 29 AND\r\nPedidoVentaCabecera.EmpresaID = 1\r\nAND (PedidoVentaLinea.OfertaLineaID IN (457)) \r\nAND PedidoVentaCabecera.Fecha <= '20500520' GROUP BY PedidoVentaCabeceraID\r\n\r\nORDER BY\r\nCliente.Codigo,\r\nPedidoVentaCabecera.Numero,\r\nSeriePedidoAlbaranVenta.Serie\r\n\r\nLIMIT 10\r\nOFFSET 0"
+      operationId: get-consult-intervention-salesOrders
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: limit
+          description: '10'
+        - schema:
+            type: string
+          in: query
+          name: offset
+          description: '0'
+        - schema:
+            type: string
+          in: query
+          name: ofertaID
+          description: '375'
+        - schema:
+            type: string
+          in: query
+          name: FechaMin
+        - schema:
+            type: string
+          in: query
+          name: FechaMax
+          description: '20500520'
+        - schema:
+            type: string
+          in: query
+          name: Detalle
+          description: '0'
+        - schema:
+            type: string
+          in: query
+          name: ArticuloID
+        - schema:
+            type: string
+          in: query
+          name: Pedidos
 components:
   schemas: {}
