@@ -7959,5 +7959,288 @@ paths:
             type: string
           in: query
           name: Pedidos
+  /consult/intervention/salesReceipts:
+    get:
+      summary: findManyByFiltersForSaleseceipts
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            AlbaranVentaCabeceraID:
+                              type: integer
+                            ImporteMonedaBase:
+                              type: integer
+                            Serie:
+                              type: string
+                            Numero:
+                              type: integer
+                            Fecha:
+                              type: string
+                            CodigoCliente:
+                              type: string
+                            NombreCliente:
+                              type: string
+                            NombreRepresentante:
+                              type: string
+                            PorcComision:
+                              type: integer
+                            NomRepresentante2:
+                              type: string
+                            PorcComision2:
+                              type: integer
+                            ReferenciaCliente:
+                              type: string
+                            PedidoPor:
+                              type: string
+                            CodigoAlmacen:
+                              type: string
+                            Linea:
+                              type: integer
+                            CodArticulo:
+                              type: string
+                            Nom:
+                              type: string
+                            Cantidad:
+                              type: integer
+                            PrecioVenta:
+                              type: integer
+                            PrecioCoste:
+                              type: integer
+                            Dto1:
+                              type: integer
+                            Dto2:
+                              type: integer
+                            Dto3:
+                              type: integer
+                            ImporteVenta:
+                              type: integer
+                            Abreviatura:
+                              type: string
+                            RepresentanteID:
+                              type: integer
+                            ArticuloID:
+                              type: integer
+                            ClienteID:
+                              type: integer
+                            Estado:
+                              type: string
+                            MonedaCambio:
+                              type: integer
+                            MonedaID:
+                              type: integer
+                            DescripcionLinea:
+                              type: string
+                            NotaClienteLineaAlbaran:
+                              type: string
+                            NotaInternaLineaAlbaran:
+                              type: string
+                            Cantidad2:
+                              type: integer
+                            Factor:
+                              type: integer
+                            FactorCantidad:
+                              type: integer
+                            familiaCodigo:
+                              type: string
+                            familiaNombre:
+                              type: string
+                            Tipo:
+                              type: string
+                            MargenComercial:
+                              type: integer
+                            AlbaranVentaLineaID:
+                              type: integer
+                            RutaFabricacionID:
+                              type: integer
+                            NotaCliente:
+                              type: string
+                            NotaGeneral:
+                              type: string
+                            NotaAlmacen:
+                              type: string
+                            NotaTransporte:
+                              type: string
+                            NotaEtiqueta:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - AlbaranVentaCabeceraID: 1244
+                          ImporteMonedaBase: 2000
+                          Serie: Test
+                          Numero: 52
+                          Fecha: '20220930'
+                          CodigoCliente: '43020014'
+                          NombreCliente: TALLERES DE COMUNICACION XX
+                          NombreRepresentante: ''
+                          PorcComision: 0
+                          NomRepresentante2: ''
+                          PorcComision2: 0
+                          ReferenciaCliente: ''
+                          PedidoPor: ''
+                          CodigoAlmacen: '1'
+                          Linea: 10
+                          CodArticulo: MANO OBRA MTTO
+                          Nom: MANO OBRA MTTO
+                          Cantidad: 1
+                          PrecioVenta: 2000
+                          PrecioCoste: 0
+                          Dto1: 0
+                          Dto2: 0
+                          Dto3: 0
+                          ImporteVenta: 2000
+                          Abreviatura: eur
+                          RepresentanteID: 0
+                          ArticuloID: 987
+                          ClienteID: 17
+                          Estado: FA
+                          MonedaCambio: 2
+                          MonedaID: 1
+                          DescripcionLinea: ''
+                          NotaClienteLineaAlbaran: ''
+                          NotaInternaLineaAlbaran: ''
+                          Cantidad2: 0
+                          Factor: 1
+                          FactorCantidad: 0
+                          familiaCodigo: MO
+                          familiaNombre: MANO DE OBRA
+                          Tipo: ''
+                          MargenComercial: 0
+                          AlbaranVentaLineaID: 1630
+                          RutaFabricacionID: 0
+                          NotaCliente: ''
+                          NotaGeneral: ''
+                          NotaAlmacen: ''
+                          NotaTransporte: ''
+                          NotaEtiqueta: ''
+                      sql: "SELECT\r\nAlbaranVentaCabecera.*,\r\nAlbaranVentaCabecera.numero AS numeroCabeceraAlbaran,\r\nAlbaranVentaCabeceraFacturacion.MonedaCambio,\r\nAlbaranVentaCabeceraFacturacion.MonedaID,\r\nAlbaranVentaCabeceraFacturacion.NoFacturar,\r\nCliente.Codigo AS CodigoCliente,\r\nMailing.Nombre AS NombreCliente,\r\nMailing.Cif AS CifMailing,\r\nMailing.Direccion AS DirMailing,\r\nCodigoPostal.CodigoPostal AS CPMailing,\r\nMailing.Municipio AS NombreMunicipio,\r\nProvincia.Nombre AS NombreProvincia,\r\nAlmacen.Codigo AS CodigoAlmacen,\r\nAlmacen.Nombre AS Almacen,\r\nAlmacenLinea.Codigo AS CodigoAlmacenLinea,\r\nAlmacenLinea.Nombre AS NombreAlmacenLinea,\r\nAlmacenLinea.AlmacenID AS IdAlmacenLinea,\r\nPedidoVentaCabecera.MonedaID,\r\nSeriePedidoAlbaranVenta.Serie,\r\nAlbaranVentaLinea.AlbaranVentaLineaID,\r\nAlbaranVentaLinea.Dto1,\r\nAlbaranVentaLinea.Dto2,\r\nAlbaranVentaLinea.Dto3,\r\nAlbaranVentaLinea.Cantidad,\r\nAlbaranVentaLinea.Cantidad2,\r\nAlbaranVentaLinea.ImporteVenta,\r\nAlbaranVentaLinea.PrecioCoste,\r\nAlbaranVentaLinea.PrecioVenta,\r\nAlbaranVentaLinea.ArticuloID,\r\nAlbaranVentaLinea.Linea,\r\nMailingFactura.Nombre AS NomClienteFactura,\r\nMailingFactura.ReferenciaCodigo AS CodClienteFactura,\r\nAlbaranVentaLinea.Nombre AS Nom,\r\nArticulo.Codigo AS CodArticulo,\r\nAlbaranVentaLinea.Nombre AS NomArticulo,\r\nFacturaVentaCabecera.*,\r\nPedidoVentaCabecera.Numero AS NumeroPedido,\r\nPedidoVentaCabecera.Fecha AS FechaPedido,\r\nPedidoVentaCabecera.DNI,\r\nPedidoVentaCabecera.Matricula,\r\nPedidoVentaCabecera.NombreTransportista AS NombreTransportistaPedido,\r\nPedidoVentaLinea.Referencia AS ReferenciaPedido,\r\nPedidoVentaLinea.Cantidad AS CantidadPedido,\r\nPedidoVentaLinea.PrecioVenta AS PrecioPedido,\r\nPedidoVentaLinea.ImporteVenta AS ImportePedido,\r\nPedidoVentaLinea.Dto1 AS DtoPedido,\r\nPedidoVentaLinea.FechaEntregaPrevistaCliente,\r\nPedidoVentaLinea.Descripcion AS DescripcionLinea,\r\npedidoventalinea.NotaCliente AS NotaClienteLinea,\r\nMailingRepresentante.Nombre AS NombreRepresentante,\r\nMoneda.Abreviatura,\r\nAlmacenLinea.codigo AS CodigoAlmacenLinea,\r\nRutaEntrega.Descripcion AS RutaEntrega,\r\nAlbaranVentaLinea.Factor,\r\nAlbaranVentaLinea.Referencia AS referenciaArticuloCliente,\r\nAlbaranVentaLinea.ReferenciaCliente AS referenciaClienteLinea,\r\nfamilia.codigo AS familiaCodigo,\r\nfamilia.nombre AS familiaNombre,\r\nAlbaranVentaLinea.ComisionImporte,\r\nMailingRepresentante.Nombre AS NombreRepresentante,\r\nRepresentante.Codigo AS codigoRepresentante,\r\nMailingRepresentante2.Nombre AS NomRepresentante2,\r\nAlbaranVentaLinea.PorcentajeComision AS PorcComision,\r\n0 AS PorcComision2,\r\nAlbaranVentaLinea.FactorCantidad,\r\npedidoventalinea.NivelIngenieriaID,\r\nalbaranventalinea.PedidoVentaLineaID,\r\nproyecto_of.CodigoProyecto_OF,\r\nproyecto_of.Proyecto_OFID,\r\nUnidadMedidaVenta.descripcion AS UnidadMedidaArticulo,\r\nalbaranventalinea.MargenComercial,\r\nAlbaranVentaCabeceraFacturacion.PorcentajeDtoEspecial1,\r\nAlbaranVentaCabeceraFacturacion.PorcentajeDtoEspecial2,\r\nAlbaranVentaCabeceraFacturacion.PorcentajeDtoProntoPago,\r\nAlbaranVentaLinea.RutaFabricacionID,\r\nAlbaranVentaLinea.NotaCliente AS NotaClienteLineaAlbaran,\r\nAlbaranVentaLinea.NotaInterna AS NotaInternaLineaAlbaran,\r\nTipoAlbaran.Descripcion AS AlbaranTipo,\r\nAlbaranTransporte.NombreTransportista AS NombreTransportistaAlbaran\r\nFROM \r\nAlbaranVentaCabecera INNER JOIN AlbaranVentaLinea ON AlbaranVentaCabecera.AlbaranVentaCabeceraID = AlbaranVentaLinea.AlbaranVentaCabeceraID\r\nINNER JOIN AlbaranVentaCabeceraFacturacion ON AlbaranVentaCabecera.AlbaranVentaCabeceraID = AlbaranVentaCabeceraFacturacion.AlbaranVentaCabeceraID\r\nINNER JOIN Cliente ON AlbaranVentaCabecera.ClienteID = Cliente.ClienteID\r\nLEFT JOIN Representante ON AlbaranVentaCabecera.RepresentanteID = Representante.RepresentanteID\r\nLEFT JOIN Mailing AS MailingRepresentante ON MailingRepresentante.MailingID = Representante.MailingID\r\nLEFT JOIN Moneda ON Moneda.MonedaID = AlbaranVentaCabeceraFacturacion.MonedaID\r\nLEFT JOIN Articulo ON AlbaranVentaLinea.ArticuloID = Articulo.ArticuloID\r\nLEFT JOIN Familia ON Articulo.FamiliaID = familia.familiaID\r\nLEFT JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT JOIN SeriePedidoAlbaranVenta ON AlbaranVentaCabecera.SerieAlbaranID = SeriePedidoAlbaranVenta.SeriePedidoAlbaranVentaID\r\nLEFT JOIN Almacen ON AlbaranVentaCabecera.AlmacenID = Almacen.AlmacenID\r\nLEFT JOIN PedidoVentaLinea ON AlbaranVentaLinea.PedidoVentaLineaID = PedidoVentaLinea.PedidoVentaLineaID\r\nLEFT JOIN PedidoVentaCabecera ON PedidoVentaCabecera.PedidoVentaCabeceraID = PedidoVentaLinea.PedidoVentaCabeceraID\r\nLEFT JOIN FacturaVentaCabecera ON FacturaVentaCabecera.FacturaVentaCabeceraID = AlbaranVentaCabecera.FacturaVentaCabeceraID\r\nLEFT JOIN CodigoPostal ON Mailing.CodigoPostalID = CodigoPostal.CodigoPostalID\r\nLEFT JOIN Municipio ON Mailing.MunicipioID = Municipio.MunicipioID\r\nLEFT JOIN Provincia ON Mailing.ProvinciaID = Provincia.ProvinciaID\r\nLEFT JOIN articulologistica ON articulo.ArticuloID = articulologistica.ArticuloID\r\nLEFT JOIN ArticuloPrecios ON Articulo.ArticuloID = ArticuloPrecios.ArticuloID\r\nLEFT JOIN ClienteFacturacion ON ClienteFacturacion.ClienteID = Cliente.ClienteID\r\nLEFT JOIN ClienteEDI ON ClienteEDI.ClienteID = Cliente.ClienteID\r\nLEFT JOIN AlbaranVentaControlRecogidaTransporte ON AlbaranVentaControlRecogidaTransporte.AlbaranVentaCabeceraID = AlbaranVentaCabecera.AlbaranVentaCabeceraID\r\nLEFT JOIN TablaGeneral AS PartidaArancelaria ON ArticuloPrecios.PartidaArancelariaID = PartidaArancelaria.TablaGeneralID\r\nLEFT JOIN almacen AS AlmacenLinea ON albaranventalinea.AlmacenID = AlmacenLinea.almacenID\r\nLEFT JOIN TablaGeneral AS RutaEntrega ON RutaEntrega.TablaGeneralID = AlbaranVentaCabecera.RutaEntregaID\r\nLEFT JOIN Representante AS Representante2 ON AlbaranVentaCabecera.Representante2ID = Representante2.RepresentanteID\r\nLEFT JOIN Mailing AS MailingRepresentante2 ON MailingRepresentante2.MailingID = Representante2.MailingID\r\nLEFT JOIN proyecto_of ON albaranventalinea.Proyecto_OFID = proyecto_of.Proyecto_OFID\r\nLEFT JOIN TablaGeneral AS UnidadMedidaVenta ON ArticuloLogistica.unidadMedidaventaid = UnidadMedidaVenta.TablaGeneralID\r\nLEFT JOIN TablaGeneral AS TipoAlbaran ON TipoAlbaran.TablaGeneralID = AlbaranVentaCabecera.TipoID\r\nLEFT JOIN cliente AS ClienteFactura ON ClienteFactura.ClienteID = AlbaranVentaCabeceraFacturacion.ClienteFacturaID\r\nLEFT JOIN mailing AS MailingFactura ON MailingFactura.MailingID = ClienteFactura.MailingID\r\nLEFT JOIN AlbaranVentaControlRecogidaTransporte AS AlbaranTransporte ON AlbaranTransporte.AlbaranVentaCabeceraID = AlbaranVentaCabecera.AlbaranVentaCabeceraID\r\nWHERE \r\nAlbaranVentaCabecera.estado <> 'AN' AND\r\nAlbaranVentaCabecera.CustomerID = 29 AND\r\nAlbaranVentaCabecera.EmpresaID = 1\r\nAND (AlbaranVentaLinea.PedidoVentaLineaID IN (2996)) \r\nAND AlbaranVentaCabecera.Fecha >= '20220520'\r\nAND AlbaranVentaCabecera.Fecha <= '20230520'\r\n\r\nORDER BY  SeriePedidoAlbaranVenta.Serie ASC,Cliente.Codigo ASC,AlbaranVentaCabecera.Numero ASC\r\n\r\nLIMIT 10 \r\nOFFSET 0"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - AlbaranVentaCabeceraID: 1244
+                          ImporteMonedaBase: 2000
+                          Serie: Test
+                          Numero: 52
+                          Fecha: '20220930'
+                          CodigoCliente: '43020014'
+                          NombreCliente: TALLERES DE COMUNICACION XX
+                          NombreRepresentante: ''
+                          PorcComision: 0
+                          NomRepresentante2: ''
+                          PorcComision2: 0
+                          ReferenciaCliente: ''
+                          PedidoPor: ''
+                          CodigoAlmacen: '1'
+                          Linea: 10
+                          CodArticulo: MANO OBRA MTTO
+                          Nom: MANO OBRA MTTO
+                          Cantidad: 1
+                          PrecioVenta: 2000
+                          PrecioCoste: 0
+                          Dto1: 0
+                          Dto2: 0
+                          Dto3: 0
+                          ImporteVenta: 2000
+                          Abreviatura: eur
+                          RepresentanteID: 0
+                          ArticuloID: 987
+                          ClienteID: 17
+                          Estado: FA
+                          MonedaCambio: 2
+                          MonedaID: 1
+                          DescripcionLinea: ''
+                          NotaClienteLineaAlbaran: ''
+                          NotaInternaLineaAlbaran: ''
+                          Cantidad2: 0
+                          Factor: 1
+                          FactorCantidad: 0
+                          familiaCodigo: MO
+                          familiaNombre: MANO DE OBRA
+                          Tipo: ''
+                          MargenComercial: 0
+                          AlbaranVentaLineaID: 1630
+                          RutaFabricacionID: 0
+                          NotaCliente: ''
+                          NotaGeneral: ''
+                          NotaAlmacen: ''
+                          NotaTransporte: ''
+                          NotaEtiqueta: ''
+                      sql: "SELECT\r\nAlbaranVentaCabecera.*,\r\nAlbaranVentaCabecera.numero AS numeroCabeceraAlbaran,\r\nAlbaranVentaCabeceraFacturacion.MonedaCambio,\r\nAlbaranVentaCabeceraFacturacion.MonedaID,\r\nAlbaranVentaCabeceraFacturacion.NoFacturar,\r\nCliente.Codigo AS CodigoCliente,\r\nMailing.Nombre AS NombreCliente,\r\nMailing.Cif AS CifMailing,\r\nMailing.Direccion AS DirMailing,\r\nCodigoPostal.CodigoPostal AS CPMailing,\r\nMailing.Municipio AS NombreMunicipio,\r\nProvincia.Nombre AS NombreProvincia,\r\nAlmacen.Codigo AS CodigoAlmacen,\r\nAlmacen.Nombre AS Almacen,\r\nAlmacenLinea.Codigo AS CodigoAlmacenLinea,\r\nAlmacenLinea.Nombre AS NombreAlmacenLinea,\r\nAlmacenLinea.AlmacenID AS IdAlmacenLinea,\r\nPedidoVentaCabecera.MonedaID,\r\nSeriePedidoAlbaranVenta.Serie,\r\nAlbaranVentaLinea.AlbaranVentaLineaID,\r\nAlbaranVentaLinea.Dto1,\r\nAlbaranVentaLinea.Dto2,\r\nAlbaranVentaLinea.Dto3,\r\nAlbaranVentaLinea.Cantidad,\r\nAlbaranVentaLinea.Cantidad2,\r\nAlbaranVentaLinea.ImporteVenta,\r\nAlbaranVentaLinea.PrecioCoste,\r\nAlbaranVentaLinea.PrecioVenta,\r\nAlbaranVentaLinea.ArticuloID,\r\nAlbaranVentaLinea.Linea,\r\nMailingFactura.Nombre AS NomClienteFactura,\r\nMailingFactura.ReferenciaCodigo AS CodClienteFactura,\r\nAlbaranVentaLinea.Nombre AS Nom,\r\nArticulo.Codigo AS CodArticulo,\r\nAlbaranVentaLinea.Nombre AS NomArticulo,\r\nFacturaVentaCabecera.*,\r\nPedidoVentaCabecera.Numero AS NumeroPedido,\r\nPedidoVentaCabecera.Fecha AS FechaPedido,\r\nPedidoVentaCabecera.DNI,\r\nPedidoVentaCabecera.Matricula,\r\nPedidoVentaCabecera.NombreTransportista AS NombreTransportistaPedido,\r\nPedidoVentaLinea.Referencia AS ReferenciaPedido,\r\nPedidoVentaLinea.Cantidad AS CantidadPedido,\r\nPedidoVentaLinea.PrecioVenta AS PrecioPedido,\r\nPedidoVentaLinea.ImporteVenta AS ImportePedido,\r\nPedidoVentaLinea.Dto1 AS DtoPedido,\r\nPedidoVentaLinea.FechaEntregaPrevistaCliente,\r\nPedidoVentaLinea.Descripcion AS DescripcionLinea,\r\npedidoventalinea.NotaCliente AS NotaClienteLinea,\r\nMailingRepresentante.Nombre AS NombreRepresentante,\r\nMoneda.Abreviatura,\r\nAlmacenLinea.codigo AS CodigoAlmacenLinea,\r\nRutaEntrega.Descripcion AS RutaEntrega,\r\nAlbaranVentaLinea.Factor,\r\nAlbaranVentaLinea.Referencia AS referenciaArticuloCliente,\r\nAlbaranVentaLinea.ReferenciaCliente AS referenciaClienteLinea,\r\nfamilia.codigo AS familiaCodigo,\r\nfamilia.nombre AS familiaNombre,\r\nAlbaranVentaLinea.ComisionImporte,\r\nMailingRepresentante.Nombre AS NombreRepresentante,\r\nRepresentante.Codigo AS codigoRepresentante,\r\nMailingRepresentante2.Nombre AS NomRepresentante2,\r\nAlbaranVentaLinea.PorcentajeComision AS PorcComision,\r\n0 AS PorcComision2,\r\nAlbaranVentaLinea.FactorCantidad,\r\npedidoventalinea.NivelIngenieriaID,\r\nalbaranventalinea.PedidoVentaLineaID,\r\nproyecto_of.CodigoProyecto_OF,\r\nproyecto_of.Proyecto_OFID,\r\nUnidadMedidaVenta.descripcion AS UnidadMedidaArticulo,\r\nalbaranventalinea.MargenComercial,\r\nAlbaranVentaCabeceraFacturacion.PorcentajeDtoEspecial1,\r\nAlbaranVentaCabeceraFacturacion.PorcentajeDtoEspecial2,\r\nAlbaranVentaCabeceraFacturacion.PorcentajeDtoProntoPago,\r\nAlbaranVentaLinea.RutaFabricacionID,\r\nAlbaranVentaLinea.NotaCliente AS NotaClienteLineaAlbaran,\r\nAlbaranVentaLinea.NotaInterna AS NotaInternaLineaAlbaran,\r\nTipoAlbaran.Descripcion AS AlbaranTipo,\r\nAlbaranTransporte.NombreTransportista AS NombreTransportistaAlbaran\r\nFROM \r\nAlbaranVentaCabecera INNER JOIN AlbaranVentaLinea ON AlbaranVentaCabecera.AlbaranVentaCabeceraID = AlbaranVentaLinea.AlbaranVentaCabeceraID\r\nINNER JOIN AlbaranVentaCabeceraFacturacion ON AlbaranVentaCabecera.AlbaranVentaCabeceraID = AlbaranVentaCabeceraFacturacion.AlbaranVentaCabeceraID\r\nINNER JOIN Cliente ON AlbaranVentaCabecera.ClienteID = Cliente.ClienteID\r\nLEFT JOIN Representante ON AlbaranVentaCabecera.RepresentanteID = Representante.RepresentanteID\r\nLEFT JOIN Mailing AS MailingRepresentante ON MailingRepresentante.MailingID = Representante.MailingID\r\nLEFT JOIN Moneda ON Moneda.MonedaID = AlbaranVentaCabeceraFacturacion.MonedaID\r\nLEFT JOIN Articulo ON AlbaranVentaLinea.ArticuloID = Articulo.ArticuloID\r\nLEFT JOIN Familia ON Articulo.FamiliaID = familia.familiaID\r\nLEFT JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT JOIN SeriePedidoAlbaranVenta ON AlbaranVentaCabecera.SerieAlbaranID = SeriePedidoAlbaranVenta.SeriePedidoAlbaranVentaID\r\nLEFT JOIN Almacen ON AlbaranVentaCabecera.AlmacenID = Almacen.AlmacenID\r\nLEFT JOIN PedidoVentaLinea ON AlbaranVentaLinea.PedidoVentaLineaID = PedidoVentaLinea.PedidoVentaLineaID\r\nLEFT JOIN PedidoVentaCabecera ON PedidoVentaCabecera.PedidoVentaCabeceraID = PedidoVentaLinea.PedidoVentaCabeceraID\r\nLEFT JOIN FacturaVentaCabecera ON FacturaVentaCabecera.FacturaVentaCabeceraID = AlbaranVentaCabecera.FacturaVentaCabeceraID\r\nLEFT JOIN CodigoPostal ON Mailing.CodigoPostalID = CodigoPostal.CodigoPostalID\r\nLEFT JOIN Municipio ON Mailing.MunicipioID = Municipio.MunicipioID\r\nLEFT JOIN Provincia ON Mailing.ProvinciaID = Provincia.ProvinciaID\r\nLEFT JOIN articulologistica ON articulo.ArticuloID = articulologistica.ArticuloID\r\nLEFT JOIN ArticuloPrecios ON Articulo.ArticuloID = ArticuloPrecios.ArticuloID\r\nLEFT JOIN ClienteFacturacion ON ClienteFacturacion.ClienteID = Cliente.ClienteID\r\nLEFT JOIN ClienteEDI ON ClienteEDI.ClienteID = Cliente.ClienteID\r\nLEFT JOIN AlbaranVentaControlRecogidaTransporte ON AlbaranVentaControlRecogidaTransporte.AlbaranVentaCabeceraID = AlbaranVentaCabecera.AlbaranVentaCabeceraID\r\nLEFT JOIN TablaGeneral AS PartidaArancelaria ON ArticuloPrecios.PartidaArancelariaID = PartidaArancelaria.TablaGeneralID\r\nLEFT JOIN almacen AS AlmacenLinea ON albaranventalinea.AlmacenID = AlmacenLinea.almacenID\r\nLEFT JOIN TablaGeneral AS RutaEntrega ON RutaEntrega.TablaGeneralID = AlbaranVentaCabecera.RutaEntregaID\r\nLEFT JOIN Representante AS Representante2 ON AlbaranVentaCabecera.Representante2ID = Representante2.RepresentanteID\r\nLEFT JOIN Mailing AS MailingRepresentante2 ON MailingRepresentante2.MailingID = Representante2.MailingID\r\nLEFT JOIN proyecto_of ON albaranventalinea.Proyecto_OFID = proyecto_of.Proyecto_OFID\r\nLEFT JOIN TablaGeneral AS UnidadMedidaVenta ON ArticuloLogistica.unidadMedidaventaid = UnidadMedidaVenta.TablaGeneralID\r\nLEFT JOIN TablaGeneral AS TipoAlbaran ON TipoAlbaran.TablaGeneralID = AlbaranVentaCabecera.TipoID\r\nLEFT JOIN cliente AS ClienteFactura ON ClienteFactura.ClienteID = AlbaranVentaCabeceraFacturacion.ClienteFacturaID\r\nLEFT JOIN mailing AS MailingFactura ON MailingFactura.MailingID = ClienteFactura.MailingID\r\nLEFT JOIN AlbaranVentaControlRecogidaTransporte AS AlbaranTransporte ON AlbaranTransporte.AlbaranVentaCabeceraID = AlbaranVentaCabecera.AlbaranVentaCabeceraID\r\nWHERE \r\nAlbaranVentaCabecera.estado <> 'AN' AND\r\nAlbaranVentaCabecera.CustomerID = 29 AND\r\nAlbaranVentaCabecera.EmpresaID = 1\r\nAND (AlbaranVentaLinea.PedidoVentaLineaID IN (2996)) \r\nAND AlbaranVentaCabecera.Fecha >= '20220520'\r\nAND AlbaranVentaCabecera.Fecha <= '20230520'\r\n\r\nORDER BY  SeriePedidoAlbaranVenta.Serie ASC,Cliente.Codigo ASC,AlbaranVentaCabecera.Numero ASC\r\n\r\nLIMIT 10 \r\nOFFSET 0"
+      operationId: get-consult-intervention-salesReceipts
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: limit
+          description: '10'
+        - schema:
+            type: string
+          in: query
+          name: offset
+          description: '0'
+        - schema:
+            type: string
+          in: query
+          name: ofertaID
+          description: '375'
+        - schema:
+            type: string
+          in: query
+          name: FechaMin
+          description: '20220520'
+        - schema:
+            type: string
+          in: query
+          name: FechaMax
+          description: '20230520'
+        - schema:
+            type: string
+          in: query
+          name: Detalle
+          description: '1'
+        - schema:
+            type: string
+          in: query
+          name: ArticuloID
+        - schema:
+            type: string
+          in: query
+          name: Albaranes
+          description: '1'
 components:
   schemas: {}
