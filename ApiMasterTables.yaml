@@ -14735,11 +14735,11 @@ paths:
           description: '"tokenReciente"'
   /tables/checkListGroup:
     get:
-      summary: findManyByParam
+      summary: findManyByParamForCheckListGroup
       tags: []
       responses:
         '200':
-          description: ''
+          description: OK
           content:
             application/json:
               schema:
