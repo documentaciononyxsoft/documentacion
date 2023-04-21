@@ -14878,7 +14878,7 @@ paths:
         required: true
         description: '4'
     delete:
-      summary: RemoveForCheckList
+      summary: RemoveForCheckListSection
       operationId: delete-tables-checkListSection-CheckListApartadoID
       responses:
         '200':
