@@ -16559,5 +16559,64 @@ paths:
       responses: {}
       operationId: get-tables-checkListGroup
       description: ''
+  /tables/checkListSection:
+    post:
+      summary: CreateCheckListSection
+      operationId: post-tables-checkListSection
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      CheckListApartadoID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      CheckListApartadoID: 8
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      CheckListApartadoID: 8
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Apartado:
+                  type: integer
+              x-examples:
+                Example 1:
+                  Apartado: 785417
+            examples:
+              Example 1:
+                value:
+                  Apartado: 785417
 components:
   schemas: {}
