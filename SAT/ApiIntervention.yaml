@@ -7745,7 +7745,7 @@ paths:
           in: query
           name: 'fecha '
           description: '20230215'
-  '/http://localhost:8026/materialsImputation/{movimientoID}/{reservaMaterialID}':
+  '/materialsImputation/{movimientoID}/{reservaMaterialID}':
     parameters:
       - schema:
           type: string
