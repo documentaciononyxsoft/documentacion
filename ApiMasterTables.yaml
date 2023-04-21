@@ -14746,6 +14746,58 @@ paths:
           in: query
           name: 'param '
           description: a
+    post:
+      summary: CreateForCheckListGroup
+      operationId: post-tables-checkListGroup
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      CheckListApartadoID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      CheckListApartadoID: 6
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      CheckListApartadoID: 6
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Apartado:
+                  type: integer
+              x-examples:
+                Example 1:
+                  Apartado: 7854
+            examples:
+              Example 1:
+                value:
+                  Apartado: 7854
   '/tables/checkListSection/{CheckListApartadoID}':
     post:
       summary: Create
