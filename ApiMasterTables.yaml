@@ -14394,14 +14394,70 @@ paths:
       operationId: post-tables-checkListGroup
       responses:
         '200':
-          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "CheckListDefinicionGrupoID":11 } } '
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      CheckListDefinicionGrupoID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      CheckListDefinicionGrupoID: 11
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      CheckListDefinicionGrupoID: 11
       requestBody:
         content:
           application/json:
             schema:
               type: object
-              properties: {}
-        description: "{\n\t\"Codigo\":\"nihili997587\",\n\t\"Orden\":41,\n\t\"Activo\":false,\n\t\"Nombre\":\"pruebaNombreFTTF\",\n\t\"Notas\":\"Notas\"\n}"
+              properties:
+                Codigo:
+                  type: string
+                Orden:
+                  type: integer
+                Activo:
+                  type: boolean
+                Nombre:
+                  type: string
+                Notas:
+                  type: string
+              x-examples:
+                Example 1:
+                  Codigo: nihili997587
+                  Orden: 41
+                  Activo: false
+                  Nombre: pruebaNombreFTTF
+                  Notas: Notas
+            examples:
+              Example 1:
+                value:
+                  Codigo: nihili997587
+                  Orden: 41
+                  Activo: false
+                  Nombre: pruebaNombreFTTF
+                  Notas: Notas
+        description: ''
       parameters:
         - schema:
             type: string
