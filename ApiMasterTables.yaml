@@ -14604,8 +14604,53 @@ paths:
           application/json:
             schema:
               type: object
+              properties:
+                checkListDefinicionGrupoID:
+                  type: integer
+                texto:
+                  type: string
+                activo:
+                  type: boolean
+                orden:
+                  type: integer
+                tipoCampoID:
+                  type: integer
+                notas:
+                  type: string
+                valores:
+                  type: string
+                apartadoCheckListID:
+                  type: integer
+                checkListDefinicionID:
+                  type: integer
+              x-examples:
+                Example 1:
+                  checkListDefinicionGrupoID: 5
+                  texto: textoPruebamod
+                  activo: true
+                  orden: 56
+                  tipoCampoID: 5
+                  notas: pruebaDTHmod
+                  valores: pruebaaValoresmod
+                  apartadoCheckListID: 1
+                  checkListDefinicionID: 29
+            examples:
+              Example 1:
+                value:
+                  checkListDefinicionGrupoID: 5
+                  texto: textoPruebamod
+                  activo: true
+                  orden: 56
+                  tipoCampoID: 5
+                  notas: pruebaDTHmod
+                  valores: pruebaaValoresmod
+                  apartadoCheckListID: 1
+                  checkListDefinicionID: 29
+          application/xml:
+            schema:
+              type: object
               properties: {}
-        description: "{\n\t\"checkListDefinicionGrupoID\":5,\n\t\"texto\":\"textoPruebamod\",\n\t\"activo\":true,\n\t\"orden\":56,\n\t\"tipoCampoID\":5,\n\t\"notas\":\"pruebaDTHmod\",\n\t\"valores\":\"pruebaaValoresmod\",\n\t\"apartadoCheckListID\":1,\n\t\"checkListDefinicionID\":29\n}"
+        description: ''
   /tables/checkListSection/checkList:
     get:
       summary: findManyByCheckListSection
