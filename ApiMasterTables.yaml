@@ -15196,7 +15196,7 @@ paths:
           name: 'param '
           description: a
     post:
-      summary: CreateForCheckListSection
+      summary: CreateForCheckListGroup
       operationId: post-tables-checkListGroup
       responses:
         '200':
@@ -15215,7 +15215,7 @@ paths:
                     properties:
                       success:
                         type: boolean
-                      CheckListApartadoID:
+                      CheckListDefinicionGrupoID:
                         type: integer
                 x-examples:
                   Example 1:
@@ -15223,7 +15223,7 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      CheckListApartadoID: 6
+                      CheckListDefinicionGrupoID: 12
               examples:
                 Example 1:
                   value:
@@ -15231,28 +15231,44 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      CheckListApartadoID: 6
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                Apartado:
-                  type: integer
-              x-examples:
-                Example 1:
-                  Apartado: 7854
-            examples:
-              Example 1:
-                value:
-                  Apartado: 7854
+                      CheckListDefinicionGrupoID: 12
       parameters:
         - schema:
             type: string
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Codigo:
+                  type: string
+                Orden:
+                  type: integer
+                Activo:
+                  type: boolean
+                Nombre:
+                  type: string
+                Notas:
+                  type: string
+              x-examples:
+                Example 1:
+                  Codigo: nihili997587
+                  Orden: 41
+                  Activo: false
+                  Nombre: pruebaNombre
+                  Notas: Notas
+            examples:
+              Example 1:
+                value:
+                  Codigo: nihili997587
+                  Orden: 41
+                  Activo: false
+                  Nombre: pruebaNombre
+                  Notas: Notas
   '/tables/checkListSection/{CheckListApartadoID}':
     put:
       summary: UpdateForCheckListSection
