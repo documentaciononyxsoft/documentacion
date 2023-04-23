@@ -14538,25 +14538,6 @@ paths:
           name: CheckListDefinicionGrupoID
           description: '5'
   '/tables/checkList/{CheckListDefinicionID}':
-    post:
-      summary: Create
-      operationId: post-tables-checkList
-      responses:
-        '200':
-          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "CheckListDefinicionID":30 } } '
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties: {}
-        description: "{\n\t\"checkListDefinicionGrupoID\":5,\n\t\"texto\":\"textoPrueba\",\n\t\"activo\":true,\n\t\"orden\":56,\n\t\"tipoCampoID\":5,\n\t\"notas\":\"pruebaDTH\",\n\t\"valores\":\"pruebaaValores\",\n\t\"apartadoCheckListID\":1\n}"
     delete:
       summary: Remove
       operationId: delete-tables-checkList
@@ -16725,6 +16706,92 @@ paths:
           in: query
           name: 'param '
           description: '1'
+    post:
+      summary: CreateForCheckList
+      operationId: post-tables-checkList
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      CheckListApartadoID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      CheckListApartadoID: 32
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      CheckListApartadoID: 32
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                checkListDefinicionGrupoID:
+                  type: integer
+                texto:
+                  type: string
+                activo:
+                  type: boolean
+                orden:
+                  type: integer
+                tipoCampoID:
+                  type: integer
+                notas:
+                  type: string
+                valores:
+                  type: string
+                apartadoCheckListID:
+                  type: integer
+              x-examples:
+                Example 1:
+                  checkListDefinicionGrupoID: 5
+                  texto: textoPrueba
+                  activo: true
+                  orden: 56
+                  tipoCampoID: 5
+                  notas: pruebaDTH
+                  valores: pruebaaValores
+                  apartadoCheckListID: 1
+            examples:
+              Example 1:
+                value:
+                  checkListDefinicionGrupoID: 5
+                  texto: textoPrueba
+                  activo: true
+                  orden: 56
+                  tipoCampoID: 5
+                  notas: pruebaDTH
+                  valores: pruebaaValores
+                  apartadoCheckListID: 1
   /tables/checkListGroup/:
     get:
       summary: Your GET endpoint
