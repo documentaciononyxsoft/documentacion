@@ -14680,11 +14680,109 @@ paths:
         description: ''
   /tables/checkListSection/checkList:
     get:
-      summary: findManyByCheckListSection
+      summary: findManyForCheckListByCheckListSection
       tags: []
       responses:
         '200':
-          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "sql":"SELECT CheckListDefinicion.*,\r\nCheckListDefinicionGrupo.Orden AS OrdenGrupo,\r\nCheckListDefinicionGrupo.Nombre AS NombreGrupo,\r\nCheckListDefinicionGrupo.Activo AS ActivoGrupo,\r\nCONCAT(CheckListDefinicionGrupo.Orden,CheckListDefinicion.Orden) AS OrdenTotal \r\nFROM CheckListDefinicion\r\nLEFT OUTER JOIN CheckListDefinicionGrupo ON CheckListDefinicionGrupo.CheckListDefinicionGrupoID = CheckListDefinicion.CheckListDefinicionGrupoID\r\nWHERE CheckListDefinicion.CustomerID = 29\r\nAND CheckListDefinicion.EmpresaID = 1\r\nAND CheckListDefinicion.CheckListApartadoID = 1\r\nORDER BY CheckListDefinicionGrupo.Orden, CheckListDefinicion.Orden\r\n\r\n", "records":[ { "Orden":3, "Grupo":"PRUEBA", "Texto":"SADSAD", "TipoCampo":"LOGICO", "Valores":"", "Activo":1 }, { "Orden":4, "Grupo":"PRUEBA", "Texto":"454545", "TipoCampo":"COMBOBOX", "Valores":"SDSDSA", "Activo":1 }, { "Orden":2, "Grupo":"fgghf", "Texto":"dsfdsfds", "TipoCampo":"LISTABOX", "Valores":"PRUBEAHHH", "Activo":1 } ] } } '
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Orden:
+                              type: integer
+                            Grupo:
+                              type: string
+                            Texto:
+                              type: string
+                            TipoCampo:
+                              type: string
+                            Valores:
+                              type: string
+                            Activo:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT CheckListDefinicion.*,\r\nCheckListDefinicionGrupo.Orden AS OrdenGrupo,\r\nCheckListDefinicionGrupo.Nombre AS NombreGrupo,\r\nCheckListDefinicionGrupo.Activo AS ActivoGrupo,\r\nCONCAT(CheckListDefinicionGrupo.Orden,CheckListDefinicion.Orden) AS OrdenTotal \r\nFROM CheckListDefinicion\r\nLEFT OUTER JOIN CheckListDefinicionGrupo ON CheckListDefinicionGrupo.CheckListDefinicionGrupoID = CheckListDefinicion.CheckListDefinicionGrupoID\r\nWHERE CheckListDefinicion.CustomerID = 29\r\nAND CheckListDefinicion.EmpresaID = 1\r\nAND CheckListDefinicion.CheckListApartadoID = 1\r\nORDER BY CheckListDefinicionGrupo.Orden, CheckListDefinicion.Orden\r\n\r\n"
+                      records:
+                        - Orden: 3
+                          Grupo: PRUEBA
+                          Texto: SADSAD
+                          TipoCampo: LOGICO
+                          Valores: ''
+                          Activo: 1
+                        - Orden: 4
+                          Grupo: PRUEBA
+                          Texto: '454545'
+                          TipoCampo: COMBOBOX
+                          Valores: SDSDSA
+                          Activo: 1
+                        - Orden: 2
+                          Grupo: fgghf
+                          Texto: dsfdsfds
+                          TipoCampo: LISTABOX
+                          Valores: PRUBEAHHH
+                          Activo: 1
+                        - Orden: 57
+                          Grupo: fgghf
+                          Texto: xsddddd
+                          TipoCampo: TEXTO
+                          Valores: ''
+                          Activo: 1
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT CheckListDefinicion.*,\r\nCheckListDefinicionGrupo.Orden AS OrdenGrupo,\r\nCheckListDefinicionGrupo.Nombre AS NombreGrupo,\r\nCheckListDefinicionGrupo.Activo AS ActivoGrupo,\r\nCONCAT(CheckListDefinicionGrupo.Orden,CheckListDefinicion.Orden) AS OrdenTotal \r\nFROM CheckListDefinicion\r\nLEFT OUTER JOIN CheckListDefinicionGrupo ON CheckListDefinicionGrupo.CheckListDefinicionGrupoID = CheckListDefinicion.CheckListDefinicionGrupoID\r\nWHERE CheckListDefinicion.CustomerID = 29\r\nAND CheckListDefinicion.EmpresaID = 1\r\nAND CheckListDefinicion.CheckListApartadoID = 1\r\nORDER BY CheckListDefinicionGrupo.Orden, CheckListDefinicion.Orden\r\n\r\n"
+                      records:
+                        - Orden: 3
+                          Grupo: PRUEBA
+                          Texto: SADSAD
+                          TipoCampo: LOGICO
+                          Valores: ''
+                          Activo: 1
+                        - Orden: 4
+                          Grupo: PRUEBA
+                          Texto: '454545'
+                          TipoCampo: COMBOBOX
+                          Valores: SDSDSA
+                          Activo: 1
+                        - Orden: 2
+                          Grupo: fgghf
+                          Texto: dsfdsfds
+                          TipoCampo: LISTABOX
+                          Valores: PRUBEAHHH
+                          Activo: 1
+                        - Orden: 57
+                          Grupo: fgghf
+                          Texto: xsddddd
+                          TipoCampo: TEXTO
+                          Valores: ''
+                          Activo: 1
       operationId: get-tables-checkListSection-checkList
       description: ''
       parameters:
