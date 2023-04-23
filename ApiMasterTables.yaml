@@ -14643,7 +14643,77 @@ paths:
       tags: []
       responses:
         '200':
-          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "arrayRes":[ { "Id":1, "Nombre":"ENTERO", "Codigo":"TIPOCAMPOENTERO" }, { "Id":2, "Nombre":"COMBOBOX", "Codigo":"TIPOCAMPOCOMBOBOX" }, { "Id":3, "Nombre":"LISTABOX", "Codigo":"TIPOCAMPOLISTABOX" }, { "Id":4, "Nombre":"LOGICO", "Codigo":"TIPOCAMPOLOGICO" }, { "Id":5, "Nombre":"TEXTO", "Codigo":"TIPOCAMPOTEXTO" } ] } } '
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      arrayRes:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Id:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      arrayRes:
+                        - Id: 1
+                          Nombre: ENTERO
+                          Codigo: TIPOCAMPOENTERO
+                        - Id: 2
+                          Nombre: COMBOBOX
+                          Codigo: TIPOCAMPOCOMBOBOX
+                        - Id: 3
+                          Nombre: LISTABOX
+                          Codigo: TIPOCAMPOLISTABOX
+                        - Id: 4
+                          Nombre: LOGICO
+                          Codigo: TIPOCAMPOLOGICO
+                        - Id: 5
+                          Nombre: TEXTO
+                          Codigo: TIPOCAMPOTEXTO
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      arrayRes:
+                        - Id: 1
+                          Nombre: ENTERO
+                          Codigo: TIPOCAMPOENTERO
+                        - Id: 2
+                          Nombre: COMBOBOX
+                          Codigo: TIPOCAMPOCOMBOBOX
+                        - Id: 3
+                          Nombre: LISTABOX
+                          Codigo: TIPOCAMPOLISTABOX
+                        - Id: 4
+                          Nombre: LOGICO
+                          Codigo: TIPOCAMPOLOGICO
+                        - Id: 5
+                          Nombre: TEXTO
+                          Codigo: TIPOCAMPOTEXTO
       operationId: get-tables-fieldType-light
       parameters:
         - schema:
