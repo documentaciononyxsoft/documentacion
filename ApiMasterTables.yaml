@@ -14539,7 +14539,7 @@ paths:
           description: '5'
   '/tables/checkList/{CheckListDefinicionID}':
     delete:
-      summary: Remove
+      summary: RemoveForCheckList
       operationId: delete-tables-checkList
       responses:
         '200':
