@@ -15196,7 +15196,7 @@ paths:
           name: 'param '
           description: a
     post:
-      summary: CreateForCheckListGroup
+      summary: CreateForCheckListSection
       operationId: post-tables-checkListGroup
       responses:
         '200':
@@ -17087,13 +17087,6 @@ paths:
                   notas: pruebaDTH
                   valores: pruebaaValores
                   apartadoCheckListID: 1
-  /tables/checkListGroup/:
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-tables-checkListGroup
-      description: ''
   /tables/checkListSection:
     post:
       summary: CreateCheckListSection
