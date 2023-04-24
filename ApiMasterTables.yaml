@@ -17972,5 +17972,10 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: EmpleadoID
+          description: '1'
 components:
   schemas: {}
