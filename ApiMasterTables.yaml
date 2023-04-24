@@ -15814,6 +15814,58 @@ paths:
                           Codigo: '03'
         '':
           description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ID: 2
+                          Nombre: MANEJO DE CARRETILLA
+                          Codigo: '02'
+                        - ID: 4
+                          Nombre: CURSO DEL PROGRAMA DE CAPTURA EL PLANTA
+                          Codigo: '03'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ID: 2
+                          Nombre: MANEJO DE CARRETILLA
+                          Codigo: '02'
+                        - ID: 4
+                          Nombre: CURSO DEL PROGRAMA DE CAPTURA EL PLANTA
+                          Codigo: '03'
       operationId: get-tables-employees-theme
       parameters:
         - schema:
