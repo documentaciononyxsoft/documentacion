@@ -17807,5 +17807,89 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  /employee/machine/light:
+    get:
+      summary: findLightListForMachine
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ID: 1
+                          Nombre: CENTRO DE MECANIZADO 1
+                          Codigo: ME-01
+                        - ID: 2
+                          Nombre: CENTRO DE MECANIZADO 2
+                          Codigo: ME-02
+                        - ID: 3
+                          Nombre: CENTRO DE MECANIZADO 3
+                          Codigo: ME-03
+                        - ID: 4
+                          Nombre: CENTRO DE MONTAJE
+                          Codigo: MO-01
+                        - ID: 5
+                          Nombre: MAQ.ENVASADO
+                          Codigo: ENV1
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ID: 1
+                          Nombre: CENTRO DE MECANIZADO 1
+                          Codigo: ME-01
+                        - ID: 2
+                          Nombre: CENTRO DE MECANIZADO 2
+                          Codigo: ME-02
+                        - ID: 3
+                          Nombre: CENTRO DE MECANIZADO 3
+                          Codigo: ME-03
+                        - ID: 4
+                          Nombre: CENTRO DE MONTAJE
+                          Codigo: MO-01
+                        - ID: 5
+                          Nombre: MAQ.ENVASADO
+                          Codigo: ENV1
+      operationId: get-employee-machine-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas: {}
