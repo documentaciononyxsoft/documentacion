@@ -17358,7 +17358,7 @@ paths:
               Example 1:
                 value:
                   Apartado: 785417
-  /employees/position:
+  /employee/positions:
     get:
       summary: findManyForPositionByEmployee
       tags: []
@@ -17511,6 +17511,7 @@ paths:
           in: query
           name: empleadoID
           description: '1'
+    parameters: []
   /employee/positionType/light:
     get:
       summary: findLightListForPositionType
