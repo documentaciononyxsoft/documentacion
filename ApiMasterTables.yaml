@@ -15935,7 +15935,38 @@ paths:
       operationId: put-tables-employee-account
       responses:
         '200':
-          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "msg":"" } } '
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: ''
       parameters:
         - schema:
             type: string
@@ -15947,8 +15978,77 @@ paths:
           application/json:
             schema:
               type: object
-              properties: {}
-        description: "{\n\t\"MailingID\":845,\n\t\"RFC\":\"54567\",\n\t\"Activo\":false,\n\t\"NombreFiscal\":\"PRUEBAmod3\",\n\t\"NombreComercial\":\"pruebaMOD4\",\n\t\"Telefono\":\"3218326755\",\n\t\"Horario\":\"SADASD\",\n\t\"Email\":\"SDFDS@ASDSAD\",\n\t\"PaisID\":45,\n\t\"ProvinciaID\":53,\n\t\"MunicipioID\":8149,\n\t\"Municipio\":\"Pereira\",\n\t\"Observacion\":\"DSFDSFDSFD\",\n\t\"Direccion\":\"SADFBSAHFVSAJFVAT\",\n\t\"Web\":\"ASDASDAS.COM\",\n\t\"CodigoPostalID\":14768\n}"
+              properties:
+                MailingID:
+                  type: integer
+                RFC:
+                  type: string
+                Activo:
+                  type: boolean
+                NombreFiscal:
+                  type: string
+                NombreComercial:
+                  type: string
+                Telefono:
+                  type: string
+                Horario:
+                  type: string
+                Email:
+                  type: string
+                PaisID:
+                  type: integer
+                ProvinciaID:
+                  type: integer
+                MunicipioID:
+                  type: integer
+                Municipio:
+                  type: string
+                Observacion:
+                  type: string
+                Direccion:
+                  type: string
+                Web:
+                  type: string
+                CodigoPostalID:
+                  type: integer
+              x-examples:
+                Example 1:
+                  MailingID: 845
+                  RFC: '54567'
+                  Activo: false
+                  NombreFiscal: PRUEBAmod3
+                  NombreComercial: pruebaMOD4
+                  Telefono: '3218326755'
+                  Horario: SADASD
+                  Email: SDFDS@ASDSAD
+                  PaisID: 45
+                  ProvinciaID: 53
+                  MunicipioID: 8149
+                  Municipio: Pereira
+                  Observacion: DSFDSFDSFD
+                  Direccion: SADFBSAHFVSAJFVAT
+                  Web: ASDASDAS.COM
+                  CodigoPostalID: 14768
+            examples:
+              Example 1:
+                value:
+                  MailingID: 845
+                  RFC: '54567'
+                  Activo: false
+                  NombreFiscal: PRUEBAmod3
+                  NombreComercial: pruebaMOD4
+                  Telefono: '3218326755'
+                  Horario: SADASD
+                  Email: SDFDS@ASDSAD
+                  PaisID: 45
+                  ProvinciaID: 53
+                  MunicipioID: 8149
+                  Municipio: Pereira
+                  Observacion: DSFDSFDSFD
+                  Direccion: SADFBSAHFVSAJFVAT
+                  Web: ASDASDAS.COM
+                  CodigoPostalID: 14768
+        description: ''
   /tables/employees/work:
     get:
       summary: FindByEmployees
