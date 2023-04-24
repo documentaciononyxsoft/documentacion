@@ -17977,5 +17977,93 @@ paths:
           in: query
           name: EmpleadoID
           description: '1'
+  /employee/versatility:
+    get:
+      summary: ''
+      tags: []
+      responses: {}
+      operationId: get-employee-versatility
+    post:
+      summary: CreateVersatility
+      operationId: post-employee-versatility
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      EmpleadoCompetenciaNivelPuestoCabeceraID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      EmpleadoCompetenciaNivelPuestoCabeceraID: 28
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      EmpleadoCompetenciaNivelPuestoCabeceraID: 28
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                EmpleadoTipoPuestoID:
+                  type: string
+                EmpleadoID:
+                  type: string
+                MaquinaID:
+                  type: string
+                FechaHoraUsuario:
+                  type: string
+                MaquinaCodigo:
+                  type: string
+                MaquinaNombre:
+                  type: string
+                DescripcionPuesto:
+                  type: string
+              x-examples:
+                Example 1:
+                  EmpleadoTipoPuestoID: '5'
+                  EmpleadoID: '1'
+                  MaquinaID: '0'
+                  FechaHoraUsuario: ''
+                  MaquinaCodigo: ''
+                  MaquinaNombre: ''
+                  DescripcionPuesto: Estampador
+            examples:
+              Example 1:
+                value:
+                  EmpleadoTipoPuestoID: '5'
+                  EmpleadoID: '1'
+                  MaquinaID: '0'
+                  FechaHoraUsuario: ''
+                  MaquinaCodigo: ''
+                  MaquinaNombre: ''
+                  DescripcionPuesto: Estampador
 components:
   schemas: {}
