@@ -15781,7 +15781,7 @@ paths:
           description: '45'
   /tables/employee/account:
     get:
-      summary: findOneForEmployee
+      summary: findOneAccountForEmployee
       tags: []
       responses:
         '200':
@@ -15931,7 +15931,7 @@ paths:
       requestBody:
         content: {}
     put:
-      summary: updateForEmployeeSAT
+      summary: updateAccountForEmployee
       operationId: put-tables-employee-account
       responses:
         '200':
