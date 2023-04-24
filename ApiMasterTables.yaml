@@ -18352,5 +18352,24 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  /employee/light:
+    get:
+      summary: findLightListForEmployee
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+      operationId: get-employee-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
 components:
   schemas: {}
