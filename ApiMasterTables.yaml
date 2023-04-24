@@ -15781,11 +15781,141 @@ paths:
           description: '45'
   /tables/employee/account:
     get:
-      summary: findOneForEmployeeSAT
+      summary: findOneForEmployee
       tags: []
       responses:
         '200':
-          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "sql":"SELECT\r\nMailing.*,\r\nPais.Nombre as paisNombre,\r\nProvincia.Nombre provinciaNombre,\r\nUsuario.NombreUsuario \r\nFROM\r\nMailing\r\nLEFT JOIN Pais ON Mailing.PaisID = Pais.PaisID\r\nLEFT JOIN Provincia ON Mailing.ProvinciaID = Provincia.ProvinciaID\r\nLEFT JOIN Usuario ON Mailing.UsuarioID\t   = Usuario.UsuarioID \r\nWHERE\r\nMailing.CustomerID = 29 AND\r\nMailing.EmpresaID  = 1 AND\r\nMailing.MailingID  = 845", "records":[ { "Codigo":"43000416", "RFC":"54567", "Activo":0, "NmFiscal":"PRUEBAmod3", "NmCom":"pruebaMOD4", "Telefono":"3218326755", "Email":"SDFDS@ASDSAD", "Horario":"SADASD", "Web":"ASDASDAS.COM", "PaisID":45, "ProvinciaID":53, "Municipio":"Pereira", "CodigoPostalID":14768, "Direccion":"SADFBSAHFVSAJFVAT", "Observacion":"DSFDSFDSFD", "UsuarioAlta":"SUPERVISOR", "FechaAlta":"2022-04-25", "sectorID":19, "actividadID":20, "nombreSector":"COM", "nombreActividad":"ASISTENCIA TECNICA", "codigoSector":"COMERCIAL", "codigoActividad":"TEC" } ] } } '
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Codigo:
+                              type: string
+                            RFC:
+                              type: string
+                            Activo:
+                              type: integer
+                            NmFiscal:
+                              type: string
+                            NmCom:
+                              type: string
+                            Telefono:
+                              type: string
+                            Email:
+                              type: string
+                            Horario:
+                              type: string
+                            Web:
+                              type: string
+                            PaisID:
+                              type: integer
+                            ProvinciaID:
+                              type: integer
+                            Municipio:
+                              type: string
+                            CodigoPostalID:
+                              type: integer
+                            Direccion:
+                              type: string
+                            Observacion:
+                              type: string
+                            UsuarioAlta:
+                              type: string
+                            FechaAlta:
+                              type: string
+                            sectorID:
+                              type: integer
+                            actividadID:
+                              type: integer
+                            nombreSector:
+                              type: string
+                            nombreActividad:
+                              type: string
+                            codigoSector:
+                              type: string
+                            codigoActividad:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT\r\nMailing.*,\r\nPais.Nombre as paisNombre,\r\nProvincia.Nombre provinciaNombre,\r\nUsuario.NombreUsuario \r\nFROM\r\nMailing\r\nLEFT JOIN Pais ON Mailing.PaisID = Pais.PaisID\r\nLEFT JOIN Provincia ON Mailing.ProvinciaID = Provincia.ProvinciaID\r\nLEFT JOIN Usuario ON Mailing.UsuarioID\t   = Usuario.UsuarioID \r\nWHERE\r\nMailing.CustomerID = 29 AND\r\nMailing.EmpresaID  = 1 AND\r\nMailing.MailingID  = 845"
+                      records:
+                        - Codigo: '43000416'
+                          RFC: '54567'
+                          Activo: 0
+                          NmFiscal: PRUEBAmod3
+                          NmCom: pruebaMOD4
+                          Telefono: '3218326755'
+                          Email: SDFDS@ASDSAD
+                          Horario: SADASD
+                          Web: ASDASDAS.COM
+                          PaisID: 45
+                          ProvinciaID: 53
+                          Municipio: Pereira
+                          CodigoPostalID: 14768
+                          Direccion: SADFBSAHFVSAJFVAT
+                          Observacion: DSFDSFDSFD
+                          UsuarioAlta: SUPERVISOR
+                          FechaAlta: '2022-04-25'
+                          sectorID: 19
+                          actividadID: 20
+                          nombreSector: COM
+                          nombreActividad: ASISTENCIA TECNICA
+                          codigoSector: COMERCIAL
+                          codigoActividad: TEC
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT\r\nMailing.*,\r\nPais.Nombre as paisNombre,\r\nProvincia.Nombre provinciaNombre,\r\nUsuario.NombreUsuario \r\nFROM\r\nMailing\r\nLEFT JOIN Pais ON Mailing.PaisID = Pais.PaisID\r\nLEFT JOIN Provincia ON Mailing.ProvinciaID = Provincia.ProvinciaID\r\nLEFT JOIN Usuario ON Mailing.UsuarioID\t   = Usuario.UsuarioID \r\nWHERE\r\nMailing.CustomerID = 29 AND\r\nMailing.EmpresaID  = 1 AND\r\nMailing.MailingID  = 845"
+                      records:
+                        - Codigo: '43000416'
+                          RFC: '54567'
+                          Activo: 0
+                          NmFiscal: PRUEBAmod3
+                          NmCom: pruebaMOD4
+                          Telefono: '3218326755'
+                          Email: SDFDS@ASDSAD
+                          Horario: SADASD
+                          Web: ASDASDAS.COM
+                          PaisID: 45
+                          ProvinciaID: 53
+                          Municipio: Pereira
+                          CodigoPostalID: 14768
+                          Direccion: SADFBSAHFVSAJFVAT
+                          Observacion: DSFDSFDSFD
+                          UsuarioAlta: SUPERVISOR
+                          FechaAlta: '2022-04-25'
+                          sectorID: 19
+                          actividadID: 20
+                          nombreSector: COM
+                          nombreActividad: ASISTENCIA TECNICA
+                          codigoSector: COMERCIAL
+                          codigoActividad: TEC
       operationId: get-tables-employee-account
       parameters:
         - schema:
