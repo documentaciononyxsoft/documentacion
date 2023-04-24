@@ -17978,11 +17978,6 @@ paths:
           name: EmpleadoID
           description: '1'
   /employee/versatility:
-    get:
-      summary: ''
-      tags: []
-      responses: {}
-      operationId: get-employee-versatility
     post:
       summary: CreateVersatility
       operationId: post-employee-versatility
@@ -18065,5 +18060,130 @@ paths:
                   MaquinaCodigo: ''
                   MaquinaNombre: ''
                   DescripcionPuesto: Estampador
+  '/employee/versatility/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: '28'
+    put:
+      summary: UpdateForVersatility
+      operationId: put-employee-versatility-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                EmpleadoTipoPuestoID:
+                  type: string
+                EmpleadoID:
+                  type: string
+                MaquinaID:
+                  type: string
+                FechaHoraUsuario:
+                  type: string
+                MaquinaCodigo:
+                  type: string
+                MaquinaNombre:
+                  type: string
+                DescripcionPuesto:
+                  type: string
+              x-examples:
+                Example 1:
+                  EmpleadoTipoPuestoID: '5'
+                  EmpleadoID: '1'
+                  MaquinaID: '0'
+                  FechaHoraUsuario: ''
+                  MaquinaCodigo: ''
+                  MaquinaNombre: ''
+                  DescripcionPuesto: Estampador
+            examples:
+              Example 1:
+                value:
+                  EmpleadoTipoPuestoID: '5'
+                  EmpleadoID: '1'
+                  MaquinaID: '0'
+                  FechaHoraUsuario: ''
+                  MaquinaCodigo: ''
+                  MaquinaNombre: ''
+                  DescripcionPuesto: Estampador
+    delete:
+      summary: RemoveForVersatility
+      operationId: delete-employee-versatility-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas: {}
