@@ -17358,5 +17358,158 @@ paths:
               Example 1:
                 value:
                   Apartado: 785417
+  /employees/position:
+    get:
+      summary: findManyForPositionByEmployee
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            EmpleadoPuestoID:
+                              type: integer
+                            FechaInicio:
+                              type: string
+                            FechaFin:
+                              type: string
+                            EmpleadoTipoPuestoID:
+                              type: integer
+                            EmpleadoID:
+                              type: integer
+                            MaquinaID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Descripcion:
+                              type: string
+                            DescripciónTipoPuesto:
+                              type: string
+                            CodigoMaquina:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - EmpleadoPuestoID: 7
+                          FechaInicio: '20210505'
+                          FechaFin: '20210526'
+                          EmpleadoTipoPuestoID: 1
+                          EmpleadoID: 1
+                          MaquinaID: 0
+                          Codigo: ''
+                          Descripcion: ''
+                          DescripciónTipoPuesto: Mecanico
+                          CodigoMaquina: ''
+                        - EmpleadoPuestoID: 3
+                          FechaInicio: '20170601'
+                          FechaFin: ''
+                          EmpleadoTipoPuestoID: 5
+                          EmpleadoID: 1
+                          MaquinaID: 0
+                          Codigo: ''
+                          Descripcion: ''
+                          DescripciónTipoPuesto: Estampador
+                          CodigoMaquina: ''
+                        - EmpleadoPuestoID: 18
+                          FechaInicio: '20170106'
+                          FechaFin: '00000101'
+                          EmpleadoTipoPuestoID: 5
+                          EmpleadoID: 1
+                          MaquinaID: 0
+                          Codigo: '0'
+                          Descripcion: '0'
+                          DescripciónTipoPuesto: Estampador
+                          CodigoMaquina: ''
+                        - EmpleadoPuestoID: 19
+                          FechaInicio: '20170101'
+                          FechaFin: '00000101'
+                          EmpleadoTipoPuestoID: 5
+                          EmpleadoID: 1
+                          MaquinaID: 0
+                          Codigo: '0'
+                          Descripcion: '0'
+                          DescripciónTipoPuesto: Estampador
+                          CodigoMaquina: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - EmpleadoPuestoID: 7
+                          FechaInicio: '20210505'
+                          FechaFin: '20210526'
+                          EmpleadoTipoPuestoID: 1
+                          EmpleadoID: 1
+                          MaquinaID: 0
+                          Codigo: ''
+                          Descripcion: ''
+                          DescripciónTipoPuesto: Mecanico
+                          CodigoMaquina: ''
+                        - EmpleadoPuestoID: 3
+                          FechaInicio: '20170601'
+                          FechaFin: ''
+                          EmpleadoTipoPuestoID: 5
+                          EmpleadoID: 1
+                          MaquinaID: 0
+                          Codigo: ''
+                          Descripcion: ''
+                          DescripciónTipoPuesto: Estampador
+                          CodigoMaquina: ''
+                        - EmpleadoPuestoID: 18
+                          FechaInicio: '20170106'
+                          FechaFin: '00000101'
+                          EmpleadoTipoPuestoID: 5
+                          EmpleadoID: 1
+                          MaquinaID: 0
+                          Codigo: '0'
+                          Descripcion: '0'
+                          DescripciónTipoPuesto: Estampador
+                          CodigoMaquina: ''
+                        - EmpleadoPuestoID: 19
+                          FechaInicio: '20170101'
+                          FechaFin: '00000101'
+                          EmpleadoTipoPuestoID: 5
+                          EmpleadoID: 1
+                          MaquinaID: 0
+                          Codigo: '0'
+                          Descripcion: '0'
+                          DescripciónTipoPuesto: Estampador
+                          CodigoMaquina: ''
+      operationId: get-employees-position
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: empleadoID
+          description: '1'
 components:
   schemas: {}
