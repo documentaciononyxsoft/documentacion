@@ -18371,5 +18371,391 @@ paths:
           in: header
           name: accessToken
           description: '"tokenReciente"'
+  /employee/consult/hourDetail:
+    get:
+      summary: findManyByFiltersForHourDetail
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Fecha:
+                              type: string
+                            TiempoTrabajoID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Cliente:
+                              type: string
+                            Concepto:
+                              type: string
+                            Viaje:
+                              type: integer
+                            Horas:
+                              type: integer
+                            Cod_proyecto:
+                              type: integer
+                            Proyecto:
+                              type: string
+                            NumeroTarea:
+                              type: integer
+                            NombreTarea:
+                              type: string
+                            Clave:
+                              type: string
+                            NumeroTarjeta:
+                              type: integer
+                            DescripcionTarjeta:
+                              type: string
+                            Version:
+                              type: integer
+                            Notas:
+                              type: string
+                            Motivo:
+                              type: string
+                            Desc_motivo:
+                              type: string
+                            NomEmpleado:
+                              type: string
+                            EmpleadoID:
+                              type: integer
+                            HorasDecimal:
+                              type: integer
+                            Tiempo:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - Fecha: '20171204'
+                          TiempoTrabajoID: 638
+                          Codigo: '43000001'
+                          Cliente: dario
+                          Concepto: ''
+                          Viaje: 0
+                          Horas: 10800000
+                          Cod_proyecto: 77
+                          Proyecto: CARCASA
+                          NumeroTarea: 311
+                          NombreTarea: Planos solid
+                          Clave: ''
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: ''
+                          Motivo: ''
+                          Desc_motivo: ''
+                          NomEmpleado: Iñigo Vergara
+                          EmpleadoID: 1
+                          HorasDecimal: 3
+                          Tiempo: 10800000
+                        - Fecha: '20171204'
+                          TiempoTrabajoID: 638
+                          Codigo: '43000299'
+                          Cliente: dario
+                          Concepto: ''
+                          Viaje: 0
+                          Horas: 10800000
+                          Cod_proyecto: 77
+                          Proyecto: CARCASA
+                          NumeroTarea: 311
+                          NombreTarea: Planos solid
+                          Clave: ''
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: ''
+                          Motivo: ''
+                          Desc_motivo: ''
+                          NomEmpleado: Iñigo Vergara
+                          EmpleadoID: 1
+                          HorasDecimal: 3
+                          Tiempo: 10800000
+                        - Fecha: '20171204'
+                          TiempoTrabajoID: 638
+                          Codigo: '43000301'
+                          Cliente: dario
+                          Concepto: ''
+                          Viaje: 0
+                          Horas: 10800000
+                          Cod_proyecto: 77
+                          Proyecto: CARCASA
+                          NumeroTarea: 311
+                          NombreTarea: Planos solid
+                          Clave: ''
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: ''
+                          Motivo: ''
+                          Desc_motivo: ''
+                          NomEmpleado: Iñigo Vergara
+                          EmpleadoID: 1
+                          HorasDecimal: 3
+                          Tiempo: 10800000
+                        - Fecha: '20180725'
+                          TiempoTrabajoID: 782
+                          Codigo: '43000001'
+                          Cliente: dario
+                          Concepto: dfvdfgdfgfdgdfgdf
+                          Viaje: 1
+                          Horas: 7200000
+                          Cod_proyecto: 129
+                          Proyecto: Cubierta
+                          NumeroTarea: 995
+                          NombreTarea: Planos solid
+                          Clave: ''
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: ''
+                          Motivo: ''
+                          Desc_motivo: ''
+                          NomEmpleado: Iñigo Vergara
+                          EmpleadoID: 1
+                          HorasDecimal: 2
+                          Tiempo: 7200000
+                        - Fecha: '20180725'
+                          TiempoTrabajoID: 782
+                          Codigo: '43000299'
+                          Cliente: dario
+                          Concepto: dfvdfgdfgfdgdfgdf
+                          Viaje: 1
+                          Horas: 7200000
+                          Cod_proyecto: 129
+                          Proyecto: Cubierta
+                          NumeroTarea: 995
+                          NombreTarea: Planos solid
+                          Clave: ''
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: ''
+                          Motivo: ''
+                          Desc_motivo: ''
+                          NomEmpleado: Iñigo Vergara
+                          EmpleadoID: 1
+                          HorasDecimal: 2
+                          Tiempo: 7200000
+                        - Fecha: '20180725'
+                          TiempoTrabajoID: 782
+                          Codigo: '43000301'
+                          Cliente: dario
+                          Concepto: dfvdfgdfgfdgdfgdf
+                          Viaje: 1
+                          Horas: 7200000
+                          Cod_proyecto: 129
+                          Proyecto: Cubierta
+                          NumeroTarea: 995
+                          NombreTarea: Planos solid
+                          Clave: ''
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: ''
+                          Motivo: ''
+                          Desc_motivo: ''
+                          NomEmpleado: Iñigo Vergara
+                          EmpleadoID: 1
+                          HorasDecimal: 2
+                          Tiempo: 7200000
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - Fecha: '20171204'
+                          TiempoTrabajoID: 638
+                          Codigo: '43000001'
+                          Cliente: dario
+                          Concepto: ''
+                          Viaje: 0
+                          Horas: 10800000
+                          Cod_proyecto: 77
+                          Proyecto: CARCASA
+                          NumeroTarea: 311
+                          NombreTarea: Planos solid
+                          Clave: ''
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: ''
+                          Motivo: ''
+                          Desc_motivo: ''
+                          NomEmpleado: Iñigo Vergara
+                          EmpleadoID: 1
+                          HorasDecimal: 3
+                          Tiempo: 10800000
+                        - Fecha: '20171204'
+                          TiempoTrabajoID: 638
+                          Codigo: '43000299'
+                          Cliente: dario
+                          Concepto: ''
+                          Viaje: 0
+                          Horas: 10800000
+                          Cod_proyecto: 77
+                          Proyecto: CARCASA
+                          NumeroTarea: 311
+                          NombreTarea: Planos solid
+                          Clave: ''
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: ''
+                          Motivo: ''
+                          Desc_motivo: ''
+                          NomEmpleado: Iñigo Vergara
+                          EmpleadoID: 1
+                          HorasDecimal: 3
+                          Tiempo: 10800000
+                        - Fecha: '20171204'
+                          TiempoTrabajoID: 638
+                          Codigo: '43000301'
+                          Cliente: dario
+                          Concepto: ''
+                          Viaje: 0
+                          Horas: 10800000
+                          Cod_proyecto: 77
+                          Proyecto: CARCASA
+                          NumeroTarea: 311
+                          NombreTarea: Planos solid
+                          Clave: ''
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: ''
+                          Motivo: ''
+                          Desc_motivo: ''
+                          NomEmpleado: Iñigo Vergara
+                          EmpleadoID: 1
+                          HorasDecimal: 3
+                          Tiempo: 10800000
+                        - Fecha: '20180725'
+                          TiempoTrabajoID: 782
+                          Codigo: '43000001'
+                          Cliente: dario
+                          Concepto: dfvdfgdfgfdgdfgdf
+                          Viaje: 1
+                          Horas: 7200000
+                          Cod_proyecto: 129
+                          Proyecto: Cubierta
+                          NumeroTarea: 995
+                          NombreTarea: Planos solid
+                          Clave: ''
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: ''
+                          Motivo: ''
+                          Desc_motivo: ''
+                          NomEmpleado: Iñigo Vergara
+                          EmpleadoID: 1
+                          HorasDecimal: 2
+                          Tiempo: 7200000
+                        - Fecha: '20180725'
+                          TiempoTrabajoID: 782
+                          Codigo: '43000299'
+                          Cliente: dario
+                          Concepto: dfvdfgdfgfdgdfgdf
+                          Viaje: 1
+                          Horas: 7200000
+                          Cod_proyecto: 129
+                          Proyecto: Cubierta
+                          NumeroTarea: 995
+                          NombreTarea: Planos solid
+                          Clave: ''
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: ''
+                          Motivo: ''
+                          Desc_motivo: ''
+                          NomEmpleado: Iñigo Vergara
+                          EmpleadoID: 1
+                          HorasDecimal: 2
+                          Tiempo: 7200000
+                        - Fecha: '20180725'
+                          TiempoTrabajoID: 782
+                          Codigo: '43000301'
+                          Cliente: dario
+                          Concepto: dfvdfgdfgfdgdfgdf
+                          Viaje: 1
+                          Horas: 7200000
+                          Cod_proyecto: 129
+                          Proyecto: Cubierta
+                          NumeroTarea: 995
+                          NombreTarea: Planos solid
+                          Clave: ''
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: ''
+                          Motivo: ''
+                          Desc_motivo: ''
+                          NomEmpleado: Iñigo Vergara
+                          EmpleadoID: 1
+                          HorasDecimal: 2
+                          Tiempo: 7200000
+      operationId: get-employee-consult-hourDetail
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: MailingID
+          description: '4'
+        - schema:
+            type: string
+          in: query
+          name: Tareas
+          description: '3'
+        - schema:
+            type: string
+          in: query
+          name: Proyectos
+          description: '2'
+        - schema:
+            type: string
+          in: query
+          name: EmpleadoIDs
+          description: '16,24,1'
+        - schema:
+            type: string
+          in: query
+          name: limit
+          description: '50'
+        - schema:
+            type: string
+          in: query
+          name: offset
+          description: '0'
 components:
   schemas: {}
