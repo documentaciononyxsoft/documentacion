@@ -16049,9 +16049,9 @@ paths:
                   Web: ASDASDAS.COM
                   CodigoPostalID: 14768
         description: ''
-  /tables/employees/work:
+  /tables/employee/work:
     get:
-      summary: FindByEmployees
+      summary: FindWorkByEmployee
       tags: []
       responses:
         '200':
