@@ -15958,35 +15958,75 @@ paths:
           name: 'accessToken '
           description: '"tokenReciente"'
     parameters: []
-  '/http://localhost:8026/tables/employees/consult/formation':
+  /employees/consult/formation:
     get:
-      summary: findManyByFilters
+      summary: findManyByFiltersForFormationByEmployee
       tags: []
       responses:
         '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true,
-                    "sql": "SELECT DISTINCT CursoFormacion.*\r\nFROM CursoFormacion\r\nLEFT JOIN CursoFormacionConvocado ON CursoFormacionConvocado.cursoFormacionID = CursoFormacion.CursoFormacionID\r\nWHERE CursoFormacion.CustomerID = 29\r\nAND CursoFormacion.EmpresaID = 1\r\nAND CursoFormacion.EsCursoReal = 1\r\n AND (CursoFormacionConvocado.EmpleadoID = 3 AND CursoFormacion.FechaHoraInicioReal >= 20000202 AND CursoFormacion.FechaHoraInicioReal <= 20230404)\r\nORDER BY CursoFormacion.Numero\r\nlimit 50 \r\noffset 0",
-                    "records": [
-                        {
-                            "Numero": 12,
-                            "Nombre": "Prueba yei 2",
-                            "Descripcion": "",
-                            "Tema": ""
-                        },
-                        {
-                            "Numero": 15,
-                            "Nombre": "Plan Paris prueba 3",
-                            "Descripcion": "saffasd po",
-                            "Tema": ""
-                        }
-                    ]
-                }
-            }
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Numero:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Descripcion:
+                              type: string
+                            Tema:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT DISTINCT CursoFormacion.*\r\nFROM CursoFormacion\r\nLEFT JOIN CursoFormacionConvocado ON CursoFormacionConvocado.cursoFormacionID = CursoFormacion.CursoFormacionID\r\nWHERE CursoFormacion.CustomerID = 29\r\nAND CursoFormacion.EmpresaID = 1\r\nAND CursoFormacion.EsCursoReal = 1\r\n AND (CursoFormacionConvocado.EmpleadoID = 3 AND CursoFormacion.FechaHoraInicioReal >= 20000202 AND CursoFormacion.FechaHoraInicioReal <= 20230404)\r\norder BY CursoFormacion.Numero ASC\t\r\nlimit 50 \r\noffset 0\r\n"
+                      records:
+                        - Numero: 12
+                          Nombre: Prueba yei 2
+                          Descripcion: ''
+                          Tema: ''
+                        - Numero: 15
+                          Nombre: Plan Paris prueba 3
+                          Descripcion: saffasd po
+                          Tema: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT DISTINCT CursoFormacion.*\r\nFROM CursoFormacion\r\nLEFT JOIN CursoFormacionConvocado ON CursoFormacionConvocado.cursoFormacionID = CursoFormacion.CursoFormacionID\r\nWHERE CursoFormacion.CustomerID = 29\r\nAND CursoFormacion.EmpresaID = 1\r\nAND CursoFormacion.EsCursoReal = 1\r\n AND (CursoFormacionConvocado.EmpleadoID = 3 AND CursoFormacion.FechaHoraInicioReal >= 20000202 AND CursoFormacion.FechaHoraInicioReal <= 20230404)\r\norder BY CursoFormacion.Numero ASC\t\r\nlimit 50 \r\noffset 0\r\n"
+                      records:
+                        - Numero: 12
+                          Nombre: Prueba yei 2
+                          Descripcion: ''
+                          Tema: ''
+                        - Numero: 15
+                          Nombre: Plan Paris prueba 3
+                          Descripcion: saffasd po
+                          Tema: ''
       operationId: 'get-http:-localhost:8026-tables-employees-consult-formation'
       description: ''
       parameters:
@@ -16019,22 +16059,18 @@ paths:
             type: string
           in: query
           name: Nombre
-          description: '""'
         - schema:
             type: string
           in: query
           name: Numero
-          description: '""'
         - schema:
             type: string
           in: query
           name: 'Descripcion '
-          description: '""'
         - schema:
             type: string
           in: query
           name: EmpleadoTemasFormacionID
-          description: '""'
         - schema:
             type: string
           in: query
@@ -16045,6 +16081,12 @@ paths:
           in: query
           description: '20230404'
           name: fechaHastaIn
+        - schema:
+            type: string
+          in: query
+          name: order
+          description: ASC
+    parameters: []
   /tables/light/generalTable:
     get:
       summary: findLightListForGeneralTable
