@@ -17584,9 +17584,9 @@ paths:
           name: accessToken
     parameters: []
   /employee/position:
-    get:
+    post:
       summary: CreateForPosition
-      tags: []
+      operationId: post-employee-position
       responses:
         '200':
           description: OK
@@ -17594,13 +17594,104 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
-      operationId: get-employee-position
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      EmpleadoPuestoID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      EmpleadoPuestoID: 29
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      EmpleadoPuestoID: 29
       parameters:
         - schema:
             type: string
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FechaInicio:
+                  type: string
+                FechaFin:
+                  type: string
+                EmpleadoTipoPuestoID:
+                  type: string
+                EmpleadoID:
+                  type: string
+                MaquinaID:
+                  type: string
+                Codigo:
+                  type: string
+                Descripcion:
+                  type: string
+                DescripciónTipoPuesto:
+                  type: string
+                CodigoMaquina:
+                  type: string
+              x-examples:
+                Example 1:
+                  FechaInicio: '20020426'
+                  FechaFin: '20230303'
+                  EmpleadoTipoPuestoID: '5'
+                  EmpleadoID: '1'
+                  MaquinaID: '0'
+                  Codigo: ''
+                  Descripcion: ''
+                  DescripciónTipoPuesto: Estampador
+                  CodigoMaquina: ''
+            examples:
+              Example 1:
+                value:
+                  FechaInicio: '20020426'
+                  FechaFin: '20230303'
+                  EmpleadoTipoPuestoID: '5'
+                  EmpleadoID: '1'
+                  MaquinaID: '0'
+                  Codigo: ''
+                  Descripcion: ''
+                  DescripciónTipoPuesto: Estampador
+                  CodigoMaquina: ''
+  '/employee/position/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: '28'
+    get:
+      summary: UpdateForPosition
+      tags: []
+      responses: {}
+      operationId: get-employee-position-id
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accesToken '
+          description: '"'
 components:
   schemas: {}
