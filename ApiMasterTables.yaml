@@ -17511,5 +17511,76 @@ paths:
           in: query
           name: empleadoID
           description: '1'
+  /employees/positionType/light:
+    get:
+      summary: findLightListForPositionType
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ID: 1
+                          Nombre: Mecanico
+                        - ID: 2
+                          Nombre: AlmacÃ©n
+                        - ID: 5
+                          Nombre: Estampador
+                        - ID: 6
+                          Nombre: Contador
+                        - ID: 7
+                          Nombre: Puesto Nuevo
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ID: 1
+                          Nombre: Mecanico
+                        - ID: 2
+                          Nombre: AlmacÃ©n
+                        - ID: 5
+                          Nombre: Estampador
+                        - ID: 6
+                          Nombre: Contador
+                        - ID: 7
+                          Nombre: Puesto Nuevo
+      operationId: get-employees-positionType-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
 components:
   schemas: {}
