@@ -15755,7 +15755,7 @@ paths:
     parameters: []
   /employee/theme:
     get:
-      summary: findByParamForTheme
+      summary: findManyByParamForTheme
       tags: []
       responses:
         '200':
