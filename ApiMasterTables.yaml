@@ -15813,7 +15813,7 @@ paths:
                           Nombre: CURSO DEL PROGRAMA DE CAPTURA EL PLANTA
                           Codigo: '03'
         '':
-          description: ''
+          description: OK
           content:
             application/json:
               schema:
