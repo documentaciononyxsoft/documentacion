@@ -17511,7 +17511,7 @@ paths:
           in: query
           name: empleadoID
           description: '1'
-  /employees/positionType/light:
+  /employee/positionType/light:
     get:
       summary: findLightListForPositionType
       tags: []
@@ -17582,5 +17582,6 @@ paths:
             type: string
           in: header
           name: accessToken
+    parameters: []
 components:
   schemas: {}
