@@ -16875,7 +16875,7 @@ paths:
     parameters: []
   /tables/employee/changeState:
     get:
-      summary: changeStateForEmployeeSAT
+      summary: changeStateForEmployee
       tags: []
       responses:
         '200':
