@@ -16390,9 +16390,9 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
-  /tables/employeeSAT/planification:
+  /tables/employee/planification:
     get:
-      summary: findManyForEmployeesSATByPlanification
+      summary: findManyForEmployeesByPlanification
       tags: []
       responses:
         '200':
@@ -16495,9 +16495,10 @@ paths:
           in: query
           name: avisoTicketPlanificadoID
           description: '46'
-  /tables/employeeSAT/groups:
+    parameters: []
+  /tables/employee/groups:
     get:
-      summary: findManyForEmployeesSATByGroup
+      summary: findManyForEmployeesByGroup
       tags: []
       responses:
         '200':
@@ -16559,9 +16560,10 @@ paths:
           in: header
           name: accessToken
           description: '"tokenReciente"'
-  /tables/employeesSAT:
+    parameters: []
+  /tables/employees:
     get:
-      summary: findManyForEmployeeSAT
+      summary: findManyForEmployee
       tags: []
       responses:
         '200':
@@ -16870,7 +16872,8 @@ paths:
           in: query
           name: offset
           description: '0'
-  /tables/employeeSAT/changeState:
+    parameters: []
+  /tables/employee/changeState:
     get:
       summary: changeStateForEmployeeSAT
       tags: []
@@ -16947,7 +16950,8 @@ paths:
           in: query
           name: opcion
           description: '1'
-  /tables/employeeSAT/light:
+    parameters: []
+  /tables/employee/light:
     get:
       summary: findLightListForEmployeeSAT
       tags: []
@@ -17169,6 +17173,7 @@ paths:
           in: header
           name: accessToken
           description: '"tokenReciente"'
+    parameters: []
   /tables/suppliers/light:
     get:
       summary: findLightListForSupplier
