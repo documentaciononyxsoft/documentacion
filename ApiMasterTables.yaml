@@ -16953,7 +16953,7 @@ paths:
     parameters: []
   /tables/employee/light:
     get:
-      summary: findLightListForEmployeeSAT
+      summary: findLightListForEmployee
       tags: []
       responses:
         '200':
