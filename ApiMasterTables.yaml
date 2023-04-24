@@ -17892,5 +17892,85 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  /employee/versatiles:
+    get:
+      summary: findManyForVersatilityByEmployee
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            EmpleadoCompetenciaNivelPuestoCabeceraID:
+                              type: integer
+                            EmpleadoTipoPuestoID:
+                              type: integer
+                            EmpleadoID:
+                              type: integer
+                            MaquinaID:
+                              type: integer
+                            FechaHoraUsuario:
+                              type: string
+                            MaquinaCodigo:
+                              type: string
+                            MaquinaNombre:
+                              type: string
+                            DescripcionPuesto:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - EmpleadoCompetenciaNivelPuestoCabeceraID: 25
+                          EmpleadoTipoPuestoID: 1
+                          EmpleadoID: 1
+                          MaquinaID: 7
+                          FechaHoraUsuario: '2023-03-30T10:26:54.180'
+                          MaquinaCodigo: COR2
+                          MaquinaNombre: 'SIERRA MECANIZA 2                                 '
+                          DescripcionPuesto: Mecanico
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - EmpleadoCompetenciaNivelPuestoCabeceraID: 25
+                          EmpleadoTipoPuestoID: 1
+                          EmpleadoID: 1
+                          MaquinaID: 7
+                          FechaHoraUsuario: '2023-03-30T10:26:54.180'
+                          MaquinaCodigo: COR2
+                          MaquinaNombre: 'SIERRA MECANIZA 2                                 '
+                          DescripcionPuesto: Mecanico
+      operationId: get-employee-versatiles
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas: {}
