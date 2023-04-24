@@ -15718,7 +15718,50 @@ paths:
       tags: []
       responses:
         '200':
-          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true, "codigoPostalID":14768, "codigoPostal":"001", "municipioID":8149, "municipioNombre":"Pereira" } } '
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      codigoPostalID:
+                        type: integer
+                      codigoPostal:
+                        type: string
+                      municipioID:
+                        type: integer
+                      municipioNombre:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      codigoPostalID: 14768
+                      codigoPostal: '001'
+                      municipioID: 8149
+                      municipioNombre: Pereira
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      codigoPostalID: 14768
+                      codigoPostal: '001'
+                      municipioID: 8149
+                      municipioNombre: Pereira
       operationId: get-tables-postalCode-checkPostalCode
       parameters:
         - schema:
