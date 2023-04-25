@@ -19631,5 +19631,86 @@ paths:
           in: query
           name: param
           description: yei
+  '/employee/{EmpleadoID}':
+    parameters:
+      - schema:
+          type: string
+        name: EmpleadoID
+        in: path
+        required: true
+    put:
+      summary: UpdateForEmployee
+      operationId: put-employee-EmpleadoID
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+    delete:
+      summary: DeleteForEmployee
+      operationId: delete-employee-EmpleadoID
+      responses:
+        '200':
+          description: OK
+  /employee:
+    post:
+      summary: CreateForEmployee
+      operationId: post-employee
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      EmpleadoID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      EmpleadoID: 68
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      EmpleadoID: 68
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
 components:
   schemas: {}
