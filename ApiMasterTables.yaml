@@ -17058,18 +17058,68 @@ paths:
                     properties:
                       success:
                         type: boolean
-                      sql:
-                        type: string
-                      records:
+                      data:
                         type: array
                         items:
                           type: object
                           properties:
-                            ID:
+                            EmpleadoID:
                               type: integer
+                            UsuarioID:
+                              type: integer
+                            HorasJornada:
+                              type: integer
+                            Direccion:
+                              type: string
+                            MunicipioID:
+                              type: integer
+                            Dni:
+                              type: string
+                            Nota:
+                              type: string
+                            NumeroSS:
+                              type: string
+                            FechaIngreso:
+                              type: string
+                            FechaFin:
+                              type: string
+                            FechaNacimiento:
+                              type: string
+                            DescripcionFuncion:
+                              type: string
+                            NOmbreBanco:
+                              type: string
+                            Email:
+                              type: string
                             Nombre:
                               type: string
                             Codigo:
+                              type: string
+                            Id_SatMovil:
+                              type: integer
+                            seccion:
+                              type: string
+                            SeccionID:
+                              type: integer
+                            EmpleadoUsuarioID:
+                              type: integer
+                            GrupoPrecioHoraId:
+                              type: integer
+                            RolID:
+                              type: integer
+                            Situacion:
+                              type: string
+                            NegocioID:
+                              type: integer
+                            WebID:
+                              type: integer
+                            GeneroID:
+                              type: integer
+                            NombreEmpleado:
+                              type: string
+                            CodigoEmpleado:
+                              type: string
+                            DescripcionFuncionEmpleado:
                               type: string
                 x-examples:
                   Example 1:
@@ -17077,158 +17127,210 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      sql: "SELECT empleado.EmpleadoID AS ID,\r\nempleado.Codigo,\r\nempleado.Nombre\r\nFROM empleado \r\nWHERE empleado.CustomerID = 29\r\nAND empleado.EmpresaID = 1\r\nAND empleado.DeBaja = 0\r\nlimit 50\r\nOFFSET 0"
-                      records:
-                        - ID: 1
+                      data:
+                        - EmpleadoID: 1
+                          UsuarioID: 0
+                          HorasJornada: 0
+                          Direccion: .
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17 Ninguna.\\par\r\n}\r\n"
+                          NumeroSS: ''
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
                           Nombre: Iñigo Vergara
                           Codigo: '2'
-                        - ID: 2
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 0
+                          EmpleadoUsuarioID: 0
+                          GrupoPrecioHoraId: 0
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: Iñigo Vergara
+                          CodigoEmpleado: '2'
+                          DescripcionFuncionEmpleado: ''
+                        - EmpleadoID: 2
+                          UsuarioID: 1
+                          HorasJornada: 0
+                          Direccion: '                              '
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: ''
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
                           Nombre: JUAN GUERRA
                           Codigo: '3'
-                        - ID: 3
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 0
+                          EmpleadoUsuarioID: 4
+                          GrupoPrecioHoraId: 131
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: JUAN GUERRA
+                          CodigoEmpleado: '3'
+                          DescripcionFuncionEmpleado: ''
+                        - EmpleadoID: 3
+                          UsuarioID: 1
+                          HorasJornada: 0
+                          Direccion: .
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: ''
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
                           Nombre: LORENA SAEZ NAVARRO
                           Codigo: '4'
-                        - ID: 4
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 0
+                          EmpleadoUsuarioID: 13
+                          GrupoPrecioHoraId: 132
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: LORENA SAEZ NAVARRO
+                          CodigoEmpleado: '4'
+                          DescripcionFuncionEmpleado: ''
+                        - EmpleadoID: 4
+                          UsuarioID: 1
+                          HorasJornada: 0
+                          Direccion: '                              '
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: ''
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
                           Nombre: SILVIA PEREZ LACALLE
                           Codigo: '5'
-                        - ID: 5
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 0
+                          EmpleadoUsuarioID: 6
+                          GrupoPrecioHoraId: 133
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: SILVIA PEREZ LACALLE
+                          CodigoEmpleado: '5'
+                          DescripcionFuncionEmpleado: ''
+                        - EmpleadoID: 5
+                          UsuarioID: 1
+                          HorasJornada: 0
+                          Direccion: '                              '
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: ''
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
                           Nombre: SILVIO PACHECO ABASCAL
                           Codigo: '6'
-                        - ID: 6
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 0
+                          EmpleadoUsuarioID: 7
+                          GrupoPrecioHoraId: 134
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: SILVIO PACHECO ABASCAL
+                          CodigoEmpleado: '6'
+                          DescripcionFuncionEmpleado: ''
+                        - EmpleadoID: 6
+                          UsuarioID: 1
+                          HorasJornada: 0
+                          Direccion: '                              '
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: ''
+                          FechaIngreso: '20050101'
+                          FechaFin: ''
+                          FechaNacimiento: '19680605'
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
                           Nombre: LUIS CASILLAS PUJOL
                           Codigo: '7'
-                        - ID: 7
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 0
+                          EmpleadoUsuarioID: 8
+                          GrupoPrecioHoraId: 135
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: LUIS CASILLAS PUJOL
+                          CodigoEmpleado: '7'
+                          DescripcionFuncionEmpleado: ''
+                        - EmpleadoID: 7
+                          UsuarioID: 1
+                          HorasJornada: 0
+                          Direccion: '                              '
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: ''
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
                           Nombre: BORJA LOPEZ ESTEBAN
                           Codigo: '49'
-                        - ID: 8
-                          Nombre: "MIGUEL GARCIA LOROÃ\x91O"
-                          Codigo: '66'
-                        - ID: 9
-                          Nombre: ESTEFANIA RODRIGUEZ SUAREZ
-                          Codigo: '82'
-                        - ID: 10
-                          Nombre: DARIO ESPARZA CIMARRO
-                          Codigo: '86'
-                        - ID: 11
-                          Nombre: SARA VARELA LOINAZ
-                          Codigo: '91'
-                        - ID: 12
-                          Nombre: SILVIA PROENZA MONTENEGRO
-                          Codigo: '94'
-                        - ID: 13
-                          Nombre: ANDREA PUJOL GUTIERREZ
-                          Codigo: '97'
-                        - ID: 14
-                          Nombre: ARTURO ALONSO LEE
-                          Codigo: '98'
-                        - ID: 15
-                          Nombre: LUCIA CANTALAPIEDRA UNANUE
-                          Codigo: '99'
-                        - ID: 16
-                          Nombre: SERGIO BRAVO MURILLO
-                          Codigo: '100'
-                        - ID: 17
-                          Nombre: AITOR VILLA LANDA
-                          Codigo: '101'
-                        - ID: 18
-                          Nombre: MILLAN GUERRA PEREZ
-                          Codigo: '102'
-                        - ID: 19
-                          Nombre: BELEN IGLESIAS SUAREZ
-                          Codigo: '103'
-                        - ID: 20
-                          Nombre: ELENA ROMAN SANCHEZ
-                          Codigo: '104'
-                        - ID: 21
-                          Nombre: FERNANDO SORIA FERNANDEZ
-                          Codigo: '105'
-                        - ID: 22
-                          Nombre: PATRICIA GOMEZ SORIA
-                          Codigo: '106'
-                        - ID: 24
-                          Nombre: Antonio Lopez Rubio
-                          Codigo: '1'
-                        - ID: 25
-                          Nombre: Jose Antonio Ruiz
-                          Codigo: '150'
-                        - ID: 26
-                          Nombre: Antonio Hernandez
-                          Codigo: '151'
-                        - ID: 29
-                          Nombre: Marta Cortes Hernandez
-                          Codigo: '205'
-                        - ID: 30
-                          Nombre: 'ARANTZA MENDIARAIZ '
-                          Codigo: '250'
-                        - ID: 31
-                          Nombre: PEDRO RODRIGUEZ VELAZQUEZ
-                          Codigo: '251'
-                        - ID: 34
-                          Nombre: ROBERTO FERNANDEZ
-                          Codigo: '003'
-                        - ID: 37
-                          Nombre: 'ADRIAN COSTA '
-                          Codigo: '001'
-                        - ID: 43
-                          Nombre: edgos
-                          Codigo: '123'
-                        - ID: 44
-                          Nombre: Randy Marsh
-                          Codigo: '120002'
-                        - ID: 45
-                          Nombre: Stanley marsh
-                          Codigo: '2121020'
-                        - ID: 46
-                          Nombre: Nuevo empleado
-                          Codigo: EDG
-                        - ID: 47
-                          Nombre: William Forbes
-                          Codigo: '1020'
-                        - ID: 48
-                          Nombre: The new
-                          Codigo: '210'
-                        - ID: 49
-                          Nombre: Daniel C
-                          Codigo: EWQ
-                        - ID: 50
-                          Nombre: 'Leandro Requena '
-                          Codigo: G01
-                        - ID: 51
-                          Nombre: 'Maria Caamaño '
-                          Codigo: DF01
-                        - ID: 52
-                          Nombre: 'Alicia Villegas '
-                          Codigo: DP01
-                        - ID: 53
-                          Nombre: Edurne Arias
-                          Codigo: OP01
-                        - ID: 54
-                          Nombre: Albert Madrid
-                          Codigo: OP02
-                        - ID: 55
-                          Nombre: Josep Herreros
-                          Codigo: OP03
-                        - ID: 56
-                          Nombre: Alejo Bernabéu
-                          Codigo: OP4
-                        - ID: 57
-                          Nombre: Margarita Corrales
-                          Codigo: OP05
-                        - ID: 58
-                          Nombre: Julio Perez
-                          Codigo: 01JP
-                        - ID: 59
-                          Nombre: Juana Ceballos
-                          Codigo: 02JP
-                        - ID: 60
-                          Nombre: practicas
-                          Codigo: '0106'
-                        - ID: 62
-                          Nombre: Michael Villegas
-                          Codigo: '167'
-                        - ID: 63
-                          Nombre: DAVID VILLEGAS
-                          Codigo: '1000'
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 0
+                          EmpleadoUsuarioID: 0
+                          GrupoPrecioHoraId: 136
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: BORJA LOPEZ ESTEBAN
+                          CodigoEmpleado: '49'
+                          DescripcionFuncionEmpleado: ''
               examples:
                 Example 1:
                   value:
@@ -17236,101 +17338,210 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      sql: "SELECT empleado.EmpleadoID AS ID,\r\nempleado.Codigo,\r\nempleado.Nombre\r\nFROM empleado \r\nWHERE empleado.CustomerID = 29\r\nAND empleado.EmpresaID = 1\r\nAND empleado.DeBaja = 0\r\nlimit 50\r\nOFFSET 0"
-                      records:
-                        - ID: 1
+                      data:
+                        - EmpleadoID: 1
+                          UsuarioID: 0
+                          HorasJornada: 0
+                          Direccion: .
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17 Ninguna.\\par\r\n}\r\n"
+                          NumeroSS: ''
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
                           Nombre: Iñigo Vergara
                           Codigo: '2'
-                        - ID: 2
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 0
+                          EmpleadoUsuarioID: 0
+                          GrupoPrecioHoraId: 0
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: Iñigo Vergara
+                          CodigoEmpleado: '2'
+                          DescripcionFuncionEmpleado: ''
+                        - EmpleadoID: 2
+                          UsuarioID: 1
+                          HorasJornada: 0
+                          Direccion: '                              '
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: ''
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
                           Nombre: JUAN GUERRA
                           Codigo: '3'
-                        - ID: 3
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 0
+                          EmpleadoUsuarioID: 4
+                          GrupoPrecioHoraId: 131
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: JUAN GUERRA
+                          CodigoEmpleado: '3'
+                          DescripcionFuncionEmpleado: ''
+                        - EmpleadoID: 3
+                          UsuarioID: 1
+                          HorasJornada: 0
+                          Direccion: .
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: ''
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
                           Nombre: LORENA SAEZ NAVARRO
                           Codigo: '4'
-                        - ID: 4
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 0
+                          EmpleadoUsuarioID: 13
+                          GrupoPrecioHoraId: 132
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: LORENA SAEZ NAVARRO
+                          CodigoEmpleado: '4'
+                          DescripcionFuncionEmpleado: ''
+                        - EmpleadoID: 4
+                          UsuarioID: 1
+                          HorasJornada: 0
+                          Direccion: '                              '
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: ''
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
                           Nombre: SILVIA PEREZ LACALLE
                           Codigo: '5'
-                        - ID: 5
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 0
+                          EmpleadoUsuarioID: 6
+                          GrupoPrecioHoraId: 133
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: SILVIA PEREZ LACALLE
+                          CodigoEmpleado: '5'
+                          DescripcionFuncionEmpleado: ''
+                        - EmpleadoID: 5
+                          UsuarioID: 1
+                          HorasJornada: 0
+                          Direccion: '                              '
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: ''
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
                           Nombre: SILVIO PACHECO ABASCAL
                           Codigo: '6'
-                        - ID: 6
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 0
+                          EmpleadoUsuarioID: 7
+                          GrupoPrecioHoraId: 134
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: SILVIO PACHECO ABASCAL
+                          CodigoEmpleado: '6'
+                          DescripcionFuncionEmpleado: ''
+                        - EmpleadoID: 6
+                          UsuarioID: 1
+                          HorasJornada: 0
+                          Direccion: '                              '
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: ''
+                          FechaIngreso: '20050101'
+                          FechaFin: ''
+                          FechaNacimiento: '19680605'
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
                           Nombre: LUIS CASILLAS PUJOL
                           Codigo: '7'
-                        - ID: 7
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 0
+                          EmpleadoUsuarioID: 8
+                          GrupoPrecioHoraId: 135
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: LUIS CASILLAS PUJOL
+                          CodigoEmpleado: '7'
+                          DescripcionFuncionEmpleado: ''
+                        - EmpleadoID: 7
+                          UsuarioID: 1
+                          HorasJornada: 0
+                          Direccion: '                              '
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: ''
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
                           Nombre: BORJA LOPEZ ESTEBAN
                           Codigo: '49'
-                        - ID: 8
-                          Nombre: "MIGUEL GARCIA LOROÃ\x91O"
-                          Codigo: '66'
-                        - ID: 9
-                          Nombre: ESTEFANIA RODRIGUEZ SUAREZ
-                          Codigo: '82'
-                        - ID: 10
-                          Nombre: DARIO ESPARZA CIMARRO
-                          Codigo: '86'
-                        - ID: 11
-                          Nombre: SARA VARELA LOINAZ
-                          Codigo: '91'
-                        - ID: 12
-                          Nombre: SILVIA PROENZA MONTENEGRO
-                          Codigo: '94'
-                        - ID: 13
-                          Nombre: ANDREA PUJOL GUTIERREZ
-                          Codigo: '97'
-                        - ID: 14
-                          Nombre: ARTURO ALONSO LEE
-                          Codigo: '98'
-                        - ID: 15
-                          Nombre: LUCIA CANTALAPIEDRA UNANUE
-                          Codigo: '99'
-                        - ID: 16
-                          Nombre: SERGIO BRAVO MURILLO
-                          Codigo: '100'
-                        - ID: 17
-                          Nombre: AITOR VILLA LANDA
-                          Codigo: '101'
-                        - ID: 18
-                          Nombre: MILLAN GUERRA PEREZ
-                          Codigo: '102'
-                        - ID: 19
-                          Nombre: BELEN IGLESIAS SUAREZ
-                          Codigo: '103'
-                        - ID: 20
-                          Nombre: ELENA ROMAN SANCHEZ
-                          Codigo: '104'
-                        - ID: 21
-                          Nombre: FERNANDO SORIA FERNANDEZ
-                          Codigo: '105'
-                        - ID: 22
-                          Nombre: PATRICIA GOMEZ SORIA
-                          Codigo: '106'
-                        - ID: 24
-                          Nombre: Antonio Lopez Rubio
-                          Codigo: '1'
-                        - ID: 25
-                          Nombre: Jose Antonio Ruiz
-                          Codigo: '150'
-                        - ID: 26
-                          Nombre: Antonio Hernandez
-                          Codigo: '151'
-                        - ID: 29
-                          Nombre: Marta Cortes Hernandez
-                          Codigo: '205'
-                        - ID: 30
-                          Nombre: 'ARANTZA MENDIARAIZ '
-                          Codigo: '250'
-                        - ID: 31
-                          Nombre: PEDRO RODRIGUEZ VELAZQUEZ
-                          Codigo: '251'
-                        - ID: 34
-                          Nombre: ROBERTO FERNANDEZ
-                          Codigo: '003'
-                        - ID: 37
-                          Nombre: 'ADRIAN COSTA '
-                          Codigo: '001'
-                        - ID: 43
-                          Nombre: edgos
-                          Codigo: '123'
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 0
+                          EmpleadoUsuarioID: 0
+                          GrupoPrecioHoraId: 136
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: BORJA LOPEZ ESTEBAN
+                          CodigoEmpleado: '49'
+                          DescripcionFuncionEmpleado: ''
         '':
           content:
             application/json:
