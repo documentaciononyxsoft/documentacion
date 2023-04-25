@@ -48,7 +48,7 @@ paths:
                       token: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjE0NTg2LCAiZXhwIjoxNjY4NjIxNzg2IH0.CH41WeuWJD-yDF_TmXtk47RPUBwUp3IkdTedvuO8yvQ
                       usuarioID: 1
         '400':
-          description: Bad Request
+          description: ''
           content:
             application/json:
               schema:
