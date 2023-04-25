@@ -1031,3 +1031,5 @@ components:
         - lastName
         - email
         - emailVerified
+      x-stoplight:
+        id: abpnlnubiemp9
