@@ -13621,7 +13621,7 @@ paths:
           required: true
           name: order
     post:
-      summary: Create Companies
+      summary: Companie - Create
       operationId: post-tables-companies
       responses:
         '200':
