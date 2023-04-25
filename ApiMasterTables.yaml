@@ -19711,6 +19711,191 @@ paths:
           application/json:
             schema:
               type: object
-              properties: {}
+              properties:
+                EmpleadoID:
+                  type: string
+                HorasJornada:
+                  type: string
+                Direccion:
+                  type: string
+                MunicipioID:
+                  type: string
+                Dni:
+                  type: string
+                Nota:
+                  type: string
+                NumeroSS:
+                  type: string
+                FechaIngreso:
+                  type: string
+                FechaFin:
+                  type: string
+                FechaNacimiento:
+                  type: string
+                CuentaCorriente:
+                  type: string
+                PrecioHora:
+                  type: string
+                DescripcionFuncion:
+                  type: string
+                NOmbreBanco:
+                  type: string
+                Email:
+                  type: string
+                OnyxCaptor:
+                  type: string
+                Nombre:
+                  type: string
+                Codigo:
+                  type: string
+                Id_SatMovil:
+                  type: string
+                FechaHoraUsuario:
+                  type: string
+                DeBaja:
+                  type: string
+                CustomerIDId_SatMovil:
+                  type: string
+                seccion:
+                  type: string
+                VisibleEnCaptador:
+                  type: string
+                SeccionID:
+                  type: string
+                Iban:
+                  type: string
+                Swift:
+                  type: string
+                Sucursal:
+                  type: string
+                NumeroTarjeta:
+                  type: string
+                ClaveCaptador:
+                  type: string
+                FechaHoraNuevo:
+                  type: string
+                FechaHoraModificado:
+                  type: string
+                FechaHoraBorrado:
+                  type: string
+                EmpleadoUsuarioID:
+                  type: string
+                CodigoEmpresaID:
+                  type: string
+                GrupoPrecioHoraId:
+                  type: string
+                PaisID:
+                  type: string
+                ProvinciaID:
+                  type: string
+                Telefono:
+                  type: string
+                CodigoPostalID:
+                  type: string
+                RolID:
+                  type: string
+                Movil:
+                  type: string
+                NegocioID:
+                  type: string
+                Municipio:
+                  type: string
+                Situacion:
+                  type: string
+              x-examples:
+                Example 1:
+                  EmpleadoID: ''
+                  HorasJornada: ''
+                  Direccion: ''
+                  MunicipioID: ''
+                  Dni: ''
+                  Nota: ''
+                  NumeroSS: ''
+                  FechaIngreso: ''
+                  FechaFin: ''
+                  FechaNacimiento: ''
+                  CuentaCorriente: ''
+                  PrecioHora: ''
+                  DescripcionFuncion: ''
+                  NOmbreBanco: ''
+                  Email: ''
+                  OnyxCaptor: ''
+                  Nombre: Andrea Quintero
+                  Codigo: '565656656789'
+                  Id_SatMovil: ''
+                  FechaHoraUsuario: ''
+                  DeBaja: ''
+                  CustomerIDId_SatMovil: ''
+                  seccion: ''
+                  VisibleEnCaptador: ''
+                  SeccionID: ''
+                  Iban: ''
+                  Swift: ''
+                  Sucursal: ''
+                  NumeroTarjeta: '666'
+                  ClaveCaptador: ''
+                  FechaHoraNuevo: ''
+                  FechaHoraModificado: ''
+                  FechaHoraBorrado: ''
+                  EmpleadoUsuarioID: ''
+                  CodigoEmpresaID: ''
+                  GrupoPrecioHoraId: ''
+                  PaisID: '148'
+                  ProvinciaID: ''
+                  Telefono: ''
+                  CodigoPostalID: ''
+                  RolID: ''
+                  Movil: ''
+                  NegocioID: ''
+                  Municipio: ''
+                  Situacion: ''
+            examples:
+              Example 1:
+                value:
+                  EmpleadoID: ''
+                  HorasJornada: ''
+                  Direccion: ''
+                  MunicipioID: ''
+                  Dni: ''
+                  Nota: ''
+                  NumeroSS: ''
+                  FechaIngreso: ''
+                  FechaFin: ''
+                  FechaNacimiento: ''
+                  CuentaCorriente: ''
+                  PrecioHora: ''
+                  DescripcionFuncion: ''
+                  NOmbreBanco: ''
+                  Email: ''
+                  OnyxCaptor: ''
+                  Nombre: Andrea Quintero
+                  Codigo: '565656656789'
+                  Id_SatMovil: ''
+                  FechaHoraUsuario: ''
+                  DeBaja: ''
+                  CustomerIDId_SatMovil: ''
+                  seccion: ''
+                  VisibleEnCaptador: ''
+                  SeccionID: ''
+                  Iban: ''
+                  Swift: ''
+                  Sucursal: ''
+                  NumeroTarjeta: '666'
+                  ClaveCaptador: ''
+                  FechaHoraNuevo: ''
+                  FechaHoraModificado: ''
+                  FechaHoraBorrado: ''
+                  EmpleadoUsuarioID: ''
+                  CodigoEmpresaID: ''
+                  GrupoPrecioHoraId: ''
+                  PaisID: '148'
+                  ProvinciaID: ''
+                  Telefono: ''
+                  CodigoPostalID: ''
+                  RolID: ''
+                  Movil: ''
+                  NegocioID: ''
+                  Municipio: ''
+                  Situacion: ''
 components:
   schemas: {}
