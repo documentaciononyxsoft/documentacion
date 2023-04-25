@@ -11,7 +11,7 @@ paths:
     parameters: []
   /tables/companies:
     get:
-      summary: FindManyCompanies of Companies
+      summary: Companie - FindMany
       tags: []
       responses:
         '200':
@@ -13736,7 +13736,7 @@ paths:
                     Authorization: string
   '/tables/companies/{Id}':
     put:
-      summary: Update Companies
+      summary: Companie - Update
       operationId: put-tables-companies
       responses:
         '200':
@@ -13854,7 +13854,7 @@ paths:
           required: true
   /tables/clients/light:
     get:
-      summary: findLightListForClient
+      summary: Client - findLightList
       tags: []
       responses:
         '200':
@@ -13939,7 +13939,7 @@ paths:
     parameters: []
   '/tables/client/{Param}':
     get:
-      summary: findManyByParamForClient
+      summary: Client - findManyByParam
       tags: []
       responses:
         '200':
@@ -14040,7 +14040,7 @@ paths:
         description: '"dario"'
   /tables/article:
     get:
-      summary: findManyByParamForArticle
+      summary: Article - findManyByParam
       tags: []
       responses:
         '200':
@@ -14163,7 +14163,7 @@ paths:
           description: al
   /tables/accounts/light:
     get:
-      summary: findLightListForAccount
+      summary: Account - findLightList
       tags: []
       responses:
         '200':
@@ -14267,7 +14267,7 @@ paths:
           description: '"tokenReciente"'
   /tables/account:
     get:
-      summary: findManyByParamForAccount
+      summary: Account - findManyByParam
       tags: []
       responses:
         '200':
@@ -14390,7 +14390,7 @@ paths:
           description: a
   '/tables/checkListGroup/{CheckListDefinicionGrupoID}':
     put:
-      summary: UpdateForCheckListGroup
+      summary: CheckListGroup - Update
       operationId: put-tables-checkListGroup
       responses:
         '200':
@@ -14510,7 +14510,7 @@ paths:
           description: '"tokenReciente"'
   /tables/checkListGroups:
     get:
-      summary: findManyForCheckListGroup
+      summary: CheckListGroup - findMany
       tags: []
       responses:
         '200':
