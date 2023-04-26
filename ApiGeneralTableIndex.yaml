@@ -9,7 +9,7 @@ servers:
 paths:
   /generaltableindex:
     post:
-      summary: Create
+      summary: GeneralTable - Create
       operationId: post-user
       responses:
         '200':
@@ -105,7 +105,7 @@ paths:
           required: true
     parameters: []
     get:
-      summary: FindManyByCode
+      summary: GeneralTable - FindManyByCode
       operationId: get-generaltableindex
       responses:
         '200':

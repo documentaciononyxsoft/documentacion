@@ -284,8 +284,6 @@ paths:
                     - CuentaContableID: '1996'
                       Tipo: IVAREPERCUTIDO
               properties:
-                IvaID:
-                  type: string
                 Codigo:
                   type: string
                 Nombre:
