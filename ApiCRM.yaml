@@ -875,7 +875,7 @@ paths:
         required: true
         description: ID que se va a buscar.
     get:
-      summary: Your GET endpoint
+      summary: CRM Account - FindOneByID
       tags: []
       responses:
         '200':
