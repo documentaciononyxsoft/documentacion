@@ -865,6 +865,129 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
       description: ''
+  '/crm/accounts/account/{id}':
+    parameters:
+      - schema:
+          type: string
+          example: '984'
+        name: id
+        in: path
+        required: true
+        description: ID que se va a buscar.
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      listaContactos:
+                        type: 'null'
+                      contactoDefecto:
+                        type: integer
+                      listaOportunidades:
+                        type: 'null'
+                      listaDirecciones:
+                        type: 'null'
+                      telCuenta:
+                        type: string
+                      nombreCuenta:
+                        type: string
+                      codigoCuenta:
+                        type: string
+                      PorcentajeComision:
+                        type: 'null'
+                      PorcentajeComision2:
+                        type: 'null'
+                      IdiomaID:
+                        type: integer
+                      responsableID:
+                        type: integer
+                      CondicionEntregaID:
+                        type: 'null'
+                      representanteID:
+                        type: 'null'
+                      representanteID2:
+                        type: 'null'
+                      dataFacturacion:
+                        type: object
+                        properties:
+                          MonedaCambio:
+                            type: integer
+                      TransportistaID:
+                        type: 'null'
+                      plataformaID:
+                        type: 'null'
+                      TarifaVentaID:
+                        type: 'null'
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      listaContactos: null
+                      contactoDefecto: -1
+                      listaOportunidades: null
+                      listaDirecciones: null
+                      telCuenta: ''
+                      nombreCuenta: BAKER PERKINS INC.
+                      codigoCuenta: '25000010374'
+                      PorcentajeComision: null
+                      PorcentajeComision2: null
+                      IdiomaID: 0
+                      responsableID: 1
+                      CondicionEntregaID: null
+                      representanteID: null
+                      representanteID2: null
+                      dataFacturacion:
+                        MonedaCambio: 0
+                      TransportistaID: null
+                      plataformaID: null
+                      TarifaVentaID: null
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      listaContactos: null
+                      contactoDefecto: -1
+                      listaOportunidades: null
+                      listaDirecciones: null
+                      telCuenta: ''
+                      nombreCuenta: BAKER PERKINS INC.
+                      codigoCuenta: '25000010374'
+                      PorcentajeComision: null
+                      PorcentajeComision2: null
+                      IdiomaID: 0
+                      responsableID: 1
+                      CondicionEntregaID: null
+                      representanteID: null
+                      representanteID2: null
+                      dataFacturacion:
+                        MonedaCambio: 0
+                      TransportistaID: null
+                      plataformaID: null
+                      TarifaVentaID: null
+      operationId: get-crm-accounts-account-id
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
 components:
   schemas:
     User:
