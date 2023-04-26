@@ -285,6 +285,41 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      mailingID:
+                        type: integer
+                      codigo:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      mailingID: 1255
+                      codigo: '10300010372'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 0
+                    message: string
+                    content:
+                      success: true
+                      mailingID: 0
+                      codigo: string
       parameters:
         - schema:
             type: string
@@ -298,117 +333,110 @@ paths:
           application/json:
             schema:
               type: object
-              properties:
-                dataMailing:
-                  type: object
-                  properties:
-                    mailingID:
-                      type: string
-                    TipoMailID:
-                      type: string
-                    ReferenciaCodigo:
-                      type: string
-                    CIF:
-                      type: string
-                    activo:
-                      type: string
-                    nombre:
-                      type: string
-                    nombrecomercial:
-                      type: string
-                    email:
-                      type: string
-                    web:
-                      type: string
-                    telefono:
-                      type: string
-                    fax:
-                      type: string
-                    monedaid:
-                      type: string
-                    horario:
-                      type: string
-                    tomacontactoid:
-                      type: string
-                    representanteid:
-                      type: string
-                    actividadID:
-                      type: string
-                    sectorid:
-                      type: string
-                    zonaid:
-                      type: string
-                    PaisID:
-                      type: string
-                    provinciaID:
-                      type: string
-                    municipioID:
-                      type: string
-                    municipio:
-                      type: string
-                    direccion:
-                      type: string
-                    latitud:
-                      type: string
-                    longitud:
-                      type: string
               x-examples:
                 Example 1:
-                  dataMailing:
-                    mailingID: ''
-                    TipoMailID: '15'
-                    ReferenciaCodigo: ''
-                    CIF: ''
-                    activo: ''
-                    nombre: Prueba
-                    nombrecomercial: ''
-                    email: ''
-                    web: ''
-                    telefono: ''
-                    fax: ''
-                    monedaid: '1'
-                    horario: 1 a 10
-                    tomacontactoid: ''
-                    representanteid: ''
-                    actividadID: ''
-                    sectorid: ''
-                    zonaid: ''
-                    PaisID: ''
-                    provinciaID: ''
-                    municipioID: ''
-                    municipio: ''
-                    direccion: ''
-                    latitud: ''
-                    longitud: ''
+                  TipoMailID: '3'
+                  ReferenciaCodigo: '10300010371'
+                  CIF: '1190066852'
+                  activo: '1'
+                  nombre: PruebaKbrr
+                  nombrecomercial: Comercio
+                  email: coscu@gmail.com
+                  web: coscu.com
+                  telefono: '666555'
+                  fax: '222333'
+                  monedaid: ''
+                  horario: ''
+                  tomacontactoid: ''
+                  representanteid: ''
+                  actividadID: ''
+                  sectorid: ''
+                  zonaid: ''
+                  PaisID: ''
+                  provinciaID: ''
+                  municipioID: ''
+                  municipio: ''
+                  direccion: ''
+                  latitud: ''
+                  longitud: ''
+              properties:
+                TipoMailID:
+                  type: string
+                ReferenciaCodigo:
+                  type: string
+                CIF:
+                  type: string
+                activo:
+                  type: string
+                nombre:
+                  type: string
+                nombrecomercial:
+                  type: string
+                email:
+                  type: string
+                web:
+                  type: string
+                telefono:
+                  type: string
+                fax:
+                  type: string
+                monedaid:
+                  type: string
+                horario:
+                  type: string
+                tomacontactoid:
+                  type: string
+                representanteid:
+                  type: string
+                actividadID:
+                  type: string
+                sectorid:
+                  type: string
+                zonaid:
+                  type: string
+                PaisID:
+                  type: string
+                provinciaID:
+                  type: string
+                municipioID:
+                  type: string
+                municipio:
+                  type: string
+                direccion:
+                  type: string
+                latitud:
+                  type: string
+                longitud:
+                  type: string
+              required:
+                - TipoMailID
             examples:
               Example 1:
                 value:
-                  dataMailing:
-                    mailingID: string
-                    TipoMailID: string
-                    ReferenciaCodigo: string
-                    CIF: string
-                    activo: string
-                    nombre: string
-                    nombrecomercial: string
-                    email: string
-                    web: string
-                    telefono: string
-                    fax: string
-                    monedaid: string
-                    horario: string
-                    tomacontactoid: string
-                    representanteid: string
-                    actividadID: string
-                    sectorid: string
-                    zonaid: string
-                    PaisID: string
-                    provinciaID: string
-                    municipioID: string
-                    municipio: string
-                    direccion: string
-                    latitud: string
-                    longitud: string
+                  TipoMailID: string
+                  ReferenciaCodigo: string
+                  CIF: string
+                  activo: string
+                  nombre: string
+                  nombrecomercial: string
+                  email: string
+                  web: string
+                  telefono: string
+                  fax: string
+                  monedaid: string
+                  horario: string
+                  tomacontactoid: string
+                  representanteid: string
+                  actividadID: string
+                  sectorid: string
+                  zonaid: string
+                  PaisID: string
+                  provinciaID: string
+                  municipioID: string
+                  municipio: string
+                  direccion: string
+                  latitud: string
+                  longitud: string
   '/crm/accounts/{id}':
     parameters:
       - schema:
