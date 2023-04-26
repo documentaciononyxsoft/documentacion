@@ -266,7 +266,7 @@ paths:
           required: true
         - schema:
             type: string
-            example: '103'
+            example: '3'
           in: query
           description: Límite de registros que trae la consulta. Si se envía el número 50 y la tabla tiene 2000 registros solo se traerán 50.
           name: limit
