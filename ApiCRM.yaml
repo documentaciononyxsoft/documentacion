@@ -2,7 +2,7 @@ openapi: 3.1.0
 x-stoplight:
   id: dit0qel9yttrp
 info:
-  title: ApiIvas
+  title: ApiCRM
   version: '1.0'
 servers:
   - url: 'http://15.236.85.216/'
