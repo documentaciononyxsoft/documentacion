@@ -777,34 +777,84 @@ paths:
               examples:
                 Example 1:
                   value:
-                    statusCode: 0
-                    message: string
+                    statusCode: 200
+                    message: Request processed successfully
                     content:
-                      - MailingID: 0
-                        TipoMailID: 0
-                        ReferenciaCodigo: string
-                        Cif: string
-                        Activo: 0
-                        Nombre: string
-                        NombreComercial: string
-                        Email: string
-                        Web: string
-                        Telefono: string
-                        Fax: string
-                        MonedaID: 0
-                        Horario: string
+                      - MailingID: 427
+                        TipoMailID: 5
+                        ReferenciaCodigo: '10300010104'
+                        Cif: STH850207LPA
+                        Activo: 1
+                        Nombre: SUPER TIENDA DEL HOGAR SA DE CV
+                        NombreComercial: SUPER TIENDA DEL HOGAR SA DE CV
+                        Email: ''
+                        Web: ''
+                        Telefono: ''
+                        Fax: ''
+                        MonedaID: 3
+                        Horario: ''
                         TomaContactoID: 0
                         RepresentanteID: 0
-                        RepresentanteNombre: string
+                        RepresentanteNombre: ''
                         ActividadID: 0
                         SectorID: 0
                         ZonaID: 0
-                        PaisID: 0
-                        ProvinciaID: 0
-                        Municipio: string
-                        Direccion: string
-                        Latitud: string
-                        Longitud: string
+                        PaisID: 148
+                        ProvinciaID: 50
+                        Municipio: ''
+                        Direccion: Calle 35 ALTOS SN Colonia Caleta CP 24110 Estado Carmen
+                        Latitud: ''
+                        Longitud: ''
+                      - MailingID: 430
+                        TipoMailID: 5
+                        ReferenciaCodigo: '10300010096'
+                        Cif: TAA060329410
+                        Activo: 1
+                        Nombre: TIENDA ABARROTERA AMIGA SA DE CV
+                        NombreComercial: TIENDA ABARROTERA AMIGA SA DE CV
+                        Email: ''
+                        Web: ''
+                        Telefono: ''
+                        Fax: ''
+                        MonedaID: 3
+                        Horario: ''
+                        TomaContactoID: 0
+                        RepresentanteID: 0
+                        RepresentanteNombre: ''
+                        ActividadID: 0
+                        SectorID: 0
+                        ZonaID: 0
+                        PaisID: 148
+                        ProvinciaID: 50
+                        Municipio: ''
+                        Direccion: Calle BOULEVARD TOLUCA METEPEC 501 NORTE Colonia Ex-Hacienda
+                        Latitud: ''
+                        Longitud: ''
+                      - MailingID: 432
+                        TipoMailID: 5
+                        ReferenciaCodigo: '10300010090'
+                        Cif: TAN9711121Z0
+                        Activo: 1
+                        Nombre: TIENDAS DE AUTOSERVICIO DEL NORTE S
+                        NombreComercial: TIENDAS DE AUTOSERVICIO DEL NORTE S
+                        Email: ''
+                        Web: ''
+                        Telefono: ''
+                        Fax: ''
+                        MonedaID: 3
+                        Horario: ''
+                        TomaContactoID: 0
+                        RepresentanteID: 0
+                        RepresentanteNombre: ''
+                        ActividadID: 0
+                        SectorID: 0
+                        ZonaID: 0
+                        PaisID: 148
+                        ProvinciaID: 50
+                        Municipio: ''
+                        Direccion: Calle CHICAGO NAVE 3 Colonia Villa Sol CP 83240 Estado Hermosillo
+                        Latitud: ''
+                        Longitud: ''
       operationId: get-crm-accounts-param
       parameters:
         - schema:
