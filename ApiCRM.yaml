@@ -623,7 +623,7 @@ paths:
         name: param
         in: path
         required: true
-        description: Parámetro de búsqueda
+        description: Parámetro de búsqueda.
     get:
       summary: CMR Account - FindManyByFilter
       tags: []
@@ -1010,7 +1010,7 @@ paths:
                                 "PaisID": 148,
                                 "ProvinciaID": 50,
                                 "Municipio": "",
-                                "Direccion": "Calle BOULEVARD TOLUCA METEPEC 501 NORTE Colonia Ex-Hacienda de Purísima CP 52156 Estado Metepec",
+                                "Direccion": "Calle BOULEVARD TOLUCA METEPEC 501 NORTE Colonia Ex-Hacienda",
                                 "Latitud": "",
                                 "Longitud": ""
                             },
