@@ -450,12 +450,42 @@ paths:
       operationId: delete-crm-accounts-id
       responses:
         '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {}
-            }
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                      error:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: Iva eliminado correctamente
+                      error: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 0
+                    message: string
+                    content:
+                      success: true
+                      msg: string
+                      error: string
       parameters:
         - schema:
             type: string
