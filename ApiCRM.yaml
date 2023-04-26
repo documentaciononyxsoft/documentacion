@@ -615,6 +615,444 @@ paths:
                   direccion: string
                   latitud: string
                   longitud: string
+  '/crm/accounts/{param}':
+    parameters:
+      - schema:
+          type: string
+          example: Tienda
+        name: param
+        in: path
+        required: true
+        description: Parámetro de búsqueda
+    get:
+      summary: CMR Account - FindManyByFilter
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        MailingID:
+                          type: integer
+                        TipoMailID:
+                          type: integer
+                        ReferenciaCodigo:
+                          type: string
+                        Cif:
+                          type: string
+                        Activo:
+                          type: integer
+                        Nombre:
+                          type: string
+                        NombreComercial:
+                          type: string
+                        Email:
+                          type: string
+                        Web:
+                          type: string
+                        Telefono:
+                          type: string
+                        Fax:
+                          type: string
+                        MonedaID:
+                          type: integer
+                        Horario:
+                          type: string
+                        TomaContactoID:
+                          type: integer
+                        RepresentanteID:
+                          type: integer
+                        RepresentanteNombre:
+                          type: string
+                        ActividadID:
+                          type: integer
+                        SectorID:
+                          type: integer
+                        ZonaID:
+                          type: integer
+                        PaisID:
+                          type: integer
+                        ProvinciaID:
+                          type: integer
+                        Municipio:
+                          type: string
+                        Direccion:
+                          type: string
+                        Latitud:
+                          type: string
+                        Longitud:
+                          type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - MailingID: 427
+                        TipoMailID: 5
+                        ReferenciaCodigo: '10300010104'
+                        Cif: STH850207LPA
+                        Activo: 1
+                        Nombre: SUPER TIENDA DEL HOGAR SA DE CV
+                        NombreComercial: SUPER TIENDA DEL HOGAR SA DE CV
+                        Email: ''
+                        Web: ''
+                        Telefono: ''
+                        Fax: ''
+                        MonedaID: 3
+                        Horario: ''
+                        TomaContactoID: 0
+                        RepresentanteID: 0
+                        RepresentanteNombre: ''
+                        ActividadID: 0
+                        SectorID: 0
+                        ZonaID: 0
+                        PaisID: 148
+                        ProvinciaID: 50
+                        Municipio: ''
+                        Direccion: Calle 35 ALTOS SN Colonia Caleta CP 24110 Estado Carmen
+                        Latitud: ''
+                        Longitud: ''
+                      - MailingID: 430
+                        TipoMailID: 5
+                        ReferenciaCodigo: '10300010096'
+                        Cif: TAA060329410
+                        Activo: 1
+                        Nombre: TIENDA ABARROTERA AMIGA SA DE CV
+                        NombreComercial: TIENDA ABARROTERA AMIGA SA DE CV
+                        Email: ''
+                        Web: ''
+                        Telefono: ''
+                        Fax: ''
+                        MonedaID: 3
+                        Horario: ''
+                        TomaContactoID: 0
+                        RepresentanteID: 0
+                        RepresentanteNombre: ''
+                        ActividadID: 0
+                        SectorID: 0
+                        ZonaID: 0
+                        PaisID: 148
+                        ProvinciaID: 50
+                        Municipio: ''
+                        Direccion: Calle BOULEVARD TOLUCA METEPEC 501 NORTE Colonia Ex-Hacienda de Purísima CP 52156 Estado Metepec
+                        Latitud: ''
+                        Longitud: ''
+                      - MailingID: 432
+                        TipoMailID: 5
+                        ReferenciaCodigo: '10300010090'
+                        Cif: TAN9711121Z0
+                        Activo: 1
+                        Nombre: TIENDAS DE AUTOSERVICIO DEL NORTE S
+                        NombreComercial: TIENDAS DE AUTOSERVICIO DEL NORTE S
+                        Email: ''
+                        Web: ''
+                        Telefono: ''
+                        Fax: ''
+                        MonedaID: 3
+                        Horario: ''
+                        TomaContactoID: 0
+                        RepresentanteID: 0
+                        RepresentanteNombre: ''
+                        ActividadID: 0
+                        SectorID: 0
+                        ZonaID: 0
+                        PaisID: 148
+                        ProvinciaID: 50
+                        Municipio: ''
+                        Direccion: Calle CHICAGO NAVE 3 Colonia Villa Sol CP 83240 Estado Hermosillo
+                        Latitud: ''
+                        Longitud: ''
+                      - MailingID: 436
+                        TipoMailID: 5
+                        ReferenciaCodigo: '10300010091'
+                        Cif: TCH850701RM1
+                        Activo: 1
+                        Nombre: TIENDAS CHEDRAUI SA DE CV
+                        NombreComercial: TIENDAS CHEDRAUI SA DE CV
+                        Email: ''
+                        Web: ''
+                        Telefono: ''
+                        Fax: ''
+                        MonedaID: 3
+                        Horario: ''
+                        TomaContactoID: 0
+                        RepresentanteID: 191
+                        RepresentanteNombre: ''
+                        ActividadID: 0
+                        SectorID: 0
+                        ZonaID: 0
+                        PaisID: 148
+                        ProvinciaID: 10
+                        Municipio: ''
+                        Direccion: 'Av. Constituyentes No. 1150 Col. Lomas Altas, Delegación Miguel Hidalgo, CDMX,CP 11950'
+                        Latitud: ''
+                        Longitud: ''
+                      - MailingID: 437
+                        TipoMailID: 5
+                        ReferenciaCodigo: '10300010094'
+                        Cif: TDA8102254Q4
+                        Activo: 1
+                        Nombre: TIENDA DE DESCUENTO ARTELI SA DE CV
+                        NombreComercial: TIENDA DE DESCUENTO ARTELI SA DE CV
+                        Email: ''
+                        Web: ''
+                        Telefono: ''
+                        Fax: ''
+                        MonedaID: 3
+                        Horario: ''
+                        TomaContactoID: 0
+                        RepresentanteID: 0
+                        RepresentanteNombre: ''
+                        ActividadID: 0
+                        SectorID: 0
+                        ZonaID: 0
+                        PaisID: 148
+                        ProvinciaID: 50
+                        Municipio: ''
+                        Direccion: Calle AV HIDALGO 501 Colonia Azteca CP 89190 Estado Tampico
+                        Latitud: ''
+                        Longitud: ''
+                      - MailingID: 443
+                        TipoMailID: 5
+                        ReferenciaCodigo: '10300010088'
+                        Cif: TGA870401FV4
+                        Activo: 1
+                        Nombre: TIENDAS GARCES SA DE C V
+                        NombreComercial: TIENDAS GARCES SA DE C V
+                        Email: v.pardo@saintfoods.com.mx
+                        Web: ''
+                        Telefono: ''
+                        Fax: ''
+                        MonedaID: 3
+                        Horario: ''
+                        TomaContactoID: 0
+                        RepresentanteID: 0
+                        RepresentanteNombre: ''
+                        ActividadID: 0
+                        SectorID: 0
+                        ZonaID: 0
+                        PaisID: 148
+                        ProvinciaID: 20
+                        Municipio: ''
+                        Direccion: 'PASEO TOLLOCAN OTE N° 312 VALLE VERDE TOLUCA. C.P 5014 , ESTADO DE MÉXICO.'
+                        Latitud: ''
+                        Longitud: ''
+                      - MailingID: 444
+                        TipoMailID: 5
+                        ReferenciaCodigo: '10300010086'
+                        Cif: TGD850430CJ3
+                        Activo: 1
+                        Nombre: TIENDAS GRAN D SA DE CV
+                        NombreComercial: TIENDAS GRAN D SA DE CV
+                        Email: ''
+                        Web: ''
+                        Telefono: ''
+                        Fax: ''
+                        MonedaID: 3
+                        Horario: ''
+                        TomaContactoID: 0
+                        RepresentanteID: 0
+                        RepresentanteNombre: ''
+                        ActividadID: 0
+                        SectorID: 0
+                        ZonaID: 0
+                        PaisID: 148
+                        ProvinciaID: 50
+                        Municipio: ''
+                        Direccion: Calle CRISTOBAL COLON 701 NTE Colonia Ciudad Victoria Centro CP 87000 Estado Victoria
+                        Latitud: ''
+                        Longitud: ''
+                      - MailingID: 452
+                        TipoMailID: 5
+                        ReferenciaCodigo: '10300010085'
+                        Cif: TSO991022PB6
+                        Activo: 1
+                        Nombre: TIENDAS SORIANA SA DE CV
+                        NombreComercial: TIENDAS SORIANA SA DE CV
+                        Email: ''
+                        Web: ''
+                        Telefono: ''
+                        Fax: ''
+                        MonedaID: 3
+                        Horario: ''
+                        TomaContactoID: 0
+                        RepresentanteID: 0
+                        RepresentanteNombre: ''
+                        ActividadID: 0
+                        SectorID: 0
+                        ZonaID: 0
+                        PaisID: 148
+                        ProvinciaID: 23
+                        Municipio: ''
+                        Direccion: 'Calle ALEJANDRO DE RODAS 3102 A, SN Colonia Las Cumbres 1 Sector CP 64610 Estado Monterrey'
+                        Latitud: ''
+                        Longitud: ''
+                      - MailingID: 455
+                        TipoMailID: 5
+                        ReferenciaCodigo: '10300010329'
+                        Cif: TTB040915CY9
+                        Activo: 1
+                        Nombre: TIENDAS TRES B S A DE C V
+                        NombreComercial: TIENDAS TRES B S A DE C V
+                        Email: v.pardo@saintfoods.com.mx
+                        Web: ''
+                        Telefono: '312222222'
+                        Fax: ''
+                        MonedaID: 1
+                        Horario: ''
+                        TomaContactoID: 0
+                        RepresentanteID: 189
+                        RepresentanteNombre: Victor Manuel Pardo Váldez
+                        ActividadID: 0
+                        SectorID: 0
+                        ZonaID: 0
+                        PaisID: 148
+                        ProvinciaID: 10
+                        Municipio: CUAUHTEMOC
+                        Direccion: 'CALLE RIO DANUBIO P2 51 COLONIA CUAUHTEMOC C.P 06500, CIUDAD DE MEXICO, CUAUHTEMOC'
+                        Latitud: ''
+                        Longitud: ''
+                      - MailingID: 1027
+                        TipoMailID: 5
+                        ReferenciaCodigo: '10300010303'
+                        Cif: '1087989965'
+                        Activo: 1
+                        Nombre: Michael David Villegas
+                        NombreComercial: Tiendas MDV
+                        Email: mvillegas.onyx@gmail.com
+                        Web: www.onyxsoft.com
+                        Telefono: '3155079042'
+                        Fax: ''
+                        MonedaID: 1
+                        Horario: 8 a 16
+                        TomaContactoID: 4
+                        RepresentanteID: 171
+                        RepresentanteNombre: Oscar Iván Partida Ponce
+                        ActividadID: 0
+                        SectorID: 0
+                        ZonaID: 0
+                        PaisID: 0
+                        ProvinciaID: 0
+                        Municipio: ''
+                        Direccion: ''
+                        Latitud: ''
+                        Longitud: ''
+              examples:
+                Example 1:
+                  value: |-
+                    {
+                        "statusCode": 200,
+                        "message": "Request processed successfully",
+                        "content": [
+                            {
+                                "MailingID": 427,
+                                "TipoMailID": 5,
+                                "ReferenciaCodigo": "10300010104",
+                                "Cif": "STH850207LPA",
+                                "Activo": 1,
+                                "Nombre": "SUPER TIENDA DEL HOGAR SA DE CV",
+                                "NombreComercial": "SUPER TIENDA DEL HOGAR SA DE CV",
+                                "Email": "",
+                                "Web": "",
+                                "Telefono": "",
+                                "Fax": "",
+                                "MonedaID": 3,
+                                "Horario": "",
+                                "TomaContactoID": 0,
+                                "RepresentanteID": 0,
+                                "RepresentanteNombre": "",
+                                "ActividadID": 0,
+                                "SectorID": 0,
+                                "ZonaID": 0,
+                                "PaisID": 148,
+                                "ProvinciaID": 50,
+                                "Municipio": "",
+                                "Direccion": "Calle 35 ALTOS SN Colonia Caleta CP 24110 Estado Carmen",
+                                "Latitud": "",
+                                "Longitud": ""
+                            },
+                            {
+                                "MailingID": 430,
+                                "TipoMailID": 5,
+                                "ReferenciaCodigo": "10300010096",
+                                "Cif": "TAA060329410",
+                                "Activo": 1,
+                                "Nombre": "TIENDA ABARROTERA AMIGA SA DE CV",
+                                "NombreComercial": "TIENDA ABARROTERA AMIGA SA DE CV",
+                                "Email": "",
+                                "Web": "",
+                                "Telefono": "",
+                                "Fax": "",
+                                "MonedaID": 3,
+                                "Horario": "",
+                                "TomaContactoID": 0,
+                                "RepresentanteID": 0,
+                                "RepresentanteNombre": "",
+                                "ActividadID": 0,
+                                "SectorID": 0,
+                                "ZonaID": 0,
+                                "PaisID": 148,
+                                "ProvinciaID": 50,
+                                "Municipio": "",
+                                "Direccion": "Calle BOULEVARD TOLUCA METEPEC 501 NORTE Colonia Ex-Hacienda de Purísima CP 52156 Estado Metepec",
+                                "Latitud": "",
+                                "Longitud": ""
+                            },
+                            {
+                                "MailingID": 432,
+                                "TipoMailID": 5,
+                                "ReferenciaCodigo": "10300010090",
+                                "Cif": "TAN9711121Z0",
+                                "Activo": 1,
+                                "Nombre": "TIENDAS DE AUTOSERVICIO DEL NORTE S",
+                                "NombreComercial": "TIENDAS DE AUTOSERVICIO DEL NORTE S",
+                                "Email": "",
+                                "Web": "",
+                                "Telefono": "",
+                                "Fax": "",
+                                "MonedaID": 3,
+                                "Horario": "",
+                                "TomaContactoID": 0,
+                                "RepresentanteID": 0,
+                                "RepresentanteNombre": "",
+                                "ActividadID": 0,
+                                "SectorID": 0,
+                                "ZonaID": 0,
+                                "PaisID": 148,
+                                "ProvinciaID": 50,
+                                "Municipio": "",
+                                "Direccion": "Calle CHICAGO NAVE 3 Colonia Villa Sol CP 83240 Estado Hermosillo",
+                                "Latitud": "",
+                                "Longitud": ""
+                            }
+                        ]
+                    }
+      operationId: get-crm-accounts-param
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      description: ''
 components:
   schemas:
     User:
