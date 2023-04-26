@@ -9,7 +9,7 @@ servers:
 paths:
   /crm/accounts:
     get:
-      summary: FindMany
+      summary: CRM Account - FindMany
       tags: []
       responses:
         '200':
@@ -280,7 +280,7 @@ paths:
           required: true
       description: ''
     post:
-      summary: ''
+      summary: CRM Account - Create
       operationId: post-crm-accounts
       responses:
         '200':
@@ -444,9 +444,9 @@ paths:
         name: id
         in: path
         required: true
-        description: ID de mailing que se va a actualizar o eliminar
+        description: ID de mailing que se va a actualizar o eliminar.
     delete:
-      summary: Delete Mailing
+      summary: CRM Account - Delete
       operationId: delete-crm-accounts-id
       responses:
         '200':
@@ -465,7 +465,7 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
     put:
-      summary: Update Mailing
+      summary: CRM Account - Update
       operationId: put-crm-accounts-id
       responses:
         '200':
@@ -477,118 +477,114 @@ paths:
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
       requestBody:
         content:
           application/json:
             schema:
               type: object
               properties:
-                dataMailing:
-                  type: object
-                  properties:
-                    TipoMailID:
-                      type: string
-                    ReferenciaCodigo:
-                      type: string
-                    CIF:
-                      type: string
-                    activo:
-                      type: string
-                    nombre:
-                      type: string
-                    nombrecomercial:
-                      type: string
-                    email:
-                      type: string
-                    web:
-                      type: string
-                    telefono:
-                      type: string
-                    fax:
-                      type: string
-                    monedaid:
-                      type: string
-                    horario:
-                      type: string
-                    tomacontactoid:
-                      type: string
-                    representanteid:
-                      type: string
-                    actividadID:
-                      type: string
-                    sectorid:
-                      type: string
-                    zonaid:
-                      type: string
-                    PaisID:
-                      type: string
-                    provinciaID:
-                      type: string
-                    municipioID:
-                      type: string
-                    municipio:
-                      type: string
-                    direccion:
-                      type: string
-                    latitud:
-                      type: string
-                    longitud:
-                      type: string
+                TipoMailID:
+                  type: string
+                ReferenciaCodigo:
+                  type: string
+                CIF:
+                  type: string
+                activo:
+                  type: string
+                nombre:
+                  type: string
+                nombrecomercial:
+                  type: string
+                email:
+                  type: string
+                web:
+                  type: string
+                telefono:
+                  type: string
+                fax:
+                  type: string
+                monedaid:
+                  type: string
+                horario:
+                  type: string
+                tomacontactoid:
+                  type: string
+                representanteid:
+                  type: string
+                actividadID:
+                  type: string
+                sectorid:
+                  type: string
+                zonaid:
+                  type: string
+                PaisID:
+                  type: string
+                provinciaID:
+                  type: string
+                municipioID:
+                  type: string
+                municipio:
+                  type: string
+                direccion:
+                  type: string
+                latitud:
+                  type: string
+                longitud:
+                  type: string
               x-examples:
                 Example 1:
-                  dataMailing:
-                    TipoMailID: '6'
-                    ReferenciaCodigo: ''
-                    CIF: ''
-                    activo: ''
-                    nombre: Prueba
-                    nombrecomercial: ''
-                    email: ''
-                    web: ''
-                    telefono: ''
-                    fax: ''
-                    monedaid: '3'
-                    horario: ''
-                    tomacontactoid: ''
-                    representanteid: ''
-                    actividadID: ''
-                    sectorid: ''
-                    zonaid: ''
-                    PaisID: ''
-                    provinciaID: ''
-                    municipioID: ''
-                    municipio: ''
-                    direccion: ''
-                    latitud: ''
-                    longitud: ''
+                  TipoMailID: '6'
+                  ReferenciaCodigo: ''
+                  CIF: ''
+                  activo: ''
+                  nombre: hola23
+                  nombrecomercial: ''
+                  email: ''
+                  web: ''
+                  telefono: ''
+                  fax: ''
+                  monedaid: ''
+                  horario: ''
+                  tomacontactoid: ''
+                  representanteid: ''
+                  actividadID: ''
+                  sectorid: ''
+                  zonaid: ''
+                  PaisID: ''
+                  provinciaID: ''
+                  municipioID: ''
+                  municipio: ''
+                  direccion: ''
+                  latitud: ''
+                  longitud: ''
             examples:
               Example 1:
                 value:
-                  dataMailing:
-                    TipoMailID: string
-                    ReferenciaCodigo: string
-                    CIF: string
-                    activo: string
-                    nombre: string
-                    nombrecomercial: string
-                    email: string
-                    web: string
-                    telefono: string
-                    fax: string
-                    monedaid: string
-                    horario: string
-                    tomacontactoid: string
-                    representanteid: string
-                    actividadID: string
-                    sectorid: string
-                    zonaid: string
-                    PaisID: string
-                    provinciaID: string
-                    municipioID: string
-                    municipio: string
-                    direccion: string
-                    latitud: string
-                    longitud: string
+                  TipoMailID: string
+                  ReferenciaCodigo: string
+                  CIF: string
+                  activo: string
+                  nombre: string
+                  nombrecomercial: string
+                  email: string
+                  web: string
+                  telefono: string
+                  fax: string
+                  monedaid: string
+                  horario: string
+                  tomacontactoid: string
+                  representanteid: string
+                  actividadID: string
+                  sectorid: string
+                  zonaid: string
+                  PaisID: string
+                  provinciaID: string
+                  municipioID: string
+                  municipio: string
+                  direccion: string
+                  latitud: string
+                  longitud: string
 components:
   schemas:
     User:
