@@ -1037,6 +1037,7 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+      description: 'Nombre tabla: carpetagestiondocumental'
   '/documentManagement/folder/{fieldID}':
     parameters:
       - schema:
