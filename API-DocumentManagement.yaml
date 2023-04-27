@@ -1201,7 +1201,7 @@ paths:
         name: fieldID
         in: path
         required: true
-        description: ID de permisos a asignar.
+        description: CarpetaGestionDocumentalID
     put:
       summary: Folder - PermissionsUpdate
       operationId: put-documentManagement-folder-permissions-fieldID
