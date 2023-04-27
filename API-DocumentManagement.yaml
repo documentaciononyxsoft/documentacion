@@ -912,11 +912,7 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
       requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties: {}
+        content: {}
   /documentManagement/emailInvoice/check:
     put:
       summary: ''
