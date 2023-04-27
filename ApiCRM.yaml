@@ -1116,6 +1116,7 @@ paths:
           name: accessToken
           required: true
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+      description: Consulta de menos datos.
 components:
   schemas:
     User:
