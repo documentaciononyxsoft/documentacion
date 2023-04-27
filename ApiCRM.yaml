@@ -9,7 +9,7 @@ servers:
 paths:
   /crm/accounts:
     get:
-      summary: CRM Account - FindMany
+      summary: Account - FindMany
       tags: []
       responses:
         '200':
@@ -280,7 +280,7 @@ paths:
           required: true
       description: ''
     post:
-      summary: CRM Account - Create
+      summary: Account - Create
       operationId: post-crm-accounts
       responses:
         '200':
@@ -446,7 +446,7 @@ paths:
         required: true
         description: ID de mailing que se va a actualizar o eliminar.
     delete:
-      summary: CRM Account - Delete
+      summary: Account - Delete
       operationId: delete-crm-accounts-id
       responses:
         '200':
@@ -495,7 +495,7 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
     put:
-      summary: CRM Account - Update
+      summary: Account - Update
       operationId: put-crm-accounts-id
       responses:
         '200':
@@ -625,7 +625,7 @@ paths:
         required: true
         description: Parámetro de búsqueda.
     get:
-      summary: CMR Account - FindManyByFilter
+      summary: Account - FindManyByFilter
       tags: []
       responses:
         '200':
@@ -875,7 +875,7 @@ paths:
         required: true
         description: ID que se va a buscar.
     get:
-      summary: CRM Account - FindOneByID
+      summary: Account - FindOneByID
       tags: []
       responses:
         '200':
