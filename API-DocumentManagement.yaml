@@ -959,7 +959,7 @@ paths:
                     - NombreFichero: ''
   /documentManagement/emailTemplates:
     get:
-      summary: Your GET endpoint
+      summary: Email - ListTemplates
       tags: []
       responses: {}
       operationId: get-documentManagement-emailTemplates
