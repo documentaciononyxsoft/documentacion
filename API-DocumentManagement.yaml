@@ -5,7 +5,7 @@ info:
   title: APIDocumentManagement
   version: '1.0'
 servers:
-  - url: 'http://localhost:3000'
+  - url: 'http://15.236.85.216/'
 paths:
   '/documentManagement/GD/{table}/{fieldID}':
     parameters:
@@ -69,11 +69,31 @@ paths:
           in: header
   /documentManagement/call:
     post:
-      summary: ''
+      summary: Call - Create
       operationId: post-documentManagement-call
       responses:
         '200':
           description: OK
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 500
+                    message: The JSONresponse element has not been created.
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 500
+                    message: The JSONresponse element has not been created.
       requestBody:
         content:
           application/json:
@@ -122,31 +142,69 @@ paths:
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
     parameters: []
   /documentManagement/callinitialization:
     get:
-      summary: Your GET endpoint
+      summary: Call - Initialization
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      PedirProyectoEnLlamadas:
+                        type: string
+                      Mailing:
+                        type: object
+                        properties:
+                          MailingID:
+                            type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      PedirProyectoEnLlamadas: '0'
+                      Mailing:
+                        MailingID: 455
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      PedirProyectoEnLlamadas: '0'
+                      Mailing:
+                        MailingID: 455
       operationId: get-documentManagement-callinitialization
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
       requestBody:
         content:
           application/json:
             schema:
               type: object
-              x-examples:
-                Example 1:
-                  MailingID: ''
-                  Alternativo: ''
-                  RegistroID: ''
-                  Tabla: ''
               properties:
                 MailingID:
                   type: integer
@@ -156,6 +214,19 @@ paths:
                   type: integer
                 Tabla:
                   type: string
+              x-examples:
+                Example 1:
+                  MailingID: 455
+                  Alternativo: string
+                  RegistroID: 0
+                  Tabla: string
+            examples:
+              Example 1:
+                value:
+                  MailingID: 455
+                  Alternativo: string
+                  RegistroID: 0
+                  Tabla: string
   /documentManagement/document:
     post:
       summary: ''
@@ -296,7 +367,7 @@ paths:
         required: true
         description: ID a buscar.
     get:
-      summary: DocManagement - FindCallByID
+      summary: Call - FindOneByID
       tags: []
       responses:
         '200':
