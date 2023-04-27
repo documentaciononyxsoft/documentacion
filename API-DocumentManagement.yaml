@@ -1352,6 +1352,9 @@ paths:
                   NewAdjuntos:
                     - NombreFichero: prueba.txt
                       Ruta: 'C:\Users\nombreuser\Desktop\prueba.txt'
+      description: |-
+        Tabla: nota
+        Tabla: adjunto
     put:
       summary: ''
       operationId: put-documentManagement-note
