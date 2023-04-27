@@ -1241,6 +1241,37 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      notaID:
+                        type: string
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      notaID: '851'
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      notaID: '100'
+                      success: true
       parameters:
         - schema:
             type: string
@@ -1254,24 +1285,7 @@ paths:
           application/json:
             schema:
               type: object
-              x-examples:
-                Example 1:
-                  mailingid: ''
-                  fecha: ''
-                  asunto: ''
-                  contenido: ''
-                  requiereRespuesta: ''
-                  tipoNotaID: ''
-                  Destinatarios:
-                    - DestinatarioUsuarioId: ''
-                      zDBGrupoID: ''
-                      NotaTipoID: ''
-                  NewAdjuntos:
-                    - Ruta: ''
-                      NombreFichero: ''
               properties:
-                notaID:
-                  type: string
                 mailingid:
                   type: integer
                 fecha:
@@ -1304,6 +1318,37 @@ paths:
                         type: string
                       Ruta:
                         type: string
+              x-examples:
+                Example 1:
+                  mailingid: 455
+                  fecha: '2023-04-27'
+                  asunto: AsuntoJCO
+                  contenido: EsteContent
+                  requiereRespuesta: true
+                  tipoNotaID: 0
+                  Destinatarios:
+                    - DestinatarioUsuarioId: 0
+                      zDBGrupoID: 0
+                      NotaTipoID: 0
+                  NewAdjuntos:
+                    - NombreFichero: guia.txt
+                      Ruta: 'C:\Users\janus_i5_8gen\Desktop\guia.txt'
+            examples:
+              Example 1:
+                value:
+                  mailingid: 455
+                  fecha: '2023-04-27'
+                  asunto: AsuntoPrueba
+                  contenido: ContentPrueba
+                  requiereRespuesta: true
+                  tipoNotaID: 0
+                  Destinatarios:
+                    - DestinatarioUsuarioId: 0
+                      zDBGrupoID: 0
+                      NotaTipoID: 0
+                  NewAdjuntos:
+                    - NombreFichero: prueba.txt
+                      Ruta: 'C:\Users\nombreuser\Desktop\prueba.txt'
     put:
       summary: ''
       operationId: put-documentManagement-note
