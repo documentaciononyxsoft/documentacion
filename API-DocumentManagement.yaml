@@ -1424,7 +1424,31 @@ paths:
     get:
       summary: Note - Initialization
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: 'null'
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content: null
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content: null
       operationId: get-documentManagement-noteinitialization
       parameters:
         - schema:
@@ -1454,6 +1478,13 @@ paths:
                   type: integer
                 Tabla:
                   type: string
+            examples:
+              Example 1:
+                value:
+                  mailingid: 0
+                  Alternativo: string
+                  RegistroID: 0
+                  Tabla: string
   /documentManagement/notetype:
     get:
       summary: Your GET endpoint
