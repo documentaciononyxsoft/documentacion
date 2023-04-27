@@ -989,6 +989,133 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /crm/light/accounts:
+    get:
+      summary: Account - FindLightList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      resultadosBusqueda:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            MailingID:
+                              type: integer
+                            ReferenciaCodigo:
+                              type: string
+                            Nombre:
+                              type: string
+                            nombreComercial:
+                              type: string
+                            direccion:
+                              type: string
+                            municipio:
+                              type: string
+                            provinciaNombre:
+                              type: string
+                            nombrePais:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      resultadosBusqueda:
+                        - MailingID: 223
+                          ReferenciaCodigo: '10300010008'
+                          Nombre: ABARROTERA AVILA GUAMUCHIL
+                          nombreComercial: ABARROTERA AVILA GUAMUCHIL
+                          direccion: Calle JAVIER MINA SUR 327 Colonia Zona Centro CP 81400 Estado Salvador Alvarado
+                          municipio: ''
+                          provinciaNombre: SINALOA
+                          nombrePais: México
+                        - MailingID: 224
+                          ReferenciaCodigo: '10300010015'
+                          Nombre: ALMARAZ VILLEGAS KENIA LILIANA
+                          nombreComercial: ALMARAZ VILLEGAS KENIA LILIANA
+                          direccion: Calle MARIANO ABASOLO 418 Colonia Las Américas CP 55076 Estado Ecatepec de Morelos
+                          municipio: ''
+                          provinciaNombre: MEXICO
+                          nombrePais: México
+                        - MailingID: 225
+                          ReferenciaCodigo: '10300010024'
+                          Nombre: ABARROTES SA DE CV
+                          nombreComercial: ABARROTES SA DE CV
+                          direccion: Calle CAMINO LOS GENERALES SN Colonia Ciudad Mante Centro CP 89800 Estado El Mante
+                          municipio: ''
+                          provinciaNombre: 'TAMAULIPAS '
+                          nombrePais: México
+                        - MailingID: 226
+                          ReferenciaCodigo: '10300010045'
+                          Nombre: ABASTECEDORA COMERCIAL DEL AHORRO S
+                          nombreComercial: ABASTECEDORA COMERCIAL DEL AHORRO S
+                          direccion: Calle AVE JUAN PABLO II 5500 Colonia Robinson CP 31074 Estado Chihuahua
+                          municipio: ''
+                          provinciaNombre: CHIHUAHUA
+                          nombrePais: México
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      resultadosBusqueda:
+                        - MailingID: 223
+                          ReferenciaCodigo: '10300010008'
+                          Nombre: ABARROTERA AVILA GUAMUCHIL
+                          nombreComercial: ABARROTERA AVILA GUAMUCHIL
+                          direccion: Calle JAVIER MINA SUR 327 Colonia Zona Centro CP 81400 Estado Salvador Alvarado
+                          municipio: ''
+                          provinciaNombre: SINALOA
+                          nombrePais: México
+                        - MailingID: 224
+                          ReferenciaCodigo: '10300010015'
+                          Nombre: ALMARAZ VILLEGAS KENIA LILIANA
+                          nombreComercial: ALMARAZ VILLEGAS KENIA LILIANA
+                          direccion: Calle MARIANO ABASOLO 418 Colonia Las Américas CP 55076 Estado Ecatepec de Morelos
+                          municipio: ''
+                          provinciaNombre: MEXICO
+                          nombrePais: México
+                        - MailingID: 225
+                          ReferenciaCodigo: '10300010024'
+                          Nombre: ABARROTES SA DE CV
+                          nombreComercial: ABARROTES SA DE CV
+                          direccion: Calle CAMINO LOS GENERALES SN Colonia Ciudad Mante Centro CP 89800 Estado El Mante
+                          municipio: ''
+                          provinciaNombre: 'TAMAULIPAS '
+                          nombrePais: México
+                        - MailingID: 226
+                          ReferenciaCodigo: '10300010045'
+                          Nombre: ABASTECEDORA COMERCIAL DEL AHORRO S
+                          nombreComercial: ABASTECEDORA COMERCIAL DEL AHORRO S
+                          direccion: Calle AVE JUAN PABLO II 5500 Colonia Robinson CP 31074 Estado Chihuahua
+                          municipio: ''
+                          provinciaNombre: CHIHUAHUA
+                          nombrePais: México
+      operationId: get-crm-light-accounts
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          required: true
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
 components:
   schemas:
     User:
