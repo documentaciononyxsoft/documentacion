@@ -1044,6 +1044,7 @@ paths:
         name: fieldID
         in: path
         required: true
+        description: ID que se va a actualizar o eliminar.
     put:
       summary: ''
       operationId: put-documentManagement-folder-fieldID
@@ -1071,7 +1072,7 @@ paths:
           name: accessToken
       description: ''
     delete:
-      summary: ''
+      summary: Folder - Delete
       operationId: delete-documentManagement-folder-fieldID
       responses:
         '200':
@@ -1079,8 +1080,11 @@ paths:
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   '/documentManagement/folder/{table}/{fieldID}':
     parameters:
       - schema:
