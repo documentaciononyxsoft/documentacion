@@ -1422,7 +1422,7 @@ paths:
                         type: string
   /documentManagement/noteinitialization:
     get:
-      summary: Note - Inizialitation
+      summary: Note - Initialization
       tags: []
       responses: {}
       operationId: get-documentManagement-noteinitialization
