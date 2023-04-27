@@ -1234,7 +1234,7 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
-  /documentManagement/note:
+  '/documentManagement/note/{noteID}':
     post:
       summary: Note - Create
       operationId: post-documentManagement-note
@@ -1356,7 +1356,7 @@ paths:
         Tabla: nota
         Tabla: adjunto
     put:
-      summary: ''
+      summary: Nota - Update
       operationId: put-documentManagement-note
       responses:
         '200':
@@ -1364,8 +1364,11 @@ paths:
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
       description: ''
       requestBody:
         content:
@@ -1420,6 +1423,13 @@ paths:
                         type: string
                       NombreFichero:
                         type: string
+    parameters:
+      - schema:
+          type: string
+        name: noteID
+        in: path
+        required: true
+        description: ID de nota
   /documentManagement/noteinitialization:
     get:
       summary: Note - Initialization
