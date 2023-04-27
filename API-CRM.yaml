@@ -1159,3 +1159,5 @@ components:
         - lastName
         - email
         - emailVerified
+      x-stoplight:
+        id: 4ylsla81ufrfv

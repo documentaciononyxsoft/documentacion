@@ -20,7 +20,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Your GET endpoint
+      summary: FindTableByID
       tags: []
       responses: {}
       operationId: get-documentManagement-GD-table-fieldID
@@ -290,19 +290,225 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '18'
         name: fieldID
         in: path
         required: true
+        description: ID a buscar.
     get:
-      summary: Your GET endpoint
+      summary: DocManagement - FindCallByID
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      tiempotrabajo:
+                        type: object
+                        properties:
+                          tiempotrabajoID:
+                            type: integer
+                          Concepto:
+                            type: string
+                          Notas:
+                            type: string
+                          Tiempo:
+                            type: integer
+                          Inicio:
+                            type: string
+                          Final:
+                            type: string
+                          Fechaimputacion:
+                            type: string
+                          FactorOperario:
+                            type: integer
+                      Mailing:
+                        type: object
+                        properties:
+                          MailingID:
+                            type: integer
+                          ReferenciaCodigo:
+                            type: string
+                          Nombre:
+                            type: string
+                          Telefono:
+                            type: string
+                          Horario:
+                            type: string
+                      Contacto:
+                        type: object
+                        properties:
+                          Nombre:
+                            type: string
+                          ContactoID:
+                            type: integer
+                          Telefono:
+                            type: string
+                      motivo:
+                        type: object
+                        properties:
+                          motivoID:
+                            type: integer
+                          Descripcion:
+                            type: string
+                      Trabajo:
+                        type: object
+                        properties:
+                          TrabajoID:
+                            type: integer
+                          Descripcion:
+                            type: string
+                      Proceso:
+                        type: object
+                        properties:
+                          ProcesoID:
+                            type: integer
+                          Nombre:
+                            type: string
+                          NumeroProceso:
+                            type: integer
+                      EmpleadoID:
+                        type: integer
+                      AccionCRM:
+                        type: object
+                        properties:
+                          AccionCRMID:
+                            type: integer
+                          FechaInicio:
+                            type: string
+                          FechaFin:
+                            type: string
+                          HoraInicio:
+                            type: string
+                          Nombre:
+                            type: string
+                          Descripcion:
+                            type: string
+                          ContactoID:
+                            type: integer
+                          TiempoHora:
+                            type: integer
+                          Tipo:
+                            type: object
+                            properties:
+                              TipoID:
+                                type: integer
+                              Descripcion:
+                                type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      tiempotrabajo:
+                        tiempotrabajoID: 39
+                        Concepto: 'OF: 93 - Proceso: 127 Paquetera (Producción)'
+                        Notas: ''
+                        Tiempo: 198720000
+                        Inicio: '2021-11-08T18:19:05.536'
+                        Final: '2021-11-08T18:23:45.399'
+                        Fechaimputacion: '20211108'
+                        FactorOperario: 100
+                      Mailing:
+                        MailingID: 517
+                        ReferenciaCodigo: '10300010250'
+                        Nombre: VARIOS PRODUCCION
+                        Telefono: ''
+                        Horario: ''
+                      Contacto:
+                        Nombre: ''
+                        ContactoID: 0
+                        Telefono: ''
+                      motivo:
+                        motivoID: 0
+                        Descripcion: ''
+                      Trabajo:
+                        TrabajoID: 0
+                        Descripcion: ''
+                      Proceso:
+                        ProcesoID: 76
+                        Nombre: Paquetera
+                        NumeroProceso: 127
+                      EmpleadoID: 339
+                      AccionCRM:
+                        AccionCRMID: 18
+                        FechaInicio: '20211027'
+                        FechaFin: '20211027'
+                        HoraInicio: '0000-00-00T13:46:00.000'
+                        Nombre: 'LLamada 2 JEFE '
+                        Descripcion: Se reviso con el jefe y se valido que no es apto para el credito
+                        ContactoID: 0
+                        TiempoHora: 500000
+                        Tipo:
+                          TipoID: 0
+                          Descripcion: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      tiempotrabajo:
+                        tiempotrabajoID: 39
+                        Concepto: 'OF: 93 - Proceso: 127 Paquetera (Producción)'
+                        Notas: ''
+                        Tiempo: 198720000
+                        Inicio: '2021-11-08T18:19:05.536'
+                        Final: '2021-11-08T18:23:45.399'
+                        Fechaimputacion: '20211108'
+                        FactorOperario: 100
+                      Mailing:
+                        MailingID: 517
+                        ReferenciaCodigo: '10300010250'
+                        Nombre: VARIOS PRODUCCION
+                        Telefono: ''
+                        Horario: ''
+                      Contacto:
+                        Nombre: ''
+                        ContactoID: 0
+                        Telefono: ''
+                      motivo:
+                        motivoID: 0
+                        Descripcion: ''
+                      Trabajo:
+                        TrabajoID: 0
+                        Descripcion: ''
+                      Proceso:
+                        ProcesoID: 76
+                        Nombre: Paquetera
+                        NumeroProceso: 127
+                      EmpleadoID: 339
+                      AccionCRM:
+                        AccionCRMID: 18
+                        FechaInicio: '20211027'
+                        FechaFin: '20211027'
+                        HoraInicio: '0000-00-00T13:46:00.000'
+                        Nombre: 'LLamada 2 JEFE '
+                        Descripcion: Se reviso con el jefe y se valido que no es apto para el credito
+                        ContactoID: 0
+                        TiempoHora: 500000
+                        Tipo:
+                          TipoID: 0
+                          Descripcion: ''
       operationId: get-documentManagement-call-fieldID
       parameters:
         - schema:
             type: string
+            example: RE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   '/documentManagement/document/{fieldID}':
     parameters:
       - schema:
@@ -1158,3 +1364,5 @@ components:
         - lastName
         - email
         - emailVerified
+      x-stoplight:
+        id: q59zt93o8p5nc
