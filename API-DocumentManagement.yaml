@@ -616,25 +616,75 @@ paths:
     parameters:
       - schema:
           type: string
+          example: ENVIADO
         name: type
         in: path
         required: true
         description: ENVIADO | RECIBIDO
       - schema:
           type: string
+          example: '1'
         name: fieldID
         in: path
         required: true
+        description: ID a buscar.
     get:
-      summary: Your GET endpoint
+      summary: Email - FindEmailByID
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        NombreFichero:
+                          type: string
+                        Ruta:
+                          type: string
+                        Tamano:
+                          type: integer
+                        FicheroID:
+                          type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - NombreFichero: CALD.xlsx
+                        Ruta: 'M:\OnyxERP\Dataset\CALD.xlsx'
+                        Tamano: 12130
+                        FicheroID: 1061
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - NombreFichero: Prueba.xlsx
+                        Ruta: 'M:\Prueba\Dic\Prueba.xlsx'
+                        Tamano: 12200
+                        FicheroID: 555
       operationId: get-documentManagement-email-type-fieldID
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      description: ''
   /documentManagement/email/save:
     post:
       summary: ''
