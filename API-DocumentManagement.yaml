@@ -1046,11 +1046,9 @@ paths:
         required: true
         description: ID que se va a actualizar o eliminar.
     put:
-      summary: ''
+      summary: Folder - Update
       operationId: put-documentManagement-folder-fieldID
-      responses:
-        '200':
-          description: OK
+      responses: {}
       requestBody:
         content:
           application/json:
@@ -1063,13 +1061,21 @@ paths:
                   type: string
               x-examples:
                 Example 1:
-                  Nombre: ''
-                  CarpetaGestionDocumentalPadreID: ''
+                  Nombre: string
+                  CarpetaGestionDocumentalPadreID: string
+            examples:
+              Example 1:
+                value:
+                  Nombre: Prueba
+                  CarpetaGestionDocumentalPadreID: '24'
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
       description: ''
     delete:
       summary: Folder - Delete
@@ -1077,6 +1083,28 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: 'null'
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content: null
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content: null
       parameters:
         - schema:
             type: string
