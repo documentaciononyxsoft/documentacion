@@ -873,7 +873,7 @@ paths:
         name: id
         in: path
         required: true
-        description: ID que se va a buscar.
+        description: ID de mailing que se va a buscar.
     get:
       summary: Account - FindOneByID
       tags: []
@@ -988,6 +988,7 @@ paths:
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas:
     User:
