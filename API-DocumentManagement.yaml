@@ -1487,15 +1487,65 @@ paths:
                   Tabla: string
   /documentManagement/notetype:
     get:
-      summary: Your GET endpoint
+      summary: Note - ListType
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        NotaTipoID:
+                          type: integer
+                        Nombre:
+                          type: string
+                        Privada:
+                          type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - NotaTipoID: 1
+                        Nombre: Contacto
+                        Privada: 0
+                      - NotaTipoID: 2
+                        Nombre: Responder solicitud
+                        Privada: 0
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - NotaTipoID: 1
+                        Nombre: Contacto
+                        Privada: 0
+                      - NotaTipoID: 2
+                        Nombre: Responder solicitud
+                        Privada: 0
       operationId: get-documentManagement-notetype
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content: {}
   '/documentManagement/permission/{table}/{fieldID}':
     parameters:
       - schema:
