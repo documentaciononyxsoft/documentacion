@@ -1768,11 +1768,13 @@ paths:
             example: EXT
           in: query
           name: param
+          description: Parámetro a buscar
         - schema:
             type: string
             example: '13'
           in: query
           name: ubicacionID
+          description: DireccionID
 components:
   schemas:
     User:
