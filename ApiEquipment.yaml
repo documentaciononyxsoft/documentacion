@@ -1936,6 +1936,177 @@ paths:
           name: ubicacionID
           description: DireccionID
           required: true
+  '/ticket/equipment/{ticketID}':
+    parameters:
+      - schema:
+          type: string
+        name: ticketID
+        in: path
+        required: true
+        description: AvisoTicketID
+    get:
+      summary: Equipment - FindManyForTicketID
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: object
+                        properties:
+                          ElementoID:
+                            type: integer
+                          CustomerID:
+                            type: integer
+                          EmpresaID:
+                            type: integer
+                          Id_SatMovil:
+                            type: integer
+                          NumeroSerie:
+                            type: string
+                          Nombre:
+                            type: string
+                          ArticuloID:
+                            type: integer
+                          ClienteID:
+                            type: integer
+                          DireccionID:
+                            type: integer
+                          Ubicacion:
+                            type: string
+                          FechaInstalacion:
+                            type: string
+                          FechaBaja:
+                            type: string
+                          MotivoBaja:
+                            type: string
+                          InicioGarantia:
+                            type: string
+                          FinalGarantia:
+                            type: string
+                          Notas:
+                            type: string
+                          UsuarioID:
+                            type: integer
+                          FechaHoraUsuario:
+                            type: string
+                          Modelo:
+                            type: string
+                          Marca:
+                            type: string
+                          TipoEquipoID:
+                            type: integer
+                          NumeroSerieCliente:
+                            type: string
+                          Gmao_LayoutID:
+                            type: integer
+                          Proyecto_OFID:
+                            type: integer
+                          AlbaranCompraCabeceraID:
+                            type: integer
+                          AlbaranVentaCabeceraID:
+                            type: integer
+                          CheckListApartadoID:
+                            type: integer
+                          Observaciones:
+                            type: string
+                          WebID:
+                            type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        ElementoID: 3
+                        CustomerID: 29
+                        EmpresaID: 1
+                        Id_SatMovil: 0
+                        NumeroSerie: '456789'
+                        Nombre: PRUEBANIHIL
+                        ArticuloID: 395
+                        ClienteID: 84
+                        DireccionID: 1026
+                        Ubicacion: Emplazamiento Prueba
+                        FechaInstalacion: '20230222'
+                        FechaBaja: '20230324'
+                        MotivoBaja: Porque si
+                        InicioGarantia: '20230320'
+                        FinalGarantia: '20230321'
+                        Notas: Buenas tardes
+                        UsuarioID: 1
+                        FechaHoraUsuario: '2023-02-22T14:49:50.000'
+                        Modelo: '1999'
+                        Marca: '1999'
+                        TipoEquipoID: 748
+                        NumeroSerieCliente: '21345678'
+                        Gmao_LayoutID: 11
+                        Proyecto_OFID: 0
+                        AlbaranCompraCabeceraID: 0
+                        AlbaranVentaCabeceraID: 0
+                        CheckListApartadoID: 1
+                        Observaciones: ''
+                        WebID: 0
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        ElementoID: 3
+                        CustomerID: 29
+                        EmpresaID: 1
+                        Id_SatMovil: 0
+                        NumeroSerie: '456789'
+                        Nombre: PRUEBANIHIL
+                        ArticuloID: 395
+                        ClienteID: 84
+                        DireccionID: 1026
+                        Ubicacion: Emplazamiento Prueba
+                        FechaInstalacion: '20230222'
+                        FechaBaja: '20230324'
+                        MotivoBaja: Porque si
+                        InicioGarantia: '20230320'
+                        FinalGarantia: '20230321'
+                        Notas: Buenas tardes
+                        UsuarioID: 1
+                        FechaHoraUsuario: '2023-02-22T14:49:50.000'
+                        Modelo: '1999'
+                        Marca: '1999'
+                        TipoEquipoID: 748
+                        NumeroSerieCliente: '21345678'
+                        Gmao_LayoutID: 11
+                        Proyecto_OFID: 0
+                        AlbaranCompraCabeceraID: 0
+                        AlbaranVentaCabeceraID: 0
+                        CheckListApartadoID: 1
+                        Observaciones: ''
+                        WebID: 0
+      operationId: get-ticket-equipment-avisoTicketID
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas:
     User:
