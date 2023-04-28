@@ -199,5 +199,76 @@ paths:
           in: header
           name: accessToken
           description: '"tokenReciente"'
+  /model/light:
+    get:
+      summary: Vehicle - findLightListModel
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ModeloID:
+                              type: integer
+                            Nombre:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - ModeloID: 1
+                          Nombre: Clio
+                        - ModeloID: 2
+                          Nombre: Kangu
+                      sql: "SELECT * \r\nFROM Modelo\r\nWHERE \r\nModelo.CustomerID = 29\r\nAND Modelo.EmpresaID = 1\r\nAND Modelo.MarcaID = 1"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - ModeloID: 1
+                          Nombre: Clio
+                        - ModeloID: 2
+                          Nombre: Kangu
+                      sql: "SELECT * \r\nFROM Modelo\r\nWHERE \r\nModelo.CustomerID = 29\r\nAND Modelo.EmpresaID = 1\r\nAND Modelo.MarcaID = 1"
+      operationId: get-model-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: marcaID
+          description: '1'
+      requestBody:
+        content: {}
 components:
   schemas: {}
