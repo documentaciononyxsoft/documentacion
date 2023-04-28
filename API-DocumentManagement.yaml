@@ -1490,6 +1490,37 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      notaID:
+                        type: string
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      notaID: ''
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      notaID: '854'
+                      success: true
       parameters:
         - schema:
             type: string
@@ -1504,24 +1535,9 @@ paths:
           application/json:
             schema:
               type: object
-              x-examples:
-                Example 1:
-                  mailingid: ''
-                  fecha: ''
-                  asunto: ''
-                  contenido: ''
-                  requiereRespuesta: ''
-                  tipoNotaID: ''
-                  Destinatarios:
-                    - DestinatarioUsuarioId: ''
-                      zDBGrupoID: ''
-                      NotaTipoID: ''
-                  NewAdjuntos:
-                    - Ruta: ''
-                      NombreFichero: ''
               properties:
                 mailingid:
-                  type: string
+                  type: integer
                 fecha:
                   type: string
                 asunto:
@@ -1529,29 +1545,45 @@ paths:
                 contenido:
                   type: string
                 requiereRespuesta:
-                  type: string
+                  type: boolean
                 tipoNotaID:
-                  type: string
+                  type: integer
                 Destinatarios:
                   type: array
                   items:
                     type: object
                     properties:
                       DestinatarioUsuarioId:
-                        type: string
+                        type: integer
                       zDBGrupoID:
-                        type: string
+                        type: integer
                       NotaTipoID:
-                        type: string
-                NewAdjuntos:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      Ruta:
-                        type: string
-                      NombreFichero:
-                        type: string
+                        type: integer
+              x-examples:
+                Example 1:
+                  mailingid: 455
+                  fecha: '2023-04-28'
+                  asunto: acutlalala
+                  contenido: ContentNuevo
+                  requiereRespuesta: true
+                  tipoNotaID: 0
+                  Destinatarios:
+                    - DestinatarioUsuarioId: 0
+                      zDBGrupoID: 0
+                      NotaTipoID: 0
+            examples:
+              Example 1:
+                value:
+                  mailingid: 455
+                  fecha: '2023-04-28'
+                  asunto: asuntoActualizado
+                  contenido: ContentActualizado
+                  requiereRespuesta: true
+                  tipoNotaID: 0
+                  Destinatarios:
+                    - DestinatarioUsuarioId: 0
+                      zDBGrupoID: 0
+                      NotaTipoID: 0
     parameters:
       - schema:
           type: string
