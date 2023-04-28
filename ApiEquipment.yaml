@@ -7,16 +7,10 @@ info:
 servers:
   - url: 'http://15.236.85.216'
 paths:
-  '/users/{userId}':
-    parameters:
-      - schema:
-          type: integer
-        name: userId
-        in: path
-        required: true
-        description: Id of an existing user.
+  /consult/equipments:
+    parameters: []
     get:
-      summary: Get User Info by User ID
+      summary: Equipment - FindManyByFilters
       tags: []
       responses:
         '200':
@@ -35,62 +29,88 @@ paths:
                     dateOfBirth: '1997-10-31'
                     emailVerified: true
                     signUpDate: '2019-08-24'
-        '404':
-          description: User Not Found
       operationId: get-users-userId
       description: Retrieve the information of the user with the matching user ID.
-    patch:
-      summary: Update User Information
-      operationId: patch-users-userId
-      responses:
-        '200':
-          description: User Updated
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-              examples:
-                Updated User Rebecca Baker:
-                  value:
-                    id: 13
-                    firstName: Rebecca
-                    lastName: Baker
-                    email: rebecca@gmail.com
-                    dateOfBirth: '1985-10-02'
-                    emailVerified: false
-                    createDate: '2019-08-24'
-        '404':
-          description: User Not Found
-        '409':
-          description: Email Already Taken
-      description: Update the information of an existing user.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                firstName:
-                  type: string
-                lastName:
-                  type: string
-                email:
-                  type: string
-                  description: 'If a new email is given, the user''s email verified property will be set to false.'
-                dateOfBirth:
-                  type: string
-            examples:
-              Update First Name:
-                value:
-                  firstName: Rebecca
-              Update Email:
-                value:
-                  email: rebecca@gmail.com
-              Update Last Name & Date of Birth:
-                value:
-                  lastName: Baker
-                  dateOfBirth: '1985-10-02'
-        description: Patch user properties to update.
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: '50'
+          in: query
+          name: limit
+          required: true
+        - schema:
+            type: string
+            example: '22'
+          in: query
+          name: articulos
+          description: ArticuloID
+        - schema:
+            type: string
+          in: query
+          name: clientes
+          description: '1'
+        - schema:
+            type: string
+          in: query
+          name: estado
+          description: '1'
+        - schema:
+            type: string
+          in: query
+          name: fechaGarantiaIn
+          description: '0'
+        - schema:
+            type: string
+          in: query
+          name: fechaGarantiaOut
+          description: '20280406'
+        - schema:
+            type: string
+          in: query
+          name: fechaInstalacionIn
+          description: '0'
+        - schema:
+            type: string
+          in: query
+          name: fechaInstalacionOut
+          description: '20280406'
+        - schema:
+            type: string
+          in: query
+          name: garantia
+          description: '1'
+        - schema:
+            type: string
+          in: query
+          name: nombre
+          description: EX
+        - schema:
+            type: string
+          in: query
+          name: numero
+          description: '344'
+        - schema:
+            type: string
+          in: query
+          name: offset
+          description: '0'
+        - schema:
+            type: string
+          in: query
+          name: tipoEquipo
+          description: '9999'
+        - schema:
+            type: string
+          in: query
+          name: ubicaciones
+          description: '13'
   /user:
     post:
       summary: Create New User
