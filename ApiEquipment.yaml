@@ -1765,16 +1765,17 @@ paths:
           required: true
         - schema:
             type: string
-            example: EXT
+            example: prueba
           in: query
           name: param
           description: Parámetro a buscar
         - schema:
             type: string
-            example: '13'
+            example: '1026'
           in: query
           name: ubicacionID
           description: DireccionID
+          required: true
 components:
   schemas:
     User:
