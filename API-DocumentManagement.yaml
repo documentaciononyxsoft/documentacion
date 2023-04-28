@@ -1873,6 +1873,28 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content: 14812
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content: 14812
       parameters:
         - schema:
             type: string
@@ -1898,13 +1920,16 @@ paths:
               properties:
                 table:
                   type: string
+                  description: TablaHija
                 fieldID:
                   type: integer
+                  description: TablaHijaValorID
                 relationData:
                   type: object
                   properties:
                     RelacionesGestionDocumentalID:
                       type: integer
+                      description: Se deja en 0 para crear uno nuevo
                     TablaPadre:
                       type: string
                     TablaPadreValorID:
