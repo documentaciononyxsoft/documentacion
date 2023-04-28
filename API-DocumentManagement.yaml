@@ -20,7 +20,7 @@ paths:
         in: path
         required: true
     get:
-      summary: FindTableByID
+      summary: GD - FindManyByDate
       tags: []
       responses: {}
       operationId: get-documentManagement-GD-table-fieldID
@@ -64,9 +64,6 @@ paths:
             type: string
           in: header
           name: accessToken
-        - schema:
-            type: string
-          in: header
   /documentManagement/call:
     post:
       summary: Call - Create
