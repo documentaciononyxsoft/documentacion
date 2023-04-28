@@ -544,5 +544,476 @@ paths:
           in: query
           name: order
           description: '"ASC"'
+  /vehicle/quicksearch:
+    get:
+      summary: Vehicle - findManyByFilter
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            VehiculoID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Matricula:
+                              type: string
+                            MarcaID:
+                              type: integer
+                            ModeloID:
+                              type: integer
+                            VersionID:
+                              type: integer
+                            TipoVehiculoID:
+                              type: integer
+                            CombustibleID:
+                              type: integer
+                            UsuarioID:
+                              type: integer
+                            UsuarioNombre:
+                              type: string
+                            FechaHoraUsuario:
+                              type: string
+                            Color:
+                              type: string
+                            Plazas:
+                              type: integer
+                            CV:
+                              type: integer
+                            Tara:
+                              type: integer
+                            Pmax:
+                              type: integer
+                            Ancho:
+                              type: integer
+                            Alto:
+                              type: integer
+                            Largo:
+                              type: integer
+                            FechaCompra:
+                              type: string
+                            PrecioCompra:
+                              type: integer
+                            Chasis:
+                              type: string
+                            Itv:
+                              type: string
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      sql: "SELECT vehiculo.*,\r\nChasis.Valor AS chasisValor,\r\nItv.Valor  AS itvValor,\r\nUsuario.NombreAcesso\r\nFROM vehiculo\r\nLEFT JOIN campoespecialvalor Chasis\r\nON Chasis.TablaRegistroId = vehiculo.VehiculoID AND Chasis.CampoEspecialDefinicionID =37\r\nLEFT JOIN campoespecialvalor Itv\r\nON Itv.TablaRegistroId = vehiculo.VehiculoID AND Itv.CampoEspecialDefinicionID =36 \r\nLEFT JOIN usuario\r\nON vehiculo.usuarioID = usuario.usuarioID\r\nWHERE vehiculo.CustomerID = 29\r\nAND vehiculo.EmpresaID = 1 \r\nAND (vehiculo.Codigo LIKE '%AR%' OR vehiculo.Matricula LIKE '%AR%')\r\n\r\nORDER BY vehiculo.Matricula\r\n"
+                      records:
+                        - VehiculoID: 14
+                          Codigo: GTD
+                          Matricula: ARP86F
+                          MarcaID: 1
+                          ModeloID: 1
+                          VersionID: 1
+                          TipoVehiculoID: 10007
+                          CombustibleID: 11034
+                          UsuarioID: 1
+                          UsuarioNombre: ONYXD
+                          FechaHoraUsuario: '2023-04-27T13:28:52.000'
+                          Color: AZUL
+                          Plazas: 4
+                          CV: 0
+                          Tara: 34
+                          Pmax: 556
+                          Ancho: 353
+                          Alto: 454
+                          Largo: 44645
+                          FechaCompra: ''
+                          PrecioCompra: 5000
+                          Chasis: ''
+                          Itv: ''
+                        - VehiculoID: 15
+                          Codigo: GTD
+                          Matricula: ARP86F
+                          MarcaID: 1
+                          ModeloID: 1
+                          VersionID: 1
+                          TipoVehiculoID: 10007
+                          CombustibleID: 11034
+                          UsuarioID: 1
+                          UsuarioNombre: ONYXD
+                          FechaHoraUsuario: '2023-04-27T13:38:54.000'
+                          Color: AZUL
+                          Plazas: 4
+                          CV: 45
+                          Tara: 34
+                          Pmax: 556
+                          Ancho: 353
+                          Alto: 454
+                          Largo: 44645
+                          FechaCompra: '00000000'
+                          PrecioCompra: 5000
+                          Chasis: ''
+                          Itv: ''
+                        - VehiculoID: 16
+                          Codigo: GTD
+                          Matricula: ARP86F
+                          MarcaID: 1
+                          ModeloID: 1
+                          VersionID: 1
+                          TipoVehiculoID: 10007
+                          CombustibleID: 11034
+                          UsuarioID: 1
+                          UsuarioNombre: ONYXD
+                          FechaHoraUsuario: '2023-04-27T13:40:55.000'
+                          Color: AZUL
+                          Plazas: 4
+                          CV: 45
+                          Tara: 34
+                          Pmax: 556
+                          Ancho: 353
+                          Alto: 454
+                          Largo: 44645
+                          FechaCompra: '20231204'
+                          PrecioCompra: 5000
+                          Chasis: ''
+                          Itv: ''
+                        - VehiculoID: 17
+                          Codigo: GTD
+                          Matricula: ARP86F
+                          MarcaID: 1
+                          ModeloID: 1
+                          VersionID: 1
+                          TipoVehiculoID: 10007
+                          CombustibleID: 11034
+                          UsuarioID: 1
+                          UsuarioNombre: ONYXD
+                          FechaHoraUsuario: '2023-04-27T13:43:23.000'
+                          Color: AZUL
+                          Plazas: 4
+                          CV: 45
+                          Tara: 34
+                          Pmax: 556
+                          Ancho: 353
+                          Alto: 454
+                          Largo: 44645
+                          FechaCompra: '20231204'
+                          PrecioCompra: 5000
+                          Chasis: ''
+                          Itv: ''
+                        - VehiculoID: 18
+                          Codigo: GTD
+                          Matricula: ARP86F
+                          MarcaID: 1
+                          ModeloID: 1
+                          VersionID: 1
+                          TipoVehiculoID: 10007
+                          CombustibleID: 11034
+                          UsuarioID: 1
+                          UsuarioNombre: ONYXD
+                          FechaHoraUsuario: '2023-04-27T13:44:29.000'
+                          Color: AZUL
+                          Plazas: 4
+                          CV: 45
+                          Tara: 34
+                          Pmax: 556
+                          Ancho: 353
+                          Alto: 454
+                          Largo: 44645
+                          FechaCompra: '20231204'
+                          PrecioCompra: 5000
+                          Chasis: '0'
+                          Itv: '0'
+                        - VehiculoID: 19
+                          Codigo: GTD
+                          Matricula: ARP86F
+                          MarcaID: 1
+                          ModeloID: 1
+                          VersionID: 1
+                          TipoVehiculoID: 10007
+                          CombustibleID: 11034
+                          UsuarioID: 1
+                          UsuarioNombre: ONYXD
+                          FechaHoraUsuario: '2023-04-27T13:46:34.000'
+                          Color: AZUL
+                          Plazas: 4
+                          CV: 45
+                          Tara: 34
+                          Pmax: 556
+                          Ancho: 353
+                          Alto: 454
+                          Largo: 44645
+                          FechaCompra: '20231204'
+                          PrecioCompra: 5000
+                          Chasis: ''
+                          Itv: ''
+                        - VehiculoID: 20
+                          Codigo: GTD
+                          Matricula: ARP86F
+                          MarcaID: 1
+                          ModeloID: 1
+                          VersionID: 1
+                          TipoVehiculoID: 10007
+                          CombustibleID: 11034
+                          UsuarioID: 1
+                          UsuarioNombre: ONYXD
+                          FechaHoraUsuario: '2023-04-27T13:48:30.000'
+                          Color: AZUL
+                          Plazas: 4
+                          CV: 45
+                          Tara: 34
+                          Pmax: 556
+                          Ancho: 353
+                          Alto: 454
+                          Largo: 44645
+                          FechaCompra: '20231204'
+                          PrecioCompra: 5000
+                          Chasis: '111'
+                          Itv: '222'
+                        - VehiculoID: 21
+                          Codigo: GTD
+                          Matricula: ARP87F
+                          MarcaID: 1
+                          ModeloID: 1
+                          VersionID: 1
+                          TipoVehiculoID: 10007
+                          CombustibleID: 11034
+                          UsuarioID: 1
+                          UsuarioNombre: ONYXD
+                          FechaHoraUsuario: '2023-04-27T13:51:20.000'
+                          Color: AZUL
+                          Plazas: 4
+                          CV: 45
+                          Tara: 34
+                          Pmax: 556
+                          Ancho: 353
+                          Alto: 454
+                          Largo: 44645
+                          FechaCompra: '20231204'
+                          PrecioCompra: 5000
+                          Chasis: '111'
+                          Itv: '222'
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      sql: "SELECT vehiculo.*,\r\nChasis.Valor AS chasisValor,\r\nItv.Valor  AS itvValor,\r\nUsuario.NombreAcesso\r\nFROM vehiculo\r\nLEFT JOIN campoespecialvalor Chasis\r\nON Chasis.TablaRegistroId = vehiculo.VehiculoID AND Chasis.CampoEspecialDefinicionID =37\r\nLEFT JOIN campoespecialvalor Itv\r\nON Itv.TablaRegistroId = vehiculo.VehiculoID AND Itv.CampoEspecialDefinicionID =36 \r\nLEFT JOIN usuario\r\nON vehiculo.usuarioID = usuario.usuarioID\r\nWHERE vehiculo.CustomerID = 29\r\nAND vehiculo.EmpresaID = 1 \r\nAND (vehiculo.Codigo LIKE '%AR%' OR vehiculo.Matricula LIKE '%AR%')\r\n\r\nORDER BY vehiculo.Matricula\r\n"
+                      records:
+                        - VehiculoID: 14
+                          Codigo: GTD
+                          Matricula: ARP86F
+                          MarcaID: 1
+                          ModeloID: 1
+                          VersionID: 1
+                          TipoVehiculoID: 10007
+                          CombustibleID: 11034
+                          UsuarioID: 1
+                          UsuarioNombre: ONYXD
+                          FechaHoraUsuario: '2023-04-27T13:28:52.000'
+                          Color: AZUL
+                          Plazas: 4
+                          CV: 0
+                          Tara: 34
+                          Pmax: 556
+                          Ancho: 353
+                          Alto: 454
+                          Largo: 44645
+                          FechaCompra: ''
+                          PrecioCompra: 5000
+                          Chasis: ''
+                          Itv: ''
+                        - VehiculoID: 15
+                          Codigo: GTD
+                          Matricula: ARP86F
+                          MarcaID: 1
+                          ModeloID: 1
+                          VersionID: 1
+                          TipoVehiculoID: 10007
+                          CombustibleID: 11034
+                          UsuarioID: 1
+                          UsuarioNombre: ONYXD
+                          FechaHoraUsuario: '2023-04-27T13:38:54.000'
+                          Color: AZUL
+                          Plazas: 4
+                          CV: 45
+                          Tara: 34
+                          Pmax: 556
+                          Ancho: 353
+                          Alto: 454
+                          Largo: 44645
+                          FechaCompra: '00000000'
+                          PrecioCompra: 5000
+                          Chasis: ''
+                          Itv: ''
+                        - VehiculoID: 16
+                          Codigo: GTD
+                          Matricula: ARP86F
+                          MarcaID: 1
+                          ModeloID: 1
+                          VersionID: 1
+                          TipoVehiculoID: 10007
+                          CombustibleID: 11034
+                          UsuarioID: 1
+                          UsuarioNombre: ONYXD
+                          FechaHoraUsuario: '2023-04-27T13:40:55.000'
+                          Color: AZUL
+                          Plazas: 4
+                          CV: 45
+                          Tara: 34
+                          Pmax: 556
+                          Ancho: 353
+                          Alto: 454
+                          Largo: 44645
+                          FechaCompra: '20231204'
+                          PrecioCompra: 5000
+                          Chasis: ''
+                          Itv: ''
+                        - VehiculoID: 17
+                          Codigo: GTD
+                          Matricula: ARP86F
+                          MarcaID: 1
+                          ModeloID: 1
+                          VersionID: 1
+                          TipoVehiculoID: 10007
+                          CombustibleID: 11034
+                          UsuarioID: 1
+                          UsuarioNombre: ONYXD
+                          FechaHoraUsuario: '2023-04-27T13:43:23.000'
+                          Color: AZUL
+                          Plazas: 4
+                          CV: 45
+                          Tara: 34
+                          Pmax: 556
+                          Ancho: 353
+                          Alto: 454
+                          Largo: 44645
+                          FechaCompra: '20231204'
+                          PrecioCompra: 5000
+                          Chasis: ''
+                          Itv: ''
+                        - VehiculoID: 18
+                          Codigo: GTD
+                          Matricula: ARP86F
+                          MarcaID: 1
+                          ModeloID: 1
+                          VersionID: 1
+                          TipoVehiculoID: 10007
+                          CombustibleID: 11034
+                          UsuarioID: 1
+                          UsuarioNombre: ONYXD
+                          FechaHoraUsuario: '2023-04-27T13:44:29.000'
+                          Color: AZUL
+                          Plazas: 4
+                          CV: 45
+                          Tara: 34
+                          Pmax: 556
+                          Ancho: 353
+                          Alto: 454
+                          Largo: 44645
+                          FechaCompra: '20231204'
+                          PrecioCompra: 5000
+                          Chasis: '0'
+                          Itv: '0'
+                        - VehiculoID: 19
+                          Codigo: GTD
+                          Matricula: ARP86F
+                          MarcaID: 1
+                          ModeloID: 1
+                          VersionID: 1
+                          TipoVehiculoID: 10007
+                          CombustibleID: 11034
+                          UsuarioID: 1
+                          UsuarioNombre: ONYXD
+                          FechaHoraUsuario: '2023-04-27T13:46:34.000'
+                          Color: AZUL
+                          Plazas: 4
+                          CV: 45
+                          Tara: 34
+                          Pmax: 556
+                          Ancho: 353
+                          Alto: 454
+                          Largo: 44645
+                          FechaCompra: '20231204'
+                          PrecioCompra: 5000
+                          Chasis: ''
+                          Itv: ''
+                        - VehiculoID: 20
+                          Codigo: GTD
+                          Matricula: ARP86F
+                          MarcaID: 1
+                          ModeloID: 1
+                          VersionID: 1
+                          TipoVehiculoID: 10007
+                          CombustibleID: 11034
+                          UsuarioID: 1
+                          UsuarioNombre: ONYXD
+                          FechaHoraUsuario: '2023-04-27T13:48:30.000'
+                          Color: AZUL
+                          Plazas: 4
+                          CV: 45
+                          Tara: 34
+                          Pmax: 556
+                          Ancho: 353
+                          Alto: 454
+                          Largo: 44645
+                          FechaCompra: '20231204'
+                          PrecioCompra: 5000
+                          Chasis: '111'
+                          Itv: '222'
+                        - VehiculoID: 21
+                          Codigo: GTD
+                          Matricula: ARP87F
+                          MarcaID: 1
+                          ModeloID: 1
+                          VersionID: 1
+                          TipoVehiculoID: 10007
+                          CombustibleID: 11034
+                          UsuarioID: 1
+                          UsuarioNombre: ONYXD
+                          FechaHoraUsuario: '2023-04-27T13:51:20.000'
+                          Color: AZUL
+                          Plazas: 4
+                          CV: 45
+                          Tara: 34
+                          Pmax: 556
+                          Ancho: 353
+                          Alto: 454
+                          Largo: 44645
+                          FechaCompra: '20231204'
+                          PrecioCompra: 5000
+                          Chasis: '111'
+                          Itv: '222'
+                      success: true
+      operationId: get-vehicle-quicksearch
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: busqueda
+          description: AR
 components:
   schemas: {}
