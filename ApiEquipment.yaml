@@ -468,64 +468,64 @@ paths:
           description: ArticuloID
         - schema:
             type: string
+            example: '1'
           in: query
           name: clientes
-          description: '1'
         - schema:
             type: string
+            example: '1'
           in: query
           name: estado
-          description: '1'
         - schema:
             type: string
+            example: '0'
           in: query
           name: fechaGarantiaIn
-          description: '0'
         - schema:
             type: string
+            example: '20280406'
           in: query
           name: fechaGarantiaOut
-          description: '20280406'
         - schema:
             type: string
+            example: '0'
           in: query
           name: fechaInstalacionIn
-          description: '0'
         - schema:
             type: string
+            example: '20280406'
           in: query
           name: fechaInstalacionOut
-          description: '20280406'
         - schema:
             type: string
+            example: '1'
           in: query
           name: garantia
-          description: '1'
         - schema:
             type: string
+            example: EX
           in: query
           name: nombre
-          description: EX
         - schema:
             type: string
+            example: '344'
           in: query
           name: numero
-          description: '344'
         - schema:
             type: string
+            example: '0'
           in: query
           name: offset
-          description: '0'
         - schema:
             type: string
+            example: '9999'
           in: query
           name: tipoEquipo
-          description: '9999'
         - schema:
             type: string
+            example: '13'
           in: query
           name: ubicaciones
-          description: '13'
   /user:
     post:
       summary: Create New User
