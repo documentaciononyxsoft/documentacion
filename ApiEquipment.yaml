@@ -1086,6 +1086,296 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
       description: ''
+  '/equipment/quicksearch/{sBusqueda}':
+    parameters:
+      - schema:
+          type: string
+          example: prueba
+        name: sBusqueda
+        in: path
+        required: true
+        description: Parámetro a buscar.
+    get:
+      summary: Equipment - Quicksearch
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ElementoID:
+                              type: integer
+                            CustomerID:
+                              type: integer
+                            EmpresaID:
+                              type: integer
+                            ArticuloID:
+                              type: integer
+                            ClienteID:
+                              type: integer
+                            DireccionID:
+                              type: integer
+                            NumeroSerie:
+                              type: string
+                            Nombre:
+                              type: string
+                            Ubicacion:
+                              type: string
+                            FechaInstalacion:
+                              type: string
+                            FechaBaja:
+                              type: string
+                            MotivoBaja:
+                              type: string
+                            InicioGarantia:
+                              type: string
+                            FinalGarantia:
+                              type: string
+                            Notas:
+                              type: string
+                            UsuarioID:
+                              type: integer
+                            FechaHoraUsuario:
+                              type: string
+                            Id_SatMovil:
+                              type: integer
+                            Modelo:
+                              type: string
+                            Marca:
+                              type: string
+                            TipoEquipoID:
+                              type: integer
+                            NumeroSerieCliente:
+                              type: string
+                            Gmao_LayoutID:
+                              type: integer
+                            Proyecto_OFID:
+                              type: integer
+                            AlbaranCompraCabeceraID:
+                              type: integer
+                            AlbaranVentaCabeceraID:
+                              type: integer
+                            CheckListApartadoID:
+                              type: integer
+                            Observaciones:
+                              type: string
+                            WebID:
+                              type: integer
+                            CodigoArticulo:
+                              type: string
+                            NombreArticulo:
+                              type: string
+                            CodigoCliente:
+                              type: string
+                            NombreMailing:
+                              type: string
+                            CodigoUbicacion:
+                              type: integer
+                            NombreUbicacion:
+                              type: string
+                            GmaoTitulo:
+                              type: string
+                            Apartado:
+                              type: string
+                            TipoEquipoTexto:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - ElementoID: 1
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 2150
+                          ClienteID: 2
+                          DireccionID: 573
+                          NumeroSerie: '12'
+                          Nombre: PRUEBALUIS
+                          Ubicacion: PRUBVEA
+                          FechaInstalacion: '20230220'
+                          FechaBaja: '20230220'
+                          MotivoBaja: ''
+                          InicioGarantia: '20230220'
+                          FinalGarantia: '20230220'
+                          Notas: ''
+                          UsuarioID: 0
+                          FechaHoraUsuario: '0000-00-00T00:00:00.000'
+                          Id_SatMovil: 0
+                          Modelo: ''
+                          Marca: ''
+                          TipoEquipoID: 2
+                          NumeroSerieCliente: ''
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: '900068'
+                          NombreArticulo: "\_VALVULA DE SEGURIDAD MCA.WALWORTH CONEXIÓN 1 1/2\""
+                          CodigoCliente: '10300010002'
+                          NombreMailing: CLIENTES CONTADO GOMEZ PALACIO
+                          CodigoUbicacion: 2
+                          NombreUbicacion: ''
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: General
+                        - ElementoID: 15
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 395
+                          ClienteID: 84
+                          DireccionID: 1026
+                          NumeroSerie: '1701799'
+                          Nombre: JCO PRUEBA
+                          Ubicacion: Ubi Prueba
+                          FechaInstalacion: '20230428'
+                          FechaBaja: '20230428'
+                          MotivoBaja: Motivau
+                          InicioGarantia: '20230110'
+                          FinalGarantia: '20230110'
+                          Notas: Nota DIA
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-04-28T11:51:50.903'
+                          Id_SatMovil: 0
+                          Modelo: '2007'
+                          Marca: MarcaCH
+                          TipoEquipoID: 748
+                          NumeroSerieCliente: '555555'
+                          Gmao_LayoutID: 11
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 1
+                          Observaciones: ObservaProof
+                          WebID: 0
+                          CodigoArticulo: '100000587'
+                          NombreArticulo: LECHE EN POLVO
+                          CodigoCliente: '10300010329'
+                          NombreMailing: TIENDAS TRES B S A DE C V
+                          CodigoUbicacion: 1
+                          NombreUbicacion: Direccion
+                          GmaoTitulo: Yeiland
+                          Apartado: '01'
+                          TipoEquipoTexto: Equipo Alta Calidad
+                      sql: string
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - ElementoID: 1
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 2150
+                          ClienteID: 2
+                          DireccionID: 573
+                          NumeroSerie: '12'
+                          Nombre: PRUEBALUIS
+                          Ubicacion: PRUBVEA
+                          FechaInstalacion: '20230220'
+                          FechaBaja: '20230220'
+                          MotivoBaja: ''
+                          InicioGarantia: '20230220'
+                          FinalGarantia: '20230220'
+                          Notas: ''
+                          UsuarioID: 0
+                          FechaHoraUsuario: '0000-00-00T00:00:00.000'
+                          Id_SatMovil: 0
+                          Modelo: ''
+                          Marca: ''
+                          TipoEquipoID: 2
+                          NumeroSerieCliente: ''
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: '900068'
+                          NombreArticulo: "\_VALVULA DE SEGURIDAD MCA.WALWORTH CONEXIÓN 1 1/2\""
+                          CodigoCliente: '10300010002'
+                          NombreMailing: CLIENTES CONTADO GOMEZ PALACIO
+                          CodigoUbicacion: 2
+                          NombreUbicacion: ''
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: General
+                        - ElementoID: 15
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 395
+                          ClienteID: 84
+                          DireccionID: 1026
+                          NumeroSerie: '1701799'
+                          Nombre: JCO PRUEBA
+                          Ubicacion: Ubi Prueba
+                          FechaInstalacion: '20230428'
+                          FechaBaja: '20230428'
+                          MotivoBaja: Motivau
+                          InicioGarantia: '20230110'
+                          FinalGarantia: '20230110'
+                          Notas: Nota DIA
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-04-28T11:51:50.903'
+                          Id_SatMovil: 0
+                          Modelo: '2007'
+                          Marca: MarcaCH
+                          TipoEquipoID: 748
+                          NumeroSerieCliente: '555555'
+                          Gmao_LayoutID: 11
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 1
+                          Observaciones: ObservaProof
+                          WebID: 0
+                          CodigoArticulo: '100000587'
+                          NombreArticulo: LECHE EN POLVO
+                          CodigoCliente: '10300010329'
+                          NombreMailing: TIENDAS TRES B S A DE C V
+                          CodigoUbicacion: 1
+                          NombreUbicacion: Direccion
+                          GmaoTitulo: Yeiland
+                          Apartado: '01'
+                          TipoEquipoTexto: Equipo Alta Calidad
+                      sql: string
+      operationId: get-equipment-quicksearch-sBusqueda
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas:
     User:
