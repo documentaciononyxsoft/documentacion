@@ -1783,7 +1783,598 @@ paths:
     get:
       summary: Permission - FindManyUsers
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        usuarioID:
+                          type: integer
+                        NombreAcesso:
+                          type: string
+                        NombreUsuario:
+                          type: string
+                        ClienteCorreo:
+                          type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - usuarioID: 62
+                        NombreAcesso: '1952'
+                        NombreUsuario: Martinez
+                        ClienteCorreo: ''
+                      - usuarioID: 138
+                        NombreAcesso: aalcala
+                        NombreUsuario: Alejandra Alcala
+                        ClienteCorreo: ''
+                      - usuarioID: 33
+                        NombreAcesso: acruz
+                        NombreUsuario: Aldo Alfredo Cruz Reyes
+                        ClienteCorreo: ''
+                      - usuarioID: 1
+                        NombreAcesso: admin@admin.com
+                        NombreUsuario: ADMINISTRADOR
+                        ClienteCorreo: admin@admin.com
+                      - usuarioID: 95
+                        NombreAcesso: afernandez
+                        NombreUsuario: Armando Fernandez
+                        ClienteCorreo: ''
+                      - usuarioID: 64
+                        NombreAcesso: aflores
+                        NombreUsuario: Alfonso Flores Ahumada
+                        ClienteCorreo: Outlook
+                      - usuarioID: 47
+                        NombreAcesso: agonzalez
+                        NombreUsuario: Alejandra González
+                        ClienteCorreo: ''
+                      - usuarioID: 44
+                        NombreAcesso: ahernandez
+                        NombreUsuario: Alejandro Hernandez Rodriguez
+                        ClienteCorreo: ''
+                      - usuarioID: 40
+                        NombreAcesso: aherrera
+                        NombreUsuario: Axel Herrera
+                        ClienteCorreo: ''
+                      - usuarioID: 18
+                        NombreAcesso: aldo
+                        NombreUsuario: Aldo Carrillo
+                        ClienteCorreo: ''
+                      - usuarioID: 69
+                        NombreAcesso: amadrigal
+                        NombreUsuario: Aldo Alan Madrigal Corona
+                        ClienteCorreo: ''
+                      - usuarioID: 94
+                        NombreAcesso: amorales
+                        NombreUsuario: Alejandra Morales
+                        ClienteCorreo: ''
+                      - usuarioID: 171
+                        NombreAcesso: archi
+                        NombreUsuario: archivaldo
+                        ClienteCorreo: archi@mail.com
+                      - usuarioID: 58
+                        NombreAcesso: arojas
+                        NombreUsuario: Ana Patricia Rojas
+                        ClienteCorreo: ''
+                      - usuarioID: 161
+                        NombreAcesso: asdfas
+                        NombreUsuario: asdfas
+                        ClienteCorreo: asdfasd
+                      - usuarioID: 16
+                        NombreAcesso: avela
+                        NombreUsuario: Alejandro Vela
+                        ClienteCorreo: ''
+                      - usuarioID: 52
+                        NombreAcesso: avillegas
+                        NombreUsuario: Aide Villegas
+                        ClienteCorreo: ''
+                      - usuarioID: 109
+                        NombreAcesso: bgonzalez
+                        NombreUsuario: Bertha Gonzalez - Ventas
+                        ClienteCorreo: ''
+                      - usuarioID: 17
+                        NombreAcesso: btrinidad
+                        NombreUsuario: Blanca Trinidad
+                        ClienteCorreo: ''
+                      - usuarioID: 45
+                        NombreAcesso: bvera
+                        NombreUsuario: Beatriz Vera
+                        ClienteCorreo: ''
+                      - usuarioID: 63
+                        NombreAcesso: cacosta
+                        NombreUsuario: Cesar Acosta
+                        ClienteCorreo: ''
+                      - usuarioID: 30
+                        NombreAcesso: cajero
+                        NombreUsuario: Cajero
+                        ClienteCorreo: ''
+                      - usuarioID: 105
+                        NombreAcesso: candujo
+                        NombreUsuario: Carlos Andujo - Ventas
+                        ClienteCorreo: ''
+                      - usuarioID: 135
+                        NombreAcesso: ccastillo
+                        NombreUsuario: Crispin Castillo
+                        ClienteCorreo: ''
+                      - usuarioID: 31
+                        NombreAcesso: chuerta
+                        NombreUsuario: Cesar Huerta
+                        ClienteCorreo: ''
+                      - usuarioID: 118
+                        NombreAcesso: cocegueda
+                        NombreUsuario: Carlos Ocegueda
+                        ClienteCorreo: ''
+                      - usuarioID: 91
+                        NombreAcesso: csanchez
+                        NombreUsuario: Cesar Edgar Sánchez Álvarez
+                        ClienteCorreo: ''
+                      - usuarioID: 90
+                        NombreAcesso: dalmazan
+                        NombreUsuario: David Almazan Guerrero
+                        ClienteCorreo: ''
+                      - usuarioID: 59
+                        NombreAcesso: dbarro
+                        NombreUsuario: 'Daysi Barro '
+                        ClienteCorreo: ''
+                      - usuarioID: 13
+                        NombreAcesso: demo
+                        NombreUsuario: Pruebas
+                        ClienteCorreo: prueba@prueba.com
+                      - usuarioID: 50
+                        NombreAcesso: ebautista
+                        NombreUsuario: 'Estefany Bautista '
+                        ClienteCorreo: ''
+                      - usuarioID: 46
+                        NombreAcesso: edjimenez
+                        NombreUsuario: Eduardo Jiménez
+                        ClienteCorreo: ''
+                      - usuarioID: 32
+                        NombreAcesso: egonzalez
+                        NombreUsuario: Eduardo González
+                        ClienteCorreo: ''
+                      - usuarioID: 39
+                        NombreAcesso: ejimenez
+                        NombreUsuario: ERIK JIMENEZ
+                        ClienteCorreo: ''
+                      - usuarioID: 35
+                        NombreAcesso: epetriciolet
+                        NombreUsuario: Emmanuel Petriciolet
+                        ClienteCorreo: ''
+                      - usuarioID: 145
+                        NombreAcesso: eramirez
+                        NombreUsuario: Elizabeth  Ramirez
+                        ClienteCorreo: ''
+                      - usuarioID: 54
+                        NombreAcesso: esegundo
+                        NombreUsuario: 'Eva Segundo R '
+                        ClienteCorreo: ''
+                      - usuarioID: 78
+                        NombreAcesso: fanaya
+                        NombreUsuario: Fernando David Anaya Cruz
+                        ClienteCorreo: wajaka@foreva.com
+                      - usuarioID: 139
+                        NombreAcesso: fmunoz
+                        NombreUsuario: Francisco Muñoz
+                        ClienteCorreo: ''
+                      - usuarioID: 86
+                        NombreAcesso: fsanchez
+                        NombreUsuario: Fernando Sánchez Martínez
+                        ClienteCorreo: ''
+                      - usuarioID: 111
+                        NombreAcesso: gbaruch
+                        NombreUsuario: Gustavo Baruch - Ventas
+                        ClienteCorreo: ''
+                      - usuarioID: 89
+                        NombreAcesso: gramirez
+                        NombreUsuario: Gustavo Daniel Ramírez Porras
+                        ClienteCorreo: ''
+                      - usuarioID: 93
+                        NombreAcesso: gramos
+                        NombreUsuario: Guillermo Ramos
+                        ClienteCorreo: ''
+                      - usuarioID: 97
+                        NombreAcesso: gsaint
+                        NombreUsuario: Gabriel Saint
+                        ClienteCorreo: ''
+                      - usuarioID: 38
+                        NombreAcesso: icoria
+                        NombreUsuario: Oscar Coria
+                        ClienteCorreo: ''
+                      - usuarioID: 37
+                        NombreAcesso: igomez
+                        NombreUsuario: Isaac Gómez
+                        ClienteCorreo: ''
+                      - usuarioID: 67
+                        NombreAcesso: iperez
+                        NombreUsuario: Isamar Perez Salvador
+                        ClienteCorreo: ''
+                      - usuarioID: 77
+                        NombreAcesso: jalejo
+                        NombreUsuario: Jose Mario Alejo Ramirez
+                        ClienteCorreo: ''
+                      - usuarioID: 113
+                        NombreAcesso: jalvarado
+                        NombreUsuario: Jose Alvarado - Ventas
+                        ClienteCorreo: ''
+                      - usuarioID: 100
+                        NombreAcesso: jbaltazar
+                        NombreUsuario: Jose cruz
+                        ClienteCorreo: '-1'
+                      - usuarioID: 81
+                        NombreAcesso: jcastillo
+                        NombreUsuario: Jovanny de la Cruz Castillo
+                        ClienteCorreo: ''
+                      - usuarioID: 117
+                        NombreAcesso: jcedillo
+                        NombreUsuario: Jorge Cedillo - Auditoria
+                        ClienteCorreo: ''
+                      - usuarioID: 76
+                        NombreAcesso: jcruz
+                        NombreUsuario: Jose Cruz
+                        ClienteCorreo: ''
+                      - usuarioID: 68
+                        NombreAcesso: jcureño
+                        NombreUsuario: Johan Jimenez Cureño
+                        ClienteCorreo: ''
+                      - usuarioID: 65
+                        NombreAcesso: jibarra
+                        NombreUsuario: Jazmin Ivonne Ibarra Hernández
+                        ClienteCorreo: ''
+                      - usuarioID: 41
+                        NombreAcesso: jjimenez
+                        NombreUsuario: Johan Jiménez
+                        ClienteCorreo: ''
+                      - usuarioID: 106
+                        NombreAcesso: jnoriega
+                        NombreUsuario: Javier Noriega - Ventas
+                        ClienteCorreo: ''
+                      - usuarioID: 114
+                        NombreAcesso: jortega
+                        NombreUsuario: Julio Ortega - Ventas
+                        ClienteCorreo: ''
+                      - usuarioID: 87
+                        NombreAcesso: jramirez
+                        NombreUsuario: Juan Carlos Rámirez González
+                        ClienteCorreo: ''
+                      - usuarioID: 26
+                        NombreAcesso: jramos
+                        NombreUsuario: Jaqueline Ramos Texis
+                        ClienteCorreo: ''
+                      - usuarioID: 85
+                        NombreAcesso: jregis
+                        NombreUsuario: Joél Montañez Regis
+                        ClienteCorreo: ''
+                      - usuarioID: 110
+                        NombreAcesso: jrivera
+                        NombreUsuario: Jaime Rivera - Ventas
+                        ClienteCorreo: ''
+                      - usuarioID: 88
+                        NombreAcesso: jrosales
+                        NombreUsuario: José Diego Rosales González
+                        ClienteCorreo: ''
+                      - usuarioID: 140
+                        NombreAcesso: jrosas
+                        NombreUsuario: Juan Rosas
+                        ClienteCorreo: ''
+                      - usuarioID: 108
+                        NombreAcesso: jsanchez
+                        NombreUsuario: Julio Sanchez - Ventas
+                        ClienteCorreo: ''
+                      - usuarioID: 51
+                        NombreAcesso: krodriguez
+                        NombreUsuario: 'Keila Rodriguez '
+                        ClienteCorreo: ''
+                      - usuarioID: 72
+                        NombreAcesso: kvargas
+                        NombreUsuario: Karina Vargas
+                        ClienteCorreo: ''
+                      - usuarioID: 99
+                        NombreAcesso: lballeza
+                        NombreUsuario: Lucio Balleza Gudines
+                        ClienteCorreo: ''
+                      - usuarioID: 92
+                        NombreAcesso: lcabrera
+                        NombreUsuario: Luís Cabrera Hernández
+                        ClienteCorreo: ''
+                      - usuarioID: 27
+                        NombreAcesso: lpinzon
+                        NombreUsuario: Levi Báez Pinzón
+                        ClienteCorreo: ''
+                      - usuarioID: 136
+                        NombreAcesso: mbolivar
+                        NombreUsuario: Marco Bolivar
+                        ClienteCorreo: ''
+                      - usuarioID: 79
+                        NombreAcesso: mcoyol
+                        NombreUsuario: Marco Jesus Lopez Coyol
+                        ClienteCorreo: ''
+                      - usuarioID: 82
+                        NombreAcesso: mgranados
+                        NombreUsuario: Ma de los Angeles Granados Anaya
+                        ClienteCorreo: ''
+                      - usuarioID: 121
+                        NombreAcesso: mhernandez
+                        NombreUsuario: Martin Hernandez
+                        ClienteCorreo: ''
+                      - usuarioID: 98
+                        NombreAcesso: mherrera
+                        NombreUsuario: María de los Angeles López Herrera
+                        ClienteCorreo: ''
+                      - usuarioID: 146
+                        NombreAcesso: michael
+                        NombreUsuario: michael
+                        ClienteCorreo: ''
+                      - usuarioID: 36
+                        NombreAcesso: mjimenez
+                        NombreUsuario: Marisol Jiménez
+                        ClienteCorreo: ''
+                      - usuarioID: 112
+                        NombreAcesso: mmartinez
+                        NombreUsuario: Martin Martinez - Ventas
+                        ClienteCorreo: ''
+                      - usuarioID: 28
+                        NombreAcesso: mmoreno
+                        NombreUsuario: Miguel Angel Moreno Flores
+                        ClienteCorreo: ''
+                      - usuarioID: 61
+                        NombreAcesso: molino
+                        NombreUsuario: Analista de Molino
+                        ClienteCorreo: ''
+                      - usuarioID: 42
+                        NombreAcesso: mperez
+                        NombreUsuario: Mary Perez
+                        ClienteCorreo: ''
+                      - usuarioID: 53
+                        NombreAcesso: mponce
+                        NombreUsuario: Magali Ponce
+                        ClienteCorreo: ''
+                      - usuarioID: 73
+                        NombreAcesso: mromero
+                        NombreUsuario: Monserrath Romero
+                        ClienteCorreo: ''
+                      - usuarioID: 71
+                        NombreAcesso: mrubio
+                        NombreUsuario: Maribel Rubio
+                        ClienteCorreo: ''
+                      - usuarioID: 60
+                        NombreAcesso: msantamaria
+                        NombreUsuario: Mayra Santamaría
+                        ClienteCorreo: ''
+                      - usuarioID: 55
+                        NombreAcesso: msantos
+                        NombreUsuario: 'Marcela De los santos Valiente '
+                        ClienteCorreo: ''
+                      - usuarioID: 57
+                        NombreAcesso: nbenavides
+                        NombreUsuario: Nancy Benavides
+                        ClienteCorreo: ''
+                      - usuarioID: 173
+                        NombreAcesso: netvyadm
+                        NombreUsuario: Nostra
+                        ClienteCorreo: grfgr
+                      - usuarioID: 156
+                        NombreAcesso: NoRepetir
+                        NombreUsuario: '0'
+                        ClienteCorreo: sopota@madre.com
+                      - usuarioID: 155
+                        NombreAcesso: nousaASGASGFASDASDr
+                        NombreUsuario: '0'
+                        ClienteCorreo: sopota@madre.com
+                      - usuarioID: 148
+                        NombreAcesso: nousar
+                        NombreUsuario: '0'
+                        ClienteCorreo: sopota@madre.com
+                      - usuarioID: 101
+                        NombreAcesso: nydia
+                        NombreUsuario: Nydia Gisela Bertin Carrera
+                        ClienteCorreo: ''
+                      - usuarioID: 75
+                        NombreAcesso: ocoria
+                        NombreUsuario: Oscar Coria
+                        ClienteCorreo: ''
+                      - usuarioID: 83
+                        NombreAcesso: ocorral
+                        NombreUsuario: Omar Corral Reyes
+                        ClienteCorreo: ''
+                      - usuarioID: 19
+                        NombreAcesso: ONYXD
+                        NombreUsuario: Alex de la Peña
+                        ClienteCorreo: ''
+                      - usuarioID: 115
+                        NombreAcesso: opartida
+                        NombreUsuario: Oscar Partida - Ventas
+                        ClienteCorreo: ''
+                      - usuarioID: 116
+                        NombreAcesso: patsy
+                        NombreUsuario: Patsy - Auditoria
+                        ClienteCorreo: ''
+                      - usuarioID: 164
+                        NombreAcesso: propro
+                        NombreUsuario: propro
+                        ClienteCorreo: propro.com
+                      - usuarioID: 159
+                        NombreAcesso: prueba
+                        NombreUsuario: prueba
+                        ClienteCorreo: prueba
+                      - usuarioID: 163
+                        NombreAcesso: pruebap
+                        NombreUsuario: prueba editada
+                        ClienteCorreo: prueba@prueba.com
+                      - usuarioID: 80
+                        NombreAcesso: pvillalobos
+                        NombreUsuario: Pablo Villalobos
+                        ClienteCorreo: ''
+                      - usuarioID: 165
+                        NombreAcesso: rakata
+                        NombreUsuario: rakata
+                        ClienteCorreo: rakata.com
+                      - usuarioID: 70
+                        NombreAcesso: refacciones
+                        NombreUsuario: Generico - Refacciones
+                        ClienteCorreo: ''
+                      - usuarioID: 147
+                        NombreAcesso: rhernandez
+                        NombreUsuario: Ricardo Hernandez
+                        ClienteCorreo: ''
+                      - usuarioID: 49
+                        NombreAcesso: salud
+                        NombreUsuario: Salud
+                        ClienteCorreo: ''
+                      - usuarioID: 134
+                        NombreAcesso: sgonzalez
+                        NombreUsuario: Sergio Gonzalez
+                        ClienteCorreo: ''
+                      - usuarioID: 120
+                        NombreAcesso: sherrera
+                        NombreUsuario: Sergio Herrera - FinancieroZ
+                        ClienteCorreo: ''
+                      - usuarioID: 119
+                        NombreAcesso: sorozco
+                        NombreUsuario: Susana Orozco
+                        ClienteCorreo: ''
+                      - usuarioID: 84
+                        NombreAcesso: ssanchez
+                        NombreUsuario: Santos Sánchez Piña
+                        ClienteCorreo: ''
+                      - usuarioID: 137
+                        NombreAcesso: szezatti
+                        NombreUsuario: Sandra Zezatti
+                        ClienteCorreo: ''
+                      - usuarioID: 122
+                        NombreAcesso: tecnico1
+                        NombreUsuario: Guillermo Lazaro
+                        ClienteCorreo: ''
+                      - usuarioID: 131
+                        NombreAcesso: tecnico10
+                        NombreUsuario: Fernando Rivera
+                        ClienteCorreo: ''
+                      - usuarioID: 132
+                        NombreAcesso: tecnico11
+                        NombreUsuario: Arturo Labrada
+                        ClienteCorreo: ''
+                      - usuarioID: 133
+                        NombreAcesso: tecnico12
+                        NombreUsuario: Daniel Cortes
+                        ClienteCorreo: ''
+                      - usuarioID: 141
+                        NombreAcesso: tecnico13
+                        NombreUsuario: Luis Ramon Gallardo
+                        ClienteCorreo: ''
+                      - usuarioID: 142
+                        NombreAcesso: tecnico14
+                        NombreUsuario: Leoncio Valeriano
+                        ClienteCorreo: ''
+                      - usuarioID: 123
+                        NombreAcesso: tecnico2
+                        NombreUsuario: Enrique Rivera
+                        ClienteCorreo: ''
+                      - usuarioID: 124
+                        NombreAcesso: tecnico3
+                        NombreUsuario: Joel Alvarado
+                        ClienteCorreo: ''
+                      - usuarioID: 125
+                        NombreAcesso: tecnico4
+                        NombreUsuario: Brian Osmar
+                        ClienteCorreo: ''
+                      - usuarioID: 126
+                        NombreAcesso: tecnico5
+                        NombreUsuario: Ruben Vergara
+                        ClienteCorreo: ''
+                      - usuarioID: 127
+                        NombreAcesso: tecnico6
+                        NombreUsuario: Moises Santiago
+                        ClienteCorreo: ''
+                      - usuarioID: 128
+                        NombreAcesso: tecnico7
+                        NombreUsuario: Ernestro Andres Rivera
+                        ClienteCorreo: ''
+                      - usuarioID: 129
+                        NombreAcesso: tecnico8
+                        NombreUsuario: Einar
+                        ClienteCorreo: ''
+                      - usuarioID: 130
+                        NombreAcesso: tecnico9
+                        NombreUsuario: Jose Guadalupe Espinosa
+                        ClienteCorreo: ''
+                      - usuarioID: 48
+                        NombreAcesso: tperez
+                        NombreUsuario: Tomás Pérez
+                        ClienteCorreo: ''
+                      - usuarioID: 15
+                        NombreAcesso: ubaldo
+                        NombreUsuario: Ubaldo Hernandez
+                        ClienteCorreo: ghfh
+                      - usuarioID: 170
+                        NombreAcesso: utestu
+                        NombreUsuario: test
+                        ClienteCorreo: testu@mail.com
+                      - usuarioID: 66
+                        NombreAcesso: ventas
+                        NombreUsuario: ventas
+                        ClienteCorreo: ''
+                      - usuarioID: 143
+                        NombreAcesso: ventas1
+                        NombreUsuario: Karla - Ventas
+                        ClienteCorreo: ''
+                      - usuarioID: 144
+                        NombreAcesso: ventas2
+                        NombreUsuario: Hada - Ventas
+                        ClienteCorreo: ''
+                      - usuarioID: 29
+                        NombreAcesso: vloesa
+                        NombreUsuario: 'Vanesa Schrader Loesa '
+                        ClienteCorreo: ''
+                      - usuarioID: 107
+                        NombreAcesso: vpardo
+                        NombreUsuario: Victor Pardo - Ventas
+                        ClienteCorreo: ''
+                      - usuarioID: 96
+                        NombreAcesso: yallon
+                        NombreUsuario: Yadira Allon
+                        ClienteCorreo: ''
+                      - usuarioID: 166
+                        NombreAcesso: Yei
+                        NombreUsuario: Yeison
+                        ClienteCorreo: ''
+                      - usuarioID: 34
+                        NombreAcesso: ygarcia
+                        NombreUsuario: Yessica García
+                        ClienteCorreo: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - usuarioID: 62
+                        NombreAcesso: '1952'
+                        NombreUsuario: Martinez
+                        ClienteCorreo: ''
+                      - usuarioID: 138
+                        NombreAcesso: aalcala
+                        NombreUsuario: Alejandra Alcala
+                        ClienteCorreo: ''
+                      - usuarioID: 33
+                        NombreAcesso: acruz
+                        NombreUsuario: Aldo Alfredo Cruz Reyes
+                        ClienteCorreo: ''
+                      - usuarioID: 1
+                        NombreAcesso: admin@admin.com
+                        NombreUsuario: ADMINISTRADOR
+                        ClienteCorreo: admin@admin.com
       operationId: get-documentManagement-userslist
       parameters:
         - schema:
