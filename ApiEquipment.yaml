@@ -537,41 +537,41 @@ paths:
                       sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1"
                       records:
                         - ID: 1
-                          Nombre: PRUEBALUIS
-                          Codigo: '12'
+                          Nombre: EXTINTOR
+                          Codigo: '3442342'
                         - ID: 2
-                          Nombre: ''
-                          Codigo: '45'
+                          Nombre: Plegadora
+                          Codigo: '123'
                         - ID: 3
-                          Nombre: PRUEBANIHIL
-                          Codigo: '456789'
+                          Nombre: EquipNuevo
+                          Codigo: EQ-C1
                         - ID: 4
-                          Nombre: YEI GUARDAR - Actualizar
-                          Codigo: '191920'
+                          Nombre: Equip-2
+                          Codigo: EQ-C2
+                        - ID: 5
+                          Nombre: EQUIP-1
+                          Codigo: EQUI1
                         - ID: 6
-                          Nombre: un men editado
-                          Codigo: ads
+                          Nombre: EQUI-NEW
+                          Codigo: EQUI2
+                        - ID: 7
+                          Nombre: ''
+                          Codigo: EQ-JUANITO-1
+                        - ID: 8
+                          Nombre: ''
+                          Codigo: '88888'
+                        - ID: 9
+                          Nombre: pruebaluis
+                          Codigo: '5698'
                         - ID: 10
-                          Nombre: YEI GUARDAR - Actualizar
-                          Codigo: '191920'
-                        - ID: 15
-                          Nombre: JCO PRUEBA
-                          Codigo: '1701799'
-                        - ID: 16
-                          Nombre: JCO PRUEBA2
-                          Codigo: '1701799'
-                        - ID: 17
-                          Nombre: '0'
-                          Codigo: '0'
-                        - ID: 18
-                          Nombre: '0'
-                          Codigo: '0'
-                        - ID: 19
-                          Nombre: '0'
-                          Codigo: '0'
-                        - ID: 20
-                          Nombre: '0'
-                          Codigo: '0'
+                          Nombre: nfjdgfdsgPRUEBA
+                          Codigo: '17578242'
+                        - ID: 11
+                          Nombre: ''
+                          Codigo: '587411'
+                        - ID: 12
+                          Nombre: ''
+                          Codigo: '1213545'
               examples:
                 Example 1:
                   value:
@@ -582,29 +582,41 @@ paths:
                       sql: string
                       records:
                         - ID: 1
-                          Nombre: PRUEBALUIS
-                          Codigo: '12'
+                          Nombre: EXTINTOR
+                          Codigo: '3442342'
                         - ID: 2
-                          Nombre: ''
-                          Codigo: '45'
+                          Nombre: Plegadora
+                          Codigo: '123'
                         - ID: 3
-                          Nombre: PRUEBANIHIL
-                          Codigo: '456789'
+                          Nombre: EquipNuevo
+                          Codigo: EQ-C1
                         - ID: 4
-                          Nombre: YEI GUARDAR - Actualizar
-                          Codigo: '191920'
+                          Nombre: Equip-2
+                          Codigo: EQ-C2
+                        - ID: 5
+                          Nombre: EQUIP-1
+                          Codigo: EQUI1
                         - ID: 6
-                          Nombre: EDICION
-                          Codigo: ads
+                          Nombre: EQUI-NEW
+                          Codigo: EQUI2
+                        - ID: 7
+                          Nombre: ''
+                          Codigo: EQ-JUANITO-1
+                        - ID: 8
+                          Nombre: ''
+                          Codigo: '88888'
+                        - ID: 9
+                          Nombre: pruebajco
+                          Codigo: '5698'
                         - ID: 10
-                          Nombre: YEI GUARDAR - Actualizar
-                          Codigo: '191920'
-                        - ID: 15
-                          Nombre: JCO PRUEBA
-                          Codigo: '1701799'
-                        - ID: 16
-                          Nombre: JCO PRUEBA2
-                          Codigo: '1701799'
+                          Nombre: nfjdgfdsgPRUEBA
+                          Codigo: '17578242'
+                        - ID: 11
+                          Nombre: ''
+                          Codigo: '587411'
+                        - ID: 12
+                          Nombre: ''
+                          Codigo: '1213545'
       operationId: get-equipment-light
       parameters:
         - schema:
