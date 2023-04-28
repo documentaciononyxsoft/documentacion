@@ -1657,6 +1657,29 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties: {}
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: ''
+                    content: {}
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 0
+                    message: string
+                    content: {}
       parameters:
         - schema:
             type: string
