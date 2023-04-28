@@ -629,7 +629,7 @@ paths:
           name: param
           description: Nombre a buscar
     post:
-      summary: ''
+      summary: Equipment - Create
       operationId: post-equipment
       responses:
         '200':
