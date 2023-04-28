@@ -1015,5 +1015,144 @@ paths:
           in: query
           name: busqueda
           description: AR
+  /vehicle:
+    post:
+      summary: Vehicle -Create
+      operationId: post-vehicle
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      vehiculoID:
+                        type: integer
+                      FechaHoraUsuario:
+                        type: string
+                      UsuarioID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      vehiculoID: 25
+                      FechaHoraUsuario: '2023-04-28T15:32:52.236'
+                      UsuarioID: 34
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      vehiculoID: 25
+                      FechaHoraUsuario: '2023-04-28T15:32:52.236'
+                      UsuarioID: 34
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Codigo:
+                  type: string
+                Matricula:
+                  type: string
+                MarcaID:
+                  type: string
+                ModeloID:
+                  type: string
+                VersionID:
+                  type: string
+                TipoVehiculoID:
+                  type: string
+                CombustibleID:
+                  type: string
+                Color:
+                  type: string
+                Plazas:
+                  type: string
+                CV:
+                  type: string
+                Tara:
+                  type: string
+                Pmax:
+                  type: string
+                Ancho:
+                  type: string
+                Alto:
+                  type: string
+                Largo:
+                  type: string
+                FechaCompra:
+                  type: string
+                PrecioCompra:
+                  type: string
+                Chasis:
+                  type: string
+                Itv:
+                  type: string
+              x-examples:
+                Example 1:
+                  Codigo: GTD
+                  Matricula: ARP87F
+                  MarcaID: '1'
+                  ModeloID: '1'
+                  VersionID: '1'
+                  TipoVehiculoID: '10007'
+                  CombustibleID: '11034'
+                  Color: AZUL
+                  Plazas: '4'
+                  CV: '45'
+                  Tara: '34'
+                  Pmax: '556'
+                  Ancho: '353'
+                  Alto: '454'
+                  Largo: '44645'
+                  FechaCompra: '20231204'
+                  PrecioCompra: '5000'
+                  Chasis: '111'
+                  Itv: '222'
+            examples:
+              Example 1:
+                value:
+                  Codigo: GTD
+                  Matricula: ARP87F
+                  MarcaID: '1'
+                  ModeloID: '1'
+                  VersionID: '1'
+                  TipoVehiculoID: '10007'
+                  CombustibleID: '11034'
+                  Color: AZUL
+                  Plazas: '4'
+                  CV: '45'
+                  Tara: '34'
+                  Pmax: '556'
+                  Ancho: '353'
+                  Alto: '454'
+                  Largo: '44645'
+                  FechaCompra: '20231204'
+                  PrecioCompra: '5000'
+                  Chasis: '111'
+                  Itv: '222'
 components:
   schemas: {}
