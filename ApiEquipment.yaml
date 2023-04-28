@@ -1093,7 +1093,6 @@ paths:
           example: prueba
         name: sBusqueda
         in: path
-        required: true
         description: Parámetro a buscar.
     get:
       summary: Equipment - Quicksearch
