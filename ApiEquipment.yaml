@@ -346,7 +346,7 @@ paths:
           required: true
         - schema:
             type: string
-            example: a
+            example: prueba
           in: query
           name: 'param '
           description: Nombre a buscar
