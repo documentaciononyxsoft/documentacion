@@ -2065,15 +2065,393 @@ paths:
           required: true
   /documentManagement/relation/table:
     get:
-      summary: Your GET endpoint
+      summary: Relation - ListTables
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        sNombre:
+                          type: string
+                        sAlias:
+                          type: string
+                        sCampos:
+                          type: string
+                        sTablahija:
+                          type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - sNombre: Ofertas
+                        sAlias: ''
+                        sCampos: 'Numero+Version,Descripcion'
+                        sTablahija: Oferta
+                      - sNombre: Pedidos Venta
+                        sAlias: ''
+                        sCampos: 'Numero,ReferenciaCliente'
+                        sTablahija: PedidoVentaCabecera
+                      - sNombre: Albaranes Venta
+                        sAlias: ''
+                        sCampos: 'Numero,ReferenciaCliente'
+                        sTablahija: AlbaranVentaCabecera
+                      - sNombre: Peticiones de Oferta
+                        sAlias: ''
+                        sCampos: 'Numero+Version,Descripcion'
+                        sTablahija: OfertaCompraCabecera
+                      - sNombre: Pedidos Compra
+                        sAlias: ''
+                        sCampos: 'Numero,ReferenciaProveedor'
+                        sTablahija: PedidoCompraCabecera
+                      - sNombre: Albaranes Compra
+                        sAlias: ''
+                        sCampos: 'Numero,Referencia'
+                        sTablahija: AlbaranCompraCabecera
+                      - sNombre: Curso Formación
+                        sAlias: ''
+                        sCampos: 'Numero,Nombre'
+                        sTablahija: CursoFormacion
+                      - sNombre: Curso Formación Plan
+                        sAlias: ''
+                        sCampos: 'Numero,Descripcion'
+                        sTablahija: CursoFormacionPlan
+                      - sNombre: Albarán Compra Lineas
+                        sAlias: ''
+                        sCampos: 'Linea,Nombre'
+                        sTablahija: AlbaranCompraLinea
+                      - sNombre: Proyectos
+                        sAlias: ''
+                        sCampos: 'CodigoProyecto_OF,Nombre'
+                        sTablahija: Proyecto_OF
+                      - sNombre: Artículos
+                        sAlias: ''
+                        sCampos: 'Codigo,Nombre'
+                        sTablahija: Articulo
+                      - sNombre: Incidencias de Calidad
+                        sAlias: ''
+                        sCampos: 'Numero,Descripcion'
+                        sTablahija: IncidenciaCalidadCabecera
+                      - sNombre: Vehículos
+                        sAlias: ''
+                        sCampos: 'Codigo,Matricula'
+                        sTablahija: Vehiculo
+                      - sNombre: Oportunidades
+                        sAlias: ''
+                        sCampos: 'Nombre,Nombre'
+                        sTablahija: Oportunidad
+                      - sNombre: OportunidadesCeltilab
+                        sAlias: ''
+                        sCampos: 'Numero,Referencia_Celtilab'
+                        sTablahija: zCLActualizacionOportunidades
+                      - sNombre: Empleados
+                        sAlias: ''
+                        sCampos: 'Codigo,Nombre'
+                        sTablahija: Empleado
+                      - sNombre: Diario
+                        sAlias: ''
+                        sCampos: 'Asiento,Ejercicio'
+                        sTablahija: DiarioCabecera
+                      - sNombre: Empresas
+                        sAlias: ''
+                        sCampos: 'Codigo,Nombre'
+                        sTablahija: Empresa
+                      - sNombre: Inmovilizado
+                        sAlias: ''
+                        sCampos: 'Numero,Nombre'
+                        sTablahija: Inmovilizado
+                      - sNombre: Maquinas
+                        sAlias: ''
+                        sCampos: 'Codigo,Nombre'
+                        sTablahija: Maquina
+                      - sNombre: Procesos
+                        sAlias: ''
+                        sCampos: 'NumeroProceso,Nombre'
+                        sTablahija: Proceso
+                      - sNombre: Cobros
+                        sAlias: ''
+                        sCampos: 'CodigoEfecto,NumeroVencimiento'
+                        sTablahija: Cobro
+                      - sNombre: Pagos
+                        sAlias: ''
+                        sCampos: 'CodigoEfecto,NumeroVencimiento'
+                        sTablahija: Pago
+                      - sNombre: Cuenta Contable
+                        sAlias: ''
+                        sCampos: 'Codigo,Nombre'
+                        sTablahija: CuentaContable
+                      - sNombre: Remesas Cobros
+                        sAlias: ''
+                        sCampos: 'Numero,Fecha'
+                        sTablahija: RemesaCobroCabecera
+                      - sNombre: Remesas Pagos
+                        sAlias: ''
+                        sCampos: 'Numero,Fecha'
+                        sTablahija: RemesaPagoCabecera
+                      - sNombre: Bancos
+                        sAlias: ''
+                        sCampos: 'Codigo,Nombre'
+                        sTablahija: Banco
+                      - sNombre: Albaranes entre Almacenes
+                        sAlias: ''
+                        sCampos: 'Numero,ReferenciaInterna'
+                        sTablahija: AlbaranAlmacenCabecera
+                      - sNombre: Operación de Gama de Control
+                        sAlias: ''
+                        sCampos: 'NumeroOrden,Nombre'
+                        sTablahija: GamaControlOperacion
+                      - sNombre: Imputación Gasto de Compra
+                        sAlias: ''
+                        sCampos: 'Numero,ReferenciaInterna'
+                        sTablahija: GastoCompraCabecera
+                      - sNombre: Solicitud Interna de Compra
+                        sAlias: ''
+                        sCampos: 'Numero,ReferenciaInterna'
+                        sTablahija: SolicitudInternaCompraCabecera
+                      - sNombre: Factura Compra
+                        sAlias: ''
+                        sCampos: 'Ejercicio+Numero,NumeroFacturaProveedor'
+                        sTablahija: FacturaCompraCabecera
+                      - sNombre: Factura Venta
+                        sAlias: ''
+                        sCampos: 'Ejercicio+Numero,Numero'
+                        sTablahija: FacturaVentaCabecera
+                      - sNombre: Consumo
+                        sAlias: ''
+                        sCampos: 'Numero,Numero'
+                        sTablahija: ConsumoCabecera
+                      - sNombre: Envío
+                        sAlias: ''
+                        sCampos: 'Numero,Descripcion'
+                        sTablahija: EnvioClienteCabecera
+                      - sNombre: Tipo Documento
+                        sAlias: ''
+                        sCampos: 'Abreviatura,Descripcion'
+                        sTablahija: TablaGeneral
+                      - sNombre: Equipo SAT
+                        sAlias: ''
+                        sCampos: 'NumeroSerie,Nombre'
+                        sTablahija: Elemento
+                      - sNombre: Ubicacion SAT
+                        sAlias: ''
+                        sCampos: 'Codigo,Nombre'
+                        sTablahija: Direccion
+                      - sNombre: Promociones
+                        sAlias: ''
+                        sCampos: 'Numero,ReferenciaInterna'
+                        sTablahija: PromocionCabecera
+                      - sNombre: Promociones
+                        sAlias: ''
+                        sCampos: 'Numero,ReferenciaInterna'
+                        sTablahija: PromocionCabecera
+                      - sNombre: Plantilla Carpetas
+                        sAlias: ''
+                        sCampos: 'Nombre,Nombre'
+                        sTablahija: carpetaplantilladesglose
+                      - sNombre: Empleado EPI
+                        sAlias: ''
+                        sCampos: 'EmpleadoEPIID,EmpleadoEPIID'
+                        sTablahija: EmpleadoEPI
+                      - sNombre: Lotes
+                        sAlias: ''
+                        sCampos: 'LoteInterno,LoteProveedor'
+                        sTablahija: Lote
+                      - sNombre: GMAO-Equipos
+                        sAlias: ''
+                        sCampos: 'Codigo,Nombre'
+                        sTablahija: Gmao_Equipo
+                      - sNombre: GMAO-Tickets
+                        sAlias: ''
+                        sCampos: 'Numero,Descripcion'
+                        sTablahija: Gmao_Ticket
+                      - sNombre: Contratos colaboracion
+                        sAlias: ''
+                        sCampos: 'Numero,Titulo'
+                        sTablahija: ContratoColaboracion
+                      - sNombre: TrabajoAsignado
+                        sAlias: ''
+                        sCampos: 'Numero,Nombre'
+                        sTablahija: TrabajoAsignado
+                      - sNombre: TipoPuesto
+                        sAlias: ''
+                        sCampos: 'Descripcion,Descripcion'
+                        sTablahija: EmpleadoTipoPuesto
+                      - sNombre: NivelIngenieria
+                        sAlias: ''
+                        sCampos: 'Nivel,Descripcion'
+                        sTablahija: NivelIngenieria
+                      - sNombre: Reuniones
+                        sAlias: ''
+                        sCampos: 'ReunionCabeceraID,Asunto'
+                        sTablahija: ReunionCabecera
+                      - sNombre: Prevision de Pedidos
+                        sAlias: ''
+                        sCampos: 'NumeroEnvio,TipoMensaje'
+                        sTablahija: PrevisionPedidoVentaCabecera
+                      - sNombre: Solicitud Interna Compra Lineas
+                        sAlias: ''
+                        sCampos: 'Linea,Nombre'
+                        sTablahija: SolicitudInternaCompraLinea
+                      - sNombre: Bultos
+                        sAlias: ''
+                        sCampos: 'Numero,Descripcion'
+                        sTablahija: BultoCabecera
+                      - sNombre: Campaña
+                        sAlias: ''
+                        sCampos: 'CampanaID,Nombre'
+                        sTablahija: Campana
+                      - sNombre: Medio Ambiente Residuo
+                        sAlias: ''
+                        sCampos: 'Codigo,Nombre'
+                        sTablahija: MedioAmbienteResiduo
+                      - sNombre: Documento Financiero
+                        sAlias: ''
+                        sCampos: 'Numero,NumeroDocumento'
+                        sTablahija: documentorecibidocabecera
+                      - sNombre: Cuentas
+                        sAlias: ''
+                        sCampos: 'ReferenciaCodigo,Nombre'
+                        sTablahija: Mailing
+                      - sNombre: Plantilla Proceso
+                        sAlias: ''
+                        sCampos: 'ProyectoOFPlantillaProcesoID,Nombre'
+                        sTablahija: ProyectoOFPlantillaProceso
+                      - sNombre: Pedido Venta Linea
+                        sAlias: PedidoVentaLinea
+                        sCampos: 'Linea,Nombre'
+                        sTablahija: PedidoVentaLinea
+                      - sNombre: Libro de visita
+                        sAlias: ''
+                        sCampos: 'LibroVisitaID,Motivo'
+                        sTablahija: LibroVisita
+                      - sNombre: Modificación de Proyecto
+                        sAlias: ''
+                        sCampos: 'Proyecto_OFModificacionDetalleID,Descripcion'
+                        sTablahija: Proyecto_OfModificacionDetalle
+                      - sNombre: Gama de Control
+                        sAlias: ''
+                        sCampos: 'GamaControlCabeceraID,Nombre'
+                        sTablahija: GamaControlCabecera
+                      - sNombre: Resultado de Gamas de Control
+                        sAlias: ''
+                        sCampos: 'GamaControlResultadoID,Numero'
+                        sTablahija: GamaControlResultado
+                      - sNombre: Operación
+                        sAlias: ''
+                        sCampos: 'OperacionID,Nombre'
+                        sTablahija: Operacion
+                      - sNombre: Gasto Salida
+                        sAlias: ''
+                        sCampos: 'GastoSalidaCabeceraID,Numero'
+                        sTablahija: GastoSalidaCabecera
+                      - sNombre: Proceso Gasto
+                        sAlias: ''
+                        sCampos: 'ProcesoGastoID,Notas'
+                        sTablahija: ProcesoGasto
+                      - sNombre: Pedido Compra Linea
+                        sAlias: ''
+                        sCampos: 'PedidoCompraLineaID,Linea'
+                        sTablahija: PedidoCompraLinea
+                      - sNombre: Gestion Proceso
+                        sAlias: ''
+                        sCampos: 'GestionProcesoID,Nombre'
+                        sTablahija: GestionProceso
+                      - sNombre: Gestion Proceso Entrada Salida
+                        sAlias: ''
+                        sCampos: 'GestionProcesoEntSalID,Nombre'
+                        sTablahija: GestionProcesoEntSal
+                      - sNombre: Modelo Presupuestario
+                        sAlias: ''
+                        sCampos: 'Numero+Version,Nombre'
+                        sTablahija: PresupuestariaCabecera
+                      - sNombre: Tiempo Trabajo
+                        sAlias: ''
+                        sCampos: 'TiempoTrabajoID,Concepto'
+                        sTablahija: TiempoTrabajo
+                      - sNombre: Familia
+                        sAlias: ''
+                        sCampos: 'FamiliaID,Nombre'
+                        sTablahija: Familia
+                      - sNombre: Preventivo
+                        sAlias: ''
+                        sCampos: 'Gmao_PreventivoID,TrabajoARealizar'
+                        sTablahija: Gmao_Preventivo
+                      - sNombre: AuditoriaModeloRequisito
+                        sAlias: ''
+                        sCampos: 'AuditoriaModeloRequisitoID,Nombre'
+                        sTablahija: AuditoriaModeloRequisito
+                      - sNombre: Modelo Encuesta
+                        sAlias: ''
+                        sCampos: 'EncuestamodelopreguntaID,Nombre'
+                        sTablahija: Encuestamodelopregunta
+                      - sNombre: Encuesta
+                        sAlias: ''
+                        sCampos: 'EncuestapreguntaID,Nombre'
+                        sTablahija: Encuestapregunta
+                      - sNombre: Encuesta
+                        sAlias: ''
+                        sCampos: 'EncuestapreguntaID,Nombre'
+                        sTablahija: Encuestapregunta
+                      - sNombre: Objetivo de venta
+                        sAlias: ''
+                        sCampos: 'Numero+Version,Nota'
+                        sTablahija: ObjetivoVentaCabecera
+                      - sNombre: GMAO-ProcesosCalibracion
+                        sAlias: ''
+                        sCampos: 'Gmao_procesoCalibracionID,Descripcion'
+                        sTablahija: Gmao_procesoCalibracion
+                      - sNombre: Pedidos de compra para Proyectos
+                        sAlias: ''
+                        sCampos: 'ReservaMaterialID,Nombre'
+                        sTablahija: ReservaMaterial
+                      - sNombre: GMAO-Calibracion
+                        sAlias: ''
+                        sCampos: 'Gmao_CalibracionID,Certificado'
+                        sTablahija: Gmao_calibracion
+                      - sNombre: Recepción de facturas de compra
+                        sAlias: ''
+                        sCampos: 'Numero,NumeroFacturaProveedor'
+                        sTablahija: FacturaCompraRecepcionCabecera
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - sNombre: Ofertas
+                        sAlias: ''
+                        sCampos: 'Numero+Version,Descripcion'
+                        sTablahija: Oferta
+                      - sNombre: Pedidos Venta
+                        sAlias: ''
+                        sCampos: 'Numero,ReferenciaCliente'
+                        sTablahija: PedidoVentaCabecera
+                      - sNombre: Albaranes Venta
+                        sAlias: ''
+                        sCampos: 'Numero,ReferenciaCliente'
+                        sTablahija: AlbaranVentaCabecera
       operationId: get-documentManagement-relation-table
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
       description: ''
   /documentManagement/event:
     post:
