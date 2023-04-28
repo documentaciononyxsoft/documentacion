@@ -335,5 +335,214 @@ paths:
           in: query
           name: modeloID
           description: '1'
+  /vehicles:
+    get:
+      summary: Vehicles -findMany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            VehiculoID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Matricula:
+                              type: string
+                            MarcaID:
+                              type: integer
+                            ModeloID:
+                              type: integer
+                            VersionID:
+                              type: integer
+                            TipoVehiculoID:
+                              type: integer
+                            CombustibleID:
+                              type: integer
+                            UsuarioID:
+                              type: integer
+                            UsuarioNombre:
+                              type: string
+                            FechaHoraUsuario:
+                              type: string
+                            Color:
+                              type: string
+                            Plazas:
+                              type: integer
+                            CV:
+                              type: integer
+                            Tara:
+                              type: integer
+                            Pmax:
+                              type: integer
+                            Ancho:
+                              type: integer
+                            Alto:
+                              type: integer
+                            Largo:
+                              type: integer
+                            FechaCompra:
+                              type: string
+                            PrecioCompra:
+                              type: integer
+                            Chasis:
+                              type: string
+                            Itv:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - VehiculoID: 1
+                          Codigo: '231231'
+                          Matricula: '242342'
+                          MarcaID: 0
+                          ModeloID: 0
+                          VersionID: 0
+                          TipoVehiculoID: -1
+                          CombustibleID: -1
+                          UsuarioID: 3
+                          UsuarioNombre: USUARIO
+                          FechaHoraUsuario: '2019-05-31T09:36:58.000'
+                          Color: '2342342'
+                          Plazas: -27910
+                          CV: 0
+                          Tara: 0
+                          Pmax: 0
+                          Ancho: 0
+                          Alto: 0
+                          Largo: 0
+                          FechaCompra: ''
+                          PrecioCompra: 0
+                          Chasis: ''
+                          Itv: ''
+                        - VehiculoID: 2
+                          Codigo: '1'
+                          Matricula: 3525 GSM
+                          MarcaID: 0
+                          ModeloID: 0
+                          VersionID: 1
+                          TipoVehiculoID: -1
+                          CombustibleID: -1
+                          UsuarioID: 3
+                          UsuarioNombre: USUARIO
+                          FechaHoraUsuario: '2020-01-08T09:45:58.000'
+                          Color: ROJO
+                          Plazas: 8
+                          CV: 1222
+                          Tara: 1200
+                          Pmax: 5000
+                          Ancho: 4500
+                          Alto: 4250
+                          Largo: 5210
+                          FechaCompra: '20190711'
+                          PrecioCompra: 25000
+                          Chasis: ''
+                          Itv: ''
+                      sql: "SELECT vehiculo.*,\r\nChasis.Valor AS chasisValor,\r\nItv.Valor  AS itvValor,\r\nUsuario.NombreAcesso\r\nFROM vehiculo\r\nLEFT JOIN campoespecialvalor Chasis\r\nON Chasis.TablaRegistroId = vehiculo.VehiculoID AND Chasis.CampoEspecialDefinicionID =37\r\nLEFT JOIN campoespecialvalor Itv\r\nON Itv.TablaRegistroId = vehiculo.VehiculoID AND Itv.CampoEspecialDefinicionID =36 \r\nLEFT JOIN usuario\r\nON vehiculo.usuarioID = usuario.usuarioID\r\nWHERE vehiculo.CustomerID = 29\r\nAND vehiculo.EmpresaID = 1\r\n\r\norder BY vehiculo.VehiculoID ASC\r\nlimit 2\r\noffset 0"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - VehiculoID: 1
+                          Codigo: '231231'
+                          Matricula: '242342'
+                          MarcaID: 0
+                          ModeloID: 0
+                          VersionID: 0
+                          TipoVehiculoID: -1
+                          CombustibleID: -1
+                          UsuarioID: 3
+                          UsuarioNombre: USUARIO
+                          FechaHoraUsuario: '2019-05-31T09:36:58.000'
+                          Color: '2342342'
+                          Plazas: -27910
+                          CV: 0
+                          Tara: 0
+                          Pmax: 0
+                          Ancho: 0
+                          Alto: 0
+                          Largo: 0
+                          FechaCompra: ''
+                          PrecioCompra: 0
+                          Chasis: ''
+                          Itv: ''
+                        - VehiculoID: 2
+                          Codigo: '1'
+                          Matricula: 3525 GSM
+                          MarcaID: 0
+                          ModeloID: 0
+                          VersionID: 1
+                          TipoVehiculoID: -1
+                          CombustibleID: -1
+                          UsuarioID: 3
+                          UsuarioNombre: USUARIO
+                          FechaHoraUsuario: '2020-01-08T09:45:58.000'
+                          Color: ROJO
+                          Plazas: 8
+                          CV: 1222
+                          Tara: 1200
+                          Pmax: 5000
+                          Ancho: 4500
+                          Alto: 4250
+                          Largo: 5210
+                          FechaCompra: '20190711'
+                          PrecioCompra: 25000
+                          Chasis: ''
+                          Itv: ''
+                      sql: "SELECT vehiculo.*,\r\nChasis.Valor AS chasisValor,\r\nItv.Valor  AS itvValor,\r\nUsuario.NombreAcesso\r\nFROM vehiculo\r\nLEFT JOIN campoespecialvalor Chasis\r\nON Chasis.TablaRegistroId = vehiculo.VehiculoID AND Chasis.CampoEspecialDefinicionID =37\r\nLEFT JOIN campoespecialvalor Itv\r\nON Itv.TablaRegistroId = vehiculo.VehiculoID AND Itv.CampoEspecialDefinicionID =36 \r\nLEFT JOIN usuario\r\nON vehiculo.usuarioID = usuario.usuarioID\r\nWHERE vehiculo.CustomerID = 29\r\nAND vehiculo.EmpresaID = 1\r\n\r\norder BY vehiculo.VehiculoID ASC\r\nlimit 50\r\noffset 0"
+            application/xml:
+              schema:
+                type: object
+                properties: {}
+      operationId: get-vehicles
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: limit
+          description: '50'
+        - schema:
+            type: string
+          in: query
+          name: offset
+          description: '0'
+        - schema:
+            type: string
+          in: query
+          name: order
+          description: '"ASC"'
 components:
   schemas: {}
