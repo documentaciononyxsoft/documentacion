@@ -360,6 +360,23 @@ paths:
                 Observaciones:
                   type: string
     parameters: []
+  /documentManagement/upload/document:
+    post:
+      summary: Document - Upload
+      operationId: post-documentManagement-upload-document
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content: {}
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   '/documentManagement/call/{fieldID}':
     parameters:
       - schema:
@@ -1762,6 +1779,87 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
       description: ''
+  /documentManagement/relation:
+    post:
+      summary: Relation - Create
+      operationId: post-documentManagement-relation
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content: 14812
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content: 14812
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  table: ''
+                  fieldID: ''
+                  relationData:
+                    RelacionesGestionDocumentalID: ''
+                    TablaPadre: ''
+                    TablaPadreValorID: ''
+                    Motivo: ''
+              properties:
+                table:
+                  type: string
+                  description: TablaHija
+                fieldID:
+                  type: integer
+                  description: TablaHijaValorID
+                relationData:
+                  type: object
+                  properties:
+                    RelacionesGestionDocumentalID:
+                      type: integer
+                      description: Se deja en 0 para crear uno nuevo
+                    TablaPadre:
+                      type: string
+                    TablaPadreValorID:
+                      type: integer
+                    Motivo:
+                      type: string
+            examples:
+              Example 1:
+                value:
+                  table: Documento
+                  fieldID: 10
+                  relationData:
+                    RelacionesGestionDocumentalID: 0
+                    TablaPadre: PruebaDoc
+                    TablaPadreValorID: 2
+                    Motivo: EsteMotivo
+      description: 'Tabla: relacionesgestiondocumental'
   '/documentManagement/permission/group/{FieldID}/user':
     parameters:
       - schema:
@@ -1866,104 +1964,6 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
       description: ''
-  /documentManagement/relation:
-    post:
-      summary: Relation - Create
-      operationId: post-documentManagement-relation
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content: 14812
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content: 14812
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              x-examples:
-                Example 1:
-                  table: ''
-                  fieldID: ''
-                  relationData:
-                    RelacionesGestionDocumentalID: ''
-                    TablaPadre: ''
-                    TablaPadreValorID: ''
-                    Motivo: ''
-              properties:
-                table:
-                  type: string
-                  description: TablaHija
-                fieldID:
-                  type: integer
-                  description: TablaHijaValorID
-                relationData:
-                  type: object
-                  properties:
-                    RelacionesGestionDocumentalID:
-                      type: integer
-                      description: Se deja en 0 para crear uno nuevo
-                    TablaPadre:
-                      type: string
-                    TablaPadreValorID:
-                      type: integer
-                    Motivo:
-                      type: string
-            examples:
-              Example 1:
-                value:
-                  table: Documento
-                  fieldID: 10
-                  relationData:
-                    RelacionesGestionDocumentalID: 0
-                    TablaPadre: PruebaDoc
-                    TablaPadreValorID: 2
-                    Motivo: EsteMotivo
-      description: 'Tabla: relacionesgestiondocumental'
-  /documentManagement/upload/document:
-    post:
-      summary: Document - Upload
-      operationId: post-documentManagement-upload-document
-      responses:
-        '200':
-          description: OK
-      requestBody:
-        content: {}
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
   '/documentManagement/relation/{fieldID}':
     parameters:
       - schema:
