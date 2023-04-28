@@ -1940,6 +1940,7 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '14'
         name: ticketID
         in: path
         required: true
