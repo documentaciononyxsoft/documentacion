@@ -2107,6 +2107,7 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+      description: En la tabla avisoticketelemento "ticketID" = "AvisoTicketID" y se busca el "ElementoID"
 components:
   schemas:
     User:
