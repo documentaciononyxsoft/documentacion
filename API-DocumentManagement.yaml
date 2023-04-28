@@ -1670,21 +1670,22 @@ paths:
           application/json:
             schema:
               type: object
-              properties:
-                sourceTable:
-                  type: string
-                sourceTableID:
-                  type: string
-                destinationTable:
-                  type: string
-                destinationTableID:
-                  type: string
               x-examples:
                 Example 1:
                   sourceTable: ''
                   sourceTableID: ''
                   destinationTable: ''
                   destinationTableID: ''
+              properties:
+                sourceTable:
+                  type: string
+                  description: ¿?
+                sourceTableID:
+                  type: string
+                destinationTable:
+                  type: string
+                destinationTableID:
+                  type: string
       description: ''
   /documentManagement/permission/group:
     get:
