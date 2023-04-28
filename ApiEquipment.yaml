@@ -1753,7 +1753,77 @@ paths:
     get:
       summary: Equipment - FindManyByParamForUbication
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1\r\nAND (elemento.NumeroSerie LIKE '%%' OR elemento.Nombre LIKE '%%' )\r\nAND (elemento.DireccionID = 1026)\r\n\r\nLIMIT 10"
+                      records:
+                        - ID: 3
+                          Nombre: PRUEBANIHIL
+                          Codigo: '456789'
+                        - ID: 4
+                          Nombre: YEI GUARDAR - Actualizar
+                          Codigo: '191920'
+                        - ID: 16
+                          Nombre: JCO PRUEBA2
+                          Codigo: '1701799'
+                        - ID: 24
+                          Nombre: JCO PRUEBA - 2
+                          Codigo: '1701788'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - ID: 3
+                          Nombre: PRUEBANIHIL
+                          Codigo: '456789'
+                        - ID: 4
+                          Nombre: YEI GUARDAR - Actualizar
+                          Codigo: '191920'
+                        - ID: 16
+                          Nombre: JCO PRUEBA2
+                          Codigo: '1701799'
+                        - ID: 24
+                          Nombre: JCO PRUEBA - 2
+                          Codigo: '1701788'
       operationId: get-equipments-ubications
       parameters:
         - schema:
