@@ -224,159 +224,6 @@ paths:
                   Alternativo: string
                   RegistroID: 0
                   Tabla: string
-  /documentManagement/document:
-    post:
-      summary: Document - Create
-      operationId: post-documentManagement-document
-      responses:
-        '200':
-          description: OK
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              x-examples:
-                Example 1:
-                  Ruta: ''
-                  PublicadoWEb: ''
-                  Tabla: ''
-                  TablaAlternativa: ''
-                  RegistroID: ''
-                  NombreFichero: ''
-                  Fecha: ''
-                  CreadoPorID: ''
-                  Refrencia: ''
-                  TipoDocumentoID: ''
-                  Origen: ''
-                  Privado: ''
-                  Publicar: ''
-                  Activo: ''
-                  Descripcion: ''
-                  Observaciones: ''
-                  CarpetaGestionDocumentalPadreID: ''
-              properties:
-                Ruta:
-                  type: string
-                PublicadoWEb:
-                  type: boolean
-                Tabla:
-                  type: string
-                TablaAlternativa:
-                  type: string
-                RegistroID:
-                  type: integer
-                NombreFichero:
-                  type: string
-                Fecha:
-                  type: string
-                CreadoPorID:
-                  type: integer
-                  description: UsuarioID
-                Refrencia:
-                  type: string
-                TipoDocumentoID:
-                  type: integer
-                  description: TablaGeneralID
-                Origen:
-                  type: integer
-                  description: TablaGeneralID
-                Privado:
-                  type: boolean
-                Publicar:
-                  type: boolean
-                Activo:
-                  type: boolean
-                Descripcion:
-                  type: string
-                Observaciones:
-                  type: string
-                CarpetaGestionDocumentalPadreID:
-                  type: integer
-    put:
-      summary: Document - Update
-      operationId: put-documentManagement-document
-      responses:
-        '200':
-          description: OK
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              x-examples:
-                Example 1:
-                  DocumentoID: ''
-                  Descripcion: ''
-                  Fecha: ''
-                  Referencia: ''
-                  TipoDocumentoID: ''
-                  Privado: ''
-                  Activo: ''
-                  Publicar: ''
-                  origen: ''
-                  CreadoPorID: ''
-                  Observaciones: ''
-              properties:
-                DocumentoID:
-                  type: integer
-                Descripcion:
-                  type: string
-                Fecha:
-                  type: string
-                Referencia:
-                  type: string
-                TipoDocumentoID:
-                  type: integer
-                  description: TablaGeneral
-                Privado:
-                  type: boolean
-                Activo:
-                  type: boolean
-                Publicar:
-                  type: boolean
-                origen:
-                  type: integer
-                  description: TablaGeneralID
-                CreadoPorID:
-                  type: integer
-                  description: UsuarioID
-                Observaciones:
-                  type: string
-    parameters: []
-  /documentManagement/upload/document:
-    post:
-      summary: Document - Upload
-      operationId: post-documentManagement-upload-document
-      responses:
-        '200':
-          description: OK
-      requestBody:
-        content: {}
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
   '/documentManagement/call/{fieldID}':
     parameters:
       - schema:
@@ -596,6 +443,159 @@ paths:
         - schema:
             type: string
             example: RE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+  /documentManagement/document:
+    post:
+      summary: Document - Create
+      operationId: post-documentManagement-document
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  Ruta: ''
+                  PublicadoWEb: ''
+                  Tabla: ''
+                  TablaAlternativa: ''
+                  RegistroID: ''
+                  NombreFichero: ''
+                  Fecha: ''
+                  CreadoPorID: ''
+                  Refrencia: ''
+                  TipoDocumentoID: ''
+                  Origen: ''
+                  Privado: ''
+                  Publicar: ''
+                  Activo: ''
+                  Descripcion: ''
+                  Observaciones: ''
+                  CarpetaGestionDocumentalPadreID: ''
+              properties:
+                Ruta:
+                  type: string
+                PublicadoWEb:
+                  type: boolean
+                Tabla:
+                  type: string
+                TablaAlternativa:
+                  type: string
+                RegistroID:
+                  type: integer
+                NombreFichero:
+                  type: string
+                Fecha:
+                  type: string
+                CreadoPorID:
+                  type: integer
+                  description: UsuarioID
+                Refrencia:
+                  type: string
+                TipoDocumentoID:
+                  type: integer
+                  description: TablaGeneralID
+                Origen:
+                  type: integer
+                  description: TablaGeneralID
+                Privado:
+                  type: boolean
+                Publicar:
+                  type: boolean
+                Activo:
+                  type: boolean
+                Descripcion:
+                  type: string
+                Observaciones:
+                  type: string
+                CarpetaGestionDocumentalPadreID:
+                  type: integer
+    put:
+      summary: Document - Update
+      operationId: put-documentManagement-document
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  DocumentoID: ''
+                  Descripcion: ''
+                  Fecha: ''
+                  Referencia: ''
+                  TipoDocumentoID: ''
+                  Privado: ''
+                  Activo: ''
+                  Publicar: ''
+                  origen: ''
+                  CreadoPorID: ''
+                  Observaciones: ''
+              properties:
+                DocumentoID:
+                  type: integer
+                Descripcion:
+                  type: string
+                Fecha:
+                  type: string
+                Referencia:
+                  type: string
+                TipoDocumentoID:
+                  type: integer
+                  description: TablaGeneral
+                Privado:
+                  type: boolean
+                Activo:
+                  type: boolean
+                Publicar:
+                  type: boolean
+                origen:
+                  type: integer
+                  description: TablaGeneralID
+                CreadoPorID:
+                  type: integer
+                  description: UsuarioID
+                Observaciones:
+                  type: string
+    parameters: []
+  /documentManagement/upload/document:
+    post:
+      summary: Document - Upload
+      operationId: post-documentManagement-upload-document
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content: {}
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
