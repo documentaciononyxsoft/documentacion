@@ -1936,6 +1936,7 @@ paths:
                       type: integer
                     Motivo:
                       type: string
+      description: 'Tabla: relacionesgestiondocumental'
   '/documentManagement/relation/{fieldID}':
     parameters:
       - schema:
