@@ -127,5 +127,77 @@ paths:
             type: string
           in: query
           name: versionVehiculo
+  /brand/light:
+    get:
+      summary: Vehicle - findLightListBrand
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            MarcaID:
+                              type: integer
+                            Nombre:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - MarcaID: 1
+                          Nombre: Renault
+                        - MarcaID: 2
+                          Nombre: VW
+                        - MarcaID: 3
+                          Nombre: Audi
+                        - MarcaID: 4
+                          Nombre: Mercedes
+                      sql: "SELECT * \r\nFROM Marca\r\nWHERE Marca.CustomerID = 29\r\nAND Marca.EmpresaID = 1\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - MarcaID: 1
+                          Nombre: Renault
+                        - MarcaID: 2
+                          Nombre: VW
+                        - MarcaID: 3
+                          Nombre: Audi
+                        - MarcaID: 4
+                          Nombre: Mercedes
+                      sql: "SELECT * \r\nFROM Marca\r\nWHERE Marca.CustomerID = 29\r\nAND Marca.EmpresaID = 1\r\n"
+      operationId: get-brand-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
 components:
   schemas: {}
