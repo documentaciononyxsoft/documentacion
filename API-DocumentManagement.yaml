@@ -1998,18 +1998,62 @@ paths:
     parameters:
       - schema:
           type: string
+          example: Documento
         name: table
         in: path
         required: true
+        description: TablaHija
       - schema:
           type: string
+          example: '19'
         name: fieldID
         in: path
         required: true
+        description: TablaHijaValorID
     get:
       summary: Relation - FindByID
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties: {}
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT * FROM RelacionesGestionDocumental WHERE \r\nRelacionesGestionDocumental.TablaHija = 'Documento' AND\r\nRelacionesGestionDocumental.TablaHijaValorID = 19"
+                      records: []
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT * FROM RelacionesGestionDocumental WHERE \r\nRelacionesGestionDocumental.TablaHija = 'Documento' AND\r\nRelacionesGestionDocumental.TablaHijaValorID = 19"
+                      records: []
       operationId: get-documentManagement-relation-table-fieldID
       parameters:
         - schema:
