@@ -144,6 +144,183 @@ paths:
                           Notas: ''
                       success: true
                       sql: "SELECT Elemento.*,\r\nArticulo.Codigo AS CodigoArticulo,\r\nArticulo.Nombre AS NombreArticulo,\r\nCliente.Codigo AS CodigoCliente,\r\nMailing.Nombre AS NombreMailing,\r\nDireccion.Codigo AS CodigoUbicacion,\r\nDireccion.Nombre AS NombreUbicacion,\r\nTipoEquipo.Descripcion AS TipoEquipoTexto\r\nFROM Elemento\r\nLEFT OUTER JOIN Articulo ON Articulo.ArticuloID = ElementO.ArticuloID\r\nLEFT OUTER JOIN Cliente ON Cliente.ClienteID = Elemento.ClienteID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = Elemento.DireccionID\r\nLEFT OUTER JOIN TablaGeneral AS TipoEquipo ON TipoEquipo.TablaGeneralID = Elemento.TipoEquipoID\r\nWHERE Elemento.CustomerID = 29\r\nAND Elemento.EmpresaID = 1\r\n AND (Elemento.NumeroSerie LIKE '%344%' AND Elemento.TipoEquipoID IN (9999) AND Elemento.FechaInstalacion >= 0 AND DATE(Elemento.FechaInstalacion) <= 20280406 AND Elemento.Nombre LIKE '%EX%' AND Elemento.ClienteID IN (1) AND Elemento.ArticuloID IN (606) AND Elemento.DireccionID IN (13) AND Elemento.FinalGarantia >= 0 AND Elemento.FinalGarantia <= 20280406)\r\nlimit 50 \r\noffset 0"
+        '':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ElementoID:
+                              type: integer
+                            NumeroEquipo:
+                              type: string
+                            nombre:
+                              type: string
+                            Marca:
+                              type: string
+                            Modelo:
+                              type: string
+                            TipoEquipoID:
+                              type: integer
+                            TipoEquipoNombre:
+                              type: string
+                            ArticuloID:
+                              type: integer
+                            CodigoArticulo:
+                              type: string
+                            NombreArticulo:
+                              type: string
+                            ClienteID:
+                              type: integer
+                            CodigoCliente:
+                              type: string
+                            NombreCliente:
+                              type: string
+                            DireccionID:
+                              type: integer
+                            CodigoUbicacion:
+                              type: integer
+                            NombreUbicacion:
+                              type: string
+                            Emplazamiento:
+                              type: string
+                            FechaInstalacion:
+                              type: string
+                            FechaBaja:
+                              type: string
+                            MotivoBaja:
+                              type: string
+                            FechaInicioGarantia:
+                              type: string
+                            FechaFinGarantia:
+                              type: string
+                            Notas:
+                              type: string
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - ElementoID: 1
+                          NumeroEquipo: '12'
+                          nombre: PRUEBALUIS
+                          Marca: ''
+                          Modelo: ''
+                          TipoEquipoID: 2
+                          TipoEquipoNombre: General
+                          ArticuloID: 2150
+                          CodigoArticulo: '900068'
+                          NombreArticulo: "\_VALVULA DE SEGURIDAD MCA.WALWORTH CONEXIÓN 1 1/2\""
+                          ClienteID: 2
+                          CodigoCliente: '10300010002'
+                          NombreCliente: CLIENTES CONTADO GOMEZ PALACIO
+                          DireccionID: 573
+                          CodigoUbicacion: 2
+                          NombreUbicacion: ''
+                          Emplazamiento: PRUBVEA
+                          FechaInstalacion: '20230220'
+                          FechaBaja: '20230220'
+                          MotivoBaja: ''
+                          FechaInicioGarantia: '20230220'
+                          FechaFinGarantia: '20230220'
+                          Notas: ''
+                        - ElementoID: 3
+                          NumeroEquipo: '456789'
+                          nombre: PRUEBANIHIL
+                          Marca: '1999'
+                          Modelo: '1999'
+                          TipoEquipoID: 748
+                          TipoEquipoNombre: Equipo Alta Calidad
+                          ArticuloID: 395
+                          CodigoArticulo: '100000587'
+                          NombreArticulo: LECHE DESCREMADA EN POLVO
+                          ClienteID: 84
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          DireccionID: 1026
+                          CodigoUbicacion: 1
+                          NombreUbicacion: Direcion Alejo
+                          Emplazamiento: Emplazamineto Prueba
+                          FechaInstalacion: '20230222'
+                          FechaBaja: '20230324'
+                          MotivoBaja: Porque si
+                          FechaInicioGarantia: '20230320'
+                          FechaFinGarantia: '20230321'
+                          Notas: Buenas tardes
+                      success: true
+                      sql: "SELECT Elemento.*,\r\nArticulo.Codigo AS CodigoArticulo,\r\nArticulo.Nombre AS NombreArticulo,\r\nCliente.Codigo AS CodigoCliente,\r\nMailing.Nombre AS NombreMailing,\r\nDireccion.Codigo AS CodigoUbicacion,\r\nDireccion.Nombre AS NombreUbicacion,\r\nTipoEquipo.Descripcion AS TipoEquipoTexto\r\nFROM Elemento\r\nLEFT OUTER JOIN Articulo ON Articulo.ArticuloID = ElementO.ArticuloID\r\nLEFT OUTER JOIN Cliente ON Cliente.ClienteID = Elemento.ClienteID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = Elemento.DireccionID\r\nLEFT OUTER JOIN TablaGeneral AS TipoEquipo ON TipoEquipo.TablaGeneralID = Elemento.TipoEquipoID\r\nWHERE Elemento.CustomerID = 29\r\nAND Elemento.EmpresaID = 1\r\n AND (Elemento.FechaInstalacion >= 0 AND DATE(Elemento.FechaInstalacion) <= 20230428 AND Elemento.FinalGarantia >= 0 AND Elemento.FinalGarantia <= 20230428)\r\nlimit 10 \r\noffset 0"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - ElementoID: 1
+                          NumeroEquipo: '12'
+                          nombre: PRUEBA
+                          Marca: ''
+                          Modelo: ''
+                          TipoEquipoID: 2
+                          TipoEquipoNombre: General
+                          ArticuloID: 2150
+                          CodigoArticulo: '900068'
+                          NombreArticulo: "\_VALVULA DE SEGURIDAD MCA.WALWORTH CONEXIÓN 1 1/2\""
+                          ClienteID: 2
+                          CodigoCliente: '10300010002'
+                          NombreCliente: CLIENTES CONTADO GOMEZ PALACIO
+                          DireccionID: 573
+                          CodigoUbicacion: 2
+                          NombreUbicacion: ''
+                          Emplazamiento: PRUeba
+                          FechaInstalacion: '20230220'
+                          FechaBaja: '20230220'
+                          MotivoBaja: ''
+                          FechaInicioGarantia: '20230220'
+                          FechaFinGarantia: '20230220'
+                          Notas: ''
+                        - ElementoID: 3
+                          NumeroEquipo: '456789'
+                          nombre: PRUEBANIHIL
+                          Marca: '1999'
+                          Modelo: '1999'
+                          TipoEquipoID: 748
+                          TipoEquipoNombre: Equipo Alta Calidad
+                          ArticuloID: 395
+                          CodigoArticulo: '100000587'
+                          NombreArticulo: LECHE
+                          ClienteID: 84
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          DireccionID: 1026
+                          CodigoUbicacion: 1
+                          NombreUbicacion: Direcion
+                          Emplazamiento: Emplazamineto Prueba
+                          FechaInstalacion: '20230222'
+                          FechaBaja: '20230324'
+                          MotivoBaja: Motivo
+                          FechaInicioGarantia: '20230320'
+                          FechaFinGarantia: '20230321'
+                          Notas: Nota
+                      success: true
+                      sql: string
       operationId: get-consult-equipment
       parameters:
         - schema:
@@ -155,74 +332,76 @@ paths:
           required: true
         - schema:
             type: string
+            example: '0'
           in: query
           name: fechaGarantiaIn
-          description: '0'
         - schema:
             type: string
+            example: '20280406'
           in: query
           name: fechaGarantiaOut
-          description: '20280406'
         - schema:
             type: string
+            example: '0'
           in: query
           name: fechaInstalacionIn
-          description: '0'
         - schema:
             type: string
+            example: '20280406'
           in: query
           name: fechaInstalacionOut
-          description: '20280406'
         - schema:
             type: integer
+            example: 1
           in: query
           name: estado
-          description: '1'
         - schema:
             type: integer
+            example: 1
           in: query
           name: garantia
-          description: '1'
         - schema:
             type: string
+            example: '1'
           in: query
           name: clientes
-          description: '1'
         - schema:
             type: string
+            example: '606'
           in: query
           name: articulos
-          description: '606'
+          description: ArticuloID
         - schema:
             type: string
+            example: '13'
           in: query
           name: ubicaciones
-          description: '13'
         - schema:
             type: string
+            example: '344'
           in: query
           name: numero
-          description: '344'
         - schema:
             type: string
+            example: EX
           in: query
           name: nombre
-          description: EX
         - schema:
             type: string
+            example: '9999'
           in: query
           name: tipoEquipo
-          description: '9999'
         - schema:
             type: string
+            example: '50'
           in: query
           name: limit
-          description: '50'
+          required: true
         - schema:
             type: string
+            example: '0'
           in: query
           name: offset
-          description: '0'
     parameters: []
   /equipment:
     get:
