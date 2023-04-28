@@ -270,5 +270,70 @@ paths:
           description: '1'
       requestBody:
         content: {}
+  /version/light:
+    get:
+      summary: Vehicle -findLightListVersion
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            VersionID:
+                              type: integer
+                            Nombre:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - VersionID: 1
+                          Nombre: '1.6'
+                      sql: "SELECT * \r\nFROM Version\r\nWHERE Version.CustomerID = 29\r\nAND Version.EmpresaID  = 1\r\nAND Version.ModeloID = 1"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - VersionID: 1
+                          Nombre: '1.6'
+                      sql: "SELECT * \r\nFROM Version\r\nWHERE Version.CustomerID = 29\r\nAND Version.EmpresaID  = 1\r\nAND Version.ModeloID = 1"
+      operationId: get-version-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: modeloID
+          description: '1'
 components:
   schemas: {}
