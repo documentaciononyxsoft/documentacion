@@ -629,7 +629,7 @@ paths:
           name: param
           description: Nombre a buscar
     post:
-      summary: Equipment - Create
+      summary: EquipmentHeader - Create
       operationId: post-equipment
       responses:
         '200':
@@ -901,7 +901,7 @@ paths:
         in: path
         required: true
     put:
-      summary: Equipment - Update
+      summary: EquipmentHeader - Update
       operationId: put-equipment-elementoID
       responses:
         '200':
@@ -1045,7 +1045,7 @@ paths:
                   CheckListApartadoID: 1
                   Observaciones: ObservaProof
     delete:
-      summary: Equipment - Delete
+      summary: EquipmentHeader - Delete
       operationId: delete-equipment-elementoID
       responses:
         '200':
@@ -1095,7 +1095,7 @@ paths:
         in: path
         description: Parámetro a buscar.
     get:
-      summary: Equipment - Quicksearch
+      summary: EquipmentHeader - FindManyByFilter
       tags: []
       responses:
         '200':
@@ -1377,9 +1377,353 @@ paths:
           required: true
   /equipments:
     get:
-      summary: Equipment - FindMany
+      summary: EquipmentHeader - FindMany
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ElementoID:
+                              type: integer
+                            CustomerID:
+                              type: integer
+                            EmpresaID:
+                              type: integer
+                            ArticuloID:
+                              type: integer
+                            ClienteID:
+                              type: integer
+                            DireccionID:
+                              type: integer
+                            NumeroSerie:
+                              type: string
+                            Nombre:
+                              type: string
+                            Ubicacion:
+                              type: string
+                            FechaInstalacion:
+                              type: string
+                            FechaBaja:
+                              type: string
+                            MotivoBaja:
+                              type: string
+                            InicioGarantia:
+                              type: string
+                            FinalGarantia:
+                              type: string
+                            Notas:
+                              type: string
+                            UsuarioID:
+                              type: integer
+                            FechaHoraUsuario:
+                              type: string
+                            Id_SatMovil:
+                              type: integer
+                            Modelo:
+                              type: string
+                            Marca:
+                              type: string
+                            TipoEquipoID:
+                              type: integer
+                            NumeroSerieCliente:
+                              type: string
+                            Gmao_LayoutID:
+                              type: integer
+                            Proyecto_OFID:
+                              type: integer
+                            AlbaranCompraCabeceraID:
+                              type: integer
+                            AlbaranVentaCabeceraID:
+                              type: integer
+                            CheckListApartadoID:
+                              type: integer
+                            Observaciones:
+                              type: string
+                            WebID:
+                              type: integer
+                            CodigoArticulo:
+                              type: string
+                            NombreArticulo:
+                              type: string
+                            CodigoCliente:
+                              type: string
+                            NombreMailing:
+                              type: string
+                            CodigoUbicacion:
+                              type: integer
+                            NombreUbicacion:
+                              type: string
+                            GmaoTitulo:
+                              type: string
+                            Apartado:
+                              type: string
+                            TipoEquipoTexto:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - ElementoID: 23
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 395
+                          ClienteID: 84
+                          DireccionID: 1026
+                          NumeroSerie: '1701799'
+                          Nombre: JCO UPDATED
+                          Ubicacion: Ubi Updated
+                          FechaInstalacion: '20230428'
+                          FechaBaja: '20230428'
+                          MotivoBaja: MotivoUpdated
+                          InicioGarantia: '20230110'
+                          FinalGarantia: '20230110'
+                          Notas: Nota DIA
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-04-28T15:59:24.462'
+                          Id_SatMovil: 0
+                          Modelo: '2007'
+                          Marca: MarcaCH
+                          TipoEquipoID: 748
+                          NumeroSerieCliente: '555555'
+                          Gmao_LayoutID: 11
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 1
+                          Observaciones: ObservaProof
+                          WebID: 0
+                          CodigoArticulo: '100000587'
+                          NombreArticulo: LECHE EN POLVO
+                          CodigoCliente: '10300010329'
+                          NombreMailing: TIENDAS TRES B S A DE C V
+                          CodigoUbicacion: 1
+                          NombreUbicacion: Direccion
+                          GmaoTitulo: Yeiland
+                          Apartado: '01'
+                          TipoEquipoTexto: Equipo Alta Calidad
+                        - ElementoID: 21
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 395
+                          ClienteID: 84
+                          DireccionID: 1026
+                          NumeroSerie: '1701799'
+                          Nombre: JCO PRUEBA
+                          Ubicacion: Ubi Prueba
+                          FechaInstalacion: '20230428'
+                          FechaBaja: '20230428'
+                          MotivoBaja: Motivau
+                          InicioGarantia: '20230110'
+                          FinalGarantia: '20230110'
+                          Notas: Nota DIA
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-04-28T13:35:55.768'
+                          Id_SatMovil: 0
+                          Modelo: '2007'
+                          Marca: MarcaCH
+                          TipoEquipoID: 748
+                          NumeroSerieCliente: '555555'
+                          Gmao_LayoutID: 11
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 1
+                          Observaciones: ObservaProof
+                          WebID: 0
+                          CodigoArticulo: '100000587'
+                          NombreArticulo: LECHE EN POLVO
+                          CodigoCliente: '10300010329'
+                          NombreMailing: TIENDAS TRES B S A DE C V
+                          CodigoUbicacion: 1
+                          NombreUbicacion: Direccion
+                          GmaoTitulo: Yeiland
+                          Apartado: '01'
+                          TipoEquipoTexto: Equipo Alta Calidad
+                        - ElementoID: 20
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 0
+                          ClienteID: 0
+                          DireccionID: 0
+                          NumeroSerie: '0'
+                          Nombre: '0'
+                          Ubicacion: '0'
+                          FechaInstalacion: '00000101'
+                          FechaBaja: '00000101'
+                          MotivoBaja: '0'
+                          InicioGarantia: '00000101'
+                          FinalGarantia: '00000101'
+                          Notas: ''
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-04-28T11:57:38.704'
+                          Id_SatMovil: 0
+                          Modelo: '0'
+                          Marca: '0'
+                          TipoEquipoID: 0
+                          NumeroSerieCliente: '0'
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: ''
+                          NombreArticulo: ''
+                          CodigoCliente: ''
+                          NombreMailing: ''
+                          CodigoUbicacion: 0
+                          NombreUbicacion: ''
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: ''
+                      sql: string
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - ElementoID: 23
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 395
+                          ClienteID: 84
+                          DireccionID: 1026
+                          NumeroSerie: '1701799'
+                          Nombre: JCO UPDATED
+                          Ubicacion: Ubi Updated
+                          FechaInstalacion: '20230428'
+                          FechaBaja: '20230428'
+                          MotivoBaja: MotivoUpdated
+                          InicioGarantia: '20230110'
+                          FinalGarantia: '20230110'
+                          Notas: Nota DIA
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-04-28T15:59:24.462'
+                          Id_SatMovil: 0
+                          Modelo: '2007'
+                          Marca: MarcaCH
+                          TipoEquipoID: 748
+                          NumeroSerieCliente: '555555'
+                          Gmao_LayoutID: 11
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 1
+                          Observaciones: ObservaProof
+                          WebID: 0
+                          CodigoArticulo: '100000587'
+                          NombreArticulo: LECHE EN POLVO
+                          CodigoCliente: '10300010329'
+                          NombreMailing: TIENDAS TRES B S A DE C V
+                          CodigoUbicacion: 1
+                          NombreUbicacion: Direccion
+                          GmaoTitulo: Yeiland
+                          Apartado: '01'
+                          TipoEquipoTexto: Equipo Alta Calidad
+                        - ElementoID: 21
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 395
+                          ClienteID: 84
+                          DireccionID: 1026
+                          NumeroSerie: '1701799'
+                          Nombre: JCO PRUEBA
+                          Ubicacion: Ubi Prueba
+                          FechaInstalacion: '20230428'
+                          FechaBaja: '20230428'
+                          MotivoBaja: Motivau
+                          InicioGarantia: '20230110'
+                          FinalGarantia: '20230110'
+                          Notas: Nota DIA
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-04-28T13:35:55.768'
+                          Id_SatMovil: 0
+                          Modelo: '2007'
+                          Marca: MarcaCH
+                          TipoEquipoID: 748
+                          NumeroSerieCliente: '555555'
+                          Gmao_LayoutID: 11
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 1
+                          Observaciones: ObservaProof
+                          WebID: 0
+                          CodigoArticulo: '100000587'
+                          NombreArticulo: LECHE EN POLVO
+                          CodigoCliente: '10300010329'
+                          NombreMailing: TIENDAS TRES B S A DE C V
+                          CodigoUbicacion: 1
+                          NombreUbicacion: Direccion
+                          GmaoTitulo: Yeiland
+                          Apartado: '01'
+                          TipoEquipoTexto: Equipo Alta Calidad
+                        - ElementoID: 20
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 0
+                          ClienteID: 0
+                          DireccionID: 0
+                          NumeroSerie: '0'
+                          Nombre: '0'
+                          Ubicacion: '0'
+                          FechaInstalacion: '00000101'
+                          FechaBaja: '00000101'
+                          MotivoBaja: '0'
+                          InicioGarantia: '00000101'
+                          FinalGarantia: '00000101'
+                          Notas: ''
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-04-28T11:57:38.704'
+                          Id_SatMovil: 0
+                          Modelo: '0'
+                          Marca: '0'
+                          TipoEquipoID: 0
+                          NumeroSerieCliente: '0'
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: ''
+                          NombreArticulo: ''
+                          CodigoCliente: ''
+                          NombreMailing: ''
+                          CodigoUbicacion: 0
+                          NombreUbicacion: ''
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: ''
+                      sql: string
       operationId: get-equipments
       parameters:
         - schema:
@@ -1391,9 +1735,10 @@ paths:
           required: true
         - schema:
             type: string
-            example: '50'
+            example: '10'
           in: query
           name: limit
+          required: true
         - schema:
             type: string
             example: '0'
