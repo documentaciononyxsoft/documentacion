@@ -18,17 +18,432 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ElementoID:
+                              type: integer
+                            NumeroEquipo:
+                              type: string
+                            nombre:
+                              type: string
+                            Marca:
+                              type: string
+                            Modelo:
+                              type: string
+                            TipoEquipoID:
+                              type: integer
+                            TipoEquipoNombre:
+                              type: string
+                            ArticuloID:
+                              type: integer
+                            CodigoArticulo:
+                              type: string
+                            NombreArticulo:
+                              type: string
+                            ClienteID:
+                              type: integer
+                            CodigoCliente:
+                              type: string
+                            NombreCliente:
+                              type: string
+                            DireccionID:
+                              type: integer
+                            CodigoUbicacion:
+                              type: integer
+                            NombreUbicacion:
+                              type: string
+                            Emplazamiento:
+                              type: string
+                            FechaInstalacion:
+                              type: string
+                            FechaBaja:
+                              type: string
+                            MotivoBaja:
+                              type: string
+                            FechaInicioGarantia:
+                              type: string
+                            FechaFinGarantia:
+                              type: string
+                            Notas:
+                              type: string
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - ElementoID: 1
+                          NumeroEquipo: '12'
+                          nombre: PRUEBALUIS
+                          Marca: ''
+                          Modelo: ''
+                          TipoEquipoID: 2
+                          TipoEquipoNombre: General
+                          ArticuloID: 2150
+                          CodigoArticulo: '900068'
+                          NombreArticulo: "\_VALVULA DE SEGURIDAD MCA.WALWORTH CONEXIÓN 1 1/2\""
+                          ClienteID: 2
+                          CodigoCliente: '10300010002'
+                          NombreCliente: CLIENTES CONTADO GOMEZ PALACIO
+                          DireccionID: 573
+                          CodigoUbicacion: 2
+                          NombreUbicacion: ''
+                          Emplazamiento: PRUBVEA
+                          FechaInstalacion: '20230220'
+                          FechaBaja: '20230220'
+                          MotivoBaja: ''
+                          FechaInicioGarantia: '20230220'
+                          FechaFinGarantia: '20230220'
+                          Notas: ''
+                        - ElementoID: 3
+                          NumeroEquipo: '456789'
+                          nombre: PRUEBANIHIL
+                          Marca: '1999'
+                          Modelo: '1999'
+                          TipoEquipoID: 748
+                          TipoEquipoNombre: Equipo Alta Calidad
+                          ArticuloID: 395
+                          CodigoArticulo: '100000587'
+                          NombreArticulo: LECHE DESCREMADA EN POLVO
+                          ClienteID: 84
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          DireccionID: 1026
+                          CodigoUbicacion: 1
+                          NombreUbicacion: Direcion Alejo
+                          Emplazamiento: Emplazamineto Prueba
+                          FechaInstalacion: '20230222'
+                          FechaBaja: '20230324'
+                          MotivoBaja: Porque si
+                          FechaInicioGarantia: '20230320'
+                          FechaFinGarantia: '20230321'
+                          Notas: Buenas tardes
+                        - ElementoID: 4
+                          NumeroEquipo: '191920'
+                          nombre: YEI GUARDAR - Actualizar
+                          Marca: '1998'
+                          Modelo: '1998'
+                          TipoEquipoID: 748
+                          TipoEquipoNombre: Equipo Alta Calidad
+                          ArticuloID: 395
+                          CodigoArticulo: '100000587'
+                          NombreArticulo: LECHE DESCREMADA EN POLVO
+                          ClienteID: 84
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          DireccionID: 1026
+                          CodigoUbicacion: 1
+                          NombreUbicacion: Direcion Alejo
+                          Emplazamiento: Emplazamineto Prueba
+                          FechaInstalacion: '20230411'
+                          FechaBaja: '20230411'
+                          MotivoBaja: Porque si the flies
+                          FechaInicioGarantia: '20230326'
+                          FechaFinGarantia: '20230326'
+                          Notas: Buenas tardes mis estimados
+                        - ElementoID: 10
+                          NumeroEquipo: '191920'
+                          nombre: YEI GUARDAR - Actualizar
+                          Marca: '1998'
+                          Modelo: '1998'
+                          TipoEquipoID: 748
+                          TipoEquipoNombre: Equipo Alta Calidad
+                          ArticuloID: 395
+                          CodigoArticulo: '100000587'
+                          NombreArticulo: LECHE DESCREMADA EN POLVO
+                          ClienteID: 84
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          DireccionID: 1026
+                          CodigoUbicacion: 1
+                          NombreUbicacion: Direcion Alejo
+                          Emplazamiento: Emplazamineto Prueba
+                          FechaInstalacion: '20230411'
+                          FechaBaja: '20230411'
+                          MotivoBaja: Porque si the flies
+                          FechaInicioGarantia: '20230326'
+                          FechaFinGarantia: '20230326'
+                          Notas: Buenas tardes mis estimados
+                        - ElementoID: 15
+                          NumeroEquipo: '1701799'
+                          nombre: JCO PRUEBA
+                          Marca: MarcaCH
+                          Modelo: '2007'
+                          TipoEquipoID: 748
+                          TipoEquipoNombre: Equipo Alta Calidad
+                          ArticuloID: 395
+                          CodigoArticulo: '100000587'
+                          NombreArticulo: LECHE DESCREMADA EN POLVO
+                          ClienteID: 84
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          DireccionID: 1026
+                          CodigoUbicacion: 1
+                          NombreUbicacion: Direcion Alejo
+                          Emplazamiento: Ubi Prueba
+                          FechaInstalacion: '20230428'
+                          FechaBaja: '20230428'
+                          MotivoBaja: Motivau
+                          FechaInicioGarantia: '20230110'
+                          FechaFinGarantia: '20230110'
+                          Notas: Nota DIA
+                        - ElementoID: 16
+                          NumeroEquipo: '1701799'
+                          nombre: JCO PRUEBA2
+                          Marca: '0'
+                          Modelo: '0'
+                          TipoEquipoID: 0
+                          TipoEquipoNombre: ''
+                          ArticuloID: 395
+                          CodigoArticulo: '100000587'
+                          NombreArticulo: LECHE DESCREMADA EN POLVO
+                          ClienteID: 84
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          DireccionID: 1026
+                          CodigoUbicacion: 1
+                          NombreUbicacion: Direcion Alejo
+                          Emplazamiento: '0'
+                          FechaInstalacion: '00000101'
+                          FechaBaja: '00000101'
+                          MotivoBaja: '0'
+                          FechaInicioGarantia: '00000101'
+                          FechaFinGarantia: '00000101'
+                          Notas: ''
+                        - ElementoID: 17
+                          NumeroEquipo: '0'
+                          nombre: '0'
+                          Marca: '0'
+                          Modelo: '0'
+                          TipoEquipoID: 0
+                          TipoEquipoNombre: ''
+                          ArticuloID: 395
+                          CodigoArticulo: '100000587'
+                          NombreArticulo: LECHE DESCREMADA EN POLVO
+                          ClienteID: 84
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          DireccionID: 1026
+                          CodigoUbicacion: 1
+                          NombreUbicacion: Direcion Alejo
+                          Emplazamiento: '0'
+                          FechaInstalacion: '00000101'
+                          FechaBaja: '00000101'
+                          MotivoBaja: '0'
+                          FechaInicioGarantia: '00000101'
+                          FechaFinGarantia: '00000101'
+                          Notas: ''
+                        - ElementoID: 18
+                          NumeroEquipo: '0'
+                          nombre: '0'
+                          Marca: '0'
+                          Modelo: '0'
+                          TipoEquipoID: 0
+                          TipoEquipoNombre: ''
+                          ArticuloID: 395
+                          CodigoArticulo: '100000587'
+                          NombreArticulo: LECHE DESCREMADA EN POLVO
+                          ClienteID: 84
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          DireccionID: 0
+                          CodigoUbicacion: 0
+                          NombreUbicacion: ''
+                          Emplazamiento: '0'
+                          FechaInstalacion: '00000101'
+                          FechaBaja: '00000101'
+                          MotivoBaja: '0'
+                          FechaInicioGarantia: '00000101'
+                          FechaFinGarantia: '00000101'
+                          Notas: ''
+                        - ElementoID: 19
+                          NumeroEquipo: '0'
+                          nombre: '0'
+                          Marca: '0'
+                          Modelo: '0'
+                          TipoEquipoID: 0
+                          TipoEquipoNombre: ''
+                          ArticuloID: 395
+                          CodigoArticulo: '100000587'
+                          NombreArticulo: LECHE DESCREMADA EN POLVO
+                          ClienteID: 0
+                          CodigoCliente: ''
+                          NombreCliente: ''
+                          DireccionID: 0
+                          CodigoUbicacion: 0
+                          NombreUbicacion: ''
+                          Emplazamiento: '0'
+                          FechaInstalacion: '00000101'
+                          FechaBaja: '00000101'
+                          MotivoBaja: '0'
+                          FechaInicioGarantia: '00000101'
+                          FechaFinGarantia: '00000101'
+                          Notas: ''
+                        - ElementoID: 20
+                          NumeroEquipo: '0'
+                          nombre: '0'
+                          Marca: '0'
+                          Modelo: '0'
+                          TipoEquipoID: 0
+                          TipoEquipoNombre: ''
+                          ArticuloID: 0
+                          CodigoArticulo: ''
+                          NombreArticulo: ''
+                          ClienteID: 0
+                          CodigoCliente: ''
+                          NombreCliente: ''
+                          DireccionID: 0
+                          CodigoUbicacion: 0
+                          NombreUbicacion: ''
+                          Emplazamiento: '0'
+                          FechaInstalacion: '00000101'
+                          FechaBaja: '00000101'
+                          MotivoBaja: '0'
+                          FechaInicioGarantia: '00000101'
+                          FechaFinGarantia: '00000101'
+                          Notas: ''
+                        - ElementoID: 21
+                          NumeroEquipo: '1701799'
+                          nombre: JCO PRUEBA
+                          Marca: MarcaCH
+                          Modelo: '2007'
+                          TipoEquipoID: 748
+                          TipoEquipoNombre: Equipo Alta Calidad
+                          ArticuloID: 395
+                          CodigoArticulo: '100000587'
+                          NombreArticulo: LECHE DESCREMADA EN POLVO
+                          ClienteID: 84
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          DireccionID: 1026
+                          CodigoUbicacion: 1
+                          NombreUbicacion: Direcion Alejo
+                          Emplazamiento: Ubi Prueba
+                          FechaInstalacion: '20230428'
+                          FechaBaja: '20230428'
+                          MotivoBaja: Motivau
+                          FechaInicioGarantia: '20230110'
+                          FechaFinGarantia: '20230110'
+                          Notas: Nota DIA
+                        - ElementoID: 22
+                          NumeroEquipo: '1701799'
+                          nombre: JCO PRUEBA
+                          Marca: MarcaCH
+                          Modelo: '2007'
+                          TipoEquipoID: 748
+                          TipoEquipoNombre: Equipo Alta Calidad
+                          ArticuloID: 395
+                          CodigoArticulo: '100000587'
+                          NombreArticulo: LECHE DESCREMADA EN POLVO
+                          ClienteID: 84
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          DireccionID: 1026
+                          CodigoUbicacion: 1
+                          NombreUbicacion: Direcion Alejo
+                          Emplazamiento: Ubi Prueba
+                          FechaInstalacion: '20230428'
+                          FechaBaja: '20230428'
+                          MotivoBaja: Motivau
+                          FechaInicioGarantia: '20230110'
+                          FechaFinGarantia: '20230110'
+                          Notas: Nota DIA
+                      success: true
+                      sql: "SELECT Elemento.*,\r\nArticulo.Codigo AS CodigoArticulo,\r\nArticulo.Nombre AS NombreArticulo,\r\nCliente.Codigo AS CodigoCliente,\r\nMailing.Nombre AS NombreMailing,\r\nDireccion.Codigo AS CodigoUbicacion,\r\nDireccion.Nombre AS NombreUbicacion,\r\nTipoEquipo.Descripcion AS TipoEquipoTexto\r\nFROM Elemento\r\nLEFT OUTER JOIN Articulo ON Articulo.ArticuloID = ElementO.ArticuloID\r\nLEFT OUTER JOIN Cliente ON Cliente.ClienteID = Elemento.ClienteID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = Elemento.DireccionID\r\nLEFT OUTER JOIN TablaGeneral AS TipoEquipo ON TipoEquipo.TablaGeneralID = Elemento.TipoEquipoID\r\nWHERE Elemento.CustomerID = 29\r\nAND Elemento.EmpresaID = 1\r\n AND (Elemento.FechaInstalacion >= 0 AND DATE(Elemento.FechaInstalacion) <= 20230428 AND Elemento.FinalGarantia >= 0 AND Elemento.FinalGarantia <= 20230428)\r\nlimit 50 \r\noffset 0"
               examples:
-                Get User Alice Smith:
+                Example 1:
                   value:
-                    id: 142
-                    firstName: Alice
-                    lastName: Smith
-                    email: alice.smith@gmail.com
-                    dateOfBirth: '1997-10-31'
-                    emailVerified: true
-                    signUpDate: '2019-08-24'
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - ElementoID: 1
+                          NumeroEquipo: '12'
+                          nombre: PRUEBA
+                          Marca: ''
+                          Modelo: ''
+                          TipoEquipoID: 2
+                          TipoEquipoNombre: General
+                          ArticuloID: 2150
+                          CodigoArticulo: '900068'
+                          NombreArticulo: "\_VALVULA DE SEGURIDAD MCA.WALWORTH CONEXIÓN 1 1/2\""
+                          ClienteID: 2
+                          CodigoCliente: '10300010002'
+                          NombreCliente: CLIENTES CONTADO GOMEZ PALACIO
+                          DireccionID: 573
+                          CodigoUbicacion: 2
+                          NombreUbicacion: ''
+                          Emplazamiento: PRUEBA
+                          FechaInstalacion: '20230220'
+                          FechaBaja: '20230220'
+                          MotivoBaja: ''
+                          FechaInicioGarantia: '20230220'
+                          FechaFinGarantia: '20230220'
+                          Notas: ''
+                        - ElementoID: 3
+                          NumeroEquipo: '456789'
+                          nombre: PRUEBANIHIL
+                          Marca: '1999'
+                          Modelo: '1999'
+                          TipoEquipoID: 748
+                          TipoEquipoNombre: Equipo Alta Calidad
+                          ArticuloID: 395
+                          CodigoArticulo: '100000587'
+                          NombreArticulo: LECHE
+                          ClienteID: 84
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          DireccionID: 1026
+                          CodigoUbicacion: 1
+                          NombreUbicacion: Direccion
+                          Emplazamiento: Emplazamiento Prueba
+                          FechaInstalacion: '20230222'
+                          FechaBaja: '20230324'
+                          MotivoBaja: Motivo
+                          FechaInicioGarantia: '20230320'
+                          FechaFinGarantia: '20230321'
+                          Notas: Buenas tardes
+                        - ElementoID: 4
+                          NumeroEquipo: '191920'
+                          nombre: YEI GUARDAR - Actualizar
+                          Marca: '1998'
+                          Modelo: '1998'
+                          TipoEquipoID: 748
+                          TipoEquipoNombre: Equipo Alta Calidad
+                          ArticuloID: 395
+                          CodigoArticulo: '100000587'
+                          NombreArticulo: LECHE
+                          ClienteID: 84
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          DireccionID: 1026
+                          CodigoUbicacion: 1
+                          NombreUbicacion: Direccion
+                          Emplazamiento: Emplazamiento Prueba
+                          FechaInstalacion: '20230411'
+                          FechaBaja: '20230411'
+                          MotivoBaja: ''
+                          FechaInicioGarantia: '20230326'
+                          FechaFinGarantia: '20230326'
+                          Notas: Nota
+                      success: true
+                      sql: string
       operationId: get-users-userId
       description: Retrieve the information of the user with the matching user ID.
       parameters:
