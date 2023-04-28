@@ -627,356 +627,17 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
       description: ''
-  /equipments/ubications:
-    get:
-      summary: findManyByParamForEquipmentByUbication
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1\r\nAND (elemento.NumeroSerie LIKE '%EXT%' OR elemento.Nombre LIKE '%EXT%' )\r\nAND (elemento.DireccionID = 13)\r\n\r\nLIMIT 10"
-                      records:
-                        - ID: 1
-                          Nombre: EXTINTOR
-                          Codigo: '3442342'
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1\r\nAND (elemento.NumeroSerie LIKE '%EXT%' OR elemento.Nombre LIKE '%EXT%' )\r\nAND (elemento.DireccionID = 13)\r\n\r\nLIMIT 10"
-                      records:
-                        - ID: 1
-                          Nombre: EXTINTOR
-                          Codigo: '3442342'
-      operationId: get-equipments-ubications
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: integer
-          in: query
-          name: ubicacionID
-          description: '13'
-        - schema:
-            type: string
-          in: query
-          name: param
-          description: EXT
-  /equipments/ubications/light:
-    get:
-      summary: Equipment - FindLightListByUbication
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1\r\nAND (elemento.DireccionID = 1026)\r\n\r\n"
-                      records:
-                        - ID: 3
-                          Nombre: PRUEBANIHIL
-                          Codigo: '456789'
-                        - ID: 4
-                          Nombre: YEI GUARDAR - Actualizar
-                          Codigo: '191920'
-                        - ID: 10
-                          Nombre: YEI GUARDAR - Actualizar
-                          Codigo: '191920'
-                        - ID: 15
-                          Nombre: JCO PRUEBA
-                          Codigo: '1701799'
-                        - ID: 16
-                          Nombre: JCO PRUEBA2
-                          Codigo: '1701799'
-                        - ID: 17
-                          Nombre: '0'
-                          Codigo: '0'
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: string
-                      records:
-                        - ID: 3
-                          Nombre: PRUEBANIHIL
-                          Codigo: '456789'
-                        - ID: 4
-                          Nombre: YEI GUARDAR - Actualizar
-                          Codigo: '191920'
-                        - ID: 10
-                          Nombre: YEI GUARDAR - Actualizar
-                          Codigo: '191920'
-                        - ID: 15
-                          Nombre: JCO PRUEBA
-                          Codigo: '1701799'
-                        - ID: 16
-                          Nombre: JCO PRUEBA2
-                          Codigo: '1701799'
-                        - ID: 17
-                          Nombre: '0'
-                          Codigo: '0'
-      operationId: get-equipments-ubications
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-        - schema:
-            type: integer
-          in: query
-          name: ubicacionID
-          description: DireccionID
-          required: true
-    parameters: []
-  '/ticket/equipment/{ticketID}':
-    get:
-      summary: FindManyForEquipmentByTicket
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      data:
-                        type: object
-                        properties:
-                          ElementoID:
-                            type: integer
-                          CustomerID:
-                            type: integer
-                          EmpresaID:
-                            type: integer
-                          Id_SatMovil:
-                            type: integer
-                          NumeroSerie:
-                            type: string
-                          Nombre:
-                            type: string
-                          ArticuloID:
-                            type: integer
-                          ClienteID:
-                            type: integer
-                          DireccionID:
-                            type: integer
-                          Ubicacion:
-                            type: string
-                          FechaInstalacion:
-                            type: string
-                          FechaBaja:
-                            type: string
-                          MotivoBaja:
-                            type: string
-                          InicioGarantia:
-                            type: string
-                          FinalGarantia:
-                            type: string
-                          Notas:
-                            type: string
-                          UsuarioID:
-                            type: integer
-                          FechaHoraUsuario:
-                            type: string
-                          Modelo:
-                            type: string
-                          Marca:
-                            type: string
-                          TipoEquipoID:
-                            type: integer
-                          NumeroSerieCliente:
-                            type: string
-                          Gmao_LayoutID:
-                            type: integer
-                          Proyecto_OFID:
-                            type: integer
-                          AlbaranCompraCabeceraID:
-                            type: integer
-                          AlbaranVentaCabeceraID:
-                            type: integer
-                          CheckListApartadoID:
-                            type: integer
-                          Observaciones:
-                            type: string
-                          WebID:
-                            type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        ElementoID: 1
-                        CustomerID: 29
-                        EmpresaID: 1
-                        Id_SatMovil: 0
-                        NumeroSerie: '3442342'
-                        Nombre: EXTINTOR
-                        ArticuloID: 606
-                        ClienteID: 1
-                        DireccionID: 13
-                        Ubicacion: ''
-                        FechaInstalacion: '20180322'
-                        FechaBaja: '20230303'
-                        MotivoBaja: ''
-                        InicioGarantia: '20180322'
-                        FinalGarantia: '20190831'
-                        Notas: ''
-                        UsuarioID: 3
-                        FechaHoraUsuario: '2018-03-22T09:45:41.000'
-                        Modelo: XR-190
-                        Marca: BABESA
-                        TipoEquipoID: 9999
-                        NumeroSerieCliente: '345345345'
-                        Gmao_LayoutID: 5
-                        Proyecto_OFID: 0
-                        AlbaranCompraCabeceraID: 0
-                        AlbaranVentaCabeceraID: 0
-                        CheckListApartadoID: 4
-                        Observaciones: ''
-                        WebID: 0
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        ElementoID: 1
-                        CustomerID: 29
-                        EmpresaID: 1
-                        Id_SatMovil: 0
-                        NumeroSerie: '3442342'
-                        Nombre: EXTINTOR
-                        ArticuloID: 606
-                        ClienteID: 1
-                        DireccionID: 13
-                        Ubicacion: ''
-                        FechaInstalacion: '20180322'
-                        FechaBaja: '20230303'
-                        MotivoBaja: ''
-                        InicioGarantia: '20180322'
-                        FinalGarantia: '20190831'
-                        Notas: ''
-                        UsuarioID: 3
-                        FechaHoraUsuario: '2018-03-22T09:45:41.000'
-                        Modelo: XR-190
-                        Marca: BABESA
-                        TipoEquipoID: 9999
-                        NumeroSerieCliente: '345345345'
-                        Gmao_LayoutID: 5
-                        Proyecto_OFID: 0
-                        AlbaranCompraCabeceraID: 0
-                        AlbaranVentaCabeceraID: 0
-                        CheckListApartadoID: 4
-                        Observaciones: ''
-                        WebID: 0
-      operationId: get-ticket-equipment
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
+  '/equipment/{elementoID}':
     parameters:
       - schema:
           type: string
-        name: ticketID
+        name: elementoID
         in: path
         required: true
-        description: '3'
-  /layout/light:
-    get:
-      summary: findLightListForLayout
-      tags: []
+        description: '22'
+    put:
+      summary: UpdateForEquipment
+      operationId: put-equipment-elementoID
       responses:
         '200':
           description: OK
@@ -994,21 +655,21 @@ paths:
                     properties:
                       success:
                         type: boolean
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties: {}
-                      sql:
+                      ElementoID:
+                        type: integer
+                      FechaHoraUsuario:
                         type: string
+                      UsuarioID:
+                        type: integer
                 x-examples:
                   Example 1:
                     statusCode: 200
                     message: Request processed successfully
                     content:
                       success: true
-                      records: []
-                      sql: "SELECT\r\ngmao_layout.Gmao_LayoutID,\r\ngmao_layout.Titulo,\r\ngmao_layout.Descripcion,\r\ngmao_layout.DireccionID\r\n\r\nFROM \r\ngmao_layout\r\n \r\nWHERE \r\ngmao_layout.CustomerID = 29 AND\r\ngmao_layout.EmpresaID = 1 AND\r\ngmao_layout.DireccionID = 0\r\n"
+                      ElementoID: 22
+                      FechaHoraUsuario: '2023-04-18T15:55:04.000'
+                      UsuarioID: 34
               examples:
                 Example 1:
                   value:
@@ -1016,35 +677,151 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      records:
-                        - Gmao_LayoutID: 21
-                          Titulo: Edificio
-                          Descripcion: ''
-                          DireccionID: 14
-                        - Gmao_LayoutID: 22
-                          Titulo: Planta
-                          Descripcion: ''
-                          DireccionID: 14
-                        - Gmao_LayoutID: 23
-                          Titulo: Planta 2
-                          Descripcion: ''
-                          DireccionID: 14
-                      sql: "SELECT\r\ngmao_layout.Gmao_LayoutID,\r\ngmao_layout.Titulo,\r\ngmao_layout.Descripcion,\r\ngmao_layout.DireccionID\r\n\r\nFROM \r\ngmao_layout\r\n \r\nWHERE \r\ngmao_layout.CustomerID = 29 AND\r\ngmao_layout.EmpresaID = 1 AND\r\ngmao_layout.DireccionID = 14\r\n"
-      operationId: get-layout-light
+                      ElementoID: 22
+                      FechaHoraUsuario: '2023-04-18T15:55:04.000'
+                      UsuarioID: 34
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ArticuloID:
+                  type: integer
+                ClienteID:
+                  type: integer
+                DireccionID:
+                  type: integer
+                NumeroSerie:
+                  type: string
+                Nombre:
+                  type: string
+                Ubicacion:
+                  type: string
+                FechaInstalacion:
+                  type: string
+                FechaBaja:
+                  type: string
+                MotivoBaja:
+                  type: string
+                InicioGarantia:
+                  type: string
+                FinalGarantia:
+                  type: string
+                Notas:
+                  type: string
+                Modelo:
+                  type: string
+                Marca:
+                  type: string
+                TipoEquipoID:
+                  type: integer
+                NumeroSerieCliente:
+                  type: string
+                Gmao_LayoutID:
+                  type: integer
+                CheckListApartadoID:
+                  type: integer
+                Observaciones:
+                  type: string
+              x-examples:
+                Example 1:
+                  ArticuloID: 395
+                  ClienteID: 84
+                  DireccionID: 63
+                  NumeroSerie: '191920'
+                  Nombre: YEI GUARDAR - Actualizar
+                  Ubicacion: Emplazamineto Prueba
+                  FechaInstalacion: '2023-04-11'
+                  FechaBaja: '2023-04-11'
+                  MotivoBaja: Porque si the flies
+                  InicioGarantia: '2023-03-26'
+                  FinalGarantia: '2023-03-26'
+                  Notas: Buenas tardes mis estimados
+                  Modelo: '1998'
+                  Marca: '1998'
+                  TipoEquipoID: 748
+                  NumeroSerieCliente: '555555'
+                  Gmao_LayoutID: 11
+                  CheckListApartadoID: 1
+                  Observaciones: dfgdg jijiji
+            examples:
+              Example 1:
+                value:
+                  ArticuloID: 395
+                  ClienteID: 84
+                  DireccionID: 63
+                  NumeroSerie: '191920'
+                  Nombre: YEI GUARDAR - Actualizar
+                  Ubicacion: Emplazamineto Prueba
+                  FechaInstalacion: '2023-04-11'
+                  FechaBaja: '2023-04-11'
+                  MotivoBaja: Porque si the flies
+                  InicioGarantia: '2023-03-26'
+                  FinalGarantia: '2023-03-26'
+                  Notas: Buenas tardes mis estimados
+                  Modelo: '1998'
+                  Marca: '1998'
+                  TipoEquipoID: 748
+                  NumeroSerieCliente: '555555'
+                  Gmao_LayoutID: 11
+                  CheckListApartadoID: 1
+                  Observaciones: dfgdg jijiji
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+    delete:
+      summary: DeleteForEquipment
+      operationId: delete-equipment-elementoID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
       parameters:
         - schema:
             type: string
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
-        - schema:
-            type: string
-          in: query
-          name: direccionID
-          description: '14'
-  /layout:
+  '/equipment/quicksearch/{sBusqueda}':
+    parameters:
+      - schema:
+          type: string
+        name: sBusqueda
+        in: path
+        required: true
+        description: PRUEBA
     get:
-      summary: findManyByParamForLayout
+      summary: FindManyByFilterForEquipment
       tags: []
       responses:
         '200':
@@ -1068,14 +845,82 @@ paths:
                         items:
                           type: object
                           properties:
-                            Gmao_LayoutID:
+                            ElementoID:
                               type: integer
-                            Titulo:
-                              type: string
-                            Descripcion:
-                              type: string
+                            CustomerID:
+                              type: integer
+                            EmpresaID:
+                              type: integer
+                            ArticuloID:
+                              type: integer
+                            ClienteID:
+                              type: integer
                             DireccionID:
                               type: integer
+                            NumeroSerie:
+                              type: string
+                            Nombre:
+                              type: string
+                            Ubicacion:
+                              type: string
+                            FechaInstalacion:
+                              type: string
+                            FechaBaja:
+                              type: string
+                            MotivoBaja:
+                              type: string
+                            InicioGarantia:
+                              type: string
+                            FinalGarantia:
+                              type: string
+                            Notas:
+                              type: string
+                            UsuarioID:
+                              type: integer
+                            FechaHoraUsuario:
+                              type: string
+                            Id_SatMovil:
+                              type: integer
+                            Modelo:
+                              type: string
+                            Marca:
+                              type: string
+                            TipoEquipoID:
+                              type: integer
+                            NumeroSerieCliente:
+                              type: string
+                            Gmao_LayoutID:
+                              type: integer
+                            Proyecto_OFID:
+                              type: integer
+                            AlbaranCompraCabeceraID:
+                              type: integer
+                            AlbaranVentaCabeceraID:
+                              type: integer
+                            CheckListApartadoID:
+                              type: integer
+                            Observaciones:
+                              type: string
+                            WebID:
+                              type: integer
+                            CodigoArticulo:
+                              type: string
+                            NombreArticulo:
+                              type: string
+                            CodigoCliente:
+                              type: string
+                            NombreMailing:
+                              type: string
+                            CodigoUbicacion:
+                              type: integer
+                            NombreUbicacion:
+                              type: string
+                            GmaoTitulo:
+                              type: string
+                            Apartado:
+                              type: string
+                            TipoEquipoTexto:
+                              type: string
                       sql:
                         type: string
                 x-examples:
@@ -1085,11 +930,83 @@ paths:
                     content:
                       success: true
                       records:
-                        - Gmao_LayoutID: 21
-                          Titulo: Edificio
-                          Descripcion: ''
-                          DireccionID: 14
-                      sql: "SELECT\r\ngmao_layout.Gmao_LayoutID,\r\ngmao_layout.Titulo,\r\ngmao_layout.Descripcion,\r\ngmao_layout.DireccionID\r\n\r\nFROM \r\ngmao_layout\r\n \r\nWHERE \r\ngmao_layout.CustomerID = 29 AND\r\ngmao_layout.EmpresaID = 1 AND\r\ngmao_layout.DireccionID = 14 AND\r\n(gmao_layout.Titulo LIKE '%edificio%' OR gmao_layout.Descripcion LIKE '%edificio%')\r\n\r\nLIMIT 10\r\n"
+                        - ElementoID: 10
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 1
+                          ClienteID: 1
+                          DireccionID: 13
+                          NumeroSerie: '17578242'
+                          Nombre: nfjdgfdsgPRUEBA
+                          Ubicacion: '54254254'
+                          FechaInstalacion: '20230303'
+                          FechaBaja: '20230309'
+                          MotivoBaja: kjrttgbrttrgrt
+                          InicioGarantia: '20230322'
+                          FinalGarantia: '20230331'
+                          Notas: tgtrgrtgrtgtrgtrgtrg
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-03-03T14:21:36.000'
+                          Id_SatMovil: 0
+                          Modelo: ''
+                          Marca: ''
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: ''
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: .
+                          NombreArticulo: Articulo ...3
+                          CodigoCliente: '43000001'
+                          NombreMailing: dario
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                        - ElementoID: 9
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 2
+                          ClienteID: 1
+                          DireccionID: 13
+                          NumeroSerie: '5698'
+                          Nombre: pruebaluis
+                          Ubicacion: dssdsds
+                          FechaInstalacion: '20230303'
+                          FechaBaja: '20230331'
+                          MotivoBaja: dessdsds
+                          InicioGarantia: '20230317'
+                          FinalGarantia: '20230324'
+                          Notas: dfgdfgdfgdfgdfg
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-03-03T13:56:56.000'
+                          Id_SatMovil: 0
+                          Modelo: ghhgjghjgh
+                          Marca: delvalle
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: 584NM
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: ART1
+                          NombreArticulo: ARTICULO DE VENTA 1
+                          CodigoCliente: '43000001'
+                          NombreMailing: dario
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                      sql: "SELECT Elemento.*,\r\nArticulo.Codigo AS CodigoArticulo,\r\nArticulo.Nombre AS NombreArticulo,\r\nCliente.Codigo AS CodigoCliente,\r\nMailing.Nombre AS NombreMailing,\r\nDireccion.Codigo AS CodigoUbicacion,\r\nDireccion.Nombre AS NombreUbicacion,\r\ngmao_layout.Titulo AS GmaoTitulo,\r\nchecklistapartado.Apartado,\r\nTipoEquipo.Descripcion AS TipoEquipoTexto\r\nFROM Elemento\r\nLEFT OUTER JOIN Articulo ON Articulo.ArticuloID = ElementO.ArticuloID\r\nLEFT OUTER JOIN Cliente ON Cliente.ClienteID = Elemento.ClienteID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = Elemento.DireccionID\r\nLEFT OUTER JOIN gmao_layout ON gmao_layout.Gmao_LayoutID = elemento.Gmao_LayoutID\r\nLEFT OUTER JOIN checklistapartado ON checklistapartado.CheckListApartadoID = elemento.CheckListApartadoID\r\nLEFT OUTER JOIN TablaGeneral AS TipoEquipo ON TipoEquipo.TablaGeneralID = Elemento.TipoEquipoID\r\n\r\nWHERE Elemento.CustomerID = 29\r\nAND Elemento.EmpresaID = 1 AND\r\n(elemento.NumeroSerie LIKE '%PRUEBA%' OR elemento.Nombre LIKE '%PRUEBA%' OR elemento.NumeroSerieCliente LIKE '%PRUEBA%')\r\n\r\nORDER BY elemento.NumeroSerie"
               examples:
                 Example 1:
                   value:
@@ -1098,28 +1015,92 @@ paths:
                     content:
                       success: true
                       records:
-                        - Gmao_LayoutID: 21
-                          Titulo: Edificio
-                          Descripcion: ''
-                          DireccionID: 14
-                      sql: "SELECT\r\ngmao_layout.Gmao_LayoutID,\r\ngmao_layout.Titulo,\r\ngmao_layout.Descripcion,\r\ngmao_layout.DireccionID\r\n\r\nFROM \r\ngmao_layout\r\n \r\nWHERE \r\ngmao_layout.CustomerID = 29 AND\r\ngmao_layout.EmpresaID = 1 AND\r\ngmao_layout.DireccionID = 14 AND\r\n(gmao_layout.Titulo LIKE '%edificio%' OR gmao_layout.Descripcion LIKE '%edificio%')\r\n\r\nLIMIT 10\r\n"
-      operationId: get-layout
+                        - ElementoID: 10
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 1
+                          ClienteID: 1
+                          DireccionID: 13
+                          NumeroSerie: '17578242'
+                          Nombre: nfjdgfdsgPRUEBA
+                          Ubicacion: '54254254'
+                          FechaInstalacion: '20230303'
+                          FechaBaja: '20230309'
+                          MotivoBaja: kjrttgbrttrgrt
+                          InicioGarantia: '20230322'
+                          FinalGarantia: '20230331'
+                          Notas: tgtrgrtgrtgtrgtrgtrg
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-03-03T14:21:36.000'
+                          Id_SatMovil: 0
+                          Modelo: ''
+                          Marca: ''
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: ''
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: .
+                          NombreArticulo: Articulo ...3
+                          CodigoCliente: '43000001'
+                          NombreMailing: dario
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                        - ElementoID: 9
+                          CustomerID: 29
+                          EmpresaID: 1
+                          ArticuloID: 2
+                          ClienteID: 1
+                          DireccionID: 13
+                          NumeroSerie: '5698'
+                          Nombre: pruebaluis
+                          Ubicacion: dssdsds
+                          FechaInstalacion: '20230303'
+                          FechaBaja: '20230331'
+                          MotivoBaja: dessdsds
+                          InicioGarantia: '20230317'
+                          FinalGarantia: '20230324'
+                          Notas: dfgdfgdfgdfgdfg
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-03-03T13:56:56.000'
+                          Id_SatMovil: 0
+                          Modelo: ghhgjghjgh
+                          Marca: delvalle
+                          TipoEquipoID: 1233
+                          NumeroSerieCliente: 584NM
+                          Gmao_LayoutID: 0
+                          Proyecto_OFID: 0
+                          AlbaranCompraCabeceraID: 0
+                          AlbaranVentaCabeceraID: 0
+                          CheckListApartadoID: 0
+                          Observaciones: ''
+                          WebID: 0
+                          CodigoArticulo: ART1
+                          NombreArticulo: ARTICULO DE VENTA 1
+                          CodigoCliente: '43000001'
+                          NombreMailing: dario
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          GmaoTitulo: ''
+                          Apartado: ''
+                          TipoEquipoTexto: Proveedores por tipo
+                      sql: "SELECT Elemento.*,\r\nArticulo.Codigo AS CodigoArticulo,\r\nArticulo.Nombre AS NombreArticulo,\r\nCliente.Codigo AS CodigoCliente,\r\nMailing.Nombre AS NombreMailing,\r\nDireccion.Codigo AS CodigoUbicacion,\r\nDireccion.Nombre AS NombreUbicacion,\r\ngmao_layout.Titulo AS GmaoTitulo,\r\nchecklistapartado.Apartado,\r\nTipoEquipo.Descripcion AS TipoEquipoTexto\r\nFROM Elemento\r\nLEFT OUTER JOIN Articulo ON Articulo.ArticuloID = ElementO.ArticuloID\r\nLEFT OUTER JOIN Cliente ON Cliente.ClienteID = Elemento.ClienteID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = Elemento.DireccionID\r\nLEFT OUTER JOIN gmao_layout ON gmao_layout.Gmao_LayoutID = elemento.Gmao_LayoutID\r\nLEFT OUTER JOIN checklistapartado ON checklistapartado.CheckListApartadoID = elemento.CheckListApartadoID\r\nLEFT OUTER JOIN TablaGeneral AS TipoEquipo ON TipoEquipo.TablaGeneralID = Elemento.TipoEquipoID\r\n\r\nWHERE Elemento.CustomerID = 29\r\nAND Elemento.EmpresaID = 1 AND\r\n(elemento.NumeroSerie LIKE '%PRUEBA%' OR elemento.Nombre LIKE '%PRUEBA%' OR elemento.NumeroSerieCliente LIKE '%PRUEBA%')\r\n\r\nORDER BY elemento.NumeroSerie"
+      operationId: get-equipment-quicksearch-sBusqueda
       parameters:
         - schema:
             type: string
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
-        - schema:
-            type: string
-          in: query
-          name: 'param '
-          description: edificio
-        - schema:
-            type: string
-          in: query
-          name: direccionID
-          description: '14'
+      requestBody:
+        content: {}
   /equipments:
     get:
       summary: findManyForEquipments
@@ -2061,17 +2042,10 @@ paths:
           in: query
           name: 'order '
           description: ASC
-  '/equipment/{elementoID}':
-    parameters:
-      - schema:
-          type: string
-        name: elementoID
-        in: path
-        required: true
-        description: '22'
-    put:
-      summary: UpdateForEquipment
-      operationId: put-equipment-elementoID
+  /equipments/ubications:
+    get:
+      summary: findManyByParamForEquipmentByUbication
+      tags: []
       responses:
         '200':
           description: OK
@@ -2089,21 +2063,30 @@ paths:
                     properties:
                       success:
                         type: boolean
-                      ElementoID:
-                        type: integer
-                      FechaHoraUsuario:
+                      sql:
                         type: string
-                      UsuarioID:
-                        type: integer
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
                 x-examples:
                   Example 1:
                     statusCode: 200
                     message: Request processed successfully
                     content:
                       success: true
-                      ElementoID: 22
-                      FechaHoraUsuario: '2023-04-18T15:55:04.000'
-                      UsuarioID: 34
+                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1\r\nAND (elemento.NumeroSerie LIKE '%EXT%' OR elemento.Nombre LIKE '%EXT%' )\r\nAND (elemento.DireccionID = 13)\r\n\r\nLIMIT 10"
+                      records:
+                        - ID: 1
+                          Nombre: EXTINTOR
+                          Codigo: '3442342'
               examples:
                 Example 1:
                   value:
@@ -2111,151 +2094,372 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      ElementoID: 22
-                      FechaHoraUsuario: '2023-04-18T15:55:04.000'
-                      UsuarioID: 34
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                ArticuloID:
-                  type: integer
-                ClienteID:
-                  type: integer
-                DireccionID:
-                  type: integer
-                NumeroSerie:
-                  type: string
-                Nombre:
-                  type: string
-                Ubicacion:
-                  type: string
-                FechaInstalacion:
-                  type: string
-                FechaBaja:
-                  type: string
-                MotivoBaja:
-                  type: string
-                InicioGarantia:
-                  type: string
-                FinalGarantia:
-                  type: string
-                Notas:
-                  type: string
-                Modelo:
-                  type: string
-                Marca:
-                  type: string
-                TipoEquipoID:
-                  type: integer
-                NumeroSerieCliente:
-                  type: string
-                Gmao_LayoutID:
-                  type: integer
-                CheckListApartadoID:
-                  type: integer
-                Observaciones:
-                  type: string
-              x-examples:
-                Example 1:
-                  ArticuloID: 395
-                  ClienteID: 84
-                  DireccionID: 63
-                  NumeroSerie: '191920'
-                  Nombre: YEI GUARDAR - Actualizar
-                  Ubicacion: Emplazamineto Prueba
-                  FechaInstalacion: '2023-04-11'
-                  FechaBaja: '2023-04-11'
-                  MotivoBaja: Porque si the flies
-                  InicioGarantia: '2023-03-26'
-                  FinalGarantia: '2023-03-26'
-                  Notas: Buenas tardes mis estimados
-                  Modelo: '1998'
-                  Marca: '1998'
-                  TipoEquipoID: 748
-                  NumeroSerieCliente: '555555'
-                  Gmao_LayoutID: 11
-                  CheckListApartadoID: 1
-                  Observaciones: dfgdg jijiji
-            examples:
-              Example 1:
-                value:
-                  ArticuloID: 395
-                  ClienteID: 84
-                  DireccionID: 63
-                  NumeroSerie: '191920'
-                  Nombre: YEI GUARDAR - Actualizar
-                  Ubicacion: Emplazamineto Prueba
-                  FechaInstalacion: '2023-04-11'
-                  FechaBaja: '2023-04-11'
-                  MotivoBaja: Porque si the flies
-                  InicioGarantia: '2023-03-26'
-                  FinalGarantia: '2023-03-26'
-                  Notas: Buenas tardes mis estimados
-                  Modelo: '1998'
-                  Marca: '1998'
-                  TipoEquipoID: 748
-                  NumeroSerieCliente: '555555'
-                  Gmao_LayoutID: 11
-                  CheckListApartadoID: 1
-                  Observaciones: dfgdg jijiji
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: accessToken
-          description: '"tokenReciente"'
-    delete:
-      summary: DeleteForEquipment
-      operationId: delete-equipment-elementoID
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
+                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1\r\nAND (elemento.NumeroSerie LIKE '%EXT%' OR elemento.Nombre LIKE '%EXT%' )\r\nAND (elemento.DireccionID = 13)\r\n\r\nLIMIT 10"
+                      records:
+                        - ID: 1
+                          Nombre: EXTINTOR
+                          Codigo: '3442342'
+      operationId: get-equipments-ubications
       parameters:
         - schema:
             type: string
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
-  '/equipment/quicksearch/{sBusqueda}':
+        - schema:
+            type: integer
+          in: query
+          name: ubicacionID
+          description: '13'
+        - schema:
+            type: string
+          in: query
+          name: param
+          description: EXT
+  /equipments/ubications/light:
+    get:
+      summary: Equipment - FindLightListByUbication
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1\r\nAND (elemento.DireccionID = 1026)\r\n\r\n"
+                      records:
+                        - ID: 3
+                          Nombre: PRUEBANIHIL
+                          Codigo: '456789'
+                        - ID: 4
+                          Nombre: YEI GUARDAR - Actualizar
+                          Codigo: '191920'
+                        - ID: 10
+                          Nombre: YEI GUARDAR - Actualizar
+                          Codigo: '191920'
+                        - ID: 15
+                          Nombre: JCO PRUEBA
+                          Codigo: '1701799'
+                        - ID: 16
+                          Nombre: JCO PRUEBA2
+                          Codigo: '1701799'
+                        - ID: 17
+                          Nombre: '0'
+                          Codigo: '0'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - ID: 3
+                          Nombre: PRUEBANIHIL
+                          Codigo: '456789'
+                        - ID: 4
+                          Nombre: YEI GUARDAR - Actualizar
+                          Codigo: '191920'
+                        - ID: 10
+                          Nombre: YEI GUARDAR - Actualizar
+                          Codigo: '191920'
+                        - ID: 15
+                          Nombre: JCO PRUEBA
+                          Codigo: '1701799'
+                        - ID: 16
+                          Nombre: JCO PRUEBA2
+                          Codigo: '1701799'
+                        - ID: 17
+                          Nombre: '0'
+                          Codigo: '0'
+      operationId: get-equipments-ubications
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: integer
+          in: query
+          name: ubicacionID
+          description: DireccionID
+          required: true
+    parameters: []
+  '/ticket/equipment/{ticketID}':
+    get:
+      summary: FindManyForEquipmentByTicket
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: object
+                        properties:
+                          ElementoID:
+                            type: integer
+                          CustomerID:
+                            type: integer
+                          EmpresaID:
+                            type: integer
+                          Id_SatMovil:
+                            type: integer
+                          NumeroSerie:
+                            type: string
+                          Nombre:
+                            type: string
+                          ArticuloID:
+                            type: integer
+                          ClienteID:
+                            type: integer
+                          DireccionID:
+                            type: integer
+                          Ubicacion:
+                            type: string
+                          FechaInstalacion:
+                            type: string
+                          FechaBaja:
+                            type: string
+                          MotivoBaja:
+                            type: string
+                          InicioGarantia:
+                            type: string
+                          FinalGarantia:
+                            type: string
+                          Notas:
+                            type: string
+                          UsuarioID:
+                            type: integer
+                          FechaHoraUsuario:
+                            type: string
+                          Modelo:
+                            type: string
+                          Marca:
+                            type: string
+                          TipoEquipoID:
+                            type: integer
+                          NumeroSerieCliente:
+                            type: string
+                          Gmao_LayoutID:
+                            type: integer
+                          Proyecto_OFID:
+                            type: integer
+                          AlbaranCompraCabeceraID:
+                            type: integer
+                          AlbaranVentaCabeceraID:
+                            type: integer
+                          CheckListApartadoID:
+                            type: integer
+                          Observaciones:
+                            type: string
+                          WebID:
+                            type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        ElementoID: 1
+                        CustomerID: 29
+                        EmpresaID: 1
+                        Id_SatMovil: 0
+                        NumeroSerie: '3442342'
+                        Nombre: EXTINTOR
+                        ArticuloID: 606
+                        ClienteID: 1
+                        DireccionID: 13
+                        Ubicacion: ''
+                        FechaInstalacion: '20180322'
+                        FechaBaja: '20230303'
+                        MotivoBaja: ''
+                        InicioGarantia: '20180322'
+                        FinalGarantia: '20190831'
+                        Notas: ''
+                        UsuarioID: 3
+                        FechaHoraUsuario: '2018-03-22T09:45:41.000'
+                        Modelo: XR-190
+                        Marca: BABESA
+                        TipoEquipoID: 9999
+                        NumeroSerieCliente: '345345345'
+                        Gmao_LayoutID: 5
+                        Proyecto_OFID: 0
+                        AlbaranCompraCabeceraID: 0
+                        AlbaranVentaCabeceraID: 0
+                        CheckListApartadoID: 4
+                        Observaciones: ''
+                        WebID: 0
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        ElementoID: 1
+                        CustomerID: 29
+                        EmpresaID: 1
+                        Id_SatMovil: 0
+                        NumeroSerie: '3442342'
+                        Nombre: EXTINTOR
+                        ArticuloID: 606
+                        ClienteID: 1
+                        DireccionID: 13
+                        Ubicacion: ''
+                        FechaInstalacion: '20180322'
+                        FechaBaja: '20230303'
+                        MotivoBaja: ''
+                        InicioGarantia: '20180322'
+                        FinalGarantia: '20190831'
+                        Notas: ''
+                        UsuarioID: 3
+                        FechaHoraUsuario: '2018-03-22T09:45:41.000'
+                        Modelo: XR-190
+                        Marca: BABESA
+                        TipoEquipoID: 9999
+                        NumeroSerieCliente: '345345345'
+                        Gmao_LayoutID: 5
+                        Proyecto_OFID: 0
+                        AlbaranCompraCabeceraID: 0
+                        AlbaranVentaCabeceraID: 0
+                        CheckListApartadoID: 4
+                        Observaciones: ''
+                        WebID: 0
+      operationId: get-ticket-equipment
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
     parameters:
       - schema:
           type: string
-        name: sBusqueda
+        name: ticketID
         in: path
         required: true
-        description: PRUEBA
+        description: '3'
+  /layout/light:
     get:
-      summary: FindManyByFilterForEquipment
+      summary: findLightListForLayout
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties: {}
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records: []
+                      sql: "SELECT\r\ngmao_layout.Gmao_LayoutID,\r\ngmao_layout.Titulo,\r\ngmao_layout.Descripcion,\r\ngmao_layout.DireccionID\r\n\r\nFROM \r\ngmao_layout\r\n \r\nWHERE \r\ngmao_layout.CustomerID = 29 AND\r\ngmao_layout.EmpresaID = 1 AND\r\ngmao_layout.DireccionID = 0\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - Gmao_LayoutID: 21
+                          Titulo: Edificio
+                          Descripcion: ''
+                          DireccionID: 14
+                        - Gmao_LayoutID: 22
+                          Titulo: Planta
+                          Descripcion: ''
+                          DireccionID: 14
+                        - Gmao_LayoutID: 23
+                          Titulo: Planta 2
+                          Descripcion: ''
+                          DireccionID: 14
+                      sql: "SELECT\r\ngmao_layout.Gmao_LayoutID,\r\ngmao_layout.Titulo,\r\ngmao_layout.Descripcion,\r\ngmao_layout.DireccionID\r\n\r\nFROM \r\ngmao_layout\r\n \r\nWHERE \r\ngmao_layout.CustomerID = 29 AND\r\ngmao_layout.EmpresaID = 1 AND\r\ngmao_layout.DireccionID = 14\r\n"
+      operationId: get-layout-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: direccionID
+          description: '14'
+  /layout:
+    get:
+      summary: findManyByParamForLayout
       tags: []
       responses:
         '200':
@@ -2279,82 +2483,14 @@ paths:
                         items:
                           type: object
                           properties:
-                            ElementoID:
-                              type: integer
-                            CustomerID:
-                              type: integer
-                            EmpresaID:
-                              type: integer
-                            ArticuloID:
-                              type: integer
-                            ClienteID:
-                              type: integer
-                            DireccionID:
-                              type: integer
-                            NumeroSerie:
-                              type: string
-                            Nombre:
-                              type: string
-                            Ubicacion:
-                              type: string
-                            FechaInstalacion:
-                              type: string
-                            FechaBaja:
-                              type: string
-                            MotivoBaja:
-                              type: string
-                            InicioGarantia:
-                              type: string
-                            FinalGarantia:
-                              type: string
-                            Notas:
-                              type: string
-                            UsuarioID:
-                              type: integer
-                            FechaHoraUsuario:
-                              type: string
-                            Id_SatMovil:
-                              type: integer
-                            Modelo:
-                              type: string
-                            Marca:
-                              type: string
-                            TipoEquipoID:
-                              type: integer
-                            NumeroSerieCliente:
-                              type: string
                             Gmao_LayoutID:
                               type: integer
-                            Proyecto_OFID:
+                            Titulo:
+                              type: string
+                            Descripcion:
+                              type: string
+                            DireccionID:
                               type: integer
-                            AlbaranCompraCabeceraID:
-                              type: integer
-                            AlbaranVentaCabeceraID:
-                              type: integer
-                            CheckListApartadoID:
-                              type: integer
-                            Observaciones:
-                              type: string
-                            WebID:
-                              type: integer
-                            CodigoArticulo:
-                              type: string
-                            NombreArticulo:
-                              type: string
-                            CodigoCliente:
-                              type: string
-                            NombreMailing:
-                              type: string
-                            CodigoUbicacion:
-                              type: integer
-                            NombreUbicacion:
-                              type: string
-                            GmaoTitulo:
-                              type: string
-                            Apartado:
-                              type: string
-                            TipoEquipoTexto:
-                              type: string
                       sql:
                         type: string
                 x-examples:
@@ -2364,83 +2500,11 @@ paths:
                     content:
                       success: true
                       records:
-                        - ElementoID: 10
-                          CustomerID: 29
-                          EmpresaID: 1
-                          ArticuloID: 1
-                          ClienteID: 1
-                          DireccionID: 13
-                          NumeroSerie: '17578242'
-                          Nombre: nfjdgfdsgPRUEBA
-                          Ubicacion: '54254254'
-                          FechaInstalacion: '20230303'
-                          FechaBaja: '20230309'
-                          MotivoBaja: kjrttgbrttrgrt
-                          InicioGarantia: '20230322'
-                          FinalGarantia: '20230331'
-                          Notas: tgtrgrtgrtgtrgtrgtrg
-                          UsuarioID: 1
-                          FechaHoraUsuario: '2023-03-03T14:21:36.000'
-                          Id_SatMovil: 0
-                          Modelo: ''
-                          Marca: ''
-                          TipoEquipoID: 1233
-                          NumeroSerieCliente: ''
-                          Gmao_LayoutID: 0
-                          Proyecto_OFID: 0
-                          AlbaranCompraCabeceraID: 0
-                          AlbaranVentaCabeceraID: 0
-                          CheckListApartadoID: 0
-                          Observaciones: ''
-                          WebID: 0
-                          CodigoArticulo: .
-                          NombreArticulo: Articulo ...3
-                          CodigoCliente: '43000001'
-                          NombreMailing: dario
-                          CodigoUbicacion: 1
-                          NombreUbicacion: SAT MADRID 1
-                          GmaoTitulo: ''
-                          Apartado: ''
-                          TipoEquipoTexto: Proveedores por tipo
-                        - ElementoID: 9
-                          CustomerID: 29
-                          EmpresaID: 1
-                          ArticuloID: 2
-                          ClienteID: 1
-                          DireccionID: 13
-                          NumeroSerie: '5698'
-                          Nombre: pruebaluis
-                          Ubicacion: dssdsds
-                          FechaInstalacion: '20230303'
-                          FechaBaja: '20230331'
-                          MotivoBaja: dessdsds
-                          InicioGarantia: '20230317'
-                          FinalGarantia: '20230324'
-                          Notas: dfgdfgdfgdfgdfg
-                          UsuarioID: 1
-                          FechaHoraUsuario: '2023-03-03T13:56:56.000'
-                          Id_SatMovil: 0
-                          Modelo: ghhgjghjgh
-                          Marca: delvalle
-                          TipoEquipoID: 1233
-                          NumeroSerieCliente: 584NM
-                          Gmao_LayoutID: 0
-                          Proyecto_OFID: 0
-                          AlbaranCompraCabeceraID: 0
-                          AlbaranVentaCabeceraID: 0
-                          CheckListApartadoID: 0
-                          Observaciones: ''
-                          WebID: 0
-                          CodigoArticulo: ART1
-                          NombreArticulo: ARTICULO DE VENTA 1
-                          CodigoCliente: '43000001'
-                          NombreMailing: dario
-                          CodigoUbicacion: 1
-                          NombreUbicacion: SAT MADRID 1
-                          GmaoTitulo: ''
-                          Apartado: ''
-                          TipoEquipoTexto: Proveedores por tipo
-                      sql: "SELECT Elemento.*,\r\nArticulo.Codigo AS CodigoArticulo,\r\nArticulo.Nombre AS NombreArticulo,\r\nCliente.Codigo AS CodigoCliente,\r\nMailing.Nombre AS NombreMailing,\r\nDireccion.Codigo AS CodigoUbicacion,\r\nDireccion.Nombre AS NombreUbicacion,\r\ngmao_layout.Titulo AS GmaoTitulo,\r\nchecklistapartado.Apartado,\r\nTipoEquipo.Descripcion AS TipoEquipoTexto\r\nFROM Elemento\r\nLEFT OUTER JOIN Articulo ON Articulo.ArticuloID = ElementO.ArticuloID\r\nLEFT OUTER JOIN Cliente ON Cliente.ClienteID = Elemento.ClienteID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = Elemento.DireccionID\r\nLEFT OUTER JOIN gmao_layout ON gmao_layout.Gmao_LayoutID = elemento.Gmao_LayoutID\r\nLEFT OUTER JOIN checklistapartado ON checklistapartado.CheckListApartadoID = elemento.CheckListApartadoID\r\nLEFT OUTER JOIN TablaGeneral AS TipoEquipo ON TipoEquipo.TablaGeneralID = Elemento.TipoEquipoID\r\n\r\nWHERE Elemento.CustomerID = 29\r\nAND Elemento.EmpresaID = 1 AND\r\n(elemento.NumeroSerie LIKE '%PRUEBA%' OR elemento.Nombre LIKE '%PRUEBA%' OR elemento.NumeroSerieCliente LIKE '%PRUEBA%')\r\n\r\nORDER BY elemento.NumeroSerie"
+                        - Gmao_LayoutID: 21
+                          Titulo: Edificio
+                          Descripcion: ''
+                          DireccionID: 14
+                      sql: "SELECT\r\ngmao_layout.Gmao_LayoutID,\r\ngmao_layout.Titulo,\r\ngmao_layout.Descripcion,\r\ngmao_layout.DireccionID\r\n\r\nFROM \r\ngmao_layout\r\n \r\nWHERE \r\ngmao_layout.CustomerID = 29 AND\r\ngmao_layout.EmpresaID = 1 AND\r\ngmao_layout.DireccionID = 14 AND\r\n(gmao_layout.Titulo LIKE '%edificio%' OR gmao_layout.Descripcion LIKE '%edificio%')\r\n\r\nLIMIT 10\r\n"
               examples:
                 Example 1:
                   value:
@@ -2449,92 +2513,28 @@ paths:
                     content:
                       success: true
                       records:
-                        - ElementoID: 10
-                          CustomerID: 29
-                          EmpresaID: 1
-                          ArticuloID: 1
-                          ClienteID: 1
-                          DireccionID: 13
-                          NumeroSerie: '17578242'
-                          Nombre: nfjdgfdsgPRUEBA
-                          Ubicacion: '54254254'
-                          FechaInstalacion: '20230303'
-                          FechaBaja: '20230309'
-                          MotivoBaja: kjrttgbrttrgrt
-                          InicioGarantia: '20230322'
-                          FinalGarantia: '20230331'
-                          Notas: tgtrgrtgrtgtrgtrgtrg
-                          UsuarioID: 1
-                          FechaHoraUsuario: '2023-03-03T14:21:36.000'
-                          Id_SatMovil: 0
-                          Modelo: ''
-                          Marca: ''
-                          TipoEquipoID: 1233
-                          NumeroSerieCliente: ''
-                          Gmao_LayoutID: 0
-                          Proyecto_OFID: 0
-                          AlbaranCompraCabeceraID: 0
-                          AlbaranVentaCabeceraID: 0
-                          CheckListApartadoID: 0
-                          Observaciones: ''
-                          WebID: 0
-                          CodigoArticulo: .
-                          NombreArticulo: Articulo ...3
-                          CodigoCliente: '43000001'
-                          NombreMailing: dario
-                          CodigoUbicacion: 1
-                          NombreUbicacion: SAT MADRID 1
-                          GmaoTitulo: ''
-                          Apartado: ''
-                          TipoEquipoTexto: Proveedores por tipo
-                        - ElementoID: 9
-                          CustomerID: 29
-                          EmpresaID: 1
-                          ArticuloID: 2
-                          ClienteID: 1
-                          DireccionID: 13
-                          NumeroSerie: '5698'
-                          Nombre: pruebaluis
-                          Ubicacion: dssdsds
-                          FechaInstalacion: '20230303'
-                          FechaBaja: '20230331'
-                          MotivoBaja: dessdsds
-                          InicioGarantia: '20230317'
-                          FinalGarantia: '20230324'
-                          Notas: dfgdfgdfgdfgdfg
-                          UsuarioID: 1
-                          FechaHoraUsuario: '2023-03-03T13:56:56.000'
-                          Id_SatMovil: 0
-                          Modelo: ghhgjghjgh
-                          Marca: delvalle
-                          TipoEquipoID: 1233
-                          NumeroSerieCliente: 584NM
-                          Gmao_LayoutID: 0
-                          Proyecto_OFID: 0
-                          AlbaranCompraCabeceraID: 0
-                          AlbaranVentaCabeceraID: 0
-                          CheckListApartadoID: 0
-                          Observaciones: ''
-                          WebID: 0
-                          CodigoArticulo: ART1
-                          NombreArticulo: ARTICULO DE VENTA 1
-                          CodigoCliente: '43000001'
-                          NombreMailing: dario
-                          CodigoUbicacion: 1
-                          NombreUbicacion: SAT MADRID 1
-                          GmaoTitulo: ''
-                          Apartado: ''
-                          TipoEquipoTexto: Proveedores por tipo
-                      sql: "SELECT Elemento.*,\r\nArticulo.Codigo AS CodigoArticulo,\r\nArticulo.Nombre AS NombreArticulo,\r\nCliente.Codigo AS CodigoCliente,\r\nMailing.Nombre AS NombreMailing,\r\nDireccion.Codigo AS CodigoUbicacion,\r\nDireccion.Nombre AS NombreUbicacion,\r\ngmao_layout.Titulo AS GmaoTitulo,\r\nchecklistapartado.Apartado,\r\nTipoEquipo.Descripcion AS TipoEquipoTexto\r\nFROM Elemento\r\nLEFT OUTER JOIN Articulo ON Articulo.ArticuloID = ElementO.ArticuloID\r\nLEFT OUTER JOIN Cliente ON Cliente.ClienteID = Elemento.ClienteID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = Elemento.DireccionID\r\nLEFT OUTER JOIN gmao_layout ON gmao_layout.Gmao_LayoutID = elemento.Gmao_LayoutID\r\nLEFT OUTER JOIN checklistapartado ON checklistapartado.CheckListApartadoID = elemento.CheckListApartadoID\r\nLEFT OUTER JOIN TablaGeneral AS TipoEquipo ON TipoEquipo.TablaGeneralID = Elemento.TipoEquipoID\r\n\r\nWHERE Elemento.CustomerID = 29\r\nAND Elemento.EmpresaID = 1 AND\r\n(elemento.NumeroSerie LIKE '%PRUEBA%' OR elemento.Nombre LIKE '%PRUEBA%' OR elemento.NumeroSerieCliente LIKE '%PRUEBA%')\r\n\r\nORDER BY elemento.NumeroSerie"
-      operationId: get-equipment-quicksearch-sBusqueda
+                        - Gmao_LayoutID: 21
+                          Titulo: Edificio
+                          Descripcion: ''
+                          DireccionID: 14
+                      sql: "SELECT\r\ngmao_layout.Gmao_LayoutID,\r\ngmao_layout.Titulo,\r\ngmao_layout.Descripcion,\r\ngmao_layout.DireccionID\r\n\r\nFROM \r\ngmao_layout\r\n \r\nWHERE \r\ngmao_layout.CustomerID = 29 AND\r\ngmao_layout.EmpresaID = 1 AND\r\ngmao_layout.DireccionID = 14 AND\r\n(gmao_layout.Titulo LIKE '%edificio%' OR gmao_layout.Descripcion LIKE '%edificio%')\r\n\r\nLIMIT 10\r\n"
+      operationId: get-layout
       parameters:
         - schema:
             type: string
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
-      requestBody:
-        content: {}
+        - schema:
+            type: string
+          in: query
+          name: 'param '
+          description: edificio
+        - schema:
+            type: string
+          in: query
+          name: direccionID
+          description: '14'
   '/equipment/preventivesMaintenance/{equipoID}':
     get:
       summary: FindManyForPreventiveMaintenanceByEquipment
