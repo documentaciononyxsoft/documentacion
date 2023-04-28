@@ -604,13 +604,96 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '164'
         name: fieldID
         in: path
         required: true
+        description: DocumentoID
     get:
       summary: Document - FindByID
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      Descripcion:
+                        type: string
+                      Fecha:
+                        type: string
+                      Referencia:
+                        type: string
+                      TipoDocumentoID:
+                        type: integer
+                      Privado:
+                        type: integer
+                      Activo:
+                        type: integer
+                      Publicar:
+                        type: integer
+                      Origen:
+                        type: string
+                      CreadoPorID:
+                        type: integer
+                      Observaciones:
+                        type: string
+                      FechaCreacion:
+                        type: string
+                      Codigo:
+                        type: string
+                      Fichero:
+                        type: string
+                      ficheroDestino:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      Descripcion: prueba
+                      Fecha: '2021-10-08T14:39:09.030'
+                      Referencia: ''
+                      TipoDocumentoID: 0
+                      Privado: 0
+                      Activo: 0
+                      Publicar: 0
+                      Origen: ''
+                      CreadoPorID: 1
+                      Observaciones: ''
+                      FechaCreacion: '2021-10-08T14:38:13.000'
+                      Codigo: D0000000001
+                      Fichero: 122121.txt
+                      ficheroDestino: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      Descripcion: prueba
+                      Fecha: '2021-10-08T14:39:09.030'
+                      Referencia: ''
+                      TipoDocumentoID: 0
+                      Privado: 0
+                      Activo: 0
+                      Publicar: 0
+                      Origen: ''
+                      CreadoPorID: 1
+                      Observaciones: ''
+                      FechaCreacion: '2021-10-08T14:38:13.000'
+                      Codigo: D0000000001
+                      Fichero: 122121.txt
+                      ficheroDestino: ''
       operationId: get-documentManagement-document-fieldID
       parameters:
         - schema:
