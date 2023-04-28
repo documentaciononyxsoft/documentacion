@@ -772,6 +772,126 @@ paths:
                   Gmao_LayoutID: 11
                   CheckListApartadoID: 1
                   Observaciones: ObservaProof
+  /equipment/light:
+    get:
+      summary: Equipment - FindLightList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1"
+                      records:
+                        - ID: 1
+                          Nombre: PRUEBALUIS
+                          Codigo: '12'
+                        - ID: 2
+                          Nombre: ''
+                          Codigo: '45'
+                        - ID: 3
+                          Nombre: PRUEBANIHIL
+                          Codigo: '456789'
+                        - ID: 4
+                          Nombre: YEI GUARDAR - Actualizar
+                          Codigo: '191920'
+                        - ID: 6
+                          Nombre: un men editado
+                          Codigo: ads
+                        - ID: 10
+                          Nombre: YEI GUARDAR - Actualizar
+                          Codigo: '191920'
+                        - ID: 15
+                          Nombre: JCO PRUEBA
+                          Codigo: '1701799'
+                        - ID: 16
+                          Nombre: JCO PRUEBA2
+                          Codigo: '1701799'
+                        - ID: 17
+                          Nombre: '0'
+                          Codigo: '0'
+                        - ID: 18
+                          Nombre: '0'
+                          Codigo: '0'
+                        - ID: 19
+                          Nombre: '0'
+                          Codigo: '0'
+                        - ID: 20
+                          Nombre: '0'
+                          Codigo: '0'
+                        - ID: 21
+                          Nombre: JCO PRUEBA
+                          Codigo: '1701799'
+                        - ID: 22
+                          Nombre: JCO PRUEBA
+                          Codigo: '1701799'
+                        - ID: 23
+                          Nombre: JCO PRUEBA
+                          Codigo: '1701799'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - ID: 1
+                          Nombre: PRUEBAJCO
+                          Codigo: '12'
+                        - ID: 2
+                          Nombre: ''
+                          Codigo: '45'
+                        - ID: 3
+                          Nombre: PRUEBANIHIL
+                          Codigo: '456789'
+                        - ID: 4
+                          Nombre: YEI GUARDAR - Actualizar
+                          Codigo: '191920'
+                        - ID: 6
+                          Nombre: PruebaLuis
+                          Codigo: ads
+      operationId: get-equipment-light
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas:
     User:
