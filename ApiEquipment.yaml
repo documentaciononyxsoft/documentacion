@@ -7,7 +7,7 @@ info:
 servers:
   - url: 'http://15.236.85.216/'
 paths:
-  /consult/equipment:
+  /consult/equipments:
     get:
       summary: Equipment - FindManyByFilters
       tags: []
@@ -223,6 +223,7 @@ paths:
           in: query
           name: offset
           description: '0'
+    parameters: []
   /equipment:
     get:
       summary: findManyByParamForEquipment
