@@ -686,6 +686,7 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+      description: ''
     delete:
       summary: Document - Delete
       operationId: delete-documentManagement-document-fieldID
