@@ -351,7 +351,7 @@ paths:
           name: 'param '
           description: Nombre a buscar
     post:
-      summary: createForEquipment
+      summary: Equipment - Create
       operationId: post-equipment
       responses:
         '200':
@@ -376,25 +376,37 @@ paths:
                         type: string
                       UsuarioID:
                         type: integer
+                      NombreUsuario:
+                        type: string
                 x-examples:
                   Example 1:
                     statusCode: 200
                     message: Request processed successfully
                     content:
                       success: true
-                      ElementoID: 22
-                      FechaHoraUsuario: '2023-04-18T15:55:04.122'
-                      UsuarioID: 34
-            application/xml:
-              schema:
-                type: object
-                properties: {}
+                      ElementoID: 15
+                      FechaHoraUsuario: '2023-04-28T11:51:50.903'
+                      UsuarioID: 1
+                      NombreUsuario: admin@admin.com
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      ElementoID: 15
+                      FechaHoraUsuario: '2023-04-28T11:51:50.903'
+                      UsuarioID: 1
+                      NombreUsuario: admin@admin.com
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: 'accessToken '
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
       requestBody:
         content:
           application/json:
@@ -443,45 +455,45 @@ paths:
                 Example 1:
                   ArticuloID: 395
                   ClienteID: 84
-                  DireccionID: 63
-                  NumeroSerie: '191920'
-                  Nombre: YEI GUARDAR - Actualizar
-                  Ubicacion: Emplazamineto Prueba
-                  FechaInstalacion: '2023-04-11'
-                  FechaBaja: '2023-04-11'
-                  MotivoBaja: Porque si the flies
-                  InicioGarantia: '2023-03-26'
-                  FinalGarantia: '2023-03-26'
-                  Notas: Buenas tardes mis estimados
-                  Modelo: '1998'
-                  Marca: '1998'
+                  DireccionID: 1026
+                  NumeroSerie: '1701799'
+                  Nombre: JCO PRUEBA
+                  Ubicacion: Ubi Prueba
+                  FechaInstalacion: '2023-04-28'
+                  FechaBaja: '2023-04-28'
+                  MotivoBaja: Motivau
+                  InicioGarantia: '2023-01-10'
+                  FinalGarantia: '2023-01-10'
+                  Notas: Nota DIA
+                  Modelo: '2007'
+                  Marca: MarcaCH
                   TipoEquipoID: 748
                   NumeroSerieCliente: '555555'
                   Gmao_LayoutID: 11
                   CheckListApartadoID: 1
-                  Observaciones: dfgdg jijiji
+                  Observaciones: ObservaProof
             examples:
               Example 1:
                 value:
                   ArticuloID: 395
                   ClienteID: 84
-                  DireccionID: 63
-                  NumeroSerie: '191920'
-                  Nombre: YEI GUARDAR - Actualizar
-                  Ubicacion: Emplazamineto Prueba
-                  FechaInstalacion: '2023-04-11'
-                  FechaBaja: '2023-04-11'
-                  MotivoBaja: Porque si the flies
-                  InicioGarantia: '2023-03-26'
-                  FinalGarantia: '2023-03-26'
-                  Notas: Buenas tardes mis estimados
-                  Modelo: '1998'
-                  Marca: '1998'
+                  DireccionID: 1026
+                  NumeroSerie: '1701799'
+                  Nombre: JCO PRUEBA
+                  Ubicacion: Ubi Prueba
+                  FechaInstalacion: '2023-04-28'
+                  FechaBaja: '2023-04-28'
+                  MotivoBaja: Motivau
+                  InicioGarantia: '2023-01-10'
+                  FinalGarantia: '2023-01-10'
+                  Notas: Nota DIA
+                  Modelo: '2007'
+                  Marca: MarcaCH
                   TipoEquipoID: 748
                   NumeroSerieCliente: '555555'
                   Gmao_LayoutID: 11
                   CheckListApartadoID: 1
-                  Observaciones: dfgdg jijiji
+                  Observaciones: ObservaProof
   /equipment/light:
     get:
       summary: findLightListForEquipment
