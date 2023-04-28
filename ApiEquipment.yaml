@@ -445,7 +445,7 @@ paths:
                       success: true
                       sql: string
       operationId: get-users-userId
-      description: Retrieve the information of the user with the matching user ID.
+      description: ''
       parameters:
         - schema:
             type: string
