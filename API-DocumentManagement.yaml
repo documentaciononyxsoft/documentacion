@@ -1652,7 +1652,7 @@ paths:
                     ZDBGrupoUsuarioPermisosID: ''
   /documentManagement/permission/copy:
     put:
-      summary: ''
+      summary: Permission - Copy
       operationId: put-documentManagement-permission-copy
       responses:
         '200':
@@ -1660,8 +1660,11 @@ paths:
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
       requestBody:
         content:
           application/json:
@@ -1682,6 +1685,7 @@ paths:
                   sourceTableID: ''
                   destinationTable: ''
                   destinationTableID: ''
+      description: ''
   /documentManagement/permission/group:
     get:
       summary: Your GET endpoint
