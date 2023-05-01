@@ -901,7 +901,7 @@ paths:
         in: path
         required: true
     put:
-      summary: EquipmentHeader - Update
+      summary: Equipment - Update
       operationId: put-equipment-elementoID
       responses:
         '200':
@@ -1045,7 +1045,7 @@ paths:
                   CheckListApartadoID: 1
                   Observaciones: ObservaProof
     delete:
-      summary: EquipmentHeader - Delete
+      summary: Equipment - Delete
       operationId: delete-equipment-elementoID
       responses:
         '200':
@@ -1095,7 +1095,7 @@ paths:
         in: path
         description: Parámetro a buscar.
     get:
-      summary: EquipmentHeader - FindManyByFilter
+      summary: Equipment - FindManyByFilter
       tags: []
       responses:
         '200':
@@ -1377,7 +1377,7 @@ paths:
           required: true
   /equipments:
     get:
-      summary: EquipmentHeader - FindMany
+      summary: Equipment - FindMany
       tags: []
       responses:
         '200':
@@ -2109,6 +2109,83 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
       description: En la tabla avisoticketelemento "ticketID" = "AvisoTicketID" y se busca el "ElementoID"
+  /equipment/deliveryPurchases/light:
+    get:
+      summary: Equipment - findLightListDeliveryPurchases
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            AlbaranCompraCabeceraID:
+                              type: integer
+                            Numero:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - AlbaranCompraCabeceraID: 1
+                          Numero: 0
+                          Codigo: ''
+                          Nombre: ''
+                        - AlbaranCompraCabeceraID: 2
+                          Numero: 1
+                          Codigo: ''
+                          Nombre: ''
+                      sql: "SELECT albarancompracabecera.AlbaranCompraCabeceraID,\r\nalbarancompracabecera.Numero,\r\nproveedor.Codigo,\r\nmailing.Nombre\r\n\r\nFROM albarancompracabecera\r\nLEFT JOIN proveedor\r\nON albarancompracabecera.ProveedorID = proveedor.ProveedorID\r\nLEFT JOIN mailing\r\nON proveedor.MailingID = mailing.MailingID\r\n\r\nWHERE albarancompracabecera.CustomerID = 29\r\nAND albarancompracabecera.EmpresaID = 1"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - AlbaranCompraCabeceraID: 1
+                          Numero: 0
+                          Codigo: ''
+                          Nombre: ''
+                        - AlbaranCompraCabeceraID: 2
+                          Numero: 1
+                          Codigo: ''
+                          Nombre: ''
+                      sql: "SELECT albarancompracabecera.AlbaranCompraCabeceraID,\r\nalbarancompracabecera.Numero,\r\nproveedor.Codigo,\r\nmailing.Nombre\r\n\r\nFROM albarancompracabecera\r\nLEFT JOIN proveedor\r\nON albarancompracabecera.ProveedorID = proveedor.ProveedorID\r\nLEFT JOIN mailing\r\nON proveedor.MailingID = mailing.MailingID\r\n\r\nWHERE albarancompracabecera.CustomerID = 29\r\nAND albarancompracabecera.EmpresaID = 1"
+      operationId: get-equipment-deliveryPurchases-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+      description: ''
 components:
   schemas:
     User:
