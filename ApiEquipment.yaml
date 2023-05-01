@@ -2169,15 +2169,15 @@ paths:
                     content:
                       success: true
                       records:
-                        - AlbaranCompraCabeceraID: 1
-                          Numero: 0
-                          Codigo: ''
-                          Nombre: ''
-                        - AlbaranCompraCabeceraID: 2
+                        - AlbaranVentaCabeceraID: 2
                           Numero: 1
-                          Codigo: ''
-                          Nombre: ''
-                      sql: "SELECT albarancompracabecera.AlbaranCompraCabeceraID,\r\nalbarancompracabecera.Numero,\r\nproveedor.Codigo,\r\nmailing.Nombre\r\n\r\nFROM albarancompracabecera\r\nLEFT JOIN proveedor\r\nON albarancompracabecera.ProveedorID = proveedor.ProveedorID\r\nLEFT JOIN mailing\r\nON proveedor.MailingID = mailing.MailingID\r\n\r\nWHERE albarancompracabecera.CustomerID = 29\r\nAND albarancompracabecera.EmpresaID = 1"
+                          Codigo: '43000001'
+                          Nombre: dario
+                        - AlbaranVentaCabeceraID: 3
+                          Numero: 2
+                          Codigo: '43000001'
+                          Nombre: dario
+                      sql: "SELECT albaranventacabecera.AlbaranVentaCabeceraID,\r\nalbaranventacabecera.Numero,\r\ncliente.Codigo,\r\nmailing.Nombre\r\n\r\nFROM albaranventacabecera\r\nLEFT JOIN cliente\r\nON albaranventacabecera.ClienteID = cliente.ClienteID\r\nLEFT JOIN mailing\r\nON cliente.MailingID = mailing.MailingID \r\nWHERE albaranventacabecera.CustomerID = 29 \r\nAND albaranventacabecera.EmpresaID = 1"
       operationId: get-equipment-deliveryPurchases-light
       parameters:
         - schema:
@@ -2186,6 +2186,25 @@ paths:
           name: accessToken
           description: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
       description: ''
+  /equipment/deliverySales/light:
+    get:
+      summary: Equipment - findLightListDeliverySales
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+      operationId: get-equipment-deliverySales-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToke
+          description: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
 components:
   schemas:
     User:
