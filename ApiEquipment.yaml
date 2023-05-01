@@ -2575,6 +2575,129 @@ paths:
           in: header
           name: accessToken
           description: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+  /equipment/manufacturingOrder:
+    get:
+      summary: Equipment -findManyByParamManufacturingOrder
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Proyecto_OFID:
+                              type: integer
+                            Codigo:
+                              type: integer
+                            Nombre:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - Proyecto_OFID: 11
+                          Codigo: 25
+                          Nombre: PRUEBALUIS
+                        - Proyecto_OFID: 179
+                          Codigo: 271
+                          Nombre: TORNILLO DE PRUEBA
+                        - Proyecto_OFID: 182
+                          Codigo: 278
+                          Nombre: PRUEBA KALDEA
+                        - Proyecto_OFID: 189
+                          Codigo: 285
+                          Nombre: TORNILLO DE PRUEBA
+                        - Proyecto_OFID: 190
+                          Codigo: 286
+                          Nombre: TORNILLO DE PRUEBA
+                        - Proyecto_OFID: 191
+                          Codigo: 287
+                          Nombre: prueba
+                        - Proyecto_OFID: 192
+                          Codigo: 288
+                          Nombre: prueba
+                        - Proyecto_OFID: 204
+                          Codigo: 302
+                          Nombre: PRUEBA PIEZA BAJO PLANO
+                        - Proyecto_OFID: 205
+                          Codigo: 303
+                          Nombre: PRUEBA PIEZA BAJO PLANO
+                        - Proyecto_OFID: 208
+                          Codigo: 306
+                          Nombre: PIEZA DE PRUEBA
+                      sql: "SELECT Proyecto_OF.Proyecto_OFID,\r\nProyecto_OF.CodigoProyecto_OF,\r\nProyecto_OF.Nombre\r\n\r\nFROM Proyecto_OF\r\n\r\nWHERE Proyecto_OF.CustomerID = 29 \r\nAND Proyecto_OF.EmpresaID = 1\r\nAND (Proyecto_OF.CodigoProyecto_OF LIKE '%PRUEBA%' OR Proyecto_OF.Nombre LIKE '%PRUEBA%') \r\nLIMIT 10"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - Proyecto_OFID: 11
+                          Codigo: 25
+                          Nombre: PRUEBALUIS
+                        - Proyecto_OFID: 179
+                          Codigo: 271
+                          Nombre: TORNILLO DE PRUEBA
+                        - Proyecto_OFID: 182
+                          Codigo: 278
+                          Nombre: PRUEBA KALDEA
+                        - Proyecto_OFID: 189
+                          Codigo: 285
+                          Nombre: TORNILLO DE PRUEBA
+                        - Proyecto_OFID: 190
+                          Codigo: 286
+                          Nombre: TORNILLO DE PRUEBA
+                        - Proyecto_OFID: 191
+                          Codigo: 287
+                          Nombre: prueba
+                        - Proyecto_OFID: 192
+                          Codigo: 288
+                          Nombre: prueba
+                        - Proyecto_OFID: 204
+                          Codigo: 302
+                          Nombre: PRUEBA PIEZA BAJO PLANO
+                        - Proyecto_OFID: 205
+                          Codigo: 303
+                          Nombre: PRUEBA PIEZA BAJO PLANO
+                        - Proyecto_OFID: 208
+                          Codigo: 306
+                          Nombre: PIEZA DE PRUEBA
+                      sql: "SELECT Proyecto_OF.Proyecto_OFID,\r\nProyecto_OF.CodigoProyecto_OF,\r\nProyecto_OF.Nombre\r\n\r\nFROM Proyecto_OF\r\n\r\nWHERE Proyecto_OF.CustomerID = 29 \r\nAND Proyecto_OF.EmpresaID = 1\r\nAND (Proyecto_OF.CodigoProyecto_OF LIKE '%PRUEBA%' OR Proyecto_OF.Nombre LIKE '%PRUEBA%') \r\nLIMIT 10"
+      operationId: get-equipment-manufacturingOrder
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: param
+          description: PRUEBA
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
 components:
   schemas:
     User:
