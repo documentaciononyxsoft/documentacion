@@ -2845,5 +2845,45 @@ paths:
         in: path
         required: true
         description: '20'
+    put:
+      summary: ''
+      operationId: put-equipment-various-equipoID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  albaranCompraCabeceraID:
+                    type: integer
+                  albaranVentaCabeceraID:
+                    type: integer
+                  Proyecto_OFID:
+                    type: integer
+                x-examples:
+                  Example 1:
+                    albaranCompraCabeceraID: 292
+                    albaranVentaCabeceraID: 163
+                    Proyecto_OFID: 1164
+              examples:
+                Example 1:
+                  value:
+                    albaranCompraCabeceraID: 292
+                    albaranVentaCabeceraID: 163
+                    Proyecto_OFID: 1164
+      parameters:
+        - schema:
+            type: string
+          in: header
+          description: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          name: accessToken
+  /equipment/observations:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-equipment-observations
 components:
   schemas: {}
