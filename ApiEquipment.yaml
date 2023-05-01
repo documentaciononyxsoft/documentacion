@@ -2698,5 +2698,110 @@ paths:
           in: header
           name: accessToken
           description: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+  /equipment/various:
+    get:
+      summary: Equipment - FindManyVarious
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            EquipoID:
+                              type: integer
+                            AlbaranCompraCabeceraID:
+                              type: integer
+                            AlbaranVentaCabeceraID:
+                              type: integer
+                            numeroAlbaranVenta:
+                              type: integer
+                            clienteCodigo:
+                              type: string
+                            nombreCliente:
+                              type: string
+                            numeroAlbaranCompra:
+                              type: integer
+                            proveedorCodigo:
+                              type: string
+                            nombreProveedor:
+                              type: string
+                            Proyecto_OFID:
+                              type: integer
+                            codigoFabricacion:
+                              type: integer
+                            nombreFabricacion:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - EquipoID: 20
+                          AlbaranCompraCabeceraID: 292
+                          AlbaranVentaCabeceraID: 163
+                          numeroAlbaranVenta: 1
+                          clienteCodigo: '43000001'
+                          nombreCliente: dario
+                          numeroAlbaranCompra: 4546
+                          proveedorCodigo: '40020005'
+                          nombreProveedor: 'EUROETIQUETAS, S.L.'
+                          Proyecto_OFID: 1164
+                          codigoFabricacion: 784
+                          nombreFabricacion: Palo Madera Tubular 5 CM
+                      sql: "SELECT elemento.ElementoID,\r\nelemento.AlbaranCompraCabeceraID,\r\nelemento.AlbaranVentaCabeceraID,\r\nalbaranventacabecera.Numero AS numeroAlbaranVenta,\r\ncliente.Codigo AS clienteCodigo,\r\nmailingVenta.Nombre AS nombreCliente,\r\nalbarancompracabecera.Numero AS numeroAlbaranCompra,\r\nproveedor.Codigo AS proveedorCodigo,\r\nmailingCompra.Nombre AS nombreProveedor,\r\nelemento.Proyecto_OFID ,\r\nproyecto_of.CodigoProyecto_OF AS codigoFabricacion,\r\nproyecto_of.Nombre AS nombreFabricacion \r\n\r\nFROM elemento\r\nLEFT JOIN AlbaranVentaCabecera \r\nON elemento.AlbaranVentaCabeceraID = AlbaranVentaCabecera.AlbaranVentaCabeceraID\r\nLEFT JOIN cliente \r\nON albaranventacabecera.ClienteID = cliente.ClienteID\r\nLEFT JOIN mailing mailingVenta \r\nON mailingVenta.MailingID = cliente.MailingID\r\n\r\n\r\nLEFT JOIN AlbaranCompraCabecera \r\nON elemento.AlbaranCompraCabeceraID = albarancompracabecera.AlbaranCompraCabeceraID\r\nLEFT JOIN proveedor \r\nON albarancompracabecera.ProveedorID = proveedor.ProveedorID\r\nLEFT JOIN mailing mailingCompra \r\nON mailingCompra.MailingID = proveedor.MailingID\r\n\r\n\r\nLEFT JOIN proyecto_of\r\nON elemento.Proyecto_OFID = proyecto_of.Proyecto_OFID\r\n\r\n\r\n\r\nWHERE\r\nelemento.ElementoID = 20 \r\nAND elemento.CustomerID = 29\r\nAND elemento.EmpresaID = 1\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - EquipoID: 20
+                          AlbaranCompraCabeceraID: 292
+                          AlbaranVentaCabeceraID: 163
+                          numeroAlbaranVenta: 1
+                          clienteCodigo: '43000001'
+                          nombreCliente: dario
+                          numeroAlbaranCompra: 4546
+                          proveedorCodigo: '40020005'
+                          nombreProveedor: 'EUROETIQUETAS, S.L.'
+                          Proyecto_OFID: 1164
+                          codigoFabricacion: 784
+                          nombreFabricacion: Palo Madera Tubular 5 CM
+                      sql: "SELECT elemento.ElementoID,\r\nelemento.AlbaranCompraCabeceraID,\r\nelemento.AlbaranVentaCabeceraID,\r\nalbaranventacabecera.Numero AS numeroAlbaranVenta,\r\ncliente.Codigo AS clienteCodigo,\r\nmailingVenta.Nombre AS nombreCliente,\r\nalbarancompracabecera.Numero AS numeroAlbaranCompra,\r\nproveedor.Codigo AS proveedorCodigo,\r\nmailingCompra.Nombre AS nombreProveedor,\r\nelemento.Proyecto_OFID ,\r\nproyecto_of.CodigoProyecto_OF AS codigoFabricacion,\r\nproyecto_of.Nombre AS nombreFabricacion \r\n\r\nFROM elemento\r\nLEFT JOIN AlbaranVentaCabecera \r\nON elemento.AlbaranVentaCabeceraID = AlbaranVentaCabecera.AlbaranVentaCabeceraID\r\nLEFT JOIN cliente \r\nON albaranventacabecera.ClienteID = cliente.ClienteID\r\nLEFT JOIN mailing mailingVenta \r\nON mailingVenta.MailingID = cliente.MailingID\r\n\r\n\r\nLEFT JOIN AlbaranCompraCabecera \r\nON elemento.AlbaranCompraCabeceraID = albarancompracabecera.AlbaranCompraCabeceraID\r\nLEFT JOIN proveedor \r\nON albarancompracabecera.ProveedorID = proveedor.ProveedorID\r\nLEFT JOIN mailing mailingCompra \r\nON mailingCompra.MailingID = proveedor.MailingID\r\n\r\n\r\nLEFT JOIN proyecto_of\r\nON elemento.Proyecto_OFID = proyecto_of.Proyecto_OFID\r\n\r\n\r\n\r\nWHERE\r\nelemento.ElementoID = 20 \r\nAND elemento.CustomerID = 29\r\nAND elemento.EmpresaID = 1\r\n"
+      operationId: get-equipment-various
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+        - schema:
+            type: string
+          in: query
+          name: equipoID
+          description: '20'
 components:
   schemas: {}
