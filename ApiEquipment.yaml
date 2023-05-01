@@ -2803,5 +2803,47 @@ paths:
           in: query
           name: equipoID
           description: '20'
+  '/equipment/various/{equipoID}':
+    get:
+      summary: Equipment -UpdateVarious
+      tags: []
+      responses: {}
+      operationId: get-equipment-variou
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                albaranCompraCabeceraID:
+                  type: integer
+                albaranVentaCabeceraID:
+                  type: integer
+                Proyecto_OFID:
+                  type: integer
+              x-examples:
+                Example 1:
+                  albaranCompraCabeceraID: 292
+                  albaranVentaCabeceraID: 163
+                  Proyecto_OFID: 1164
+            examples:
+              Example 1:
+                value:
+                  albaranCompraCabeceraID: 292
+                  albaranVentaCabeceraID: 163
+                  Proyecto_OFID: 1164
+    parameters:
+      - schema:
+          type: string
+        name: equipoID
+        in: path
+        required: true
+        description: '20'
 components:
   schemas: {}
