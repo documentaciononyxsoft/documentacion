@@ -2209,7 +2209,135 @@ paths:
     get:
       summary: Equipment - findManyByParamDeliveryPurchase
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            AlbaranCompraCabeceraID:
+                              type: integer
+                            Numero:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - AlbaranCompraCabeceraID: 49
+                          Numero: 52
+                          Codigo: '01 '
+                          Nombre: LA GUIPUZCOANA-edgos
+                        - AlbaranCompraCabeceraID: 52
+                          Numero: 55
+                          Codigo: '01 '
+                          Nombre: LA GUIPUZCOANA-edgos
+                        - AlbaranCompraCabeceraID: 53
+                          Numero: 56
+                          Codigo: '01 '
+                          Nombre: LA GUIPUZCOANA-edgos
+                        - AlbaranCompraCabeceraID: 55
+                          Numero: 58
+                          Codigo: '01 '
+                          Nombre: LA GUIPUZCOANA-edgos
+                        - AlbaranCompraCabeceraID: 60
+                          Numero: 63
+                          Codigo: '01 '
+                          Nombre: LA GUIPUZCOANA-edgos
+                        - AlbaranCompraCabeceraID: 61
+                          Numero: 64
+                          Codigo: '01 '
+                          Nombre: LA GUIPUZCOANA-edgos
+                        - AlbaranCompraCabeceraID: 64
+                          Numero: 67
+                          Codigo: '01 '
+                          Nombre: LA GUIPUZCOANA-edgos
+                        - AlbaranCompraCabeceraID: 65
+                          Numero: 68
+                          Codigo: '01 '
+                          Nombre: LA GUIPUZCOANA-edgos
+                        - AlbaranCompraCabeceraID: 67
+                          Numero: 70
+                          Codigo: '01 '
+                          Nombre: LA GUIPUZCOANA-edgos
+                        - AlbaranCompraCabeceraID: 68
+                          Numero: 73
+                          Codigo: '01 '
+                          Nombre: LA GUIPUZCOANA-edgos
+                      sql: "SELECT albarancompracabecera.AlbaranCompraCabeceraID,\r\nalbarancompracabecera.Numero,\r\nproveedor.Codigo,\r\nmailing.Nombre\r\n\r\nFROM albarancompracabecera\r\nLEFT JOIN proveedor\r\nON albarancompracabecera.ProveedorID = proveedor.ProveedorID\r\nLEFT JOIN mailing\r\nON proveedor.MailingID = mailing.MailingID\r\n\r\nWHERE albarancompracabecera.CustomerID = 29\r\nAND albarancompracabecera.EmpresaID = 1\r\nAND (albarancompracabecera.Numero LIKE '%LA%' OR proveedor.Codigo LIKE '%LA%' \r\nOR mailing.Nombre LIKE '%LA%') \r\nLIMIT 10"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - AlbaranCompraCabeceraID: 49
+                          Numero: 52
+                          Codigo: '01 '
+                          Nombre: LA GUIPUZCOANA-edgos
+                        - AlbaranCompraCabeceraID: 52
+                          Numero: 55
+                          Codigo: '01 '
+                          Nombre: LA GUIPUZCOANA-edgos
+                        - AlbaranCompraCabeceraID: 53
+                          Numero: 56
+                          Codigo: '01 '
+                          Nombre: LA GUIPUZCOANA-edgos
+                        - AlbaranCompraCabeceraID: 55
+                          Numero: 58
+                          Codigo: '01 '
+                          Nombre: LA GUIPUZCOANA-edgos
+                        - AlbaranCompraCabeceraID: 60
+                          Numero: 63
+                          Codigo: '01 '
+                          Nombre: LA GUIPUZCOANA-edgos
+                        - AlbaranCompraCabeceraID: 61
+                          Numero: 64
+                          Codigo: '01 '
+                          Nombre: LA GUIPUZCOANA-edgos
+                        - AlbaranCompraCabeceraID: 64
+                          Numero: 67
+                          Codigo: '01 '
+                          Nombre: LA GUIPUZCOANA-edgos
+                        - AlbaranCompraCabeceraID: 65
+                          Numero: 68
+                          Codigo: '01 '
+                          Nombre: LA GUIPUZCOANA-edgos
+                        - AlbaranCompraCabeceraID: 67
+                          Numero: 70
+                          Codigo: '01 '
+                          Nombre: LA GUIPUZCOANA-edgos
+                        - AlbaranCompraCabeceraID: 68
+                          Numero: 73
+                          Codigo: '01 '
+                          Nombre: LA GUIPUZCOANA-edgos
+                      sql: "SELECT albarancompracabecera.AlbaranCompraCabeceraID,\r\nalbarancompracabecera.Numero,\r\nproveedor.Codigo,\r\nmailing.Nombre\r\n\r\nFROM albarancompracabecera\r\nLEFT JOIN proveedor\r\nON albarancompracabecera.ProveedorID = proveedor.ProveedorID\r\nLEFT JOIN mailing\r\nON proveedor.MailingID = mailing.MailingID\r\n\r\nWHERE albarancompracabecera.CustomerID = 29\r\nAND albarancompracabecera.EmpresaID = 1\r\nAND (albarancompracabecera.Numero LIKE '%LA%' OR proveedor.Codigo LIKE '%LA%' \r\nOR mailing.Nombre LIKE '%LA%') \r\nLIMIT 10"
       operationId: get-equipment-deliveryPurchase
       parameters:
         - schema:
@@ -2221,6 +2349,7 @@ paths:
             type: string
           in: query
           name: param
+          description: LA
   /equipment/deliverySale:
     get:
       summary: Equipment - findManyByParamDeliverySale
