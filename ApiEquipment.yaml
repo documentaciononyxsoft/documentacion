@@ -2910,5 +2910,101 @@ paths:
           in: query
           name: equipoID
           description: '20'
+  '/equipment/observation/{equipoID}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: 'get-http:-localhost:8026-equipment-observation-20'
+    parameters:
+      - schema:
+          type: string
+        name: equipoID
+        in: path
+        required: true
+        description: '20'
+    put:
+      summary: Equipment - UpdateObservations
+      operationId: put-equipment-observation
+      responses:
+        '200':
+          description: OK
+        '':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: object
+                        properties:
+                          success:
+                            type: boolean
+                          records:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                EquipoID:
+                                  type: integer
+                                Observaciones:
+                                  type: string
+                          sql:
+                            type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        success: true
+                        records:
+                          - EquipoID: 20
+                            Observaciones: 'La fragilidad humana es como una burbuja de jabón en medio de una ventisca de incertidumbre, donde cada soplido del destino puede hacerla explotar en mil pedazos, dejando al descubierto la esencia frágil y efímera de nuestra existencia, en un mundo que muchas veces parece indiferente a nuestra presencia'
+                        sql: "SELECT elemento.ElementoID,\r\nelemento.Observaciones\r\nFROM elemento\r\nWHERE\r\nelemento.ElementoID = 20 \r\nAND elemento.CustomerID = 29\r\nAND elemento.EmpresaID = 1\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        success: true
+                        records:
+                          - EquipoID: 20
+                            Observaciones: 'La fragilidad humana es como una burbuja de jabón en medio de una ventisca de incertidumbre, donde cada soplido del destino puede hacerla explotar en mil pedazos, dejando al descubierto la esencia frágil y efímera de nuestra existencia, en un mundo que muchas veces parece indiferente a nuestra presencia'
+                        sql: "SELECT elemento.ElementoID,\r\nelemento.Observaciones\r\nFROM elemento\r\nWHERE\r\nelemento.ElementoID = 20 \r\nAND elemento.CustomerID = 29\r\nAND elemento.EmpresaID = 1\r\n"
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                observaciones:
+                  type: string
+              x-examples:
+                Example 1:
+                  observaciones: 'La fragilidad humana es como una burbuja de jabón en medio de una ventisca de incertidumbre, donde cada soplido del destino puede hacerla explotar en mil pedazos, dejando al descubierto la esencia frágil y efímera de nuestra existencia, en un mundo que muchas veces parece indiferente a nuestra presencia'
+            examples:
+              Example 1:
+                value:
+                  observaciones: 'La fragilidad humana es como una burbuja de jabón en medio de una ventisca de incertidumbre, donde cada soplido del destino puede hacerla explotar en mil pedazos, dejando al descubierto la esencia frágil y efímera de nuestra existencia, en un mundo que muchas veces parece indiferente a nuestra presencia'
 components:
   schemas: {}
