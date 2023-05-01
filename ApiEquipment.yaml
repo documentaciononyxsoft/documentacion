@@ -2232,7 +2232,72 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            AlbaranVentaCabeceraID:
+                              type: integer
+                            Numero:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - AlbaranVentaCabeceraID: 90
+                          Numero: 108
+                          Codigo: '43031001'
+                          Nombre: INDUSTRIAS CORELLA
+                        - AlbaranVentaCabeceraID: 93
+                          Numero: 111
+                          Codigo: '43020021'
+                          Nombre: INDUSTRIAS LAGO
+                        - AlbaranVentaCabeceraID: 749
+                          Numero: 772
+                          Codigo: '43031001'
+                          Nombre: INDUSTRIAS CORELLA
+                      sql: "SELECT albaranventacabecera.AlbaranVentaCabeceraID,\r\nalbaranventacabecera.Numero,\r\ncliente.Codigo,\r\nmailing.Nombre\r\n\r\nFROM albaranventacabecera\r\nLEFT JOIN cliente\r\nON albaranventacabecera.ClienteID = cliente.ClienteID\r\nLEFT JOIN mailing\r\nON cliente.MailingID = mailing.MailingID \r\nWHERE albaranventacabecera.CustomerID = 29 \r\nAND albaranventacabecera.EmpresaID = 1\r\n\r\n\r\n\r\n\r\nAND (albaranventacabecera.Numero LIKE '%LA%' OR cliente.Codigo LIKE '%LA%' \r\nOR mailing.Nombre LIKE '%LA%') \r\nLIMIT 10"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - AlbaranVentaCabeceraID: 90
+                          Numero: 108
+                          Codigo: '43031001'
+                          Nombre: INDUSTRIAS CORELLA
+                        - AlbaranVentaCabeceraID: 93
+                          Numero: 111
+                          Codigo: '43020021'
+                          Nombre: INDUSTRIAS LAGO
+                        - AlbaranVentaCabeceraID: 749
+                          Numero: 772
+                          Codigo: '43031001'
+                          Nombre: INDUSTRIAS CORELLA
+                      sql: "SELECT albaranventacabecera.AlbaranVentaCabeceraID,\r\nalbaranventacabecera.Numero,\r\ncliente.Codigo,\r\nmailing.Nombre\r\n\r\nFROM albaranventacabecera\r\nLEFT JOIN cliente\r\nON albaranventacabecera.ClienteID = cliente.ClienteID\r\nLEFT JOIN mailing\r\nON cliente.MailingID = mailing.MailingID \r\nWHERE albaranventacabecera.CustomerID = 29 \r\nAND albaranventacabecera.EmpresaID = 1\r\n\r\n\r\n\r\n\r\nAND (albaranventacabecera.Numero LIKE '%LA%' OR cliente.Codigo LIKE '%LA%' \r\nOR mailing.Nombre LIKE '%LA%') \r\nLIMIT 10"
       operationId: get-equipment-deliverySale
       parameters:
         - schema:
