@@ -1448,7 +1448,7 @@ paths:
           description: Token Reciente
   /models:
     get:
-      summary: Vehicle -FindManyModels
+      summary: Vehicle - FindManyModels
       tags: []
       responses:
         '200':
