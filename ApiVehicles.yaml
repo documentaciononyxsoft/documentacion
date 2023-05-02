@@ -1946,5 +1946,137 @@ paths:
                 value:
                   Nombre: SpiderGH
                   MarcaID: 5
+  '/model/{modeloID}':
+    parameters:
+      - schema:
+          type: string
+          example: '8'
+        name: modeloID
+        in: path
+        required: true
+        description: Id del modelo
+    put:
+      summary: Vehicles - UpdateModel
+      operationId: put-model-modeloID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      modeloID:
+                        type: integer
+                      FechaHoraUsuario:
+                        type: string
+                      marcaID:
+                        type: integer
+                      Nombre:
+                        type: string
+                      CustomerID:
+                        type: integer
+                      EmpresaID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      modeloID: 8
+                      FechaHoraUsuario: '2023-05-02T15:42:35.750'
+                      marcaID: 5
+                      Nombre: SpiderGH
+                      CustomerID: 29
+                      EmpresaID: 1
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      modeloID: 8
+                      FechaHoraUsuario: '2023-05-02T15:42:35.750'
+                      marcaID: 5
+                      Nombre: SpiderGH
+                      CustomerID: 29
+                      EmpresaID: 1
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: Token Reciente
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Nombre:
+                  type: string
+                MarcaID:
+                  type: integer
+              x-examples:
+                Example 1:
+                  Nombre: SpiderGH
+                  MarcaID: 5
+            examples:
+              Example 1:
+                value:
+                  Nombre: SpiderGH
+                  MarcaID: 5
+    delete:
+      summary: Vehicles - RemoveModel
+      operationId: delete-model-modeloID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: Token Reciente
 components:
   schemas: {}
