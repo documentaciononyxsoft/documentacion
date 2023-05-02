@@ -3308,5 +3308,98 @@ paths:
           in: query
           name: direccionID
           required: true
+  /equipment/preventiveMaintenance:
+    post:
+      summary: PreventiveMaintenance - Create
+      operationId: post-equipment-preventiveMaintenance
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      mantenimientoPreventivoID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      mantenimientoPreventivoID: 1
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      mantenimientoPreventivoID: 1
+      parameters:
+        - schema:
+            type: string
+            example: ' eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg'
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fechaAlta:
+                  type: string
+                fechaBaja:
+                  type: string
+                concepto:
+                  type: string
+                frecuencia:
+                  type: integer
+                periodo:
+                  type: string
+                dia:
+                  type: integer
+                desdeHora:
+                  type: string
+                hastaHora:
+                  type: string
+                equipoID:
+                  type: integer
+              x-examples:
+                Example 1:
+                  fechaAlta: ''
+                  fechaBaja: ''
+                  concepto: ''
+                  frecuencia: 0
+                  periodo: ''
+                  dia: 0
+                  desdeHora: ''
+                  hastaHora: ''
+                  equipoID: 0
+            examples:
+              Example 1:
+                value:
+                  fechaAlta: '2023-05-02'
+                  fechaBaja: '2023-05-02'
+                  concepto: Prueba
+                  frecuencia: 10
+                  periodo: Pe
+                  dia: 5
+                  desdeHora: ''
+                  hastaHora: ''
+                  equipoID: 24
 components:
   schemas: {}
