@@ -3401,5 +3401,101 @@ paths:
                   desdeHora: '10:40'
                   hastaHora: '15:00'
                   equipoID: 24
+  '/equipment/preventiveMaintenance/{mantenimientoPreventivoID}':
+    parameters:
+      - schema:
+          type: string
+          example: '3'
+        name: mantenimientoPreventivoID
+        in: path
+        required: true
+    put:
+      summary: PreventiveMaintenance - Update
+      operationId: put-equipment-preventiveMaintenance-mantenimientoPreventivoID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fechaAlta:
+                  type: string
+                fechaBaja:
+                  type: string
+                concepto:
+                  type: string
+                frecuencia:
+                  type: integer
+                periodo:
+                  type: string
+                dia:
+                  type: integer
+                desdeHora:
+                  type: string
+                hastaHora:
+                  type: string
+                equipoID:
+                  type: integer
+              x-examples:
+                Example 1:
+                  fechaAlta: '20230502'
+                  fechaBaja: '20230502'
+                  concepto: Prueba
+                  frecuencia: 10
+                  periodo: Pe
+                  dia: 5
+                  desdeHora: '10:40'
+                  hastaHora: '15:00'
+                  equipoID: 24
+            examples:
+              Example 1:
+                value:
+                  fechaAlta: '20230302'
+                  fechaBaja: '20230312'
+                  concepto: PruebaUpdate
+                  frecuencia: 8
+                  periodo: Pe
+                  dia: 5
+                  desdeHora: '09:00'
+                  hastaHora: '11:00'
+                  equipoID: 24
 components:
   schemas: {}
