@@ -4793,12 +4793,12 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '689'
         name: proyectoOFID
         in: path
         required: true
-        description: '689'
     get:
-      summary: findManyLaborForIntervention
+      summary: InterventionLabor - FindMany
       tags: []
       responses:
         '200':
@@ -4831,9 +4831,9 @@ paths:
                             AvisoTicketIntervencionID:
                               type: integer
                             CantidadFabricada:
-                              type: integer
+                              type: number
                             CantidadRechazada:
-                              type: integer
+                              type: number
                             ClaveTrabajo:
                               type: string
                             Concepto:
@@ -4883,7 +4883,7 @@ paths:
                             ProcesoID:
                               type: integer
                             TasaOperario:
-                              type: integer
+                              type: number
                             TasaPreparacion:
                               type: integer
                             TasaProduccion:
@@ -4935,54 +4935,121 @@ paths:
                           AlbaranVentaCabeceraID: 0
                           AlbaranVentaLineaID: 0
                           AvisoTicketIntervencionID: 0
-                          CantidadFabricada: 0
-                          CantidadRechazada: 0
-                          ClaveTrabajo: ''
-                          Concepto: ''
+                          CantidadFabricada: 39245.2
+                          CantidadRechazada: 1049.2
+                          ClaveTrabajo: T
+                          Concepto: 'OF: 702 - Proceso: 740 Proceso (Producción)'
                           ContactID: 0
                           CustomerID: 29
-                          EmpleadoID: 24
+                          EmpleadoID: 131
                           EmpresaID: 1
-                          FactorMaquina: 0
-                          FactorOperario: 0
+                          FactorMaquina: 100
+                          FactorOperario: 100
                           FechaHoraEliminado: '0000-00-00T00:00:00.000'
                           FechaHoraModificado: '0000-00-00T00:00:00.000'
                           FechaHoraNuevo: '0000-00-00T00:00:00.000'
-                          FechaHoraUsuario: '2018-10-19T11:37:47.000'
-                          Fechaimputacion: ''
-                          FichajeCaptadorID: 0
-                          Final: '2018-10-19T10:25:00.000'
-                          Inicio: '2018-10-19T06:00:00.000'
-                          MailingID: 0
-                          MaquinaID: 0
+                          FechaHoraUsuario: '2022-01-10T06:41:59.246'
+                          Fechaimputacion: '20220110'
+                          FichajeCaptadorID: 1100
+                          Final: '2022-01-10T06:41:58.856'
+                          Inicio: '2022-01-10T06:28:32.384'
+                          MailingID: 517
+                          MaquinaID: 2
                           motivoID: 0
-                          Notas: Ajuste y revision del ....
+                          Notas: ''
                           PesoChatarra: 0
                           PesoPieza: 0
                           ProcesoGastoID: 0
-                          ProcesoID: 3742
-                          TasaOperario: 15
+                          ProcesoID: 700
+                          TasaOperario: 75.91
                           TasaPreparacion: 0
                           TasaProduccion: 0
-                          Tiempo: 15900000
-                          TiempoTrabajoID: 16302
+                          Tiempo: 806472
+                          TiempoTrabajoID: 543
                           TiempoTrabajoID1: 0
-                          TipoHora_GrupoPrecioHoraID: 24
+                          TipoHora_GrupoPrecioHoraID: 15
                           TipoInterrupcionID: 0
                           TipoRechazoID: 0
                           TipoTurnoID: 0
                           TrabajoAsignadoKanbanProcesoTrabajoID: 0
                           TrabajoID: 0
                           TurnoID: 0
-                          UsuarioID: 3
+                          UsuarioID: 14
                           Viaje: 0
                           WebID: 0
                           TipoRechazoNombre: ''
                           TipoInterrupcionNombre: ''
                           TurnoNombre: ''
-                          EmpleadoNombre: Antonio Lopez Rubio
-                          EmpleadoCodigo: '1'
+                          EmpleadoNombre: GONZALEZ MANCERA ALEJANDRA
+                          EmpleadoCodigo: '70166922'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - AlbaranCompraLineaID: 0
+                          AlbaranVentaCabeceraID: 0
+                          AlbaranVentaLineaID: 0
+                          AvisoTicketIntervencionID: 0
+                          CantidadFabricada: 39245.2
+                          CantidadRechazada: 1049.2
+                          ClaveTrabajo: T
+                          Concepto: 'OF: 702 - Proceso: 740 Proceso (Producción)'
+                          ContactID: 0
+                          CustomerID: 29
+                          EmpleadoID: 131
+                          EmpresaID: 1
+                          FactorMaquina: 100
+                          FactorOperario: 100
+                          FechaHoraEliminado: '0000-00-00T00:00:00.000'
+                          FechaHoraModificado: '0000-00-00T00:00:00.000'
+                          FechaHoraNuevo: '0000-00-00T00:00:00.000'
+                          FechaHoraUsuario: '2022-01-10T06:41:59.246'
+                          Fechaimputacion: '20220110'
+                          FichajeCaptadorID: 1100
+                          Final: '2022-01-10T06:41:58.856'
+                          Inicio: '2022-01-10T06:28:32.384'
+                          MailingID: 517
+                          MaquinaID: 2
+                          motivoID: 0
+                          Notas: ''
+                          PesoChatarra: 0
+                          PesoPieza: 0
+                          ProcesoGastoID: 0
+                          ProcesoID: 700
+                          TasaOperario: 75.91
+                          TasaPreparacion: 0
+                          TasaProduccion: 0
+                          Tiempo: 806472
+                          TiempoTrabajoID: 543
+                          TiempoTrabajoID1: 0
+                          TipoHora_GrupoPrecioHoraID: 15
+                          TipoInterrupcionID: 0
+                          TipoRechazoID: 0
+                          TipoTurnoID: 0
+                          TrabajoAsignadoKanbanProcesoTrabajoID: 0
+                          TrabajoID: 0
+                          TurnoID: 0
+                          UsuarioID: 14
+                          Viaje: 0
+                          WebID: 0
+                          TipoRechazoNombre: ''
+                          TipoInterrupcionNombre: ''
+                          TurnoNombre: ''
+                          EmpleadoNombre: GONZALEZ MANCERA ALEJANDRA
+                          EmpleadoCodigo: '70166922'
       operationId: get-intervention-labor-proyectoOFID
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /groups/light:
     get:
       summary: findLightListForGroup
