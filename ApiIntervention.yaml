@@ -12496,7 +12496,7 @@ paths:
                           Fecha: '20220111'
                           Importe: 13738.09
                           MailingID: 521
-                          Notas: "NotaTest\r\n"
+                          Notas: NotaTest
                           UsuarioID: 34
                           NumeroFactura: ''
                           AlbaranCompraLineaID: 0
@@ -12529,101 +12529,6 @@ paths:
                           NumeroFactura: ''
                           AlbaranCompraLineaID: 0
                           FechaFactura: ''
-        '':
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      data:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ProcesoTrabajoExteriorID:
-                              type: integer
-                            ProcesoID:
-                              type: integer
-                            Fecha:
-                              type: string
-                            Importe:
-                              type: integer
-                            MailingID:
-                              type: integer
-                            Notas:
-                              type: string
-                            UsuarioID:
-                              type: integer
-                            NumeroFactura:
-                              type: integer
-                            AlbaranCompraLineaID:
-                              type: integer
-                            FechaFactura:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - ProcesoTrabajoExteriorID: 54
-                          ProcesoID: 3784
-                          Fecha: '20230307'
-                          Importe: 500
-                          MailingID: 1
-                          Notas: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17 hola hola hola\\par\r\n}\r\n"
-                          UsuarioID: 2
-                          NumeroFactura: 666
-                          AlbaranCompraLineaID: 0
-                          FechaFactura: ''
-                        - ProcesoTrabajoExteriorID: 55
-                          ProcesoID: 3784
-                          Fecha: ''
-                          Importe: 0
-                          MailingID: 0
-                          Notas: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
-                          UsuarioID: 2
-                          NumeroFactura: 0
-                          AlbaranCompraLineaID: 0
-                          FechaFactura: ''
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - ProcesoTrabajoExteriorID: 54
-                          ProcesoID: 3784
-                          Fecha: '20230307'
-                          Importe: 500
-                          MailingID: 1
-                          Notas: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17 hola hola hola\\par\r\n}\r\n"
-                          UsuarioID: 2
-                          NumeroFactura: 666
-                          AlbaranCompraLineaID: 0
-                          FechaFactura: ''
-                        - ProcesoTrabajoExteriorID: 55
-                          ProcesoID: 3784
-                          Fecha: ''
-                          Importe: 0
-                          MailingID: 0
-                          Notas: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
-                          UsuarioID: 2
-                          NumeroFactura: 0
-                          AlbaranCompraLineaID: 0
-                          FechaFactura: ''
       operationId: 'get-http:-localhost:8026-intervention-externalWorks-procesoID'
       parameters:
         - schema:
@@ -12633,7 +12538,6 @@ paths:
           name: 'accessToken '
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
-      x-extension-1: null
   /vehicle/light:
     get:
       summary: findLightListForVehicle
