@@ -3121,7 +3121,87 @@ paths:
     get:
       summary: Layout - FindManyByParam
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Gmao_LayoutID:
+                              type: integer
+                            Titulo:
+                              type: string
+                            Descripcion:
+                              type: string
+                            DireccionID:
+                              type: integer
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - Gmao_LayoutID: 6
+                          Titulo: LINEA 1
+                          Descripcion: ''
+                          DireccionID: 968
+                        - Gmao_LayoutID: 7
+                          Titulo: LINEA 2
+                          Descripcion: ''
+                          DireccionID: 968
+                        - Gmao_LayoutID: 8
+                          Titulo: LINEA 3
+                          Descripcion: ''
+                          DireccionID: 968
+                        - Gmao_LayoutID: 9
+                          Titulo: LINEA 4
+                          Descripcion: ''
+                          DireccionID: 968
+                      sql: "SELECT\r\ngmao_layout.Gmao_LayoutID,\r\ngmao_layout.Titulo,\r\ngmao_layout.Descripcion,\r\ngmao_layout.DireccionID\r\n\r\nFROM \r\ngmao_layout\r\n \r\nWHERE \r\ngmao_layout.CustomerID = 29 AND\r\ngmao_layout.EmpresaID = 1 AND\r\ngmao_layout.DireccionID = 968 AND\r\n(gmao_layout.Titulo LIKE '%linea%' OR gmao_layout.Descripcion LIKE '%linea%')\r\n\r\nLIMIT 10\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - Gmao_LayoutID: 6
+                          Titulo: LINEA 1
+                          Descripcion: ''
+                          DireccionID: 968
+                        - Gmao_LayoutID: 7
+                          Titulo: LINEA 2
+                          Descripcion: ''
+                          DireccionID: 968
+                        - Gmao_LayoutID: 8
+                          Titulo: LINEA 3
+                          Descripcion: ''
+                          DireccionID: 968
+                        - Gmao_LayoutID: 9
+                          Titulo: LINEA 4
+                          Descripcion: ''
+                          DireccionID: 968
+                      sql: string
       operationId: get-layout
       parameters:
         - schema:
@@ -3133,13 +3213,13 @@ paths:
           name: accessToken
         - schema:
             type: string
-            example: '14'
+            example: '968'
           in: query
           name: direccionID
           required: true
         - schema:
             type: string
-            example: edificio
+            example: linea
           in: query
           name: param
 components:
