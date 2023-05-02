@@ -12421,9 +12421,16 @@ paths:
           name: 'accessToken '
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
-  /vehicle/light:
+  '/intervention/externalWorks/{procesoID}':
+    parameters:
+      - schema:
+          type: string
+          example: '3784'
+        name: procesoID
+        in: path
+        required: true
     get:
-      summary: findLightListForVehicle
+      summary: InterventionExWork - FindMany
       tags: []
       responses:
         '200':
@@ -12442,18 +12449,30 @@ paths:
                     properties:
                       success:
                         type: boolean
-                      sql:
-                        type: string
-                      records:
+                      data:
                         type: array
                         items:
                           type: object
                           properties:
-                            ID:
+                            ProcesoTrabajoExteriorID:
                               type: integer
-                            Nombre:
+                            ProcesoID:
+                              type: integer
+                            Fecha:
                               type: string
-                            Codigo:
+                            Importe:
+                              type: number
+                            MailingID:
+                              type: integer
+                            Notas:
+                              type: string
+                            UsuarioID:
+                              type: integer
+                            NumeroFactura:
+                              type: string
+                            AlbaranCompraLineaID:
+                              type: integer
+                            FechaFactura:
                               type: string
                 x-examples:
                   Example 1:
@@ -12461,26 +12480,27 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      sql: "SELECT vehiculo.VehiculoID , vehiculo.Codigo ,vehiculo.Matricula\r\nFROM vehiculo \r\nWHERE vehiculo.CustomerID = 29 AND vehiculo.EmpresaID = 1 \r\n"
-                      records:
-                        - ID: 1
-                          Nombre: '242342'
-                          Codigo: '231231'
-                        - ID: 2
-                          Nombre: 3525 GSM
-                          Codigo: '1'
-                        - ID: 7
-                          Nombre: QWEERRTY
-                          Codigo: '6'
-                        - ID: 8
-                          Nombre: FDSFDSFDS
-                          Codigo: '7'
-                        - ID: 12
-                          Nombre: WREWRW
-                          Codigo: '11'
-                        - ID: 13
-                          Nombre: SDADAS
-                          Codigo: '12'
+                      data:
+                        - ProcesoTrabajoExteriorID: 3
+                          ProcesoID: 784
+                          Fecha: '20220111'
+                          Importe: 13738.09
+                          MailingID: 521
+                          Notas: EsteUnString
+                          UsuarioID: 34
+                          NumeroFactura: ''
+                          AlbaranCompraLineaID: 0
+                          FechaFactura: ''
+                        - ProcesoTrabajoExteriorID: 6
+                          ProcesoID: 784
+                          Fecha: '20220111'
+                          Importe: 13738.09
+                          MailingID: 521
+                          Notas: "NotaTest\r\n"
+                          UsuarioID: 34
+                          NumeroFactura: ''
+                          AlbaranCompraLineaID: 0
+                          FechaFactura: ''
               examples:
                 Example 1:
                   value:
@@ -12488,52 +12508,27 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      sql: "SELECT vehiculo.VehiculoID , vehiculo.Codigo ,vehiculo.Matricula\r\nFROM vehiculo \r\nWHERE vehiculo.CustomerID = 29 AND vehiculo.EmpresaID = 1 \r\n"
-                      records:
-                        - ID: 1
-                          Nombre: '242342'
-                          Codigo: '231231'
-                        - ID: 2
-                          Nombre: 3525 GSM
-                          Codigo: '1'
-                        - ID: 7
-                          Nombre: QWEERRTY
-                          Codigo: '6'
-                        - ID: 8
-                          Nombre: FDSFDSFDS
-                          Codigo: '7'
-                        - ID: 12
-                          Nombre: WREWRW
-                          Codigo: '11'
-                        - ID: 13
-                          Nombre: SDADAS
-                          Codigo: '12'
-      operationId: get-vehicle-light
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-  '/intervention/externalWorks/{procesoID}':
-    parameters:
-      - schema:
-          type: string
-        name: procesoID
-        in: path
-        required: true
-        description: '3784'
-    get:
-      summary: FindManyExternalWorkForIntervention
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
+                      data:
+                        - ProcesoTrabajoExteriorID: 3
+                          ProcesoID: 784
+                          Fecha: '20220111'
+                          Importe: 13738.09
+                          MailingID: 521
+                          Notas: EsteUnString
+                          UsuarioID: 34
+                          NumeroFactura: ''
+                          AlbaranCompraLineaID: 0
+                          FechaFactura: ''
+                        - ProcesoTrabajoExteriorID: 6
+                          ProcesoID: 784
+                          Fecha: '20220111'
+                          Importe: 13738.09
+                          MailingID: 521
+                          Notas: NotaTest
+                          UsuarioID: 34
+                          NumeroFactura: ''
+                          AlbaranCompraLineaID: 0
+                          FechaFactura: ''
         '':
           content:
             application/json:
@@ -12633,9 +12628,106 @@ paths:
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
       x-extension-1: null
+  /vehicle/light:
+    get:
+      summary: findLightListForVehicle
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT vehiculo.VehiculoID , vehiculo.Codigo ,vehiculo.Matricula\r\nFROM vehiculo \r\nWHERE vehiculo.CustomerID = 29 AND vehiculo.EmpresaID = 1 \r\n"
+                      records:
+                        - ID: 1
+                          Nombre: '242342'
+                          Codigo: '231231'
+                        - ID: 2
+                          Nombre: 3525 GSM
+                          Codigo: '1'
+                        - ID: 7
+                          Nombre: QWEERRTY
+                          Codigo: '6'
+                        - ID: 8
+                          Nombre: FDSFDSFDS
+                          Codigo: '7'
+                        - ID: 12
+                          Nombre: WREWRW
+                          Codigo: '11'
+                        - ID: 13
+                          Nombre: SDADAS
+                          Codigo: '12'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT vehiculo.VehiculoID , vehiculo.Codigo ,vehiculo.Matricula\r\nFROM vehiculo \r\nWHERE vehiculo.CustomerID = 29 AND vehiculo.EmpresaID = 1 \r\n"
+                      records:
+                        - ID: 1
+                          Nombre: '242342'
+                          Codigo: '231231'
+                        - ID: 2
+                          Nombre: 3525 GSM
+                          Codigo: '1'
+                        - ID: 7
+                          Nombre: QWEERRTY
+                          Codigo: '6'
+                        - ID: 8
+                          Nombre: FDSFDSFDS
+                          Codigo: '7'
+                        - ID: 12
+                          Nombre: WREWRW
+                          Codigo: '11'
+                        - ID: 13
+                          Nombre: SDADAS
+                          Codigo: '12'
+      operationId: get-vehicle-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
   /materialsImputation/validateQuantity:
     get:
       summary: validateQuantityForMaterialsImputation
