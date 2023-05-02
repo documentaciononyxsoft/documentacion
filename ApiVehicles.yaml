@@ -1345,5 +1345,106 @@ paths:
             schema:
               type: object
               properties: {}
+  /brands:
+    get:
+      summary: Vehicles - FindManyBrands
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            MarcaID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            CustomerID:
+                              type: integer
+                            EmpresaID:
+                              type: integer
+                            UsuarioID:
+                              type: integer
+                            FechaHoraUsuario:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - MarcaID: 1
+                          Nombre: Renault
+                          CustomerID: 29
+                          EmpresaID: 1
+                          UsuarioID: 3
+                          FechaHoraUsuario: '2020-01-08T09:44:25.000'
+                        - MarcaID: 2
+                          Nombre: VW
+                          CustomerID: 29
+                          EmpresaID: 1
+                          UsuarioID: 3
+                          FechaHoraUsuario: '2020-01-08T09:44:29.000'
+                        - MarcaID: 3
+                          Nombre: Audi
+                          CustomerID: 29
+                          EmpresaID: 1
+                          UsuarioID: 3
+                          FechaHoraUsuario: '2020-01-08T09:44:33.000'
+                      sql: "SELECT * \r\nFROM Marca\r\nWHERE Marca.CustomerID = 29\r\nAND Marca.EmpresaID = 1\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - MarcaID: 1
+                          Nombre: Renault
+                          CustomerID: 29
+                          EmpresaID: 1
+                          UsuarioID: 3
+                          FechaHoraUsuario: '2020-01-08T09:44:25.000'
+                        - MarcaID: 2
+                          Nombre: VW
+                          CustomerID: 29
+                          EmpresaID: 1
+                          UsuarioID: 3
+                          FechaHoraUsuario: '2020-01-08T09:44:29.000'
+                        - MarcaID: 3
+                          Nombre: Audi
+                          CustomerID: 29
+                          EmpresaID: 1
+                          UsuarioID: 3
+                          FechaHoraUsuario: '2020-01-08T09:44:33.000'
+                      sql: "SELECT * \r\nFROM Marca\r\nWHERE Marca.CustomerID = 29\r\nAND Marca.EmpresaID = 1\r\n"
+      operationId: get-brands
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: Token Reciente
 components:
   schemas: {}
