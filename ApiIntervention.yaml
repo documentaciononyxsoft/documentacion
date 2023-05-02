@@ -11785,9 +11785,9 @@ paths:
                   Fecha: '20230223'
                   ProcesoID: '5198'
                   Cantidad: '2'
-                  Precio: '1000'
+                  Precio: '1500'
                   Importe: '100'
-                  Notas: hola q mas xd
+                  Notas: pruebapuertorico
                   EmpleadoID: '3'
                   TipoProcesoGastoID: '3'
                   TiempoTrabajoID: ''
@@ -11802,9 +11802,9 @@ paths:
                   Fecha: '20230223'
                   ProcesoID: '5198'
                   Cantidad: '2'
-                  Precio: '1000'
+                  Precio: '1500'
                   Importe: '100'
-                  Notas: hola q mas xd
+                  Notas: pruebapuertorico
                   EmpleadoID: '3'
                   TipoProcesoGastoID: '3'
                   TiempoTrabajoID: ''
@@ -11816,10 +11816,10 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '3'
         name: procesoGastoID
         in: path
         required: true
-        description: '119'
     delete:
       summary: InterventionExpense - Delete
       operationId: delete-intervention-expense-procesoGastoID
