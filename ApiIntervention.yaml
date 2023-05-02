@@ -12094,6 +12094,106 @@ paths:
                   ticketID: 2
                   fechaDesdeIN: '20230502000000'
                   fechaHastaIN: '20230502000000'
+  /interventions/planification:
+    get:
+      summary: Planification - FindManyByTicket
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            FechaInicio:
+                              type: string
+                            FechaFinal:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: select * from avisoticketplanificacion where avisoticketplanificacionid not in (select avisoticketplanificacionid from avisoticketintervencion where avisoticketplanificacionid > 0) and AvisoTicketID =  2
+                      records:
+                        - ID: 12
+                          Nombre: 'Planificación del 04/04/2023 00:00:00:0'
+                          FechaInicio: '04/04/2023 00:00:00:0'
+                          FechaFinal: '04/04/2023 00:00:00:0'
+                        - ID: 13
+                          Nombre: 'Planificación del 04/04/2023 00:00:00:0'
+                          FechaInicio: '04/04/2023 00:00:00:0'
+                          FechaFinal: '04/04/2023 00:00:00:0'
+                        - ID: 14
+                          Nombre: 'Planificación del 04/04/2023 00:00:00:0'
+                          FechaInicio: '04/04/2023 00:00:00:0'
+                          FechaFinal: '04/04/2023 00:00:00:0'
+                        - ID: 15
+                          Nombre: 'Planificación del 02/05/2023 00:00:00:0'
+                          FechaInicio: '02/05/2023 00:00:00:0'
+                          FechaFinal: '02/05/2023 00:00:00:0'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - ID: 12
+                          Nombre: 'Planificación del 04/04/2023 00:00:00:0'
+                          FechaInicio: '04/04/2023 00:00:00:0'
+                          FechaFinal: '04/04/2023 00:00:00:0'
+                        - ID: 13
+                          Nombre: 'Planificación del 04/04/2023 00:00:00:0'
+                          FechaInicio: '04/04/2023 00:00:00:0'
+                          FechaFinal: '04/04/2023 00:00:00:0'
+                        - ID: 14
+                          Nombre: 'Planificación del 04/04/2023 00:00:00:0'
+                          FechaInicio: '04/04/2023 00:00:00:0'
+                          FechaFinal: '04/04/2023 00:00:00:0'
+                        - ID: 15
+                          Nombre: 'Planificación del 02/05/2023 00:00:00:0'
+                          FechaInicio: '02/05/2023 00:00:00:0'
+                          FechaFinal: '02/05/2023 00:00:00:0'
+      operationId: get-interventions-planification
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: '2'
+          in: query
+          name: ticketID
+          description: AvisoTicketID
   /vehicle/light:
     get:
       summary: findLightListForVehicle
