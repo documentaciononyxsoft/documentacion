@@ -4721,6 +4721,68 @@ paths:
           name: 'accessToken '
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /intervention/typeOfTime/light:
+    get:
+      summary: InterventionLabor - FindByTypeOfTimeLightList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            TipoHoraID:
+                              type: integer
+                            Nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - TipoHoraID: 2
+                          Nombre: Dominicales y festivos
+                        - TipoHoraID: 3
+                          Nombre: Normal
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - TipoHoraID: 2
+                          Nombre: Dominicales y festivos
+                        - TipoHoraID: 3
+                          Nombre: Normal
+      operationId: get-intervention-typeOfTime-light
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   '/intervention/labor/{proyectoOFID}':
     parameters:
       - schema:
@@ -6502,78 +6564,6 @@ paths:
         in: path
         required: true
         description: '3784'
-  /intervention/typeOfTime/light:
-    get:
-      summary: findLightListForTypeOfTime
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      data:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            TipoHoraID:
-                              type: integer
-                            Nombre:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - TipoHoraID: 1
-                          Nombre: Normal
-                        - TipoHoraID: 2
-                          Nombre: Extra
-                        - TipoHoraID: 3
-                          Nombre: Festiva
-                        - TipoHoraID: 4
-                          Nombre: Fin de Semana
-                        - TipoHoraID: 5
-                          Nombre: Nocturna
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - TipoHoraID: 1
-                          Nombre: Normal
-                        - TipoHoraID: 2
-                          Nombre: Extra
-                        - TipoHoraID: 3
-                          Nombre: Festiva
-                        - TipoHoraID: 4
-                          Nombre: Fin de Semana
-                        - TipoHoraID: 5
-                          Nombre: Nocturna
-      operationId: get-intervention-typeOfTime-light
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: accessToken
-          description: '"tokenReciente"'
   '/intervention/externalWorks/{procesoID}':
     parameters:
       - schema:
