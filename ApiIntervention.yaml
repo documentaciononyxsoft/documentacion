@@ -11496,101 +11496,6 @@ paths:
           name: 'accessToken '
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
-  /concepts/light:
-    get:
-      summary: InterventionExpense - FindByConceptLightList
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      data:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            TipoProcesoGastoID:
-                              type: integer
-                            Descripcion:
-                              type: string
-                            Precio:
-                              type:
-                                - integer
-                                - number
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - TipoProcesoGastoID: 1
-                          Descripcion: KILOMETRAJE
-                          Precio: 0.25
-                        - TipoProcesoGastoID: 2
-                          Descripcion: DIETAS
-                          Precio: 8
-                        - TipoProcesoGastoID: 3
-                          Descripcion: TRANSPORTE URGENTE
-                          Precio: 1.5
-                        - TipoProcesoGastoID: 4
-                          Descripcion: VIATICOS
-                          Precio: 0
-                        - TipoProcesoGastoID: 5
-                          Descripcion: ''
-                          Precio: 0
-                        - TipoProcesoGastoID: 6
-                          Descripcion: ''
-                          Precio: 0
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - TipoProcesoGastoID: 1
-                          Descripcion: KILOMETRAJE
-                          Precio: 0.25
-                        - TipoProcesoGastoID: 2
-                          Descripcion: DIETAS
-                          Precio: 8
-                        - TipoProcesoGastoID: 3
-                          Descripcion: TRANSPORTE URGENTE
-                          Precio: 1.5
-                        - TipoProcesoGastoID: 4
-                          Descripcion: VIATICOS
-                          Precio: 0
-                        - TipoProcesoGastoID: 5
-                          Descripcion: ''
-                          Precio: 0
-                        - TipoProcesoGastoID: 6
-                          Descripcion: ''
-                          Precio: 0
-      operationId: get-concepts-light
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-      description: ''
   /intervention/expense:
     post:
       summary: InterventionExpense - Create
@@ -11863,6 +11768,101 @@ paths:
           required: true
       requestBody:
         content: {}
+  /concepts/light:
+    get:
+      summary: InterventionExpense - FindByConceptLightList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            TipoProcesoGastoID:
+                              type: integer
+                            Descripcion:
+                              type: string
+                            Precio:
+                              type:
+                                - integer
+                                - number
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - TipoProcesoGastoID: 1
+                          Descripcion: KILOMETRAJE
+                          Precio: 0.25
+                        - TipoProcesoGastoID: 2
+                          Descripcion: DIETAS
+                          Precio: 8
+                        - TipoProcesoGastoID: 3
+                          Descripcion: TRANSPORTE URGENTE
+                          Precio: 1.5
+                        - TipoProcesoGastoID: 4
+                          Descripcion: VIATICOS
+                          Precio: 0
+                        - TipoProcesoGastoID: 5
+                          Descripcion: ''
+                          Precio: 0
+                        - TipoProcesoGastoID: 6
+                          Descripcion: ''
+                          Precio: 0
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - TipoProcesoGastoID: 1
+                          Descripcion: KILOMETRAJE
+                          Precio: 0.25
+                        - TipoProcesoGastoID: 2
+                          Descripcion: DIETAS
+                          Precio: 8
+                        - TipoProcesoGastoID: 3
+                          Descripcion: TRANSPORTE URGENTE
+                          Precio: 1.5
+                        - TipoProcesoGastoID: 4
+                          Descripcion: VIATICOS
+                          Precio: 0
+                        - TipoProcesoGastoID: 5
+                          Descripcion: ''
+                          Precio: 0
+                        - TipoProcesoGastoID: 6
+                          Descripcion: ''
+                          Precio: 0
+      operationId: get-concepts-light
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      description: ''
   /ticket/planification:
     get:
       summary: findManyForPlanificationByTicket
