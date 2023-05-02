@@ -1624,7 +1624,7 @@ paths:
           description: '1'
   /brand:
     post:
-      summary: Vehicles -CreateBrand
+      summary: Vehicles - CreateBrand
       operationId: post-brand
       responses:
         '200':
