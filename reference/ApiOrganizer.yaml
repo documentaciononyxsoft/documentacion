@@ -929,7 +929,7 @@ paths:
           required: true
   /organizer/calendar/event:
     post:
-      summary: ''
+      summary: Calendario - create
       operationId: post-organizer-calendar-event
       responses:
         '200':
