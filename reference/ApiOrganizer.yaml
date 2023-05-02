@@ -1,0 +1,87 @@
+openapi: 3.1.0
+x-stoplight:
+  id: i3jf62g6q5h04
+info:
+  title: ApiOrganizer
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /organizer/calendar/account:
+    get:
+      summary: Calendar -loadAccount
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      resultadosBusqueda:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            MailingID:
+                              type: integer
+                            ReferenciaCodigo:
+                              type: string
+                            Nombre:
+                              type: string
+                            nombreComercial:
+                              type: string
+                            direccion:
+                              type: string
+                            municipio:
+                              type: string
+                            provinciaNombre:
+                              type: string
+                            nombrePais:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      resultadosBusqueda:
+                        - MailingID: 223
+                          ReferenciaCodigo: '10300010008'
+                          Nombre: ABARROTERA AVILA GUAMUCHIL
+                          nombreComercial: ABARROTERA AVILA GUAMUCHIL
+                          direccion: Calle JAVIER MINA SUR 327 Colonia Zona Centro CP 81400 Estado Salvador Alvarado
+                          municipio: ''
+                          provinciaNombre: SINALOA
+                          nombrePais: México
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      resultadosBusqueda:
+                        - MailingID: 223
+                          ReferenciaCodigo: '10300010008'
+                          Nombre: ABARROTERA AVILA GUAMUCHIL
+                          nombreComercial: ABARROTERA AVILA GUAMUCHIL
+                          direccion: Calle JAVIER MINA SUR 327 Colonia Zona Centro CP 81400 Estado Salvador Alvarado
+                          municipio: ''
+                          provinciaNombre: SINALOA
+                          nombrePais: México
+      operationId: get-organizer-calendar-account
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiY3Rva2VuIjoiIiwgImlhdCI6MTY4MjYyMTgyMywgImV4cCI6MTY4NjIyMTgyMyB9.fP8W5I4oADhIcL4oVC1g0_UGVX3gqMpvMxztZgC7I_o
+components:
+  schemas: {}
