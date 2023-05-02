@@ -3398,8 +3398,8 @@ paths:
                   frecuencia: 10
                   periodo: Pe
                   dia: 5
-                  desdeHora: ''
-                  hastaHora: ''
+                  desdeHora: '10:40'
+                  hastaHora: '15:00'
                   equipoID: 24
 components:
   schemas: {}
