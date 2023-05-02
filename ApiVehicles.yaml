@@ -1622,5 +1622,115 @@ paths:
           in: query
           name: modeloID
           description: '1'
+  /brand:
+    post:
+      summary: Vehicles -CreateBrand
+      operationId: post-brand
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            VersionID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            CustomerID:
+                              type: integer
+                            EmpresaID:
+                              type: integer
+                            UsuarioID:
+                              type: integer
+                            FechaHoraUsuario:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - VersionID: 1
+                          Nombre: '1.6'
+                          CustomerID: 29
+                          EmpresaID: 1
+                          UsuarioID: 3
+                          FechaHoraUsuario: '2020-01-20T09:04:02.000'
+                      sql: "SELECT * \r\nFROM Version\r\nWHERE Version.CustomerID = 29\r\nAND Version.EmpresaID  = 1\r\nAND Version.ModeloID = 1"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - VersionID: 1
+                          Nombre: '1.6'
+                          CustomerID: 29
+                          EmpresaID: 1
+                          UsuarioID: 3
+                          FechaHoraUsuario: '2020-01-20T09:04:02.000'
+                      sql: "SELECT * \r\nFROM Version\r\nWHERE Version.CustomerID = 29\r\nAND Version.EmpresaID  = 1\r\nAND Version.ModeloID = 1"
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: Token Reciente
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Nombre:
+                  type: string
+              x-examples:
+                Example 1:
+                  Nombre: AKT
+            examples:
+              Example 1:
+                value:
+                  Nombre: AKT
+  '/brand/{marcaID}':
+    parameters:
+      - schema:
+          type: string
+        name: marcaID
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: put-brand-marcaID
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: ''
+      operationId: delete-brand-marcaID
+      responses:
+        '200':
+          description: OK
 components:
   schemas: {}
