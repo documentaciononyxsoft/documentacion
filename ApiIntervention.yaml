@@ -12425,7 +12425,7 @@ paths:
     parameters:
       - schema:
           type: string
-          example: '3784'
+          example: '784'
         name: procesoID
         in: path
         required: true
