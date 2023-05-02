@@ -4820,7 +4820,7 @@ paths:
   /intervention/material:
     parameters: []
     post:
-      summary: InterventionMaterial - Create
+      summary: Material - Create
       operationId: post-intervention-material
       responses:
         '200':
@@ -5013,7 +5013,7 @@ paths:
         required: true
         description: MovimientoAlmacenID
     put:
-      summary: InterventionMaterial - Update
+      summary: Material - Update
       operationId: put-intervention-material-id
       responses:
         '200':
@@ -5194,7 +5194,7 @@ paths:
                   ProcesoUtillajeID: ''
       description: ''
     delete:
-      summary: InterventionMaterial - Delete
+      summary: Material - Delete
       operationId: delete-intervention-material-id
       responses:
         '200':
@@ -5236,7 +5236,7 @@ paths:
           required: true
   '/intervention/materials/{procesoID}':
     get:
-      summary: InterventionMaterial - FindMany
+      summary: Material - FindAll
       tags: []
       responses:
         '200':
@@ -5671,7 +5671,7 @@ paths:
         required: true
   /materialsImputation/material:
     get:
-      summary: InterventionMaterial - FindManyForImputation
+      summary: Material - FindManyForImputation
       tags: []
       responses:
         '200':
