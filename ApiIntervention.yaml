@@ -5236,6 +5236,237 @@ paths:
                   IncidenciaCalidadCabeceraID: ''
                   WebID: ''
                   ProcesoUtillajeID: ''
+  '/intervention/material/{id}':
+    parameters:
+      - schema:
+          type: string
+          example: '101260'
+        name: id
+        in: path
+        required: true
+        description: MovimientoAlmacenID
+    put:
+      summary: InterventionMaterial - Update
+      operationId: put-intervention-material-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                TipoMovimientoID:
+                  type: string
+                ReservaMaterialID:
+                  type: string
+                Fecha:
+                  type: string
+                AlmacenID:
+                  type: string
+                ArticuloID:
+                  type: string
+                MailingID:
+                  type: string
+                CantidadAlmacen:
+                  type: string
+                CantidadPrecio:
+                  type: string
+                Precio:
+                  type: string
+                Concepto:
+                  type: string
+                FicheroOrigen:
+                  type: string
+                IndiceUnico:
+                  type: string
+                Hora:
+                  type: string
+                ProcesoID:
+                  type: string
+                ExcluirInventario:
+                  type: string
+                FechaHoraModificado:
+                  type: string
+                Factor:
+                  type: string
+                FechaHora:
+                  type: string
+                ExistenciaUbicacionLoteID:
+                  type: string
+                Cantidad2:
+                  type: string
+                ArticuloXAlmacenID:
+                  type: string
+                GastoCompra:
+                  type: string
+                EmpleadoID:
+                  type: string
+                FactorCantidad:
+                  type: string
+                GastoCompraCantidad2:
+                  type: string
+                UsuarioVerificacionID:
+                  type: string
+                FechaHoraVerificacion:
+                  type: string
+                EmpleadoVerificacionID:
+                  type: string
+                CuentaVerificacionID:
+                  type: string
+                IncidenciaCalidadCabeceraID:
+                  type: string
+                WebID:
+                  type: string
+                ProcesoUtillajeID:
+                  type: string
+              x-examples:
+                Example 1:
+                  TipoMovimientoID: '4'
+                  ReservaMaterialID: '4789'
+                  Fecha: '20230224'
+                  AlmacenID: '2'
+                  ArticuloID: '555'
+                  MailingID: '873'
+                  CantidadAlmacen: '10'
+                  CantidadPrecio: '4'
+                  Precio: '10'
+                  Concepto: Intervención 16
+                  FicheroOrigen: ReservaMaterial
+                  IndiceUnico: '4759'
+                  Hora: ''
+                  ProcesoID: '5198'
+                  ExcluirInventario: '0'
+                  FechaHoraModificado: ''
+                  Factor: '1'
+                  FechaHora: ''
+                  ExistenciaUbicacionLoteID: ''
+                  Cantidad2: ''
+                  ArticuloXAlmacenID: ''
+                  GastoCompra: ''
+                  EmpleadoID: ''
+                  FactorCantidad: ''
+                  GastoCompraCantidad2: ''
+                  UsuarioVerificacionID: ''
+                  FechaHoraVerificacion: ''
+                  EmpleadoVerificacionID: ''
+                  CuentaVerificacionID: ''
+                  IncidenciaCalidadCabeceraID: ''
+                  WebID: ''
+                  ProcesoUtillajeID: ''
+            examples:
+              Example 1:
+                value:
+                  TipoMovimientoID: '4'
+                  ReservaMaterialID: '15275'
+                  Fecha: '20230224'
+                  AlmacenID: '5'
+                  ArticuloID: '732'
+                  MailingID: '873'
+                  CantidadAlmacen: '10'
+                  CantidadPrecio: '4'
+                  Precio: '10'
+                  Concepto: IntervenciónUPDATED
+                  FicheroOrigen: ReservaMaterialUPDATED
+                  IndiceUnico: '4759'
+                  Hora: ''
+                  ProcesoID: ''
+                  ExcluirInventario: '0'
+                  FechaHoraModificado: ''
+                  Factor: '1'
+                  FechaHora: ''
+                  ExistenciaUbicacionLoteID: ''
+                  Cantidad2: ''
+                  ArticuloXAlmacenID: ''
+                  GastoCompra: ''
+                  EmpleadoID: ''
+                  FactorCantidad: ''
+                  GastoCompraCantidad2: ''
+                  UsuarioVerificacionID: ''
+                  FechaHoraVerificacion: ''
+                  EmpleadoVerificacionID: ''
+                  CuentaVerificacionID: ''
+                  IncidenciaCalidadCabeceraID: ''
+                  WebID: ''
+                  ProcesoUtillajeID: ''
+      description: ''
+    delete:
+      summary: InterventionMaterial - Delete
+      operationId: delete-intervention-material-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /groups/light:
     get:
       summary: findLightListForGroup
@@ -6154,224 +6385,6 @@ paths:
                   FechaHoraPagado: string
                   UsuarioPagoID: string
                   WebID: string
-  '/intervention/material/{id}':
-    parameters:
-      - schema:
-          type: string
-        name: id
-        in: path
-        required: true
-        description: '35124'
-    put:
-      summary: updateMaterialForIntervention
-      operationId: put-intervention-material-id
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                TipoMovimientoID:
-                  type: string
-                ReservaMaterialID:
-                  type: string
-                Fecha:
-                  type: string
-                AlmacenID:
-                  type: string
-                ArticuloID:
-                  type: string
-                MailingID:
-                  type: string
-                CantidadAlmacen:
-                  type: string
-                CantidadPrecio:
-                  type: string
-                Precio:
-                  type: string
-                Concepto:
-                  type: string
-                FicheroOrigen:
-                  type: string
-                IndiceUnico:
-                  type: string
-                Hora:
-                  type: string
-                ProcesoID:
-                  type: string
-                ExcluirInventario:
-                  type: string
-                FechaHoraModificado:
-                  type: string
-                Factor:
-                  type: string
-                FechaHora:
-                  type: string
-                ExistenciaUbicacionLoteID:
-                  type: string
-                Cantidad2:
-                  type: string
-                ArticuloXAlmacenID:
-                  type: string
-                GastoCompra:
-                  type: string
-                EmpleadoID:
-                  type: string
-                FactorCantidad:
-                  type: string
-                GastoCompraCantidad2:
-                  type: string
-                UsuarioVerificacionID:
-                  type: string
-                FechaHoraVerificacion:
-                  type: string
-                EmpleadoVerificacionID:
-                  type: string
-                CuentaVerificacionID:
-                  type: string
-                IncidenciaCalidadCabeceraID:
-                  type: string
-                WebID:
-                  type: string
-                ProcesoUtillajeID:
-                  type: string
-              x-examples:
-                Example 1:
-                  TipoMovimientoID: '4'
-                  ReservaMaterialID: '4789'
-                  Fecha: '20230224'
-                  AlmacenID: '2'
-                  ArticuloID: '555'
-                  MailingID: '873'
-                  CantidadAlmacen: '10'
-                  CantidadPrecio: '4'
-                  Precio: '10'
-                  Concepto: Intervención 16
-                  FicheroOrigen: ReservaMaterial
-                  IndiceUnico: '4759'
-                  Hora: ''
-                  ProcesoID: '5198'
-                  ExcluirInventario: '0'
-                  FechaHoraModificado: ''
-                  Factor: '1'
-                  FechaHora: ''
-                  ExistenciaUbicacionLoteID: ''
-                  Cantidad2: ''
-                  ArticuloXAlmacenID: ''
-                  GastoCompra: ''
-                  EmpleadoID: ''
-                  FactorCantidad: ''
-                  GastoCompraCantidad2: ''
-                  UsuarioVerificacionID: ''
-                  FechaHoraVerificacion: ''
-                  EmpleadoVerificacionID: ''
-                  CuentaVerificacionID: ''
-                  IncidenciaCalidadCabeceraID: ''
-                  WebID: ''
-                  ProcesoUtillajeID: ''
-            examples:
-              Example 1:
-                value:
-                  TipoMovimientoID: '4'
-                  ReservaMaterialID: '4789'
-                  Fecha: '20230224'
-                  AlmacenID: '2'
-                  ArticuloID: '555'
-                  MailingID: '873'
-                  CantidadAlmacen: '10'
-                  CantidadPrecio: '4'
-                  Precio: '10'
-                  Concepto: Intervención 16
-                  FicheroOrigen: ReservaMaterial
-                  IndiceUnico: '4759'
-                  Hora: ''
-                  ProcesoID: '5198'
-                  ExcluirInventario: '0'
-                  FechaHoraModificado: ''
-                  Factor: '1'
-                  FechaHora: ''
-                  ExistenciaUbicacionLoteID: ''
-                  Cantidad2: ''
-                  ArticuloXAlmacenID: ''
-                  GastoCompra: ''
-                  EmpleadoID: ''
-                  FactorCantidad: ''
-                  GastoCompraCantidad2: ''
-                  UsuarioVerificacionID: ''
-                  FechaHoraVerificacion: ''
-                  EmpleadoVerificacionID: ''
-                  CuentaVerificacionID: ''
-                  IncidenciaCalidadCabeceraID: ''
-                  WebID: ''
-                  ProcesoUtillajeID: ''
-    delete:
-      summary: deleteMaterialForIntervention
-      operationId: delete-intervention-material-id
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
   '/intervention/materials/{procesoID}':
     get:
       summary: findManyMaterialsForIntervention
