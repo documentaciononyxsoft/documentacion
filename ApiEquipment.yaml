@@ -2418,9 +2418,9 @@ paths:
           required: true
         - schema:
             type: string
+            example: LA
           in: query
           name: param
-          description: LA
   /equipment/deliverySale:
     get:
       summary: Equipment - findManyByParamDeliverySale
@@ -2509,9 +2509,9 @@ paths:
           required: true
         - schema:
             type: string
+            example: LA
           in: query
           name: param
-          description: LA
   /equipment/manufacturingOrders/light:
     get:
       summary: Equipment -FindLightListManufacturingOrders
@@ -2700,9 +2700,9 @@ paths:
       parameters:
         - schema:
             type: string
+            example: PRUEBA
           in: query
           name: param
-          description: PRUEBA
         - schema:
             type: string
             example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
@@ -2814,9 +2814,9 @@ paths:
           required: true
         - schema:
             type: string
+            example: '20'
           in: query
           name: equipoID
-          description: '20'
   '/equipment/various/{equipoID}':
     parameters:
       - schema:
@@ -3021,9 +3021,9 @@ paths:
           required: true
         - schema:
             type: string
+            example: '20'
           in: query
           name: equipoID
-          description: '20'
   '/equipment/observation/{equipoID}':
     parameters:
       - schema:
