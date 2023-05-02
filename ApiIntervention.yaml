@@ -12194,6 +12194,95 @@ paths:
           in: query
           name: ticketID
           description: AvisoTicketID
+  /intervention/externalWork:
+    post:
+      summary: InterventionExWork - Create
+      operationId: post-intervention-externalWork
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      ProcesoTrabajoExteriorID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      ProcesoTrabajoExteriorID: 60
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      ProcesoTrabajoExteriorID: 60
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Fecha:
+                  type: string
+                Importe:
+                  type: string
+                MailingID:
+                  type: string
+                Notas:
+                  type: string
+                NumeroFactura:
+                  type: string
+                AlbaranCompraLineaID:
+                  type: string
+                FechaFactura:
+                  type: string
+                ProcesoID:
+                  type: string
+              x-examples:
+                Example 1:
+                  Fecha: '20230224'
+                  Importe: '16000'
+                  MailingID: '170'
+                  Notas: Revision de Componentes
+                  NumeroFactura: '1546'
+                  AlbaranCompraLineaID: ''
+                  FechaFactura: ''
+                  ProcesoID: '5198'
+            examples:
+              Example 1:
+                value:
+                  Fecha: '20230224'
+                  Importe: '16000'
+                  MailingID: '170'
+                  Notas: Revision de Componentes
+                  NumeroFactura: '1546'
+                  AlbaranCompraLineaID: ''
+                  FechaFactura: ''
+                  ProcesoID: '5198'
   /vehicle/light:
     get:
       summary: findLightListForVehicle
@@ -12409,93 +12498,6 @@ paths:
           in: header
           name: 'accessToken '
       x-extension-1: null
-  /intervention/externalWork:
-    post:
-      summary: CreateExternalWorkForIntervention
-      operationId: post-intervention-externalWork
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      ProcesoTrabajoExteriorID:
-                        type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      ProcesoTrabajoExteriorID: 60
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      ProcesoTrabajoExteriorID: 60
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                Fecha:
-                  type: string
-                Importe:
-                  type: string
-                MailingID:
-                  type: string
-                Notas:
-                  type: string
-                NumeroFactura:
-                  type: string
-                AlbaranCompraLineaID:
-                  type: string
-                FechaFactura:
-                  type: string
-                ProcesoID:
-                  type: string
-              x-examples:
-                Example 1:
-                  Fecha: '20230224'
-                  Importe: '16000'
-                  MailingID: '170'
-                  Notas: Revision de Componentes
-                  NumeroFactura: '1546'
-                  AlbaranCompraLineaID: ''
-                  FechaFactura: ''
-                  ProcesoID: '5198'
-            examples:
-              Example 1:
-                value:
-                  Fecha: '20230224'
-                  Importe: '16000'
-                  MailingID: '170'
-                  Notas: Revision de Componentes
-                  NumeroFactura: '1546'
-                  AlbaranCompraLineaID: ''
-                  FechaFactura: ''
-                  ProcesoID: '5198'
   '/intervention/externalWork/{id}':
     parameters:
       - schema:
