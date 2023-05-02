@@ -1262,7 +1262,7 @@ paths:
           description: '"tokenReciente"'
   /interventions:
     get:
-      summary: Intervention - FindManys
+      summary: Intervention - FindMany
       tags: []
       responses:
         '200':
