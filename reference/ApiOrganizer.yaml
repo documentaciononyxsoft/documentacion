@@ -699,5 +699,417 @@ paths:
         in: path
         required: true
         description: ' load event corresponding to the visitaid'
+  /organizer/calendar/event:
+    post:
+      summary: ''
+      operationId: post-organizer-calendar-event
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      td:
+                        type: object
+                        properties:
+                          UnidadTrabajoID:
+                            type: integer
+                          VisitaID:
+                            type: integer
+                          MailingID:
+                            type: integer
+                          Fecha:
+                            type: string
+                          Hora:
+                            type: string
+                          EstadoID:
+                            type: integer
+                          TipoID:
+                            type: integer
+                          Observacion:
+                            type: string
+                          ContactoID:
+                            type: integer
+                          Motivo:
+                            type: string
+                          EmpresaID:
+                            type: integer
+                          CustomerID:
+                            type: integer
+                          UsuarioID:
+                            type: integer
+                          HoraFin:
+                            type: string
+                          AgendaEventoID:
+                            type: integer
+                          Resumen:
+                            type: string
+                          ObservacionPlano:
+                            type: string
+                          ResumenPlano:
+                            type: string
+                          FechaHoraUsuario:
+                            type: string
+                          enOficina:
+                            type: string
+                          AvisoTicketID:
+                            type: integer
+                          FechaHoraNuevo:
+                            type: string
+                          FechaHoraModificado:
+                            type: string
+                          FechaHoraBorrado:
+                            type: string
+                          AccionFutura:
+                            type: string
+                          AccionRealizada:
+                            type: integer
+                          Descargado:
+                            type: integer
+                          MailingAppID:
+                            type: integer
+                          ActaReunionCabeceraID:
+                            type: integer
+                          FechaHoraInicio:
+                            type: string
+                          FechaHoraFin:
+                            type: string
+                          Color:
+                            type: integer
+                          Privado:
+                            type: integer
+                          WholeDay:
+                            type: integer
+                          TipoCitaID:
+                            type: integer
+                          CategoriaID:
+                            type: integer
+                          Llego:
+                            type: integer
+                          Asistio:
+                            type: integer
+                          NoAsistenciaComunicada:
+                            type: integer
+                          MotivoNoAsistencia:
+                            type: string
+                          FechaProximaVisita:
+                            type: string
+                          Direccion:
+                            type: string
+                          authorization:
+                            type: string
+                          apiKey:
+                            type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      td:
+                        UnidadTrabajoID: 123
+                        VisitaID: 144
+                        MailingID: 455
+                        Fecha: '2023-04-24'
+                        Hora: '12:03:00'
+                        EstadoID: 123
+                        TipoID: 123
+                        Observacion: aasd
+                        ContactoID: 123
+                        Motivo: asdadsasd
+                        EmpresaID: 1
+                        CustomerID: 29
+                        UsuarioID: 1
+                        HoraFin: '12:03:00'
+                        AgendaEventoID: 123
+                        Resumen: adasd
+                        ObservacionPlano: asdasd
+                        ResumenPlano: adasd
+                        FechaHoraUsuario: '2023-04-24 12:03:51.248'
+                        enOficina: '0'
+                        AvisoTicketID: 123
+                        FechaHoraNuevo: '2023-04-24 12:03:51.248'
+                        FechaHoraModificado: '2023-04-24 12:03:51.248'
+                        FechaHoraBorrado: '2023-04-24 12:03:51.248'
+                        AccionFutura: adasd
+                        AccionRealizada: 0
+                        Descargado: 0
+                        MailingAppID: 123
+                        ActaReunionCabeceraID: 0
+                        FechaHoraInicio: '2023-04-24 12:03:00.000'
+                        FechaHoraFin: '2023-04-24 12:03:00.000'
+                        Color: 123
+                        Privado: 0
+                        WholeDay: 0
+                        TipoCitaID: 123
+                        CategoriaID: 123
+                        Llego: 0
+                        Asistio: 0
+                        NoAsistenciaComunicada: 0
+                        MotivoNoAsistencia: ''
+                        FechaProximaVisita: '2023-04-24'
+                        Direccion: ''
+                        authorization: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiY3Rva2VuIjoiIiwgImlhdCI6MTY4MjYyMTgyMywgImV4cCI6MTY4NjIyMTgyMyB9.fP8W5I4oADhIcL4oVC1g0_UGVX3gqMpvMxztZgC7I_o
+                        apiKey: misecretito
+                      sql: "\r\nINSERT INTO Visita(\r\nFecha,\r\nHora,\r\nObservacion,\r\nMotivo,\r\nHoraFin,\r\nResumen,\r\nObservacionPlano,\r\nResumenPlano,\r\nFechaHoraUsuario,\r\nenOficina,\r\nFechaHoraNuevo,\r\nAccionFutura,\r\nAccionRealizada,\r\nDescargado,\r\nFechaHoraInicio,\r\nFechaHoraFin,\r\nColor,\r\nPrivado,\r\nWholeDay,\r\nLlego,\r\nAsistio,\r\nNoAsistenciaComunicada,\r\nMotivoNoAsistencia,\r\nFechaProximaVisita,\r\nDireccion,\r\nAgendaEventoID,\r\nMailingID,\r\nEstadoID,\r\nTipoID,\r\nContactoID,\r\nEmpresaID,\r\nCustomerID,\r\nUsuarioID,\r\nAvisoTicketID,\r\nMailingAppID,\r\nActaReunionCabeceraID,\r\nTipoCitaID,\r\nCategoriaID,\r\nUnidadTrabajoID\r\n)\r\nVALUES\r\n(null, '12:03:000', '0', 'asdadsasd', '12:03:000', '0', '0', '0', '2023-04-24 12:03','0', '2023-05-02 09:35', '0', '0', '0', '2023-04-24 12:03','2023-04-24 12:03','0', '0', '0', '0', '0', '0', '', null, '', NULL,455,NULL,NULL,NULL,1,29,1,NULL,NULL,NULL,NULL,NULL,NULL);\r\n\r\n\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      td:
+                        UnidadTrabajoID: 123
+                        VisitaID: 144
+                        MailingID: 455
+                        Fecha: '2023-04-24'
+                        Hora: '12:03:00'
+                        EstadoID: 123
+                        TipoID: 123
+                        Observacion: aasd
+                        ContactoID: 123
+                        Motivo: asdadsasd
+                        EmpresaID: 1
+                        CustomerID: 29
+                        UsuarioID: 1
+                        HoraFin: '12:03:00'
+                        AgendaEventoID: 123
+                        Resumen: adasd
+                        ObservacionPlano: asdasd
+                        ResumenPlano: adasd
+                        FechaHoraUsuario: '2023-04-24 12:03:51.248'
+                        enOficina: '0'
+                        AvisoTicketID: 123
+                        FechaHoraNuevo: '2023-04-24 12:03:51.248'
+                        FechaHoraModificado: '2023-04-24 12:03:51.248'
+                        FechaHoraBorrado: '2023-04-24 12:03:51.248'
+                        AccionFutura: adasd
+                        AccionRealizada: 0
+                        Descargado: 0
+                        MailingAppID: 123
+                        ActaReunionCabeceraID: 0
+                        FechaHoraInicio: '2023-04-24 12:03:00.000'
+                        FechaHoraFin: '2023-04-24 12:03:00.000'
+                        Color: 123
+                        Privado: 0
+                        WholeDay: 0
+                        TipoCitaID: 123
+                        CategoriaID: 123
+                        Llego: 0
+                        Asistio: 0
+                        NoAsistenciaComunicada: 0
+                        MotivoNoAsistencia: ''
+                        FechaProximaVisita: '2023-04-24'
+                        Direccion: ''
+                        authorization: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiY3Rva2VuIjoiIiwgImlhdCI6MTY4MjYyMTgyMywgImV4cCI6MTY4NjIyMTgyMyB9.fP8W5I4oADhIcL4oVC1g0_UGVX3gqMpvMxztZgC7I_o
+                        apiKey: misecretito
+                      sql: "\r\nINSERT INTO"
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiY3Rva2VuIjoiIiwgImlhdCI6MTY4MjYyMTgyMywgImV4cCI6MTY4NjIyMTgyMyB9.fP8W5I4oADhIcL4oVC1g0_UGVX3gqMpvMxztZgC7I_o
+          in: header
+          name: accessToken
+          description: Recent Token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                UnidadTrabajoID:
+                  type: integer
+                MailingID:
+                  type: integer
+                Fecha:
+                  type: string
+                Hora:
+                  type: string
+                EstadoID:
+                  type: integer
+                TipoID:
+                  type: integer
+                Observacion:
+                  type: string
+                ContactoID:
+                  type: integer
+                Motivo:
+                  type: string
+                EmpresaID:
+                  type: integer
+                CustomerID:
+                  type: integer
+                UsuarioID:
+                  type: integer
+                HoraFin:
+                  type: string
+                AgendaEventoID:
+                  type: integer
+                Resumen:
+                  type: string
+                ObservacionPlano:
+                  type: string
+                ResumenPlano:
+                  type: string
+                FechaHoraUsuario:
+                  type: string
+                enOficina:
+                  type: string
+                AvisoTicketID:
+                  type: integer
+                FechaHoraNuevo:
+                  type: string
+                FechaHoraModificado:
+                  type: string
+                FechaHoraBorrado:
+                  type: string
+                AccionFutura:
+                  type: string
+                AccionRealizada:
+                  type: integer
+                Descargado:
+                  type: integer
+                MailingAppID:
+                  type: integer
+                ActaReunionCabeceraID:
+                  type: integer
+                FechaHoraInicio:
+                  type: string
+                FechaHoraFin:
+                  type: string
+                Color:
+                  type: integer
+                Privado:
+                  type: integer
+                WholeDay:
+                  type: integer
+                TipoCitaID:
+                  type: integer
+                CategoriaID:
+                  type: integer
+                Llego:
+                  type: integer
+                Asistio:
+                  type: integer
+                NoAsistenciaComunicada:
+                  type: integer
+                MotivoNoAsistencia:
+                  type: string
+                FechaProximaVisita:
+                  type: string
+                Direccion:
+                  type: string
+                invitedEmployees:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      EmpleadoID:
+                        type: integer
+                      VisitaID:
+                        type: integer
+              x-examples:
+                Example 1:
+                  UnidadTrabajoID: 123
+                  MailingID: 455
+                  Fecha: '2023-04-24'
+                  Hora: '12:03:00'
+                  EstadoID: 123
+                  TipoID: 123
+                  Observacion: adas
+                  ContactoID: 123
+                  Motivo: asdadsasd
+                  EmpresaID: 1
+                  CustomerID: 29
+                  UsuarioID: 1
+                  HoraFin: '12:03:00'
+                  AgendaEventoID: 123
+                  Resumen: long text
+                  ObservacionPlano: long text
+                  ResumenPlano: long text
+                  FechaHoraUsuario: '2023-04-24 12:03:51.248'
+                  enOficina: '0'
+                  AvisoTicketID: 123
+                  FechaHoraNuevo: '2023-04-24 12:03:51.248'
+                  FechaHoraModificado: '2023-04-24 12:03:51.248'
+                  FechaHoraBorrado: '2023-04-24 12:03:51.248'
+                  AccionFutura: long text
+                  AccionRealizada: 0
+                  Descargado: 0
+                  MailingAppID: 123
+                  ActaReunionCabeceraID: 0
+                  FechaHoraInicio: '2023-04-24 12:03:00.000'
+                  FechaHoraFin: '2023-04-24 12:03:00.000'
+                  Color: 123
+                  Privado: 0
+                  WholeDay: 0
+                  TipoCitaID: 123
+                  CategoriaID: 123
+                  Llego: 0
+                  Asistio: 0
+                  NoAsistenciaComunicada: 0
+                  MotivoNoAsistencia: ''
+                  FechaProximaVisita: '2023-04-24'
+                  Direccion: ''
+                  invitedEmployees:
+                    - EmpleadoID: 123
+                      VisitaID: 123
+            examples:
+              Example 1:
+                value:
+                  UnidadTrabajoID: 123
+                  MailingID: 455
+                  Fecha: '2023-04-24'
+                  Hora: '12:03:00'
+                  EstadoID: 123
+                  TipoID: 123
+                  Observacion: adas
+                  ContactoID: 123
+                  Motivo: asdadsasd
+                  EmpresaID: 1
+                  CustomerID: 29
+                  UsuarioID: 1
+                  HoraFin: '12:03:00'
+                  AgendaEventoID: 123
+                  Resumen: long text
+                  ObservacionPlano: long text
+                  ResumenPlano: long text
+                  FechaHoraUsuario: '2023-04-24 12:03:51.248'
+                  enOficina: '0'
+                  AvisoTicketID: 123
+                  FechaHoraNuevo: '2023-04-24 12:03:51.248'
+                  FechaHoraModificado: '2023-04-24 12:03:51.248'
+                  FechaHoraBorrado: '2023-04-24 12:03:51.248'
+                  AccionFutura: long text
+                  AccionRealizada: 0
+                  Descargado: 0
+                  MailingAppID: 123
+                  ActaReunionCabeceraID: 0
+                  FechaHoraInicio: '2023-04-24 12:03:00.000'
+                  FechaHoraFin: '2023-04-24 12:03:00.000'
+                  Color: 123
+                  Privado: 0
+                  WholeDay: 0
+                  TipoCitaID: 123
+                  CategoriaID: 123
+                  Llego: 0
+                  Asistio: 0
+                  NoAsistenciaComunicada: 0
+                  MotivoNoAsistencia: ''
+                  FechaProximaVisita: '2023-04-24'
+                  Direccion: ''
+                  invitedEmployees:
+                    - EmpleadoID: 123
+                      VisitaID: 123
 components:
   schemas: {}
