@@ -3117,5 +3117,29 @@ paths:
               Example 1:
                 value:
                   observaciones: 'La fragilidad humana es como una burbuja de jabón en medio de una ventisca de incertidumbre, donde cada soplido del destino puede hacerla explotar en mil pedazos, dejando al descubierto la esencia frágil y efímera de nuestra existencia, en un mundo que muchas veces parece indiferente a nuestra presencia'
+  /layout:
+    get:
+      summary: Layout - FindManyByParam
+      tags: []
+      responses: {}
+      operationId: get-layout
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          required: true
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          name: accessToken
+        - schema:
+            type: string
+            example: '14'
+          in: query
+          name: direccionID
+        - schema:
+            type: string
+            example: edificio
+          in: query
+          name: param
 components:
   schemas: {}
