@@ -4138,6 +4138,189 @@ paths:
           name: cerrarTicket
       requestBody:
         content: {}
+  /materialsImputation/intervention:
+    get:
+      summary: Intervention - FindManyForImputation
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT\r\nProyecto_OF.Proyecto_OFID,\r\nProyecto_OF.CodigoProyecto_OF,\r\nProyecto_OF.Nombre AS NombreProyecto,\r\nProyecto_OF.Observaciones,\r\nArticulo.Nombre\r\nFROM\r\nProyecto_OF LEFT JOIN Articulo ON Proyecto_OF.ArticuloID=Articulo.ArticuloID\r\nWHERE\r\nProyecto_OF.CustomerID = 29 AND\r\nProyecto_OF.EmpresaID = 1 AND\r\nProyecto_OF.EsObraOf = 'S' AND\r\nProyecto_OF.Estado<>'FI'"
+                      records:
+                        - ID: 718
+                          Nombre: CAMBIAR FUSIBLE
+                          Codigo: 2
+                        - ID: 769
+                          Nombre: EstÃ¡ vacÃ­o
+                          Codigo: 3
+                        - ID: 772
+                          Nombre: prueba
+                          Codigo: 5
+                        - ID: 773
+                          Nombre: ljkhgfd
+                          Codigo: 6
+                        - ID: 774
+                          Nombre: Se enciende luz de alarma y se queda bloqueado
+                          Codigo: 7
+                        - ID: 778
+                          Nombre: Problemas con la boquilla
+                          Codigo: 8
+                        - ID: 821
+                          Nombre: HOLA K MÁS PS
+                          Codigo: 9
+                        - ID: 877
+                          Nombre: SE HA PARADO EL ASCENSOR
+                          Codigo: 10
+                        - ID: 878
+                          Nombre: SE HA ESTRROPEADO EL ASCENSOR
+                          Codigo: 11
+                        - ID: 883
+                          Nombre: Se ha parado el ascensor
+                          Codigo: 12
+                        - ID: 978
+                          Nombre: ''
+                          Codigo: 13
+                        - ID: 1059
+                          Nombre: test
+                          Codigo: 66668
+                        - ID: 1060
+                          Nombre: Mantenimiento torres de comunicación madrid FASE I
+                          Codigo: 15
+                        - ID: 1128
+                          Nombre: ''
+                          Codigo: 17
+                        - ID: 1130
+                          Nombre: '0'
+                          Codigo: 66669
+                        - ID: 1131
+                          Nombre: '0xd'
+                          Codigo: 66670
+                        - ID: 1135
+                          Nombre: ''
+                          Codigo: 66671
+                        - ID: 1140
+                          Nombre: ''
+                          Codigo: 66672
+                        - ID: 1141
+                          Nombre: VGCGC
+                          Codigo: 19
+                        - ID: 1142
+                          Nombre: gnfngfngfnfgngfngfnfg
+                          Codigo: 20
+                        - ID: 1143
+                          Nombre: PRUEBALL
+                          Codigo: 21
+                        - ID: 1144
+                          Nombre: PRUEBALL
+                          Codigo: 22
+                        - ID: 1145
+                          Nombre: PRUEBALL
+                          Codigo: 23
+                        - ID: 1146
+                          Nombre: PRUEBALL
+                          Codigo: 24
+                        - ID: 1147
+                          Nombre: PRUEBALL
+                          Codigo: 25
+                        - ID: 1148
+                          Nombre: PRUEBALL
+                          Codigo: 26
+                        - ID: 1149
+                          Nombre: FDSFDSFDSFDSFDSFDS
+                          Codigo: 27
+                        - ID: 1150
+                          Nombre: ''
+                          Codigo: 28
+                        - ID: 1151
+                          Nombre: PRUEBALL
+                          Codigo: 29
+                        - ID: 1152
+                          Nombre: PRUEBALL
+                          Codigo: 30
+                        - ID: 1153
+                          Nombre: ''
+                          Codigo: 31
+                        - ID: 1154
+                          Nombre: actualizar2
+                          Codigo: 32
+                        - ID: 1156
+                          Nombre: ''
+                          Codigo: 33
+                        - ID: 1157
+                          Nombre: JULLL36NT
+                          Codigo: 66673
+                        - ID: 1159
+                          Nombre: '0'
+                          Codigo: 66675
+                        - ID: 1161
+                          Nombre: DSDFSD
+                          Codigo: 34
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT\r\nProyecto_OF.Proyecto_OFID,\r\nProyecto_OF.CodigoProyecto_OF,\r\nProyecto_OF.Nombre AS NombreProyecto,\r\nProyecto_OF.Observaciones,\r\nArticulo.Nombre\r\nFROM\r\nProyecto_OF LEFT JOIN Articulo ON Proyecto_OF.ArticuloID=Articulo.ArticuloID\r\nWHERE\r\nProyecto_OF.CustomerID = 29 AND\r\nProyecto_OF.EmpresaID = 1 AND\r\nProyecto_OF.EsObraOf = 'S' AND\r\nProyecto_OF.Estado<>'FI'"
+                      records:
+                        - ID: 718
+                          Nombre: CAMBIAR FUSIBLE
+                          Codigo: 2
+                        - ID: 769
+                          Nombre: EstÃ¡ vacÃ­o
+                          Codigo: 3
+                        - ID: 772
+                          Nombre: prueba
+                          Codigo: 5
+      operationId: get-materialsImputation-intervention
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
   /groups/light:
     get:
       summary: findLightListForGroup
@@ -7074,187 +7257,6 @@ paths:
             type: string
           in: query
           name: ubicacionID
-  /materialsImputation/intervention:
-    get:
-      summary: FindLightListForInterventionByImputation
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT\r\nProyecto_OF.Proyecto_OFID,\r\nProyecto_OF.CodigoProyecto_OF,\r\nProyecto_OF.Nombre AS NombreProyecto,\r\nProyecto_OF.Observaciones,\r\nArticulo.Nombre\r\nFROM\r\nProyecto_OF LEFT JOIN Articulo ON Proyecto_OF.ArticuloID=Articulo.ArticuloID\r\nWHERE\r\nProyecto_OF.CustomerID = 29 AND\r\nProyecto_OF.EmpresaID = 1 AND\r\nProyecto_OF.EsObraOf = 'S' AND\r\nProyecto_OF.Estado<>'FI'"
-                      records:
-                        - ID: 718
-                          Nombre: CAMBIAR FUSIBLE
-                          Codigo: 2
-                        - ID: 769
-                          Nombre: EstÃ¡ vacÃ­o
-                          Codigo: 3
-                        - ID: 772
-                          Nombre: prueba
-                          Codigo: 5
-                        - ID: 773
-                          Nombre: ljkhgfd
-                          Codigo: 6
-                        - ID: 774
-                          Nombre: Se enciende luz de alarma y se queda bloqueado
-                          Codigo: 7
-                        - ID: 778
-                          Nombre: Problemas con la boquilla
-                          Codigo: 8
-                        - ID: 821
-                          Nombre: HOLA K MÁS PS
-                          Codigo: 9
-                        - ID: 877
-                          Nombre: SE HA PARADO EL ASCENSOR
-                          Codigo: 10
-                        - ID: 878
-                          Nombre: SE HA ESTRROPEADO EL ASCENSOR
-                          Codigo: 11
-                        - ID: 883
-                          Nombre: Se ha parado el ascensor
-                          Codigo: 12
-                        - ID: 978
-                          Nombre: ''
-                          Codigo: 13
-                        - ID: 1059
-                          Nombre: test
-                          Codigo: 66668
-                        - ID: 1060
-                          Nombre: Mantenimiento torres de comunicación madrid FASE I
-                          Codigo: 15
-                        - ID: 1128
-                          Nombre: ''
-                          Codigo: 17
-                        - ID: 1130
-                          Nombre: '0'
-                          Codigo: 66669
-                        - ID: 1131
-                          Nombre: '0xd'
-                          Codigo: 66670
-                        - ID: 1135
-                          Nombre: ''
-                          Codigo: 66671
-                        - ID: 1140
-                          Nombre: ''
-                          Codigo: 66672
-                        - ID: 1141
-                          Nombre: VGCGC
-                          Codigo: 19
-                        - ID: 1142
-                          Nombre: gnfngfngfnfgngfngfnfg
-                          Codigo: 20
-                        - ID: 1143
-                          Nombre: PRUEBALL
-                          Codigo: 21
-                        - ID: 1144
-                          Nombre: PRUEBALL
-                          Codigo: 22
-                        - ID: 1145
-                          Nombre: PRUEBALL
-                          Codigo: 23
-                        - ID: 1146
-                          Nombre: PRUEBALL
-                          Codigo: 24
-                        - ID: 1147
-                          Nombre: PRUEBALL
-                          Codigo: 25
-                        - ID: 1148
-                          Nombre: PRUEBALL
-                          Codigo: 26
-                        - ID: 1149
-                          Nombre: FDSFDSFDSFDSFDSFDS
-                          Codigo: 27
-                        - ID: 1150
-                          Nombre: ''
-                          Codigo: 28
-                        - ID: 1151
-                          Nombre: PRUEBALL
-                          Codigo: 29
-                        - ID: 1152
-                          Nombre: PRUEBALL
-                          Codigo: 30
-                        - ID: 1153
-                          Nombre: ''
-                          Codigo: 31
-                        - ID: 1154
-                          Nombre: actualizar2
-                          Codigo: 32
-                        - ID: 1156
-                          Nombre: ''
-                          Codigo: 33
-                        - ID: 1157
-                          Nombre: JULLL36NT
-                          Codigo: 66673
-                        - ID: 1159
-                          Nombre: '0'
-                          Codigo: 66675
-                        - ID: 1161
-                          Nombre: DSDFSD
-                          Codigo: 34
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT\r\nProyecto_OF.Proyecto_OFID,\r\nProyecto_OF.CodigoProyecto_OF,\r\nProyecto_OF.Nombre AS NombreProyecto,\r\nProyecto_OF.Observaciones,\r\nArticulo.Nombre\r\nFROM\r\nProyecto_OF LEFT JOIN Articulo ON Proyecto_OF.ArticuloID=Articulo.ArticuloID\r\nWHERE\r\nProyecto_OF.CustomerID = 29 AND\r\nProyecto_OF.EmpresaID = 1 AND\r\nProyecto_OF.EsObraOf = 'S' AND\r\nProyecto_OF.Estado<>'FI'"
-                      records:
-                        - ID: 718
-                          Nombre: CAMBIAR FUSIBLE
-                          Codigo: 2
-                        - ID: 769
-                          Nombre: EstÃ¡ vacÃ­o
-                          Codigo: 3
-                        - ID: 772
-                          Nombre: prueba
-                          Codigo: 5
-      operationId: get-materialsImputation-intervention
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties: {}
   /materialsImputation/material:
     get:
       summary: FindLightListForMaterialByImputation
