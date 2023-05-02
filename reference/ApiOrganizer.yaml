@@ -891,6 +891,42 @@ paths:
           in: header
           name: accessToken
           description: Recent Token
+    delete:
+      summary: Calendar - remove
+      operationId: delete-organizer-calendar-event-visitaid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: 'null'
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content: null
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content: null
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiY3Rva2VuIjoiIiwgImlhdCI6MTY4MjYyMTgyMywgImV4cCI6MTY4NjIyMTgyMyB9.fP8W5I4oADhIcL4oVC1g0_UGVX3gqMpvMxztZgC7I_o
+          in: header
+          name: accessToken
+          description: Recent Token
+          required: true
   /organizer/calendar/event:
     post:
       summary: ''
