@@ -4016,7 +4016,7 @@ paths:
           description: PRUEBA
   /interventions/openIntervention:
     get:
-      summary: openIntervention
+      summary: Intervention - Open
       tags: []
       responses:
         '200':
@@ -4127,42 +4127,42 @@ paths:
                       success: true
                       data:
                         success: true
-                        sql: "SELECT proyecto_of.CodigoProyecto_OF,\r\nproyecto_of.Proyecto_OFID,\r\nproyecto_of.FechaCreacion,\r\nproyecto_of.FechaHoraUsuario,\r\nproyecto_of.FechaHoraUsuarioCierre,\r\nproyecto_of.Observaciones,\r\nproyecto_of.UsuarioIDCierre,\r\nproyecto_of.Estado,\r\navisoticketintervencion.AvisoTicketID,\r\navisoticket.DescripcionProblema,\r\navisoticket.Numero,\r\navisoticketintervencion.Notas,\r\navisoticketintervencion.VehiculoID,\r\navisoticketintervencion.ContadorInicial,\r\navisoticketintervencion.ContadorFinal,\r\navisoticketintervencion.Kilometros,\r\nvehiculo.Matricula,\r\nvehiculo.Codigo,\r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre,\r\navisoticketplanificacion.AvisoTicketPlanificacionID,\r\navisoticketplanificacion.FechaHoraPlanificacionInicio,\r\navisoticketplanificacion.FechaHoraPlanificacionFinal,\r\nusuario.NombreUsuario \r\n\r\nFROM proyecto_of\r\nLEFT JOIN avisoticketintervencion \r\nON proyecto_of.Proyecto_OFID = avisoticketintervencion.Proyecto_OFID\r\nLEFT JOIN vehiculo \r\nON avisoticketintervencion.VehiculoID = vehiculo.VehiculoID\r\nLEFT JOIN avisoticket\r\nON avisoticketintervencion.AvisoTicketID = avisoticket.AvisoTicketID\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nLEFT JOIN avisoticketplanificacion\r\nON avisoticket.AvisoTicketID= avisoticketplanificacion.AvisoTicketID \r\nLEFT JOIN usuario\r\nON usuario.UsuarioID  = proyecto_of.UsuarioIDCierre\r\n\r\n\r\nWHERE proyecto_of.EsObraOf = 'S' AND proyecto_of.CustomerID = 29 \r\nAND proyecto_of.Proyecto_OFID = 1158\r\n"
+                        sql: "SELECT proyecto_of.CodigoProyecto_OF,\r\nproyecto_of.Proyecto_OFID,\r\nproyecto_of.FechaCreacion,\r\nproyecto_of.FechaHoraUsuario,\r\nproyecto_of.FechaHoraUsuarioCierre,\r\nproyecto_of.Observaciones,\r\nproyecto_of.UsuarioIDCierre,\r\nproyecto_of.Estado,\r\navisoticketintervencion.AvisoTicketID,\r\navisoticket.DescripcionProblema,\r\navisoticket.Numero,\r\navisoticketintervencion.Notas,\r\navisoticketintervencion.VehiculoID,\r\navisoticketintervencion.ContadorInicial,\r\navisoticketintervencion.ContadorFinal,\r\navisoticketintervencion.Kilometros,\r\nvehiculo.Matricula,\r\nvehiculo.Codigo,\r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre,\r\navisoticketplanificacion.AvisoTicketPlanificacionID,\r\navisoticketplanificacion.FechaHoraPlanificacionInicio,\r\navisoticketplanificacion.FechaHoraPlanificacionFinal,\r\nusuario.NombreUsuario \r\n\r\nFROM proyecto_of\r\nLEFT JOIN avisoticketintervencion \r\nON proyecto_of.Proyecto_OFID = avisoticketintervencion.Proyecto_OFID\r\nLEFT JOIN vehiculo \r\nON avisoticketintervencion.VehiculoID = vehiculo.VehiculoID\r\nLEFT JOIN avisoticket\r\nON avisoticketintervencion.AvisoTicketID = avisoticket.AvisoTicketID\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nLEFT JOIN avisoticketplanificacion\r\nON avisoticket.AvisoTicketID= avisoticketplanificacion.AvisoTicketID \r\nLEFT JOIN usuario\r\nON usuario.UsuarioID  = proyecto_of.UsuarioIDCierre\r\n\r\n\r\nWHERE proyecto_of.EsObraOf = 'S' AND proyecto_of.CustomerID = 29 \r\nAND proyecto_of.Proyecto_OFID = 1846\r\n"
                         records:
-                          - Numero: 1158
-                            Proyecto_OFID: 66674
-                            FechaIntervencion: '20230216'
-                            NumeroTicketID: 9
-                            NumeroTicketCodigo: 8
-                            NumeroTicketNombre: "\r\n<BODY bgColor=#ffffff><P><FONT face=\"MS Shell Dlg\">Problemas con la boquilla</FONT></P></BODY>"
-                            UsuarioCreacion: ''
-                            FechaHoraCreacion: '2023-04-13T12:05:41.000'
+                          - Numero: 1846
+                            Proyecto_OFID: 46
+                            FechaIntervencion: '00000101'
+                            NumeroTicketID: 0
+                            NumeroTicketCodigo: 0
+                            NumeroTicketNombre: ''
+                            UsuarioCreacion: ADMINISTRADOR
+                            FechaHoraCreacion: '2023-05-02T10:50:52.646'
                             PlanificacionIntervencionID: 0
                             PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
-                            TiempoPrevisto: 6 Horas
+                            TiempoPrevisto: 0 Horas
                             UsuarioCierreID: 0
                             nombreUsuarioCierre: ''
                             FechaHoraCierre: '0000-00-00T00:00:00.000'
                             NAlbaran: ''
-                            Descripcion: JULLL36NT
-                            ObservacionInterna: JULLL36NT
-                            VehiculoId: 1
-                            VehiculoNombre: '242342'
-                            VehiculoCodigo: '231231'
-                            ContadorInicial: 10
-                            ContadorFinal: 20
-                            Kilometros: '10'
-                            FechaAltaTicket: '2019-04-05T07:44:33.000'
-                            TipoTicket: Averia
+                            Descripcion: '0'
+                            ObservacionInterna: '0'
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: '0'
+                            FechaAltaTicket: '0000-00-00T00:00:00.000'
+                            TipoTicket: ''
                             Prioridad: ''
-                            DescripcionTicket: "\r\n<BODY bgColor=#ffffff><P><FONT face=\"MS Shell Dlg\">Problemas con la boquilla</FONT></P></BODY>"
-                            Cliente: dario
-                            ClienteCodigo: '43000001'
-                            Ubicacion: ANER VITORIA
-                            UbicacionCodigo: 2
-                            Equipo: Plegadora
-                            EquipoCodigo: '123'
-                            tipoEquipoNombre: Proveedores por tipo
+                            DescripcionTicket: ''
+                            Cliente: ''
+                            ClienteCodigo: ''
+                            Ubicacion: ''
+                            UbicacionCodigo: 0
+                            Equipo: ''
+                            EquipoCodigo: ''
+                            tipoEquipoNombre: ''
                             Estado: ''
                             EstadoTexto: ''
               examples:
@@ -4174,61 +4174,63 @@ paths:
                       success: true
                       data:
                         success: true
-                        sql: "SELECT proyecto_of.CodigoProyecto_OF,\r\nproyecto_of.Proyecto_OFID,\r\nproyecto_of.FechaCreacion,\r\nproyecto_of.FechaHoraUsuario,\r\nproyecto_of.FechaHoraUsuarioCierre,\r\nproyecto_of.Observaciones,\r\nproyecto_of.UsuarioIDCierre,\r\nproyecto_of.Estado,\r\navisoticketintervencion.AvisoTicketID,\r\navisoticket.DescripcionProblema,\r\navisoticket.Numero,\r\navisoticketintervencion.Notas,\r\navisoticketintervencion.VehiculoID,\r\navisoticketintervencion.ContadorInicial,\r\navisoticketintervencion.ContadorFinal,\r\navisoticketintervencion.Kilometros,\r\nvehiculo.Matricula,\r\nvehiculo.Codigo,\r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre,\r\navisoticketplanificacion.AvisoTicketPlanificacionID,\r\navisoticketplanificacion.FechaHoraPlanificacionInicio,\r\navisoticketplanificacion.FechaHoraPlanificacionFinal,\r\nusuario.NombreUsuario \r\n\r\nFROM proyecto_of\r\nLEFT JOIN avisoticketintervencion \r\nON proyecto_of.Proyecto_OFID = avisoticketintervencion.Proyecto_OFID\r\nLEFT JOIN vehiculo \r\nON avisoticketintervencion.VehiculoID = vehiculo.VehiculoID\r\nLEFT JOIN avisoticket\r\nON avisoticketintervencion.AvisoTicketID = avisoticket.AvisoTicketID\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nLEFT JOIN avisoticketplanificacion\r\nON avisoticket.AvisoTicketID= avisoticketplanificacion.AvisoTicketID \r\nLEFT JOIN usuario\r\nON usuario.UsuarioID  = proyecto_of.UsuarioIDCierre\r\n\r\n\r\nWHERE proyecto_of.EsObraOf = 'S' AND proyecto_of.CustomerID = 29 \r\nAND proyecto_of.Proyecto_OFID = 1158\r\n"
+                        sql: string
                         records:
-                          - Numero: 1158
-                            Proyecto_OFID: 66674
-                            FechaIntervencion: '20230216'
-                            NumeroTicketID: 9
-                            NumeroTicketCodigo: 8
-                            NumeroTicketNombre: "\r\n<BODY bgColor=#ffffff><P><FONT face=\"MS Shell Dlg\">Problemas con la boquilla</FONT></P></BODY>"
-                            UsuarioCreacion: ''
-                            FechaHoraCreacion: '2023-04-13T12:05:41.000'
+                          - Numero: 1846
+                            Proyecto_OFID: 46
+                            FechaIntervencion: '00000101'
+                            NumeroTicketID: 0
+                            NumeroTicketCodigo: 0
+                            NumeroTicketNombre: ''
+                            UsuarioCreacion: ADMINISTRADOR
+                            FechaHoraCreacion: '2023-05-02T10:50:52.646'
                             PlanificacionIntervencionID: 0
                             PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
-                            TiempoPrevisto: 6 Horas
+                            TiempoPrevisto: 0 Horas
                             UsuarioCierreID: 0
                             nombreUsuarioCierre: ''
                             FechaHoraCierre: '0000-00-00T00:00:00.000'
                             NAlbaran: ''
-                            Descripcion: JULLL36NT
-                            ObservacionInterna: JULLL36NT
-                            VehiculoId: 1
-                            VehiculoNombre: '242342'
-                            VehiculoCodigo: '231231'
-                            ContadorInicial: 10
-                            ContadorFinal: 20
-                            Kilometros: '10'
-                            FechaAltaTicket: '2019-04-05T07:44:33.000'
-                            TipoTicket: Averia
+                            Descripcion: '0'
+                            ObservacionInterna: '0'
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: '0'
+                            FechaAltaTicket: '0000-00-00T00:00:00.000'
+                            TipoTicket: ''
                             Prioridad: ''
-                            DescripcionTicket: "\r\n<BODY bgColor=#ffffff><P><FONT face=\"MS Shell Dlg\">Problemas con la boquilla</FONT></P></BODY>"
-                            Cliente: dario
-                            ClienteCodigo: '43000001'
-                            Ubicacion: ANER VITORIA
-                            UbicacionCodigo: 2
-                            Equipo: Plegadora
-                            EquipoCodigo: '123'
-                            tipoEquipoNombre: Proveedores por tipo
+                            DescripcionTicket: ''
+                            Cliente: ''
+                            ClienteCodigo: ''
+                            Ubicacion: ''
+                            UbicacionCodigo: 0
+                            Equipo: ''
+                            EquipoCodigo: ''
+                            tipoEquipoNombre: ''
                             Estado: ''
                             EstadoTexto: ''
       operationId: get-interventions-openIntervention
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: 'accessToken '
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
         - schema:
             type: integer
+            example: 1846
           in: query
           name: proyecto_OFID
-          description: '1158'
         - schema:
             type: integer
+            example: 66674
           in: query
           name: numero
-          description: '66674'
       requestBody:
         content:
           application/json:
