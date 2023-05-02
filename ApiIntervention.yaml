@@ -11098,12 +11098,12 @@ paths:
                           Contador: 2
                           Stock: 1292372.04
                         - ID: 395
-                          Nombre: LECHE DESCREMADA EN POLVO
+                          Nombre: LECHE EN POLVO
                           Codigo: '100000587'
                           Contador: 3
                           Stock: 130614.21
                         - ID: 396
-                          Nombre: SUERO DE LECHE EN POLVO
+                          Nombre: LECHE EN POLVO
                           Codigo: '100000597'
                           Contador: 4
                           Stock: 1116630.367
@@ -11113,7 +11113,7 @@ paths:
                           Contador: 5
                           Stock: 193420
                         - ID: 435
-                          Nombre: CANELA KORITAJE EN POLVO
+                          Nombre: CANELA EN POLVO
                           Codigo: '100000604'
                           Contador: 6
                           Stock: 191397.3
