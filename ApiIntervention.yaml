@@ -529,737 +529,6 @@ paths:
                   Descripcion: UpdateJCO
                   ObservacionInterna: NotaActualizadaJCO
                   VehiculoId: 1
-  /interventions/consult/tickets:
-    get:
-      summary: findManyForFiltersForInterventionsByTickets
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            Numero:
-                              type: integer
-                            Fecha:
-                              type: string
-                            Descripcion:
-                              type: string
-                            Codigo:
-                              type: string
-                            Nombre:
-                              type: string
-                            FechaCierre:
-                              type: string
-                            CosteMO:
-                              type:
-                                - integer
-                                - number
-                            CosteMaterial:
-                              type:
-                                - integer
-                                - number
-                            Gastos:
-                              type:
-                                - integer
-                                - number
-                            Subcontratación:
-                              type: integer
-                            NumeroAlbaran:
-                              type: integer
-                            ProcesoID:
-                              type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT \r\nAvisoTicketIntervencion.*,\r\nProyecto_OF.CodigoProyecto_OF,\r\nProyecto_OF.FechaHoraUsuarioCierre,\r\nProyecto_OF.Observaciones,\r\nTablaGeneral.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneral.Descripcion AS TipoTicketTexto,\r\nAvisoTicket.MailingID,\r\nMailing.ReferenciaCodigo,\r\nMailing.Nombre, AlbaranVentaCabecera.Numero, Proceso.ProcesoID\r\nFROM AvisoTicketIntervencion\r\nLEFT OUTER JOIN AvisoTicket ON AvisoTIcket.AvisoTicketID = AvisoTicketIntervencion.AvisoTicketID\r\nleft outer join AvisoTicketElemento on AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Proyecto_OF ON Proyecto_OF.Proyecto_OFID = AvisoTicketIntervencion.Proyecto_OFID\r\nLEFT OUTER JOIN Proceso ON Proceso.Proyecto_OFID = Proyecto_OF.Proyecto_OFID\r\nLEFT OUTER JOIN AlbaranVentaCabecera ON AlbaranVentaCabecera.AlbaranVentaCabeceraID = AvisoTicketIntervencion.AlbaranVentaCabeceraID\r\nLEFT OUTER JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nWHERE AvisoTicketIntervencion.CustomerID = 29\r\nAND AvisoTicket.EmpresaID = 1\r\n AND (AvisoTicketIntervencion.Fecha >= 20000220 AND DATE(AvisoTicketIntervencion.Fecha) <= 20260220 AND AvisoTicketIntervencion.AvisoTicketID IN (3))\r\nLIMIT 50 \r\nOFFSET 0"
-                      records:
-                        - Numero: 1
-                          Fecha: '20181113'
-                          Descripcion: SOL PROBLEMA
-                          Codigo: '43000001'
-                          Nombre: dario
-                          FechaCierre: '20230315'
-                          CosteMO: 2922.62497
-                          CosteMaterial: 2922.62497
-                          Gastos: 37.5
-                          Subcontratación: 0
-                          NumeroAlbaran: 61
-                          ProcesoID: 3784
-                        - Numero: 19
-                          Fecha: '20230315'
-                          Descripcion: VGCGC
-                          Codigo: '43000001'
-                          Nombre: dario
-                          FechaCierre: '00000000'
-                          CosteMO: 0
-                          CosteMaterial: 0
-                          Gastos: 0
-                          Subcontratación: 0
-                          NumeroAlbaran: 0
-                          ProcesoID: 5313
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT \r\nAvisoTicketIntervencion.*,\r\nProyecto_OF.CodigoProyecto_OF,\r\nProyecto_OF.FechaHoraUsuarioCierre,\r\nProyecto_OF.Observaciones,\r\nTablaGeneral.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneral.Descripcion AS TipoTicketTexto,\r\nAvisoTicket.MailingID,\r\nMailing.ReferenciaCodigo,\r\nMailing.Nombre, AlbaranVentaCabecera.Numero, Proceso.ProcesoID\r\nFROM AvisoTicketIntervencion\r\nLEFT OUTER JOIN AvisoTicket ON AvisoTIcket.AvisoTicketID = AvisoTicketIntervencion.AvisoTicketID\r\nleft outer join AvisoTicketElemento on AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Proyecto_OF ON Proyecto_OF.Proyecto_OFID = AvisoTicketIntervencion.Proyecto_OFID\r\nLEFT OUTER JOIN Proceso ON Proceso.Proyecto_OFID = Proyecto_OF.Proyecto_OFID\r\nLEFT OUTER JOIN AlbaranVentaCabecera ON AlbaranVentaCabecera.AlbaranVentaCabeceraID = AvisoTicketIntervencion.AlbaranVentaCabeceraID\r\nLEFT OUTER JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nWHERE AvisoTicketIntervencion.CustomerID = 29\r\nAND AvisoTicket.EmpresaID = 1\r\n AND (AvisoTicketIntervencion.Fecha >= 20000220 AND DATE(AvisoTicketIntervencion.Fecha) <= 20260220 AND AvisoTicketIntervencion.AvisoTicketID IN (3))\r\nLIMIT 50 \r\nOFFSET 0"
-                      records:
-                        - Numero: 1
-                          Fecha: '20181113'
-                          Descripcion: SOL PROBLEMA
-                          Codigo: '43000001'
-                          Nombre: dario
-                          FechaCierre: '20230315'
-                          CosteMO: 2922.62497
-                          CosteMaterial: 2922.62497
-                          Gastos: 37.5
-                          Subcontratación: 0
-                          NumeroAlbaran: 61
-                          ProcesoID: 3784
-                        - Numero: 19
-                          Fecha: '20230315'
-                          Descripcion: VGCGC
-                          Codigo: '43000001'
-                          Nombre: dario
-                          FechaCierre: '00000000'
-                          CosteMO: 0
-                          CosteMaterial: 0
-                          Gastos: 0
-                          Subcontratación: 0
-                          NumeroAlbaran: 0
-                          ProcesoID: 5313
-      operationId: get-interventions-consult-tickets
-      description: ''
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: integer
-          in: query
-          name: offset
-          description: '0'
-        - schema:
-            type: integer
-          in: query
-          name: limit
-          description: '50'
-        - schema:
-            type: string
-          in: query
-          name: fechaDesdeIn
-          description: '20000220'
-        - schema:
-            type: string
-          in: query
-          name: fechaHastaIn
-          description: '20260220'
-        - schema:
-            type: integer
-          in: query
-          name: ticketID
-          description: '3'
-        - schema:
-            type: integer
-          in: query
-          name: mailingID
-          description: '0'
-        - schema:
-            type: integer
-          in: query
-          description: '0'
-          name: equipoID
-        - schema:
-            type: integer
-          in: query
-          description: '0'
-          name: ubicacionID
-  /groups/light:
-    get:
-      summary: findLightListForGroup
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Codigo:
-                              type: string
-                            Nombre:
-                              type: string
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      records:
-                        - ID: 1
-                          Codigo: '1'
-                          Nombre: prg
-                        - ID: 2
-                          Codigo: AP01
-                          Nombre: prueba
-                      success: true
-                      sql: "select * ,\r\nAlmacen.nombre as NombreAlmacen,\r\ntablageneral.Descripcion as NombreRutaEntrega \r\n\r\nfrom \r\n\r\nEmpleadoGrupoSATCabecera\r\nleft join almacen on almacen.almacenid = EmpleadoGrupoSatCabecera.almacenid\r\nleft join Tablageneral on tablageneral.tablageneralID = EmpleadoGrupoSatCabecera.RutaEntregaID\r\nleft join EmpleadoGrupoSatLinea on EmpleadoGrupoSatLinea.EmpleadoGrupoSatCabeceraID = EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraId\r\n\r\nwhere \r\nEmpleadoGrupoSatCabecera.CustomerID = 29 and\r\nEmpleadoGrupoSatCabecera.Empresaid = 1\r\n\r\nGROUP BY EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraID\r\nORDER BY EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraID"
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      records:
-                        - ID: 1
-                          Codigo: '1'
-                          Nombre: prg
-                        - ID: 2
-                          Codigo: AP01
-                          Nombre: prueba
-                      success: true
-                      sql: "select * ,\r\nAlmacen.nombre as NombreAlmacen,\r\ntablageneral.Descripcion as NombreRutaEntrega \r\n\r\nfrom \r\n\r\nEmpleadoGrupoSATCabecera\r\nleft join almacen on almacen.almacenid = EmpleadoGrupoSatCabecera.almacenid\r\nleft join Tablageneral on tablageneral.tablageneralID = EmpleadoGrupoSatCabecera.RutaEntregaID\r\nleft join EmpleadoGrupoSatLinea on EmpleadoGrupoSatLinea.EmpleadoGrupoSatCabeceraID = EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraId\r\n\r\nwhere \r\nEmpleadoGrupoSatCabecera.CustomerID = 29 and\r\nEmpleadoGrupoSatCabecera.Empresaid = 1\r\n\r\nGROUP BY EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraID\r\nORDER BY EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraID"
-      operationId: get-groups-light
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-  /ticket/planification:
-    get:
-      summary: findManyForPlanificationByTicket
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      PlanificacionGrayed:
-                        type: boolean
-                      CambiarEstadoGrayed:
-                        type: boolean
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            AvisoTicketPlanificacionID:
-                              type: integer
-                            FechaHoraInicio:
-                              type: string
-                            FechaHoraFin:
-                              type: string
-                            Situacion:
-                              type: string
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      PlanificacionGrayed: false
-                      CambiarEstadoGrayed: false
-                      records:
-                        - AvisoTicketPlanificacionID: 45
-                          FechaHoraInicio: '2023-03-16T00:00:00.000'
-                          FechaHoraFin: '2023-03-17T00:00:00.000'
-                          Situacion: Aceptado Operario
-                        - AvisoTicketPlanificacionID: 46
-                          FechaHoraInicio: '2000-05-12T00:00:00.000'
-                          FechaHoraFin: '2012-05-12T00:00:00.000'
-                          Situacion: Aceptado Operario
-                        - AvisoTicketPlanificacionID: 50
-                          FechaHoraInicio: '0000-00-00T00:00:00.000'
-                          FechaHoraFin: '0000-00-00T00:00:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 51
-                          FechaHoraInicio: '2023-02-15T23:00:00.000'
-                          FechaHoraFin: '2028-02-15T23:00:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 52
-                          FechaHoraInicio: '0000-00-00T00:00:00.000'
-                          FechaHoraFin: '0000-00-00T00:00:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 53
-                          FechaHoraInicio: '2023-02-15T05:00:00.000'
-                          FechaHoraFin: '2028-02-15T05:00:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 54
-                          FechaHoraInicio: '2023-02-15T05:30:00.000'
-                          FechaHoraFin: '2028-02-15T05:30:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 55
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 58
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 59
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 60
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 61
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 62
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 63
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 64
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 65
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 66
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 67
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 68
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 69
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 70
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 71
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 72
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 75
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 76
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                      success: true
-                      sql: "SELECT \r\n\tAvisoTicketPlanificacion.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID,\t\r\n\tAvisoTicketPlanificacion.AvisoTicketID AS AvisoTicketID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionInicio AS FechaHoraPlanificacionInicio,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionFinal AS FechaHoraPlanificacionFinal,\t\r\n\tAvisoTicketPlanificacion.CustomerID AS CustomerID,\t\r\n\tAvisoTicketPlanificacion.EmpresaID AS EmpresaID,\t\r\n\tAvisoTicketPlanificacion.UsuarioID AS UsuarioID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraUsuario AS FechaHoraUsuario,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionEmpleadoID AS AvisoTicketPlanificacionEmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpleadoID AS EmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.Situacion AS Situacion,\t\r\n\tAvisoTicketPlanificacionEmpleado.CustomerID AS CustomerID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpresaID AS EmpresaID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.UsuarioID AS UsuarioID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.FechaHoraUsuario AS FechaHoraUsuario_Av,\r\n\templeado.Nombre as NombreEmpleado\r\n\t\r\nFROM AvisoTicketPlanificacion\r\nleft join AvisoTicketPlanificacionEmpleado on AvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID=AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\nLEFT JOIn Empleado on empleado.EmpleadoID=AvisoTicketPlanificacionEmpleado.EmpleadoID\r\n\r\nwhere AvisoTicketPlanificacion.CustomerID = 29 \r\nAND AvisoTicketPlanificacion.EmpresaID = 1 \r\nAND AvisoTicketPlanificacion.AvisoTicketID = 3\r\nGroup By AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\nLIMIT 50 \r\nOFFSET 0"
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      PlanificacionGrayed: false
-                      CambiarEstadoGrayed: false
-                      records:
-                        - AvisoTicketPlanificacionID: 45
-                          FechaHoraInicio: '2023-03-16T00:00:00.000'
-                          FechaHoraFin: '2023-03-17T00:00:00.000'
-                          Situacion: Aceptado Operario
-                        - AvisoTicketPlanificacionID: 46
-                          FechaHoraInicio: '2000-05-12T00:00:00.000'
-                          FechaHoraFin: '2012-05-12T00:00:00.000'
-                          Situacion: Aceptado Operario
-                        - AvisoTicketPlanificacionID: 50
-                          FechaHoraInicio: '0000-00-00T00:00:00.000'
-                          FechaHoraFin: '0000-00-00T00:00:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 51
-                          FechaHoraInicio: '2023-02-15T23:00:00.000'
-                          FechaHoraFin: '2028-02-15T23:00:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 52
-                          FechaHoraInicio: '0000-00-00T00:00:00.000'
-                          FechaHoraFin: '0000-00-00T00:00:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 53
-                          FechaHoraInicio: '2023-02-15T05:00:00.000'
-                          FechaHoraFin: '2028-02-15T05:00:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 54
-                          FechaHoraInicio: '2023-02-15T05:30:00.000'
-                          FechaHoraFin: '2028-02-15T05:30:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 55
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 58
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 59
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 60
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 61
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 62
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 63
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 64
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 65
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 66
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 67
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 68
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 69
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 70
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 71
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 72
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 75
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                        - AvisoTicketPlanificacionID: 76
-                          FechaHoraInicio: '2023-02-15T05:23:00.000'
-                          FechaHoraFin: '2028-02-15T05:23:00.000'
-                          Situacion: Pendiente Operario
-                      success: true
-                      sql: "SELECT \r\n\tAvisoTicketPlanificacion.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID,\t\r\n\tAvisoTicketPlanificacion.AvisoTicketID AS AvisoTicketID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionInicio AS FechaHoraPlanificacionInicio,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionFinal AS FechaHoraPlanificacionFinal,\t\r\n\tAvisoTicketPlanificacion.CustomerID AS CustomerID,\t\r\n\tAvisoTicketPlanificacion.EmpresaID AS EmpresaID,\t\r\n\tAvisoTicketPlanificacion.UsuarioID AS UsuarioID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraUsuario AS FechaHoraUsuario,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionEmpleadoID AS AvisoTicketPlanificacionEmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpleadoID AS EmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.Situacion AS Situacion,\t\r\n\tAvisoTicketPlanificacionEmpleado.CustomerID AS CustomerID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpresaID AS EmpresaID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.UsuarioID AS UsuarioID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.FechaHoraUsuario AS FechaHoraUsuario_Av,\r\n\templeado.Nombre as NombreEmpleado\r\n\t\r\nFROM AvisoTicketPlanificacion\r\nleft join AvisoTicketPlanificacionEmpleado on AvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID=AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\nLEFT JOIn Empleado on empleado.EmpleadoID=AvisoTicketPlanificacionEmpleado.EmpleadoID\r\n\r\nwhere AvisoTicketPlanificacion.CustomerID = 29 \r\nAND AvisoTicketPlanificacion.EmpresaID = 1 \r\nAND AvisoTicketPlanificacion.AvisoTicketID = 3\r\nGroup By AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\nLIMIT 50 \r\nOFFSET 0"
-      operationId: get-ticket-planification
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-        - schema:
-            type: integer
-          in: query
-          name: limit
-          description: '50'
-        - schema:
-            type: integer
-          in: query
-          name: 'offset '
-          description: '0'
-        - schema:
-            type: integer
-          in: query
-          name: ticketID
-          description: '3'
-    post:
-      summary: createPlanificationForTickets
-      operationId: post-ticket-planification
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      data:
-                        type: object
-                        properties:
-                          PlanificacionGrayed:
-                            type: boolean
-                          CambiarEstadoGrayed:
-                            type: boolean
-                          records:
-                            type: array
-                            items:
-                              type: object
-                              properties:
-                                AvisoTicketPlanificacionID:
-                                  type: integer
-                                FechaHoraInicio:
-                                  type: string
-                                FechaHoraFin:
-                                  type: string
-                                Situacion:
-                                  type: string
-                          success:
-                            type: boolean
-                          sql:
-                            type: string
-                      success:
-                        type: boolean
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      data:
-                        PlanificacionGrayed: false
-                        CambiarEstadoGrayed: false
-                        records:
-                          - AvisoTicketPlanificacionID: 92
-                            FechaHoraInicio: '2023-04-04T00:00:00.000'
-                            FechaHoraFin: '2023-04-04T00:00:00.000'
-                            Situacion: Pendiente Operario
-                        success: true
-                        sql: "SELECT \r\n\tAvisoTicketPlanificacion.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID,\t\r\n\tAvisoTicketPlanificacion.AvisoTicketID AS AvisoTicketID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionInicio AS FechaHoraPlanificacionInicio,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionFinal AS FechaHoraPlanificacionFinal,\t\r\n\tAvisoTicketPlanificacion.CustomerID AS CustomerID,\t\r\n\tAvisoTicketPlanificacion.EmpresaID AS EmpresaID,\t\r\n\tAvisoTicketPlanificacion.UsuarioID AS UsuarioID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraUsuario AS FechaHoraUsuario,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionEmpleadoID AS AvisoTicketPlanificacionEmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpleadoID AS EmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.Situacion AS Situacion,\t\r\n\tAvisoTicketPlanificacionEmpleado.CustomerID AS CustomerID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpresaID AS EmpresaID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.UsuarioID AS UsuarioID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.FechaHoraUsuario AS FechaHoraUsuario_Av,\r\n\templeado.Nombre as NombreEmpleado\r\n\t\r\nFROM AvisoTicketPlanificacion\r\nleft join AvisoTicketPlanificacionEmpleado on AvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID=AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\nLEFT JOIn Empleado on empleado.EmpleadoID=AvisoTicketPlanificacionEmpleado.EmpleadoID\r\n\r\nwhere AvisoTicketPlanificacion.CustomerID = 29 \r\nAND AvisoTicketPlanificacion.EmpresaID = 1 \r\nAND AvisoTicketPlanificacion.AvisoTicketID = 2\r\nAND AvisoTicketPlanificacion.AvisoTicketPlanificacionID = 92\r\nGroup By AvisoTicketPlanificacion.AvisoTicketPlanificacionID"
-                      success: true
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      data:
-                        PlanificacionGrayed: false
-                        CambiarEstadoGrayed: false
-                        records:
-                          - AvisoTicketPlanificacionID: 92
-                            FechaHoraInicio: '2023-04-04T00:00:00.000'
-                            FechaHoraFin: '2023-04-04T00:00:00.000'
-                            Situacion: Pendiente Operario
-                        success: true
-                        sql: "SELECT \r\n\tAvisoTicketPlanificacion.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID,\t\r\n\tAvisoTicketPlanificacion.AvisoTicketID AS AvisoTicketID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionInicio AS FechaHoraPlanificacionInicio,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionFinal AS FechaHoraPlanificacionFinal,\t\r\n\tAvisoTicketPlanificacion.CustomerID AS CustomerID,\t\r\n\tAvisoTicketPlanificacion.EmpresaID AS EmpresaID,\t\r\n\tAvisoTicketPlanificacion.UsuarioID AS UsuarioID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraUsuario AS FechaHoraUsuario,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionEmpleadoID AS AvisoTicketPlanificacionEmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpleadoID AS EmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.Situacion AS Situacion,\t\r\n\tAvisoTicketPlanificacionEmpleado.CustomerID AS CustomerID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpresaID AS EmpresaID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.UsuarioID AS UsuarioID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.FechaHoraUsuario AS FechaHoraUsuario_Av,\r\n\templeado.Nombre as NombreEmpleado\r\n\t\r\nFROM AvisoTicketPlanificacion\r\nleft join AvisoTicketPlanificacionEmpleado on AvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID=AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\nLEFT JOIn Empleado on empleado.EmpleadoID=AvisoTicketPlanificacionEmpleado.EmpleadoID\r\n\r\nwhere AvisoTicketPlanificacion.CustomerID = 29 \r\nAND AvisoTicketPlanificacion.EmpresaID = 1 \r\nAND AvisoTicketPlanificacion.AvisoTicketID = 2\r\nAND AvisoTicketPlanificacion.AvisoTicketPlanificacionID = 92\r\nGroup By AvisoTicketPlanificacion.AvisoTicketPlanificacionID"
-                      success: true
-            application/xml:
-              schema:
-                type: object
-                properties: {}
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                ticketID:
-                  type: integer
-                fechaDesdeIN:
-                  type: string
-                fechaHastaIN:
-                  type: string
-                empleados:
-                  type: string
-              x-examples:
-                Example 1:
-                  ticketID: 2
-                  fechaDesdeIN: '20230404000000'
-                  fechaHastaIN: '20230404000000'
-                  empleados: '66'
-            examples:
-              Example 1:
-                value:
-                  ticketID: 2
-                  fechaDesdeIN: '20230404000000'
-                  fechaHastaIN: '20230404000000'
-                  empleados: '66'
-  /vehicle/light:
-    get:
-      summary: findLightListForVehicle
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT vehiculo.VehiculoID , vehiculo.Codigo ,vehiculo.Matricula\r\nFROM vehiculo \r\nWHERE vehiculo.CustomerID = 29 AND vehiculo.EmpresaID = 1 \r\n"
-                      records:
-                        - ID: 1
-                          Nombre: '242342'
-                          Codigo: '231231'
-                        - ID: 2
-                          Nombre: 3525 GSM
-                          Codigo: '1'
-                        - ID: 7
-                          Nombre: QWEERRTY
-                          Codigo: '6'
-                        - ID: 8
-                          Nombre: FDSFDSFDS
-                          Codigo: '7'
-                        - ID: 12
-                          Nombre: WREWRW
-                          Codigo: '11'
-                        - ID: 13
-                          Nombre: SDADAS
-                          Codigo: '12'
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT vehiculo.VehiculoID , vehiculo.Codigo ,vehiculo.Matricula\r\nFROM vehiculo \r\nWHERE vehiculo.CustomerID = 29 AND vehiculo.EmpresaID = 1 \r\n"
-                      records:
-                        - ID: 1
-                          Nombre: '242342'
-                          Codigo: '231231'
-                        - ID: 2
-                          Nombre: 3525 GSM
-                          Codigo: '1'
-                        - ID: 7
-                          Nombre: QWEERRTY
-                          Codigo: '6'
-                        - ID: 8
-                          Nombre: FDSFDSFDS
-                          Codigo: '7'
-                        - ID: 12
-                          Nombre: WREWRW
-                          Codigo: '11'
-                        - ID: 13
-                          Nombre: SDADAS
-                          Codigo: '12'
-      operationId: get-vehicle-light
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
   /interventions:
     get:
       summary: Intervention - FindMany
@@ -3328,6 +2597,1543 @@ paths:
             example: DESC
           in: query
           name: order
+  /interventions/consult/tickets:
+    get:
+      summary: Intervention - FindManyByFiltersForTickets
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Numero:
+                              type: integer
+                            Fecha:
+                              type: string
+                            Descripcion:
+                              type: string
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                            FechaCierre:
+                              type: string
+                            CosteMO:
+                              type: integer
+                            CosteMaterial:
+                              type: integer
+                            Gastos:
+                              type: integer
+                            Subcontratación:
+                              type: integer
+                            NumeroAlbaran:
+                              type: integer
+                            ProcesoID:
+                              type: integer
+                            Proyecto_OFID:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT \r\nAvisoTicketIntervencion.*,\r\nProyecto_OF.CodigoProyecto_OF,\r\nProyecto_OF.FechaHoraUsuarioCierre,\r\nProyecto_OF.Observaciones,\r\nTablaGeneral.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneral.Descripcion AS TipoTicketTexto,\r\nAvisoTicket.MailingID,\r\nMailing.ReferenciaCodigo,\r\nMailing.Nombre, AlbaranVentaCabecera.Numero, Proceso.ProcesoID\r\nFROM AvisoTicketIntervencion\r\nLEFT OUTER JOIN AvisoTicket ON AvisoTIcket.AvisoTicketID = AvisoTicketIntervencion.AvisoTicketID\r\nleft outer join AvisoTicketElemento on AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Proyecto_OF ON Proyecto_OF.Proyecto_OFID = AvisoTicketIntervencion.Proyecto_OFID\r\nLEFT OUTER JOIN Proceso ON Proceso.Proyecto_OFID = Proyecto_OF.Proyecto_OFID\r\nLEFT OUTER JOIN AlbaranVentaCabecera ON AlbaranVentaCabecera.AlbaranVentaCabeceraID = AvisoTicketIntervencion.AlbaranVentaCabeceraID\r\nLEFT OUTER JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nWHERE AvisoTicketIntervencion.CustomerID = 29\r\nAND AvisoTicket.EmpresaID = 1\r\n AND (AvisoTicketIntervencion.Fecha >= 20000220 AND DATE(AvisoTicketIntervencion.Fecha) <= 20260220)\r\nLIMIT 50 \r\nOFFSET 0"
+                      records:
+                        - Numero: 1
+                          Fecha: '20230220'
+                          Descripcion: 1232S
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1874
+                          Proyecto_OFID: 1769
+                        - Numero: 5
+                          Fecha: '20230222'
+                          Descripcion: ''
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '20230222'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1878
+                          Proyecto_OFID: 1773
+                        - Numero: 8
+                          Fecha: '20230216'
+                          Descripcion: adwqdqwd
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1881
+                          Proyecto_OFID: 1776
+                        - Numero: 11
+                          Fecha: '20230215'
+                          Descripcion: PRUEBALU33333RT
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1884
+                          Proyecto_OFID: 1781
+                        - Numero: 9
+                          Fecha: '20230223'
+                          Descripcion: ''
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1886
+                          Proyecto_OFID: 1783
+                        - Numero: 7
+                          Fecha: '20230222'
+                          Descripcion: ''
+                          Codigo: ''
+                          Nombre: ''
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1880
+                          Proyecto_OFID: 1775
+                        - Numero: 2
+                          Fecha: '20230222'
+                          Descripcion: ''
+                          Codigo: '10300010308'
+                          Nombre: Papeleria Liceth
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1875
+                          Proyecto_OFID: 1770
+                        - Numero: 3
+                          Fecha: '20230222'
+                          Descripcion: ''
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1876
+                          Proyecto_OFID: 1771
+                        - Numero: 4
+                          Fecha: '20230222'
+                          Descripcion: ''
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1877
+                          Proyecto_OFID: 1772
+                        - Numero: 6
+                          Fecha: '20230222'
+                          Descripcion: qwertyuqwert
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '20230222'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1879
+                          Proyecto_OFID: 1774
+                        - Numero: 0
+                          Fecha: '20230215'
+                          Descripcion: ''
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          NumeroAlbaran: 0
+                          ProcesoID: 0
+                          Proyecto_OFID: 1779
+                        - Numero: 0
+                          Fecha: '20230215'
+                          Descripcion: ''
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          NumeroAlbaran: 0
+                          ProcesoID: 0
+                          Proyecto_OFID: 1780
+                        - Numero: 16
+                          Fecha: '20230215'
+                          Descripcion: JULLL
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1892
+                          Proyecto_OFID: 1789
+                        - Numero: 18
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1894
+                          Proyecto_OFID: 1791
+                        - Numero: 20
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1899
+                          Proyecto_OFID: 1796
+                        - Numero: 21
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1900
+                          Proyecto_OFID: 1797
+                        - Numero: 22
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1901
+                          Proyecto_OFID: 1798
+                        - Numero: 0
+                          Fecha: '20230315'
+                          Descripcion: ''
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          NumeroAlbaran: 0
+                          ProcesoID: 0
+                          Proyecto_OFID: 1154
+                        - Numero: 23
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1903
+                          Proyecto_OFID: 1823
+                        - Numero: 24
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1904
+                          Proyecto_OFID: 1824
+                        - Numero: 25
+                          Fecha: '20230216'
+                          Descripcion: JULLL36NT
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1905
+                          Proyecto_OFID: 1825
+                        - Numero: 37
+                          Fecha: '20230502'
+                          Descripcion: PruebaJCO
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1917
+                          Proyecto_OFID: 1837
+                        - Numero: 38
+                          Fecha: '20230502'
+                          Descripcion: PruebaJCO
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1918
+                          Proyecto_OFID: 1838
+                        - Numero: 39
+                          Fecha: '20230502'
+                          Descripcion: PruebaJCO
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1919
+                          Proyecto_OFID: 1839
+                        - Numero: 13
+                          Fecha: '20230215'
+                          Descripcion: PRUEBALU33333RT
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '20230223'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1888
+                          Proyecto_OFID: 1785
+                        - Numero: 12
+                          Fecha: '20230215'
+                          Descripcion: PRUEBALU33333RT
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1885
+                          Proyecto_OFID: 1782
+                        - Numero: 15
+                          Fecha: '20230223'
+                          Descripcion: ''
+                          Codigo: '10300010263'
+                          Nombre: CENTRO COMERCIAL LA BARCA SA DE CV
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1891
+                          Proyecto_OFID: 1788
+                        - Numero: 10
+                          Fecha: '20230223'
+                          Descripcion: redfgdfgdf
+                          Codigo: '10300010311'
+                          Nombre: Alejo
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1887
+                          Proyecto_OFID: 1784
+                        - Numero: 19
+                          Fecha: '20230315'
+                          Descripcion: actualizar2
+                          Codigo: '10300010311'
+                          Nombre: Alejo
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1897
+                          Proyecto_OFID: 1794
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - Numero: 1
+                          Fecha: '20230220'
+                          Descripcion: 1232S
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1874
+                          Proyecto_OFID: 1769
+                        - Numero: 5
+                          Fecha: '20230222'
+                          Descripcion: ''
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '20230222'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1878
+                          Proyecto_OFID: 1773
+                        - Numero: 8
+                          Fecha: '20230216'
+                          Descripcion: adwqdqwd
+                          Codigo: '10300010329'
+                          Nombre: TIENDAS TRES B S A DE C V
+                          FechaCierre: '00000000'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1881
+                          Proyecto_OFID: 1776
+      operationId: get-interventions-consult-tickets
+      description: ''
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: integer
+            example: 0
+          in: query
+          name: offset
+        - schema:
+            type: integer
+            example: 50
+          in: query
+          name: limit
+          required: true
+        - schema:
+            type: string
+            example: '20000220'
+          in: query
+          name: fechaDesdeIn
+        - schema:
+            type: string
+            example: '20260220'
+          in: query
+          name: fechaHastaIn
+        - schema:
+            type: integer
+            example: 3
+          in: query
+          name: ticketID
+        - schema:
+            type: integer
+            example: 0
+          in: query
+          name: mailingID
+        - schema:
+            type: integer
+            example: 0
+          in: query
+          name: equipoID
+        - schema:
+            type: integer
+            example: 0
+          in: query
+          name: ubicacionID
+  /interventions/openIntervention:
+    get:
+      summary: Intervention - Open
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: object
+                        properties:
+                          success:
+                            type: boolean
+                          sql:
+                            type: string
+                          records:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                Numero:
+                                  type: integer
+                                Proyecto_OFID:
+                                  type: integer
+                                FechaIntervencion:
+                                  type: string
+                                NumeroTicketID:
+                                  type: integer
+                                NumeroTicketCodigo:
+                                  type: integer
+                                NumeroTicketNombre:
+                                  type: string
+                                UsuarioCreacion:
+                                  type: string
+                                FechaHoraCreacion:
+                                  type: string
+                                PlanificacionIntervencionID:
+                                  type: integer
+                                PlanificacionIntervencionNombre:
+                                  type: string
+                                TiempoPrevisto:
+                                  type: string
+                                UsuarioCierreID:
+                                  type: integer
+                                nombreUsuarioCierre:
+                                  type: string
+                                FechaHoraCierre:
+                                  type: string
+                                NAlbaran:
+                                  type: string
+                                Descripcion:
+                                  type: string
+                                ObservacionInterna:
+                                  type: string
+                                VehiculoId:
+                                  type: integer
+                                VehiculoNombre:
+                                  type: string
+                                VehiculoCodigo:
+                                  type: string
+                                ContadorInicial:
+                                  type: integer
+                                ContadorFinal:
+                                  type: integer
+                                Kilometros:
+                                  type: string
+                                FechaAltaTicket:
+                                  type: string
+                                TipoTicket:
+                                  type: string
+                                Prioridad:
+                                  type: string
+                                DescripcionTicket:
+                                  type: string
+                                Cliente:
+                                  type: string
+                                ClienteCodigo:
+                                  type: string
+                                Ubicacion:
+                                  type: string
+                                UbicacionCodigo:
+                                  type: integer
+                                Equipo:
+                                  type: string
+                                EquipoCodigo:
+                                  type: string
+                                tipoEquipoNombre:
+                                  type: string
+                                Estado:
+                                  type: string
+                                EstadoTexto:
+                                  type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        success: true
+                        sql: "SELECT proyecto_of.CodigoProyecto_OF,\r\nproyecto_of.Proyecto_OFID,\r\nproyecto_of.FechaCreacion,\r\nproyecto_of.FechaHoraUsuario,\r\nproyecto_of.FechaHoraUsuarioCierre,\r\nproyecto_of.Observaciones,\r\nproyecto_of.UsuarioIDCierre,\r\nproyecto_of.Estado,\r\navisoticketintervencion.AvisoTicketID,\r\navisoticket.DescripcionProblema,\r\navisoticket.Numero,\r\navisoticketintervencion.Notas,\r\navisoticketintervencion.VehiculoID,\r\navisoticketintervencion.ContadorInicial,\r\navisoticketintervencion.ContadorFinal,\r\navisoticketintervencion.Kilometros,\r\nvehiculo.Matricula,\r\nvehiculo.Codigo,\r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre,\r\navisoticketplanificacion.AvisoTicketPlanificacionID,\r\navisoticketplanificacion.FechaHoraPlanificacionInicio,\r\navisoticketplanificacion.FechaHoraPlanificacionFinal,\r\nusuario.NombreUsuario \r\n\r\nFROM proyecto_of\r\nLEFT JOIN avisoticketintervencion \r\nON proyecto_of.Proyecto_OFID = avisoticketintervencion.Proyecto_OFID\r\nLEFT JOIN vehiculo \r\nON avisoticketintervencion.VehiculoID = vehiculo.VehiculoID\r\nLEFT JOIN avisoticket\r\nON avisoticketintervencion.AvisoTicketID = avisoticket.AvisoTicketID\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nLEFT JOIN avisoticketplanificacion\r\nON avisoticket.AvisoTicketID= avisoticketplanificacion.AvisoTicketID \r\nLEFT JOIN usuario\r\nON usuario.UsuarioID  = proyecto_of.UsuarioIDCierre\r\n\r\n\r\nWHERE proyecto_of.EsObraOf = 'S' AND proyecto_of.CustomerID = 29 \r\nAND proyecto_of.Proyecto_OFID = 1846\r\n"
+                        records:
+                          - Numero: 1846
+                            Proyecto_OFID: 46
+                            FechaIntervencion: '00000101'
+                            NumeroTicketID: 0
+                            NumeroTicketCodigo: 0
+                            NumeroTicketNombre: ''
+                            UsuarioCreacion: ADMINISTRADOR
+                            FechaHoraCreacion: '2023-05-02T10:50:52.646'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 0 Horas
+                            UsuarioCierreID: 0
+                            nombreUsuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            NAlbaran: ''
+                            Descripcion: '0'
+                            ObservacionInterna: '0'
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: '0'
+                            FechaAltaTicket: '0000-00-00T00:00:00.000'
+                            TipoTicket: ''
+                            Prioridad: ''
+                            DescripcionTicket: ''
+                            Cliente: ''
+                            ClienteCodigo: ''
+                            Ubicacion: ''
+                            UbicacionCodigo: 0
+                            Equipo: ''
+                            EquipoCodigo: ''
+                            tipoEquipoNombre: ''
+                            Estado: ''
+                            EstadoTexto: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        success: true
+                        sql: string
+                        records:
+                          - Numero: 1846
+                            Proyecto_OFID: 46
+                            FechaIntervencion: '00000101'
+                            NumeroTicketID: 0
+                            NumeroTicketCodigo: 0
+                            NumeroTicketNombre: ''
+                            UsuarioCreacion: ADMINISTRADOR
+                            FechaHoraCreacion: '2023-05-02T10:50:52.646'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 0 Horas
+                            UsuarioCierreID: 0
+                            nombreUsuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            NAlbaran: ''
+                            Descripcion: '0'
+                            ObservacionInterna: '0'
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: '0'
+                            FechaAltaTicket: '0000-00-00T00:00:00.000'
+                            TipoTicket: ''
+                            Prioridad: ''
+                            DescripcionTicket: ''
+                            Cliente: ''
+                            ClienteCodigo: ''
+                            Ubicacion: ''
+                            UbicacionCodigo: 0
+                            Equipo: ''
+                            EquipoCodigo: ''
+                            tipoEquipoNombre: ''
+                            Estado: ''
+                            EstadoTexto: ''
+      operationId: get-interventions-openIntervention
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: integer
+            example: 1846
+          in: query
+          name: proyecto_OFID
+        - schema:
+            type: integer
+          in: query
+          name: numero
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+  /intervetions/closeIntervention:
+    get:
+      summary: Intervention - Close
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      msg:
+                        type: string
+                      success:
+                        type: boolean
+                      data:
+                        type: object
+                        properties:
+                          success:
+                            type: boolean
+                          sql:
+                            type: string
+                          records:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                Numero:
+                                  type: integer
+                                Proyecto_OFID:
+                                  type: integer
+                                FechaIntervencion:
+                                  type: string
+                                NumeroTicketID:
+                                  type: integer
+                                NumeroTicketCodigo:
+                                  type: integer
+                                NumeroTicketNombre:
+                                  type: string
+                                UsuarioCreacion:
+                                  type: string
+                                FechaHoraCreacion:
+                                  type: string
+                                PlanificacionIntervencionID:
+                                  type: integer
+                                PlanificacionIntervencionNombre:
+                                  type: string
+                                TiempoPrevisto:
+                                  type: string
+                                UsuarioCierreID:
+                                  type: integer
+                                nombreUsuarioCierre:
+                                  type: string
+                                FechaHoraCierre:
+                                  type: string
+                                NAlbaran:
+                                  type: string
+                                Descripcion:
+                                  type: string
+                                ObservacionInterna:
+                                  type: string
+                                VehiculoId:
+                                  type: integer
+                                VehiculoNombre:
+                                  type: string
+                                VehiculoCodigo:
+                                  type: string
+                                ContadorInicial:
+                                  type: integer
+                                ContadorFinal:
+                                  type: integer
+                                Kilometros:
+                                  type: string
+                                FechaAltaTicket:
+                                  type: string
+                                TipoTicket:
+                                  type: string
+                                Prioridad:
+                                  type: string
+                                DescripcionTicket:
+                                  type: string
+                                Cliente:
+                                  type: string
+                                ClienteCodigo:
+                                  type: string
+                                Ubicacion:
+                                  type: string
+                                UbicacionCodigo:
+                                  type: integer
+                                Equipo:
+                                  type: string
+                                EquipoCodigo:
+                                  type: string
+                                tipoEquipoNombre:
+                                  type: string
+                                Estado:
+                                  type: string
+                                EstadoTexto:
+                                  type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      msg: Intervencion cerrada correctamente
+                      success: true
+                      data:
+                        success: true
+                        sql: "SELECT proyecto_of.CodigoProyecto_OF,\r\nproyecto_of.Proyecto_OFID,\r\nproyecto_of.FechaCreacion,\r\nproyecto_of.FechaHoraUsuario,\r\nproyecto_of.FechaHoraUsuarioCierre,\r\nproyecto_of.Observaciones,\r\nproyecto_of.UsuarioIDCierre,\r\nproyecto_of.Estado,\r\navisoticketintervencion.AvisoTicketID,\r\navisoticket.DescripcionProblema,\r\navisoticket.Numero,\r\navisoticketintervencion.Notas,\r\navisoticketintervencion.VehiculoID,\r\navisoticketintervencion.ContadorInicial,\r\navisoticketintervencion.ContadorFinal,\r\navisoticketintervencion.Kilometros,\r\nvehiculo.Matricula,\r\nvehiculo.Codigo,\r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre,\r\navisoticketplanificacion.AvisoTicketPlanificacionID,\r\navisoticketplanificacion.FechaHoraPlanificacionInicio,\r\navisoticketplanificacion.FechaHoraPlanificacionFinal,\r\nusuario.NombreUsuario \r\n\r\nFROM proyecto_of\r\nLEFT JOIN avisoticketintervencion \r\nON proyecto_of.Proyecto_OFID = avisoticketintervencion.Proyecto_OFID\r\nLEFT JOIN vehiculo \r\nON avisoticketintervencion.VehiculoID = vehiculo.VehiculoID\r\nLEFT JOIN avisoticket\r\nON avisoticketintervencion.AvisoTicketID = avisoticket.AvisoTicketID\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nLEFT JOIN avisoticketplanificacion\r\nON avisoticket.AvisoTicketID= avisoticketplanificacion.AvisoTicketID \r\nLEFT JOIN usuario\r\nON usuario.UsuarioID  = proyecto_of.UsuarioIDCierre\r\n\r\n\r\nWHERE proyecto_of.EsObraOf = 'S' AND proyecto_of.CustomerID = 29 \r\nAND proyecto_of.Proyecto_OFID = 1846\r\n"
+                        records:
+                          - Numero: 1846
+                            Proyecto_OFID: 46
+                            FechaIntervencion: '00000101'
+                            NumeroTicketID: 0
+                            NumeroTicketCodigo: 0
+                            NumeroTicketNombre: ''
+                            UsuarioCreacion: ADMINISTRADOR
+                            FechaHoraCreacion: '2023-05-02T10:50:52.646'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 0 Horas
+                            UsuarioCierreID: 1
+                            nombreUsuarioCierre: ADMINISTRADOR
+                            FechaHoraCierre: '2023-05-02T11:12:03.891'
+                            NAlbaran: ''
+                            Descripcion: '0'
+                            ObservacionInterna: '0'
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: '0'
+                            FechaAltaTicket: '0000-00-00T00:00:00.000'
+                            TipoTicket: ''
+                            Prioridad: ''
+                            DescripcionTicket: ''
+                            Cliente: ''
+                            ClienteCodigo: ''
+                            Ubicacion: ''
+                            UbicacionCodigo: 0
+                            Equipo: ''
+                            EquipoCodigo: ''
+                            tipoEquipoNombre: ''
+                            Estado: FI
+                            EstadoTexto: Cerrado
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      msg: Intervencion cerrada correctamente
+                      success: true
+                      data:
+                        success: true
+                        sql: string
+                        records:
+                          - Numero: 1846
+                            Proyecto_OFID: 46
+                            FechaIntervencion: '00000101'
+                            NumeroTicketID: 0
+                            NumeroTicketCodigo: 0
+                            NumeroTicketNombre: ''
+                            UsuarioCreacion: ADMINISTRADOR
+                            FechaHoraCreacion: '2023-05-02T10:50:52.646'
+                            PlanificacionIntervencionID: 0
+                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
+                            TiempoPrevisto: 0 Horas
+                            UsuarioCierreID: 1
+                            nombreUsuarioCierre: ADMINISTRADOR
+                            FechaHoraCierre: '2023-05-02T11:12:03.891'
+                            NAlbaran: ''
+                            Descripcion: '0'
+                            ObservacionInterna: '0'
+                            VehiculoId: 0
+                            VehiculoNombre: ''
+                            VehiculoCodigo: ''
+                            ContadorInicial: 0
+                            ContadorFinal: 0
+                            Kilometros: '0'
+                            FechaAltaTicket: '0000-00-00T00:00:00.000'
+                            TipoTicket: ''
+                            Prioridad: ''
+                            DescripcionTicket: ''
+                            Cliente: ''
+                            ClienteCodigo: ''
+                            Ubicacion: ''
+                            UbicacionCodigo: 0
+                            Equipo: ''
+                            EquipoCodigo: ''
+                            tipoEquipoNombre: ''
+                            Estado: FI
+                            EstadoTexto: Cerrado
+      operationId: get-intervetions-closeIntervention
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: integer
+          in: query
+          name: numero
+        - schema:
+            type: integer
+            example: 1846
+          in: query
+          name: proyecto_OFID
+        - schema:
+            type: boolean
+            enum:
+              - '1'
+              - '0'
+          in: query
+          name: cerrarTicket
+      requestBody:
+        content: {}
+  /groups/light:
+    get:
+      summary: findLightListForGroup
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - ID: 1
+                          Codigo: '1'
+                          Nombre: prg
+                        - ID: 2
+                          Codigo: AP01
+                          Nombre: prueba
+                      success: true
+                      sql: "select * ,\r\nAlmacen.nombre as NombreAlmacen,\r\ntablageneral.Descripcion as NombreRutaEntrega \r\n\r\nfrom \r\n\r\nEmpleadoGrupoSATCabecera\r\nleft join almacen on almacen.almacenid = EmpleadoGrupoSatCabecera.almacenid\r\nleft join Tablageneral on tablageneral.tablageneralID = EmpleadoGrupoSatCabecera.RutaEntregaID\r\nleft join EmpleadoGrupoSatLinea on EmpleadoGrupoSatLinea.EmpleadoGrupoSatCabeceraID = EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraId\r\n\r\nwhere \r\nEmpleadoGrupoSatCabecera.CustomerID = 29 and\r\nEmpleadoGrupoSatCabecera.Empresaid = 1\r\n\r\nGROUP BY EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraID\r\nORDER BY EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraID"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - ID: 1
+                          Codigo: '1'
+                          Nombre: prg
+                        - ID: 2
+                          Codigo: AP01
+                          Nombre: prueba
+                      success: true
+                      sql: "select * ,\r\nAlmacen.nombre as NombreAlmacen,\r\ntablageneral.Descripcion as NombreRutaEntrega \r\n\r\nfrom \r\n\r\nEmpleadoGrupoSATCabecera\r\nleft join almacen on almacen.almacenid = EmpleadoGrupoSatCabecera.almacenid\r\nleft join Tablageneral on tablageneral.tablageneralID = EmpleadoGrupoSatCabecera.RutaEntregaID\r\nleft join EmpleadoGrupoSatLinea on EmpleadoGrupoSatLinea.EmpleadoGrupoSatCabeceraID = EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraId\r\n\r\nwhere \r\nEmpleadoGrupoSatCabecera.CustomerID = 29 and\r\nEmpleadoGrupoSatCabecera.Empresaid = 1\r\n\r\nGROUP BY EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraID\r\nORDER BY EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraID"
+      operationId: get-groups-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+  /ticket/planification:
+    get:
+      summary: findManyForPlanificationByTicket
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      PlanificacionGrayed:
+                        type: boolean
+                      CambiarEstadoGrayed:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            AvisoTicketPlanificacionID:
+                              type: integer
+                            FechaHoraInicio:
+                              type: string
+                            FechaHoraFin:
+                              type: string
+                            Situacion:
+                              type: string
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      PlanificacionGrayed: false
+                      CambiarEstadoGrayed: false
+                      records:
+                        - AvisoTicketPlanificacionID: 45
+                          FechaHoraInicio: '2023-03-16T00:00:00.000'
+                          FechaHoraFin: '2023-03-17T00:00:00.000'
+                          Situacion: Aceptado Operario
+                        - AvisoTicketPlanificacionID: 46
+                          FechaHoraInicio: '2000-05-12T00:00:00.000'
+                          FechaHoraFin: '2012-05-12T00:00:00.000'
+                          Situacion: Aceptado Operario
+                        - AvisoTicketPlanificacionID: 50
+                          FechaHoraInicio: '0000-00-00T00:00:00.000'
+                          FechaHoraFin: '0000-00-00T00:00:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 51
+                          FechaHoraInicio: '2023-02-15T23:00:00.000'
+                          FechaHoraFin: '2028-02-15T23:00:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 52
+                          FechaHoraInicio: '0000-00-00T00:00:00.000'
+                          FechaHoraFin: '0000-00-00T00:00:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 53
+                          FechaHoraInicio: '2023-02-15T05:00:00.000'
+                          FechaHoraFin: '2028-02-15T05:00:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 54
+                          FechaHoraInicio: '2023-02-15T05:30:00.000'
+                          FechaHoraFin: '2028-02-15T05:30:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 55
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 58
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 59
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 60
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 61
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 62
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 63
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 64
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 65
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 66
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 67
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 68
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 69
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 70
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 71
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 72
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 75
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 76
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                      success: true
+                      sql: "SELECT \r\n\tAvisoTicketPlanificacion.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID,\t\r\n\tAvisoTicketPlanificacion.AvisoTicketID AS AvisoTicketID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionInicio AS FechaHoraPlanificacionInicio,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionFinal AS FechaHoraPlanificacionFinal,\t\r\n\tAvisoTicketPlanificacion.CustomerID AS CustomerID,\t\r\n\tAvisoTicketPlanificacion.EmpresaID AS EmpresaID,\t\r\n\tAvisoTicketPlanificacion.UsuarioID AS UsuarioID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraUsuario AS FechaHoraUsuario,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionEmpleadoID AS AvisoTicketPlanificacionEmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpleadoID AS EmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.Situacion AS Situacion,\t\r\n\tAvisoTicketPlanificacionEmpleado.CustomerID AS CustomerID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpresaID AS EmpresaID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.UsuarioID AS UsuarioID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.FechaHoraUsuario AS FechaHoraUsuario_Av,\r\n\templeado.Nombre as NombreEmpleado\r\n\t\r\nFROM AvisoTicketPlanificacion\r\nleft join AvisoTicketPlanificacionEmpleado on AvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID=AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\nLEFT JOIn Empleado on empleado.EmpleadoID=AvisoTicketPlanificacionEmpleado.EmpleadoID\r\n\r\nwhere AvisoTicketPlanificacion.CustomerID = 29 \r\nAND AvisoTicketPlanificacion.EmpresaID = 1 \r\nAND AvisoTicketPlanificacion.AvisoTicketID = 3\r\nGroup By AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\nLIMIT 50 \r\nOFFSET 0"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      PlanificacionGrayed: false
+                      CambiarEstadoGrayed: false
+                      records:
+                        - AvisoTicketPlanificacionID: 45
+                          FechaHoraInicio: '2023-03-16T00:00:00.000'
+                          FechaHoraFin: '2023-03-17T00:00:00.000'
+                          Situacion: Aceptado Operario
+                        - AvisoTicketPlanificacionID: 46
+                          FechaHoraInicio: '2000-05-12T00:00:00.000'
+                          FechaHoraFin: '2012-05-12T00:00:00.000'
+                          Situacion: Aceptado Operario
+                        - AvisoTicketPlanificacionID: 50
+                          FechaHoraInicio: '0000-00-00T00:00:00.000'
+                          FechaHoraFin: '0000-00-00T00:00:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 51
+                          FechaHoraInicio: '2023-02-15T23:00:00.000'
+                          FechaHoraFin: '2028-02-15T23:00:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 52
+                          FechaHoraInicio: '0000-00-00T00:00:00.000'
+                          FechaHoraFin: '0000-00-00T00:00:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 53
+                          FechaHoraInicio: '2023-02-15T05:00:00.000'
+                          FechaHoraFin: '2028-02-15T05:00:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 54
+                          FechaHoraInicio: '2023-02-15T05:30:00.000'
+                          FechaHoraFin: '2028-02-15T05:30:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 55
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 58
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 59
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 60
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 61
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 62
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 63
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 64
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 65
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 66
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 67
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 68
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 69
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 70
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 71
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 72
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 75
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                        - AvisoTicketPlanificacionID: 76
+                          FechaHoraInicio: '2023-02-15T05:23:00.000'
+                          FechaHoraFin: '2028-02-15T05:23:00.000'
+                          Situacion: Pendiente Operario
+                      success: true
+                      sql: "SELECT \r\n\tAvisoTicketPlanificacion.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID,\t\r\n\tAvisoTicketPlanificacion.AvisoTicketID AS AvisoTicketID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionInicio AS FechaHoraPlanificacionInicio,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionFinal AS FechaHoraPlanificacionFinal,\t\r\n\tAvisoTicketPlanificacion.CustomerID AS CustomerID,\t\r\n\tAvisoTicketPlanificacion.EmpresaID AS EmpresaID,\t\r\n\tAvisoTicketPlanificacion.UsuarioID AS UsuarioID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraUsuario AS FechaHoraUsuario,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionEmpleadoID AS AvisoTicketPlanificacionEmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpleadoID AS EmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.Situacion AS Situacion,\t\r\n\tAvisoTicketPlanificacionEmpleado.CustomerID AS CustomerID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpresaID AS EmpresaID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.UsuarioID AS UsuarioID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.FechaHoraUsuario AS FechaHoraUsuario_Av,\r\n\templeado.Nombre as NombreEmpleado\r\n\t\r\nFROM AvisoTicketPlanificacion\r\nleft join AvisoTicketPlanificacionEmpleado on AvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID=AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\nLEFT JOIn Empleado on empleado.EmpleadoID=AvisoTicketPlanificacionEmpleado.EmpleadoID\r\n\r\nwhere AvisoTicketPlanificacion.CustomerID = 29 \r\nAND AvisoTicketPlanificacion.EmpresaID = 1 \r\nAND AvisoTicketPlanificacion.AvisoTicketID = 3\r\nGroup By AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\nLIMIT 50 \r\nOFFSET 0"
+      operationId: get-ticket-planification
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: '50'
+        - schema:
+            type: integer
+          in: query
+          name: 'offset '
+          description: '0'
+        - schema:
+            type: integer
+          in: query
+          name: ticketID
+          description: '3'
+    post:
+      summary: createPlanificationForTickets
+      operationId: post-ticket-planification
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      data:
+                        type: object
+                        properties:
+                          PlanificacionGrayed:
+                            type: boolean
+                          CambiarEstadoGrayed:
+                            type: boolean
+                          records:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                AvisoTicketPlanificacionID:
+                                  type: integer
+                                FechaHoraInicio:
+                                  type: string
+                                FechaHoraFin:
+                                  type: string
+                                Situacion:
+                                  type: string
+                          success:
+                            type: boolean
+                          sql:
+                            type: string
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      data:
+                        PlanificacionGrayed: false
+                        CambiarEstadoGrayed: false
+                        records:
+                          - AvisoTicketPlanificacionID: 92
+                            FechaHoraInicio: '2023-04-04T00:00:00.000'
+                            FechaHoraFin: '2023-04-04T00:00:00.000'
+                            Situacion: Pendiente Operario
+                        success: true
+                        sql: "SELECT \r\n\tAvisoTicketPlanificacion.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID,\t\r\n\tAvisoTicketPlanificacion.AvisoTicketID AS AvisoTicketID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionInicio AS FechaHoraPlanificacionInicio,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionFinal AS FechaHoraPlanificacionFinal,\t\r\n\tAvisoTicketPlanificacion.CustomerID AS CustomerID,\t\r\n\tAvisoTicketPlanificacion.EmpresaID AS EmpresaID,\t\r\n\tAvisoTicketPlanificacion.UsuarioID AS UsuarioID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraUsuario AS FechaHoraUsuario,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionEmpleadoID AS AvisoTicketPlanificacionEmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpleadoID AS EmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.Situacion AS Situacion,\t\r\n\tAvisoTicketPlanificacionEmpleado.CustomerID AS CustomerID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpresaID AS EmpresaID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.UsuarioID AS UsuarioID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.FechaHoraUsuario AS FechaHoraUsuario_Av,\r\n\templeado.Nombre as NombreEmpleado\r\n\t\r\nFROM AvisoTicketPlanificacion\r\nleft join AvisoTicketPlanificacionEmpleado on AvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID=AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\nLEFT JOIn Empleado on empleado.EmpleadoID=AvisoTicketPlanificacionEmpleado.EmpleadoID\r\n\r\nwhere AvisoTicketPlanificacion.CustomerID = 29 \r\nAND AvisoTicketPlanificacion.EmpresaID = 1 \r\nAND AvisoTicketPlanificacion.AvisoTicketID = 2\r\nAND AvisoTicketPlanificacion.AvisoTicketPlanificacionID = 92\r\nGroup By AvisoTicketPlanificacion.AvisoTicketPlanificacionID"
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      data:
+                        PlanificacionGrayed: false
+                        CambiarEstadoGrayed: false
+                        records:
+                          - AvisoTicketPlanificacionID: 92
+                            FechaHoraInicio: '2023-04-04T00:00:00.000'
+                            FechaHoraFin: '2023-04-04T00:00:00.000'
+                            Situacion: Pendiente Operario
+                        success: true
+                        sql: "SELECT \r\n\tAvisoTicketPlanificacion.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID,\t\r\n\tAvisoTicketPlanificacion.AvisoTicketID AS AvisoTicketID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionInicio AS FechaHoraPlanificacionInicio,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionFinal AS FechaHoraPlanificacionFinal,\t\r\n\tAvisoTicketPlanificacion.CustomerID AS CustomerID,\t\r\n\tAvisoTicketPlanificacion.EmpresaID AS EmpresaID,\t\r\n\tAvisoTicketPlanificacion.UsuarioID AS UsuarioID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraUsuario AS FechaHoraUsuario,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionEmpleadoID AS AvisoTicketPlanificacionEmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpleadoID AS EmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.Situacion AS Situacion,\t\r\n\tAvisoTicketPlanificacionEmpleado.CustomerID AS CustomerID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpresaID AS EmpresaID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.UsuarioID AS UsuarioID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.FechaHoraUsuario AS FechaHoraUsuario_Av,\r\n\templeado.Nombre as NombreEmpleado\r\n\t\r\nFROM AvisoTicketPlanificacion\r\nleft join AvisoTicketPlanificacionEmpleado on AvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID=AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\nLEFT JOIn Empleado on empleado.EmpleadoID=AvisoTicketPlanificacionEmpleado.EmpleadoID\r\n\r\nwhere AvisoTicketPlanificacion.CustomerID = 29 \r\nAND AvisoTicketPlanificacion.EmpresaID = 1 \r\nAND AvisoTicketPlanificacion.AvisoTicketID = 2\r\nAND AvisoTicketPlanificacion.AvisoTicketPlanificacionID = 92\r\nGroup By AvisoTicketPlanificacion.AvisoTicketPlanificacionID"
+                      success: true
+            application/xml:
+              schema:
+                type: object
+                properties: {}
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ticketID:
+                  type: integer
+                fechaDesdeIN:
+                  type: string
+                fechaHastaIN:
+                  type: string
+                empleados:
+                  type: string
+              x-examples:
+                Example 1:
+                  ticketID: 2
+                  fechaDesdeIN: '20230404000000'
+                  fechaHastaIN: '20230404000000'
+                  empleados: '66'
+            examples:
+              Example 1:
+                value:
+                  ticketID: 2
+                  fechaDesdeIN: '20230404000000'
+                  fechaHastaIN: '20230404000000'
+                  empleados: '66'
+  /vehicle/light:
+    get:
+      summary: findLightListForVehicle
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT vehiculo.VehiculoID , vehiculo.Codigo ,vehiculo.Matricula\r\nFROM vehiculo \r\nWHERE vehiculo.CustomerID = 29 AND vehiculo.EmpresaID = 1 \r\n"
+                      records:
+                        - ID: 1
+                          Nombre: '242342'
+                          Codigo: '231231'
+                        - ID: 2
+                          Nombre: 3525 GSM
+                          Codigo: '1'
+                        - ID: 7
+                          Nombre: QWEERRTY
+                          Codigo: '6'
+                        - ID: 8
+                          Nombre: FDSFDSFDS
+                          Codigo: '7'
+                        - ID: 12
+                          Nombre: WREWRW
+                          Codigo: '11'
+                        - ID: 13
+                          Nombre: SDADAS
+                          Codigo: '12'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT vehiculo.VehiculoID , vehiculo.Codigo ,vehiculo.Matricula\r\nFROM vehiculo \r\nWHERE vehiculo.CustomerID = 29 AND vehiculo.EmpresaID = 1 \r\n"
+                      records:
+                        - ID: 1
+                          Nombre: '242342'
+                          Codigo: '231231'
+                        - ID: 2
+                          Nombre: 3525 GSM
+                          Codigo: '1'
+                        - ID: 7
+                          Nombre: QWEERRTY
+                          Codigo: '6'
+                        - ID: 8
+                          Nombre: FDSFDSFDS
+                          Codigo: '7'
+                        - ID: 12
+                          Nombre: WREWRW
+                          Codigo: '11'
+                        - ID: 13
+                          Nombre: SDADAS
+                          Codigo: '12'
+      operationId: get-vehicle-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
   /interventions/quicksearch:
     get:
       summary: findManyByFilterForIntervention
@@ -4014,457 +4820,6 @@ paths:
           in: query
           name: sBusqueda
           description: PRUEBA
-  /interventions/openIntervention:
-    get:
-      summary: Intervention - Open
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      data:
-                        type: object
-                        properties:
-                          success:
-                            type: boolean
-                          sql:
-                            type: string
-                          records:
-                            type: array
-                            items:
-                              type: object
-                              properties:
-                                Numero:
-                                  type: integer
-                                Proyecto_OFID:
-                                  type: integer
-                                FechaIntervencion:
-                                  type: string
-                                NumeroTicketID:
-                                  type: integer
-                                NumeroTicketCodigo:
-                                  type: integer
-                                NumeroTicketNombre:
-                                  type: string
-                                UsuarioCreacion:
-                                  type: string
-                                FechaHoraCreacion:
-                                  type: string
-                                PlanificacionIntervencionID:
-                                  type: integer
-                                PlanificacionIntervencionNombre:
-                                  type: string
-                                TiempoPrevisto:
-                                  type: string
-                                UsuarioCierreID:
-                                  type: integer
-                                nombreUsuarioCierre:
-                                  type: string
-                                FechaHoraCierre:
-                                  type: string
-                                NAlbaran:
-                                  type: string
-                                Descripcion:
-                                  type: string
-                                ObservacionInterna:
-                                  type: string
-                                VehiculoId:
-                                  type: integer
-                                VehiculoNombre:
-                                  type: string
-                                VehiculoCodigo:
-                                  type: string
-                                ContadorInicial:
-                                  type: integer
-                                ContadorFinal:
-                                  type: integer
-                                Kilometros:
-                                  type: string
-                                FechaAltaTicket:
-                                  type: string
-                                TipoTicket:
-                                  type: string
-                                Prioridad:
-                                  type: string
-                                DescripcionTicket:
-                                  type: string
-                                Cliente:
-                                  type: string
-                                ClienteCodigo:
-                                  type: string
-                                Ubicacion:
-                                  type: string
-                                UbicacionCodigo:
-                                  type: integer
-                                Equipo:
-                                  type: string
-                                EquipoCodigo:
-                                  type: string
-                                tipoEquipoNombre:
-                                  type: string
-                                Estado:
-                                  type: string
-                                EstadoTexto:
-                                  type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        success: true
-                        sql: "SELECT proyecto_of.CodigoProyecto_OF,\r\nproyecto_of.Proyecto_OFID,\r\nproyecto_of.FechaCreacion,\r\nproyecto_of.FechaHoraUsuario,\r\nproyecto_of.FechaHoraUsuarioCierre,\r\nproyecto_of.Observaciones,\r\nproyecto_of.UsuarioIDCierre,\r\nproyecto_of.Estado,\r\navisoticketintervencion.AvisoTicketID,\r\navisoticket.DescripcionProblema,\r\navisoticket.Numero,\r\navisoticketintervencion.Notas,\r\navisoticketintervencion.VehiculoID,\r\navisoticketintervencion.ContadorInicial,\r\navisoticketintervencion.ContadorFinal,\r\navisoticketintervencion.Kilometros,\r\nvehiculo.Matricula,\r\nvehiculo.Codigo,\r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre,\r\navisoticketplanificacion.AvisoTicketPlanificacionID,\r\navisoticketplanificacion.FechaHoraPlanificacionInicio,\r\navisoticketplanificacion.FechaHoraPlanificacionFinal,\r\nusuario.NombreUsuario \r\n\r\nFROM proyecto_of\r\nLEFT JOIN avisoticketintervencion \r\nON proyecto_of.Proyecto_OFID = avisoticketintervencion.Proyecto_OFID\r\nLEFT JOIN vehiculo \r\nON avisoticketintervencion.VehiculoID = vehiculo.VehiculoID\r\nLEFT JOIN avisoticket\r\nON avisoticketintervencion.AvisoTicketID = avisoticket.AvisoTicketID\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nLEFT JOIN avisoticketplanificacion\r\nON avisoticket.AvisoTicketID= avisoticketplanificacion.AvisoTicketID \r\nLEFT JOIN usuario\r\nON usuario.UsuarioID  = proyecto_of.UsuarioIDCierre\r\n\r\n\r\nWHERE proyecto_of.EsObraOf = 'S' AND proyecto_of.CustomerID = 29 \r\nAND proyecto_of.Proyecto_OFID = 1846\r\n"
-                        records:
-                          - Numero: 1846
-                            Proyecto_OFID: 46
-                            FechaIntervencion: '00000101'
-                            NumeroTicketID: 0
-                            NumeroTicketCodigo: 0
-                            NumeroTicketNombre: ''
-                            UsuarioCreacion: ADMINISTRADOR
-                            FechaHoraCreacion: '2023-05-02T10:50:52.646'
-                            PlanificacionIntervencionID: 0
-                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
-                            TiempoPrevisto: 0 Horas
-                            UsuarioCierreID: 0
-                            nombreUsuarioCierre: ''
-                            FechaHoraCierre: '0000-00-00T00:00:00.000'
-                            NAlbaran: ''
-                            Descripcion: '0'
-                            ObservacionInterna: '0'
-                            VehiculoId: 0
-                            VehiculoNombre: ''
-                            VehiculoCodigo: ''
-                            ContadorInicial: 0
-                            ContadorFinal: 0
-                            Kilometros: '0'
-                            FechaAltaTicket: '0000-00-00T00:00:00.000'
-                            TipoTicket: ''
-                            Prioridad: ''
-                            DescripcionTicket: ''
-                            Cliente: ''
-                            ClienteCodigo: ''
-                            Ubicacion: ''
-                            UbicacionCodigo: 0
-                            Equipo: ''
-                            EquipoCodigo: ''
-                            tipoEquipoNombre: ''
-                            Estado: ''
-                            EstadoTexto: ''
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        success: true
-                        sql: string
-                        records:
-                          - Numero: 1846
-                            Proyecto_OFID: 46
-                            FechaIntervencion: '00000101'
-                            NumeroTicketID: 0
-                            NumeroTicketCodigo: 0
-                            NumeroTicketNombre: ''
-                            UsuarioCreacion: ADMINISTRADOR
-                            FechaHoraCreacion: '2023-05-02T10:50:52.646'
-                            PlanificacionIntervencionID: 0
-                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
-                            TiempoPrevisto: 0 Horas
-                            UsuarioCierreID: 0
-                            nombreUsuarioCierre: ''
-                            FechaHoraCierre: '0000-00-00T00:00:00.000'
-                            NAlbaran: ''
-                            Descripcion: '0'
-                            ObservacionInterna: '0'
-                            VehiculoId: 0
-                            VehiculoNombre: ''
-                            VehiculoCodigo: ''
-                            ContadorInicial: 0
-                            ContadorFinal: 0
-                            Kilometros: '0'
-                            FechaAltaTicket: '0000-00-00T00:00:00.000'
-                            TipoTicket: ''
-                            Prioridad: ''
-                            DescripcionTicket: ''
-                            Cliente: ''
-                            ClienteCodigo: ''
-                            Ubicacion: ''
-                            UbicacionCodigo: 0
-                            Equipo: ''
-                            EquipoCodigo: ''
-                            tipoEquipoNombre: ''
-                            Estado: ''
-                            EstadoTexto: ''
-      operationId: get-interventions-openIntervention
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: 'accessToken '
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-        - schema:
-            type: integer
-            example: 1846
-          in: query
-          name: proyecto_OFID
-        - schema:
-            type: integer
-          in: query
-          name: numero
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties: {}
-  /intervetions/closeIntervention:
-    get:
-      summary: Intervention - Close
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      msg:
-                        type: string
-                      success:
-                        type: boolean
-                      data:
-                        type: object
-                        properties:
-                          success:
-                            type: boolean
-                          sql:
-                            type: string
-                          records:
-                            type: array
-                            items:
-                              type: object
-                              properties:
-                                Numero:
-                                  type: integer
-                                Proyecto_OFID:
-                                  type: integer
-                                FechaIntervencion:
-                                  type: string
-                                NumeroTicketID:
-                                  type: integer
-                                NumeroTicketCodigo:
-                                  type: integer
-                                NumeroTicketNombre:
-                                  type: string
-                                UsuarioCreacion:
-                                  type: string
-                                FechaHoraCreacion:
-                                  type: string
-                                PlanificacionIntervencionID:
-                                  type: integer
-                                PlanificacionIntervencionNombre:
-                                  type: string
-                                TiempoPrevisto:
-                                  type: string
-                                UsuarioCierreID:
-                                  type: integer
-                                nombreUsuarioCierre:
-                                  type: string
-                                FechaHoraCierre:
-                                  type: string
-                                NAlbaran:
-                                  type: string
-                                Descripcion:
-                                  type: string
-                                ObservacionInterna:
-                                  type: string
-                                VehiculoId:
-                                  type: integer
-                                VehiculoNombre:
-                                  type: string
-                                VehiculoCodigo:
-                                  type: string
-                                ContadorInicial:
-                                  type: integer
-                                ContadorFinal:
-                                  type: integer
-                                Kilometros:
-                                  type: string
-                                FechaAltaTicket:
-                                  type: string
-                                TipoTicket:
-                                  type: string
-                                Prioridad:
-                                  type: string
-                                DescripcionTicket:
-                                  type: string
-                                Cliente:
-                                  type: string
-                                ClienteCodigo:
-                                  type: string
-                                Ubicacion:
-                                  type: string
-                                UbicacionCodigo:
-                                  type: integer
-                                Equipo:
-                                  type: string
-                                EquipoCodigo:
-                                  type: string
-                                tipoEquipoNombre:
-                                  type: string
-                                Estado:
-                                  type: string
-                                EstadoTexto:
-                                  type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      msg: Intervencion cerrada correctamente
-                      success: true
-                      data:
-                        success: true
-                        sql: "SELECT proyecto_of.CodigoProyecto_OF,\r\nproyecto_of.Proyecto_OFID,\r\nproyecto_of.FechaCreacion,\r\nproyecto_of.FechaHoraUsuario,\r\nproyecto_of.FechaHoraUsuarioCierre,\r\nproyecto_of.Observaciones,\r\nproyecto_of.UsuarioIDCierre,\r\nproyecto_of.Estado,\r\navisoticketintervencion.AvisoTicketID,\r\navisoticket.DescripcionProblema,\r\navisoticket.Numero,\r\navisoticketintervencion.Notas,\r\navisoticketintervencion.VehiculoID,\r\navisoticketintervencion.ContadorInicial,\r\navisoticketintervencion.ContadorFinal,\r\navisoticketintervencion.Kilometros,\r\nvehiculo.Matricula,\r\nvehiculo.Codigo,\r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre,\r\navisoticketplanificacion.AvisoTicketPlanificacionID,\r\navisoticketplanificacion.FechaHoraPlanificacionInicio,\r\navisoticketplanificacion.FechaHoraPlanificacionFinal,\r\nusuario.NombreUsuario \r\n\r\nFROM proyecto_of\r\nLEFT JOIN avisoticketintervencion \r\nON proyecto_of.Proyecto_OFID = avisoticketintervencion.Proyecto_OFID\r\nLEFT JOIN vehiculo \r\nON avisoticketintervencion.VehiculoID = vehiculo.VehiculoID\r\nLEFT JOIN avisoticket\r\nON avisoticketintervencion.AvisoTicketID = avisoticket.AvisoTicketID\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nLEFT JOIN avisoticketplanificacion\r\nON avisoticket.AvisoTicketID= avisoticketplanificacion.AvisoTicketID \r\nLEFT JOIN usuario\r\nON usuario.UsuarioID  = proyecto_of.UsuarioIDCierre\r\n\r\n\r\nWHERE proyecto_of.EsObraOf = 'S' AND proyecto_of.CustomerID = 29 \r\nAND proyecto_of.Proyecto_OFID = 1846\r\n"
-                        records:
-                          - Numero: 1846
-                            Proyecto_OFID: 46
-                            FechaIntervencion: '00000101'
-                            NumeroTicketID: 0
-                            NumeroTicketCodigo: 0
-                            NumeroTicketNombre: ''
-                            UsuarioCreacion: ADMINISTRADOR
-                            FechaHoraCreacion: '2023-05-02T10:50:52.646'
-                            PlanificacionIntervencionID: 0
-                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
-                            TiempoPrevisto: 0 Horas
-                            UsuarioCierreID: 1
-                            nombreUsuarioCierre: ADMINISTRADOR
-                            FechaHoraCierre: '2023-05-02T11:12:03.891'
-                            NAlbaran: ''
-                            Descripcion: '0'
-                            ObservacionInterna: '0'
-                            VehiculoId: 0
-                            VehiculoNombre: ''
-                            VehiculoCodigo: ''
-                            ContadorInicial: 0
-                            ContadorFinal: 0
-                            Kilometros: '0'
-                            FechaAltaTicket: '0000-00-00T00:00:00.000'
-                            TipoTicket: ''
-                            Prioridad: ''
-                            DescripcionTicket: ''
-                            Cliente: ''
-                            ClienteCodigo: ''
-                            Ubicacion: ''
-                            UbicacionCodigo: 0
-                            Equipo: ''
-                            EquipoCodigo: ''
-                            tipoEquipoNombre: ''
-                            Estado: FI
-                            EstadoTexto: Cerrado
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      msg: Intervencion cerrada correctamente
-                      success: true
-                      data:
-                        success: true
-                        sql: string
-                        records:
-                          - Numero: 1846
-                            Proyecto_OFID: 46
-                            FechaIntervencion: '00000101'
-                            NumeroTicketID: 0
-                            NumeroTicketCodigo: 0
-                            NumeroTicketNombre: ''
-                            UsuarioCreacion: ADMINISTRADOR
-                            FechaHoraCreacion: '2023-05-02T10:50:52.646'
-                            PlanificacionIntervencionID: 0
-                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
-                            TiempoPrevisto: 0 Horas
-                            UsuarioCierreID: 1
-                            nombreUsuarioCierre: ADMINISTRADOR
-                            FechaHoraCierre: '2023-05-02T11:12:03.891'
-                            NAlbaran: ''
-                            Descripcion: '0'
-                            ObservacionInterna: '0'
-                            VehiculoId: 0
-                            VehiculoNombre: ''
-                            VehiculoCodigo: ''
-                            ContadorInicial: 0
-                            ContadorFinal: 0
-                            Kilometros: '0'
-                            FechaAltaTicket: '0000-00-00T00:00:00.000'
-                            TipoTicket: ''
-                            Prioridad: ''
-                            DescripcionTicket: ''
-                            Cliente: ''
-                            ClienteCodigo: ''
-                            Ubicacion: ''
-                            UbicacionCodigo: 0
-                            Equipo: ''
-                            EquipoCodigo: ''
-                            tipoEquipoNombre: ''
-                            Estado: FI
-                            EstadoTexto: Cerrado
-      operationId: get-intervetions-closeIntervention
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: 'accessToken '
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-        - schema:
-            type: integer
-          in: query
-          name: numero
-        - schema:
-            type: integer
-            example: 1846
-          in: query
-          name: proyecto_OFID
-        - schema:
-            type: boolean
-            enum:
-              - '1'
-              - '0'
-          in: query
-          name: cerrarTicket
-      requestBody:
-        content: {}
   /concepts/light:
     get:
       summary: findLightListForConcept
