@@ -13773,6 +13773,49 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  '/intervention/offer/{proyectoOFID}':
+    parameters:
+      - schema:
+          type: string
+        name: proyectoOFID
+        in: path
+        required: true
+    get:
+      summary: InterventionOffers - FindMany
+      tags: []
+      responses: {}
+      operationId: get-intervention-offer-proyectoOFID
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: boolean
+            enum:
+              - 'true'
+              - 'false'
+          in: query
+          name: conDetalle
+        - schema:
+            type: string
+          in: query
+          name: ArticuloID
+        - schema:
+            type: string
+          in: query
+          name: FechaDesde
+        - schema:
+            type: string
+          in: query
+          name: FechaHasta
+        - schema:
+            type: integer
+          in: query
+          name: Estado
   /vehicle/light:
     get:
       summary: findLightListForVehicle
