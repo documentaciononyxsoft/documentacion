@@ -5467,6 +5467,543 @@ paths:
           name: 'accessToken '
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  '/intervention/materials/{procesoID}':
+    get:
+      summary: InterventionMaterial - FindMany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            TipoMovimientoID:
+                              type: integer
+                            ReservaMaterialID:
+                              type: integer
+                            UsuarioID:
+                              type: integer
+                            Fecha:
+                              type: string
+                            AlmacenID:
+                              type: integer
+                            ArticuloID:
+                              type: integer
+                            UbicacionID:
+                              type: integer
+                            MailingID:
+                              type: integer
+                            CantidadAlmacen:
+                              type: integer
+                            CantidadPrecio:
+                              type: integer
+                            Precio:
+                              type: number
+                            Concepto:
+                              type: string
+                            FicheroOrigen:
+                              type: string
+                            MovimientoAlmacenID:
+                              type: integer
+                            Factor:
+                              type: integer
+                            LoteID:
+                              type: integer
+                            ExistenciaUbicacionLoteID:
+                              type: integer
+                            ArticuloXAlmacenID:
+                              type: integer
+                            CodigoMaterial:
+                              type: string
+                            NombreMaterial:
+                              type: string
+                            ProcesoID:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - TipoMovimientoID: 9
+                          ReservaMaterialID: 0
+                          UsuarioID: 14
+                          Fecha: '20220110'
+                          AlmacenID: 18
+                          ArticuloID: 246
+                          UbicacionID: 0
+                          MailingID: 517
+                          CantidadAlmacen: 738
+                          CantidadPrecio: 738
+                          Precio: 142.963673
+                          Concepto: 'OF: 691 - Proceso: 729 Paquetera (Producción)'
+                          FicheroOrigen: TiempoTrabajo
+                          MovimientoAlmacenID: 35802
+                          Factor: 1
+                          LoteID: 1715
+                          ExistenciaUbicacionLoteID: 0
+                          ArticuloXAlmacenID: 0
+                          CodigoMaterial: '300021157'
+                          NombreMaterial: MZO AZUCARADAS GRL 13KG
+                          ProcesoID: 689
+                        - TipoMovimientoID: 8
+                          ReservaMaterialID: 7356
+                          UsuarioID: 14
+                          Fecha: '20220110'
+                          AlmacenID: 30
+                          ArticuloID: 544
+                          UbicacionID: 0
+                          MailingID: 517
+                          CantidadAlmacen: 3
+                          CantidadPrecio: 3
+                          Precio: 2.37
+                          Concepto: 'OF: 691 - Proceso: 729 Paquetera'
+                          FicheroOrigen: TiempoTrabajo
+                          MovimientoAlmacenID: 35803
+                          Factor: 1
+                          LoteID: 20
+                          ExistenciaUbicacionLoteID: 0
+                          ArticuloXAlmacenID: 0
+                          CodigoMaterial: '400001557'
+                          NombreMaterial: 6190 BOLSA POL S/IMP GRIS 60X90 CAL 200
+                          ProcesoID: 689
+                        - TipoMovimientoID: 8
+                          ReservaMaterialID: 7357
+                          UsuarioID: 14
+                          Fecha: '20220110'
+                          AlmacenID: 30
+                          ArticuloID: 545
+                          UbicacionID: 0
+                          MailingID: 517
+                          CantidadAlmacen: 2
+                          CantidadPrecio: 2
+                          Precio: 184.26
+                          Concepto: 'OF: 691 - Proceso: 729 Paquetera'
+                          FicheroOrigen: TiempoTrabajo
+                          MovimientoAlmacenID: 35804
+                          Factor: 1
+                          LoteID: 24
+                          ExistenciaUbicacionLoteID: 0
+                          ArticuloXAlmacenID: 0
+                          CodigoMaterial: '400007790'
+                          NombreMaterial: 7000 CINTA TRANSP 72 MM X 910
+                          ProcesoID: 689
+                        - TipoMovimientoID: 8
+                          ReservaMaterialID: 7358
+                          UsuarioID: 14
+                          Fecha: '20220110'
+                          AlmacenID: 30
+                          ArticuloID: 547
+                          UbicacionID: 0
+                          MailingID: 517
+                          CantidadAlmacen: 18
+                          CantidadPrecio: 18
+                          Precio: 22.2
+                          Concepto: 'OF: 691 - Proceso: 729 Paquetera'
+                          FicheroOrigen: TiempoTrabajo
+                          MovimientoAlmacenID: 35805
+                          Factor: 1
+                          LoteID: 34
+                          ExistenciaUbicacionLoteID: 0
+                          ArticuloXAlmacenID: 0
+                          CodigoMaterial: '400007959'
+                          NombreMaterial: 3000 CINTA TRANS 48 MM X 150 M
+                          ProcesoID: 689
+                        - TipoMovimientoID: 8
+                          ReservaMaterialID: 6635
+                          UsuarioID: 14
+                          Fecha: '20220110'
+                          AlmacenID: 28
+                          ArticuloID: 546
+                          UbicacionID: 0
+                          MailingID: 517
+                          CantidadAlmacen: 36
+                          CantidadPrecio: 36
+                          Precio: 27.4
+                          Concepto: 'OF: 691 - Proceso: 729 Paquetera'
+                          FicheroOrigen: TiempoTrabajo
+                          MovimientoAlmacenID: 35806
+                          Factor: 1
+                          LoteID: 1552
+                          ExistenciaUbicacionLoteID: 0
+                          ArticuloXAlmacenID: 0
+                          CodigoMaterial: '400007899'
+                          NombreMaterial: 9200 CARTON GRANEL MAIZORO 15KG
+                          ProcesoID: 689
+                        - TipoMovimientoID: 8
+                          ReservaMaterialID: 6635
+                          UsuarioID: 14
+                          Fecha: '20220110'
+                          AlmacenID: 28
+                          ArticuloID: 546
+                          UbicacionID: 0
+                          MailingID: 517
+                          CantidadAlmacen: 702
+                          CantidadPrecio: 702
+                          Precio: 27.4
+                          Concepto: 'OF: 691 - Proceso: 729 Paquetera'
+                          FicheroOrigen: TiempoTrabajo
+                          MovimientoAlmacenID: 35807
+                          Factor: 1
+                          LoteID: 1549
+                          ExistenciaUbicacionLoteID: 0
+                          ArticuloXAlmacenID: 0
+                          CodigoMaterial: '400007899'
+                          NombreMaterial: 9200 CARTON GRANEL MAIZORO 15KG
+                          ProcesoID: 689
+                        - TipoMovimientoID: 8
+                          ReservaMaterialID: 6636
+                          UsuarioID: 14
+                          Fecha: '20220110'
+                          AlmacenID: 28
+                          ArticuloID: 548
+                          UbicacionID: 0
+                          MailingID: 517
+                          CantidadAlmacen: 738
+                          CantidadPrecio: 738
+                          Precio: 9.58
+                          Concepto: 'OF: 691 - Proceso: 729 Paquetera'
+                          FicheroOrigen: TiempoTrabajo
+                          MovimientoAlmacenID: 35808
+                          Factor: 1
+                          LoteID: 1100
+                          ExistenciaUbicacionLoteID: 0
+                          ArticuloXAlmacenID: 0
+                          CodigoMaterial: '400007998'
+                          NombreMaterial: 000 BOLSA PARA CEREAL GRANEL
+                          ProcesoID: 689
+                        - TipoMovimientoID: 8
+                          ReservaMaterialID: 6637
+                          UsuarioID: 14
+                          Fecha: '20220110'
+                          AlmacenID: 38
+                          ArticuloID: 611
+                          UbicacionID: 0
+                          MailingID: 517
+                          CantidadAlmacen: 9594
+                          CantidadPrecio: 9594
+                          Precio: 11.97
+                          Concepto: 'OF: 691 - Proceso: 729 Paquetera'
+                          FicheroOrigen: TiempoTrabajo
+                          MovimientoAlmacenID: 35809
+                          Factor: 1
+                          LoteID: 1919
+                          ExistenciaUbicacionLoteID: 0
+                          ArticuloXAlmacenID: 0
+                          CodigoMaterial: '200002284'
+                          NombreMaterial: Hojuela azucarada
+                          ProcesoID: 689
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - TipoMovimientoID: 9
+                          ReservaMaterialID: 0
+                          UsuarioID: 14
+                          Fecha: '20220110'
+                          AlmacenID: 18
+                          ArticuloID: 246
+                          UbicacionID: 0
+                          MailingID: 517
+                          CantidadAlmacen: 738
+                          CantidadPrecio: 738
+                          Precio: 142.963673
+                          Concepto: 'OF: 691 - Proceso: 729 Paquetera (Producción)'
+                          FicheroOrigen: TiempoTrabajo
+                          MovimientoAlmacenID: 35802
+                          Factor: 1
+                          LoteID: 1715
+                          ExistenciaUbicacionLoteID: 0
+                          ArticuloXAlmacenID: 0
+                          CodigoMaterial: '300021157'
+                          NombreMaterial: MZO AZUCARADAS GRL 13KG
+                          ProcesoID: 689
+                        - TipoMovimientoID: 8
+                          ReservaMaterialID: 7356
+                          UsuarioID: 14
+                          Fecha: '20220110'
+                          AlmacenID: 30
+                          ArticuloID: 544
+                          UbicacionID: 0
+                          MailingID: 517
+                          CantidadAlmacen: 3
+                          CantidadPrecio: 3
+                          Precio: 2.37
+                          Concepto: 'OF: 691 - Proceso: 729 Paquetera'
+                          FicheroOrigen: TiempoTrabajo
+                          MovimientoAlmacenID: 35803
+                          Factor: 1
+                          LoteID: 20
+                          ExistenciaUbicacionLoteID: 0
+                          ArticuloXAlmacenID: 0
+                          CodigoMaterial: '400001557'
+                          NombreMaterial: 6190 BOLSA POL S/IMP GRIS 60X90 CAL 200
+                          ProcesoID: 689
+                        - TipoMovimientoID: 8
+                          ReservaMaterialID: 7357
+                          UsuarioID: 14
+                          Fecha: '20220110'
+                          AlmacenID: 30
+                          ArticuloID: 545
+                          UbicacionID: 0
+                          MailingID: 517
+                          CantidadAlmacen: 2
+                          CantidadPrecio: 2
+                          Precio: 184.26
+                          Concepto: 'OF: 691 - Proceso: 729 Paquetera'
+                          FicheroOrigen: TiempoTrabajo
+                          MovimientoAlmacenID: 35804
+                          Factor: 1
+                          LoteID: 24
+                          ExistenciaUbicacionLoteID: 0
+                          ArticuloXAlmacenID: 0
+                          CodigoMaterial: '400007790'
+                          NombreMaterial: 7000 CINTA TRANSP 72 MM X 910
+                          ProcesoID: 689
+                        - TipoMovimientoID: 8
+                          ReservaMaterialID: 7358
+                          UsuarioID: 14
+                          Fecha: '20220110'
+                          AlmacenID: 30
+                          ArticuloID: 547
+                          UbicacionID: 0
+                          MailingID: 517
+                          CantidadAlmacen: 18
+                          CantidadPrecio: 18
+                          Precio: 22.2
+                          Concepto: 'OF: 691 - Proceso: 729 Paquetera'
+                          FicheroOrigen: TiempoTrabajo
+                          MovimientoAlmacenID: 35805
+                          Factor: 1
+                          LoteID: 34
+                          ExistenciaUbicacionLoteID: 0
+                          ArticuloXAlmacenID: 0
+                          CodigoMaterial: '400007959'
+                          NombreMaterial: 3000 CINTA TRANS 48 MM X 150 M
+                          ProcesoID: 689
+                        - TipoMovimientoID: 8
+                          ReservaMaterialID: 6635
+                          UsuarioID: 14
+                          Fecha: '20220110'
+                          AlmacenID: 28
+                          ArticuloID: 546
+                          UbicacionID: 0
+                          MailingID: 517
+                          CantidadAlmacen: 36
+                          CantidadPrecio: 36
+                          Precio: 27.4
+                          Concepto: 'OF: 691 - Proceso: 729 Paquetera'
+                          FicheroOrigen: TiempoTrabajo
+                          MovimientoAlmacenID: 35806
+                          Factor: 1
+                          LoteID: 1552
+                          ExistenciaUbicacionLoteID: 0
+                          ArticuloXAlmacenID: 0
+                          CodigoMaterial: '400007899'
+                          NombreMaterial: 9200 CARTON GRANEL MAIZORO 15KG
+                          ProcesoID: 689
+                        - TipoMovimientoID: 8
+                          ReservaMaterialID: 6635
+                          UsuarioID: 14
+                          Fecha: '20220110'
+                          AlmacenID: 28
+                          ArticuloID: 546
+                          UbicacionID: 0
+                          MailingID: 517
+                          CantidadAlmacen: 702
+                          CantidadPrecio: 702
+                          Precio: 27.4
+                          Concepto: 'OF: 691 - Proceso: 729 Paquetera'
+                          FicheroOrigen: TiempoTrabajo
+                          MovimientoAlmacenID: 35807
+                          Factor: 1
+                          LoteID: 1549
+                          ExistenciaUbicacionLoteID: 0
+                          ArticuloXAlmacenID: 0
+                          CodigoMaterial: '400007899'
+                          NombreMaterial: 9200 CARTON GRANEL MAIZORO 15KG
+                          ProcesoID: 689
+                        - TipoMovimientoID: 8
+                          ReservaMaterialID: 6636
+                          UsuarioID: 14
+                          Fecha: '20220110'
+                          AlmacenID: 28
+                          ArticuloID: 548
+                          UbicacionID: 0
+                          MailingID: 517
+                          CantidadAlmacen: 738
+                          CantidadPrecio: 738
+                          Precio: 9.58
+                          Concepto: 'OF: 691 - Proceso: 729 Paquetera'
+                          FicheroOrigen: TiempoTrabajo
+                          MovimientoAlmacenID: 35808
+                          Factor: 1
+                          LoteID: 1100
+                          ExistenciaUbicacionLoteID: 0
+                          ArticuloXAlmacenID: 0
+                          CodigoMaterial: '400007998'
+                          NombreMaterial: 000 BOLSA PARA CEREAL GRANEL
+                          ProcesoID: 689
+                        - TipoMovimientoID: 8
+                          ReservaMaterialID: 6637
+                          UsuarioID: 14
+                          Fecha: '20220110'
+                          AlmacenID: 38
+                          ArticuloID: 611
+                          UbicacionID: 0
+                          MailingID: 517
+                          CantidadAlmacen: 9594
+                          CantidadPrecio: 9594
+                          Precio: 11.97
+                          Concepto: 'OF: 691 - Proceso: 729 Paquetera'
+                          FicheroOrigen: TiempoTrabajo
+                          MovimientoAlmacenID: 35809
+                          Factor: 1
+                          LoteID: 1919
+                          ExistenciaUbicacionLoteID: 0
+                          ArticuloXAlmacenID: 0
+                          CodigoMaterial: '200002284'
+                          NombreMaterial: Hojuela azucarada
+                          ProcesoID: 689
+      operationId: get-intervention-materials
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+    parameters:
+      - schema:
+          type: string
+          example: '689'
+        name: procesoID
+        in: path
+        required: true
+  /materialsImputation/material:
+    get:
+      summary: FindLightListForMaterialByImputation
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                            Contador:
+                              type: integer
+                            Stock:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT articulo.ArticuloID,articulo.Codigo,articulo.Nombre,articulologistica.StockActual\r\nFROM articulo\r\nLEFT JOIN articulologistica\r\nON  articulo.ArticuloID = articulologistica.ArticuloID\r\nWHERE articulo.Activo = TRUE \r\nAND Articulo.CustomerID = 29\r\nAND Articulo.EmpresaID = 1 \r\nAND articulologistica.StockActual > 0 \r\nORDER BY articulo.Codigo ASC "
+                      records:
+                        - ID: 1125
+                          Nombre: PRUEBA
+                          Codigo: '000001'
+                          Contador: 1
+                          Stock: 44
+                        - ID: 1284
+                          Nombre: PIEZA DE PRUEBA 2
+                          Codigo: '0001502'
+                          Contador: 2
+                          Stock: 9
+                        - ID: 1143
+                          Nombre: Tapa wc SEMIELABORADO
+                          Codigo: '0004731'
+                          Contador: 3
+                          Stock: 441
+                        - ID: 256
+                          Nombre: ABRAZADERA UNEX 2225-0 (N
+                          Codigo: 01ABR2225
+                          Contador: 4
+                          Stock: 49
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT articulo.ArticuloID,articulo.Codigo,articulo.Nombre,articulologistica.StockActual\r\nFROM articulo\r\nLEFT JOIN articulologistica\r\nON  articulo.ArticuloID = articulologistica.ArticuloID\r\nWHERE articulo.Activo = TRUE \r\nAND Articulo.CustomerID = 29\r\nAND Articulo.EmpresaID = 1 \r\nAND articulologistica.StockActual > 0 \r\nORDER BY articulo.Codigo ASC "
+                      records:
+                        - ID: 1125
+                          Nombre: PRUEBA
+                          Codigo: '000001'
+                          Contador: 1
+                          Stock: 44
+                        - ID: 1284
+                          Nombre: PIEZA DE PRUEBA 2
+                          Codigo: '0001502'
+                          Contador: 2
+                          Stock: 9
+                        - ID: 1143
+                          Nombre: Tapa wc SEMIELABORADO
+                          Codigo: '0004731'
+                          Contador: 3
+                          Stock: 441
+                        - ID: 256
+                          Nombre: ABRAZADERA UNEX 2225-0 (N
+                          Codigo: 01ABR2225
+                          Contador: 4
+                          Stock: 49
+      operationId: get-materialsImputation-material
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
   /groups/light:
     get:
       summary: findLightListForGroup
@@ -6385,273 +6922,6 @@ paths:
                   FechaHoraPagado: string
                   UsuarioPagoID: string
                   WebID: string
-  '/intervention/materials/{procesoID}':
-    get:
-      summary: findManyMaterialsForIntervention
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      data:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            TipoMovimientoID:
-                              type: integer
-                            ReservaMaterialID:
-                              type: integer
-                            UsuarioID:
-                              type: integer
-                            Fecha:
-                              type: string
-                            AlmacenID:
-                              type: integer
-                            ArticuloID:
-                              type: integer
-                            UbicacionID:
-                              type: integer
-                            MailingID:
-                              type: integer
-                            CantidadAlmacen:
-                              type: integer
-                            CantidadPrecio:
-                              type: integer
-                            Precio:
-                              type:
-                                - integer
-                                - number
-                            Concepto:
-                              type: string
-                            FicheroOrigen:
-                              type: string
-                            MovimientoAlmacenID:
-                              type: integer
-                            Factor:
-                              type: integer
-                            LoteID:
-                              type: integer
-                            ExistenciaUbicacionLoteID:
-                              type: integer
-                            ArticuloXAlmacenID:
-                              type: integer
-                            CodigoMaterial:
-                              type: string
-                            NombreMaterial:
-                              type: string
-                            ProcesoID:
-                              type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - TipoMovimientoID: 0
-                          ReservaMaterialID: 4183
-                          UsuarioID: 3
-                          Fecha: '20181113'
-                          AlmacenID: 1
-                          ArticuloID: 77
-                          UbicacionID: 0
-                          MailingID: 0
-                          CantidadAlmacen: 100
-                          CantidadPrecio: 100
-                          Precio: 0.12
-                          Concepto: O.T. 1
-                          FicheroOrigen: ''
-                          MovimientoAlmacenID: 17340
-                          Factor: 0
-                          LoteID: 0
-                          ExistenciaUbicacionLoteID: 0
-                          ArticuloXAlmacenID: 0
-                          CodigoMaterial: 01ARM3R
-                          NombreMaterial: ARANDELA M3 RIZADA T2631
-                          ProcesoID: 3784
-                        - TipoMovimientoID: 4
-                          ReservaMaterialID: 4767
-                          UsuarioID: 1
-                          Fecha: '20230216'
-                          AlmacenID: 2
-                          ArticuloID: 10
-                          UbicacionID: 0
-                          MailingID: 4
-                          CantidadAlmacen: 3
-                          CantidadPrecio: 3
-                          Precio: 10
-                          Concepto: Intervención 1
-                          FicheroOrigen: ReservaMaterial
-                          MovimientoAlmacenID: 28660
-                          Factor: 1
-                          LoteID: 95
-                          ExistenciaUbicacionLoteID: 203
-                          ArticuloXAlmacenID: 29
-                          CodigoMaterial: APL2
-                          NombreMaterial: ARTICULO POR LOTES 2
-                          ProcesoID: 3784
-                        - TipoMovimientoID: 4
-                          ReservaMaterialID: 4767
-                          UsuarioID: 1
-                          Fecha: '20230216'
-                          AlmacenID: 2
-                          ArticuloID: 10
-                          UbicacionID: 0
-                          MailingID: 4
-                          CantidadAlmacen: 3
-                          CantidadPrecio: 3
-                          Precio: 10
-                          Concepto: Intervención 1
-                          FicheroOrigen: ReservaMaterial
-                          MovimientoAlmacenID: 28661
-                          Factor: 1
-                          LoteID: 95
-                          ExistenciaUbicacionLoteID: 203
-                          ArticuloXAlmacenID: 29
-                          CodigoMaterial: APL2
-                          NombreMaterial: ARTICULO POR LOTES 2
-                          ProcesoID: 3784
-                        - TipoMovimientoID: 4
-                          ReservaMaterialID: 4767
-                          UsuarioID: 1
-                          Fecha: '20230216'
-                          AlmacenID: 2
-                          ArticuloID: 10
-                          UbicacionID: 0
-                          MailingID: 4
-                          CantidadAlmacen: 3
-                          CantidadPrecio: 3
-                          Precio: 10
-                          Concepto: Intervención 1
-                          FicheroOrigen: ReservaMaterial
-                          MovimientoAlmacenID: 28662
-                          Factor: 1
-                          LoteID: 95
-                          ExistenciaUbicacionLoteID: 203
-                          ArticuloXAlmacenID: 29
-                          CodigoMaterial: APL2
-                          NombreMaterial: ARTICULO POR LOTES 2
-                          ProcesoID: 3784
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - TipoMovimientoID: 0
-                          ReservaMaterialID: 4183
-                          UsuarioID: 3
-                          Fecha: '20181113'
-                          AlmacenID: 1
-                          ArticuloID: 77
-                          UbicacionID: 0
-                          MailingID: 0
-                          CantidadAlmacen: 100
-                          CantidadPrecio: 100
-                          Precio: 0.12
-                          Concepto: O.T. 1
-                          FicheroOrigen: ''
-                          MovimientoAlmacenID: 17340
-                          Factor: 0
-                          LoteID: 0
-                          ExistenciaUbicacionLoteID: 0
-                          ArticuloXAlmacenID: 0
-                          CodigoMaterial: 01ARM3R
-                          NombreMaterial: ARANDELA M3 RIZADA T2631
-                          ProcesoID: 3784
-                        - TipoMovimientoID: 4
-                          ReservaMaterialID: 4767
-                          UsuarioID: 1
-                          Fecha: '20230216'
-                          AlmacenID: 2
-                          ArticuloID: 10
-                          UbicacionID: 0
-                          MailingID: 4
-                          CantidadAlmacen: 3
-                          CantidadPrecio: 3
-                          Precio: 10
-                          Concepto: Intervención 1
-                          FicheroOrigen: ReservaMaterial
-                          MovimientoAlmacenID: 28660
-                          Factor: 1
-                          LoteID: 95
-                          ExistenciaUbicacionLoteID: 203
-                          ArticuloXAlmacenID: 29
-                          CodigoMaterial: APL2
-                          NombreMaterial: ARTICULO POR LOTES 2
-                          ProcesoID: 3784
-                        - TipoMovimientoID: 4
-                          ReservaMaterialID: 4767
-                          UsuarioID: 1
-                          Fecha: '20230216'
-                          AlmacenID: 2
-                          ArticuloID: 10
-                          UbicacionID: 0
-                          MailingID: 4
-                          CantidadAlmacen: 3
-                          CantidadPrecio: 3
-                          Precio: 10
-                          Concepto: Intervención 1
-                          FicheroOrigen: ReservaMaterial
-                          MovimientoAlmacenID: 28661
-                          Factor: 1
-                          LoteID: 95
-                          ExistenciaUbicacionLoteID: 203
-                          ArticuloXAlmacenID: 29
-                          CodigoMaterial: APL2
-                          NombreMaterial: ARTICULO POR LOTES 2
-                          ProcesoID: 3784
-                        - TipoMovimientoID: 4
-                          ReservaMaterialID: 4767
-                          UsuarioID: 1
-                          Fecha: '20230216'
-                          AlmacenID: 2
-                          ArticuloID: 10
-                          UbicacionID: 0
-                          MailingID: 4
-                          CantidadAlmacen: 3
-                          CantidadPrecio: 3
-                          Precio: 10
-                          Concepto: Intervención 1
-                          FicheroOrigen: ReservaMaterial
-                          MovimientoAlmacenID: 28662
-                          Factor: 1
-                          LoteID: 95
-                          ExistenciaUbicacionLoteID: 203
-                          ArticuloXAlmacenID: 29
-                          CodigoMaterial: APL2
-                          NombreMaterial: ARTICULO POR LOTES 2
-                          ProcesoID: 3784
-      operationId: get-intervention-materials
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-    parameters:
-      - schema:
-          type: string
-        name: procesoID
-        in: path
-        required: true
-        description: '3784'
   '/intervention/externalWorks/{procesoID}':
     parameters:
       - schema:
@@ -7285,108 +7555,6 @@ paths:
             type: string
           in: query
           name: ubicacionID
-  /materialsImputation/material:
-    get:
-      summary: FindLightListForMaterialByImputation
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: string
-                            Contador:
-                              type: integer
-                            Stock:
-                              type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT articulo.ArticuloID,articulo.Codigo,articulo.Nombre,articulologistica.StockActual\r\nFROM articulo\r\nLEFT JOIN articulologistica\r\nON  articulo.ArticuloID = articulologistica.ArticuloID\r\nWHERE articulo.Activo = TRUE \r\nAND Articulo.CustomerID = 29\r\nAND Articulo.EmpresaID = 1 \r\nAND articulologistica.StockActual > 0 \r\nORDER BY articulo.Codigo ASC "
-                      records:
-                        - ID: 1125
-                          Nombre: PRUEBA
-                          Codigo: '000001'
-                          Contador: 1
-                          Stock: 44
-                        - ID: 1284
-                          Nombre: PIEZA DE PRUEBA 2
-                          Codigo: '0001502'
-                          Contador: 2
-                          Stock: 9
-                        - ID: 1143
-                          Nombre: Tapa wc SEMIELABORADO
-                          Codigo: '0004731'
-                          Contador: 3
-                          Stock: 441
-                        - ID: 256
-                          Nombre: ABRAZADERA UNEX 2225-0 (N
-                          Codigo: 01ABR2225
-                          Contador: 4
-                          Stock: 49
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT articulo.ArticuloID,articulo.Codigo,articulo.Nombre,articulologistica.StockActual\r\nFROM articulo\r\nLEFT JOIN articulologistica\r\nON  articulo.ArticuloID = articulologistica.ArticuloID\r\nWHERE articulo.Activo = TRUE \r\nAND Articulo.CustomerID = 29\r\nAND Articulo.EmpresaID = 1 \r\nAND articulologistica.StockActual > 0 \r\nORDER BY articulo.Codigo ASC "
-                      records:
-                        - ID: 1125
-                          Nombre: PRUEBA
-                          Codigo: '000001'
-                          Contador: 1
-                          Stock: 44
-                        - ID: 1284
-                          Nombre: PIEZA DE PRUEBA 2
-                          Codigo: '0001502'
-                          Contador: 2
-                          Stock: 9
-                        - ID: 1143
-                          Nombre: Tapa wc SEMIELABORADO
-                          Codigo: '0004731'
-                          Contador: 3
-                          Stock: 441
-                        - ID: 256
-                          Nombre: ABRAZADERA UNEX 2225-0 (N
-                          Codigo: 01ABR2225
-                          Contador: 4
-                          Stock: 49
-      operationId: get-materialsImputation-material
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: accessToken
-          description: '"tokenReciente"'
   /materialsImputation/validateQuantity:
     get:
       summary: validateQuantityForMaterialsImputation
