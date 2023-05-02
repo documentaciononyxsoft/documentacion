@@ -1721,11 +1721,80 @@ paths:
         in: path
         required: true
     put:
-      summary: ''
+      summary: Vehicles - UpdateBrand
       operationId: put-brand-marcaID
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      FechaHoraUsuario:
+                        type: string
+                      marcaID:
+                        type: integer
+                      Nombre:
+                        type: string
+                      CustomerID:
+                        type: integer
+                      EmpresaID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      FechaHoraUsuario: '2023-05-02T15:26:37.831'
+                      marcaID: 14
+                      Nombre: AKT
+                      CustomerID: 29
+                      EmpresaID: 1
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      FechaHoraUsuario: '2023-05-02T15:26:37.831'
+                      marcaID: 14
+                      Nombre: AKT
+                      CustomerID: 29
+                      EmpresaID: 1
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: Token Reciente
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Nombre:
+                  type: string
+              x-examples:
+                Example 1:
+                  Nombre: AKT
+            examples:
+              Example 1:
+                value:
+                  Nombre: AKT
     delete:
       summary: ''
       operationId: delete-brand-marcaID
