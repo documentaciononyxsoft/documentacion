@@ -12538,6 +12538,1241 @@ paths:
           name: 'accessToken '
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /intervention/light/providers:
+    get:
+      summary: InterventionExWork - FindByProviderLightList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ProveedorID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ProveedorID: 31
+                          Nombre: INGREDION MEXICO SA DE CV
+                          Codigo: '25000010002'
+                        - ProveedorID: 33
+                          Nombre: PROCESADORA DE GRANOS AUSTRAL SA
+                          Codigo: '25000020002'
+                        - ProveedorID: 34
+                          Nombre: BRIDGE INTERNATIONAL COMPANY
+                          Codigo: '25000020003'
+                        - ProveedorID: 37
+                          Nombre: CEPIA INTERNACIONAL SA
+                          Codigo: '25000020006'
+                        - ProveedorID: 38
+                          Nombre: BLOMMER CHOCOLATE COMPANY
+                          Codigo: '25000020007'
+                        - ProveedorID: 39
+                          Nombre: TREE TOP INC
+                          Codigo: '25000020008'
+                        - ProveedorID: 40
+                          Nombre: OLAM AMERICAS INC
+                          Codigo: '25000020009'
+                        - ProveedorID: 41
+                          Nombre: PORTFOLIO CONCENTRATE SOLUTIONS UC
+                          Codigo: '25000020010'
+                        - ProveedorID: 42
+                          Nombre: COMERCIALIZADORA ALCALI SA DE CV
+                          Codigo: '25000010003'
+                        - ProveedorID: 43
+                          Nombre: GIVAUDAN DE MEXICO SA DE CV
+                          Codigo: '25000010004'
+                        - ProveedorID: 44
+                          Nombre: TATE & LYLE MEXICO S DE RL DE CV
+                          Codigo: '25000010007'
+                        - ProveedorID: 45
+                          Nombre: SANUDO SA DE CV
+                          Codigo: '25000010020'
+                        - ProveedorID: 46
+                          Nombre: SYRSA QUIMICOS DE MEXICO SA DE CV
+                          Codigo: '25000010021'
+                        - ProveedorID: 47
+                          Nombre: PICSA DE MEXICO INTERNACIONAL SA DECV
+                          Codigo: '25000010022'
+                        - ProveedorID: 48
+                          Nombre: PROTEINAS Y OLEICOS SA DE CV
+                          Codigo: '25000010023'
+                        - ProveedorID: 49
+                          Nombre: SEASONING DE MEXICO SA DE CV
+                          Codigo: '25000010024'
+                        - ProveedorID: 50
+                          Nombre: COMPLEMENTOS ALIMENTICIOS SA DE CV
+                          Codigo: '25000010025'
+                        - ProveedorID: 51
+                          Nombre: LUCTA MEXICANA SA DE CV
+                          Codigo: '25000010026'
+                        - ProveedorID: 52
+                          Nombre: TULIP AROMATICS DE MEXICO SA DE CV
+                          Codigo: '25000010027'
+                        - ProveedorID: 53
+                          Nombre: DANISCO MEXICANA SA DE CV
+                          Codigo: '25000010028'
+                        - ProveedorID: 54
+                          Nombre: DSM NUTRIONAL PRODUCTS MEXICO SADE CV
+                          Codigo: '25000010029'
+                        - ProveedorID: 55
+                          Nombre: TROPHE SA DE CV
+                          Codigo: '25000010030'
+                        - ProveedorID: 56
+                          Nombre: TROPHE INDUSTRIAS SA DE CV
+                          Codigo: '25000010031'
+                        - ProveedorID: 57
+                          Nombre: SENSIENT FLAVORS MEXICO SA DE CV
+                          Codigo: '25000010032'
+                        - ProveedorID: 58
+                          Nombre: SENSIENT COLORS SA DE CV
+                          Codigo: '25000010033'
+                        - ProveedorID: 59
+                          Nombre: GRUPO INDUSTRIAL VIDA SA DE CV
+                          Codigo: '25000010034'
+                        - ProveedorID: 60
+                          Nombre: MOLIENDAS Y PULVERIZACION ESP S DERL DE CV
+                          Codigo: '25000010035'
+                        - ProveedorID: 61
+                          Nombre: FERTINOVA SA DE CV
+                          Codigo: '25000010036'
+                        - ProveedorID: 62
+                          Nombre: ALBAGRO SA DE CV
+                          Codigo: '25000010037'
+                        - ProveedorID: 63
+                          Nombre: AGROPRODUCTORES EL GRECO SPR DE RL
+                          Codigo: '25000010038'
+                        - ProveedorID: 64
+                          Nombre: RAMOS COMERCIALIZADORA PRODUCTORA YSERVICIOS SPR DE RL
+                          Codigo: '25000010039'
+                        - ProveedorID: 65
+                          Nombre: BH COMERCIALIZADORA SA DE CV
+                          Codigo: '25000010040'
+                        - ProveedorID: 66
+                          Nombre: GRANEROS CEDILLO SA DE CV
+                          Codigo: '25000010041'
+                        - ProveedorID: 67
+                          Nombre: ETIQUETAS NACIONALES SA DE CV
+                          Codigo: '25000010042'
+                        - ProveedorID: 68
+                          Nombre: BIO PAPPEL SA DE CV
+                          Codigo: '25000010043'
+                        - ProveedorID: 69
+                          Nombre: MAQUILAS Y SERVICIOS JC SA DE CV
+                          Codigo: '25000010044'
+                        - ProveedorID: 70
+                          Nombre: MORALES SALAZAR ARTURO
+                          Codigo: '25000010045'
+                        - ProveedorID: 71
+                          Nombre: PRIDE PACKING SA DE CV
+                          Codigo: '25000010046'
+                        - ProveedorID: 72
+                          Nombre: POLIETILENOS ESPECIALES SA DE CV
+                          Codigo: '25000010047'
+                        - ProveedorID: 73
+                          Nombre: H V PLASTICOS SA DE CV
+                          Codigo: '25000010048'
+                        - ProveedorID: 74
+                          Nombre: AMERICAN POLY DEL NORTE SA DE CV
+                          Codigo: '25000010049'
+                        - ProveedorID: 75
+                          Nombre: FLEXIGRIP DE MEXICO SA DE CV
+                          Codigo: '25000010050'
+                        - ProveedorID: 76
+                          Nombre: LITHOPRINTS  SA DE CV
+                          Codigo: '25000010051'
+                        - ProveedorID: 77
+                          Nombre: CARTOLITO   SADE   CV
+                          Codigo: '25000010052'
+                        - ProveedorID: 78
+                          Nombre: ALUPRINT S DE RL DE CV
+                          Codigo: '25000010053'
+                        - ProveedorID: 79
+                          Nombre: GOPLAS SA DE CV
+                          Codigo: '25000010054'
+                        - ProveedorID: 80
+                          Nombre: NUTRICAL SA DE CV
+                          Codigo: '25000010055'
+                        - ProveedorID: 81
+                          Nombre: ILAS MEXICO SA DE CV
+                          Codigo: '25000010056'
+                        - ProveedorID: 82
+                          Nombre: CONTACTO CON ESFERA BLANCABRILLANTE SA DE CV
+                          Codigo: '25000010057'
+                        - ProveedorID: 83
+                          Nombre: MEGAFARMA SA DE CV
+                          Codigo: '25000010058'
+                        - ProveedorID: 84
+                          Nombre: MOLINERA DE MEXICO SA DE CV
+                          Codigo: '25000010059'
+                        - ProveedorID: 85
+                          Nombre: COMERCIAL FERBERA SA DE CV
+                          Codigo: '25000010060'
+                        - ProveedorID: 86
+                          Nombre: MCCORMICK PESA SA DE CV
+                          Codigo: '25000010061'
+                        - ProveedorID: 87
+                          Nombre: HUMPHREY PECAN SA DE CV
+                          Codigo: '25000010062'
+                        - ProveedorID: 88
+                          Nombre: TECSA ALIMENTOS SA DE CV
+                          Codigo: '25000010063'
+                        - ProveedorID: 89
+                          Nombre: ALIMENTOS MAYORGA S DE RL DE CV
+                          Codigo: '25000010064'
+                        - ProveedorID: 90
+                          Nombre: WILD FLAVORS SA DE CV
+                          Codigo: '25000010065'
+                        - ProveedorID: 91
+                          Nombre: SAN MIGUEL DE PROYECTOSAGROPECUARIOS SPR DE RS
+                          Codigo: '25000010066'
+                        - ProveedorID: 92
+                          Nombre: AGROSERVICIOS DE COLIMA SA DE CV
+                          Codigo: '25000010067'
+                        - ProveedorID: 93
+                          Nombre: ALTECSA SA DE CV
+                          Codigo: '25000010068'
+                        - ProveedorID: 94
+                          Nombre: CONTROL Y SISTEMAS AZ SA DE CV
+                          Codigo: '25000010069'
+                        - ProveedorID: 95
+                          Nombre: F X MORALES Y ASOCIADOS SAPI DE CV
+                          Codigo: '25000010070'
+                        - ProveedorID: 96
+                          Nombre: AMERICA ALIMENTOS SA DE CV
+                          Codigo: '25000010071'
+                        - ProveedorID: 97
+                          Nombre: DUALMEX SA DE CV
+                          Codigo: '25000010072'
+                        - ProveedorID: 98
+                          Nombre: SYMRISE S DE RL DE CV
+                          Codigo: '25000010073'
+                        - ProveedorID: 99
+                          Nombre: ALMIDONES MEXICANOS SA DE CV
+                          Codigo: '25000010074'
+                        - ProveedorID: 100
+                          Nombre: GBS MEXICO S DE RL DE CV
+                          Codigo: '25000010075'
+                        - ProveedorID: 101
+                          Nombre: CHR HANSEN DE MEXICO SA DE CV
+                          Codigo: '25000010076'
+                        - ProveedorID: 102
+                          Nombre: FIRMENICH DE MEXICO SA DE CV
+                          Codigo: '25000010077'
+                        - ProveedorID: 103
+                          Nombre: TAKASAGO DE MEXICO SA DE CV
+                          Codigo: '25000010078'
+                        - ProveedorID: 104
+                          Nombre: CARGILL DE MEXICO SA DE CV
+                          Codigo: '25000010079'
+                        - ProveedorID: 105
+                          Nombre: POCHTECA  MATERIAS PRIMASSA DE CV
+                          Codigo: '25000010080'
+                        - ProveedorID: 106
+                          Nombre: PELICULAS PLASTICAS SA DE CV
+                          Codigo: '25000010081'
+                        - ProveedorID: 107
+                          Nombre: JAMES FARRELL MEXICO S DE RL DE CV
+                          Codigo: '25000010082'
+                        - ProveedorID: 108
+                          Nombre: CIA HARINERA DE MEXICO SA DE CV
+                          Codigo: '25000010083'
+                        - ProveedorID: 109
+                          Nombre: BEST INGREDIENTS MEXICO SA DE CV
+                          Codigo: '25000010084'
+                        - ProveedorID: 110
+                          Nombre: CORPORATIVO QUIMICO SYR SA DE CV
+                          Codigo: '25000010085'
+                        - ProveedorID: 111
+                          Nombre: HELM DE MEXICO SA
+                          Codigo: '25000010086'
+                        - ProveedorID: 112
+                          Nombre: ALIMENTOS ENCO SA DE CV
+                          Codigo: '25000010087'
+                        - ProveedorID: 113
+                          Nombre: FABRICA DE HARINA ELIZONDO SA DE CV
+                          Codigo: '25000010088'
+                        - ProveedorID: 114
+                          Nombre: NUTRI SELECCION SA
+                          Codigo: '25000010089'
+                        - ProveedorID: 115
+                          Nombre: INDUSTRIALIZADORA OLEOFINOS SA DECV
+                          Codigo: '25000010090'
+                        - ProveedorID: 116
+                          Nombre: AGROSERVICIOS CASAS GRANDES SADE CV
+                          Codigo: '25000010091'
+                        - ProveedorID: 117
+                          Nombre: INDUSTRIAL DE ALIMENTOS SA
+                          Codigo: '25000010092'
+                        - ProveedorID: 118
+                          Nombre: MOLINERA DE MEXICO SA DE CVNAUCALPAN
+                          Codigo: '25000010093'
+                        - ProveedorID: 119
+                          Nombre: KERRY INGREDIENTS DE MEXICO SA DECV
+                          Codigo: '25000010094'
+                        - ProveedorID: 120
+                          Nombre: ALPEZZI CHOCOLATE SA DE CV
+                          Codigo: '25000010095'
+                        - ProveedorID: 121
+                          Nombre: NUTRYPLUS SAPI DE CV
+                          Codigo: '25000010096'
+                        - ProveedorID: 122
+                          Nombre: ABARROTES CHUPER NEGRO SA DE CV
+                          Codigo: '25000010097'
+                        - ProveedorID: 123
+                          Nombre: GRUPO LOGISTICO CATTSS SA DE CV
+                          Codigo: '25000010098'
+                        - ProveedorID: 124
+                          Nombre: KT SERVICIO ANAYA SA DE CV
+                          Codigo: '25000010099'
+                        - ProveedorID: 125
+                          Nombre: MARIA DE LA LUZ MIRAFUENTES PEREZ
+                          Codigo: '25000010100'
+                        - ProveedorID: 126
+                          Nombre: NATURGY SERVICIOS SA DE CV
+                          Codigo: '25000010101'
+                        - ProveedorID: 127
+                          Nombre: PROMEX EXTINTORES SA DE CV
+                          Codigo: '25000010102'
+                        - ProveedorID: 128
+                          Nombre: SISTEMAS EN TRATAMIENTOS DE AGUA RESIDUAL SA DE CV
+                          Codigo: '25000010103'
+                        - ProveedorID: 129
+                          Nombre: SISTEMAS SGM SA DE CV
+                          Codigo: '25000010104'
+                        - ProveedorID: 130
+                          Nombre: TRANS LOGISTICA RAPICUATES SA DE CV
+                          Codigo: '25000010105'
+                        - ProveedorID: 131
+                          Nombre: TRANSPORTES GAROZA SA DE CV
+                          Codigo: '25000010106'
+                        - ProveedorID: 132
+                          Nombre: SAUL ARMANDO PALACIOS MARTINEZ
+                          Codigo: '25000010107'
+                        - ProveedorID: 133
+                          Nombre: TRANSUA SA DE CV
+                          Codigo: '25000010108'
+                        - ProveedorID: 134
+                          Nombre: TT LINEAS JAGO SA DE CV
+                          Codigo: '25000010109'
+                        - ProveedorID: 135
+                          Nombre: APPLIED MEXICO SA DE CV
+                          Codigo: '25000010110'
+                        - ProveedorID: 136
+                          Nombre: BARMEX SA DE CV
+                          Codigo: '25000010111'
+                        - ProveedorID: 137
+                          Nombre: CALFER DE MEXICO SA DE CV
+                          Codigo: '25000010112'
+                        - ProveedorID: 138
+                          Nombre: CLAUDIO OCTAVIO MEDINA BOJORGE
+                          Codigo: '25000010113'
+                        - ProveedorID: 139
+                          Nombre: EUTECTIC MEXICO SA DE CV
+                          Codigo: '25000010114'
+                        - ProveedorID: 140
+                          Nombre: PROVEEDORA DE SEGURIDAD INDUSTRIAL DEL GOLFO SA DE CV
+                          Codigo: '25000010115'
+                        - ProveedorID: 141
+                          Nombre: CONSULTORIA AMBIENTAL A FUENTES FIJAS SA DE CV
+                          Codigo: '25000010116'
+                        - ProveedorID: 142
+                          Nombre: PIER II QUECHOLAC FELIPE ANGELES SA DE CV
+                          Codigo: '25000010117'
+                        - ProveedorID: 143
+                          Nombre: PARQUES ECOLOGICOS DE MEXICO SA DE CV
+                          Codigo: '25000010118'
+                        - ProveedorID: 144
+                          Nombre: IBERDROLA RENOVABLES DEL BAJIO SA DE CV
+                          Codigo: '25000010119'
+                        - ProveedorID: 145
+                          Nombre: CONSANHI AMERICA SA DE CV
+                          Codigo: '25000010120'
+                        - ProveedorID: 146
+                          Nombre: SILVIANO HERIBERTO MANUEL RIVERA MARTELL
+                          Codigo: '25000010121'
+                        - ProveedorID: 147
+                          Nombre: CLAUGER DE MEXICO SA DE CV
+                          Codigo: '25000010122'
+                        - ProveedorID: 148
+                          Nombre: BRIGIDA VALENCIA FABIAN
+                          Codigo: '25000010123'
+                        - ProveedorID: 149
+                          Nombre: FERRETERIA XALOSTOC SA DE CV
+                          Codigo: '25000010124'
+                        - ProveedorID: 150
+                          Nombre: JOVESA INDUSTRIAL SA DE CV
+                          Codigo: '25000010125'
+                        - ProveedorID: 151
+                          Nombre: ACHEPE AUTOMATION S DE RL DE CV
+                          Codigo: '25000010126'
+                        - ProveedorID: 152
+                          Nombre: INSTRUMATIC SA DE CV
+                          Codigo: '25000010127'
+                        - ProveedorID: 153
+                          Nombre: INTERBELTING SA DE CV
+                          Codigo: '25000010128'
+                        - ProveedorID: 154
+                          Nombre: LABORATORIOS CERTIFICADOS SA DE CV
+                          Codigo: '25000010129'
+                        - ProveedorID: 155
+                          Nombre: INDUSTRIAL MAGZA SA DE CV
+                          Codigo: '25000010130'
+                        - ProveedorID: 156
+                          Nombre: JUAN GUILLERMO GUTIERREZ REGALADO
+                          Codigo: '25000010131'
+                        - ProveedorID: 157
+                          Nombre: JORGE JESUS MEJIA SALDIVAR
+                          Codigo: '25000010132'
+                        - ProveedorID: 158
+                          Nombre: Maribel Soto García
+                          Codigo: '25000010133'
+                        - ProveedorID: 159
+                          Nombre: TRANSPORTES Y MUDANZAS M.A.R. SA DE CV
+                          Codigo: '25000010134'
+                        - ProveedorID: 160
+                          Nombre: INTERVET MEXICO SA DE CV
+                          Codigo: '25000010135'
+                        - ProveedorID: 161
+                          Nombre: AXIA COMUNICACIONES SA DE CV
+                          Codigo: '25000010136'
+                        - ProveedorID: 162
+                          Nombre: GESTION NACIONAL EN CAPITAL HUMANO SA DE CV
+                          Codigo: '25000010137'
+                        - ProveedorID: 163
+                          Nombre: ABRAHAM YAEL MARTINEZ BRIBIESCA
+                          Codigo: '25000010138'
+                        - ProveedorID: 164
+                          Nombre: DISTRIBUIDORA TECNO OFICE SA DE CV
+                          Codigo: '25000010139'
+                        - ProveedorID: 166
+                          Nombre: CORPORATIVO MONTACARGAS RED LINE SA DE CV
+                          Codigo: '25000010141'
+                        - ProveedorID: 167
+                          Nombre: INGENIERIA EN BASCULAS S DE RL DE CV
+                          Codigo: '25000010142'
+                        - ProveedorID: 168
+                          Nombre: MARIA DEL ROCIO HUERTA FERNANDEZ
+                          Codigo: '25000010143'
+                        - ProveedorID: 169
+                          Nombre: 'FELIPE CARLOS LARA DOMINGUEZ '
+                          Codigo: '25000010144'
+                        - ProveedorID: 170
+                          Nombre: BOMBAS Y CONTROL DE FLUIDOS SA DE CV
+                          Codigo: '25000010145'
+                        - ProveedorID: 171
+                          Nombre: DOMINION INDUSTRIAL SA DE CV
+                          Codigo: '25000010146'
+                        - ProveedorID: 172
+                          Nombre: COMERCIALIZADORA PEPSICO MEXICO S
+                          Codigo: '25000010147'
+                        - ProveedorID: 173
+                          Nombre: IVAN SALVADOR LOPEZ OLIVARES
+                          Codigo: '25000010148'
+                        - ProveedorID: 174
+                          Nombre: G-MAP OPERADORA SA DE CV
+                          Codigo: '25000010149'
+                        - ProveedorID: 175
+                          Nombre: BETA PROCESOS SA DE CV
+                          Codigo: '25000010150'
+                        - ProveedorID: 176
+                          Nombre: CONVAL SA
+                          Codigo: '25000010151'
+                        - ProveedorID: 177
+                          Nombre: ANTONIO HERNANDEZ CUENCA
+                          Codigo: '25000010152'
+                        - ProveedorID: 178
+                          Nombre: INGENIERIA ELECTROMECANICA INDUSTRIAL TRELIZA SA DE CV
+                          Codigo: '25000010153'
+                        - ProveedorID: 179
+                          Nombre: LEYHO SA DE CV
+                          Codigo: '25000010154'
+                        - ProveedorID: 180
+                          Nombre: CONTROL TECNICO Y REPRESENTACIONES SA DE CV
+                          Codigo: '25000010155'
+                        - ProveedorID: 181
+                          Nombre: INDUSTAAK SA DE CV
+                          Codigo: '25000010156'
+                        - ProveedorID: 182
+                          Nombre: EMPAQUES Y EMBALAJES DE MONTERREY MLS SA DE CV
+                          Codigo: '25000010157'
+                        - ProveedorID: 183
+                          Nombre: LUZ MEDICA FARMACEUTICA Y HOSPITALARIA SA DE CV
+                          Codigo: '25000010158'
+                        - ProveedorID: 184
+                          Nombre: FONKEL MEXICANA SA DE CV
+                          Codigo: '25000010159'
+                        - ProveedorID: 185
+                          Nombre: INGENIERIA Y MANUFACTURA EN POLIMEROS SA DE CV
+                          Codigo: '25000010160'
+                        - ProveedorID: 186
+                          Nombre: TNAMEX S DE RL DE CV
+                          Codigo: '25000010161'
+                        - ProveedorID: 187
+                          Nombre: CUCHILLAS Y MORDAZAS SA DE CV
+                          Codigo: '25000010162'
+                        - ProveedorID: 188
+                          Nombre: KLINGER MEXICO S DE RL DE CV
+                          Codigo: '25000010163'
+                        - ProveedorID: 189
+                          Nombre: DHE INDUSTRIAL ELECTROMECANICO SA DE CV
+                          Codigo: '25000010164'
+                        - ProveedorID: 190
+                          Nombre: ALEJANDRO FLORES GARCIA
+                          Codigo: '25000010165'
+                        - ProveedorID: 191
+                          Nombre: JOSE BENJAMIN SHAPIRO FAINGEZICHT
+                          Codigo: '25000010166'
+                        - ProveedorID: 192
+                          Nombre: SISTEMAS DE AUTOMATIZACION Y CONTROL DEL CENTRO SA DE CV
+                          Codigo: '25000010167'
+                        - ProveedorID: 193
+                          Nombre: SISTEMAS DE AIRE COMPRIMIDO AIREKO SA DE CV
+                          Codigo: '25000010168'
+                        - ProveedorID: 194
+                          Nombre: CHEM AQUA MEXICO SA DE CV
+                          Codigo: '25000010169'
+                        - ProveedorID: 195
+                          Nombre: ROSME INTERNATIONAL
+                          Codigo: '25000020011'
+                        - ProveedorID: 196
+                          Nombre: ANTONIO ESPINDOLA MEDRANO
+                          Codigo: '25000010170'
+                        - ProveedorID: 197
+                          Nombre: JOSE JUAN GARCIA GALICIA
+                          Codigo: '25000010171'
+                        - ProveedorID: 198
+                          Nombre: JOSE LUIS SANCHEZ PADILLA
+                          Codigo: '25000010172'
+                        - ProveedorID: 199
+                          Nombre: LTS MEXCARGO SA DE CV
+                          Codigo: '25000010173'
+                        - ProveedorID: 200
+                          Nombre: NORSENI SA DE CV
+                          Codigo: '25000010174'
+                        - ProveedorID: 201
+                          Nombre: ETIQUETAS ADHESIVAS EL AGUILA SA DE CV
+                          Codigo: '25000010175'
+                        - ProveedorID: 202
+                          Nombre: VIDEOJET TECHNOLOGIES MEXICO S DE RL DE CV
+                          Codigo: '25000010176'
+                        - ProveedorID: 203
+                          Nombre: SABRITAS S DE RL DE CV
+                          Codigo: '25000010177'
+                        - ProveedorID: 204
+                          Nombre: OMAR RAMIREZ NEGRETE
+                          Codigo: '25000010178'
+                        - ProveedorID: 205
+                          Nombre: SUMINISTROS INDUSTRIALES ALDESA SA DE CV
+                          Codigo: '25000010179'
+                        - ProveedorID: 206
+                          Nombre: FESTO PNEUMATIC SA
+                          Codigo: '25000010180'
+                        - ProveedorID: 207
+                          Nombre: GONZALO JAVIER GARCIA ROA
+                          Codigo: '25000010181'
+                        - ProveedorID: 208
+                          Nombre: DISTRIBUIDORA MARESA INTERNACIONAL SA DE CV
+                          Codigo: '25000010182'
+                        - ProveedorID: 209
+                          Nombre: ECOSY ENGINEERING SA DE CV
+                          Codigo: '25000010183'
+                        - ProveedorID: 210
+                          Nombre: RODAMIENTOS Y ACCESORIOS SA DE CV
+                          Codigo: '25000010184'
+                        - ProveedorID: 211
+                          Nombre: MPAC LANGEN INC
+                          Codigo: '25000010192'
+                        - ProveedorID: 212
+                          Nombre: PAMELA EDITH DIAZ ROJO
+                          Codigo: '25000010186'
+                        - ProveedorID: 213
+                          Nombre: EULEN MEXICO DE SERVICIOS SA DE CV
+                          Codigo: '25000010187'
+                        - ProveedorID: 214
+                          Nombre: BALANCE URBANO CONTROL DE PLAGAS SA DE CV
+                          Codigo: '25000010188'
+                        - ProveedorID: 215
+                          Nombre: BALANCE URBANO CONTROL DE PLAGAS SA DE CV
+                          Codigo: '02500001000000000189'
+                        - ProveedorID: 216
+                          Nombre: 'IRMA PASCUALA PEREZ '
+                          Codigo: '25000010190'
+                        - ProveedorID: 217
+                          Nombre: SERVICIOS INTEGRADOS DE SANIDAD SA DE CV
+                          Codigo: '25000010191'
+                        - ProveedorID: 219
+                          Nombre: SANEAMIENTO INDUSTRIAL ESPECIALIZADO SA DE CV
+                          Codigo: '25000010193'
+                        - ProveedorID: 220
+                          Nombre: 'EDUARDO VELAZQUEZ GONZALEZ '
+                          Codigo: '25000010194'
+                        - ProveedorID: 221
+                          Nombre: FILTRACION PRODUCTIVA SA DE CV
+                          Codigo: '25000010195'
+                        - ProveedorID: 222
+                          Nombre: OCA SERVICIOS GRAFICOS S DE RL DE CV
+                          Codigo: '25000010196'
+                        - ProveedorID: 223
+                          Nombre: BRANDPACK SA DE CV
+                          Codigo: '25000010197'
+                        - ProveedorID: 224
+                          Nombre: FACOLOR SA DE CV
+                          Codigo: '25000010198'
+                        - ProveedorID: 225
+                          Nombre: CARTOGRAPHIC SA DE CV
+                          Codigo: '25000010199'
+                        - ProveedorID: 226
+                          Nombre: EXHIBIPOP SA DE CV
+                          Codigo: '25000010200'
+                        - ProveedorID: 227
+                          Nombre: SOLUCIONES EN INGENIERIA DE VAPOR SA DE CV
+                          Codigo: '25000010201'
+                        - ProveedorID: 228
+                          Nombre: HELASTEK SA DE CV
+                          Codigo: '25000010202'
+                        - ProveedorID: 229
+                          Nombre: CFE SUMINISTRADOR DE SERVICIOS BASICOS
+                          Codigo: '25000010203'
+                        - ProveedorID: 230
+                          Nombre: VENTAS Y SERVICIOS ECATEPEC SA DE CV
+                          Codigo: '25000010204'
+                        - ProveedorID: 231
+                          Nombre: KLUBER LUBRICACION MEXICANA SA DE CV
+                          Codigo: '25000010205'
+                        - ProveedorID: 232
+                          Nombre: SMC CORPORATION MEXICO SA DE CV
+                          Codigo: '25000010206'
+                        - ProveedorID: 233
+                          Nombre: KAAB SYSTEMS S DE RL DE CV
+                          Codigo: '25000010207'
+                        - ProveedorID: 234
+                          Nombre: 4J INDUSTRIAL SA DE CV
+                          Codigo: '25000010208'
+                        - ProveedorID: 235
+                          Nombre: VITME PLASTICS S DE RL DE CV
+                          Codigo: '25000010209'
+                        - ProveedorID: 236
+                          Nombre: TECNO MOLINOS Y EQUIPOS DE MEXICO SA DE CV
+                          Codigo: '25000010210'
+                        - ProveedorID: 237
+                          Nombre: GABRIELA ZUÑIGA PEREZ
+                          Codigo: '25000010211'
+                        - ProveedorID: 238
+                          Nombre: ALEJANDRO DE LA PEÑA GONZALEZ
+                          Codigo: '25000010212'
+                        - ProveedorID: 239
+                          Nombre: MARCO ANTONIO CAMACHO MARTINEZ
+                          Codigo: '25000010213'
+                        - ProveedorID: 240
+                          Nombre: 'EDUARDO ALCARAZ MILLER '
+                          Codigo: '25000010214'
+                        - ProveedorID: 241
+                          Nombre: ETIFLEX SA DE CV
+                          Codigo: '25000010215'
+                        - ProveedorID: 242
+                          Nombre: NEOGEN LATINOAMERICA S.A.P. DE I. DE C.V.
+                          Codigo: '25000010216'
+                        - ProveedorID: 243
+                          Nombre: JANEL SA DE CV
+                          Codigo: '25000010217'
+                        - ProveedorID: 244
+                          Nombre: GOBIERNO DE LA CIUDAD DE MEXICO
+                          Codigo: '25000010218'
+                        - ProveedorID: 245
+                          Nombre: SERVICIO REPARACION VENTA DE EQUIPO DE CONTROL SA DE CV
+                          Codigo: '25000010219'
+                        - ProveedorID: 246
+                          Nombre: DIINSEL SA DE CV
+                          Codigo: '25000010220'
+                        - ProveedorID: 247
+                          Nombre: MANTENIMIENTO EN TECNOLOGIA EUROPEA SA DE CV
+                          Codigo: '25000010221'
+                        - ProveedorID: 248
+                          Nombre: SERVICIO ELECTRONICO Y MANTENIMIENTO INDUSTRIAL SA DE CV
+                          Codigo: '25000010222'
+                        - ProveedorID: 249
+                          Nombre: BEMSA SERVICES SA DE CV
+                          Codigo: '25000010223'
+                        - ProveedorID: 250
+                          Nombre: TRANSPORTES LAMS DE QUERETARO SA DE CV
+                          Codigo: '25000010224'
+                        - ProveedorID: 251
+                          Nombre: TRANSPORTES CASTORES DE BAJA CALIFORNIA SA DE CV
+                          Codigo: '25000010225'
+                        - ProveedorID: 252
+                          Nombre: SEGUROS ATLAS SA
+                          Codigo: '25000010226'
+                        - ProveedorID: 253
+                          Nombre: MARCELA ROJAS RAMOS
+                          Codigo: '25000010227'
+                        - ProveedorID: 254
+                          Nombre: LITOGRAFICA MATAMOROS SA DE CV
+                          Codigo: '25000010228'
+                        - ProveedorID: 255
+                          Nombre: 'PROYECTOS, ASESORIA Y EDI BOREAU SA DE CV'
+                          Codigo: '25000010229'
+                        - ProveedorID: 256
+                          Nombre: SOLUCION INDUSTRIAL DEL EMBOBINADO PMG SA DE CV
+                          Codigo: '25000010230'
+                        - ProveedorID: 257
+                          Nombre: PROVEEDORA DE EMBARQUES SA DE CV
+                          Codigo: '25000010231'
+                        - ProveedorID: 258
+                          Nombre: HEAT AND CONTROL SA DE CV
+                          Codigo: '25000010232'
+                        - ProveedorID: 259
+                          Nombre: ROGELIO ESTEBAN REYNOSO JARAMILLO
+                          Codigo: '25000010233'
+                        - ProveedorID: 260
+                          Nombre: EUREST PROPER MEALS DE MEXICO SA DE CV
+                          Codigo: '25000010234'
+                        - ProveedorID: 261
+                          Nombre: SILLIKER MEXICO SA DE CV
+                          Codigo: '25000010235'
+                        - ProveedorID: 262
+                          Nombre: VC999 PACKAGING SYSTEMS SA DE CV
+                          Codigo: '25000010236'
+                        - ProveedorID: 263
+                          Nombre: MEMOTA SA DE CV
+                          Codigo: '25000010237'
+                        - ProveedorID: 264
+                          Nombre: MELINA YOLANDA GONZALEZ LOPEZ VELARDE
+                          Codigo: '25000010238'
+                        - ProveedorID: 265
+                          Nombre: STAMCO SA DE CV
+                          Codigo: '25000010239'
+                        - ProveedorID: 266
+                          Nombre: EDICOMUNICACIONES MEXICO SA DE CV
+                          Codigo: '25000010240'
+                        - ProveedorID: 267
+                          Nombre: ALMACENADORA JALISCIENSE SA DE CV
+                          Codigo: '25000010241'
+                        - ProveedorID: 268
+                          Nombre: PRESTADORA DE SERVICIOS TAMSA SA DE CV
+                          Codigo: '25000010242'
+                        - ProveedorID: 269
+                          Nombre: RISOUL Y CIA SA DE CV
+                          Codigo: '25000010243'
+                        - ProveedorID: 270
+                          Nombre: BEBIDAS PURIFICADAS S DE RL DE CV
+                          Codigo: '25000010244'
+                        - ProveedorID: 271
+                          Nombre: GRUPO SEMATRA SA DE CV
+                          Codigo: '25000010245'
+                        - ProveedorID: 272
+                          Nombre: DAVID ISRAEL BALDERAS CUADROS
+                          Codigo: '25000010246'
+                        - ProveedorID: 273
+                          Nombre: GRAINGER SA DE CV
+                          Codigo: '25000010247'
+                        - ProveedorID: 274
+                          Nombre: SIALICO FOOD SAFETY SA DE CV
+                          Codigo: '25000010248'
+                        - ProveedorID: 275
+                          Nombre: EDGAR DE JESUS ARROYO GONZÁLEZ
+                          Codigo: '25000010249'
+                        - ProveedorID: 276
+                          Nombre: DT LATAM SA DE CV
+                          Codigo: '25000010250'
+                        - ProveedorID: 277
+                          Nombre: LABORATORIOS BECAR SA DE CV
+                          Codigo: '25000010251'
+                        - ProveedorID: 278
+                          Nombre: MONICA VALDEZ ALFARO
+                          Codigo: '25000010252'
+                        - ProveedorID: 279
+                          Nombre: PEDRO SALGADO VARGAS
+                          Codigo: '25000010253'
+                        - ProveedorID: 280
+                          Nombre: TOTAL PLAY TELECOMUNICACIONES S.A. DE C.V.
+                          Codigo: '25000010254'
+                        - ProveedorID: 281
+                          Nombre: CHEP MEXICO S DE RL DE CV
+                          Codigo: '25000010255'
+                        - ProveedorID: 282
+                          Nombre: ARRENDADORA DE INMUEBLES RETANO SA DE CV
+                          Codigo: '25000010256'
+                        - ProveedorID: 283
+                          Nombre: LOGISTICA INTERNACIONAL SMR SA DE CV
+                          Codigo: '25000010257'
+                        - ProveedorID: 284
+                          Nombre: RESERVAS Y PROVISIONES
+                          Codigo: '25000010258'
+                        - ProveedorID: 285
+                          Nombre: MERCK SA DE CV
+                          Codigo: '25000010259'
+                        - ProveedorID: 286
+                          Nombre: 'BALANCEO, VIBRACION Y MANTENIMIENTO SA DE CV'
+                          Codigo: '25000010260'
+                        - ProveedorID: 287
+                          Nombre: TUBERIAS Y VALVULAS DEL NOROESTE SA DE CV
+                          Codigo: '25000010261'
+                        - ProveedorID: 288
+                          Nombre: LINARAND BELTECH SA DE CV
+                          Codigo: '25000010262'
+                        - ProveedorID: 289
+                          Nombre: KARCHER MEXICO SA DE CV
+                          Codigo: '25000010001'
+                        - ProveedorID: 290
+                          Nombre: SANDTEX INTERNATIONAL CORP
+                          Codigo: '25000010185'
+                        - ProveedorID: 291
+                          Nombre: PROTEINAS Y OLEICOS SA DE CV
+                          Codigo: '25000010263'
+                        - ProveedorID: 294
+                          Nombre: TETRAFLON CORP S DE RL DE CV
+                          Codigo: '25000010266'
+                        - ProveedorID: 295
+                          Nombre: METTLER TOLEDO SA DE CV
+                          Codigo: '25000010267'
+                        - ProveedorID: 296
+                          Nombre: SUSANA RODRIGUEZ ZAMORA
+                          Codigo: '25000010268'
+                        - ProveedorID: 297
+                          Nombre: RMG SERCOM SA DE CV
+                          Codigo: '25000010269'
+                        - ProveedorID: 298
+                          Nombre: EL PAJARO CHATO S DE RL DE CV
+                          Codigo: '25000010270'
+                        - ProveedorID: 299
+                          Nombre: DESARROLLO DE INGENIERIA Y APLICACIONES DE CONTROL INDUSTRIAL SA DE CV
+                          Codigo: '25000010271'
+                        - ProveedorID: 300
+                          Nombre: ESMARK DIFFUSION SA DE CV
+                          Codigo: '25000010272'
+                        - ProveedorID: 301
+                          Nombre: TRIAR LOGICA SA DE CV
+                          Codigo: '25000010273'
+                        - ProveedorID: 302
+                          Nombre: SISTEMAS EMPRESARIALES SAPYME SA DE CV
+                          Codigo: '25000010274'
+                        - ProveedorID: 303
+                          Nombre: DOMINO PRINTING MEXICO SA DE CV
+                          Codigo: '25000010275'
+                        - ProveedorID: 304
+                          Nombre: MANUFACTURERA DE ROPA LA GACELA SA DE CV
+                          Codigo: '25000010276'
+                        - ProveedorID: 305
+                          Nombre: MARCO ANTONIO PINEDA MILLAN
+                          Codigo: '25000010277'
+                        - ProveedorID: 307
+                          Nombre: GIF SEGURIDAD PRIVADA SA DE CV
+                          Codigo: '25000010279'
+                        - ProveedorID: 308
+                          Nombre: DAVID MORENO ROMERO
+                          Codigo: '25000010280'
+                        - ProveedorID: 309
+                          Nombre: JORGE AMADOR QUIROZ
+                          Codigo: '25000010281'
+                        - ProveedorID: 310
+                          Nombre: JOSE JAIME RIVERA CASTRO
+                          Codigo: '25000010282'
+                        - ProveedorID: 311
+                          Nombre: LUIS GERARDO OROZCO MELENDEZ
+                          Codigo: '25000010283'
+                        - ProveedorID: 312
+                          Nombre: SERGIO ALEJANDRO ALVAREZ MOLINA
+                          Codigo: '25000010284'
+                        - ProveedorID: 313
+                          Nombre: VICTOR MANUEL PARDO VALDEZ
+                          Codigo: '25000010285'
+                        - ProveedorID: 314
+                          Nombre: OFFICE DEPOT DE MEXICO SA DE CV
+                          Codigo: '25000010286'
+                        - ProveedorID: 315
+                          Nombre: WH MANAGEMENT MEXICO S DE RL DE CV
+                          Codigo: '25000010287'
+                        - ProveedorID: 316
+                          Nombre: DANISCO MEXICANA SA DE CV
+                          Codigo: '25000010288'
+                        - ProveedorID: 317
+                          Nombre: 'GAMA MONITOREO Y RASTREO DE CALIDAD S.A.S '
+                          Codigo: '25000010289'
+                        - ProveedorID: 318
+                          Nombre: TDR TRANSPORTES SA DE CV
+                          Codigo: '25000010290'
+                        - ProveedorID: 319
+                          Nombre: SERVICIOS DE CERTIFICACION QUIMICA S DE RL DE CV
+                          Codigo: '25000010291'
+                        - ProveedorID: 320
+                          Nombre: MONTACARGAS Y SERVICIOS INDUSTRIALES MEGA S DE RL DE CV
+                          Codigo: '25000010292'
+                        - ProveedorID: 321
+                          Nombre: SGLSERVICES MEXICO SA DE CV
+                          Codigo: '25000010293'
+                        - ProveedorID: 322
+                          Nombre: 360 GRADOS EN TECNOLOGIA SA DE CV
+                          Codigo: '25000010294'
+                        - ProveedorID: 323
+                          Nombre: 'COMERCIAL DISTRIBUIDORA MAR, S.A. DE C.V.'
+                          Codigo: '25000010295'
+                        - ProveedorID: 324
+                          Nombre: YAMATO SCALE DE MEXICO S DE RL DE CV
+                          Codigo: '25000010296'
+                        - ProveedorID: 325
+                          Nombre: CPS OCCIDENTE SA DE CV
+                          Codigo: '25000010297'
+                        - ProveedorID: 326
+                          Nombre: Lemus Sanchez Diego Armando
+                          Codigo: '25000010298'
+                        - ProveedorID: 327
+                          Nombre: JOSE GABRIEL VIVEROS
+                          Codigo: '25000010299'
+                        - ProveedorID: 328
+                          Nombre: KARLA MARIANA ZUÑIGA LAVIN
+                          Codigo: '25000010300'
+                        - ProveedorID: 329
+                          Nombre: 'SEGUROS INBURSA SA GRUPO FINANCIERO INBUR SA '
+                          Codigo: '25000010301'
+                        - ProveedorID: 330
+                          Nombre: CYBERPUERTA SA DE CV
+                          Codigo: '25000010302'
+                        - ProveedorID: 331
+                          Nombre: FRANCISCO URIBE SANCHEZ
+                          Codigo: '25000010303'
+                        - ProveedorID: 332
+                          Nombre: SCIENDUSTRY SA DE CV
+                          Codigo: '25000010304'
+                        - ProveedorID: 333
+                          Nombre: CALZADO INDUSTRIAL DURAMAX SA DE CV
+                          Codigo: '25000010305'
+                        - ProveedorID: 334
+                          Nombre: KARLA YISEL LARA SANCHEZ
+                          Codigo: '25000010306'
+                        - ProveedorID: 335
+                          Nombre: PROYECTOS E INSTRUMENTOS SA DE CV
+                          Codigo: '25000010307'
+                        - ProveedorID: 336
+                          Nombre: EQUIPOS Y COMPONENTES PARA MANEJO DE SOLIDOS SA DE CV
+                          Codigo: '25000010308'
+                        - ProveedorID: 337
+                          Nombre: MAQUINARIA Y SERVICIOS INDUSTRIALES MAPE S DE RL DE CV
+                          Codigo: '25000010309'
+                        - ProveedorID: 338
+                          Nombre: LUIS MIGUEL GONZALEZ ORTIZ
+                          Codigo: '25000010310'
+                        - ProveedorID: 339
+                          Nombre: EVARISTO OMAR QUEZADA RUIZ
+                          Codigo: '25000010311'
+                        - ProveedorID: 340
+                          Nombre: JORGE ENRIQUE SOLE ORTEGA
+                          Codigo: '25000010312'
+                        - ProveedorID: 341
+                          Nombre: JOSE LUIS ALVADO LUCIO
+                          Codigo: '25000010313'
+                        - ProveedorID: 342
+                          Nombre: MARTIN ALFONSO MARTINEZ MARTINEZ
+                          Codigo: '25000010314'
+                        - ProveedorID: 343
+                          Nombre: VYACHESLAV ROBBIE SANTILLAN MUÑOZ
+                          Codigo: '25000010315'
+                        - ProveedorID: 344
+                          Nombre: OSCAR LEONIDES ALFARO GAVILANES
+                          Codigo: '25000010316'
+                        - ProveedorID: 345
+                          Nombre: OSCAR IVAN PARTIDA PONCE
+                          Codigo: '25000010317'
+                        - ProveedorID: 346
+                          Nombre: BERTHA GONZALEZ JIMENEZ
+                          Codigo: '25000010318'
+                        - ProveedorID: 347
+                          Nombre: JORGE FRANSISCO MENDOZA RAMIREZ
+                          Codigo: '25000010319'
+                        - ProveedorID: 348
+                          Nombre: SATAKE USA INC
+                          Codigo: '25000010320'
+                        - ProveedorID: 349
+                          Nombre: EFREN MALDONADO DE LA CRUZ
+                          Codigo: '25000010321'
+                        - ProveedorID: 350
+                          Nombre: DYCELAB SA DE CV
+                          Codigo: '25000010322'
+                        - ProveedorID: 351
+                          Nombre: LAB TECH INSTRUMENTACION SA DE CV
+                          Codigo: '25000010323'
+                        - ProveedorID: 352
+                          Nombre: TRANSPORTACIONES ZEPOL SA DE CV
+                          Codigo: '25000010324'
+                        - ProveedorID: 353
+                          Nombre: JESUS OCTAVIO IBARRA LEDESMA
+                          Codigo: '25000010325'
+                        - ProveedorID: 354
+                          Nombre: FERRESEGURIDAD SA DE CV
+                          Codigo: '25000010326'
+                        - ProveedorID: 355
+                          Nombre: ALDO CARRILLO MENDOZA
+                          Codigo: '25000010327'
+                        - ProveedorID: 356
+                          Nombre: TRANSGRANEL SA DE CV
+                          Codigo: '25000010328'
+                        - ProveedorID: 357
+                          Nombre: ERIE DE MEXICO SA DE CV
+                          Codigo: '25000010329'
+                        - ProveedorID: 358
+                          Nombre: 'GRUPO NACIONAL PROVINCIAL, S.A.B.'
+                          Codigo: '25000010330'
+                        - ProveedorID: 359
+                          Nombre: MAQUINAS DIESEL SA DE CV
+                          Codigo: '25000010331'
+                        - ProveedorID: 360
+                          Nombre: VIRIDIANA DEL CARMEN RODRIGUEZ CISNEROS
+                          Codigo: '25000010332'
+                        - ProveedorID: 361
+                          Nombre: HUMBERTO CAMPOS IRINEO
+                          Codigo: '25000010333'
+                        - ProveedorID: 362
+                          Nombre: PATRICIA TAMEZ ALEMAN
+                          Codigo: '25000010334'
+                        - ProveedorID: 363
+                          Nombre: OSCAR DARIO GUERRA LARA
+                          Codigo: '25000010335'
+                        - ProveedorID: 364
+                          Nombre: CHUBB SEGUROS MEXICO SA
+                          Codigo: '25000010336'
+                        - ProveedorID: 365
+                          Nombre: COMERCIALIZADORA PEPSICO MEXICO S DE RL DE CV
+                          Codigo: '25000010337'
+                        - ProveedorID: 366
+                          Nombre: INSUMOS PARA SALUD OCUPACIONAL SA DE CV
+                          Codigo: '25000010338'
+                        - ProveedorID: 367
+                          Nombre: LEONARDO ADOLFO MALPICA PARDIÑO
+                          Codigo: '25000010339'
+                        - ProveedorID: 368
+                          Nombre: ELIASIB JEZABEL ROMERO GUTIERREZ
+                          Codigo: '25000010340'
+                        - ProveedorID: 369
+                          Nombre: JORGE FRANCISCO MENDOZA RAMIREZ
+                          Codigo: '25000010341'
+                        - ProveedorID: 370
+                          Nombre: 'CARLOS ADRIAHAN QUINTANA CARBAJAL '
+                          Codigo: '25000010342'
+                        - ProveedorID: 371
+                          Nombre: OSCAR GABRIEL GUARNEROS GONZALEZ
+                          Codigo: '25000010343'
+                        - ProveedorID: 372
+                          Nombre: MELISA ESTELA TORRES RIVERA
+                          Codigo: '25000010344'
+                        - ProveedorID: 373
+                          Nombre: SAINT FOODS SA DE CV
+                          Codigo: '25000010345'
+                        - ProveedorID: 374
+                          Nombre: EDUARDO DE SANTIAGO IBARRA
+                          Codigo: '25000010346'
+                        - ProveedorID: 375
+                          Nombre: VICTOR JAVIER VARGAS CORDOVA
+                          Codigo: '25000010347'
+                        - ProveedorID: 376
+                          Nombre: BASCULAS BRAUNKER SA DE CV
+                          Codigo: '25000010348'
+                        - ProveedorID: 377
+                          Nombre: VULCANIZACION Y SERVICIOS INDUSTRIALES SA DE CV
+                          Codigo: '25000010349'
+                        - ProveedorID: 378
+                          Nombre: GRACIDA SISTEMAS INDUSTRIALES SA DE CV
+                          Codigo: '25000010350'
+                        - ProveedorID: 379
+                          Nombre: LABORATORIO FERMI SA DE CV
+                          Codigo: '25000010351'
+                        - ProveedorID: 380
+                          Nombre: CONDEDERACION OBRERA REVOLUCIONARIA
+                          Codigo: '25000010352'
+                        - ProveedorID: 381
+                          Nombre: LINEAS UNIDAS AYACAR SA DE CV
+                          Codigo: '25000010353'
+                        - ProveedorID: 382
+                          Nombre: NANCY JAZMIN RODRIGUEZ CROQUERT
+                          Codigo: '25000010354'
+                        - ProveedorID: 383
+                          Nombre: CHRISTIAN IGNACIO CASTILLO CARDENAS
+                          Codigo: '25000010355'
+                        - ProveedorID: 384
+                          Nombre: OMAR CASARRUBIAS VILLA
+                          Codigo: '25000010356'
+                        - ProveedorID: 385
+                          Nombre: CARLOS FRANCISCO PALOME LAGARDA
+                          Codigo: '25000010357'
+                        - ProveedorID: 386
+                          Nombre: SERVO MOTION SA DE CV
+                          Codigo: '25000010358'
+                        - ProveedorID: 387
+                          Nombre: PROMOTORA INBURSA SA DE CV
+                          Codigo: '25000010359'
+                        - ProveedorID: 388
+                          Nombre: OPERADORA DE DESARROLLO SOCIAL SAPI DE CV
+                          Codigo: '25000010360'
+                        - ProveedorID: 389
+                          Nombre: DERIVADORA DE SERVICIOS PROFESIONALES SA DE CV
+                          Codigo: '25000010361'
+                        - ProveedorID: 390
+                          Nombre: REFRIGERACION ACTIVA SA DE CV
+                          Codigo: '25000010362'
+                        - ProveedorID: 391
+                          Nombre: CIA SHERWIN WILLIAMS SA DE CV
+                          Codigo: '25000010363'
+                        - ProveedorID: 392
+                          Nombre: DARIEL ARMANDO IBARRA UZETA
+                          Codigo: '25000010364'
+                        - ProveedorID: 393
+                          Nombre: GOMEZ CUETARA HNOS SA DE CV
+                          Codigo: '25000010365'
+                        - ProveedorID: 394
+                          Nombre: PRAXAIR MEXICO S DE RL DE CV
+                          Codigo: '25000010366'
+                        - ProveedorID: 395
+                          Nombre: PLASTICOS PANAMERICANOS SA DE CV
+                          Codigo: '25000010367'
+                        - ProveedorID: 396
+                          Nombre: JONNATHAN JAMET BARRAZA PADILLA
+                          Codigo: '25000010368'
+                        - ProveedorID: 397
+                          Nombre: ROGERI SA DE CV
+                          Codigo: '25000010369'
+                        - ProveedorID: 398
+                          Nombre: CENTRO DE CALIBRACION Y CAPACITACION INDUSTRIAL SA DE CV
+                          Codigo: '25000010370'
+                        - ProveedorID: 399
+                          Nombre: MARKEM-IMAJE SA DE CV
+                          Codigo: '25000010371'
+                        - ProveedorID: 400
+                          Nombre: SOLUCIONES EN TECNOLOGIA ELECTRICA Y AUTOMATIZACION SA DE CV
+                          Codigo: '25000010372'
+                        - ProveedorID: 401
+                          Nombre: EFREN MALDONADO DE LA CRUZ
+                          Codigo: '25000010373'
+                        - ProveedorID: 402
+                          Nombre: BAKER PERKINS INC.
+                          Codigo: '25000010374'
+                        - ProveedorID: 403
+                          Nombre: MDREIECK SA DE CV
+                          Codigo: '25000010375'
+                        - ProveedorID: 408
+                          Nombre: '#MiSegunditoMailingxd'
+                          Codigo: '25000020020'
+                        - ProveedorID: 409
+                          Nombre: Yeison
+                          Codigo: '25000010382'
+                        - ProveedorID: 411
+                          Nombre: DERIVADORA DE SERVICIOS PROFESIONALES SA DE CV
+                          Codigo: '25000010384'
+                        - ProveedorID: 412
+                          Nombre: DERIVADORA DE SERVICIOS PROFESIONALES SA DE CV
+                          Codigo: '25000010385'
+                        - ProveedorID: 414
+                          Nombre: este
+                          Codigo: '25000010388'
+                        - ProveedorID: 415
+                          Nombre: fasdfas
+                          Codigo: '25000010389'
+                        - ProveedorID: 416
+                          Nombre: ''
+                          Codigo: '25000010390'
+                        - ProveedorID: 426
+                          Nombre: proveedor prueba
+                          Codigo: '25000010393'
+                        - ProveedorID: 428
+                          Nombre: proveedor prueba
+                          Codigo: '25000010398'
+                        - ProveedorID: 429
+                          Nombre: ''
+                          Codigo: '25000010399'
+                        - ProveedorID: 430
+                          Nombre: ''
+                          Codigo: '25000010400'
+                        - ProveedorID: 440
+                          Nombre: test
+                          Codigo: '25000010410'
+                        - ProveedorID: 445
+                          Nombre: test 5 creacion
+                          Codigo: '25000010415'
+                        - ProveedorID: 451
+                          Nombre: test creacion 10
+                          Codigo: '25000010421'
+                        - ProveedorID: 455
+                          Nombre: CLIENTESssdd
+                          Codigo: PRUEBA3
+                        - ProveedorID: 456
+                          Nombre: CLIENTESssdd
+                          Codigo: PRUEBA4
+                        - ProveedorID: 457
+                          Nombre: CLIENTESssdd
+                          Codigo: PRUEBA5
+                        - ProveedorID: 458
+                          Nombre: CLIENTESssdd
+                          Codigo: PRUEBA6
+                        - ProveedorID: 463
+                          Nombre: ''
+                          Codigo: '25000010425'
+                        - ProveedorID: 464
+                          Nombre: '03'
+                          Codigo: '25000010426'
+                        - ProveedorID: 471
+                          Nombre: MauroSAS
+                          Codigo: '25000010431'
+                        - ProveedorID: 474
+                          Nombre: El palacio de la Chunchurria
+                          Codigo: '25000010434'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ProveedorID: 31
+                          Nombre: INGREDION MEXICO SA DE CV
+                          Codigo: '25000010002'
+                        - ProveedorID: 33
+                          Nombre: PROCESADORA DE GRANOS AUSTRAL SA
+                          Codigo: '25000020002'
+                        - ProveedorID: 34
+                          Nombre: BRIDGE INTERNATIONAL COMPANY
+                          Codigo: '25000020003'
+                        - ProveedorID: 37
+                          Nombre: CEPIA INTERNACIONAL SA
+                          Codigo: '25000020006'
+                        - ProveedorID: 38
+                          Nombre: BLOMMER CHOCOLATE COMPANY
+                          Codigo: '25000020007'
+                        - ProveedorID: 39
+                          Nombre: TREE TOP INC
+                          Codigo: '25000020008'
+      operationId: get-intervention-light-providers
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /vehicle/light:
     get:
       summary: findLightListForVehicle
