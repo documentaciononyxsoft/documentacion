@@ -1717,9 +1717,11 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '14'
         name: marcaID
         in: path
         required: true
+        description: Id de la marca
     put:
       summary: Vehicles - UpdateBrand
       operationId: put-brand-marcaID
