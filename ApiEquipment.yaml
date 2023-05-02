@@ -3136,6 +3136,7 @@ paths:
             example: '14'
           in: query
           name: direccionID
+          required: true
         - schema:
             type: string
             example: edificio
