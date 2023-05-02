@@ -4770,10 +4770,16 @@ paths:
                     content:
                       success: true
                       data:
-                        - TipoHoraID: 2
-                          Nombre: Dominicales y festivos
-                        - TipoHoraID: 3
+                        - TipoHoraID: 1
                           Nombre: Normal
+                        - TipoHoraID: 2
+                          Nombre: Extra
+                        - TipoHoraID: 3
+                          Nombre: Festiva
+                        - TipoHoraID: 4
+                          Nombre: Fin de Semana
+                        - TipoHoraID: 5
+                          Nombre: Nocturna
       operationId: get-intervention-typeOfTime-light
       parameters:
         - schema:
