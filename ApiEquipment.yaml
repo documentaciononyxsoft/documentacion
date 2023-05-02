@@ -3539,5 +3539,130 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  '/equipment/preventivesMaintenance/{equipoID}':
+    parameters:
+      - schema:
+          type: string
+          example: '24'
+        name: equipoID
+        in: path
+        required: true
+    get:
+      summary: PreventiveMaintenance - FindManyForEquipment
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            MantenimientoPreventivoID:
+                              type: integer
+                            FechaAlta:
+                              type: string
+                            FechaBaja:
+                              type: string
+                            Concepto:
+                              type: string
+                            Frecuencia:
+                              type: integer
+                            Dia:
+                              type: integer
+                            DesdeHora:
+                              type: string
+                            HastaHora:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT\r\nMantenimientoPreventivo.*,\r\nElemento.*,\r\nUsuario.*,\r\nArticulo.Nombre AS ArticuloNombre,\r\nArticulo.Codigo AS ArticuloCodigo,\r\nMailing.ReferenciaCodigo AS ClienteCodigo,\r\nMailing.Nombre AS ClienteNombre,\r\nDireccion.Direccion,\r\nUsuario.NombreUsuario,\r\nTablaGeneral.Descripcion AS tipoEquipo\r\n\r\nFROM MantenimientoPreventivo LEFT JOIN Elemento ON MantenimientoPreventivo.ElementoID = Elemento.ElementoID\r\nLEFT JOIN Articulo ON Elemento.ArticuloID = Articulo.ArticuloID\r\nLEFT JOIN Usuario ON MantenimientoPreventivo.UsuarioID = Usuario.UsuarioID\r\nLEFT JOIN Cliente ON Cliente.ClienteID=Elemento.ClienteID\r\nLEFT JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT JOIN Direccion ON Direccion.DireccionID = MantenimientoPreventivo.DireccionID\r\nLEFT JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = Elemento.TipoEquipoID\r\nLEFT JOIN TablaGeneral AS TipoEquipo ON TipoEquipo.TablaGeneralID = MantenimientoPreventivo.TipoEquipoID\r\n\r\nWHERE\r\n\r\n\r\nElemento.ElementoID = 24 AND\r\nMantenimientoPreventivo.CustomerID = 29 AND\r\nMantenimientoPreventivo.EmpresaID = 1\r\n"
+                      records:
+                        - MantenimientoPreventivoID: 1
+                          FechaAlta: '20230105'
+                          FechaBaja: '20230105'
+                          Concepto: Prueba
+                          Frecuencia: 10
+                          Dia: 5
+                          DesdeHora: '00:00:00.000'
+                          HastaHora: '00:00:00.000'
+                        - MantenimientoPreventivoID: 2
+                          FechaAlta: '20230501'
+                          FechaBaja: '20230502'
+                          Concepto: PruebaJCO2
+                          Frecuencia: 7
+                          Dia: 5
+                          DesdeHora: '10:00:00.000'
+                          HastaHora: '15:00:00.000'
+                        - MantenimientoPreventivoID: 3
+                          FechaAlta: '20230302'
+                          FechaBaja: '20230312'
+                          Concepto: PruebaUpdate
+                          Frecuencia: 8
+                          Dia: 5
+                          DesdeHora: '09:00:00.000'
+                          HastaHora: '11:00:00.000'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - MantenimientoPreventivoID: 1
+                          FechaAlta: '20230105'
+                          FechaBaja: '20230105'
+                          Concepto: Prueba
+                          Frecuencia: 10
+                          Dia: 5
+                          DesdeHora: '00:00:00.000'
+                          HastaHora: '00:00:00.000'
+                        - MantenimientoPreventivoID: 2
+                          FechaAlta: '20230501'
+                          FechaBaja: '20230502'
+                          Concepto: PruebaJCO2
+                          Frecuencia: 7
+                          Dia: 5
+                          DesdeHora: '10:00:00.000'
+                          HastaHora: '15:00:00.000'
+                        - MantenimientoPreventivoID: 3
+                          FechaAlta: '20230302'
+                          FechaBaja: '20230312'
+                          Concepto: PruebaUpdate
+                          Frecuencia: 8
+                          Dia: 5
+                          DesdeHora: '09:00:00.000'
+                          HastaHora: '11:00:00.000'
+      operationId: get-equipment-preventivesMaintenance-equipoID
+      parameters:
+        - schema:
+            type: string
+            example: ' eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg'
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas: {}
