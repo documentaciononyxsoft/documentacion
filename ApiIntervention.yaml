@@ -11420,7 +11420,7 @@ paths:
           required: true
   /groups/light:
     get:
-      summary: findLightListForGroup
+      summary: InterventionGroups - FindLightList
       tags: []
       responses:
         '200':
@@ -11459,11 +11459,14 @@ paths:
                     content:
                       records:
                         - ID: 1
-                          Codigo: '1'
-                          Nombre: prg
+                          Codigo: SF02
+                          Nombre: Fabian
                         - ID: 2
-                          Codigo: AP01
-                          Nombre: prueba
+                          Codigo: CEDISTEO
+                          Nombre: Carlos
+                        - ID: 3
+                          Codigo: CEDISVH
+                          Nombre: JCO
                       success: true
                       sql: "select * ,\r\nAlmacen.nombre as NombreAlmacen,\r\ntablageneral.Descripcion as NombreRutaEntrega \r\n\r\nfrom \r\n\r\nEmpleadoGrupoSATCabecera\r\nleft join almacen on almacen.almacenid = EmpleadoGrupoSatCabecera.almacenid\r\nleft join Tablageneral on tablageneral.tablageneralID = EmpleadoGrupoSatCabecera.RutaEntregaID\r\nleft join EmpleadoGrupoSatLinea on EmpleadoGrupoSatLinea.EmpleadoGrupoSatCabeceraID = EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraId\r\n\r\nwhere \r\nEmpleadoGrupoSatCabecera.CustomerID = 29 and\r\nEmpleadoGrupoSatCabecera.Empresaid = 1\r\n\r\nGROUP BY EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraID\r\nORDER BY EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraID"
               examples:
@@ -11474,20 +11477,25 @@ paths:
                     content:
                       records:
                         - ID: 1
-                          Codigo: '1'
-                          Nombre: prg
+                          Codigo: SF02
+                          Nombre: Fabian
                         - ID: 2
-                          Codigo: AP01
-                          Nombre: prueba
+                          Codigo: CEDISTEO
+                          Nombre: Carlos
+                        - ID: 3
+                          Codigo: CEDISVH
+                          Nombre: JCO
                       success: true
-                      sql: "select * ,\r\nAlmacen.nombre as NombreAlmacen,\r\ntablageneral.Descripcion as NombreRutaEntrega \r\n\r\nfrom \r\n\r\nEmpleadoGrupoSATCabecera\r\nleft join almacen on almacen.almacenid = EmpleadoGrupoSatCabecera.almacenid\r\nleft join Tablageneral on tablageneral.tablageneralID = EmpleadoGrupoSatCabecera.RutaEntregaID\r\nleft join EmpleadoGrupoSatLinea on EmpleadoGrupoSatLinea.EmpleadoGrupoSatCabeceraID = EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraId\r\n\r\nwhere \r\nEmpleadoGrupoSatCabecera.CustomerID = 29 and\r\nEmpleadoGrupoSatCabecera.Empresaid = 1\r\n\r\nGROUP BY EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraID\r\nORDER BY EmpleadoGrupoSatCabecera.EmpleadoGrupoSatCabeceraID"
+                      sql: string
       operationId: get-groups-light
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: 'accessToken '
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /ticket/planification:
     get:
       summary: findManyForPlanificationByTicket
