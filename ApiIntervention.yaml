@@ -3044,10 +3044,10 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '5'
         name: intervencionID
         in: path
         required: true
-        description: '5'
     delete:
       summary: DeleteIntervention
       operationId: delete-intervention-intervencionID
@@ -3088,7 +3088,7 @@ paths:
           name: 'accessToken '
           description: '"tokenReciente"'
     put:
-      summary: UpdateIntervention
+      summary: Intervention - Update
       operationId: put-intervention-intervencionID
       responses:
         '200':
@@ -3287,9 +3287,42 @@ paths:
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: 'accessToken '
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ticketID:
+                  type: integer
+                FechaIntervencion:
+                  type: string
+                Descripcion:
+                  type: string
+                ObservacionInterna:
+                  type: string
+                VehiculoId:
+                  type: integer
+              x-examples:
+                Example 1:
+                  ticketID: 9
+                  FechaIntervencion: '20230502'
+                  Descripcion: PruebaJCO
+                  ObservacionInterna: NotaJCO
+                  VehiculoId: 1
+            examples:
+              Example 1:
+                value:
+                  ticketID: 9
+                  FechaIntervencion: '20231010'
+                  Descripcion: UpdateJCO
+                  ObservacionInterna: NotaActualizadaJCO
+                  VehiculoId: 1
   /interventions/quicksearch:
     get:
       summary: findManyByFilterForIntervention
