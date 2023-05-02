@@ -1848,7 +1848,53 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      modeloID:
+                        type: integer
+                      FechaHoraUsuario:
+                        type: string
+                      VersionID:
+                        type: integer
+                      Nombre:
+                        type: string
+                      CustomerID:
+                        type: integer
+                      EmpresaID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      modeloID: 4
+                      FechaHoraUsuario: '2023-05-02T16:23:55.929'
+                      VersionID: 7
+                      Nombre: Version 2299
+                      CustomerID: 29
+                      EmpresaID: 1
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      modeloID: 4
+                      FechaHoraUsuario: '2023-05-02T16:23:55.929'
+                      VersionID: 7
+                      Nombre: Version 2299
+                      CustomerID: 29
+                      EmpresaID: 1
       parameters:
         - schema:
             type: string
@@ -1861,7 +1907,20 @@ paths:
           application/json:
             schema:
               type: object
-              properties: {}
+              properties:
+                Nombre:
+                  type: string
+                ModeloID:
+                  type: integer
+              x-examples:
+                Example 1:
+                  Nombre: Version 2299
+                  ModeloID: 4
+            examples:
+              Example 1:
+                value:
+                  Nombre: Version 2299
+                  ModeloID: 4
   /model:
     post:
       summary: Vehicles - CreateModel
