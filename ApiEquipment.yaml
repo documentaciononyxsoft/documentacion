@@ -3405,7 +3405,7 @@ paths:
     parameters:
       - schema:
           type: string
-          example: '3'
+          example: '4'
         name: mantenimientoPreventivoID
         in: path
         required: true
@@ -3497,5 +3497,39 @@ paths:
                   desdeHora: '09:00'
                   hastaHora: '11:00'
                   equipoID: 24
+      description: ''
+    delete:
+      summary: PreventiveMaintenance - Delete
+      operationId: delete-equipment-preventiveMaintenance-mantenimientoPreventivoID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
 components:
   schemas: {}
