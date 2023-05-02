@@ -4228,7 +4228,6 @@ paths:
           name: proyecto_OFID
         - schema:
             type: integer
-            example: 66674
           in: query
           name: numero
       requestBody:
