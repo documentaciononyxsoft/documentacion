@@ -84,5 +84,620 @@ paths:
           in: header
           name: accessToken
           description: Token reciente
+  '/organizer/calendar/event/{visitaid}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            accessToken:
+              schema:
+                type: string
+                example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiY3Rva2VuIjoiIiwgImlhdCI6MTY4MjYyMTgyMywgImV4cCI6MTY4NjIyMTgyMyB9.fP8W5I4oADhIcL4oVC1g0_UGVX3gqMpvMxztZgC7I_o
+              description: Recent Token
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      timeStampVO:
+                        type: object
+                        properties:
+                          createdAt:
+                            type: string
+                          updatedAt:
+                            type: string
+                          version:
+                            type: integer
+                      isLockedVO:
+                        type: object
+                        properties:
+                          isLocked:
+                            type: boolean
+                      isSavedVO:
+                        type: object
+                        properties:
+                          isSaved:
+                            type: boolean
+                      wasUpdated:
+                        type: boolean
+                      FechaVO:
+                        type: object
+                        properties:
+                          Fecha:
+                            type: string
+                      HoraVO:
+                        type: object
+                        properties:
+                          Hora:
+                            type: string
+                      ObservacionVO:
+                        type: object
+                        properties:
+                          Observacion:
+                            type: string
+                      MotivoVO:
+                        type: object
+                        properties:
+                          Motivo:
+                            type: string
+                      HoraFinVO:
+                        type: object
+                        properties:
+                          HoraFin:
+                            type: string
+                      ResumenVO:
+                        type: object
+                        properties:
+                          Resumen:
+                            type: string
+                      ObservacionPlanoVO:
+                        type: object
+                        properties:
+                          ObservacionPlano:
+                            type: string
+                      ResumenPlanoVO:
+                        type: object
+                        properties:
+                          ResumenPlano:
+                            type: string
+                      FechaHoraUsuarioVO:
+                        type: object
+                        properties:
+                          FechaHoraUsuario:
+                            type: string
+                      enOficinaVO:
+                        type: object
+                        properties:
+                          enOficina:
+                            type: string
+                      FechaHoraNuevoVO:
+                        type: object
+                        properties:
+                          FechaHoraNuevo:
+                            type: string
+                      FechaHoraModificadoVO:
+                        type: object
+                        properties:
+                          FechaHoraModificado:
+                            type: string
+                      FechaHoraBorradoVO:
+                        type: object
+                        properties:
+                          FechaHoraBorrado:
+                            type: string
+                      AccionFuturaVO:
+                        type: object
+                        properties:
+                          AccionFutura:
+                            type: string
+                      AccionRealizadaVO:
+                        type: object
+                        properties:
+                          AccionRealizada:
+                            type: boolean
+                      DescargadoVO:
+                        type: object
+                        properties:
+                          Descargado:
+                            type: boolean
+                      FechaHoraInicioVO:
+                        type: object
+                        properties:
+                          FechaHoraInicio:
+                            type: string
+                      FechaHoraFinVO:
+                        type: object
+                        properties:
+                          FechaHoraFin:
+                            type: string
+                      ColorVO:
+                        type: object
+                        properties:
+                          Color:
+                            type: integer
+                      PrivadoVO:
+                        type: object
+                        properties:
+                          Privado:
+                            type: boolean
+                      WholeDayVO:
+                        type: object
+                        properties:
+                          WholeDay:
+                            type: boolean
+                      LlegoVO:
+                        type: object
+                        properties:
+                          Llego:
+                            type: boolean
+                      AsistioVO:
+                        type: object
+                        properties:
+                          Asistio:
+                            type: boolean
+                      NoAsistenciaComunicadaVO:
+                        type: object
+                        properties:
+                          NoAsistenciaComunicada:
+                            type: boolean
+                      MotivoNoAsistenciaVO:
+                        type: object
+                        properties:
+                          MotivoNoAsistencia:
+                            type: string
+                      FechaProximaVisitaVO:
+                        type: object
+                        properties:
+                          FechaProximaVisita:
+                            type: string
+                      DireccionVO:
+                        type: object
+                        properties:
+                          Direccion:
+                            type: string
+                      AgendaEventoIDVO:
+                        type: object
+                        properties:
+                          AgendaEventoID:
+                            type: integer
+                      IDVO:
+                        type: object
+                        properties:
+                          ID:
+                            type: integer
+                      MailingIDVO:
+                        type: object
+                        properties:
+                          MailingID:
+                            type: integer
+                      EstadoIDVO:
+                        type: object
+                        properties:
+                          EstadoID:
+                            type: integer
+                      TipoIDVO:
+                        type: object
+                        properties:
+                          TipoID:
+                            type: integer
+                      ContactoIDVO:
+                        type: object
+                        properties:
+                          ContactoID:
+                            type: integer
+                      EmpresaIDVO:
+                        type: object
+                        properties:
+                          EmpresaID:
+                            type: integer
+                      CustomerIDVO:
+                        type: object
+                        properties:
+                          CustomerID:
+                            type: integer
+                      UsuarioIDVO:
+                        type: object
+                        properties:
+                          UsuarioID:
+                            type: integer
+                      AvisoTicketIDVO:
+                        type: object
+                        properties:
+                          AvisoTicketID:
+                            type: integer
+                      MailingAppIDVO:
+                        type: object
+                        properties:
+                          MailingAppID:
+                            type: integer
+                      ActaReunionCabeceraIDVO:
+                        type: object
+                        properties:
+                          ActaReunionCabeceraID:
+                            type: integer
+                      TipoCitaIDVO:
+                        type: object
+                        properties:
+                          TipoCitaID:
+                            type: integer
+                      CategoriaIDVO:
+                        type: object
+                        properties:
+                          CategoriaID:
+                            type: integer
+                      UnidadTrabajoIDVO:
+                        type: object
+                        properties:
+                          UnidadTrabajoID:
+                            type: integer
+                      NombreMailingVO:
+                        type: object
+                        properties:
+                          NombreMailing:
+                            type: string
+                      ReferenciaCodigoMailingVO:
+                        type: object
+                        properties:
+                          ReferenciaCodigoMailing:
+                            type: string
+                      EstadoDescripcionVO:
+                        type: object
+                        properties:
+                          EstadoDescripcion:
+                            type: string
+                      EstadoAbreviaturaVO:
+                        type: object
+                        properties:
+                          EstadoAbreviatura:
+                            type: string
+                      TipoDescripcionVO:
+                        type: object
+                        properties:
+                          TipoDescripcion:
+                            type: string
+                      TipoAbreviaturaVO:
+                        type: object
+                        properties:
+                          TipoAbreviatura:
+                            type: string
+                      ContactoNombreVO:
+                        type: object
+                        properties:
+                          ContactoNombre:
+                            type: string
+                      ContactoEmailVO:
+                        type: object
+                        properties:
+                          ContactoEmail:
+                            type: string
+                      AvisoTicketNumeroVO:
+                        type: object
+                        properties:
+                          AvisoTicketNumero:
+                            type: string
+                      AvisoTicketEstadoVO:
+                        type: object
+                        properties:
+                          AvisoTicketEstado:
+                            type: string
+                      AvisoTicketDescripcionVO:
+                        type: object
+                        properties:
+                          AvisoTicketDescripcion:
+                            type: string
+                      TipoCitaDescripcionVO:
+                        type: object
+                        properties:
+                          TipoCitaDescripcion:
+                            type: string
+                      TipoCitaAbreviaturaVO:
+                        type: object
+                        properties:
+                          TipoCitaAbreviatura:
+                            type: string
+                      CategoriaDescripcionVO:
+                        type: object
+                        properties:
+                          CategoriaDescripcion:
+                            type: string
+                      CategoriaAbreviaturaVO:
+                        type: object
+                        properties:
+                          CategoriaAbreviatura:
+                            type: string
+                      invitedEmployees:
+                        type: object
+                        properties:
+                          VisitaEmpleados:
+                            type: array
+                            items:
+                              type: object
+                              properties: {}
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      timeStampVO:
+                        createdAt: '2023-05-02T08:58:37.321'
+                        updatedAt: '2023-05-02T08:58:37.321'
+                        version: 1
+                      isLockedVO:
+                        isLocked: false
+                      isSavedVO:
+                        isSaved: true
+                      wasUpdated: false
+                      FechaVO:
+                        Fecha: '0000-00-00'
+                      HoraVO:
+                        Hora: '00:00:00.000'
+                      ObservacionVO:
+                        Observacion: ''
+                      MotivoVO:
+                        Motivo: ''
+                      HoraFinVO:
+                        HoraFin: '00:00:00.000'
+                      ResumenVO:
+                        Resumen: ''
+                      ObservacionPlanoVO:
+                        ObservacionPlano: ''
+                      ResumenPlanoVO:
+                        ResumenPlano: ''
+                      FechaHoraUsuarioVO:
+                        FechaHoraUsuario: '0000-00-00T00:00:00.000'
+                      enOficinaVO:
+                        enOficina: ''
+                      FechaHoraNuevoVO:
+                        FechaHoraNuevo: '0000-00-00T00:00:00.000'
+                      FechaHoraModificadoVO:
+                        FechaHoraModificado: '0000-00-00T00:00:00.000'
+                      FechaHoraBorradoVO:
+                        FechaHoraBorrado: '0000-00-00T00:00:00.000'
+                      AccionFuturaVO:
+                        AccionFutura: ''
+                      AccionRealizadaVO:
+                        AccionRealizada: false
+                      DescargadoVO:
+                        Descargado: false
+                      FechaHoraInicioVO:
+                        FechaHoraInicio: '0000-00-00T00:00:00.000'
+                      FechaHoraFinVO:
+                        FechaHoraFin: '0000-00-00T00:00:00.000'
+                      ColorVO:
+                        Color: 0
+                      PrivadoVO:
+                        Privado: false
+                      WholeDayVO:
+                        WholeDay: false
+                      LlegoVO:
+                        Llego: false
+                      AsistioVO:
+                        Asistio: false
+                      NoAsistenciaComunicadaVO:
+                        NoAsistenciaComunicada: false
+                      MotivoNoAsistenciaVO:
+                        MotivoNoAsistencia: ''
+                      FechaProximaVisitaVO:
+                        FechaProximaVisita: '0000-00-00'
+                      DireccionVO:
+                        Direccion: ''
+                      AgendaEventoIDVO:
+                        AgendaEventoID: 0
+                      IDVO:
+                        ID: 0
+                      MailingIDVO:
+                        MailingID: 0
+                      EstadoIDVO:
+                        EstadoID: 0
+                      TipoIDVO:
+                        TipoID: 0
+                      ContactoIDVO:
+                        ContactoID: 0
+                      EmpresaIDVO:
+                        EmpresaID: 0
+                      CustomerIDVO:
+                        CustomerID: 0
+                      UsuarioIDVO:
+                        UsuarioID: 0
+                      AvisoTicketIDVO:
+                        AvisoTicketID: 0
+                      MailingAppIDVO:
+                        MailingAppID: 0
+                      ActaReunionCabeceraIDVO:
+                        ActaReunionCabeceraID: 0
+                      TipoCitaIDVO:
+                        TipoCitaID: 0
+                      CategoriaIDVO:
+                        CategoriaID: 0
+                      UnidadTrabajoIDVO:
+                        UnidadTrabajoID: 0
+                      NombreMailingVO:
+                        NombreMailing: ''
+                      ReferenciaCodigoMailingVO:
+                        ReferenciaCodigoMailing: ''
+                      EstadoDescripcionVO:
+                        EstadoDescripcion: ''
+                      EstadoAbreviaturaVO:
+                        EstadoAbreviatura: ''
+                      TipoDescripcionVO:
+                        TipoDescripcion: ''
+                      TipoAbreviaturaVO:
+                        TipoAbreviatura: ''
+                      ContactoNombreVO:
+                        ContactoNombre: ''
+                      ContactoEmailVO:
+                        ContactoEmail: ''
+                      AvisoTicketNumeroVO:
+                        AvisoTicketNumero: '0'
+                      AvisoTicketEstadoVO:
+                        AvisoTicketEstado: ''
+                      AvisoTicketDescripcionVO:
+                        AvisoTicketDescripcion: ''
+                      TipoCitaDescripcionVO:
+                        TipoCitaDescripcion: ''
+                      TipoCitaAbreviaturaVO:
+                        TipoCitaAbreviatura: ''
+                      CategoriaDescripcionVO:
+                        CategoriaDescripcion: ''
+                      CategoriaAbreviaturaVO:
+                        CategoriaAbreviatura: ''
+                      invitedEmployees:
+                        VisitaEmpleados: []
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      timeStampVO:
+                        createdAt: '2023-05-02T08:58:37.321'
+                        updatedAt: '2023-05-02T08:58:37.321'
+                        version: 1
+                      isLockedVO:
+                        isLocked: false
+                      isSavedVO:
+                        isSaved: true
+                      wasUpdated: false
+                      FechaVO:
+                        Fecha: '0000-00-00'
+                      HoraVO:
+                        Hora: '00:00:00.000'
+                      ObservacionVO:
+                        Observacion: ''
+                      MotivoVO:
+                        Motivo: ''
+                      HoraFinVO:
+                        HoraFin: '00:00:00.000'
+                      ResumenVO:
+                        Resumen: ''
+                      ObservacionPlanoVO:
+                        ObservacionPlano: ''
+                      ResumenPlanoVO:
+                        ResumenPlano: ''
+                      FechaHoraUsuarioVO:
+                        FechaHoraUsuario: '0000-00-00T00:00:00.000'
+                      enOficinaVO:
+                        enOficina: ''
+                      FechaHoraNuevoVO:
+                        FechaHoraNuevo: '0000-00-00T00:00:00.000'
+                      FechaHoraModificadoVO:
+                        FechaHoraModificado: '0000-00-00T00:00:00.000'
+                      FechaHoraBorradoVO:
+                        FechaHoraBorrado: '0000-00-00T00:00:00.000'
+                      AccionFuturaVO:
+                        AccionFutura: ''
+                      AccionRealizadaVO:
+                        AccionRealizada: false
+                      DescargadoVO:
+                        Descargado: false
+                      FechaHoraInicioVO:
+                        FechaHoraInicio: '0000-00-00T00:00:00.000'
+                      FechaHoraFinVO:
+                        FechaHoraFin: '0000-00-00T00:00:00.000'
+                      ColorVO:
+                        Color: 0
+                      PrivadoVO:
+                        Privado: false
+                      WholeDayVO:
+                        WholeDay: false
+                      LlegoVO:
+                        Llego: false
+                      AsistioVO:
+                        Asistio: false
+                      NoAsistenciaComunicadaVO:
+                        NoAsistenciaComunicada: false
+                      MotivoNoAsistenciaVO:
+                        MotivoNoAsistencia: ''
+                      FechaProximaVisitaVO:
+                        FechaProximaVisita: '0000-00-00'
+                      DireccionVO:
+                        Direccion: ''
+                      AgendaEventoIDVO:
+                        AgendaEventoID: 0
+                      IDVO:
+                        ID: 0
+                      MailingIDVO:
+                        MailingID: 0
+                      EstadoIDVO:
+                        EstadoID: 0
+                      TipoIDVO:
+                        TipoID: 0
+                      ContactoIDVO:
+                        ContactoID: 0
+                      EmpresaIDVO:
+                        EmpresaID: 0
+                      CustomerIDVO:
+                        CustomerID: 0
+                      UsuarioIDVO:
+                        UsuarioID: 0
+                      AvisoTicketIDVO:
+                        AvisoTicketID: 0
+                      MailingAppIDVO:
+                        MailingAppID: 0
+                      ActaReunionCabeceraIDVO:
+                        ActaReunionCabeceraID: 0
+                      TipoCitaIDVO:
+                        TipoCitaID: 0
+                      CategoriaIDVO:
+                        CategoriaID: 0
+                      UnidadTrabajoIDVO:
+                        UnidadTrabajoID: 0
+                      NombreMailingVO:
+                        NombreMailing: ''
+                      ReferenciaCodigoMailingVO:
+                        ReferenciaCodigoMailing: ''
+                      EstadoDescripcionVO:
+                        EstadoDescripcion: ''
+                      EstadoAbreviaturaVO:
+                        EstadoAbreviatura: ''
+                      TipoDescripcionVO:
+                        TipoDescripcion: ''
+                      TipoAbreviaturaVO:
+                        TipoAbreviatura: ''
+                      ContactoNombreVO:
+                        ContactoNombre: ''
+                      ContactoEmailVO:
+                        ContactoEmail: ''
+                      AvisoTicketNumeroVO:
+                        AvisoTicketNumero: '0'
+                      AvisoTicketEstadoVO:
+                        AvisoTicketEstado: ''
+                      AvisoTicketDescripcionVO:
+                        AvisoTicketDescripcion: ''
+                      TipoCitaDescripcionVO:
+                        TipoCitaDescripcion: ''
+                      TipoCitaAbreviaturaVO:
+                        TipoCitaAbreviatura: ''
+                      CategoriaDescripcionVO:
+                        CategoriaDescripcion: ''
+                      CategoriaAbreviaturaVO:
+                        CategoriaAbreviatura: ''
+                      invitedEmployees:
+                        VisitaEmpleados: []
+      operationId: get-organizer-calendar-event
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+    parameters:
+      - schema:
+          type: string
+          example: '79'
+        name: visitaid
+        in: path
+        required: true
+        description: ' load events of the employee corresponding to the visitaid'
 components:
   schemas: {}
