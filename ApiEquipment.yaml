@@ -3392,8 +3392,8 @@ paths:
             examples:
               Example 1:
                 value:
-                  fechaAlta: '2023-05-02'
-                  fechaBaja: '2023-05-02'
+                  fechaAlta: '20230502'
+                  fechaBaja: '20230502'
                   concepto: Prueba
                   frecuencia: 10
                   periodo: Pe
