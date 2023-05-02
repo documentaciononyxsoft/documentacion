@@ -2224,5 +2224,199 @@ paths:
         name: usuarioid
         in: path
         required: true
+  /organizer/calendar/eventtype:
+    get:
+      summary: Calendar - loadTipoCalendarioComboBox
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      TablaGenerals:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            timeStampVO:
+                              type: object
+                              properties:
+                                createdAt:
+                                  type: string
+                                updatedAt:
+                                  type: string
+                                version:
+                                  type: integer
+                            isLockedVO:
+                              type: object
+                              properties:
+                                isLocked:
+                                  type: boolean
+                            isSavedVO:
+                              type: object
+                              properties:
+                                isSaved:
+                                  type: boolean
+                            wasUpdated:
+                              type: boolean
+                            IDVO:
+                              type: object
+                              properties:
+                                ID:
+                                  type: integer
+                            ClaveVO:
+                              type: object
+                              properties:
+                                Clave:
+                                  type: string
+                            DescripcionVO:
+                              type: object
+                              properties:
+                                Descripcion:
+                                  type: string
+                            CustomerIDVO:
+                              type: object
+                              properties:
+                                CustomerID:
+                                  type: integer
+                            FechaHoraUsuarioVO:
+                              type: object
+                              properties:
+                                FechaHoraUsuario:
+                                  type: string
+                            UsuarioIDVO:
+                              type: object
+                              properties:
+                                UsuarioID:
+                                  type: integer
+                            EstandarVO:
+                              type: object
+                              properties:
+                                Estandar:
+                                  type: integer
+                            TipoVO:
+                              type: object
+                              properties:
+                                Tipo:
+                                  type: string
+                            Id_SatMovilVO:
+                              type: object
+                              properties:
+                                Id_SatMovil:
+                                  type: integer
+                            AbreviaturaVO:
+                              type: object
+                              properties:
+                                Abreviatura:
+                                  type: string
+                            PadreIDVO:
+                              type: object
+                              properties:
+                                PadreID:
+                                  type: integer
+                            FechaHoraModificadoVO:
+                              type: object
+                              properties:
+                                FechaHoraModificado:
+                                  type: string
+                            FechaHoraNuevoVO:
+                              type: object
+                              properties:
+                                FechaHoraNuevo:
+                                  type: string
+                            FechaHoraBorradoVO:
+                              type: object
+                              properties:
+                                FechaHoraBorrado:
+                                  type: string
+                            CampoLibre1VO:
+                              type: object
+                              properties:
+                                CampoLibre1:
+                                  type: string
+                            CampoLibre2VO:
+                              type: object
+                              properties:
+                                CampoLibre2:
+                                  type: string
+                            DefectoVO:
+                              type: object
+                              properties:
+                                Defecto:
+                                  type: integer
+                            ObsoletoVO:
+                              type: object
+                              properties:
+                                Obsoleto:
+                                  type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      TablaGenerals:
+                        - timeStampVO:
+                            createdAt: '2023-05-02T13:33:00.075'
+                            updatedAt: '2023-05-02T13:33:00.075'
+                            version: 1
+                          isLockedVO:
+                            isLocked: false
+                          isSavedVO:
+                            isSaved: true
+                          wasUpdated: false
+                          IDVO:
+                            ID: 15
+                          ClaveVO:
+                            Clave: TIPOVISITA
+                          DescripcionVO:
+                            Descripcion: Asesoria
+                          CustomerIDVO:
+                            CustomerID: 29
+                          FechaHoraUsuarioVO:
+                            FechaHoraUsuario: '2020-07-10T17:36:27.689'
+                          UsuarioIDVO:
+                            UsuarioID: 1
+                          EstandarVO:
+                            Estandar: 0
+                          TipoVO:
+                            Tipo: ''
+                          Id_SatMovilVO:
+                            Id_SatMovil: 0
+                          AbreviaturaVO:
+                            Abreviatura: ASE
+                          PadreIDVO:
+                            PadreID: 0
+                          FechaHoraModificadoVO:
+                            FechaHoraModificado: '0000-00-00T00:00:00.000'
+                          FechaHoraNuevoVO:
+                            FechaHoraNuevo: '0000-00-00T00:00:00.000'
+                          FechaHoraBorradoVO:
+                            FechaHoraBorrado: '0000-00-00T00:00:00.000'
+                          CampoLibre1VO:
+                            CampoLibre1: ''
+                          CampoLibre2VO:
+                            CampoLibre2: ''
+                          DefectoVO:
+                            Defecto: 0
+                          ObsoletoVO:
+                            Obsoleto: 0
+      operationId: get-organizer-calendar-eventtype
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiY3Rva2VuIjoiIiwgImlhdCI6MTY4MjYyMTgyMywgImV4cCI6MTY4NjIyMTgyMyB9.fP8W5I4oADhIcL4oVC1g0_UGVX3gqMpvMxztZgC7I_o
+          in: header
+          name: ' accessToken'
+          description: Recent Token
 components:
   schemas: {}
