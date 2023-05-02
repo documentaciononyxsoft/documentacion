@@ -86,7 +86,7 @@ paths:
           description: Token reciente
   '/organizer/calendar/event/{visitaid}':
     get:
-      summary: Your GET endpoint
+      summary: Calendar - findOneById
       tags: []
       responses:
         '200':
@@ -698,6 +698,6 @@ paths:
         name: visitaid
         in: path
         required: true
-        description: ' load events of the employee corresponding to the visitaid'
+        description: ' load event corresponding to the visitaid'
 components:
   schemas: {}
