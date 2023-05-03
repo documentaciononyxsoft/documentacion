@@ -13645,7 +13645,15 @@ paths:
                     statusCode: 200
                     message: Request processed successfully
                     content:
-                      precio: 0
+                      precio: 7
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      precio: 7
                       success: true
       operationId: get-materialsImputation-validateQuantity
       parameters:
@@ -13658,12 +13666,12 @@ paths:
           required: true
         - schema:
             type: string
-            example: '2066'
+            example: '308'
           in: query
           name: materialID
         - schema:
             type: string
-            example: '10'
+            example: '1'
           in: query
           name: cantidad
   /materialsImputation/validateUbication:
