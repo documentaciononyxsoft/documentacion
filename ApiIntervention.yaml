@@ -14493,7 +14493,7 @@ paths:
           name: Pedidos
   /consult/intervention/salesReceipts:
     get:
-      summary: findManyByFiltersForSalesReceipts
+      summary: SalesReceipts - FindManyByFilters
       tags: []
       responses:
         '200':
@@ -14732,48 +14732,50 @@ paths:
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: 'accessToken '
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
         - schema:
             type: string
+            example: '10'
           in: query
           name: limit
-          description: '10'
         - schema:
             type: string
+            example: '0'
           in: query
           name: offset
-          description: '0'
         - schema:
             type: string
+            example: '375'
           in: query
           name: ofertaID
-          description: '375'
         - schema:
             type: string
+            example: '20220520'
           in: query
           name: FechaMin
-          description: '20220520'
         - schema:
             type: string
+            example: '20230520'
           in: query
           name: FechaMax
-          description: '20230520'
         - schema:
             type: string
+            example: '1'
           in: query
           name: Detalle
-          description: '1'
         - schema:
             type: string
           in: query
           name: ArticuloID
         - schema:
             type: string
+            example: '1'
           in: query
           name: Albaranes
-          description: '1'
   /vehicle/light:
     get:
       summary: findLightListForVehicle
