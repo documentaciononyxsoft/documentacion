@@ -15,21 +15,62 @@ paths:
       operationId: post-offers
       responses:
         '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "ofertaID": 2186,
-                    "numero": 2181,
-                    "version": 1,
-                    "fechaCreacion": "2022-11-16T16:13:31.866",
-                    "usuarioCreacion": "ADMINISTRADOR",
-                    "estado": "",
-                    "MotivoRechazoID": 0,
-                    "rechazoDescripcion": ""
-                }
-            }
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      ofertaID:
+                        type: integer
+                      numero:
+                        type: integer
+                      version:
+                        type: integer
+                      fechaCreacion:
+                        type: string
+                      usuarioCreacion:
+                        type: string
+                      estado:
+                        type: string
+                      MotivoRechazoID:
+                        type: integer
+                      rechazoDescripcion:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      ofertaID: 2287
+                      numero: 2282
+                      version: 1
+                      fechaCreacion: '2023-05-03T10:31:30.070'
+                      usuarioCreacion: ADMINISTRADOR
+                      estado: ''
+                      MotivoRechazoID: 0
+                      rechazoDescripcion: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      ofertaID: 2287
+                      numero: 2282
+                      version: 1
+                      fechaCreacion: '2023-05-03T10:31:30.070'
+                      usuarioCreacion: ADMINISTRADOR
+                      estado: ''
+                      MotivoRechazoID: 0
+                      rechazoDescripcion: ''
       description: ''
       requestBody:
         content:
@@ -39,33 +80,32 @@ paths:
               x-examples:
                 Example 1:
                   cabecera:
-                    ofertaID: ''
+                    descripcion: UnaPruebaJCO
                     almacenID: ''
-                    fechaEntrega: ''
-                    mailingID: ''
+                    fechaEntrega: '2022-11-16'
+                    mailingID: '455'
                     numeroSolicitud: ''
-                    fechaSolicitud: ''
+                    fechaSolicitud: '2022-11-16'
                     TransportistaID: ''
                     PlataformaLogisticaMailingID: ''
                     TarifaVentaID: ''
-                    fechaHoraUsuario: ''
                     representanteID: ''
                     contactoID: ''
                     telefonoCuenta: ''
                     direccionEnvioID: ''
-                    observaciones: ''
-                    notaCliente: ''
+                    observaciones: ObservacionPrueba
+                    notaCliente: NotaPrueba
                     responsableUsuarioID: ''
                     tipoOfertaID: ''
                     respresentante2ID: ''
                     porcentajeComision: ''
                     porcentajeComision2: ''
                     referenciaInterna: ''
-                    FechaSolcitadaPara: ''
+                    FechaSolcitadaPara: '2022-11-16'
                     idionaID: ''
-                    fecha: ''
-                    validoDesde: ''
-                    fechaValidez: ''
+                    fecha: '2022-11-16'
+                    validoDesde: '2022-11-16'
+                    fechaValidez: '2022-11-16'
                     inconterm: ''
                     campanaID: ''
                     oportunidadID: ''
@@ -105,7 +145,7 @@ paths:
                 cabecera:
                   type: object
                   properties:
-                    ofertaID:
+                    descripcion:
                       type: string
                     almacenID:
                       type: string
@@ -122,8 +162,6 @@ paths:
                     PlataformaLogisticaMailingID:
                       type: string
                     TarifaVentaID:
-                      type: string
-                    fechaHoraUsuario:
                       type: string
                     representanteID:
                       type: string
@@ -238,6 +276,7 @@ paths:
               Example 1:
                 value:
                   cabecera:
+                    descripcion: UnaPruebaJCO
                     almacenID: ''
                     fechaEntrega: '2022-11-16'
                     mailingID: '455'
@@ -250,8 +289,8 @@ paths:
                     contactoID: ''
                     telefonoCuenta: ''
                     direccionEnvioID: ''
-                    observaciones: ''
-                    notaCliente: ''
+                    observaciones: ObservacionPrueba
+                    notaCliente: NotaPrueba
                     responsableUsuarioID: ''
                     tipoOfertaID: ''
                     respresentante2ID: ''
@@ -2001,7 +2040,7 @@ paths:
           required: true
         - schema:
             type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjI1NjkxLCAiZXhwIjoxNjY4NjMyODkxIH0.E0EcErEPyLZAYu55hZi-3Eoz3O0tQzm4yJmzdAl-alk
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
