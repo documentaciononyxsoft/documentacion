@@ -3454,6 +3454,84 @@ paths:
             type: string
           in: query
           name: ubicacionID
+  /intervention/ubication:
+    get:
+      summary: Intervention - FindUbication
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT direccion.DireccionID,direccion.Nombre,direccion.Codigo\r\nFROM direccion\r\nWHERE Direccion.Clave = 'SAT'  AND direccion.CustomerID = 29 AND direccion.EmpresaID = 1"
+                      records:
+                        - ID: 1023
+                          Nombre: hola xd343
+                          Codigo: 3
+                        - ID: 1026
+                          Nombre: Direcion Alejo
+                          Codigo: 1
+                        - ID: 1020
+                          Nombre: hola xd
+                          Codigo: 3
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - ID: 1023
+                          Nombre: Prueba
+                          Codigo: 3
+                        - ID: 1026
+                          Nombre: Direccion Alejo
+                          Codigo: 1
+                        - ID: 1020
+                          Nombre: Ubi3
+                          Codigo: 3
+      operationId: get-intervention-ubication
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /interventions/openIntervention:
     get:
       summary: Intervention - Open
