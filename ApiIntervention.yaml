@@ -13723,7 +13723,7 @@ paths:
           required: true
         - schema:
             type: string
-            example: '986'
+            example: '308'
           in: query
           name: materialID
   '/materialsImputation/{movimientoID}':
