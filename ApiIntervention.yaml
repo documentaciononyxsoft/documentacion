@@ -9,7 +9,7 @@ servers:
 paths:
   /intervention:
     post:
-      summary: Intervention - Create
+      summary: Create
       operationId: post-intervention
       responses:
         '200':
@@ -253,7 +253,7 @@ paths:
         in: path
         required: true
     delete:
-      summary: Intervention - Delete
+      summary: Delete
       operationId: delete-intervention-intervencionID
       responses:
         '200':
@@ -294,7 +294,7 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
     put:
-      summary: Intervention - Update
+      summary: Update
       operationId: put-intervention-intervencionID
       responses:
         '200':
@@ -531,7 +531,7 @@ paths:
                   VehiculoId: 1
   /interventions:
     get:
-      summary: Intervention - FindMany
+      summary: FindMany
       tags: []
       responses:
         '200':
@@ -2597,10 +2597,9 @@ paths:
             example: DESC
           in: query
           name: order
-  /interventions/consult/tickets: {}
   /interventions/quicksearch:
     get:
-      summary: Intervention - FindManyByFilter
+      summary: FindManyByFilter
       tags: []
       responses:
         '200':
@@ -3164,7 +3163,7 @@ paths:
           name: sBusqueda
   /consult/interventions:
     get:
-      summary: Intervention - FindManyByFilters
+      summary: FindManyByFilters
       tags: []
       responses:
         '200':
@@ -3456,7 +3455,7 @@ paths:
           name: ubicacionID
   /intervention/ubication:
     get:
-      summary: Intervention - FindUbication
+      summary: FindUbication
       tags: []
       responses:
         '200':
@@ -3534,7 +3533,7 @@ paths:
           required: true
   /interventions/openIntervention:
     get:
-      summary: Intervention - Open
+      summary: Open
       tags: []
       responses:
         '200':
@@ -3985,7 +3984,7 @@ paths:
         content: {}
   /materialsImputation/intervention:
     get:
-      summary: Intervention - FindManyForImputation
+      summary: FindManyForImputation
       tags: []
       responses:
         '200':
