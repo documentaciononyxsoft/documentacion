@@ -13702,7 +13702,7 @@ paths:
                     statusCode: 200
                     message: Request processed successfully
                     content:
-                      ubicacionLote: false
+                      ubicacionLote: true
                       success: true
               examples:
                 Example 1:
@@ -13710,7 +13710,7 @@ paths:
                     statusCode: 200
                     message: Request processed successfully
                     content:
-                      ubicacionLote: false
+                      ubicacionLote: true
                       success: true
       operationId: get-materialsImputation-validateUbication
       parameters:
