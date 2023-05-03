@@ -14332,103 +14332,9 @@ paths:
           in: query
           name: 'fecha '
           required: true
-  /vehicle/light:
-    get:
-      summary: findLightListForVehicle
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT vehiculo.VehiculoID , vehiculo.Codigo ,vehiculo.Matricula\r\nFROM vehiculo \r\nWHERE vehiculo.CustomerID = 29 AND vehiculo.EmpresaID = 1 \r\n"
-                      records:
-                        - ID: 1
-                          Nombre: '242342'
-                          Codigo: '231231'
-                        - ID: 2
-                          Nombre: 3525 GSM
-                          Codigo: '1'
-                        - ID: 7
-                          Nombre: QWEERRTY
-                          Codigo: '6'
-                        - ID: 8
-                          Nombre: FDSFDSFDS
-                          Codigo: '7'
-                        - ID: 12
-                          Nombre: WREWRW
-                          Codigo: '11'
-                        - ID: 13
-                          Nombre: SDADAS
-                          Codigo: '12'
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT vehiculo.VehiculoID , vehiculo.Codigo ,vehiculo.Matricula\r\nFROM vehiculo \r\nWHERE vehiculo.CustomerID = 29 AND vehiculo.EmpresaID = 1 \r\n"
-                      records:
-                        - ID: 1
-                          Nombre: '242342'
-                          Codigo: '231231'
-                        - ID: 2
-                          Nombre: 3525 GSM
-                          Codigo: '1'
-                        - ID: 7
-                          Nombre: QWEERRTY
-                          Codigo: '6'
-                        - ID: 8
-                          Nombre: FDSFDSFDS
-                          Codigo: '7'
-                        - ID: 12
-                          Nombre: WREWRW
-                          Codigo: '11'
-                        - ID: 13
-                          Nombre: SDADAS
-                          Codigo: '12'
-      operationId: get-vehicle-light
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
   /consult/intervention/salesOrders:
     get:
-      summary: findManyByFiltersForSalesOrders
+      summary: SalesOrders - FindManyByFilters
       tags: []
       responses:
         '200':
@@ -14543,38 +14449,40 @@ paths:
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
         - schema:
             type: string
+            example: '10'
           in: query
           name: limit
-          description: '10'
         - schema:
             type: string
+            example: '0'
           in: query
           name: offset
-          description: '0'
         - schema:
             type: string
+            example: '375'
           in: query
           name: ofertaID
-          description: '375'
         - schema:
             type: string
           in: query
           name: FechaMin
         - schema:
             type: string
+            example: '20500520'
           in: query
           name: FechaMax
-          description: '20500520'
         - schema:
             type: string
+            example: '0'
           in: query
           name: Detalle
-          description: '0'
         - schema:
             type: string
           in: query
@@ -14866,5 +14774,99 @@ paths:
           in: query
           name: Albaranes
           description: '1'
+  /vehicle/light:
+    get:
+      summary: findLightListForVehicle
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT vehiculo.VehiculoID , vehiculo.Codigo ,vehiculo.Matricula\r\nFROM vehiculo \r\nWHERE vehiculo.CustomerID = 29 AND vehiculo.EmpresaID = 1 \r\n"
+                      records:
+                        - ID: 1
+                          Nombre: '242342'
+                          Codigo: '231231'
+                        - ID: 2
+                          Nombre: 3525 GSM
+                          Codigo: '1'
+                        - ID: 7
+                          Nombre: QWEERRTY
+                          Codigo: '6'
+                        - ID: 8
+                          Nombre: FDSFDSFDS
+                          Codigo: '7'
+                        - ID: 12
+                          Nombre: WREWRW
+                          Codigo: '11'
+                        - ID: 13
+                          Nombre: SDADAS
+                          Codigo: '12'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT vehiculo.VehiculoID , vehiculo.Codigo ,vehiculo.Matricula\r\nFROM vehiculo \r\nWHERE vehiculo.CustomerID = 29 AND vehiculo.EmpresaID = 1 \r\n"
+                      records:
+                        - ID: 1
+                          Nombre: '242342'
+                          Codigo: '231231'
+                        - ID: 2
+                          Nombre: 3525 GSM
+                          Codigo: '1'
+                        - ID: 7
+                          Nombre: QWEERRTY
+                          Codigo: '6'
+                        - ID: 8
+                          Nombre: FDSFDSFDS
+                          Codigo: '7'
+                        - ID: 12
+                          Nombre: WREWRW
+                          Codigo: '11'
+                        - ID: 13
+                          Nombre: SDADAS
+                          Codigo: '12'
+      operationId: get-vehicle-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
 components:
   schemas: {}
