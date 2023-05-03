@@ -4065,7 +4065,7 @@ paths:
         content: {}
   /intervention/labor:
     post:
-      summary: InterventionLabor - Create
+      summary: Labor - Create
       operationId: post-intervention-labor
       responses:
         '200':
@@ -4302,7 +4302,7 @@ paths:
         required: true
         description: TiempoTrabajoID
     put:
-      summary: InterventionLabor - Update
+      summary: Labor - Update
       operationId: put-intervention-labor-id
       responses:
         '200':
@@ -4526,7 +4526,7 @@ paths:
                   AlbaranCompraLineaID: ''
                   WebID: ''
     delete:
-      summary: InterventionLabor - Delete
+      summary: Labor - Delete
       operationId: delete-intervention-labor-id
       responses:
         '200':
@@ -4568,7 +4568,7 @@ paths:
           required: true
   /intervention/typeOfTime/light:
     get:
-      summary: InterventionLabor - FindByTypeOfTimeLightList
+      summary: Labor - FindByTypeOfTimeLightList
       tags: []
       responses:
         '200':
@@ -4643,7 +4643,7 @@ paths:
         in: path
         required: true
     get:
-      summary: InterventionLabor - FindMany
+      summary: Labor - FindMany
       tags: []
       responses:
         '200':
@@ -10973,7 +10973,7 @@ paths:
           required: true
   /groups/light:
     get:
-      summary: InterventionGroups - FindLightList
+      summary: Groups - FindLightList
       tags: []
       responses:
         '200':
@@ -11051,7 +11051,7 @@ paths:
           required: true
   /intervention/expense:
     post:
-      summary: InterventionExpense - Create
+      summary: Expense - Create
       operationId: post-intervention-expense
       responses:
         '200':
@@ -11164,7 +11164,7 @@ paths:
                   WebID: string
   '/intervention/expense/{procesoGastoID}':
     put:
-      summary: InterventionExpense - Update
+      summary: Expense - Update
       operationId: put-intervention-expense
       responses:
         '200':
@@ -11279,7 +11279,7 @@ paths:
         in: path
         required: true
     delete:
-      summary: InterventionExpense - Delete
+      summary: Expense - Delete
       operationId: delete-intervention-expense-procesoGastoID
       responses:
         '200':
@@ -11323,7 +11323,7 @@ paths:
         content: {}
   /concepts/light:
     get:
-      summary: InterventionExpense - FindByConceptLightList
+      summary: Expense - FindByConceptLightList
       tags: []
       responses:
         '200':
@@ -11749,7 +11749,7 @@ paths:
           description: AvisoTicketID
   /intervention/externalWork:
     post:
-      summary: InterventionExWork - Create
+      summary: ExternalWork - Create
       operationId: post-intervention-externalWork
       responses:
         '200':
@@ -11846,7 +11846,7 @@ paths:
         required: true
         description: ProcesoTrabajoExteriorID
     put:
-      summary: InterventionExWork - Update
+      summary: ExternalWork - Update
       operationId: put-intervention-externalWork-id
       responses:
         '200':
@@ -11934,7 +11934,7 @@ paths:
                   FechaFactura: ''
                   ProcesoID: '5198'
     delete:
-      summary: InterventionExWork - Delete
+      summary: ExternalWork - Delete
       operationId: delete-intervention-externalWork-id
       responses:
         '200':
@@ -11983,7 +11983,7 @@ paths:
         in: path
         required: true
     get:
-      summary: InterventionExWork - FindMany
+      summary: ExternalWork - FindMany
       tags: []
       responses:
         '200':
@@ -12093,7 +12093,7 @@ paths:
           required: true
   /intervention/light/providers:
     get:
-      summary: InterventionExWork - FindByProviderLightList
+      summary: ExternalWork - FindByProviderLightList
       tags: []
       responses:
         '200':
@@ -13334,7 +13334,7 @@ paths:
         in: path
         required: true
     get:
-      summary: InterventionOffers - FindMany
+      summary: Offers - FindMany
       tags: []
       responses: {}
       operationId: get-intervention-offer-proyectoOFID
