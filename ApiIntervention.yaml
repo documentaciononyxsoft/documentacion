@@ -13876,54 +13876,366 @@ paths:
                       success: true
                       sql: "SELECT\r\nMovimientoAlmacen.*,\r\nArticulo.Codigo AS CodigoMaterial,\r\nArticulo.Nombre AS NombreMaterial,\r\nProyecto_OF.CodigoProyecto_OF,\r\nProyecto_OF.Proyecto_OFID,\r\nAvisoTicket.DescripcionProblema,\r\nAlmacen.AlmacenID,\r\nAlmacen.Codigo AS CodigoAlmacen,\r\nAlmacen.Nombre AS NombreAlmacen,\r\nMovimientoAlmacen.CantidadAlmacen * MovimientoAlmacen.Precio AS Importe,\r\nReservaMaterial.CantidadPrevista, \r\nReservaMaterial.CantidadReal,\r\nUsuario.NombreUsuario\t\r\nFROM\r\n((((((((MovimientoAlmacen INNER JOIN Articulo ON Articulo.ArticuloID = MovimientoAlmacen.ArticuloID)\r\nINNER JOIN ReservaMaterial ON MovimientoAlmacen.ReservaMaterialID=ReservaMaterial.ReservaMaterialID)\r\nINNER JOIN Proceso ON ReservaMaterial.ProcesoID=Proceso.ProcesoID)\r\nINNER JOIN Proyecto_OF ON Proceso.Proyecto_OFID=Proyecto_OF.Proyecto_OFID)\r\nINNER JOIN Almacen ON MovimientoAlmacen.AlmacenID = Almacen.AlmacenID)\r\nINNER JOIN TipoMovimiento ON MovimientoAlmacen.TipoMovimientoID = TipoMovimiento.TipoMovimientoID)\r\nINNER JOIN AvisoTicketIntervencion ON Proyecto_OF.Proyecto_OFID=AvisoTicketIntervencion.Proyecto_OFID)\r\nINNER JOIN AvisoTicket ON AvisoTicketIntervencion.AvisoTicketID=AvisoTicket.AvisoTicketID)\r\nLEFT JOIN Lote ON Lote.LoteID = MovimientoAlmacen.LoteID\r\nLEFT JOIN Usuario ON MovimientoAlmacen.UsuarioID = Usuario.UsuarioID\r\nWHERE \r\nmovimientoalmacen.fecha = 20230215 AND \r\nMovimientoAlmacen.EmpresaID= 1 AND\r\nMovimientoAlmacen.CustomerID= 29 AND\r\nTipoMovimiento.Tipo = 'SF' AND\r\nMovimientoAlmacen.ReservaMaterialID IS NOT NULL AND\r\nProyecto_OF.EsObraOf= 'S'"
                       records:
-                        - IntervencionID: 1161
-                          MovimientoID: 35139
-                          ReservaMaterial: 4812
+                        - IntervencionID: 1798
+                          MovimientoID: 101218
+                          ReservaMaterial: 15275
                           Fecha: '20230215'
-                          Intervencion: 34
-                          DescripcionProblema: PRUEBALL2
-                          CodigoMaterial: 01TOM306
-                          NombreMaterial: TORNILLO M3x6 CABEZA CILI
-                          NombreAlmacen: Almacén interno
+                          Intervencion: 22
+                          DescripcionProblema: qwertyuiasdfghjmkdrtstrsrtsrs
+                          CodigoMaterial: EA-182
+                          NombreMaterial: pruebaNIHIL
+                          NombreAlmacen: Silos Maiz 01
                           Cantidad: 20
                           Precio: 2500
                           Importe: 50000
-                          NombreUsuario: SUPERVISOR
-                          FechaHoraUsuario: '2023-04-19T11:19:22.000'
-                          ticket: 82
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraUsuario: '2023-03-01T09:48:40.829'
+                          ticket: 6
                           tipoTicket: Averia
-                          prioridad: pruebaLUIS23
-                          descripcionTicket: PRUEBALL2
-                          codigoCuenta: '43020005'
-                          nombreCuenta: RESTAURANTE ALDAN-ONDO
-                          codigoUbicacion: '1'
-                          nombreUbicacion: SAT MADRID 1
-                          codigoEquipo: '3442342'
-                          nombreEquipo: EXTINTOR
-                        - IntervencionID: 1161
-                          MovimientoID: 35140
-                          ReservaMaterial: 4812
+                          prioridad: PRUEBALO
+                          descripcionTicket: qwertyuiasdfghjmkdrtstrsrtsrs
+                          codigoCuenta: '10300010329'
+                          nombreCuenta: TIENDAS TRES B S A DE C V
+                          codigoUbicacion: '20'
+                          nombreUbicacion: MARIA DEL CARMEN CRUZ MIRANDA
+                          codigoEquipo: '456789'
+                          nombreEquipo: PRUEBANIHIL
+                        - IntervencionID: 1798
+                          MovimientoID: 101219
+                          ReservaMaterial: 15275
                           Fecha: '20230215'
-                          Intervencion: 34
-                          DescripcionProblema: PRUEBALL2
-                          CodigoMaterial: 01TOM306
-                          NombreMaterial: TORNILLO M3x6 CABEZA CILI
-                          NombreAlmacen: Almacén interno
+                          Intervencion: 22
+                          DescripcionProblema: qwertyuiasdfghjmkdrtstrsrtsrs
+                          CodigoMaterial: EA-182
+                          NombreMaterial: pruebaNIHIL
+                          NombreAlmacen: Silos Maiz 01
                           Cantidad: 20
                           Precio: 2500
                           Importe: 50000
-                          NombreUsuario: SUPERVISOR
-                          FechaHoraUsuario: '2023-04-19T11:19:38.000'
-                          ticket: 82
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraUsuario: '2023-03-01T09:58:03.546'
+                          ticket: 6
                           tipoTicket: Averia
-                          prioridad: pruebaLUIS23
-                          descripcionTicket: PRUEBALL2
-                          codigoCuenta: '43020005'
-                          nombreCuenta: RESTAURANTE ALDAN-ONDO
-                          codigoUbicacion: '1'
-                          nombreUbicacion: SAT MADRID 1
-                          codigoEquipo: '3442342'
-                          nombreEquipo: EXTINTOR
+                          prioridad: PRUEBALO
+                          descripcionTicket: qwertyuiasdfghjmkdrtstrsrtsrs
+                          codigoCuenta: '10300010329'
+                          nombreCuenta: TIENDAS TRES B S A DE C V
+                          codigoUbicacion: '20'
+                          nombreUbicacion: MARIA DEL CARMEN CRUZ MIRANDA
+                          codigoEquipo: '456789'
+                          nombreEquipo: PRUEBANIHIL
+                        - IntervencionID: 1798
+                          MovimientoID: 101222
+                          ReservaMaterial: 15275
+                          Fecha: '20230215'
+                          Intervencion: 22
+                          DescripcionProblema: qwertyuiasdfghjmkdrtstrsrtsrs
+                          CodigoMaterial: EA-182
+                          NombreMaterial: pruebaNIHIL
+                          NombreAlmacen: Silos Maiz 01
+                          Cantidad: 20
+                          Precio: 2500
+                          Importe: 50000
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraUsuario: '2023-03-01T14:16:56.166'
+                          ticket: 6
+                          tipoTicket: Averia
+                          prioridad: PRUEBALO
+                          descripcionTicket: qwertyuiasdfghjmkdrtstrsrtsrs
+                          codigoCuenta: '10300010329'
+                          nombreCuenta: TIENDAS TRES B S A DE C V
+                          codigoUbicacion: '20'
+                          nombreUbicacion: MARIA DEL CARMEN CRUZ MIRANDA
+                          codigoEquipo: '456789'
+                          nombreEquipo: PRUEBANIHIL
+                        - IntervencionID: 1798
+                          MovimientoID: 101223
+                          ReservaMaterial: 15275
+                          Fecha: '20230215'
+                          Intervencion: 22
+                          DescripcionProblema: qwertyuiasdfghjmkdrtstrsrtsrs
+                          CodigoMaterial: EA-182
+                          NombreMaterial: pruebaNIHIL
+                          NombreAlmacen: Silos Maiz 01
+                          Cantidad: 20
+                          Precio: 2500
+                          Importe: 50000
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraUsuario: '2023-03-01T14:17:19.976'
+                          ticket: 6
+                          tipoTicket: Averia
+                          prioridad: PRUEBALO
+                          descripcionTicket: qwertyuiasdfghjmkdrtstrsrtsrs
+                          codigoCuenta: '10300010329'
+                          nombreCuenta: TIENDAS TRES B S A DE C V
+                          codigoUbicacion: '20'
+                          nombreUbicacion: MARIA DEL CARMEN CRUZ MIRANDA
+                          codigoEquipo: '456789'
+                          nombreEquipo: PRUEBANIHIL
+                        - IntervencionID: 1798
+                          MovimientoID: 101224
+                          ReservaMaterial: 15275
+                          Fecha: '20230215'
+                          Intervencion: 22
+                          DescripcionProblema: qwertyuiasdfghjmkdrtstrsrtsrs
+                          CodigoMaterial: EA-182
+                          NombreMaterial: pruebaNIHIL
+                          NombreAlmacen: Silos Maiz 01
+                          Cantidad: 20
+                          Precio: 2500
+                          Importe: 50000
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraUsuario: '2023-03-01T14:19:12.565'
+                          ticket: 6
+                          tipoTicket: Averia
+                          prioridad: PRUEBALO
+                          descripcionTicket: qwertyuiasdfghjmkdrtstrsrtsrs
+                          codigoCuenta: '10300010329'
+                          nombreCuenta: TIENDAS TRES B S A DE C V
+                          codigoUbicacion: '20'
+                          nombreUbicacion: MARIA DEL CARMEN CRUZ MIRANDA
+                          codigoEquipo: '456789'
+                          nombreEquipo: PRUEBANIHIL
+                        - IntervencionID: 1798
+                          MovimientoID: 101225
+                          ReservaMaterial: 15275
+                          Fecha: '20230215'
+                          Intervencion: 22
+                          DescripcionProblema: qwertyuiasdfghjmkdrtstrsrtsrs
+                          CodigoMaterial: EA-182
+                          NombreMaterial: pruebaNIHIL
+                          NombreAlmacen: Silos Maiz 01
+                          Cantidad: 20
+                          Precio: 2500
+                          Importe: 50000
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraUsuario: '2023-03-01T14:22:51.688'
+                          ticket: 6
+                          tipoTicket: Averia
+                          prioridad: PRUEBALO
+                          descripcionTicket: qwertyuiasdfghjmkdrtstrsrtsrs
+                          codigoCuenta: '10300010329'
+                          nombreCuenta: TIENDAS TRES B S A DE C V
+                          codigoUbicacion: '20'
+                          nombreUbicacion: MARIA DEL CARMEN CRUZ MIRANDA
+                          codigoEquipo: '456789'
+                          nombreEquipo: PRUEBANIHIL
+                        - IntervencionID: 1798
+                          MovimientoID: 101226
+                          ReservaMaterial: 15275
+                          Fecha: '20230215'
+                          Intervencion: 22
+                          DescripcionProblema: qwertyuiasdfghjmkdrtstrsrtsrs
+                          CodigoMaterial: EA-182
+                          NombreMaterial: pruebaNIHIL
+                          NombreAlmacen: Silos Maiz 01
+                          Cantidad: 20
+                          Precio: 2500
+                          Importe: 50000
+                          NombreUsuario: Pruebas
+                          FechaHoraUsuario: '2023-03-01T14:28:45.805'
+                          ticket: 6
+                          tipoTicket: Averia
+                          prioridad: PRUEBALO
+                          descripcionTicket: qwertyuiasdfghjmkdrtstrsrtsrs
+                          codigoCuenta: '10300010329'
+                          nombreCuenta: TIENDAS TRES B S A DE C V
+                          codigoUbicacion: '20'
+                          nombreUbicacion: MARIA DEL CARMEN CRUZ MIRANDA
+                          codigoEquipo: '456789'
+                          nombreEquipo: PRUEBANIHIL
+                        - IntervencionID: 1798
+                          MovimientoID: 101228
+                          ReservaMaterial: 15275
+                          Fecha: '20230215'
+                          Intervencion: 22
+                          DescripcionProblema: qwertyuiasdfghjmkdrtstrsrtsrs
+                          CodigoMaterial: EA-182
+                          NombreMaterial: pruebaNIHIL
+                          NombreAlmacen: Silos Maiz 01
+                          Cantidad: 20
+                          Precio: 2500
+                          Importe: 50000
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraUsuario: '2023-03-01T15:21:52.722'
+                          ticket: 6
+                          tipoTicket: Averia
+                          prioridad: PRUEBALO
+                          descripcionTicket: qwertyuiasdfghjmkdrtstrsrtsrs
+                          codigoCuenta: '10300010329'
+                          nombreCuenta: TIENDAS TRES B S A DE C V
+                          codigoUbicacion: '20'
+                          nombreUbicacion: MARIA DEL CARMEN CRUZ MIRANDA
+                          codigoEquipo: '456789'
+                          nombreEquipo: PRUEBANIHIL
+                        - IntervencionID: 1798
+                          MovimientoID: 101229
+                          ReservaMaterial: 15275
+                          Fecha: '20230215'
+                          Intervencion: 22
+                          DescripcionProblema: qwertyuiasdfghjmkdrtstrsrtsrs
+                          CodigoMaterial: EA-182
+                          NombreMaterial: pruebaNIHIL
+                          NombreAlmacen: Silos Maiz 01
+                          Cantidad: 20
+                          Precio: 2500
+                          Importe: 50000
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraUsuario: '2023-03-01T15:25:16.073'
+                          ticket: 6
+                          tipoTicket: Averia
+                          prioridad: PRUEBALO
+                          descripcionTicket: qwertyuiasdfghjmkdrtstrsrtsrs
+                          codigoCuenta: '10300010329'
+                          nombreCuenta: TIENDAS TRES B S A DE C V
+                          codigoUbicacion: '20'
+                          nombreUbicacion: MARIA DEL CARMEN CRUZ MIRANDA
+                          codigoEquipo: '456789'
+                          nombreEquipo: PRUEBANIHIL
+                        - IntervencionID: 1798
+                          MovimientoID: 101231
+                          ReservaMaterial: 15275
+                          Fecha: '20230215'
+                          Intervencion: 22
+                          DescripcionProblema: qwertyuiasdfghjmkdrtstrsrtsrs
+                          CodigoMaterial: EA-182
+                          NombreMaterial: pruebaNIHIL
+                          NombreAlmacen: Silos Maiz 01
+                          Cantidad: 20
+                          Precio: 2500
+                          Importe: 50000
+                          NombreUsuario: Pruebas
+                          FechaHoraUsuario: '2023-03-01T15:40:52.814'
+                          ticket: 6
+                          tipoTicket: Averia
+                          prioridad: PRUEBALO
+                          descripcionTicket: qwertyuiasdfghjmkdrtstrsrtsrs
+                          codigoCuenta: '10300010329'
+                          nombreCuenta: TIENDAS TRES B S A DE C V
+                          codigoUbicacion: '20'
+                          nombreUbicacion: MARIA DEL CARMEN CRUZ MIRANDA
+                          codigoEquipo: '456789'
+                          nombreEquipo: PRUEBANIHIL
+                        - IntervencionID: 1798
+                          MovimientoID: 101234
+                          ReservaMaterial: 15275
+                          Fecha: '20230215'
+                          Intervencion: 22
+                          DescripcionProblema: qwertyuiasdfghjmkdrtstrsrtsrs
+                          CodigoMaterial: EA-182
+                          NombreMaterial: pruebaNIHIL
+                          NombreAlmacen: Silos Maiz 01
+                          Cantidad: 20
+                          Precio: 2500
+                          Importe: 50000
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraUsuario: '2023-03-02T11:28:17.264'
+                          ticket: 6
+                          tipoTicket: Averia
+                          prioridad: PRUEBALO
+                          descripcionTicket: qwertyuiasdfghjmkdrtstrsrtsrs
+                          codigoCuenta: '10300010329'
+                          nombreCuenta: TIENDAS TRES B S A DE C V
+                          codigoUbicacion: '20'
+                          nombreUbicacion: MARIA DEL CARMEN CRUZ MIRANDA
+                          codigoEquipo: '456789'
+                          nombreEquipo: PRUEBANIHIL
+                        - IntervencionID: 1798
+                          MovimientoID: 101235
+                          ReservaMaterial: 15275
+                          Fecha: '20230215'
+                          Intervencion: 22
+                          DescripcionProblema: qwertyuiasdfghjmkdrtstrsrtsrs
+                          CodigoMaterial: EA-182
+                          NombreMaterial: pruebaNIHIL
+                          NombreAlmacen: Silos Maiz 01
+                          Cantidad: 20
+                          Precio: 2500
+                          Importe: 50000
+                          NombreUsuario: Pruebas
+                          FechaHoraUsuario: '2023-03-02T11:36:34.859'
+                          ticket: 6
+                          tipoTicket: Averia
+                          prioridad: PRUEBALO
+                          descripcionTicket: qwertyuiasdfghjmkdrtstrsrtsrs
+                          codigoCuenta: '10300010329'
+                          nombreCuenta: TIENDAS TRES B S A DE C V
+                          codigoUbicacion: '20'
+                          nombreUbicacion: MARIA DEL CARMEN CRUZ MIRANDA
+                          codigoEquipo: '456789'
+                          nombreEquipo: PRUEBANIHIL
+                        - IntervencionID: 1798
+                          MovimientoID: 101241
+                          ReservaMaterial: 15275
+                          Fecha: '20230215'
+                          Intervencion: 22
+                          DescripcionProblema: qwertyuiasdfghjmkdrtstrsrtsrs
+                          CodigoMaterial: EA-182
+                          NombreMaterial: pruebaNIHIL
+                          NombreAlmacen: Silos Maiz 01
+                          Cantidad: 20
+                          Precio: 2500
+                          Importe: 50000
+                          NombreUsuario: Pruebas
+                          FechaHoraUsuario: '2023-03-09T14:58:06.460'
+                          ticket: 6
+                          tipoTicket: Averia
+                          prioridad: PRUEBALO
+                          descripcionTicket: qwertyuiasdfghjmkdrtstrsrtsrs
+                          codigoCuenta: '10300010329'
+                          nombreCuenta: TIENDAS TRES B S A DE C V
+                          codigoUbicacion: '20'
+                          nombreUbicacion: MARIA DEL CARMEN CRUZ MIRANDA
+                          codigoEquipo: '456789'
+                          nombreEquipo: PRUEBANIHIL
+                        - IntervencionID: 1798
+                          MovimientoID: 101242
+                          ReservaMaterial: 15275
+                          Fecha: '20230215'
+                          Intervencion: 22
+                          DescripcionProblema: qwertyuiasdfghjmkdrtstrsrtsrs
+                          CodigoMaterial: EA-182
+                          NombreMaterial: pruebaNIHIL
+                          NombreAlmacen: Silos Maiz 01
+                          Cantidad: 20
+                          Precio: 2500
+                          Importe: 50000
+                          NombreUsuario: Pruebas
+                          FechaHoraUsuario: '2023-03-09T14:58:16.217'
+                          ticket: 6
+                          tipoTicket: Averia
+                          prioridad: PRUEBALO
+                          descripcionTicket: qwertyuiasdfghjmkdrtstrsrtsrs
+                          codigoCuenta: '10300010329'
+                          nombreCuenta: TIENDAS TRES B S A DE C V
+                          codigoUbicacion: '20'
+                          nombreUbicacion: MARIA DEL CARMEN CRUZ MIRANDA
+                          codigoEquipo: '456789'
+                          nombreEquipo: PRUEBANIHIL
+                        - IntervencionID: 1798
+                          MovimientoID: 101243
+                          ReservaMaterial: 15275
+                          Fecha: '20230215'
+                          Intervencion: 22
+                          DescripcionProblema: qwertyuiasdfghjmkdrtstrsrtsrs
+                          CodigoMaterial: EA-182
+                          NombreMaterial: pruebaNIHIL
+                          NombreAlmacen: Silos Maiz 01
+                          Cantidad: 20
+                          Precio: 2500
+                          Importe: 50000
+                          NombreUsuario: Pruebas
+                          FechaHoraUsuario: '2023-03-14T09:15:35.293'
+                          ticket: 6
+                          tipoTicket: Averia
+                          prioridad: PRUEBALO
+                          descripcionTicket: qwertyuiasdfghjmkdrtstrsrtsrs
+                          codigoCuenta: '10300010329'
+                          nombreCuenta: TIENDAS TRES B S A DE C V
+                          codigoUbicacion: '20'
+                          nombreUbicacion: MARIA DEL CARMEN CRUZ MIRANDA
+                          codigoEquipo: '456789'
+                          nombreEquipo: PRUEBANIHIL
               examples:
                 Example 1:
                   value:
@@ -13931,56 +14243,80 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      sql: "SELECT\r\nMovimientoAlmacen.*,\r\nArticulo.Codigo AS CodigoMaterial,\r\nArticulo.Nombre AS NombreMaterial,\r\nProyecto_OF.CodigoProyecto_OF,\r\nProyecto_OF.Proyecto_OFID,\r\nAvisoTicket.DescripcionProblema,\r\nAlmacen.AlmacenID,\r\nAlmacen.Codigo AS CodigoAlmacen,\r\nAlmacen.Nombre AS NombreAlmacen,\r\nMovimientoAlmacen.CantidadAlmacen * MovimientoAlmacen.Precio AS Importe,\r\nReservaMaterial.CantidadPrevista, \r\nReservaMaterial.CantidadReal,\r\nUsuario.NombreUsuario\t\r\nFROM\r\n((((((((MovimientoAlmacen INNER JOIN Articulo ON Articulo.ArticuloID = MovimientoAlmacen.ArticuloID)\r\nINNER JOIN ReservaMaterial ON MovimientoAlmacen.ReservaMaterialID=ReservaMaterial.ReservaMaterialID)\r\nINNER JOIN Proceso ON ReservaMaterial.ProcesoID=Proceso.ProcesoID)\r\nINNER JOIN Proyecto_OF ON Proceso.Proyecto_OFID=Proyecto_OF.Proyecto_OFID)\r\nINNER JOIN Almacen ON MovimientoAlmacen.AlmacenID = Almacen.AlmacenID)\r\nINNER JOIN TipoMovimiento ON MovimientoAlmacen.TipoMovimientoID = TipoMovimiento.TipoMovimientoID)\r\nINNER JOIN AvisoTicketIntervencion ON Proyecto_OF.Proyecto_OFID=AvisoTicketIntervencion.Proyecto_OFID)\r\nINNER JOIN AvisoTicket ON AvisoTicketIntervencion.AvisoTicketID=AvisoTicket.AvisoTicketID)\r\nLEFT JOIN Lote ON Lote.LoteID = MovimientoAlmacen.LoteID\r\nLEFT JOIN Usuario ON MovimientoAlmacen.UsuarioID = Usuario.UsuarioID\r\nWHERE \r\nmovimientoalmacen.fecha = 20230215 AND \r\nMovimientoAlmacen.EmpresaID= 1 AND\r\nMovimientoAlmacen.CustomerID= 29 AND\r\nTipoMovimiento.Tipo = 'SF' AND\r\nMovimientoAlmacen.ReservaMaterialID IS NOT NULL AND\r\nProyecto_OF.EsObraOf= 'S'"
+                      sql: string
                       records:
-                        - IntervencionID: 1161
-                          MovimientoID: 35139
-                          ReservaMaterial: 4812
+                        - IntervencionID: 1798
+                          MovimientoID: 101218
+                          ReservaMaterial: 15275
                           Fecha: '20230215'
-                          Intervencion: 34
-                          DescripcionProblema: PRUEBALL2
-                          CodigoMaterial: 01TOM306
-                          NombreMaterial: TORNILLO M3x6 CABEZA CILI
-                          NombreAlmacen: Almacén interno
+                          Intervencion: 22
+                          DescripcionProblema: qwertyuiasdfghjmkdrtstrsrtsrs
+                          CodigoMaterial: EA-182
+                          NombreMaterial: pruebaNIHIL
+                          NombreAlmacen: Silos Maiz 01
                           Cantidad: 20
                           Precio: 2500
                           Importe: 50000
-                          NombreUsuario: SUPERVISOR
-                          FechaHoraUsuario: '2023-04-19T11:19:22.000'
-                          ticket: 82
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraUsuario: '2023-03-01T09:48:40.829'
+                          ticket: 6
                           tipoTicket: Averia
-                          prioridad: pruebaLUIS23
-                          descripcionTicket: PRUEBALL2
-                          codigoCuenta: '43020005'
-                          nombreCuenta: RESTAURANTE ALDAN-ONDO
-                          codigoUbicacion: '1'
-                          nombreUbicacion: SAT MADRID 1
-                          codigoEquipo: '3442342'
-                          nombreEquipo: EXTINTOR
-                        - IntervencionID: 1161
-                          MovimientoID: 35140
-                          ReservaMaterial: 4812
+                          prioridad: PRUEBALO
+                          descripcionTicket: qwertyuiasdfghjmkdrtstrsrtsrs
+                          codigoCuenta: '10300010329'
+                          nombreCuenta: TIENDAS TRES B S A DE C V
+                          codigoUbicacion: '20'
+                          nombreUbicacion: MARIA DEL CARMEN CRUZ MIRANDA
+                          codigoEquipo: '456789'
+                          nombreEquipo: PRUEBANIHIL
+                        - IntervencionID: 1798
+                          MovimientoID: 101219
+                          ReservaMaterial: 15275
                           Fecha: '20230215'
-                          Intervencion: 34
-                          DescripcionProblema: PRUEBALL2
-                          CodigoMaterial: 01TOM306
-                          NombreMaterial: TORNILLO M3x6 CABEZA CILI
-                          NombreAlmacen: Almacén interno
+                          Intervencion: 22
+                          DescripcionProblema: qwertyuiasdfghjmkdrtstrsrtsrs
+                          CodigoMaterial: EA-182
+                          NombreMaterial: pruebaNIHIL
+                          NombreAlmacen: Silos Maiz 01
                           Cantidad: 20
                           Precio: 2500
                           Importe: 50000
-                          NombreUsuario: SUPERVISOR
-                          FechaHoraUsuario: '2023-04-19T11:19:38.000'
-                          ticket: 82
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraUsuario: '2023-03-01T09:58:03.546'
+                          ticket: 6
                           tipoTicket: Averia
-                          prioridad: pruebaLUIS23
-                          descripcionTicket: PRUEBALL2
-                          codigoCuenta: '43020005'
-                          nombreCuenta: RESTAURANTE ALDAN-ONDO
-                          codigoUbicacion: '1'
-                          nombreUbicacion: SAT MADRID 1
-                          codigoEquipo: '3442342'
-                          nombreEquipo: EXTINTOR
+                          prioridad: PRUEBALO
+                          descripcionTicket: qwertyuiasdfghjmkdrtstrsrtsrs
+                          codigoCuenta: '10300010329'
+                          nombreCuenta: TIENDAS TRES B S A DE C V
+                          codigoUbicacion: '20'
+                          nombreUbicacion: MARIA DEL CARMEN CRUZ MIRANDA
+                          codigoEquipo: '456789'
+                          nombreEquipo: PRUEBANIHIL
+                        - IntervencionID: 1798
+                          MovimientoID: 101222
+                          ReservaMaterial: 15275
+                          Fecha: '20230215'
+                          Intervencion: 22
+                          DescripcionProblema: qwertyuiasdfghjmkdrtstrsrtsrs
+                          CodigoMaterial: EA-182
+                          NombreMaterial: pruebaNIHIL
+                          NombreAlmacen: Silos Maiz 01
+                          Cantidad: 20
+                          Precio: 2500
+                          Importe: 50000
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraUsuario: '2023-03-01T14:16:56.166'
+                          ticket: 6
+                          tipoTicket: Averia
+                          prioridad: PRUEBALO
+                          descripcionTicket: qwertyuiasdfghjmkdrtstrsrtsrs
+                          codigoCuenta: '10300010329'
+                          nombreCuenta: TIENDAS TRES B S A DE C V
+                          codigoUbicacion: '20'
+                          nombreUbicacion: MARIA DEL CARMEN CRUZ MIRANDA
+                          codigoEquipo: '456789'
+                          nombreEquipo: PRUEBANIHIL
       operationId: get-materialsImputations
       parameters:
         - schema:
@@ -13989,11 +14325,13 @@ paths:
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
         - schema:
             type: string
+            example: '20230215'
           in: query
           name: 'fecha '
-          description: '20230215'
+          required: true
   /vehicle/light:
     get:
       summary: findLightListForVehicle
