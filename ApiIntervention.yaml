@@ -13445,65 +13445,6 @@ paths:
                   materialID: 256
                   cantidad: 20
                   precio: 2500
-  '/materialsImputation/{movimientoID}/{reservaMaterialID}':
-    parameters:
-      - schema:
-          type: string
-          example: '35158'
-        name: movimientoID
-        in: path
-        required: true
-      - schema:
-          type: string
-          example: '4813'
-        name: reservaMaterialID
-        in: path
-        required: true
-    delete:
-      summary: MaterialsImputation - Delete
-      operationId: 'delete-http:-localhost:8026-materialsImputation-movimientoID-reservaMaterialID'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      msg:
-                        type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      msg: ''
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      msg: ''
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: 'accessToken '
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
   /vehicle/light:
     get:
       summary: findLightListForVehicle
@@ -13598,6 +13539,65 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  '/materialsImputation/{movimientoID}/{reservaMaterialID}':
+    parameters:
+      - schema:
+          type: string
+          example: '35158'
+        name: movimientoID
+        in: path
+        required: true
+      - schema:
+          type: string
+          example: '4813'
+        name: reservaMaterialID
+        in: path
+        required: true
+    delete:
+      summary: MaterialsImputation - Delete
+      operationId: 'delete-http:-localhost:8026-materialsImputation-movimientoID-reservaMaterialID'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: ''
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /materialsImputation/afertIntervention:
     get:
       summary: MaterialsImputation - AfterIntervention
@@ -13619,7 +13619,7 @@ paths:
           name: intervencionID
   /materialsImputation/validateQuantity:
     get:
-      summary: validateQuantityForMaterialsImputation
+      summary: MaterialsImputation - ValidateQuantity
       tags: []
       responses:
         '200':
@@ -13651,19 +13651,21 @@ paths:
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: 'accessToken '
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
         - schema:
             type: string
+            example: '2066'
           in: query
           name: materialID
-          description: '2066'
         - schema:
             type: string
+            example: '10'
           in: query
           name: cantidad
-          description: '10'
   /materialsImputation/validateUbication:
     get:
       summary: validateUbicationForMaterialsImputation
