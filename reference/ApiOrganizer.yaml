@@ -2,7 +2,7 @@ openapi: 3.1.0
 x-stoplight:
   id: i3jf62g6q5h04
 info:
-  title: ApiOrganizer
+  title: API - Organizer
   version: '1.0'
 servers:
   - url: 'http://localhost:3000'

@@ -2,7 +2,7 @@ openapi: 3.0.0
 x-stoplight:
   id: 6a74499413cbf
 info:
-  version: 1ApiOffers.0
+  version: '1.0'
   title: API - Offers
   description: ''
 servers:
