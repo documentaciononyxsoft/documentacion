@@ -5367,7 +5367,44 @@ paths:
     get:
       summary: OpenTickets
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      numeroTicketsAbiertos:
+                        type: integer
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      numeroTicketsAbiertos: 17
+                      sql: SELECT COUNT(*) AS numeroTicketsAbiertos FROM avisoticket WHERE avisoticket.Cerrado = 0 AND avisoticket.CustomerID = 29 AND avisoticket.EmpresaID = 1
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      numeroTicketsAbiertos: 17
+                      sql: string
       operationId: get-ticket-openTickets
       parameters:
         - schema:
