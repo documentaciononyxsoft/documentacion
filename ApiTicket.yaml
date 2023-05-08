@@ -5522,7 +5522,63 @@ paths:
     get:
       summary: OpenTicketsByPriority
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Prioridad:
+                              type: string
+                            NumeroTicketsAbiertos:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT COALESCE(atp.nombre, 'Sin prioridad') AS nombrePrioridad, COUNT(*) as numeroTicketsAbiertos\r\nFROM avisoticket at\r\nLEFT JOIN avisoticketprioridad atp ON at.AvisoTicketPrioridadID = atp.AvisoTicketPrioridadID\r\nWHERE at.CustomerID = 29\r\nAND at.EmpresaID = 1\r\nAND at.Cerrado = 0\r\nGROUP BY atp.AvisoTicketPrioridadID, COALESCE(atp.nombre, 'Sin prioridad')"
+                      data:
+                        - Prioridad: Sin prioridad
+                          NumeroTicketsAbiertos: 3
+                        - Prioridad: PRUEBALO
+                          NumeroTicketsAbiertos: 8
+                        - Prioridad: PrioridadJCO
+                          NumeroTicketsAbiertos: 6
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - Prioridad: Sin prioridad
+                          NumeroTicketsAbiertos: 3
+                        - Prioridad: PRUEBALO
+                          NumeroTicketsAbiertos: 8
+                        - Prioridad: PrioridadJCO
+                          NumeroTicketsAbiertos: 6
       operationId: get-ticket-openTicketsByPriority
       parameters:
         - schema:
