@@ -1,0 +1,159 @@
+openapi: 3.1.0
+x-stoplight:
+  id: 8i5po1ppntlpe
+info:
+  title: ApiContracts
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /contracts:
+    get:
+      summary: Contracts - FindMany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ContratoMantenimientoID:
+                              type: integer
+                            Numero:
+                              type: string
+                            FechaAlta:
+                              type: string
+                            FechaBaja:
+                              type: string
+                            RenovacionAutomatica:
+                              type: integer
+                            Activo:
+                              type: integer
+                            ClienteID:
+                              type: integer
+                            TipoContratoMantenimientoID:
+                              type: integer
+                            FechaInicio:
+                              type: string
+                            Meses:
+                              type: integer
+                            FechaFinalizacion:
+                              type: string
+                            ContactoID:
+                              type: integer
+                            Nota:
+                              type: string
+                            clienteCodigo:
+                              type: string
+                            clienteNombre:
+                              type: string
+                            nombreUsuario:
+                              type: string
+                            FechaHoraUsuario:
+                              type: string
+                            UsuarioID:
+                              type: integer
+                            EmpresaID:
+                              type: integer
+                            CustomerID:
+                              type: integer
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - ContratoMantenimientoID: 1
+                          Numero: ''
+                          FechaAlta: '2018-11-16'
+                          FechaBaja: '20000322'
+                          RenovacionAutomatica: 0
+                          Activo: 0
+                          ClienteID: 1
+                          TipoContratoMantenimientoID: 0
+                          FechaInicio: ''
+                          Meses: 0
+                          FechaFinalizacion: ''
+                          ContactoID: 3
+                          Nota: ''
+                          clienteCodigo: '43000001'
+                          clienteNombre: dario
+                          nombreUsuario: USUARIO
+                          FechaHoraUsuario: '2018-11-16T12:39:21.000'
+                          UsuarioID: 3
+                          EmpresaID: 1
+                          CustomerID: 29
+                      sql: "SELECT \r\nContratoMantenimiento.ContratoMantenimientoID,\r\nContratoMantenimiento.Numero,\r\nContratoMantenimiento.FechaHoraUsuario AS FechaAlta,\r\nContratoMantenimiento.FechaBaja,\r\nContratoMantenimiento.RenovacionAutomatica,\r\nContratoMantenimiento.Activo,\r\nContratoMantenimiento.ClienteID,\r\nContratoMantenimiento.TipoContratoMantenimientoID,\r\nContratoMantenimiento.FechaInicio,\r\nContratoMantenimiento.Duracion AS Meses,\r\nContratoMantenimiento.FechaFinalizacion,\r\nContratoMantenimiento.ContactoID,\r\nContratoMantenimiento.Nota,\r\nContratoMantenimiento.FechaHoraUsuario,\r\nContratoMantenimiento.UsuarioID,\r\nContratoMantenimiento.EmpresaID,\r\nContratoMantenimiento.CustomerID,\r\nUsuario.NombreAcesso AS nombreUsuario,\r\nCliente.Codigo AS clienteCodigo,\r\nMailing.Nombre AS clienteNombre\r\n\r\n\r\nFROM ContratoMantenimiento\r\nLEFT JOIN usuario\r\nON ContratoMantenimiento.usuarioID = usuario.usuarioID \r\nLEFT JOIN cliente\r\nON ContratoMantenimiento.ClienteID = cliente.ClienteID\r\nLEFT JOIN mailing\r\nON cliente.mailingID = mailing.mailingID\r\n\r\nWHERE ContratoMantenimiento.CustomerID = 29\r\nAND ContratoMantenimiento.EmpresaID = 1\r\norder BY ContratoMantenimiento.Numero ASC\r\nlimit 50\r\noffset 0\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - ContratoMantenimientoID: 1
+                          Numero: ''
+                          FechaAlta: '2018-11-16'
+                          FechaBaja: '20000322'
+                          RenovacionAutomatica: 0
+                          Activo: 0
+                          ClienteID: 1
+                          TipoContratoMantenimientoID: 0
+                          FechaInicio: ''
+                          Meses: 0
+                          FechaFinalizacion: ''
+                          ContactoID: 3
+                          Nota: ''
+                          clienteCodigo: '43000001'
+                          clienteNombre: dario
+                          nombreUsuario: USUARIO
+                          FechaHoraUsuario: '2018-11-16T12:39:21.000'
+                          UsuarioID: 3
+                          EmpresaID: 1
+                          CustomerID: 29
+                      sql: "SELECT \r\nContratoMantenimiento.ContratoMantenimientoID,\r\nContratoMantenimiento.Numero,\r\nContratoMantenimiento.FechaHoraUsuario AS FechaAlta,\r\nContratoMantenimiento.FechaBaja,\r\nContratoMantenimiento.RenovacionAutomatica,\r\nContratoMantenimiento.Activo,\r\nContratoMantenimiento.ClienteID,\r\nContratoMantenimiento.TipoContratoMantenimientoID,\r\nContratoMantenimiento.FechaInicio,\r\nContratoMantenimiento.Duracion AS Meses,\r\nContratoMantenimiento.FechaFinalizacion,\r\nContratoMantenimiento.ContactoID,\r\nContratoMantenimiento.Nota,\r\nContratoMantenimiento.FechaHoraUsuario,\r\nContratoMantenimiento.UsuarioID,\r\nContratoMantenimiento.EmpresaID,\r\nContratoMantenimiento.CustomerID,\r\nUsuario.NombreAcesso AS nombreUsuario,\r\nCliente.Codigo AS clienteCodigo,\r\nMailing.Nombre AS clienteNombre\r\n\r\n\r\nFROM ContratoMantenimiento\r\nLEFT JOIN usuario\r\nON ContratoMantenimiento.usuarioID = usuario.usuarioID \r\nLEFT JOIN cliente\r\nON ContratoMantenimiento.ClienteID = cliente.ClienteID\r\nLEFT JOIN mailing\r\nON cliente.mailingID = mailing.mailingID\r\n\r\nWHERE ContratoMantenimiento.CustomerID = 29\r\nAND ContratoMantenimiento.EmpresaID = 1\r\norder BY ContratoMantenimiento.Numero ASC\r\nlimit 50\r\noffset 0\r\n"
+      operationId: get-contracts
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: 'Token Reciente '
+        - schema:
+            type: string
+          in: query
+          name: limit
+          description: '50'
+        - schema:
+            type: string
+          in: query
+          name: offset
+          description: '0'
+        - schema:
+            type: string
+          in: query
+          name: order
+          description: ASC
+components:
+  schemas: {}
