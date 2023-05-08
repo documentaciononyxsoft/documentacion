@@ -5592,7 +5592,63 @@ paths:
     get:
       summary: OpenTicketsByTrouble
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Problema:
+                              type: string
+                            NumeroTicketsAbiertos:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "\r\nSELECT COALESCE(attp.nombre, 'Sin problema') AS nombreProblema, COUNT(*) as numeroTicketsAbiertos\r\nFROM avisoticket at\r\nLEFT JOIN avisotickettipoproblema attp ON at.AvisoTicketTipoProblemaID = attp.AvisoTicketTipoProblemaID\r\nWHERE at.CustomerID = 29\r\nAND at.EmpresaID = 1\r\nAND at.Cerrado = 0\r\nGROUP BY attp.AvisoTicketTipoProblemaID, COALESCE(attp.nombre, 'Sin problema')"
+                      data:
+                        - Problema: Sin problema
+                          NumeroTicketsAbiertos: 13
+                        - Problema: ProblemaPrueba
+                          NumeroTicketsAbiertos: 1
+                        - Problema: Trouble
+                          NumeroTicketsAbiertos: 3
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - Problema: Sin problema
+                          NumeroTicketsAbiertos: 13
+                        - Problema: ProblemaPrueba
+                          NumeroTicketsAbiertos: 1
+                        - Problema: Trouble
+                          NumeroTicketsAbiertos: 3
       operationId: get-ticket-openTicketsByTrouble
       parameters:
         - schema:
