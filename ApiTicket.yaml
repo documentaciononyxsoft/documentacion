@@ -5469,7 +5469,44 @@ paths:
     get:
       summary: OpenTicketsToday
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      numeroTicketsAbiertosHoy:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "\r\nSELECT COUNT(*) AS numeroTicketsAbiertosHoy\r\nFROM avisoticket \r\nWHERE avisoticket.FechaHoraUsuario LIKE '%2023-05-08%'\r\nAND avisoticket.Cerrado = 0\r\nAND avisoticket.CustomerID = 29\r\nAND avisoticket.EmpresaID = 1"
+                      numeroTicketsAbiertosHoy: 2
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      numeroTicketsAbiertosHoy: 2
       operationId: get-ticket-openToday
       requestBody:
         content: {}
