@@ -5418,7 +5418,44 @@ paths:
     get:
       summary: PendingTickets
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      numeroTicketsPendientes:
+                        type: integer
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      numeroTicketsPendientes: 14
+                      sql: "\r\nSELECT COUNT(*) AS numeroTicketsPendientes\r\nFROM avisoticket\r\nWHERE avisoticket.AsignadoAUsuarioID IS NULL\r\nAND avisoticket.CustomerID = 29\r\nAND avisoticket.EmpresaID = 1"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      numeroTicketsPendientes: 14
+                      sql: string
       operationId: get-ticket-pendingTickets
       parameters:
         - schema:
