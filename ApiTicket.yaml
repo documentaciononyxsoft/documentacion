@@ -5662,7 +5662,44 @@ paths:
     get:
       summary: ExpiringContracts
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      numeroContratosAVencer:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "\r\nSELECT COUNT(*) AS contratosProximosAVencer\r\nFROM empleadocontrato\r\nWHERE empleadocontrato.FechaBajaContrato >= '2023-05-08' AND empleadocontrato.FechaBajaContrato <= DATE_ADD('2023-05-08', INTERVAL 1 month)\r\nAND empleadocontrato.CustomerID = 29\r\nAND empleadocontrato.EmpresaID = 1"
+                      numeroContratosAVencer: 3
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      numeroContratosAVencer: 3
       operationId: get-ticket-expiringContracts
       parameters:
         - schema:
