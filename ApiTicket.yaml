@@ -5711,7 +5711,7 @@ paths:
           required: true
   /ticket/openTicketsByType:
     get:
-      summary: OpenTicketsList
+      summary: OpenTicketsByType
       tags: []
       responses:
         '200':
