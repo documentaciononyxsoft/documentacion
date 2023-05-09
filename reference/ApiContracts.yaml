@@ -426,5 +426,144 @@ paths:
                   TipoContratoMantenimientoID: '1160'
                   ContactoID: '79'
                   Nota: CONTRATOPRUEBA
+  /contract/quicksearch:
+    get:
+      summary: Contracts - FindManyByFilter
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ContratoMantenimientoID:
+                              type: integer
+                            Numero:
+                              type: string
+                            FechaAlta:
+                              type: string
+                            FechaBaja:
+                              type: string
+                            RenovacionAutomatica:
+                              type: integer
+                            Activo:
+                              type: integer
+                            ClienteID:
+                              type: integer
+                            TipoContratoMantenimientoID:
+                              type: integer
+                            FechaInicio:
+                              type: string
+                            Meses:
+                              type: integer
+                            FechaFinalizacion:
+                              type: string
+                            ContactoID:
+                              type: integer
+                            Nota:
+                              type: string
+                            clienteCodigo:
+                              type: string
+                            clienteNombre:
+                              type: string
+                            nombreUsuario:
+                              type: string
+                            FechaHoraUsuario:
+                              type: string
+                            UsuarioID:
+                              type: integer
+                            EmpresaID:
+                              type: integer
+                            CustomerID:
+                              type: integer
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      sql: "SELECT \r\nContratoMantenimiento.ContratoMantenimientoID,\r\nContratoMantenimiento.Numero,\r\nContratoMantenimiento.FechaHoraUsuario AS FechaAlta,\r\nContratoMantenimiento.FechaBaja,\r\nContratoMantenimiento.RenovacionAutomatica,\r\nContratoMantenimiento.Activo,\r\nContratoMantenimiento.ClienteID,\r\nContratoMantenimiento.TipoContratoMantenimientoID,\r\nContratoMantenimiento.FechaInicio,\r\nContratoMantenimiento.Duracion AS Meses,\r\nContratoMantenimiento.FechaFinalizacion,\r\nContratoMantenimiento.ContactoID,\r\nContratoMantenimiento.Nota,\r\nContratoMantenimiento.FechaHoraUsuario,\r\nContratoMantenimiento.UsuarioID,\r\nContratoMantenimiento.EmpresaID,\r\nContratoMantenimiento.CustomerID,\r\nUsuario.NombreAcesso AS nombreUsuario,\r\nCliente.Codigo AS clienteCodigo,\r\nMailing.Nombre AS clienteNombre\r\n\r\n\r\nFROM ContratoMantenimiento\r\nLEFT JOIN usuario\r\nON ContratoMantenimiento.usuarioID = usuario.usuarioID \r\nLEFT JOIN cliente\r\nON ContratoMantenimiento.ClienteID = cliente.ClienteID\r\nLEFT JOIN mailing\r\nON cliente.mailingID = mailing.mailingID\r\n\r\nWHERE ContratoMantenimiento.CustomerID = 29\r\nAND ContratoMantenimiento.EmpresaID = 1\r\nAND (ContratoMantenimiento.Numero LIKE '3')\r\n\r\nORDER BY ContratoMantenimiento.Numero\r\n"
+                      records:
+                        - ContratoMantenimientoID: 8
+                          Numero: '3'
+                          FechaAlta: '2023-03-21'
+                          FechaBaja: '20230321'
+                          RenovacionAutomatica: 0
+                          Activo: 0
+                          ClienteID: 340
+                          TipoContratoMantenimientoID: 10003
+                          FechaInicio: '20230321'
+                          Meses: 12
+                          FechaFinalizacion: '20240321'
+                          ContactoID: 0
+                          Nota: FDFDGHFHGHFHFHF
+                          clienteCodigo: '43000299'
+                          clienteNombre: dario
+                          nombreUsuario: ONYXD
+                          FechaHoraUsuario: '2023-03-21T00:00:00.000'
+                          UsuarioID: 1
+                          EmpresaID: 1
+                          CustomerID: 29
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      sql: "SELECT \r\nContratoMantenimiento.ContratoMantenimientoID,\r\nContratoMantenimiento.Numero,\r\nContratoMantenimiento.FechaHoraUsuario AS FechaAlta,\r\nContratoMantenimiento.FechaBaja,\r\nContratoMantenimiento.RenovacionAutomatica,\r\nContratoMantenimiento.Activo,\r\nContratoMantenimiento.ClienteID,\r\nContratoMantenimiento.TipoContratoMantenimientoID,\r\nContratoMantenimiento.FechaInicio,\r\nContratoMantenimiento.Duracion AS Meses,\r\nContratoMantenimiento.FechaFinalizacion,\r\nContratoMantenimiento.ContactoID,\r\nContratoMantenimiento.Nota,\r\nContratoMantenimiento.FechaHoraUsuario,\r\nContratoMantenimiento.UsuarioID,\r\nContratoMantenimiento.EmpresaID,\r\nContratoMantenimiento.CustomerID,\r\nUsuario.NombreAcesso AS nombreUsuario,\r\nCliente.Codigo AS clienteCodigo,\r\nMailing.Nombre AS clienteNombre\r\n\r\n\r\nFROM ContratoMantenimiento\r\nLEFT JOIN usuario\r\nON ContratoMantenimiento.usuarioID = usuario.usuarioID \r\nLEFT JOIN cliente\r\nON ContratoMantenimiento.ClienteID = cliente.ClienteID\r\nLEFT JOIN mailing\r\nON cliente.mailingID = mailing.mailingID\r\n\r\nWHERE ContratoMantenimiento.CustomerID = 29\r\nAND ContratoMantenimiento.EmpresaID = 1\r\nAND (ContratoMantenimiento.Numero LIKE '3')\r\n\r\nORDER BY ContratoMantenimiento.Numero\r\n"
+                      records:
+                        - ContratoMantenimientoID: 8
+                          Numero: '3'
+                          FechaAlta: '2023-03-21'
+                          FechaBaja: '20230321'
+                          RenovacionAutomatica: 0
+                          Activo: 0
+                          ClienteID: 340
+                          TipoContratoMantenimientoID: 10003
+                          FechaInicio: '20230321'
+                          Meses: 12
+                          FechaFinalizacion: '20240321'
+                          ContactoID: 0
+                          Nota: FDFDGHFHGHFHFHF
+                          clienteCodigo: '43000299'
+                          clienteNombre: dario
+                          nombreUsuario: ONYXD
+                          FechaHoraUsuario: '2023-03-21T00:00:00.000'
+                          UsuarioID: 1
+                          EmpresaID: 1
+                          CustomerID: 29
+                      success: true
+      operationId: get-contract-quicksearch
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: token reciente
+        - schema:
+            type: string
+            example: '3'
+          in: query
+          name: sBusqueda
+          description: Valor a buscar
 components:
   schemas: {}
