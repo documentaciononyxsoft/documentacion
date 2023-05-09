@@ -5793,5 +5793,159 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /ticket/openTicketsList:
+    get:
+      summary: OpenTicketsList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Numero:
+                              type: integer
+                            Hora:
+                              type: string
+                            Serial_Equipo:
+                              type: string
+                            Problema:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT at.Numero, \r\nDATE_FORMAT(at.FechaHoraUsuario, '%h:%i:%s %p') AS Hora, \r\nCOALESCE(e.NumeroSerie, 'Sin equipo asignado') AS `Serial_Equipo`, \r\nCOALESCE(tp.Nombre, 'Sin problema asignado') AS Problema\r\nFROM avisoticket at\r\nLEFT JOIN avisoticketelemento ate ON at.AvisoTicketID = ate.AvisoTicketID\r\nLEFT JOIN elemento e ON ate.ElementoID = e.ElementoID\r\nLEFT JOIN avisotickettipoproblema tp ON at.AvisoTicketTipoProblemaID = tp.AvisoTicketTipoProblemaID\r\nWHERE at.CustomerID = 29\r\nAND at.EmpresaID = 1\r\nAND at.Cerrado = 0"
+                      data:
+                        - Numero: 1
+                          Hora: '02:25:51 PM'
+                          Serial_Equipo: '12'
+                          Problema: Sin problema asignado
+                        - Numero: 8642
+                          Hora: '04:24:57 PM'
+                          Serial_Equipo: '12'
+                          Problema: Sin problema asignado
+                        - Numero: 87412
+                          Hora: '04:17:27 PM'
+                          Serial_Equipo: '12'
+                          Problema: Sin problema asignado
+                        - Numero: 5
+                          Hora: '02:05:43 PM'
+                          Serial_Equipo: '12'
+                          Problema: Sin problema asignado
+                        - Numero: 6
+                          Hora: '02:50:53 PM'
+                          Serial_Equipo: '456789'
+                          Problema: ProblemaPrueba
+                        - Numero: 1999
+                          Hora: '10:16:51 AM'
+                          Serial_Equipo: '456789'
+                          Problema: ProbleTest
+                        - Numero: 2458
+                          Hora: '04:21:23 PM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: Sin problema asignado
+                        - Numero: 2
+                          Hora: '11:42:15 AM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: Sin problema asignado
+                        - Numero: 3
+                          Hora: '01:56:54 PM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: Sin problema asignado
+                        - Numero: 4
+                          Hora: '01:57:54 PM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: Sin problema asignado
+                        - Numero: 8
+                          Hora: '01:56:10 PM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: cz<xcz<xc
+                        - Numero: 9
+                          Hora: '02:54:09 PM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: cz<xcz<xc
+                        - Numero: 10
+                          Hora: '02:55:54 PM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: cz<xcz<xc
+                        - Numero: 2000
+                          Hora: '11:00:00 AM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: Trouble
+                        - Numero: 2001
+                          Hora: '12:00:00 PM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: Trouble
+                        - Numero: 2002
+                          Hora: '12:00:00 PM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: ProblemaPrueba
+                        - Numero: 2003
+                          Hora: '12:00:00 PM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: Trouble
+                        - Numero: 2004
+                          Hora: '12:00:00 PM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: Trouble
+                        - Numero: 2005
+                          Hora: '12:00:00 AM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: Trouble
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - Numero: 1
+                          Hora: '02:25:51 PM'
+                          Serial_Equipo: '12'
+                          Problema: Sin problema asignado
+                        - Numero: 8642
+                          Hora: '04:24:57 PM'
+                          Serial_Equipo: '12'
+                          Problema: Sin problema asignado
+                        - Numero: 87412
+                          Hora: '04:17:27 PM'
+                          Serial_Equipo: '12'
+                          Problema: Sin problema asignado
+                        - Numero: 5
+                          Hora: '02:05:43 PM'
+                          Serial_Equipo: '12'
+                          Problema: Sin problema asignado
+      operationId: get-ticket-openTicketsList
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas: {}
