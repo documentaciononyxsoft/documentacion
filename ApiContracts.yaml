@@ -698,5 +698,256 @@ paths:
           in: header
           name: 'accessToken '
           description: Token Reciente
+  '/contracts/{contratoID}/equipment':
+    parameters:
+      - schema:
+          type: string
+          example: '8'
+        name: contratoID
+        in: path
+        required: true
+        description: ID del contrato
+    post:
+      summary: Contracts - CreateForEquipment
+      operationId: post-contracts-contratoID-equipment
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ContratoMantenimientoElementoID:
+                              type: integer
+                            NumeroEquipo:
+                              type: string
+                            Nombre:
+                              type: string
+                            Marca:
+                              type: string
+                            Modelo:
+                              type: string
+                            TipoEquipo:
+                              type: string
+                            Articulo:
+                              type: string
+                            Cliente:
+                              type: string
+                            Ubicacion:
+                              type: string
+                            Emplazamiento:
+                              type: string
+                            FechaInstalacion:
+                              type: string
+                            FechaInicioGarantia:
+                              type: string
+                            FechaFinGarantia:
+                              type: string
+                            FechaBaja:
+                              type: string
+                            FechaAlta:
+                              type: string
+                            ElementoID:
+                              type: integer
+                            ArticuloID:
+                              type: integer
+                            ClienteID:
+                              type: integer
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - ContratoMantenimientoElementoID: 27
+                          NumeroEquipo: '3442342'
+                          Nombre: EXTINTOR
+                          Marca: BABESA
+                          Modelo: XR-190
+                          TipoEquipo: Proveedores por prueba
+                          Articulo: BOMBA HIDRONEUMATICA S/E 2LTSde
+                          Cliente: dario
+                          Ubicacion: SAT MADRID 1
+                          Emplazamiento: ''
+                          FechaInstalacion: '20180322'
+                          FechaInicioGarantia: '20180322'
+                          FechaFinGarantia: '20190831'
+                          FechaBaja: '20230303'
+                          FechaAlta: '20230509'
+                          ElementoID: 1
+                          ArticuloID: 606
+                          ClienteID: 1
+                        - ContratoMantenimientoElementoID: 28
+                          NumeroEquipo: '123'
+                          Nombre: Plegadora
+                          Marca: RENAULT
+                          Modelo: '2026'
+                          TipoEquipo: Proveedores por tipo
+                          Articulo: ACERO TIPO 1
+                          Cliente: dario
+                          Ubicacion: SAT MADRID 1
+                          Emplazamiento: ''
+                          FechaInstalacion: '20190227'
+                          FechaInicioGarantia: ''
+                          FechaFinGarantia: ''
+                          FechaBaja: ''
+                          FechaAlta: '20230509'
+                          ElementoID: 2
+                          ArticuloID: 5
+                          ClienteID: 1
+                        - ContratoMantenimientoElementoID: 29
+                          NumeroEquipo: '5698'
+                          Nombre: pruebaluis
+                          Marca: delvalle
+                          Modelo: ghhgjghjgh
+                          TipoEquipo: Proveedores por tipo
+                          Articulo: ARTICULO DE VENTA 1
+                          Cliente: dario
+                          Ubicacion: SAT MADRID 1
+                          Emplazamiento: dssdsds
+                          FechaInstalacion: '20230303'
+                          FechaInicioGarantia: '20230317'
+                          FechaFinGarantia: '20230324'
+                          FechaBaja: '20230331'
+                          FechaAlta: '20230509'
+                          ElementoID: 9
+                          ArticuloID: 2
+                          ClienteID: 1
+                        - ContratoMantenimientoElementoID: 30
+                          NumeroEquipo: '17578242'
+                          Nombre: nfjdgfdsgPRUEBA
+                          Marca: ''
+                          Modelo: ''
+                          TipoEquipo: Proveedores por tipo
+                          Articulo: Articulo ...3
+                          Cliente: dario
+                          Ubicacion: SAT MADRID 1
+                          Emplazamiento: '54254254'
+                          FechaInstalacion: '20230303'
+                          FechaInicioGarantia: '20230322'
+                          FechaFinGarantia: '20230331'
+                          FechaBaja: '20230309'
+                          FechaAlta: '20230509'
+                          ElementoID: 10
+                          ArticuloID: 1
+                          ClienteID: 1
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - ContratoMantenimientoElementoID: 27
+                          NumeroEquipo: '3442342'
+                          Nombre: EXTINTOR
+                          Marca: BABESA
+                          Modelo: XR-190
+                          TipoEquipo: Proveedores por prueba
+                          Articulo: BOMBA HIDRONEUMATICA S/E 2LTSde
+                          Cliente: dario
+                          Ubicacion: SAT MADRID 1
+                          Emplazamiento: ''
+                          FechaInstalacion: '20180322'
+                          FechaInicioGarantia: '20180322'
+                          FechaFinGarantia: '20190831'
+                          FechaBaja: '20230303'
+                          FechaAlta: '20230509'
+                          ElementoID: 1
+                          ArticuloID: 606
+                          ClienteID: 1
+                        - ContratoMantenimientoElementoID: 28
+                          NumeroEquipo: '123'
+                          Nombre: Plegadora
+                          Marca: RENAULT
+                          Modelo: '2026'
+                          TipoEquipo: Proveedores por tipo
+                          Articulo: ACERO TIPO 1
+                          Cliente: dario
+                          Ubicacion: SAT MADRID 1
+                          Emplazamiento: ''
+                          FechaInstalacion: '20190227'
+                          FechaInicioGarantia: ''
+                          FechaFinGarantia: ''
+                          FechaBaja: ''
+                          FechaAlta: '20230509'
+                          ElementoID: 2
+                          ArticuloID: 5
+                          ClienteID: 1
+                        - ContratoMantenimientoElementoID: 29
+                          NumeroEquipo: '5698'
+                          Nombre: pruebaluis
+                          Marca: delvalle
+                          Modelo: ghhgjghjgh
+                          TipoEquipo: Proveedores por tipo
+                          Articulo: ARTICULO DE VENTA 1
+                          Cliente: dario
+                          Ubicacion: SAT MADRID 1
+                          Emplazamiento: dssdsds
+                          FechaInstalacion: '20230303'
+                          FechaInicioGarantia: '20230317'
+                          FechaFinGarantia: '20230324'
+                          FechaBaja: '20230331'
+                          FechaAlta: '20230509'
+                          ElementoID: 9
+                          ArticuloID: 2
+                          ClienteID: 1
+                        - ContratoMantenimientoElementoID: 30
+                          NumeroEquipo: '17578242'
+                          Nombre: nfjdgfdsgPRUEBA
+                          Marca: ''
+                          Modelo: ''
+                          TipoEquipo: Proveedores por tipo
+                          Articulo: Articulo ...3
+                          Cliente: dario
+                          Ubicacion: SAT MADRID 1
+                          Emplazamiento: '54254254'
+                          FechaInstalacion: '20230303'
+                          FechaInicioGarantia: '20230322'
+                          FechaFinGarantia: '20230331'
+                          FechaBaja: '20230309'
+                          FechaAlta: '20230509'
+                          ElementoID: 10
+                          ArticuloID: 1
+                          ClienteID: 1
+                      success: true
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: Token Reciente
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                EquipoID:
+                  type: string
+              x-examples:
+                Example 1:
+                  EquipoID: '1,2,9,10'
+            examples:
+              Example 1:
+                value:
+                  EquipoID: '1,2,9,10'
 components:
   schemas: {}
