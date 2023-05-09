@@ -5709,5 +5709,89 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /ticket/openTicketsByType:
+    get:
+      summary: OpenTicketsList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            TipoProblema:
+                              type: string
+                            Abreviatura:
+                              type: string
+                            NumeroTickets:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT COALESCE(tg.descripcion, 'Sin tipo') AS Tipo, COALESCE(tg.abreviatura, 'SIN') AS Abreviatura, COUNT(*) AS NumeroTickets\r\nFROM avisoticket at\r\nLEFT JOIN tablageneral tg ON at.TipoAvisoID = tg.TablaGeneralID\r\nWHERE at.CustomerID = 29\r\nAND at.EmpresaID = 1 \r\nAND at.Cerrado = 0\r\nGROUP BY at.TipoAvisoID, tg.descripcion"
+                      data:
+                        - TipoProblema: Sin tipo
+                          Abreviatura: SIN
+                          NumeroTickets: 2
+                        - TipoProblema: Averia
+                          Abreviatura: AVE
+                          NumeroTickets: 7
+                        - TipoProblema: Mantenimiento
+                          Abreviatura: MAN
+                          NumeroTickets: 6
+                        - TipoProblema: Mejora
+                          Abreviatura: MEJ
+                          NumeroTickets: 4
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - TipoProblema: Sin tipo
+                          Abreviatura: SIN
+                          NumeroTickets: 2
+                        - TipoProblema: Averia
+                          Abreviatura: AVE
+                          NumeroTickets: 7
+                        - TipoProblema: Mantenimiento
+                          Abreviatura: MAN
+                          NumeroTickets: 6
+                        - TipoProblema: Mejora
+                          Abreviatura: MEJ
+                          NumeroTickets: 4
+      operationId: get-ticket-openTicketsByType
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas: {}
