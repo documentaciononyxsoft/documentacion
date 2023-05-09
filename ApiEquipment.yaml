@@ -3664,5 +3664,108 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  '/equipments/client/light/{clienteID}':
+    parameters:
+      - schema:
+          type: string
+          example: '1'
+        name: clienteID
+        in: path
+        required: true
+        description: ID del Cliente
+    get:
+      summary: Equipment - FindLightListForClient
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1\r\nAND elemento.clienteID = 1"
+                      records:
+                        - ID: 1
+                          Nombre: EXTINTOR
+                          Codigo: '3442342'
+                        - ID: 2
+                          Nombre: Plegadora
+                          Codigo: '123'
+                        - ID: 9
+                          Nombre: pruebaluis
+                          Codigo: '5698'
+                        - ID: 10
+                          Nombre: nfjdgfdsgPRUEBA
+                          Codigo: '17578242'
+                        - ID: 11
+                          Nombre: ''
+                          Codigo: '587411'
+                        - ID: 12
+                          Nombre: ''
+                          Codigo: '1213545'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT elemento.ElementoID,elemento.NumeroSerie,elemento.Nombre \r\nFROM elemento\r\nWHERE elemento.CustomerID = 29 AND elemento.EmpresaID = 1\r\nAND elemento.clienteID = 1"
+                      records:
+                        - ID: 1
+                          Nombre: EXTINTOR
+                          Codigo: '3442342'
+                        - ID: 2
+                          Nombre: Plegadora
+                          Codigo: '123'
+                        - ID: 9
+                          Nombre: pruebaluis
+                          Codigo: '5698'
+                        - ID: 10
+                          Nombre: nfjdgfdsgPRUEBA
+                          Codigo: '17578242'
+                        - ID: 11
+                          Nombre: ''
+                          Codigo: '587411'
+                        - ID: 12
+                          Nombre: ''
+                          Codigo: '1213545'
+      operationId: get-equipments-client-light-clienteID
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: Token Reciente
 components:
   schemas: {}
