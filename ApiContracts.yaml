@@ -565,5 +565,138 @@ paths:
           in: query
           name: sBusqueda
           description: Valor a buscar
+  '/contracts/{contratoID}/equipments':
+    parameters:
+      - schema:
+          type: string
+          example: '8'
+        name: contratoID
+        in: path
+        required: true
+        description: ID del contrato
+    get:
+      summary: Contracts - FindManyForEquipments
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ContratoMantenimientoElementoID:
+                              type: integer
+                            NumeroEquipo:
+                              type: string
+                            Nombre:
+                              type: string
+                            Marca:
+                              type: string
+                            Modelo:
+                              type: string
+                            TipoEquipo:
+                              type: string
+                            Articulo:
+                              type: string
+                            Cliente:
+                              type: string
+                            Ubicacion:
+                              type: string
+                            Emplazamiento:
+                              type: string
+                            FechaInstalacion:
+                              type: string
+                            FechaInicioGarantia:
+                              type: string
+                            FechaFinGarantia:
+                              type: string
+                            FechaBaja:
+                              type: string
+                            FechaAlta:
+                              type: string
+                            ElementoID:
+                              type: integer
+                            ArticuloID:
+                              type: integer
+                            ClienteID:
+                              type: integer
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - ContratoMantenimientoElementoID: 1
+                          NumeroEquipo: '3442342'
+                          Nombre: EXTINTOR
+                          Marca: BABESA
+                          Modelo: XR-190
+                          TipoEquipo: Proveedores por prueba
+                          Articulo: BOMBA HIDRONEUMATICA S/E 2LTSde
+                          Cliente: dario
+                          Ubicacion: SAT MADRID 1
+                          Emplazamiento: ''
+                          FechaInstalacion: '20180322'
+                          FechaInicioGarantia: '20180322'
+                          FechaFinGarantia: '20190831'
+                          FechaBaja: '20230303'
+                          FechaAlta: '20230322'
+                          ElementoID: 1
+                          ArticuloID: 606
+                          ClienteID: 1
+                      success: true
+                      sql: "SELECT\r\nContratoMantenimientoElemento.*,\r\nElemento.*,\r\nUsuario.*,\r\nContratoMantenimientoElemento.FechaHoraUsuario AS fechaContratoMantenimientoElemento,\r\nArticulo.Nombre AS ArticuloNombre,\r\nArticulo.Codigo AS ArticuloCodigo,\r\nMailing.ReferenciaCodigo AS ClienteCodigo,\r\nMailing.Nombre AS ClienteNombre,\r\nDireccion.Direccion,\r\nUsuario.NombreUsuario,\r\nTablaGeneral.Descripcion AS tipoEquipo,\r\nDireccion.Nombre AS DireccionNombre\r\n\r\nFROM ContratoMantenimientoElemento Left JOIN Elemento ON ContratoMantenimientoElemento.ElementoID = Elemento.ElementoID\r\nLeft JOIN Articulo ON Elemento.ArticuloID = Articulo.ArticuloID\r\nLeft JOIN Usuario ON ContratoMantenimientoElemento.UsuarioID = Usuario.UsuarioID\r\nLeft JOIN Cliente ON Cliente.ClienteID=Elemento.ClienteID\r\nLeft JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLeft JOIN Direccion ON Direccion.DireccionID = Elemento.DireccionID\r\nLeft JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = Elemento.TipoEquipoID\r\n\r\nwhere ContratoMantenimientoElemento.ContratoMantenimientoID = 8"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - ContratoMantenimientoElementoID: 1
+                          NumeroEquipo: '3442342'
+                          Nombre: EXTINTOR
+                          Marca: BABESA
+                          Modelo: XR-190
+                          TipoEquipo: Proveedores por prueba
+                          Articulo: BOMBA HIDRONEUMATICA S/E 2LTSde
+                          Cliente: dario
+                          Ubicacion: SAT MADRID 1
+                          Emplazamiento: ''
+                          FechaInstalacion: '20180322'
+                          FechaInicioGarantia: '20180322'
+                          FechaFinGarantia: '20190831'
+                          FechaBaja: '20230303'
+                          FechaAlta: '20230322'
+                          ElementoID: 1
+                          ArticuloID: 606
+                          ClienteID: 1
+                      success: true
+                      sql: "SELECT\r\nContratoMantenimientoElemento.*,\r\nElemento.*,\r\nUsuario.*,\r\nContratoMantenimientoElemento.FechaHoraUsuario AS fechaContratoMantenimientoElemento,\r\nArticulo.Nombre AS ArticuloNombre,\r\nArticulo.Codigo AS ArticuloCodigo,\r\nMailing.ReferenciaCodigo AS ClienteCodigo,\r\nMailing.Nombre AS ClienteNombre,\r\nDireccion.Direccion,\r\nUsuario.NombreUsuario,\r\nTablaGeneral.Descripcion AS tipoEquipo,\r\nDireccion.Nombre AS DireccionNombre\r\n\r\nFROM ContratoMantenimientoElemento Left JOIN Elemento ON ContratoMantenimientoElemento.ElementoID = Elemento.ElementoID\r\nLeft JOIN Articulo ON Elemento.ArticuloID = Articulo.ArticuloID\r\nLeft JOIN Usuario ON ContratoMantenimientoElemento.UsuarioID = Usuario.UsuarioID\r\nLeft JOIN Cliente ON Cliente.ClienteID=Elemento.ClienteID\r\nLeft JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLeft JOIN Direccion ON Direccion.DireccionID = Elemento.DireccionID\r\nLeft JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = Elemento.TipoEquipoID\r\n\r\nwhere ContratoMantenimientoElemento.ContratoMantenimientoID = 8"
+      operationId: get-contracts-contratoID-equipments
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: 'accessToken '
+          description: Token Reciente
 components:
   schemas: {}
