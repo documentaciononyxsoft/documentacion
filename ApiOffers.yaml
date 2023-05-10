@@ -1101,11 +1101,11 @@ paths:
     parameters:
       - schema:
           type: string
-          example: /offers/1506/lines
+          example: '1506'
         name: offerid
         in: path
         required: true
-        description: id de la oferta
+        description: OfertaID
     post:
       summary: CreateLine
       operationId: post-offers-offerid-lines
