@@ -1040,6 +1040,37 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      token:
+                        type: string
+                      usuarioID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      token: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiY3Rva2VuIjoiIiwgImlhdCI6MTY4Mzc1MTMwNSwgImV4cCI6MTY4NzM1MTMwNSB9.eMJJjX9kPbhjyttmvQVBEuH8Q9F8MujlzxbKQYMDfx8
+                      usuarioID: 1
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      token: token
+                      usuarioID: 1
       description: ''
       requestBody:
         content:
@@ -1060,7 +1091,7 @@ paths:
               Example:
                 value:
                   user: admin@admin.com
-                  pass: 0nyx2021
+                  pass: Pass2021
         description: |-
           {
               "user": "admin@admin.com",
@@ -1194,99 +1225,270 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
     get:
-      summary: findLinesByOffer
+      summary: FindLinesByOffer
       operationId: get-offers-offerid-lines
       responses:
         '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": [
-                    {
-                        "Linea": 10,
-                        "almacenIDLinea": 66,
-                        "nombreAlmacenLinea": "CEDIS HERMOSILLO",
-                        "ArticuloID": 32,
-                        "codigoarticulo": "300051396",
-                        "nombreArticulo": "AZUCARADAS RG2 817GRX14X1",
-                        "descripcionLinea": "",
-                        "Cantidad": 55,
-                        "PrecioVenta": 561.94,
-                        "ImporteVenta": 28097.28,
-                        "Dto1": 9.09,
-                        "Dto2": 0,
-                        "Dto3": 0,
-                        "IvaID": 8,
-                        "codigoIva": "IEPS8",
-                        "nombreIva": "IEPS 8%",
-                        "NivelIngenieriaID": 0,
-                        "nombreNivelIngenieria": "",
-                        "fechaEntregaLinea": "20220215",
-                        "PlazoEntrega": 0,
-                        "TipoPlazoEntregaID": 0,
-                        "tipodemomeesplazo": "",
-                        "referenciaClienteLinea": "",
-                        "notaInternaLinea": "",
-                        "notaCuentaLinea": "",
-                        "RappelPorcentaje": 0,
-                        "RappelImporte": 0,
-                        "CrossdockingPorcentaje": 0,
-                        "CrossdockingImporte": 0,
-                        "comisionImporteLinea": 0,
-                        "comisionPorcentajeLinea": 0,
-                        "recargo": 0,
-                        "referencia": "",
-                        "cantidadPedida": 55,
-                        "importe": 28097.28,
-                        "notaCliente": "",
-                        "ofertaLineaID": 3289,
-                        "stock": 8364,
-                        "precioUltimaSalida": 667.1
-                    },
-                    {
-                        "Linea": 20,
-                        "almacenIDLinea": 66,
-                        "nombreAlmacenLinea": "CEDIS HERMOSILLO",
-                        "ArticuloID": 9,
-                        "codigoarticulo": "300053113",
-                        "nombreArticulo": "ARITOS DE FRUTA 140GRX24X1",
-                        "descripcionLinea": "",
-                        "Cantidad": 55,
-                        "PrecioVenta": 266.44,
-                        "ImporteVenta": 13322.13,
-                        "Dto1": 9.09,
-                        "Dto2": 0,
-                        "Dto3": 0,
-                        "IvaID": 8,
-                        "codigoIva": "IEPS8",
-                        "nombreIva": "IEPS 8%",
-                        "NivelIngenieriaID": 0,
-                        "nombreNivelIngenieria": "",
-                        "fechaEntregaLinea": "20220215",
-                        "PlazoEntrega": 0,
-                        "TipoPlazoEntregaID": 0,
-                        "tipodemomeesplazo": "",
-                        "referenciaClienteLinea": "",
-                        "notaInternaLinea": "",
-                        "notaCuentaLinea": "",
-                        "RappelPorcentaje": 0,
-                        "RappelImporte": 0,
-                        "CrossdockingPorcentaje": 0,
-                        "CrossdockingImporte": 0,
-                        "comisionImporteLinea": 0,
-                        "comisionPorcentajeLinea": 0,
-                        "recargo": 0,
-                        "referencia": "",
-                        "cantidadPedida": 55,
-                        "importe": 13322.13,
-                        "notaCliente": "",
-                        "ofertaLineaID": 3290,
-                        "stock": 1440,
-                        "precioUltimaSalida": 386.16
-                    }
-                ]
-            }
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        Linea:
+                          type: integer
+                        almacenIDLinea:
+                          type: integer
+                        nombreAlmacenLinea:
+                          type: string
+                        ArticuloID:
+                          type: integer
+                        codigoarticulo:
+                          type: string
+                        nombreArticulo:
+                          type: string
+                        descripcionLinea:
+                          type: string
+                        Cantidad:
+                          type: integer
+                        PrecioVenta:
+                          type: number
+                        ImporteVenta:
+                          type: number
+                        Dto1:
+                          type: number
+                        Dto2:
+                          type: integer
+                        Dto3:
+                          type: integer
+                        IvaID:
+                          type: integer
+                        codigoIva:
+                          type: string
+                        nombreIva:
+                          type: string
+                        NivelIngenieriaID:
+                          type: integer
+                        nombreNivelIngenieria:
+                          type: string
+                        fechaEntregaLinea:
+                          type: string
+                        PlazoEntrega:
+                          type: integer
+                        TipoPlazoEntregaID:
+                          type: integer
+                        tipodemomeesplazo:
+                          type: string
+                        referenciaClienteLinea:
+                          type: string
+                        notaInternaLinea:
+                          type: string
+                        notaCuentaLinea:
+                          type: string
+                        RappelPorcentaje:
+                          type: integer
+                        RappelImporte:
+                          type: integer
+                        CrossdockingPorcentaje:
+                          type: integer
+                        CrossdockingImporte:
+                          type: integer
+                        comisionImporteLinea:
+                          type: integer
+                        comisionPorcentajeLinea:
+                          type: integer
+                        recargo:
+                          type: integer
+                        referencia:
+                          type: string
+                        cantidadPedida:
+                          type: integer
+                        importe:
+                          type: number
+                        notaCliente:
+                          type: string
+                        ofertaLineaID:
+                          type: integer
+                        stock:
+                          type: integer
+                        precioUltimaSalida:
+                          type: number
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - Linea: 10
+                        almacenIDLinea: 66
+                        nombreAlmacenLinea: CEDIS HERMOSILLO
+                        ArticuloID: 32
+                        codigoarticulo: '300051396'
+                        nombreArticulo: AZUCARADAS RG2 817GRX14X1
+                        descripcionLinea: ''
+                        Cantidad: 55
+                        PrecioVenta: 561.94
+                        ImporteVenta: 28097.28
+                        Dto1: 9.09
+                        Dto2: 0
+                        Dto3: 0
+                        IvaID: 8
+                        codigoIva: IEPS8
+                        nombreIva: IEPS 8%
+                        NivelIngenieriaID: 0
+                        nombreNivelIngenieria: ''
+                        fechaEntregaLinea: '20220215'
+                        PlazoEntrega: 0
+                        TipoPlazoEntregaID: 0
+                        tipodemomeesplazo: ''
+                        referenciaClienteLinea: ''
+                        notaInternaLinea: ''
+                        notaCuentaLinea: ''
+                        RappelPorcentaje: 0
+                        RappelImporte: 0
+                        CrossdockingPorcentaje: 0
+                        CrossdockingImporte: 0
+                        comisionImporteLinea: 0
+                        comisionPorcentajeLinea: 0
+                        recargo: 0
+                        referencia: ''
+                        cantidadPedida: 55
+                        importe: 28097.28
+                        notaCliente: ''
+                        ofertaLineaID: 3289
+                        stock: 8364
+                        precioUltimaSalida: 667.1
+                      - Linea: 20
+                        almacenIDLinea: 66
+                        nombreAlmacenLinea: CEDIS HERMOSILLO
+                        ArticuloID: 9
+                        codigoarticulo: '300053113'
+                        nombreArticulo: ARITOS DE FRUTA 140GRX24X1
+                        descripcionLinea: ''
+                        Cantidad: 55
+                        PrecioVenta: 266.44
+                        ImporteVenta: 13322.13
+                        Dto1: 9.09
+                        Dto2: 0
+                        Dto3: 0
+                        IvaID: 8
+                        codigoIva: IEPS8
+                        nombreIva: IEPS 8%
+                        NivelIngenieriaID: 0
+                        nombreNivelIngenieria: ''
+                        fechaEntregaLinea: '20220215'
+                        PlazoEntrega: 0
+                        TipoPlazoEntregaID: 0
+                        tipodemomeesplazo: ''
+                        referenciaClienteLinea: ''
+                        notaInternaLinea: ''
+                        notaCuentaLinea: ''
+                        RappelPorcentaje: 0
+                        RappelImporte: 0
+                        CrossdockingPorcentaje: 0
+                        CrossdockingImporte: 0
+                        comisionImporteLinea: 0
+                        comisionPorcentajeLinea: 0
+                        recargo: 0
+                        referencia: ''
+                        cantidadPedida: 55
+                        importe: 13322.13
+                        notaCliente: ''
+                        ofertaLineaID: 3290
+                        stock: 1492
+                        precioUltimaSalida: 386.16
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - Linea: 10
+                        almacenIDLinea: 66
+                        nombreAlmacenLinea: CEDIS HERMOSILLO
+                        ArticuloID: 32
+                        codigoarticulo: '300051396'
+                        nombreArticulo: AZUCARADAS RG2 817GRX14X1
+                        descripcionLinea: ''
+                        Cantidad: 55
+                        PrecioVenta: 561.94
+                        ImporteVenta: 28097.28
+                        Dto1: 9.09
+                        Dto2: 0
+                        Dto3: 0
+                        IvaID: 8
+                        codigoIva: IEPS8
+                        nombreIva: IEPS 8%
+                        NivelIngenieriaID: 0
+                        nombreNivelIngenieria: ''
+                        fechaEntregaLinea: '20220215'
+                        PlazoEntrega: 0
+                        TipoPlazoEntregaID: 0
+                        tipodemomeesplazo: ''
+                        referenciaClienteLinea: ''
+                        notaInternaLinea: ''
+                        notaCuentaLinea: ''
+                        RappelPorcentaje: 0
+                        RappelImporte: 0
+                        CrossdockingPorcentaje: 0
+                        CrossdockingImporte: 0
+                        comisionImporteLinea: 0
+                        comisionPorcentajeLinea: 0
+                        recargo: 0
+                        referencia: ''
+                        cantidadPedida: 55
+                        importe: 28097.28
+                        notaCliente: ''
+                        ofertaLineaID: 3289
+                        stock: 8364
+                        precioUltimaSalida: 667.1
+                      - Linea: 20
+                        almacenIDLinea: 66
+                        nombreAlmacenLinea: CEDIS HERMOSILLO
+                        ArticuloID: 9
+                        codigoarticulo: '300053113'
+                        nombreArticulo: ARITOS DE FRUTA 140GRX24X1
+                        descripcionLinea: ''
+                        Cantidad: 55
+                        PrecioVenta: 266.44
+                        ImporteVenta: 13322.13
+                        Dto1: 9.09
+                        Dto2: 0
+                        Dto3: 0
+                        IvaID: 8
+                        codigoIva: IEPS8
+                        nombreIva: IEPS 8%
+                        NivelIngenieriaID: 0
+                        nombreNivelIngenieria: ''
+                        fechaEntregaLinea: '20220215'
+                        PlazoEntrega: 0
+                        TipoPlazoEntregaID: 0
+                        tipodemomeesplazo: ''
+                        referenciaClienteLinea: ''
+                        notaInternaLinea: ''
+                        notaCuentaLinea: ''
+                        RappelPorcentaje: 0
+                        RappelImporte: 0
+                        CrossdockingPorcentaje: 0
+                        CrossdockingImporte: 0
+                        comisionImporteLinea: 0
+                        comisionPorcentajeLinea: 0
+                        recargo: 0
+                        referencia: ''
+                        cantidadPedida: 55
+                        importe: 13322.13
+                        notaCliente: ''
+                        ofertaLineaID: 3290
+                        stock: 1492
+                        precioUltimaSalida: 386.16
       parameters:
         - schema:
             type: string
@@ -1472,7 +1674,7 @@ paths:
                   referenciaCliente: ''
   /consult/offers:
     get:
-      summary: Your GET endpoint
+      summary: FindManyByFilters
       tags: []
       responses:
         '200':
@@ -1489,7 +1691,7 @@ paths:
       parameters:
         - schema:
             type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyNDE3ODc5LCAiZXhwIjoxNjcyNDI1MDc5IH0.0Vk1SEsA3V1eQhKzpF9HL2OdJVTI8TSqfLvugQS_zQ4
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
