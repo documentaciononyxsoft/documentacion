@@ -3155,5 +3155,146 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  '/currenciesexchange/{monedaID}':
+    parameters:
+      - schema:
+          type: string
+          example: '25'
+        name: monedaID
+        in: path
+        required: true
+    get:
+      summary: CurrenciesExchange - FindManyByCurrency
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            MonedaCambioID:
+                              type: integer
+                            MonedaID:
+                              type: integer
+                            UsuarioID:
+                              type: integer
+                            FechaHoraUsuario:
+                              type: string
+                            CambioVenta:
+                              type: integer
+                            CambioCompra:
+                              type: integer
+                            Fecha:
+                              type: string
+                            Cambio:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT * \r\nFROM MonedaCambio \r\nWHERE MonedaCambio.MonedaID = 25 AND \r\nMonedaCambio.CustomerID = 29\r\nORDER BY Fecha DESC"
+                      records:
+                        - MonedaCambioID: 52
+                          MonedaID: 25
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-05-10T18:05:20.490'
+                          CambioVenta: 45
+                          CambioCompra: 60
+                          Fecha: '20230518'
+                          Cambio: 150
+                        - MonedaCambioID: 50
+                          MonedaID: 25
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-05-10T18:01:05.007'
+                          CambioVenta: 45
+                          CambioCompra: 60
+                          Fecha: '20230510'
+                          Cambio: 90
+                        - MonedaCambioID: 32
+                          MonedaID: 25
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-01-17T20:24:19.007'
+                          CambioVenta: 25
+                          CambioCompra: 25
+                          Fecha: '20230111'
+                          Cambio: 25
+                        - MonedaCambioID: 30
+                          MonedaID: 25
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-01-17T19:18:15.210'
+                          CambioVenta: 0
+                          CambioCompra: 0
+                          Fecha: '20230102'
+                          Cambio: 0
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - MonedaCambioID: 52
+                          MonedaID: 25
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-05-10T18:05:20.490'
+                          CambioVenta: 45
+                          CambioCompra: 60
+                          Fecha: '20230518'
+                          Cambio: 150
+                        - MonedaCambioID: 50
+                          MonedaID: 25
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-05-10T18:01:05.007'
+                          CambioVenta: 45
+                          CambioCompra: 60
+                          Fecha: '20230510'
+                          Cambio: 90
+                        - MonedaCambioID: 32
+                          MonedaID: 25
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-01-17T20:24:19.007'
+                          CambioVenta: 25
+                          CambioCompra: 25
+                          Fecha: '20230111'
+                          Cambio: 25
+                        - MonedaCambioID: 30
+                          MonedaID: 25
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-01-17T19:18:15.210'
+                          CambioVenta: 0
+                          CambioCompra: 0
+                          Fecha: '20230102'
+                          Cambio: 0
+      operationId: get-currenciesexchange-monedaID
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas: {}
