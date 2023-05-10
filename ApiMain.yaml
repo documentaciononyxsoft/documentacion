@@ -1132,9 +1132,11 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '182'
         name: id
         in: path
         required: true
+        description: ContadorID
     put:
       summary: Counter - Update
       operationId: put-counters-id
