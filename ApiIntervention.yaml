@@ -15133,5 +15133,99 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  /intervention/listOpenToday:
+    get:
+      summary: InterventionListOpenToday
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Numero:
+                              type: integer
+                            Cliente:
+                              type: string
+                            Operario:
+                              type: string
+                            Problema:
+                              type: string
+                            FechaIntervencion:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "\r\nSELECT                  \r\n po.CodigoProyecto_OF AS Numero, \r\n m.Nombre AS Cliente, \r\n e.Nombre AS Operario, \r\n attp.Nombre AS Problema, \r\n DATE_FORMAT(ati.FechaHoraUsuario, '%Y-%m-%d %H:%i:%s')  AS FechaIntervencion\t  \r\nFROM                    \r\navisoticketintervencion ati\r\nLEFT JOIN avisoticket avi ON ati.AvisoTicketID = avi.AvisoTicketID\r\nLEFT JOIN tiempotrabajo tt ON ati.AvisoTicketIntervencionID = tt.AvisoTicketIntervencionID\r\nLEFT JOIN empleado e ON tt.EmpleadoID = e.EmpleadoID\r\nLEFT JOIN proyecto_of po ON ati.Proyecto_OFID = po.Proyecto_OFID\r\nLEFT JOIN mailing m ON avi.MailingID = m.MailingID\r\nLEFT JOIN avisotickettipoproblema attp ON avi.AvisoTicketTipoProblemaID = attp.AvisoTicketTipoProblemaID\r\nWHERE                   \r\nati.FechaHoraUsuario LIKE '%2023-05-10%'\r\nAND po.FechaHoraUsuarioCierre IS NULL\r\nAND avi.CustomerID = 29\r\nAND avi.EmpresaID = 1"
+                      data:
+                        - Numero: 39
+                          Cliente: TIENDAS TRES B S A DE C V
+                          Operario: Onyx Admin
+                          Problema: ProblemaPrueba
+                          FechaIntervencion: '2023-05-10 10:28:04'
+                        - Numero: 38
+                          Cliente: TIENDAS TRES B S A DE C V
+                          Operario: CORIA MAYORGA OSCAR ALBERTO
+                          Problema: ProblemaPrueba
+                          FechaIntervencion: '2023-05-10 10:27:01'
+                        - Numero: 50
+                          Cliente: Alejo
+                          Operario: DOMINGUEZ RODRIGUEZ JONATAN
+                          Problema: cz<xcz<xc
+                          FechaIntervencion: '2023-05-10 15:00:00'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - Numero: 39
+                          Cliente: TIENDAS TRES B S A DE C V
+                          Operario: Onyx Admin
+                          Problema: ProblemaPrueba
+                          FechaIntervencion: '2023-05-10 10:28:04'
+                        - Numero: 38
+                          Cliente: TIENDAS TRES B S A DE C V
+                          Operario: CORIA MAYORGA OSCAR ALBERTO
+                          Problema: ProblemaPrueba
+                          FechaIntervencion: '2023-05-10 10:27:01'
+                        - Numero: 50
+                          Cliente: Alejo
+                          Operario: DOMINGUEZ RODRIGUEZ JONATAN
+                          Problema: cz<xcz<xc
+                          FechaIntervencion: '2023-05-10 15:00:00'
+      operationId: get-intervention-listOpenToday
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas: {}
