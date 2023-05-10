@@ -1106,16 +1106,42 @@ paths:
       operationId: post-offers-offerid-lines
       responses:
         '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "ofertaLineaID": 4428,
-                    "numeroLinea": 40,
-                    "stock": 19999732
-                }
-            }
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      ofertaLineaID:
+                        type: integer
+                      numeroLinea:
+                        type: integer
+                      stock:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      ofertaLineaID: 4463
+                      numeroLinea: 10
+                      stock: -39
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      ofertaLineaID: 4463
+                      numeroLinea: 10
+                      stock: -39
       description: ''
       requestBody:
         content:
