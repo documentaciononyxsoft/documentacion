@@ -1193,5 +1193,102 @@ paths:
               Example 1:
                 value:
                   valor: 17
+  /countries:
+    post:
+      summary: Countrie - Create
+      operationId: post-countries
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      PaisID:
+                        type: integer
+                      FechaHoraUsuario:
+                        type: string
+                      NombreUsuario:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      PaisID: 254
+                      FechaHoraUsuario: '2023-05-10T17:36:28.263'
+                      NombreUsuario: ADMINISTRADOR
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      PaisID: 254
+                      FechaHoraUsuario: '2023-05-10T17:36:28.263'
+                      NombreUsuario: ADMINISTRADOR
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Nombre:
+                  type: string
+                ContinenteID:
+                  type: string
+                TipoOperacionTerceroID:
+                  type: string
+                IsoNumerico:
+                  type: string
+                Iso2:
+                  type: string
+                Iso3:
+                  type: string
+                OrigenOperacionFacturaID:
+                  type: string
+                ControlProvincia:
+                  type: string
+              x-examples:
+                Example 1:
+                  Nombre: PAISJCO
+                  ContinenteID: '2'
+                  TipoOperacionTerceroID: ''
+                  IsoNumerico: '17'
+                  Iso2: CO
+                  Iso3: PEI
+                  OrigenOperacionFacturaID: '1'
+                  ControlProvincia: '1'
+            examples:
+              Example 1:
+                value:
+                  Nombre: PAISJCO
+                  ContinenteID: '2'
+                  TipoOperacionTerceroID: ''
+                  IsoNumerico: '17'
+                  Iso2: CO
+                  Iso3: PEI
+                  OrigenOperacionFacturaID: '1'
+                  ControlProvincia: '1'
 components:
   schemas: {}
