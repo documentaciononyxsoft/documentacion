@@ -1080,23 +1080,18 @@ paths:
               properties:
                 user:
                   type: string
-                  description: 'Example: admin@admin.com'
                 pass:
                   type: string
-                  description: 'Example: 0nyx2021'
-              required:
-                - user
-                - pass
+              x-examples:
+                Example 1:
+                  user: admin@admin.com
+                  pass: 0nyx2021
             examples:
-              Example:
+              Example 1:
                 value:
                   user: admin@admin.com
                   pass: Pass2021
-        description: |-
-          {
-              "user": "admin@admin.com",
-              "pass": "0nyx2021"
-          }
+        description: ''
   '/offers/{offerid}/lines':
     parameters:
       - schema:
@@ -1219,7 +1214,7 @@ paths:
       parameters:
         - schema:
             type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjI1NjkxLCAiZXhwIjoxNjY4NjMyODkxIH0.E0EcErEPyLZAYu55hZi-3Eoz3O0tQzm4yJmzdAl-alk
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
@@ -1492,7 +1487,7 @@ paths:
       parameters:
         - schema:
             type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjI1NjkxLCAiZXhwIjoxNjY4NjMyODkxIH0.E0EcErEPyLZAYu55hZi-3Eoz3O0tQzm4yJmzdAl-alk
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
