@@ -2148,6 +2148,12 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /offers/generate:
+    get:
+      summary: Generate
+      tags: []
+      responses: {}
+      operationId: get-offers-generate
 components:
   parameters:
     token:
