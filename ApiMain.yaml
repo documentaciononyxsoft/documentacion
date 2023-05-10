@@ -3298,9 +3298,283 @@ paths:
           required: true
   /currencies:
     get:
-      summary: Your GET endpoint
+      summary: Currencies - FindAll
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            MonedaID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Unidad:
+                              type: integer
+                            Abreviatura:
+                              type: string
+                            VRedondeoPrecio:
+                              type: integer
+                            CRedondeoPrecio:
+                              type: integer
+                            CambioFijo:
+                              type: integer
+                            UsuarioID:
+                              type: integer
+                            CambioEstandar:
+                              type: integer
+                            CodigoISO:
+                              type: string
+                            RedondeImporte:
+                              type: integer
+                            CodigoExterno:
+                              type: string
+                            CodigoISONumerico:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT * \r\nFROM Moneda \r\nWHERE Moneda.CustomerID = 29"
+                      records:
+                        - MonedaID: 1
+                          Nombre: Euros
+                          Unidad: 1
+                          Abreviatura: €
+                          VRedondeoPrecio: 2
+                          CRedondeoPrecio: 2
+                          CambioFijo: 1
+                          UsuarioID: 1
+                          CambioEstandar: 1
+                          CodigoISO: EUR
+                          RedondeImporte: 2
+                          CodigoExterno: ''
+                          CodigoISONumerico: 0
+                        - MonedaID: 2
+                          Nombre: USD Dolar
+                          Unidad: 1
+                          Abreviatura: $
+                          VRedondeoPrecio: 2
+                          CRedondeoPrecio: 2
+                          CambioFijo: 0
+                          UsuarioID: 1
+                          CambioEstandar: 0.76
+                          CodigoISO: USD
+                          RedondeImporte: 2
+                          CodigoExterno: ''
+                          CodigoISONumerico: 0
+                        - MonedaID: 3
+                          Nombre: Peso Mexicano
+                          Unidad: 1
+                          Abreviatura: MXN
+                          VRedondeoPrecio: 2
+                          CRedondeoPrecio: 2
+                          CambioFijo: 1
+                          UsuarioID: 2
+                          CambioEstandar: 1
+                          CodigoISO: MXN
+                          RedondeImporte: 2
+                          CodigoExterno: ''
+                          CodigoISONumerico: 0
+                        - MonedaID: 9
+                          Nombre: Solecito
+                          Unidad: 2
+                          Abreviatura: S
+                          VRedondeoPrecio: 2
+                          CRedondeoPrecio: 0
+                          CambioFijo: 0
+                          UsuarioID: 1
+                          CambioEstandar: 15
+                          CodigoISO: SOL
+                          RedondeImporte: 10
+                          CodigoExterno: SUN
+                          CodigoISONumerico: 19
+                        - MonedaID: 13
+                          Nombre: Rans
+                          Unidad: 2
+                          Abreviatura: S
+                          VRedondeoPrecio: 2
+                          CRedondeoPrecio: 0
+                          CambioFijo: 0
+                          UsuarioID: 1
+                          CambioEstandar: 15
+                          CodigoISO: RAN
+                          RedondeImporte: 10
+                          CodigoExterno: RISE
+                          CodigoISONumerico: 19
+                        - MonedaID: 25
+                          Nombre: MonedaValen
+                          Unidad: 12
+                          Abreviatura: Mon
+                          VRedondeoPrecio: 20
+                          CRedondeoPrecio: 0
+                          CambioFijo: 1
+                          UsuarioID: 1
+                          CambioEstandar: 10
+                          CodigoISO: MV
+                          RedondeImporte: 20
+                          CodigoExterno: '123'
+                          CodigoISONumerico: 444
+                        - MonedaID: 28
+                          Nombre: NuevaMoneda
+                          Unidad: 12
+                          Abreviatura: '12'
+                          VRedondeoPrecio: 180
+                          CRedondeoPrecio: 0
+                          CambioFijo: 1
+                          UsuarioID: 1
+                          CambioEstandar: 125
+                          CodigoISO: '145'
+                          RedondeImporte: 145
+                          CodigoExterno: '10'
+                          CodigoISONumerico: 0
+                        - MonedaID: 29
+                          Nombre: MonedaJuan
+                          Unidad: 1
+                          Abreviatura: MoJu
+                          VRedondeoPrecio: 20
+                          CRedondeoPrecio: 30
+                          CambioFijo: 1
+                          UsuarioID: 1
+                          CambioEstandar: 1
+                          CodigoISO: JC
+                          RedondeImporte: 1
+                          CodigoExterno: '1'
+                          CodigoISONumerico: 1
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - MonedaID: 1
+                          Nombre: Euros
+                          Unidad: 1
+                          Abreviatura: €
+                          VRedondeoPrecio: 2
+                          CRedondeoPrecio: 2
+                          CambioFijo: 1
+                          UsuarioID: 1
+                          CambioEstandar: 1
+                          CodigoISO: EUR
+                          RedondeImporte: 2
+                          CodigoExterno: ''
+                          CodigoISONumerico: 0
+                        - MonedaID: 2
+                          Nombre: USD Dolar
+                          Unidad: 1
+                          Abreviatura: $
+                          VRedondeoPrecio: 2
+                          CRedondeoPrecio: 2
+                          CambioFijo: 0
+                          UsuarioID: 1
+                          CambioEstandar: 0.76
+                          CodigoISO: USD
+                          RedondeImporte: 2
+                          CodigoExterno: ''
+                          CodigoISONumerico: 0
+                        - MonedaID: 3
+                          Nombre: Peso Mexicano
+                          Unidad: 1
+                          Abreviatura: MXN
+                          VRedondeoPrecio: 2
+                          CRedondeoPrecio: 2
+                          CambioFijo: 1
+                          UsuarioID: 2
+                          CambioEstandar: 1
+                          CodigoISO: MXN
+                          RedondeImporte: 2
+                          CodigoExterno: ''
+                          CodigoISONumerico: 0
+                        - MonedaID: 9
+                          Nombre: Solecito
+                          Unidad: 2
+                          Abreviatura: S
+                          VRedondeoPrecio: 2
+                          CRedondeoPrecio: 0
+                          CambioFijo: 0
+                          UsuarioID: 1
+                          CambioEstandar: 15
+                          CodigoISO: SOL
+                          RedondeImporte: 10
+                          CodigoExterno: SUN
+                          CodigoISONumerico: 19
+                        - MonedaID: 13
+                          Nombre: Rans
+                          Unidad: 2
+                          Abreviatura: S
+                          VRedondeoPrecio: 2
+                          CRedondeoPrecio: 0
+                          CambioFijo: 0
+                          UsuarioID: 1
+                          CambioEstandar: 15
+                          CodigoISO: RAN
+                          RedondeImporte: 10
+                          CodigoExterno: RISE
+                          CodigoISONumerico: 19
+                        - MonedaID: 25
+                          Nombre: MonedaValen
+                          Unidad: 12
+                          Abreviatura: Mon
+                          VRedondeoPrecio: 20
+                          CRedondeoPrecio: 0
+                          CambioFijo: 1
+                          UsuarioID: 1
+                          CambioEstandar: 10
+                          CodigoISO: MV
+                          RedondeImporte: 20
+                          CodigoExterno: '123'
+                          CodigoISONumerico: 444
+                        - MonedaID: 28
+                          Nombre: NuevaMoneda
+                          Unidad: 12
+                          Abreviatura: '12'
+                          VRedondeoPrecio: 180
+                          CRedondeoPrecio: 0
+                          CambioFijo: 1
+                          UsuarioID: 1
+                          CambioEstandar: 125
+                          CodigoISO: '145'
+                          RedondeImporte: 145
+                          CodigoExterno: '10'
+                          CodigoISONumerico: 0
+                        - MonedaID: 29
+                          Nombre: MonedaJuan
+                          Unidad: 1
+                          Abreviatura: MoJu
+                          VRedondeoPrecio: 20
+                          CRedondeoPrecio: 30
+                          CambioFijo: 1
+                          UsuarioID: 1
+                          CambioEstandar: 1
+                          CodigoISO: JC
+                          RedondeImporte: 1
+                          CodigoExterno: '1'
+                          CodigoISONumerico: 1
       operationId: get-currencies
       parameters:
         - schema:
