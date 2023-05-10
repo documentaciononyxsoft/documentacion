@@ -2,7 +2,7 @@ openapi: 3.1.0
 x-stoplight:
   id: 13j8r1zfdbfnn
 info:
-  title: ApiMain
+  title: API - Main
   version: '1.0'
 servers:
   - url: 'http://localhost:3000'
@@ -373,5 +373,772 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /counters:
+    get:
+      summary: Counter - FindAll
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        contadorID:
+                          type: integer
+                        clave:
+                          type: string
+                        Descripcion:
+                          type: string
+                        Ejercicio:
+                          type: integer
+                        programa:
+                          type: string
+                        serieID:
+                          type: integer
+                        Valor:
+                          type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - contadorID: 169
+                        clave: ''
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 63
+                      - contadorID: 170
+                        clave: '0'
+                        Descripcion: Albarán entre Almacenes
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 2
+                        Valor: 0
+                      - contadorID: 94
+                        clave: AlbaranAlmacenCabecera2
+                        Descripcion: Albarán entre Almacenes
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 2
+                        Valor: 100
+                      - contadorID: 93
+                        clave: AlbaranAlmacenCabecera4
+                        Descripcion: Albarán entre Almacenes
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 4
+                        Valor: 3843
+                      - contadorID: 95
+                        clave: AlbaranAlmacenCabecera6
+                        Descripcion: Albarán entre Almacenes
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 6
+                        Valor: 827
+                      - contadorID: 120
+                        clave: AlbaranAlmacenCabecera7
+                        Descripcion: Albarán entre Almacenes
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 7
+                        Valor: 120
+                      - contadorID: 175
+                        clave: AlbaranCompraCabecera
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 0
+                      - contadorID: 168
+                        clave: AlbaranCompraCabecera0
+                        Descripcion: Albarán de Compra
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 1
+                      - contadorID: 57
+                        clave: AlbaranCompraCabecera1
+                        Descripcion: Albarán de Compra
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 1
+                        Valor: 1927
+                      - contadorID: 107
+                        clave: AlbaranSubcontratacionCabecera3
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 120
+                      - contadorID: 150
+                        clave: AlbaranVentaCabecera0
+                        Descripcion: Albarán de Venta
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 73
+                      - contadorID: 183
+                        clave: AlbaranVentaCabecera16
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 2
+                      - contadorID: 182
+                        clave: AlbaranVentaCabecera17
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 1
+                      - contadorID: 76
+                        clave: AlbaranVentaCabecera2
+                        Descripcion: Albarán de Venta
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 2
+                        Valor: 40
+                      - contadorID: 181
+                        clave: AlbaranVentaCabecera22
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 4
+                      - contadorID: 186
+                        clave: AlbaranVentaCabecera23
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 0
+                      - contadorID: 70
+                        clave: AlbaranVentaCabecera4
+                        Descripcion: Albarán de Venta
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 4
+                        Valor: 2144
+                      - contadorID: 71
+                        clave: AlbaranVentaCabecera5
+                        Descripcion: Albarán de Venta
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 5
+                        Valor: 5
+                      - contadorID: 96
+                        clave: AlbaranVentaCabecera6
+                        Descripcion: Albarán de Venta
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 6
+                        Valor: 5
+                      - contadorID: 97
+                        clave: AlbaranVentaCabecera7
+                        Descripcion: Albarán de Venta
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 7
+                        Valor: 713
+                      - contadorID: 173
+                        clave: AvisoTicket
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 1999
+                      - contadorID: 80
+                        clave: Banco01020000
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 3
+                      - contadorID: 171
+                        clave: Banco1020001
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 5
+                      - contadorID: 105
+                        clave: Bancos Nacional1020001
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 0
+                      - contadorID: 60
+                        clave: Cliente01030001
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 259
+                      - contadorID: 119
+                        clave: Cliente1030001
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 387
+                      - contadorID: 151
+                        clave: Cliente1030002
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 6
+                      - contadorID: 174
+                        clave: Clientemrf
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 3
+                      - contadorID: 130
+                        clave: Clientes Nacional1030001
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 273
+                      - contadorID: 78
+                        clave: CobroANT
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 1
+                      - contadorID: 75
+                        clave: CobroCOB
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 527
+                      - contadorID: 88
+                        clave: CobroRF
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 0
+                      - contadorID: 79
+                        clave: CobroVDIA
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 0
+                      - contadorID: 81
+                        clave: DiarioCabecera0
+                        Descripcion: Asientos Contables
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 2
+                      - contadorID: 66
+                        clave: DiarioCabecera2021
+                        Descripcion: Asientos Contables
+                        Ejercicio: 2021
+                        programa: ''
+                        serieID: 0
+                        Valor: 2026
+                      - contadorID: 126
+                        clave: DiarioCabecera2022
+                        Descripcion: Asientos Contables
+                        Ejercicio: 2022
+                        programa: ''
+                        serieID: 0
+                        Valor: 3388
+                      - contadorID: 179
+                        clave: DiarioCabecera2023
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 0
+                      - contadorID: 184
+                        clave: DireccionSAT
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 1
+                      - contadorID: 185
+                        clave: Documento
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 0
+                      - contadorID: 84
+                        clave: DocumentoRecibidoCabecera
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 5
+                      - contadorID: 91
+                        clave: EnvioClienteCabecera
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 5
+                      - contadorID: 65
+                        clave: FacturaCompraCabecera2021
+                        Descripcion: Factura de Compra
+                        Ejercicio: 2021
+                        programa: ''
+                        serieID: 0
+                        Valor: 510
+                      - contadorID: 127
+                        clave: FacturaCompraCabecera2022
+                        Descripcion: Factura de Compra
+                        Ejercicio: 2022
+                        programa: ''
+                        serieID: 0
+                        Valor: 899
+                      - contadorID: 73
+                        clave: FacturaVentaCabecera20214
+                        Descripcion: Factura de Venta
+                        Ejercicio: 2021
+                        programa: ''
+                        serieID: 4
+                        Valor: 770
+                      - contadorID: 77
+                        clave: FacturaVentaCabecera20215
+                        Descripcion: Factura de Venta
+                        Ejercicio: 2021
+                        programa: ''
+                        serieID: 5
+                        Valor: 3
+                      - contadorID: 87
+                        clave: FacturaVentaCabecera20216
+                        Descripcion: Factura de Venta
+                        Ejercicio: 2021
+                        programa: ''
+                        serieID: 6
+                        Valor: 5
+                      - contadorID: 89
+                        clave: FacturaVentaCabecera20217
+                        Descripcion: Factura de Venta
+                        Ejercicio: 2021
+                        programa: ''
+                        serieID: 7
+                        Valor: 3
+                      - contadorID: 101
+                        clave: FacturaVentaCabecera20218
+                        Descripcion: Factura de Venta
+                        Ejercicio: 2021
+                        programa: ''
+                        serieID: 8
+                        Valor: 150
+                      - contadorID: 128
+                        clave: FacturaVentaCabecera20220
+                        Descripcion: Factura de Venta
+                        Ejercicio: 2022
+                        programa: ''
+                        serieID: 0
+                        Valor: 5
+                      - contadorID: 148
+                        clave: FacturaVentaCabecera20222
+                        Descripcion: Factura de Venta
+                        Ejercicio: 2022
+                        programa: ''
+                        serieID: 0
+                        Valor: 0
+                      - contadorID: 121
+                        clave: FacturaVentaCabecera20224
+                        Descripcion: Factura de Venta
+                        Ejercicio: 2022
+                        programa: ''
+                        serieID: 4
+                        Valor: 3048
+                      - contadorID: 122
+                        clave: FacturaVentaCabecera20225
+                        Descripcion: Factura de Venta
+                        Ejercicio: 2022
+                        programa: ''
+                        serieID: 5
+                        Valor: 3
+                      - contadorID: 123
+                        clave: FacturaVentaCabecera20226
+                        Descripcion: Factura de Venta
+                        Ejercicio: 2022
+                        programa: ''
+                        serieID: 6
+                        Valor: 5
+                      - contadorID: 124
+                        clave: FacturaVentaCabecera20227
+                        Descripcion: Factura de Venta
+                        Ejercicio: 2022
+                        programa: ''
+                        serieID: 7
+                        Valor: 3
+                      - contadorID: 125
+                        clave: FacturaVentaCabecera20228
+                        Descripcion: Factura de Venta
+                        Ejercicio: 2022
+                        programa: ''
+                        serieID: 8
+                        Valor: 427
+                      - contadorID: 180
+                        clave: FacturaVentaCabecera20234
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 37
+                      - contadorID: 55
+                        clave: GamaControlCabecera
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 322
+                      - contadorID: 83
+                        clave: GamaControlResultado
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 585
+                      - contadorID: 72
+                        clave: GastoCompraCabecera
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 1
+                      - contadorID: 131
+                        clave: Gmao_Norma
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 1
+                      - contadorID: 85
+                        clave: Gmao_Ticket
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 370
+                      - contadorID: 58
+                        clave: Lote
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 64
+                      - contadorID: 92
+                        clave: LoteOF_32
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 1
+                      - contadorID: 133
+                        clave: MailingLEAD
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 31
+                      - contadorID: 172
+                        clave: MailingPRUEBA
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 6
+                      - contadorID: 62
+                        clave: Oferta
+                        Descripcion: Oferta de Venta
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 2285
+                      - contadorID: 64
+                        clave: OfertaCompraCabecera1
+                        Descripcion: Oferta de Compra
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 1
+                        Valor: 630
+                      - contadorID: 59
+                        clave: PedidoCompraCabecera1
+                        Descripcion: Pedido de Compra
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 1
+                        Valor: 1719
+                      - contadorID: 136
+                        clave: PedidoVentaCabecera0
+                        Descripcion: Pedido de Venta
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 79
+                      - contadorID: 134
+                        clave: PedidoVentaCabecera1
+                        Descripcion: Pedido de Venta
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 2
+                      - contadorID: 137
+                        clave: PedidoVentaCabecera2
+                        Descripcion: Pedido de Venta
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 2
+                        Valor: 47
+                      - contadorID: 67
+                        clave: PedidoVentaCabecera4
+                        Descripcion: Pedido de Venta
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 4
+                        Valor: 2107
+                      - contadorID: 138
+                        clave: PedidoVentaCabecera5
+                        Descripcion: Pedido de Venta
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 5
+                        Valor: 1
+                      - contadorID: 139
+                        clave: PedidoVentaCabecera6
+                        Descripcion: Pedido de Venta
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 6
+                        Valor: 1
+                      - contadorID: 143
+                        clave: PedidoVentaCabecera7
+                        Descripcion: Pedido de Venta
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 7
+                        Valor: 8
+                      - contadorID: 129
+                        clave: PrevisionPedidoVentaCabecera
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 1
+                      - contadorID: 99
+                        clave: ProcesoM
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 382
+                      - contadorID: 69
+                        clave: ProcesoO
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 1388
+                      - contadorID: 140
+                        clave: ProcesoP
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 148
+                      - contadorID: 178
+                        clave: ProcesoS
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 59
+                      - contadorID: 54
+                        clave: Proveedor02500001
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 263
+                      - contadorID: 61
+                        clave: Proveedor02500002
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 14
+                      - contadorID: 106
+                        clave: Proveedor2500001
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 439
+                      - contadorID: 166
+                        clave: Proveedor2500002
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 22
+                      - contadorID: 98
+                        clave: Proyecto_OFM
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 382
+                      - contadorID: 68
+                        clave: Proyecto_OFO
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 1353
+                      - contadorID: 132
+                        clave: Proyecto_OFP
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 67
+                      - contadorID: 177
+                        clave: Proyecto_OFS
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 15
+                      - contadorID: 167
+                        clave: pruebaEdgos
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 7
+                      - contadorID: 102
+                        clave: RemesaCobroCabecera
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 70
+                      - contadorID: 86
+                        clave: RemesaPagoCabecera
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 42
+                      - contadorID: 100
+                        clave: RepresentanteVEND-
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 1890
+                      - contadorID: 63
+                        clave: SolicitudInternaCompraCabecera
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 19
+                      - contadorID: 141
+                        clave: TrabajoAsignado
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 2
+                      - contadorID: 149
+                        clave: TransportistaTRAN-
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 2
+                      - contadorID: 187
+                        clave: Vehiculo
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 0
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - contadorID: 169
+                        clave: ''
+                        Descripcion: ''
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 0
+                        Valor: 63
+                      - contadorID: 170
+                        clave: '0'
+                        Descripcion: Albarán entre Almacenes
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 2
+                        Valor: 0
+                      - contadorID: 94
+                        clave: AlbaranAlmacenCabecera2
+                        Descripcion: Albarán entre Almacenes
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 2
+                        Valor: 100
+                      - contadorID: 93
+                        clave: AlbaranAlmacenCabecera4
+                        Descripcion: Albarán entre Almacenes
+                        Ejercicio: 0
+                        programa: ''
+                        serieID: 4
+                        Valor: 3843
+      operationId: get-counters
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+  '/counters/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-counters-id
 components:
   schemas: {}
