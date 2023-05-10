@@ -3296,5 +3296,135 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /currencies:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-currencies
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+    post:
+      summary: Currencies - Create
+      operationId: post-currencies
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                      MonedaID:
+                        type: integer
+                      FechaHoraUsuario:
+                        type: string
+                      NombreUsuario:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: La Moneda se ha Guardado exitosamente.
+                      MonedaID: 29
+                      FechaHoraUsuario: '2023-05-10T18:23:49.538'
+                      NombreUsuario: ADMINISTRADOR
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: La Moneda se ha Guardado exitosamente.
+                      MonedaID: 29
+                      FechaHoraUsuario: '2023-05-10T18:23:49.538'
+                      NombreUsuario: ADMINISTRADOR
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          required: true
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          name: accessToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Nombre:
+                  type: string
+                Unidad:
+                  type: string
+                Abreviatura:
+                  type: string
+                VRedondeoPrecio:
+                  type: string
+                CRedondeoPrecio:
+                  type: string
+                CambioFijo:
+                  type: string
+                CambioEstandar:
+                  type: string
+                CodigoISO:
+                  type: string
+                RedondeoImporte:
+                  type: string
+                CodigoExterno:
+                  type: string
+                CodigoISONumerico:
+                  type: string
+                MonedaCambioFecha:
+                  type: string
+              x-examples:
+                Example 1:
+                  Nombre: MonedaJuan
+                  Unidad: '1'
+                  Abreviatura: MoJu
+                  VRedondeoPrecio: '20'
+                  CRedondeoPrecio: '30'
+                  CambioFijo: '1'
+                  CambioEstandar: '1'
+                  CodigoISO: JC
+                  RedondeoImporte: '1'
+                  CodigoExterno: '1'
+                  CodigoISONumerico: '1'
+                  MonedaCambioFecha: '20230510'
+            examples:
+              Example 1:
+                value:
+                  Nombre: MonedaJuan
+                  Unidad: '1'
+                  Abreviatura: MoJu
+                  VRedondeoPrecio: '20'
+                  CRedondeoPrecio: '30'
+                  CambioFijo: '1'
+                  CambioEstandar: '1'
+                  CodigoISO: JC
+                  RedondeoImporte: '1'
+                  CodigoExterno: '1'
+                  CodigoISONumerico: '1'
+                  MonedaCambioFecha: '20230510'
 components:
   schemas: {}
