@@ -158,5 +158,110 @@ paths:
           in: query
           name: codigoPostal
           description: '001'
+  /grid:
+    parameters: []
+    post:
+      summary: Grid - Save
+      operationId: post-grid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiY3Rva2VuIjoiIiwgImlhdCI6MTY4Mzc0ODI0MiwgImV4cCI6MTY4NzM0ODI0MiB9.M_FMJvkv5MI7CA-NCeaoLG3t5Drrk6omxgxClx4dhRE
+          in: header
+          name: accessToken
+          description: Token de autenticación.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  header:
+                    nombrePage: PAGE_AddOffers
+                    nombreControl: TABLE_TableOffers
+                    aplicarAnchor: 1
+                  lines:
+                    - nombreColumna: COL_Stock
+                      orden: 2
+                      ancho: 140
+                      titulo: Stock Total
+                    - nombreColumna: COL_Linea
+                      orden: 3
+                      ancho: 150
+                      titulo: Línea
+              properties:
+                header:
+                  type: object
+                  required:
+                    - nombrePage
+                    - nombreControl
+                  properties:
+                    nombrePage:
+                      type: string
+                    nombreControl:
+                      type: string
+                    aplicarAnchor:
+                      type: integer
+                lines:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      nombreColumna:
+                        type: string
+                      orden:
+                        type: integer
+                      ancho:
+                        type: integer
+                      titulo:
+                        type: string
+                    required:
+                      - nombreColumna
+              required:
+                - header
+            examples:
+              Example 1:
+                value:
+                  header:
+                    nombrePage: string
+                    nombreControl: string
+                    aplicarAnchor: 0
+                  lines:
+                    - nombreColumna: string
+                      orden: 0
+                      ancho: 0
+                      titulo: string
 components:
   schemas: {}
