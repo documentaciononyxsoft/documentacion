@@ -263,5 +263,115 @@ paths:
                       orden: 0
                       ancho: 0
                       titulo: string
+  /continents:
+    get:
+      summary: Continents - FindAll
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ContinenteID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            CustomerID:
+                              type: integer
+                            UsuarioID:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT * FROM Continente\r\nWHERE Continente.CustomerID = 29"
+                      records:
+                        - ContinenteID: 1
+                          Nombre: Africa
+                          CustomerID: 29
+                          UsuarioID: 1
+                        - ContinenteID: 2
+                          Nombre: America
+                          CustomerID: 29
+                          UsuarioID: 1
+                        - ContinenteID: 3
+                          Nombre: Asia
+                          CustomerID: 29
+                          UsuarioID: 1
+                        - ContinenteID: 4
+                          Nombre: Europa
+                          CustomerID: 29
+                          UsuarioID: 1
+                        - ContinenteID: 5
+                          Nombre: Oceania
+                          CustomerID: 29
+                          UsuarioID: 1
+                        - ContinenteID: 6
+                          Nombre: Antártida
+                          CustomerID: 29
+                          UsuarioID: 1
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT * FROM Continente\r\nWHERE Continente.CustomerID = 29"
+                      records:
+                        - ContinenteID: 1
+                          Nombre: Africa
+                          CustomerID: 29
+                          UsuarioID: 1
+                        - ContinenteID: 2
+                          Nombre: America
+                          CustomerID: 29
+                          UsuarioID: 1
+                        - ContinenteID: 3
+                          Nombre: Asia
+                          CustomerID: 29
+                          UsuarioID: 1
+                        - ContinenteID: 4
+                          Nombre: Europa
+                          CustomerID: 29
+                          UsuarioID: 1
+                        - ContinenteID: 5
+                          Nombre: Oceania
+                          CustomerID: 29
+                          UsuarioID: 1
+                        - ContinenteID: 6
+                          Nombre: Antártida
+                          CustomerID: 29
+                          UsuarioID: 1
+      operationId: get-continents
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas: {}
