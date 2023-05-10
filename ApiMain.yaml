@@ -1290,5 +1290,97 @@ paths:
                   Iso3: PEI
                   OrigenOperacionFacturaID: '1'
                   ControlProvincia: '1'
+  '/countries/{paisID}':
+    parameters:
+      - schema:
+          type: string
+        name: paisID
+        in: path
+        required: true
+    put:
+      summary: Countrie - Update
+      operationId: put-countries-paisID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  Nombre: PAISJuan
+                  ContinenteID: '2'
+                  TipoOperacionTerceroID: ''
+                  IsoNumerico: '17'
+                  Iso2: CO
+                  Iso3: PEI
+                  OrigenOperacionFacturaID: '1'
+                  ControlProvincia: '1'
+              properties:
+                Nombre:
+                  type: string
+                  description: No puede repetirse el nombre en la tabla Pais
+                ContinenteID:
+                  type: string
+                TipoOperacionTerceroID:
+                  type: string
+                IsoNumerico:
+                  type: string
+                Iso2:
+                  type: string
+                Iso3:
+                  type: string
+                OrigenOperacionFacturaID:
+                  type: string
+                ControlProvincia:
+                  type: string
+            examples:
+              Example 1:
+                value:
+                  Nombre: PAISJuan
+                  ContinenteID: '2'
+                  TipoOperacionTerceroID: ''
+                  IsoNumerico: '17'
+                  Iso2: CO
+                  Iso3: PEI
+                  OrigenOperacionFacturaID: '1'
+                  ControlProvincia: '1'
 components:
   schemas: {}
