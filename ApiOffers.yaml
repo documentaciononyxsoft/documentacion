@@ -1893,6 +1893,261 @@ paths:
                     ConDetalle: string
                     offset: string
                     limite: string
+  '/offers/{param}':
+    parameters:
+      - schema:
+          type: string
+          example: jco
+        name: param
+        in: path
+        required: true
+        description: Parámetro a buscar
+    get:
+      summary: FindManyByFilter
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      resultadosBusqueda:
+                        type: object
+                        properties:
+                          sql:
+                            type: string
+                          records:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                descripcion:
+                                  type: string
+                                ofertaid:
+                                  type: integer
+                                numero:
+                                  type: integer
+                                version:
+                                  type: integer
+                                Fecha:
+                                  type: string
+                                ValidoDesde:
+                                  type: string
+                                FechaValidez:
+                                  type: string
+                                FechaEntrega:
+                                  type: string
+                                AlmacenID:
+                                  type: integer
+                                MailingID:
+                                  type: integer
+                                nombreCuenta:
+                                  type: string
+                                Codigo:
+                                  type: string
+                                NumeroSolicitud:
+                                  type: string
+                                FechaSolicitud:
+                                  type: string
+                                NombreUsuario:
+                                  type: string
+                                FechaHoraUsuario:
+                                  type: string
+                                Telefono:
+                                  type: string
+                                ContactoID:
+                                  type: integer
+                                RepresentanteID:
+                                  type: integer
+                                codigoRepresentante:
+                                  type: string
+                                NombreRepresentante:
+                                  type: string
+                                direccionEnvioIDOferta:
+                                  type: integer
+                                codigoPostalIDMailing:
+                                  type: integer
+                                codigoPostalMailing:
+                                  type: string
+                                municipioMailing:
+                                  type: string
+                                direccionENvioOferta:
+                                  type: string
+                                contactoTelefono:
+                                  type: string
+                                estado:
+                                  type: string
+                                abreviaturaMoneda:
+                                  type: string
+                                nombreMoneda:
+                                  type: string
+                                MotivoRechazoID:
+                                  type: integer
+                                rechazoDescripcion:
+                                  type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      resultadosBusqueda:
+                        sql: "SELECT\r\nOferta.Descripcion,\r\nOferta.ofertaid,\r\noferta.numero,\r\noferta.version,\r\noferta.Fecha,\r\noferta.ValidoDesde,\r\noferta.FechaValidez,\r\noferta.FechaEntrega,\r\noferta.AlmacenID,\r\nmailing.MailingID,\r\nmailing.Nombre AS nombreCuenta,\r\ncliente.Codigo,\r\noferta.NumeroSolicitud,\r\noferta.FechaSolicitud,\r\n(SELECT usuario.NombreUsuario FROM usuario WHERE usuario.usuarioid = oferta.usuarioid) AS NombreUsuario,\r\noferta.FechaHoraUsuario,\r\nmailing.Telefono,\r\noferta.ContactoID,\r\noferta.RepresentanteID,\r\nMailRepresentante.nombre AS NombreRepresentante,\r\nRepresentante.codigo as codigoRepresentante,\r\noferta.direccionenvioID as direccionEnvioIDOferta,\r\nmailing.codigoPostalID as codigoPostalIDMailing,\r\ncodigoPostal.CodigoPostal as codigoPostalMailing,\r\nmailing.municipio as municipioMailing,\r\n(select Direccion from direccion where direccionID = oferta.DireccionEnvioID) as direccionENvioOferta,\r\ncontacto.Telefono as contactoTelefono,\r\noferta.estado,\r\nmoneda.Abreviatura as abreviaturaMoneda,\r\nmoneda.Nombre as nombreMoneda,\r\noferta.MotivoRechazoID,\r\n(select tablaGeneral.Descripcion from tablaGeneral where tablageneral.tablageneralid = oferta.MotivoRechazoID and tablageneral.Clave = 'RECHAZOOFERTA') as rechazoDescripcion\r\n\r\nFROM\r\n((((((((((((((((Oferta INNER JOIN Mailing ON Oferta.MailingID = Mailing.MailingID)\r\nLEFT JOIN Contacto ON Oferta.ContactoID = Contacto.ContactoID)\r\nLEFT JOIN Representante ON Oferta.RepresentanteID=Representante.RepresentanteID)\r\nLEFT JOIN Mailing AS MailRepresentante ON Representante.MailingID=MailRepresentante.MailingID)\r\nLEFT JOIN Usuario ON Oferta.ResponsableUsuarioID = Usuario.UsuarioID)\r\nLEFT JOIN Municipio ON Mailing.MunicipioID = Municipio.MunicipioID)\r\nLEFT JOIN Provincia ON Mailing.ProvinciaID = Provincia.ProvinciaID)\r\nLEFT JOIN Pais ON Mailing.PaisID = Pais.PaisID)\r\nLEFT JOIN TablaGeneral AS TiposOfertas ON Oferta.TipoOfertaID = TiposOfertas.TablaGeneralID)\r\nLEFT JOIN Cliente ON Cliente.MailingID=Mailing.MailingID)\r\nLEFT JOIN Empresa ON Empresa.EmpresaID=Cliente.EmpresaID)\r\nLEFT JOIN CodigoPostal ON CodigoPostal.CodigoPostalID=Mailing.CodigoPostalID)\r\nLEFT JOIN OfertaCabeceraFacturacion ON OfertaCabeceraFacturacion.OfertaID = Oferta.OfertaID)\r\nLEFT JOIN FormaPagoCobro ON FormaPagoCobro.FormaPagoCobroID = OfertaCabeceraFacturacion.FormaPagoCobroID)\r\nLEFT JOIN Empleado ON Empleado.EmpleadoUsuarioID = Oferta.UsuarioID)\r\nLEFT JOIN TablaGeneral AS Idiomas ON Oferta.IdiomaID = Idiomas.TablaGeneralID)\r\nLEFT JOIN almacen ON almacen.almacenid = oferta.almacenid\r\nLEFT JOIN representante AS representante2 ON Oferta.Representante2ID=representante2.RepresentanteID\r\nLEFT JOIN Mailing AS MailRepresentante2 ON representante2.MailingID=MailRepresentante2.MailingID\r\nLEFT JOIN intrastat ON intrastat.TablaOrigenId = oferta.OfertaID AND intrastat.TablaOrigen = \"oferta\"\r\nleft JOIN campana ON campana.CampanaID = oferta.CampanaID\r\nLEFT JOIN oportunidad ON oportunidad.OportunidadID = oferta.OportunidadID\r\nleft join moneda on moneda.monedaid = OfertaCabeceraFacturacion.monedaid\r\n\r\nWHERE \r\n(Oferta.Numero like \"%jco%\" or Oferta.Version like \"%jco%\" or Mailing.ReferenciaCodigo like \"%jco%\" or Mailing.Nombre like \"%jco%\" or\r\nOferta.Descripcion like \"%jco%\" or Mailing.NombreComercial like \"%jco%\"\r\nor Pais.Nombre like \"%jco%\" or Provincia.Nombre like \"%jco%\" or Mailing.Municipio like \"%jco%\") and (Oferta.CustomerID = 29 and Oferta.EmpresaID = 1)\r\n"
+                        records:
+                          - descripcion: JCO-UPDATED
+                            ofertaid: 2285
+                            numero: 2280
+                            version: 1
+                            Fecha: '20230503'
+                            ValidoDesde: '20230503'
+                            FechaValidez: '20230503'
+                            FechaEntrega: '20230503'
+                            AlmacenID: 0
+                            MailingID: 455
+                            nombreCuenta: TIENDAS TRES B S A DE C V
+                            Codigo: '10300010329'
+                            NumeroSolicitud: ''
+                            FechaSolicitud: '20230503'
+                            NombreUsuario: ''
+                            FechaHoraUsuario: '0000-00-00T00:00:00.000'
+                            Telefono: '312222222'
+                            ContactoID: 0
+                            RepresentanteID: 0
+                            codigoRepresentante: ''
+                            NombreRepresentante: ''
+                            direccionEnvioIDOferta: 0
+                            codigoPostalIDMailing: 14959
+                            codigoPostalMailing: '06500'
+                            municipioMailing: CUAUHTEMOC
+                            direccionENvioOferta: ''
+                            contactoTelefono: ''
+                            estado: ''
+                            abreviaturaMoneda: ''
+                            nombreMoneda: ''
+                            MotivoRechazoID: 0
+                            rechazoDescripcion: ''
+                          - descripcion: UnaPruebaJCO
+                            ofertaid: 2287
+                            numero: 2282
+                            version: 1
+                            Fecha: '20221116'
+                            ValidoDesde: '20221116'
+                            FechaValidez: '20221116'
+                            FechaEntrega: '20221116'
+                            AlmacenID: 0
+                            MailingID: 455
+                            nombreCuenta: TIENDAS TRES B S A DE C V
+                            Codigo: '10300010329'
+                            NumeroSolicitud: ''
+                            FechaSolicitud: '20221116'
+                            NombreUsuario: ADMINISTRADOR
+                            FechaHoraUsuario: '2023-05-03T10:31:30.070'
+                            Telefono: '312222222'
+                            ContactoID: 0
+                            RepresentanteID: 0
+                            codigoRepresentante: ''
+                            NombreRepresentante: ''
+                            direccionEnvioIDOferta: 0
+                            codigoPostalIDMailing: 14959
+                            codigoPostalMailing: '06500'
+                            municipioMailing: CUAUHTEMOC
+                            direccionENvioOferta: ''
+                            contactoTelefono: ''
+                            estado: ''
+                            abreviaturaMoneda: ''
+                            nombreMoneda: ''
+                            MotivoRechazoID: 0
+                            rechazoDescripcion: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      resultadosBusqueda:
+                        sql: string
+                        records:
+                          - descripcion: JCO-UPDATED
+                            ofertaid: 2285
+                            numero: 2280
+                            version: 1
+                            Fecha: '20230503'
+                            ValidoDesde: '20230503'
+                            FechaValidez: '20230503'
+                            FechaEntrega: '20230503'
+                            AlmacenID: 0
+                            MailingID: 455
+                            nombreCuenta: TIENDAS TRES B S A DE C V
+                            Codigo: '10300010329'
+                            NumeroSolicitud: ''
+                            FechaSolicitud: '20230503'
+                            NombreUsuario: ''
+                            FechaHoraUsuario: '0000-00-00T00:00:00.000'
+                            Telefono: '312222222'
+                            ContactoID: 0
+                            RepresentanteID: 0
+                            codigoRepresentante: ''
+                            NombreRepresentante: ''
+                            direccionEnvioIDOferta: 0
+                            codigoPostalIDMailing: 14959
+                            codigoPostalMailing: '06500'
+                            municipioMailing: CUAUHTEMOC
+                            direccionENvioOferta: ''
+                            contactoTelefono: ''
+                            estado: ''
+                            abreviaturaMoneda: ''
+                            nombreMoneda: ''
+                            MotivoRechazoID: 0
+                            rechazoDescripcion: ''
+                          - descripcion: UnaPruebaJCO
+                            ofertaid: 2287
+                            numero: 2282
+                            version: 1
+                            Fecha: '20221116'
+                            ValidoDesde: '20221116'
+                            FechaValidez: '20221116'
+                            FechaEntrega: '20221116'
+                            AlmacenID: 0
+                            MailingID: 455
+                            nombreCuenta: TIENDAS TRES B S A DE C V
+                            Codigo: '10300010329'
+                            NumeroSolicitud: ''
+                            FechaSolicitud: '20221116'
+                            NombreUsuario: ADMINISTRADOR
+                            FechaHoraUsuario: '2023-05-03T10:31:30.070'
+                            Telefono: '312222222'
+                            ContactoID: 0
+                            RepresentanteID: 0
+                            codigoRepresentante: ''
+                            NombreRepresentante: ''
+                            direccionEnvioIDOferta: 0
+                            codigoPostalIDMailing: 14959
+                            codigoPostalMailing: '06500'
+                            municipioMailing: CUAUHTEMOC
+                            direccionENvioOferta: ''
+                            contactoTelefono: ''
+                            estado: ''
+                            abreviaturaMoneda: ''
+                            nombreMoneda: ''
+                            MotivoRechazoID: 0
+                            rechazoDescripcion: ''
+      operationId: get-offers-param
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   parameters:
     token:
