@@ -1290,6 +1290,831 @@ paths:
                   Iso3: PEI
                   OrigenOperacionFacturaID: '1'
                   ControlProvincia: '1'
+    get:
+      summary: Countrie - FindAll
+      operationId: get-countries
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            PaisID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            IsoNumerico:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - PaisID: 1
+                          Nombre: Afganistán
+                          IsoNumerico: 4
+                        - PaisID: 2
+                          Nombre: Albania
+                          IsoNumerico: 8
+                        - PaisID: 3
+                          Nombre: Alemania
+                          IsoNumerico: 276
+                        - PaisID: 4
+                          Nombre: Andorra
+                          IsoNumerico: 20
+                        - PaisID: 5
+                          Nombre: Angola
+                          IsoNumerico: 24
+                        - PaisID: 6
+                          Nombre: Anguilla
+                          IsoNumerico: 660
+                        - PaisID: 7
+                          Nombre: Antártida
+                          IsoNumerico: 10
+                        - PaisID: 8
+                          Nombre: Antigua y Barbuda
+                          IsoNumerico: 28
+                        - PaisID: 9
+                          Nombre: Antillas Holandesas
+                          IsoNumerico: 530
+                        - PaisID: 10
+                          Nombre: Arabia Saudí
+                          IsoNumerico: 682
+                        - PaisID: 11
+                          Nombre: Argelia
+                          IsoNumerico: 12
+                        - PaisID: 12
+                          Nombre: Argentina
+                          IsoNumerico: 32
+                        - PaisID: 13
+                          Nombre: Armenia
+                          IsoNumerico: 51
+                        - PaisID: 14
+                          Nombre: Aruba
+                          IsoNumerico: 533
+                        - PaisID: 15
+                          Nombre: Australia
+                          IsoNumerico: 36
+                        - PaisID: 16
+                          Nombre: Austria
+                          IsoNumerico: 40
+                        - PaisID: 17
+                          Nombre: Azerbaiyán
+                          IsoNumerico: 17
+                        - PaisID: 18
+                          Nombre: Bahamas
+                          IsoNumerico: 44
+                        - PaisID: 19
+                          Nombre: Bahréin
+                          IsoNumerico: 48
+                        - PaisID: 20
+                          Nombre: Bangladesh
+                          IsoNumerico: 50
+                        - PaisID: 21
+                          Nombre: Barbados
+                          IsoNumerico: 52
+                        - PaisID: 22
+                          Nombre: Bélgica
+                          IsoNumerico: 56
+                        - PaisID: 23
+                          Nombre: Belice
+                          IsoNumerico: 84
+                        - PaisID: 24
+                          Nombre: Benin
+                          IsoNumerico: 204
+                        - PaisID: 25
+                          Nombre: Bermudas
+                          IsoNumerico: 60
+                        - PaisID: 26
+                          Nombre: Bhután
+                          IsoNumerico: 64
+                        - PaisID: 27
+                          Nombre: Bielorrusia
+                          IsoNumerico: 112
+                        - PaisID: 28
+                          Nombre: Bolivia
+                          IsoNumerico: 68
+                        - PaisID: 29
+                          Nombre: Bosnia y Herzegovina
+                          IsoNumerico: 70
+                        - PaisID: 30
+                          Nombre: Botsuana
+                          IsoNumerico: 72
+                        - PaisID: 31
+                          Nombre: Brasil
+                          IsoNumerico: 76
+                        - PaisID: 32
+                          Nombre: Brunéi
+                          IsoNumerico: 96
+                        - PaisID: 33
+                          Nombre: Bulgaria
+                          IsoNumerico: 100
+                        - PaisID: 34
+                          Nombre: Burkina Faso
+                          IsoNumerico: 854
+                        - PaisID: 35
+                          Nombre: Burundi
+                          IsoNumerico: 108
+                        - PaisID: 36
+                          Nombre: Cabo Verde
+                          IsoNumerico: 132
+                        - PaisID: 37
+                          Nombre: Camboya
+                          IsoNumerico: 116
+                        - PaisID: 38
+                          Nombre: Camerún
+                          IsoNumerico: 120
+                        - PaisID: 39
+                          Nombre: Canadá
+                          IsoNumerico: 124
+                        - PaisID: 40
+                          Nombre: Chad
+                          IsoNumerico: 148
+                        - PaisID: 41
+                          Nombre: Chile
+                          IsoNumerico: 152
+                        - PaisID: 42
+                          Nombre: China
+                          IsoNumerico: 156
+                        - PaisID: 43
+                          Nombre: Chipre
+                          IsoNumerico: 196
+                        - PaisID: 44
+                          Nombre: Ciudad del Vaticano
+                          IsoNumerico: 336
+                        - PaisID: 45
+                          Nombre: Colombia
+                          IsoNumerico: 170
+                        - PaisID: 46
+                          Nombre: Comoras
+                          IsoNumerico: 174
+                        - PaisID: 47
+                          Nombre: Congo
+                          IsoNumerico: 178
+                        - PaisID: 48
+                          Nombre: Corea del Norte
+                          IsoNumerico: 408
+                        - PaisID: 49
+                          Nombre: Corea del Sur
+                          IsoNumerico: 410
+                        - PaisID: 50
+                          Nombre: Costa de Marfil
+                          IsoNumerico: 384
+                        - PaisID: 51
+                          Nombre: Costa Rica
+                          IsoNumerico: 188
+                        - PaisID: 52
+                          Nombre: Croacia
+                          IsoNumerico: 191
+                        - PaisID: 53
+                          Nombre: Cuba
+                          IsoNumerico: 192
+                        - PaisID: 54
+                          Nombre: Dinamarca
+                          IsoNumerico: 208
+                        - PaisID: 55
+                          Nombre: Dominica
+                          IsoNumerico: 212
+                        - PaisID: 56
+                          Nombre: Ecuador
+                          IsoNumerico: 218
+                        - PaisID: 57
+                          Nombre: Egipto
+                          IsoNumerico: 818
+                        - PaisID: 58
+                          Nombre: El Salvador
+                          IsoNumerico: 222
+                        - PaisID: 59
+                          Nombre: Emiratos Árabes Unidos
+                          IsoNumerico: 784
+                        - PaisID: 60
+                          Nombre: Eritrea
+                          IsoNumerico: 232
+                        - PaisID: 61
+                          Nombre: Eslovaquia
+                          IsoNumerico: 703
+                        - PaisID: 62
+                          Nombre: Eslovenia
+                          IsoNumerico: 705
+                        - PaisID: 63
+                          Nombre: España
+                          IsoNumerico: 724
+                        - PaisID: 64
+                          Nombre: Estados Unidos
+                          IsoNumerico: 840
+                        - PaisID: 65
+                          Nombre: Estonia
+                          IsoNumerico: 233
+                        - PaisID: 66
+                          Nombre: Etiopía
+                          IsoNumerico: 231
+                        - PaisID: 67
+                          Nombre: Filipinas
+                          IsoNumerico: 608
+                        - PaisID: 68
+                          Nombre: Finlandia
+                          IsoNumerico: 246
+                        - PaisID: 69
+                          Nombre: Fiyi
+                          IsoNumerico: 242
+                        - PaisID: 70
+                          Nombre: Francia
+                          IsoNumerico: 250
+                        - PaisID: 71
+                          Nombre: Gabón
+                          IsoNumerico: 266
+                        - PaisID: 72
+                          Nombre: Gambia
+                          IsoNumerico: 270
+                        - PaisID: 73
+                          Nombre: Georgia
+                          IsoNumerico: 268
+                        - PaisID: 74
+                          Nombre: Ghana
+                          IsoNumerico: 288
+                        - PaisID: 75
+                          Nombre: Gibraltar
+                          IsoNumerico: 292
+                        - PaisID: 76
+                          Nombre: Granada
+                          IsoNumerico: 308
+                        - PaisID: 77
+                          Nombre: Grecia
+                          IsoNumerico: 300
+                        - PaisID: 78
+                          Nombre: Groenlandia
+                          IsoNumerico: 304
+                        - PaisID: 79
+                          Nombre: Guadalupe
+                          IsoNumerico: 312
+                        - PaisID: 80
+                          Nombre: Guam
+                          IsoNumerico: 316
+                        - PaisID: 81
+                          Nombre: Guatemala
+                          IsoNumerico: 320
+                        - PaisID: 82
+                          Nombre: Guayana Francesa
+                          IsoNumerico: 254
+                        - PaisID: 83
+                          Nombre: Guinea
+                          IsoNumerico: 324
+                        - PaisID: 84
+                          Nombre: Guinea Ecuatorial
+                          IsoNumerico: 226
+                        - PaisID: 85
+                          Nombre: Guinea-Bissau
+                          IsoNumerico: 624
+                        - PaisID: 86
+                          Nombre: Guyana
+                          IsoNumerico: 328
+                        - PaisID: 87
+                          Nombre: Haití
+                          IsoNumerico: 332
+                        - PaisID: 88
+                          Nombre: Honduras
+                          IsoNumerico: 340
+                        - PaisID: 89
+                          Nombre: Hong Kong
+                          IsoNumerico: 344
+                        - PaisID: 90
+                          Nombre: Hungría
+                          IsoNumerico: 348
+                        - PaisID: 91
+                          Nombre: India
+                          IsoNumerico: 356
+                        - PaisID: 92
+                          Nombre: Indonesia
+                          IsoNumerico: 360
+                        - PaisID: 93
+                          Nombre: Irán
+                          IsoNumerico: 364
+                        - PaisID: 94
+                          Nombre: Iraq
+                          IsoNumerico: 368
+                        - PaisID: 95
+                          Nombre: Irlanda
+                          IsoNumerico: 372
+                        - PaisID: 96
+                          Nombre: Isla Bouvet
+                          IsoNumerico: 74
+                        - PaisID: 97
+                          Nombre: Isla de Navidad
+                          IsoNumerico: 162
+                        - PaisID: 98
+                          Nombre: Isla Norfolk
+                          IsoNumerico: 574
+                        - PaisID: 99
+                          Nombre: Islandia
+                          IsoNumerico: 352
+                        - PaisID: 100
+                          Nombre: Islas Caimán
+                          IsoNumerico: 136
+                        - PaisID: 101
+                          Nombre: Islas Cocos
+                          IsoNumerico: 166
+                        - PaisID: 102
+                          Nombre: Islas Cook
+                          IsoNumerico: 184
+                        - PaisID: 103
+                          Nombre: Islas Feroe
+                          IsoNumerico: 234
+                        - PaisID: 104
+                          Nombre: Islas Georgias del Sur y Sandwich del Sur
+                          IsoNumerico: 239
+                        - PaisID: 105
+                          Nombre: Islas Gland
+                          IsoNumerico: 248
+                        - PaisID: 106
+                          Nombre: Islas Heard y McDonald
+                          IsoNumerico: 334
+                        - PaisID: 107
+                          Nombre: Islas Malvinas
+                          IsoNumerico: 238
+                        - PaisID: 108
+                          Nombre: Islas Marianas del Norte
+                          IsoNumerico: 580
+                        - PaisID: 109
+                          Nombre: Islas Marshall
+                          IsoNumerico: 584
+                        - PaisID: 110
+                          Nombre: Islas Pitcairn
+                          IsoNumerico: 612
+                        - PaisID: 111
+                          Nombre: Islas Salomón
+                          IsoNumerico: 90
+                        - PaisID: 112
+                          Nombre: Islas Turcas y Caicos
+                          IsoNumerico: 796
+                        - PaisID: 113
+                          Nombre: Islas ultramarinas de Estados Unidos
+                          IsoNumerico: 581
+                        - PaisID: 114
+                          Nombre: Islas Vírgenes Británicas
+                          IsoNumerico: 92
+                        - PaisID: 115
+                          Nombre: Islas Vírgenes de los Estados Unidos
+                          IsoNumerico: 850
+                        - PaisID: 116
+                          Nombre: Israel
+                          IsoNumerico: 376
+                        - PaisID: 117
+                          Nombre: Italia
+                          IsoNumerico: 380
+                        - PaisID: 118
+                          Nombre: Jamaica
+                          IsoNumerico: 388
+                        - PaisID: 119
+                          Nombre: Japón
+                          IsoNumerico: 392
+                        - PaisID: 120
+                          Nombre: Jordania
+                          IsoNumerico: 400
+                        - PaisID: 121
+                          Nombre: Kazajstán
+                          IsoNumerico: 398
+                        - PaisID: 122
+                          Nombre: Kenia
+                          IsoNumerico: 404
+                        - PaisID: 123
+                          Nombre: Kirguistán
+                          IsoNumerico: 417
+                        - PaisID: 124
+                          Nombre: Kiribati
+                          IsoNumerico: 296
+                        - PaisID: 125
+                          Nombre: Kuwait
+                          IsoNumerico: 414
+                        - PaisID: 126
+                          Nombre: Laos
+                          IsoNumerico: 418
+                        - PaisID: 127
+                          Nombre: Lesotho
+                          IsoNumerico: 426
+                        - PaisID: 128
+                          Nombre: Letonia
+                          IsoNumerico: 428
+                        - PaisID: 129
+                          Nombre: Líbano
+                          IsoNumerico: 422
+                        - PaisID: 130
+                          Nombre: Liberia
+                          IsoNumerico: 430
+                        - PaisID: 131
+                          Nombre: Libia
+                          IsoNumerico: 434
+                        - PaisID: 132
+                          Nombre: Liechtenstein
+                          IsoNumerico: 438
+                        - PaisID: 133
+                          Nombre: Lituania
+                          IsoNumerico: 440
+                        - PaisID: 134
+                          Nombre: Luxemburgo
+                          IsoNumerico: 442
+                        - PaisID: 135
+                          Nombre: Macao
+                          IsoNumerico: 446
+                        - PaisID: 136
+                          Nombre: Macedonia
+                          IsoNumerico: 807
+                        - PaisID: 137
+                          Nombre: Madagascar
+                          IsoNumerico: 450
+                        - PaisID: 138
+                          Nombre: Malasia
+                          IsoNumerico: 458
+                        - PaisID: 139
+                          Nombre: Malawi
+                          IsoNumerico: 454
+                        - PaisID: 140
+                          Nombre: Maldivas
+                          IsoNumerico: 462
+                        - PaisID: 141
+                          Nombre: Malí
+                          IsoNumerico: 466
+                        - PaisID: 142
+                          Nombre: Malta
+                          IsoNumerico: 470
+                        - PaisID: 143
+                          Nombre: Marruecos
+                          IsoNumerico: 504
+                        - PaisID: 144
+                          Nombre: Martinica
+                          IsoNumerico: 474
+                        - PaisID: 145
+                          Nombre: Mauricio
+                          IsoNumerico: 480
+                        - PaisID: 146
+                          Nombre: Mauritania
+                          IsoNumerico: 478
+                        - PaisID: 147
+                          Nombre: Mayotte
+                          IsoNumerico: 175
+                        - PaisID: 148
+                          Nombre: México
+                          IsoNumerico: 484
+                        - PaisID: 149
+                          Nombre: Micronesia
+                          IsoNumerico: 583
+                        - PaisID: 150
+                          Nombre: Moldavia
+                          IsoNumerico: 498
+                        - PaisID: 151
+                          Nombre: Mónaco
+                          IsoNumerico: 492
+                        - PaisID: 152
+                          Nombre: Mongolia
+                          IsoNumerico: 496
+                        - PaisID: 153
+                          Nombre: Montserrat
+                          IsoNumerico: 500
+                        - PaisID: 154
+                          Nombre: Mozambique
+                          IsoNumerico: 508
+                        - PaisID: 155
+                          Nombre: Myanmar
+                          IsoNumerico: 104
+                        - PaisID: 156
+                          Nombre: Namibia
+                          IsoNumerico: 516
+                        - PaisID: 157
+                          Nombre: Nauru
+                          IsoNumerico: 520
+                        - PaisID: 158
+                          Nombre: Nepal
+                          IsoNumerico: 524
+                        - PaisID: 159
+                          Nombre: Nicaragua
+                          IsoNumerico: 558
+                        - PaisID: 160
+                          Nombre: Níger
+                          IsoNumerico: 562
+                        - PaisID: 161
+                          Nombre: Nigeria
+                          IsoNumerico: 566
+                        - PaisID: 162
+                          Nombre: Niue
+                          IsoNumerico: 570
+                        - PaisID: 163
+                          Nombre: Noruega
+                          IsoNumerico: 578
+                        - PaisID: 164
+                          Nombre: Nueva Caledonia
+                          IsoNumerico: 540
+                        - PaisID: 165
+                          Nombre: Nueva Zelanda
+                          IsoNumerico: 554
+                        - PaisID: 166
+                          Nombre: Omán
+                          IsoNumerico: 512
+                        - PaisID: 167
+                          Nombre: Países Bajos
+                          IsoNumerico: 528
+                        - PaisID: 168
+                          Nombre: Pakistán
+                          IsoNumerico: 586
+                        - PaisID: 169
+                          Nombre: Palau
+                          IsoNumerico: 585
+                        - PaisID: 170
+                          Nombre: Palestina
+                          IsoNumerico: 275
+                        - PaisID: 171
+                          Nombre: Panamá
+                          IsoNumerico: 591
+                        - PaisID: 172
+                          Nombre: Papúa Nueva Guinea
+                          IsoNumerico: 598
+                        - PaisID: 173
+                          Nombre: Paraguay
+                          IsoNumerico: 600
+                        - PaisID: 174
+                          Nombre: Perú
+                          IsoNumerico: 604
+                        - PaisID: 175
+                          Nombre: Polinesia Francesa
+                          IsoNumerico: 258
+                        - PaisID: 176
+                          Nombre: Polonia
+                          IsoNumerico: 616
+                        - PaisID: 177
+                          Nombre: Portugal
+                          IsoNumerico: 620
+                        - PaisID: 178
+                          Nombre: Puerto Rico
+                          IsoNumerico: 630
+                        - PaisID: 179
+                          Nombre: Qatar
+                          IsoNumerico: 634
+                        - PaisID: 180
+                          Nombre: Reino Unido
+                          IsoNumerico: 826
+                        - PaisID: 181
+                          Nombre: República Centroafricana
+                          IsoNumerico: 140
+                        - PaisID: 182
+                          Nombre: República Checa
+                          IsoNumerico: 203
+                        - PaisID: 183
+                          Nombre: República Democrática del Congo
+                          IsoNumerico: 180
+                        - PaisID: 184
+                          Nombre: República Dominicana
+                          IsoNumerico: 214
+                        - PaisID: 185
+                          Nombre: Reunión
+                          IsoNumerico: 638
+                        - PaisID: 186
+                          Nombre: Ruanda
+                          IsoNumerico: 646
+                        - PaisID: 187
+                          Nombre: Rumania
+                          IsoNumerico: 642
+                        - PaisID: 188
+                          Nombre: Rusia
+                          IsoNumerico: 643
+                        - PaisID: 189
+                          Nombre: Sahara Occidental
+                          IsoNumerico: 732
+                        - PaisID: 190
+                          Nombre: Samoa
+                          IsoNumerico: 882
+                        - PaisID: 191
+                          Nombre: Samoa Americana
+                          IsoNumerico: 16
+                        - PaisID: 192
+                          Nombre: San Cristóbal y Nevis
+                          IsoNumerico: 659
+                        - PaisID: 193
+                          Nombre: San Marino
+                          IsoNumerico: 674
+                        - PaisID: 194
+                          Nombre: San Pedro y Miquelón
+                          IsoNumerico: 666
+                        - PaisID: 195
+                          Nombre: San Vicente y las Granadinas
+                          IsoNumerico: 670
+                        - PaisID: 196
+                          Nombre: Santa Helena
+                          IsoNumerico: 654
+                        - PaisID: 197
+                          Nombre: Santa Lucía
+                          IsoNumerico: 662
+                        - PaisID: 198
+                          Nombre: Santo Tomé y Príncipe
+                          IsoNumerico: 678
+                        - PaisID: 199
+                          Nombre: Senegal
+                          IsoNumerico: 686
+                        - PaisID: 200
+                          Nombre: Serbia y Montenegro
+                          IsoNumerico: 891
+                        - PaisID: 201
+                          Nombre: Seychelles
+                          IsoNumerico: 690
+                        - PaisID: 202
+                          Nombre: Sierra Leona
+                          IsoNumerico: 694
+                        - PaisID: 203
+                          Nombre: Singapur
+                          IsoNumerico: 702
+                        - PaisID: 204
+                          Nombre: Siria
+                          IsoNumerico: 760
+                        - PaisID: 205
+                          Nombre: Somalia
+                          IsoNumerico: 706
+                        - PaisID: 206
+                          Nombre: Sri Lanka
+                          IsoNumerico: 144
+                        - PaisID: 207
+                          Nombre: Suazilandia
+                          IsoNumerico: 748
+                        - PaisID: 208
+                          Nombre: Sudáfrica
+                          IsoNumerico: 710
+                        - PaisID: 209
+                          Nombre: Sudán
+                          IsoNumerico: 736
+                        - PaisID: 210
+                          Nombre: Suecia
+                          IsoNumerico: 752
+                        - PaisID: 211
+                          Nombre: Suiza
+                          IsoNumerico: 756
+                        - PaisID: 212
+                          Nombre: Surinam
+                          IsoNumerico: 740
+                        - PaisID: 213
+                          Nombre: Svalbard y Jan Mayen
+                          IsoNumerico: 744
+                        - PaisID: 214
+                          Nombre: Tailandia
+                          IsoNumerico: 764
+                        - PaisID: 215
+                          Nombre: Taiwán
+                          IsoNumerico: 158
+                        - PaisID: 216
+                          Nombre: Tanzania
+                          IsoNumerico: 834
+                        - PaisID: 217
+                          Nombre: Tayikistán
+                          IsoNumerico: 762
+                        - PaisID: 218
+                          Nombre: Territorio Británico del Océano Índico
+                          IsoNumerico: 86
+                        - PaisID: 219
+                          Nombre: Territorios Australes Franceses
+                          IsoNumerico: 260
+                        - PaisID: 220
+                          Nombre: Timor Oriental
+                          IsoNumerico: 626
+                        - PaisID: 221
+                          Nombre: Togo
+                          IsoNumerico: 768
+                        - PaisID: 222
+                          Nombre: Tokelau
+                          IsoNumerico: 772
+                        - PaisID: 223
+                          Nombre: Tonga
+                          IsoNumerico: 776
+                        - PaisID: 224
+                          Nombre: Trinidad y Tobago
+                          IsoNumerico: 780
+                        - PaisID: 225
+                          Nombre: Túnez
+                          IsoNumerico: 788
+                        - PaisID: 226
+                          Nombre: Turkmenistán
+                          IsoNumerico: 795
+                        - PaisID: 227
+                          Nombre: Turquía
+                          IsoNumerico: 792
+                        - PaisID: 228
+                          Nombre: Tuvalu
+                          IsoNumerico: 798
+                        - PaisID: 229
+                          Nombre: Ucrania
+                          IsoNumerico: 804
+                        - PaisID: 230
+                          Nombre: Uganda
+                          IsoNumerico: 800
+                        - PaisID: 231
+                          Nombre: Uruguay
+                          IsoNumerico: 858
+                        - PaisID: 232
+                          Nombre: Uzbekistán
+                          IsoNumerico: 860
+                        - PaisID: 233
+                          Nombre: Vanuatu
+                          IsoNumerico: 548
+                        - PaisID: 234
+                          Nombre: Venezuela
+                          IsoNumerico: 862
+                        - PaisID: 235
+                          Nombre: Vietnam
+                          IsoNumerico: 704
+                        - PaisID: 236
+                          Nombre: Wallis y Futuna
+                          IsoNumerico: 876
+                        - PaisID: 237
+                          Nombre: Yemen
+                          IsoNumerico: 887
+                        - PaisID: 238
+                          Nombre: Yibuti
+                          IsoNumerico: 262
+                        - PaisID: 239
+                          Nombre: Zambia
+                          IsoNumerico: 894
+                        - PaisID: 240
+                          Nombre: Zimbabue
+                          IsoNumerico: 716
+                        - PaisID: 241
+                          Nombre: REP. Yeison
+                          IsoNumerico: 12
+                        - PaisID: 248
+                          Nombre: yeik z
+                          IsoNumerico: 30
+                        - PaisID: 249
+                          Nombre: yeik real
+                          IsoNumerico: 30
+                        - PaisID: 251
+                          Nombre: PAISJuan
+                          IsoNumerico: 17
+                        - PaisID: 252
+                          Nombre: JCO
+                          IsoNumerico: 11
+                        - PaisID: 253
+                          Nombre: UPDATED
+                          IsoNumerico: 0
+                        - PaisID: 254
+                          Nombre: PAISJCO
+                          IsoNumerico: 17
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - PaisID: 1
+                          Nombre: Afganistán
+                          IsoNumerico: 4
+                        - PaisID: 2
+                          Nombre: Albania
+                          IsoNumerico: 8
+                        - PaisID: 3
+                          Nombre: Alemania
+                          IsoNumerico: 276
+                        - PaisID: 241
+                          Nombre: REP. Yeison
+                          IsoNumerico: 12
+                        - PaisID: 248
+                          Nombre: yeik z
+                          IsoNumerico: 30
+                        - PaisID: 249
+                          Nombre: yeik real
+                          IsoNumerico: 30
+                        - PaisID: 251
+                          Nombre: PAISJuan
+                          IsoNumerico: 17
+                        - PaisID: 252
+                          Nombre: JCO
+                          IsoNumerico: 11
+                        - PaisID: 253
+                          Nombre: UPDATED
+                          IsoNumerico: 0
+                        - PaisID: 254
+                          Nombre: PAISJCO
+                          IsoNumerico: 17
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   '/countries/{paisID}':
     parameters:
       - schema:
