@@ -2937,5 +2937,94 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /currenciesexchange:
+    post:
+      summary: CurrenciesExchange - Create
+      operationId: post-currenciesexchange
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                      MonedaCambioID:
+                        type: integer
+                      FechaHoraUsuario:
+                        type: string
+                      NombreUsuario:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: La Moneda Cambio ha sido Guardado Exitosamente.
+                      MonedaCambioID: 50
+                      FechaHoraUsuario: '2023-05-10T18:01:05.007'
+                      NombreUsuario: ADMINISTRADOR
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: La Moneda Cambio ha sido Guardado Exitosamente.
+                      MonedaCambioID: 50
+                      FechaHoraUsuario: '2023-05-10T18:01:05.007'
+                      NombreUsuario: ADMINISTRADOR
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                MonedaID:
+                  type: string
+                CambioVenta:
+                  type: string
+                CambioCompra:
+                  type: string
+                Fecha:
+                  type: string
+                Cambio:
+                  type: string
+              x-examples:
+                Example 1:
+                  MonedaID: '25'
+                  CambioVenta: '45'
+                  CambioCompra: '60'
+                  Fecha: '20230510'
+                  Cambio: '90'
+            examples:
+              Example 1:
+                value:
+                  MonedaID: '25'
+                  CambioVenta: '45'
+                  CambioCompra: '60'
+                  Fecha: '20230510'
+                  Cambio: '90'
 components:
   schemas: {}
