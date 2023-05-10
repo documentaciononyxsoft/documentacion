@@ -2207,5 +2207,735 @@ paths:
                   Iso3: PEI
                   OrigenOperacionFacturaID: '1'
                   ControlProvincia: '1'
+  '/countries/continent/{continenteID}':
+    parameters:
+      - schema:
+          type: string
+        name: continenteID
+        in: path
+        required: true
+    get:
+      summary: Countrie - FindManyByContinent
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            PaisID:
+                              type: integer
+                            IsoNumerico:
+                              type: integer
+                            Nombre:
+                              type: string
+                            ContinenteID:
+                              type: integer
+                            Iso2:
+                              type: string
+                            Iso3:
+                              type: string
+                            OrigenOperacionFacturaID:
+                              type: integer
+                            ControlProvincia:
+                              type: integer
+                            TIpoOperacionID:
+                              type: integer
+                            NombreTipoOperacion:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT *,\r\npaisrelaciontercero.TipoOperacionTerceroID,\r\ntablageneral.Descripcion AS nombreTipoOperacion\r\nFROM pais\r\nLEFT JOIN paisrelaciontercero ON paisrelaciontercero.PaisID = pais.PaisID\r\nLEFT JOIN tablageneral ON tablageneral.TablaGeneralID = paisrelaciontercero.TipoOperacionTerceroID\r\nWHERE Pais.ContinenteID = 2"
+                      records:
+                        - PaisID: 6
+                          IsoNumerico: 660
+                          Nombre: Anguilla
+                          ContinenteID: 2
+                          Iso2: AI
+                          Iso3: AIA
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 8
+                          IsoNumerico: 28
+                          Nombre: Antigua y Barbuda
+                          ContinenteID: 2
+                          Iso2: AG
+                          Iso3: ATG
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 9
+                          IsoNumerico: 530
+                          Nombre: Antillas Holandesas
+                          ContinenteID: 2
+                          Iso2: AN
+                          Iso3: ANT
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 12
+                          IsoNumerico: 32
+                          Nombre: Argentina
+                          ContinenteID: 2
+                          Iso2: AR
+                          Iso3: ARG
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 14
+                          IsoNumerico: 533
+                          Nombre: Aruba
+                          ContinenteID: 2
+                          Iso2: AW
+                          Iso3: ABW
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 18
+                          IsoNumerico: 44
+                          Nombre: Bahamas
+                          ContinenteID: 2
+                          Iso2: BS
+                          Iso3: BHS
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 21
+                          IsoNumerico: 52
+                          Nombre: Barbados
+                          ContinenteID: 2
+                          Iso2: BB
+                          Iso3: BRB
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 23
+                          IsoNumerico: 84
+                          Nombre: Belice
+                          ContinenteID: 2
+                          Iso2: BZ
+                          Iso3: BLZ
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 25
+                          IsoNumerico: 60
+                          Nombre: Bermudas
+                          ContinenteID: 2
+                          Iso2: BM
+                          Iso3: BMU
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 28
+                          IsoNumerico: 68
+                          Nombre: Bolivia
+                          ContinenteID: 2
+                          Iso2: BO
+                          Iso3: BOL
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 31
+                          IsoNumerico: 76
+                          Nombre: Brasil
+                          ContinenteID: 2
+                          Iso2: BR
+                          Iso3: BRA
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 39
+                          IsoNumerico: 124
+                          Nombre: Canadá
+                          ContinenteID: 2
+                          Iso2: CA
+                          Iso3: CAN
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 41
+                          IsoNumerico: 152
+                          Nombre: Chile
+                          ContinenteID: 2
+                          Iso2: CL
+                          Iso3: CHL
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 45
+                          IsoNumerico: 170
+                          Nombre: Colombia
+                          ContinenteID: 2
+                          Iso2: CO
+                          Iso3: COL
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 51
+                          IsoNumerico: 188
+                          Nombre: Costa Rica
+                          ContinenteID: 2
+                          Iso2: CR
+                          Iso3: CRI
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 53
+                          IsoNumerico: 192
+                          Nombre: Cuba
+                          ContinenteID: 2
+                          Iso2: CU
+                          Iso3: CUB
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 55
+                          IsoNumerico: 212
+                          Nombre: Dominica
+                          ContinenteID: 2
+                          Iso2: DM
+                          Iso3: DMA
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 56
+                          IsoNumerico: 218
+                          Nombre: Ecuador
+                          ContinenteID: 2
+                          Iso2: EC
+                          Iso3: ECU
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 58
+                          IsoNumerico: 222
+                          Nombre: El Salvador
+                          ContinenteID: 2
+                          Iso2: SV
+                          Iso3: SLV
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 64
+                          IsoNumerico: 840
+                          Nombre: Estados Unidos
+                          ContinenteID: 2
+                          Iso2: US
+                          Iso3: USA
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 76
+                          IsoNumerico: 308
+                          Nombre: Granada
+                          ContinenteID: 2
+                          Iso2: GD
+                          Iso3: GRD
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 78
+                          IsoNumerico: 304
+                          Nombre: Groenlandia
+                          ContinenteID: 2
+                          Iso2: GL
+                          Iso3: GRL
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 79
+                          IsoNumerico: 312
+                          Nombre: Guadalupe
+                          ContinenteID: 2
+                          Iso2: GP
+                          Iso3: GLP
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 81
+                          IsoNumerico: 320
+                          Nombre: Guatemala
+                          ContinenteID: 2
+                          Iso2: GT
+                          Iso3: GTM
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 82
+                          IsoNumerico: 254
+                          Nombre: Guayana Francesa
+                          ContinenteID: 2
+                          Iso2: GF
+                          Iso3: GUF
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 83
+                          IsoNumerico: 324
+                          Nombre: Guinea
+                          ContinenteID: 2
+                          Iso2: GN
+                          Iso3: GIN
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 86
+                          IsoNumerico: 328
+                          Nombre: Guyana
+                          ContinenteID: 2
+                          Iso2: GY
+                          Iso3: GUY
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 87
+                          IsoNumerico: 332
+                          Nombre: Haití
+                          ContinenteID: 2
+                          Iso2: HT
+                          Iso3: HTI
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 88
+                          IsoNumerico: 340
+                          Nombre: Honduras
+                          ContinenteID: 2
+                          Iso2: HN
+                          Iso3: HND
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 100
+                          IsoNumerico: 136
+                          Nombre: Islas Caimán
+                          ContinenteID: 2
+                          Iso2: KY
+                          Iso3: CYM
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 101
+                          IsoNumerico: 166
+                          Nombre: Islas Cocos
+                          ContinenteID: 2
+                          Iso2: CC
+                          Iso3: CCK
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 104
+                          IsoNumerico: 239
+                          Nombre: Islas Georgias del Sur y Sandwich del Sur
+                          ContinenteID: 2
+                          Iso2: GS
+                          Iso3: SGS
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 107
+                          IsoNumerico: 238
+                          Nombre: Islas Malvinas
+                          ContinenteID: 2
+                          Iso2: FK
+                          Iso3: FLK
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 112
+                          IsoNumerico: 796
+                          Nombre: Islas Turcas y Caicos
+                          ContinenteID: 2
+                          Iso2: TC
+                          Iso3: TCA
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 114
+                          IsoNumerico: 92
+                          Nombre: Islas Vírgenes Británicas
+                          ContinenteID: 2
+                          Iso2: VG
+                          Iso3: VGB
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 115
+                          IsoNumerico: 850
+                          Nombre: Islas Vírgenes de los Estados Unidos
+                          ContinenteID: 2
+                          Iso2: VI
+                          Iso3: VIR
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 118
+                          IsoNumerico: 388
+                          Nombre: Jamaica
+                          ContinenteID: 2
+                          Iso2: JM
+                          Iso3: JAM
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 144
+                          IsoNumerico: 474
+                          Nombre: Martinica
+                          ContinenteID: 2
+                          Iso2: MQ
+                          Iso3: MTQ
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 148
+                          IsoNumerico: 484
+                          Nombre: México
+                          ContinenteID: 2
+                          Iso2: MX
+                          Iso3: MEX
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 1
+                          TIpoOperacionID: 180
+                          NombreTipoOperacion: Nacional
+                        - PaisID: 153
+                          IsoNumerico: 500
+                          Nombre: Montserrat
+                          ContinenteID: 2
+                          Iso2: MS
+                          Iso3: MSR
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 159
+                          IsoNumerico: 558
+                          Nombre: Nicaragua
+                          ContinenteID: 2
+                          Iso2: NI
+                          Iso3: NIC
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 171
+                          IsoNumerico: 591
+                          Nombre: Panamá
+                          ContinenteID: 2
+                          Iso2: PA
+                          Iso3: PAN
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 173
+                          IsoNumerico: 600
+                          Nombre: Paraguay
+                          ContinenteID: 2
+                          Iso2: PY
+                          Iso3: PRY
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 174
+                          IsoNumerico: 604
+                          Nombre: Perú
+                          ContinenteID: 2
+                          Iso2: PE
+                          Iso3: PER
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 178
+                          IsoNumerico: 630
+                          Nombre: Puerto Rico
+                          ContinenteID: 2
+                          Iso2: PR
+                          Iso3: PRI
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 184
+                          IsoNumerico: 214
+                          Nombre: República Dominicana
+                          ContinenteID: 2
+                          Iso2: DO
+                          Iso3: DOM
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 192
+                          IsoNumerico: 659
+                          Nombre: San Cristóbal y Nevis
+                          ContinenteID: 2
+                          Iso2: KN
+                          Iso3: KNA
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 194
+                          IsoNumerico: 666
+                          Nombre: San Pedro y Miquelón
+                          ContinenteID: 2
+                          Iso2: PM
+                          Iso3: SPM
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 195
+                          IsoNumerico: 670
+                          Nombre: San Vicente y las Granadinas
+                          ContinenteID: 2
+                          Iso2: VC
+                          Iso3: VCT
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 197
+                          IsoNumerico: 662
+                          Nombre: Santa Lucía
+                          ContinenteID: 2
+                          Iso2: LC
+                          Iso3: LCA
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 224
+                          IsoNumerico: 780
+                          Nombre: Trinidad y Tobago
+                          ContinenteID: 2
+                          Iso2: TT
+                          Iso3: TTO
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 231
+                          IsoNumerico: 858
+                          Nombre: Uruguay
+                          ContinenteID: 2
+                          Iso2: UY
+                          Iso3: URY
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 234
+                          IsoNumerico: 862
+                          Nombre: Venezuela
+                          ContinenteID: 2
+                          Iso2: VE
+                          Iso3: VEN
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 251
+                          IsoNumerico: 17
+                          Nombre: PAISJuan
+                          ContinenteID: 2
+                          Iso2: CO
+                          Iso3: PEI
+                          OrigenOperacionFacturaID: 1
+                          ControlProvincia: 1
+                          TIpoOperacionID: 180
+                          NombreTipoOperacion: Nacional
+                        - PaisID: 254
+                          IsoNumerico: 17
+                          Nombre: PAISJCO
+                          ContinenteID: 2
+                          Iso2: CO
+                          Iso3: PEI
+                          OrigenOperacionFacturaID: 1
+                          ControlProvincia: 1
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - PaisID: 6
+                          IsoNumerico: 660
+                          Nombre: Anguilla
+                          ContinenteID: 2
+                          Iso2: AI
+                          Iso3: AIA
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 8
+                          IsoNumerico: 28
+                          Nombre: Antigua y Barbuda
+                          ContinenteID: 2
+                          Iso2: AG
+                          Iso3: ATG
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 9
+                          IsoNumerico: 530
+                          Nombre: Antillas Holandesas
+                          ContinenteID: 2
+                          Iso2: AN
+                          Iso3: ANT
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 12
+                          IsoNumerico: 32
+                          Nombre: Argentina
+                          ContinenteID: 2
+                          Iso2: AR
+                          Iso3: ARG
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 197
+                          IsoNumerico: 662
+                          Nombre: Santa Lucía
+                          ContinenteID: 2
+                          Iso2: LC
+                          Iso3: LCA
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 224
+                          IsoNumerico: 780
+                          Nombre: Trinidad y Tobago
+                          ContinenteID: 2
+                          Iso2: TT
+                          Iso3: TTO
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 231
+                          IsoNumerico: 858
+                          Nombre: Uruguay
+                          ContinenteID: 2
+                          Iso2: UY
+                          Iso3: URY
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 234
+                          IsoNumerico: 862
+                          Nombre: Venezuela
+                          ContinenteID: 2
+                          Iso2: VE
+                          Iso3: VEN
+                          OrigenOperacionFacturaID: 0
+                          ControlProvincia: 0
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+                        - PaisID: 251
+                          IsoNumerico: 17
+                          Nombre: PAISJuan
+                          ContinenteID: 2
+                          Iso2: CO
+                          Iso3: PEI
+                          OrigenOperacionFacturaID: 1
+                          ControlProvincia: 1
+                          TIpoOperacionID: 180
+                          NombreTipoOperacion: Nacional
+                        - PaisID: 254
+                          IsoNumerico: 17
+                          Nombre: PAISJCO
+                          ContinenteID: 2
+                          Iso2: CO
+                          Iso3: PEI
+                          OrigenOperacionFacturaID: 1
+                          ControlProvincia: 1
+                          TIpoOperacionID: 0
+                          NombreTipoOperacion: ''
+      operationId: get-countries-continent-continenteID
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas: {}
