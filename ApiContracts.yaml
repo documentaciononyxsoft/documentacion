@@ -999,5 +999,138 @@ paths:
           name: 'accessToken '
           description: Token Reciente
       description: ''
+  '/contracts/{contratoID}/ubications':
+    parameters:
+      - schema:
+          type: string
+          example: '20'
+        name: contratoID
+        in: path
+        required: true
+        description: ID del contrato
+    get:
+      summary: Contracts - FindManyForUbications
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ContratoMantenimientoUbicacionID:
+                              type: integer
+                            Direccion:
+                              type: string
+                            Nombre:
+                              type: string
+                            CodigoPostal:
+                              type: string
+                            Municipio:
+                              type: string
+                            Provincia:
+                              type: string
+                            Pais:
+                              type: string
+                            Telefono:
+                              type: string
+                            DireccionHabitual:
+                              type: integer
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - ContratoMantenimientoUbicacionID: 15
+                          Direccion: Calle falsa 123
+                          Nombre: Edgos v2
+                          CodigoPostal: ''
+                          Municipio: Dosquebradas
+                          Provincia: Araba
+                          Pais: AfganistÃ¡n
+                          Telefono: '33333'
+                          DireccionHabitual: 0
+                        - ContratoMantenimientoUbicacionID: 16
+                          Direccion: Calle falsa 123
+                          Nombre: Edgos v3
+                          CodigoPostal: ''
+                          Municipio: Dosquebradas
+                          Provincia: Araba
+                          Pais: AfganistÃ¡n
+                          Telefono: '33333'
+                          DireccionHabitual: 0
+                        - ContratoMantenimientoUbicacionID: 17
+                          Direccion: Calle falsa 123
+                          Nombre: Edgos v4
+                          CodigoPostal: ''
+                          Municipio: Dosquebradas
+                          Provincia: Araba
+                          Pais: AfganistÃ¡n
+                          Telefono: '33333'
+                          DireccionHabitual: 0
+                      success: true
+                      sql: "SELECT\r\nContratoMantenimientoDireccion.*,\r\nDireccion.*,\r\nCodigoPostal.CodigoPostal AS CodigoPostal,\r\nDireccion.Municipio AS Municipio,\r\nProvincia.Nombre AS Provincia,\r\nPais.Nombre AS Pais,\r\nCONCAT (Direccion.Direccion, ' - ', Direccion.Municipio) AS DireccionCompleta\r\n\r\nFROM\r\n(((((ContratoMantenimientoDireccion LEFT OUTER JOIN Direccion ON Direccion.DireccionID = ContratoMantenimientoDireccion.DireccionID)\r\nLEFT OUTER JOIN CodigoPostal ON Direccion.CodigoPostalID = CodigoPostal.CodigoPostalID)\r\nLEFT OUTER JOIN Municipio ON Direccion.MunicipioID = Municipio.MunicipioID)\r\nLEFT OUTER JOIN Provincia ON Direccion.ProvinciaID = Provincia.ProvinciaID)\r\nLEFT OUTER JOIN Pais ON Direccion.PaisID = Pais.PaisID)\r\n\r\nWHERE\r\nDireccion.CustomerID = 29 AND\r\nDireccion.EmpresaID = 1  AND\r\nDireccion.Clave = 'SAT' AND\r\nContratoMantenimientoDireccion.ContratoMantenimientoID = 20 AND\r\nDireccion.Activo=1\r\n\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - ContratoMantenimientoUbicacionID: 15
+                          Direccion: Calle falsa 123
+                          Nombre: Edgos v2
+                          CodigoPostal: ''
+                          Municipio: Dosquebradas
+                          Provincia: Araba
+                          Pais: AfganistÃ¡n
+                          Telefono: '33333'
+                          DireccionHabitual: 0
+                        - ContratoMantenimientoUbicacionID: 16
+                          Direccion: Calle falsa 123
+                          Nombre: Edgos v3
+                          CodigoPostal: ''
+                          Municipio: Dosquebradas
+                          Provincia: Araba
+                          Pais: AfganistÃ¡n
+                          Telefono: '33333'
+                          DireccionHabitual: 0
+                        - ContratoMantenimientoUbicacionID: 17
+                          Direccion: Calle falsa 123
+                          Nombre: Edgos v4
+                          CodigoPostal: ''
+                          Municipio: Dosquebradas
+                          Provincia: Araba
+                          Pais: AfganistÃ¡n
+                          Telefono: '33333'
+                          DireccionHabitual: 0
+                      success: true
+                      sql: "SELECT\r\nContratoMantenimientoDireccion.*,\r\nDireccion.*,\r\nCodigoPostal.CodigoPostal AS CodigoPostal,\r\nDireccion.Municipio AS Municipio,\r\nProvincia.Nombre AS Provincia,\r\nPais.Nombre AS Pais,\r\nCONCAT (Direccion.Direccion, ' - ', Direccion.Municipio) AS DireccionCompleta\r\n\r\nFROM\r\n(((((ContratoMantenimientoDireccion LEFT OUTER JOIN Direccion ON Direccion.DireccionID = ContratoMantenimientoDireccion.DireccionID)\r\nLEFT OUTER JOIN CodigoPostal ON Direccion.CodigoPostalID = CodigoPostal.CodigoPostalID)\r\nLEFT OUTER JOIN Municipio ON Direccion.MunicipioID = Municipio.MunicipioID)\r\nLEFT OUTER JOIN Provincia ON Direccion.ProvinciaID = Provincia.ProvinciaID)\r\nLEFT OUTER JOIN Pais ON Direccion.PaisID = Pais.PaisID)\r\n\r\nWHERE\r\nDireccion.CustomerID = 29 AND\r\nDireccion.EmpresaID = 1  AND\r\nDireccion.Clave = 'SAT' AND\r\nContratoMantenimientoDireccion.ContratoMantenimientoID = 20 AND\r\nDireccion.Activo=1\r\n\r\n"
+      operationId: get-contracts-contratoID-ubications
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: 'accessToken '
+          description: Token Reciente
 components:
   schemas: {}
