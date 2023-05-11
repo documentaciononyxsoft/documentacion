@@ -6928,5 +6928,253 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /menu:
+    get:
+      summary: Menu - LoadMenu
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      MenuPrincipal:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            MenuID:
+                              type: integer
+                            codigo:
+                              type: string
+                            codigoPadre:
+                              type: string
+                            paametros:
+                              type: string
+                            tipo:
+                              type: string
+                            pagina:
+                              type: string
+                            opcion:
+                              type: string
+                            iconoMenu:
+                              type: string
+                            flaticon:
+                              type: string
+                            padreID:
+                              type: string
+                            ventanaERP:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      MenuPrincipal:
+                        - MenuID: 30162
+                          codigo: ERP_Tablas
+                          codigoPadre: ''
+                          paametros: ''
+                          tipo: Principal
+                          pagina: ''
+                          opcion: Tablas
+                          iconoMenu: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas.svg'
+                          flaticon: flaticon-tablas
+                          padreID: ''
+                          ventanaERP: ''
+                        - MenuID: 30213
+                          codigo: ERP_Organizador
+                          codigoPadre: ''
+                          paametros: ''
+                          tipo: Principal
+                          pagina: ''
+                          opcion: Organizador
+                          iconoMenu: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/organizador.svg'
+                          flaticon: flaticon-organizador
+                          padreID: ''
+                          ventanaERP: ''
+                        - MenuID: 30257
+                          codigo: ERP_CRM
+                          codigoPadre: ''
+                          paametros: ''
+                          tipo: Principal
+                          pagina: ''
+                          opcion: CRM
+                          iconoMenu: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/crm.svg'
+                          flaticon: flaticon-comercial-crm
+                          padreID: ''
+                          ventanaERP: ''
+                        - MenuID: 30296
+                          codigo: ERP_Compras
+                          codigoPadre: ''
+                          paametros: ''
+                          tipo: Principal
+                          pagina: ''
+                          opcion: Compras
+                          iconoMenu: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/compras.svg'
+                          flaticon: flaticon-compras
+                          padreID: ''
+                          ventanaERP: ''
+                        - MenuID: 30347
+                          codigo: ERP_Ofertas
+                          codigoPadre: ''
+                          paametros: ''
+                          tipo: Principal
+                          pagina: ''
+                          opcion: Cotizaciones
+                          iconoMenu: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/ofertas.svg'
+                          flaticon: flaticon-cotizaciones
+                          padreID: ''
+                          ventanaERP: ''
+                        - MenuID: 30366
+                          codigo: ERP_Ventas
+                          codigoPadre: ''
+                          paametros: ''
+                          tipo: Principal
+                          pagina: ''
+                          opcion: Ventas
+                          iconoMenu: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/ventas.svg'
+                          flaticon: flaticon-ventas
+                          padreID: ''
+                          ventanaERP: ''
+                        - MenuID: 30448
+                          codigo: ERP_Proyectos
+                          codigoPadre: ''
+                          paametros: ''
+                          tipo: Principal
+                          pagina: ''
+                          opcion: Proyectos
+                          iconoMenu: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/proyectos.svg'
+                          flaticon: flaticon-proyectos
+                          padreID: ''
+                          ventanaERP: ''
+                        - MenuID: 30556
+                          codigo: ERP_Almacen
+                          codigoPadre: ''
+                          paametros: ''
+                          tipo: Principal
+                          pagina: ''
+                          opcion: Almacén
+                          iconoMenu: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/almacen.svg'
+                          flaticon: flaticon-almacen-menu
+                          padreID: ''
+                          ventanaERP: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      MenuPrincipal:
+                        - MenuID: 30162
+                          codigo: ERP_Tablas
+                          codigoPadre: ''
+                          paametros: ''
+                          tipo: Principal
+                          pagina: ''
+                          opcion: Tablas
+                          iconoMenu: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas.svg'
+                          flaticon: flaticon-tablas
+                          padreID: ''
+                          ventanaERP: ''
+                        - MenuID: 30213
+                          codigo: ERP_Organizador
+                          codigoPadre: ''
+                          paametros: ''
+                          tipo: Principal
+                          pagina: ''
+                          opcion: Organizador
+                          iconoMenu: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/organizador.svg'
+                          flaticon: flaticon-organizador
+                          padreID: ''
+                          ventanaERP: ''
+                        - MenuID: 30257
+                          codigo: ERP_CRM
+                          codigoPadre: ''
+                          paametros: ''
+                          tipo: Principal
+                          pagina: ''
+                          opcion: CRM
+                          iconoMenu: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/crm.svg'
+                          flaticon: flaticon-comercial-crm
+                          padreID: ''
+                          ventanaERP: ''
+                        - MenuID: 30296
+                          codigo: ERP_Compras
+                          codigoPadre: ''
+                          paametros: ''
+                          tipo: Principal
+                          pagina: ''
+                          opcion: Compras
+                          iconoMenu: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/compras.svg'
+                          flaticon: flaticon-compras
+                          padreID: ''
+                          ventanaERP: ''
+                        - MenuID: 30347
+                          codigo: ERP_Ofertas
+                          codigoPadre: ''
+                          paametros: ''
+                          tipo: Principal
+                          pagina: ''
+                          opcion: Cotizaciones
+                          iconoMenu: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/ofertas.svg'
+                          flaticon: flaticon-cotizaciones
+                          padreID: ''
+                          ventanaERP: ''
+                        - MenuID: 30366
+                          codigo: ERP_Ventas
+                          codigoPadre: ''
+                          paametros: ''
+                          tipo: Principal
+                          pagina: ''
+                          opcion: Ventas
+                          iconoMenu: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/ventas.svg'
+                          flaticon: flaticon-ventas
+                          padreID: ''
+                          ventanaERP: ''
+                        - MenuID: 30448
+                          codigo: ERP_Proyectos
+                          codigoPadre: ''
+                          paametros: ''
+                          tipo: Principal
+                          pagina: ''
+                          opcion: Proyectos
+                          iconoMenu: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/proyectos.svg'
+                          flaticon: flaticon-proyectos
+                          padreID: ''
+                          ventanaERP: ''
+                        - MenuID: 30556
+                          codigo: ERP_Almacen
+                          codigoPadre: ''
+                          paametros: ''
+                          tipo: Principal
+                          pagina: ''
+                          opcion: Almacén
+                          iconoMenu: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/almacen.svg'
+                          flaticon: flaticon-almacen-menu
+                          padreID: ''
+                          ventanaERP: ''
+      operationId: get-menu
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas: {}
