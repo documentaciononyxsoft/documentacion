@@ -1176,7 +1176,7 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
     post:
-      summary: Article - Creates
+      summary: Article - Create
       operationId: post-tables-articles
       responses:
         '200':
