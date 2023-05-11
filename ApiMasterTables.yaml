@@ -1338,7 +1338,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Article - FindOne
+      summary: Article - FindOnes
       tags: []
       responses: {}
       operationId: get-tables-articles-id-article
