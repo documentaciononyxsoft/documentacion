@@ -7,122 +7,6 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  '/municipalities/light/{provinciaID}':
-    get:
-      summary: findManyByProvinceLight
-      tags: []
-      responses:
-        '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true,
-                    "records": [
-                        {
-                            "municipioid": 8148,
-                            "nombre": "Dosquebradas",
-                            "codigo": "170"
-                        },
-                        {
-                            "municipioid": 8149,
-                            "nombre": "Pereira",
-                            "codigo": "001"
-                        }
-                    ]
-                }
-            }
-      operationId: get-municipalities-light
-      description: ''
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: tokenReciente
-    parameters:
-      - schema:
-          type: string
-        name: provinciaID
-        in: path
-        required: true
-        description: '53'
-  '/municipalities/{provinciaID}':
-    get:
-      summary: findManyByProvince
-      tags: []
-      responses:
-        '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true,
-                    "records": [
-                        {
-                            "municipioid": 8148,
-                            "nombre": "Dosquebradas",
-                            "codigo": "170"
-                        }
-                    ]
-                }
-            }
-      operationId: 'get-http:-localhost:8026-municipalities'
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: string
-          in: query
-          name: 'param '
-          description: dos
-    parameters:
-      - schema:
-          type: string
-        name: provinciaID
-        in: path
-        required: true
-        description: '53'
-  /municipality/checkMunicipality:
-    get:
-      summary: checkMunicipality
-      tags: []
-      responses:
-        '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true,
-                    "sCodigoPostal": "001",
-                    "sIDCodigoPostal": 14768,
-                    "MunicipioID": 8149,
-                    "MunicipioNombre": "Pereira"
-                }
-            }
-      operationId: get-municipality-checkMunicipality
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: integer
-          in: query
-          name: paisID
-          description: '45'
-        - schema:
-            type: string
-          in: query
-          name: sMunicipio
-          description: 'pereira '
   /postalcode/checkPostalCode:
     get:
       summary: checkPostalCode
@@ -7646,5 +7530,202 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /municipality/checkMunicipality:
+    get:
+      summary: checkMunicipality
+      tags: []
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "sCodigoPostal": "001",
+                    "sIDCodigoPostal": 14768,
+                    "MunicipioID": 8149,
+                    "MunicipioNombre": "Pereira"
+                }
+            }
+      operationId: get-municipality-checkMunicipality
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: paisID
+          description: '45'
+        - schema:
+            type: string
+          in: query
+          name: sMunicipio
+          description: 'pereira '
+  '/municipalities/{provinciaID}':
+    get:
+      summary: findManyByProvince
+      tags: []
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "records": [
+                        {
+                            "municipioid": 8148,
+                            "nombre": "Dosquebradas",
+                            "codigo": "170"
+                        }
+                    ]
+                }
+            }
+      operationId: 'get-http:-localhost:8026-municipalities'
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: 'param '
+          description: dos
+    parameters:
+      - schema:
+          type: string
+        name: provinciaID
+        in: path
+        required: true
+        description: '53'
+  '/municipalities/light/{provinciaID}':
+    get:
+      summary: findManyByProvinceLight
+      tags: []
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "records": [
+                        {
+                            "municipioid": 8148,
+                            "nombre": "Dosquebradas",
+                            "codigo": "170"
+                        },
+                        {
+                            "municipioid": 8149,
+                            "nombre": "Pereira",
+                            "codigo": "001"
+                        }
+                    ]
+                }
+            }
+      operationId: get-municipalities-light
+      description: ''
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: tokenReciente
+    parameters:
+      - schema:
+          type: string
+        name: provinciaID
+        in: path
+        required: true
+        description: '53'
+  /municipalities:
+    post:
+      summary: Municipalities - Create
+      operationId: post-municipalities
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      MunicipioID:
+                        type: integer
+                      FechaHoraUsuario:
+                        type: string
+                      NombreUsuario:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      MunicipioID: 189
+                      FechaHoraUsuario: '2023-05-11T11:51:21.158'
+                      NombreUsuario: ADMINISTRADOR
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      MunicipioID: 189
+                      FechaHoraUsuario: '2023-05-11T11:51:21.158'
+                      NombreUsuario: ADMINISTRADOR
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CodPostal:
+                  type: string
+                Nombre:
+                  type: string
+                ProvinciaID:
+                  type: string
+                Codigo:
+                  type: string
+              x-examples:
+                Example 1:
+                  CodPostal: '660011'
+                  Nombre: MiloTest
+                  ProvinciaID: '1'
+                  Codigo: '005'
+            examples:
+              Example 1:
+                value:
+                  CodPostal: '660011'
+                  Nombre: MiloTest
+                  ProvinciaID: '1'
+                  Codigo: '005'
 components:
   schemas: {}
