@@ -8366,5 +8366,215 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /variables:
+    get:
+      summary: Variables - FindAll
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      varPubicas:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            parametrizacionid:
+                              type: integer
+                            nombreVariable:
+                              type: string
+                            descripcion:
+                              type: string
+                            valorInicial:
+                              type: string
+                            posiblesValores:
+                              type: string
+                            notas:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      varPubicas:
+                        - parametrizacionid: 3
+                          nombreVariable: sDirectorioWDModFicEXE
+                          descripcion: Tipo de Menu
+                          valorInicial: V
+                          posiblesValores: V;H
+                          notas: ''
+                        - parametrizacionid: 4
+                          nombreVariable: sDirectorioAnalisis
+                          descripcion: Directorio para Análisis(Onyx.Wdd)
+                          valorInicial: 'O:\Data\Onyx.Wdd'
+                          posiblesValores: ''
+                          notas: ''
+                        - parametrizacionid: 5
+                          nombreVariable: gnEmpresaId
+                          descripcion: Empresa Activa
+                          valorInicial: '1'
+                          posiblesValores: ''
+                          notas: ''
+                        - parametrizacionid: 6
+                          nombreVariable: sClasificacionPorRegistro
+                          descripcion: Ficheros con clasificaciones por registro
+                          valorInicial: ''
+                          posiblesValores: ''
+                          notas: ''
+                        - parametrizacionid: 7
+                          nombreVariable: nClasificacionTipodeCarga
+                          descripcion: Visualizar todos los registros de Clasificación
+                          valorInicial: '2'
+                          posiblesValores: 1;2
+                          notas: ''
+                        - parametrizacionid: 8
+                          nombreVariable: bEjecutarScript
+                          descripcion: Ejecutar Script(si existe error de ejecucion se desactiva)
+                          valorInicial: '1'
+                          posiblesValores: 1;0
+                          notas: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      varPubicas:
+                        - parametrizacionid: 3
+                          nombreVariable: sDirectorioWDModFicEXE
+                          descripcion: Tipo de Menu
+                          valorInicial: V
+                          posiblesValores: V;H
+                          notas: ''
+                        - parametrizacionid: 4
+                          nombreVariable: sDirectorioAnalisis
+                          descripcion: Directorio para Análisis(Onyx.Wdd)
+                          valorInicial: 'O:\Data\Onyx.Wdd'
+                          posiblesValores: ''
+                          notas: ''
+                        - parametrizacionid: 5
+                          nombreVariable: gnEmpresaId
+                          descripcion: Empresa Activa
+                          valorInicial: '1'
+                          posiblesValores: ''
+                          notas: ''
+                        - parametrizacionid: 6
+                          nombreVariable: sClasificacionPorRegistro
+                          descripcion: Ficheros con clasificaciones por registro
+                          valorInicial: ''
+                          posiblesValores: ''
+                          notas: ''
+                        - parametrizacionid: 7
+                          nombreVariable: nClasificacionTipodeCarga
+                          descripcion: Visualizar todos los registros de Clasificación
+                          valorInicial: '2'
+                          posiblesValores: 1;2
+                          notas: ''
+                        - parametrizacionid: 8
+                          nombreVariable: bEjecutarScript
+                          descripcion: Ejecutar Script(si existe error de ejecucion se desactiva)
+                          valorInicial: '1'
+                          posiblesValores: 1;0
+                          notas: ''
+      operationId: get-variables
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+    post:
+      summary: Variables - Create
+      operationId: post-variables
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      id:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      id: 808
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      id: 808
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ParametrizacionID:
+                  type: string
+                Codigo:
+                  type: string
+                Descripcion:
+                  type: string
+                ValorInicial:
+                  type: string
+                PosiblesValores:
+                  type: string
+                Notas:
+                  type: string
+              x-examples:
+                Example 1:
+                  ParametrizacionID: ''
+                  Codigo: sParamJCO
+                  Descripcion: Por defectus
+                  ValorInicial: JCO
+                  PosiblesValores: 0;1
+                  Notas: Notest
+            examples:
+              Example 1:
+                value:
+                  ParametrizacionID: ''
+                  Codigo: sParamJCO
+                  Descripcion: Por defectus
+                  ValorInicial: JCO
+                  PosiblesValores: 0;1
+                  Notas: Notest
 components:
   schemas: {}
