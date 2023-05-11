@@ -1354,7 +1354,100 @@ paths:
     get:
       summary: Article - FindPricesData
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      retencion:
+                        type: object
+                        properties:
+                          ComboRetencionID:
+                            type: integer
+                          EDTPorcentajeRetencion:
+                            type: integer
+                      referencia:
+                        type: string
+                      dataArticulo:
+                        type: object
+                        properties:
+                          Codigo:
+                            type: string
+                          Nombre:
+                            type: string
+                          Descripcion:
+                            type: string
+                      Precio:
+                        type: object
+                        properties:
+                          verificarCantidad:
+                            type: boolean
+                          records:
+                            type: 'null'
+                      iva:
+                        type: object
+                        properties:
+                          IvaId:
+                            type: string
+                          CodigoIva:
+                            type: string
+                          NombreIva:
+                            type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      retencion:
+                        ComboRetencionID: 0
+                        EDTPorcentajeRetencion: 0
+                      referencia: ''
+                      dataArticulo:
+                        Codigo: '300027223'
+                        Nombre: ARITOS 430GRX14X1
+                        Descripcion: ghh
+                      Precio:
+                        verificarCantidad: false
+                        records: null
+                      iva:
+                        IvaId: ''
+                        CodigoIva: ''
+                        NombreIva: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      retencion:
+                        ComboRetencionID: 0
+                        EDTPorcentajeRetencion: 0
+                      referencia: ''
+                      dataArticulo:
+                        Codigo: '300027223'
+                        Nombre: ARITOS 430GRX14X1
+                        Descripcion: ghh
+                      Precio:
+                        verificarCantidad: false
+                        records: null
+                      iva:
+                        IvaId: ''
+                        CodigoIva: ''
+                        NombreIva: ''
       operationId: get-tables-prices-articles
       parameters:
         - schema:
@@ -1364,6 +1457,19 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+        - schema:
+            type: string
+            example: '8'
+          in: query
+          name: articuloID
+        - schema:
+            type: string
+          in: query
+          name: almacenID
+        - schema:
+            type: string
+          in: query
+          name: albaranCompraID
   /tables/companies:
     get:
       summary: Companie - FindMany
