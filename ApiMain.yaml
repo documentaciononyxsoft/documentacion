@@ -7818,50 +7818,9 @@ paths:
         name: provinciaID
         in: path
         required: true
-  '/municipalities/light/{provinciaID}':
-    get:
-      summary: findManyByProvinceLight
-      tags: []
-      responses:
-        '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true,
-                    "records": [
-                        {
-                            "municipioid": 8148,
-                            "nombre": "Dosquebradas",
-                            "codigo": "170"
-                        },
-                        {
-                            "municipioid": 8149,
-                            "nombre": "Pereira",
-                            "codigo": "001"
-                        }
-                    ]
-                }
-            }
-      operationId: get-municipalities-light
-      description: ''
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: tokenReciente
-    parameters:
-      - schema:
-          type: string
-        name: provinciaID
-        in: path
-        required: true
-        description: '53'
   /municipality/checkMunicipality:
     get:
-      summary: checkMunicipality
+      summary: Municipalities - CheckMunicipality
       tags: []
       responses:
         '200':
@@ -7881,18 +7840,20 @@ paths:
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: 'accessToken '
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
         - schema:
             type: integer
+            example: 45
           in: query
           name: paisID
-          description: '45'
         - schema:
             type: string
+            example: 'pereira '
           in: query
           name: sMunicipio
-          description: 'pereira '
 components:
   schemas: {}
