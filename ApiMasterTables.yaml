@@ -760,6 +760,281 @@ paths:
           in: query
           name: coincidencia
           description: Coincidencia a buscar
+  /tables/employee/account:
+    get:
+      summary: Account - FindOneForEmployeeSAT
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Codigo:
+                              type: string
+                            RFC:
+                              type: string
+                            Activo:
+                              type: integer
+                            NmFiscal:
+                              type: string
+                            NmCom:
+                              type: string
+                            Telefono:
+                              type: string
+                            Email:
+                              type: string
+                            Horario:
+                              type: string
+                            Web:
+                              type: string
+                            PaisID:
+                              type: integer
+                            ProvinciaID:
+                              type: integer
+                            Municipio:
+                              type: string
+                            CodigoPostalID:
+                              type: integer
+                            Direccion:
+                              type: string
+                            Observacion:
+                              type: string
+                            UsuarioAlta:
+                              type: string
+                            FechaAlta:
+                              type: string
+                            sectorID:
+                              type: integer
+                            actividadID:
+                              type: integer
+                            nombreSector:
+                              type: string
+                            nombreActividad:
+                              type: string
+                            codigoSector:
+                              type: string
+                            codigoActividad:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT\r\nMailing.*,\r\nPais.Nombre as paisNombre,\r\nProvincia.Nombre provinciaNombre,\r\nUsuario.NombreUsuario \r\nFROM\r\nMailing\r\nLEFT JOIN Pais ON Mailing.PaisID = Pais.PaisID\r\nLEFT JOIN Provincia ON Mailing.ProvinciaID = Provincia.ProvinciaID\r\nLEFT JOIN Usuario ON Mailing.UsuarioID\t   = Usuario.UsuarioID \r\nWHERE\r\nMailing.CustomerID = 29 AND\r\nMailing.EmpresaID  = 1 AND\r\nMailing.MailingID  = 845"
+                      records:
+                        - Codigo: VEND-0000017
+                          RFC: ''
+                          Activo: 1
+                          NmFiscal: Victor Manuel Pardo Váldez
+                          NmCom: Casa Ley
+                          Telefono: '5549401126'
+                          Email: v.pardo@saintfoods.com.mx
+                          Horario: ''
+                          Web: ''
+                          PaisID: 148
+                          ProvinciaID: 0
+                          Municipio: IZTAPALAPA
+                          CodigoPostalID: 0
+                          Direccion: 'SAMUEL CROMPTOM 18 ESQ. EDUARDO BRANLEY, COL. FUEGO NUEVO C.P. 09800, IZTAPALAPA D.F.'
+                          Observacion: ''
+                          UsuarioAlta: ''
+                          FechaAlta: '2021-12-17'
+                          sectorID: 0
+                          actividadID: 0
+                          nombreSector: ''
+                          nombreActividad: ''
+                          codigoSector: ''
+                          codigoActividad: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - Codigo: VEND-0000017
+                          RFC: ''
+                          Activo: 1
+                          NmFiscal: Victor Manuel Pardo Váldez
+                          NmCom: Casa Ley
+                          Telefono: '5549401126'
+                          Email: v.pardo@saintfoods.com.mx
+                          Horario: ''
+                          Web: ''
+                          PaisID: 148
+                          ProvinciaID: 0
+                          Municipio: IZTAPALAPA
+                          CodigoPostalID: 0
+                          Direccion: 'SAMUEL CROMPTOM 18 ESQ. EDUARDO BRANLEY, COL. FUEGO NUEVO C.P. 09800, IZTAPALAPA D.F.'
+                          Observacion: ''
+                          UsuarioAlta: ''
+                          FechaAlta: '2021-12-17'
+                          sectorID: 0
+                          actividadID: 0
+                          nombreSector: ''
+                          nombreActividad: ''
+                          codigoSector: ''
+                          codigoActividad: ''
+      operationId: get-tables-employee-account
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: '845'
+          in: query
+          name: mailingID
+          required: true
+      requestBody:
+        content: {}
+    put:
+      summary: updateAccountForEmployee
+      operationId: put-tables-employee-account
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: ''
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                MailingID:
+                  type: integer
+                RFC:
+                  type: string
+                Activo:
+                  type: boolean
+                NombreFiscal:
+                  type: string
+                NombreComercial:
+                  type: string
+                Telefono:
+                  type: string
+                Horario:
+                  type: string
+                Email:
+                  type: string
+                PaisID:
+                  type: integer
+                ProvinciaID:
+                  type: integer
+                MunicipioID:
+                  type: integer
+                Municipio:
+                  type: string
+                Observacion:
+                  type: string
+                Direccion:
+                  type: string
+                Web:
+                  type: string
+                CodigoPostalID:
+                  type: integer
+              x-examples:
+                Example 1:
+                  MailingID: 845
+                  RFC: '54567'
+                  Activo: false
+                  NombreFiscal: PRUEBAmod3
+                  NombreComercial: pruebaMOD4
+                  Telefono: '3218326755'
+                  Horario: SADASD
+                  Email: SDFDS@ASDSAD
+                  PaisID: 45
+                  ProvinciaID: 53
+                  MunicipioID: 8149
+                  Municipio: Pereira
+                  Observacion: DSFDSFDSFD
+                  Direccion: SADFBSAHFVSAJFVAT
+                  Web: ASDASDAS.COM
+                  CodigoPostalID: 14768
+            examples:
+              Example 1:
+                value:
+                  MailingID: 845
+                  RFC: '54567'
+                  Activo: false
+                  NombreFiscal: PRUEBAmod3
+                  NombreComercial: pruebaMOD4
+                  Telefono: '3218326755'
+                  Horario: SADASD
+                  Email: SDFDS@ASDSAD
+                  PaisID: 45
+                  ProvinciaID: 53
+                  MunicipioID: 8149
+                  Municipio: Pereira
+                  Observacion: DSFDSFDSFD
+                  Direccion: SADFBSAHFVSAJFVAT
+                  Web: ASDASDAS.COM
+                  CodigoPostalID: 14768
+        description: ''
   /tables/companies:
     get:
       summary: Companie - FindMany
@@ -16527,276 +16802,6 @@ paths:
           name: tiempoTrabajoID
           description: '1'
     parameters: []
-  /tables/employee/account:
-    get:
-      summary: findOneAccountForEmployee
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            Codigo:
-                              type: string
-                            RFC:
-                              type: string
-                            Activo:
-                              type: integer
-                            NmFiscal:
-                              type: string
-                            NmCom:
-                              type: string
-                            Telefono:
-                              type: string
-                            Email:
-                              type: string
-                            Horario:
-                              type: string
-                            Web:
-                              type: string
-                            PaisID:
-                              type: integer
-                            ProvinciaID:
-                              type: integer
-                            Municipio:
-                              type: string
-                            CodigoPostalID:
-                              type: integer
-                            Direccion:
-                              type: string
-                            Observacion:
-                              type: string
-                            UsuarioAlta:
-                              type: string
-                            FechaAlta:
-                              type: string
-                            sectorID:
-                              type: integer
-                            actividadID:
-                              type: integer
-                            nombreSector:
-                              type: string
-                            nombreActividad:
-                              type: string
-                            codigoSector:
-                              type: string
-                            codigoActividad:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT\r\nMailing.*,\r\nPais.Nombre as paisNombre,\r\nProvincia.Nombre provinciaNombre,\r\nUsuario.NombreUsuario \r\nFROM\r\nMailing\r\nLEFT JOIN Pais ON Mailing.PaisID = Pais.PaisID\r\nLEFT JOIN Provincia ON Mailing.ProvinciaID = Provincia.ProvinciaID\r\nLEFT JOIN Usuario ON Mailing.UsuarioID\t   = Usuario.UsuarioID \r\nWHERE\r\nMailing.CustomerID = 29 AND\r\nMailing.EmpresaID  = 1 AND\r\nMailing.MailingID  = 845"
-                      records:
-                        - Codigo: '43000416'
-                          RFC: '54567'
-                          Activo: 0
-                          NmFiscal: PRUEBAmod3
-                          NmCom: pruebaMOD4
-                          Telefono: '3218326755'
-                          Email: SDFDS@ASDSAD
-                          Horario: SADASD
-                          Web: ASDASDAS.COM
-                          PaisID: 45
-                          ProvinciaID: 53
-                          Municipio: Pereira
-                          CodigoPostalID: 14768
-                          Direccion: SADFBSAHFVSAJFVAT
-                          Observacion: DSFDSFDSFD
-                          UsuarioAlta: SUPERVISOR
-                          FechaAlta: '2022-04-25'
-                          sectorID: 19
-                          actividadID: 20
-                          nombreSector: COM
-                          nombreActividad: ASISTENCIA TECNICA
-                          codigoSector: COMERCIAL
-                          codigoActividad: TEC
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT\r\nMailing.*,\r\nPais.Nombre as paisNombre,\r\nProvincia.Nombre provinciaNombre,\r\nUsuario.NombreUsuario \r\nFROM\r\nMailing\r\nLEFT JOIN Pais ON Mailing.PaisID = Pais.PaisID\r\nLEFT JOIN Provincia ON Mailing.ProvinciaID = Provincia.ProvinciaID\r\nLEFT JOIN Usuario ON Mailing.UsuarioID\t   = Usuario.UsuarioID \r\nWHERE\r\nMailing.CustomerID = 29 AND\r\nMailing.EmpresaID  = 1 AND\r\nMailing.MailingID  = 845"
-                      records:
-                        - Codigo: '43000416'
-                          RFC: '54567'
-                          Activo: 0
-                          NmFiscal: PRUEBAmod3
-                          NmCom: pruebaMOD4
-                          Telefono: '3218326755'
-                          Email: SDFDS@ASDSAD
-                          Horario: SADASD
-                          Web: ASDASDAS.COM
-                          PaisID: 45
-                          ProvinciaID: 53
-                          Municipio: Pereira
-                          CodigoPostalID: 14768
-                          Direccion: SADFBSAHFVSAJFVAT
-                          Observacion: DSFDSFDSFD
-                          UsuarioAlta: SUPERVISOR
-                          FechaAlta: '2022-04-25'
-                          sectorID: 19
-                          actividadID: 20
-                          nombreSector: COM
-                          nombreActividad: ASISTENCIA TECNICA
-                          codigoSector: COMERCIAL
-                          codigoActividad: TEC
-      operationId: get-tables-employee-account
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: string
-          in: query
-          name: mailingID
-          description: '845'
-      requestBody:
-        content: {}
-    put:
-      summary: updateAccountForEmployee
-      operationId: put-tables-employee-account
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      msg:
-                        type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      msg: ''
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      msg: ''
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                MailingID:
-                  type: integer
-                RFC:
-                  type: string
-                Activo:
-                  type: boolean
-                NombreFiscal:
-                  type: string
-                NombreComercial:
-                  type: string
-                Telefono:
-                  type: string
-                Horario:
-                  type: string
-                Email:
-                  type: string
-                PaisID:
-                  type: integer
-                ProvinciaID:
-                  type: integer
-                MunicipioID:
-                  type: integer
-                Municipio:
-                  type: string
-                Observacion:
-                  type: string
-                Direccion:
-                  type: string
-                Web:
-                  type: string
-                CodigoPostalID:
-                  type: integer
-              x-examples:
-                Example 1:
-                  MailingID: 845
-                  RFC: '54567'
-                  Activo: false
-                  NombreFiscal: PRUEBAmod3
-                  NombreComercial: pruebaMOD4
-                  Telefono: '3218326755'
-                  Horario: SADASD
-                  Email: SDFDS@ASDSAD
-                  PaisID: 45
-                  ProvinciaID: 53
-                  MunicipioID: 8149
-                  Municipio: Pereira
-                  Observacion: DSFDSFDSFD
-                  Direccion: SADFBSAHFVSAJFVAT
-                  Web: ASDASDAS.COM
-                  CodigoPostalID: 14768
-            examples:
-              Example 1:
-                value:
-                  MailingID: 845
-                  RFC: '54567'
-                  Activo: false
-                  NombreFiscal: PRUEBAmod3
-                  NombreComercial: pruebaMOD4
-                  Telefono: '3218326755'
-                  Horario: SADASD
-                  Email: SDFDS@ASDSAD
-                  PaisID: 45
-                  ProvinciaID: 53
-                  MunicipioID: 8149
-                  Municipio: Pereira
-                  Observacion: DSFDSFDSFD
-                  Direccion: SADFBSAHFVSAJFVAT
-                  Web: ASDASDAS.COM
-                  CodigoPostalID: 14768
-        description: ''
   /employee/theme:
     get:
       summary: findManyByParamForTheme
