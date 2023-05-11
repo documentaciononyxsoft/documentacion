@@ -1189,6 +1189,112 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /tables/articles/light:
+    get:
+      summary: Article - FindLightList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      Articulos:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ArticuloID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      Articulos:
+                        - ArticuloID: 2099
+                          Codigo: '10000012'
+                          Nombre: Recoleccion de agua residual
+                        - ArticuloID: 2065
+                          Codigo: '1000001311'
+                          Nombre: 'POLIZA DE SERVICIO DE TRATAMIENTO DE AGUA CALDERAS '
+                        - ArticuloID: 2066
+                          Codigo: '1000004549'
+                          Nombre: POLIZA DE SERVICIO PARTSWASHER - ULTRA SOLVE 40 SC
+                        - ArticuloID: 358
+                          Codigo: '100000585'
+                          Nombre: COCOA EN POLVO JET BLACK
+                        - ArticuloID: 395
+                          Codigo: '100000587'
+                          Nombre: LECHE DESCREMADA EN POLVO
+                        - ArticuloID: 396
+                          Codigo: '100000597'
+                          Nombre: SUERO DE LECHE EN POLVO
+                        - ArticuloID: 434
+                          Codigo: '100000602'
+                          Nombre: COCO RALLADO
+                        - ArticuloID: 435
+                          Codigo: '100000604'
+                          Nombre: CANELA KORITAJE EN POLVO
+                        - ArticuloID: 393
+                          Codigo: '100000606'
+                          Nombre: INULINA
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      Articulos:
+                        - ArticuloID: 2099
+                          Codigo: '10000012'
+                          Nombre: Recoleccion de agua residual
+                        - ArticuloID: 2065
+                          Codigo: '1000001311'
+                          Nombre: 'POLIZA DE SERVICIO DE TRATAMIENTO DE AGUA CALDERAS '
+                        - ArticuloID: 2066
+                          Codigo: '1000004549'
+                          Nombre: POLIZA DE SERVICIO PARTSWASHER - ULTRA SOLVE 40 SC
+                        - ArticuloID: 358
+                          Codigo: '100000585'
+                          Nombre: COCOA EN POLVO JET BLACK
+                        - ArticuloID: 395
+                          Codigo: '100000587'
+                          Nombre: LECHE DESCREMADA EN POLVO
+                        - ArticuloID: 396
+                          Codigo: '100000597'
+                          Nombre: SUERO DE LECHE EN POLVO
+                        - ArticuloID: 434
+                          Codigo: '100000602'
+                          Nombre: COCO RALLADO
+                        - ArticuloID: 435
+                          Codigo: '100000604'
+                          Nombre: CANELA KORITAJE EN POLVO
+                        - ArticuloID: 393
+                          Codigo: '100000606'
+                          Nombre: INULINA
+      operationId: get-tables-articles-light
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /tables/companies:
     get:
       summary: Companie - FindMany
@@ -17408,68 +17514,6 @@ paths:
           name: clienteID
           description: '4'
     parameters: []
-  /tables/articles/light:
-    get:
-      summary: findLightListForArticle
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      Articulos:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ArticuloID:
-                              type: integer
-                            Codigo:
-                              type: string
-                            Nombre:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      Articulos:
-                        - ArticuloID: 1
-                          Codigo: .
-                          Nombre: Articulo ...3
-                        - ArticuloID: 2
-                          Codigo: ART1
-                          Nombre: ARTICULO DE VENTA 1
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      Articulos:
-                        - ArticuloID: 1
-                          Codigo: .
-                          Nombre: Articulo ...3
-                        - ArticuloID: 2
-                          Codigo: ART1
-                          Nombre: ARTICULO DE VENTA 1
-      operationId: get-tables-articles-light
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
   /tables/employee/planification:
     get:
       summary: findManyForEmployeesByPlanification
