@@ -1284,7 +1284,7 @@ paths:
         required: true
         description: '24'
     delete:
-      summary: Contracts -DeleteForUbication
+      summary: Contracts - DeleteForUbication
       operationId: delete-contracts-ContratoMantenimientoUbicacionID-ubication
       responses:
         '200':
