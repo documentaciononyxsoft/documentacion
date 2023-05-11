@@ -4887,6 +4887,49 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                      TablaGeneralID:
+                        type: integer
+                      FechaHoraUsuario:
+                        type: string
+                      NombreUsuario:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: El Registro ha sido Guardado Exitosamente.
+                      TablaGeneralID: 919
+                      FechaHoraUsuario: '2023-05-11T09:57:55.168'
+                      NombreUsuario: ADMINISTRADOR
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: El Registro ha sido Guardado Exitosamente.
+                      TablaGeneralID: 919
+                      FechaHoraUsuario: '2023-05-11T09:57:55.168'
+                      NombreUsuario: ADMINISTRADOR
       parameters:
         - schema:
             type: string
@@ -4895,5 +4938,52 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Clave:
+                  type: string
+                Descripcion:
+                  type: string
+                Abreviatura:
+                  type: string
+                Estandar:
+                  type: string
+                PadreID:
+                  type: string
+                CampoLibre1:
+                  type: string
+                CampoLibre2:
+                  type: string
+                Defecto:
+                  type: string
+                Obsoleto:
+                  type: string
+              x-examples:
+                Example 1:
+                  Clave: ClaveJCO
+                  Descripcion: JuanDes
+                  Abreviatura: JCO
+                  Estandar: '1'
+                  PadreID: '1'
+                  CampoLibre1: ''
+                  CampoLibre2: ''
+                  Defecto: '0'
+                  Obsoleto: '0'
+            examples:
+              Example 1:
+                value:
+                  Clave: ClaveJCO
+                  Descripcion: JuanDes
+                  Abreviatura: JCO
+                  Estandar: '1'
+                  PadreID: '1'
+                  CampoLibre1: ''
+                  CampoLibre2: ''
+                  Defecto: '0'
+                  Obsoleto: '0'
 components:
   schemas: {}
