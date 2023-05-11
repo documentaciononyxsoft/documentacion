@@ -1035,6 +1035,132 @@ paths:
                   Web: ASDASDAS.COM
                   CodigoPostalID: 14768
         description: ''
+  /tables/article:
+    get:
+      summary: Article - FindManyByParam
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ArticuloID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - ArticuloID: 20
+                          Nombre: AZUCARADAD CHOCO 230GRX24X1
+                          Codigo: '300053112'
+                        - ArticuloID: 33
+                          Nombre: CHOCO CRONCHI RG 15000GRX1X1
+                          Codigo: '300048845'
+                        - ArticuloID: 34
+                          Nombre: CHOCO CRONCHI RG 493GRX16X1
+                          Codigo: '300048929'
+                        - ArticuloID: 35
+                          Nombre: CHOCO CRONCHI RG2 493GRX16X1
+                          Codigo: '300051397'
+                        - ArticuloID: 36
+                          Nombre: CHOCO CRUNCHI RG 500GRX30X1
+                          Codigo: '300048843'
+                        - ArticuloID: 37
+                          Nombre: CHOCO CRUNCHI RG2 500GRX30X1
+                          Codigo: '300051495'
+                        - ArticuloID: 38
+                          Nombre: CHOCO FLAKES RG 500GRX30X1
+                          Codigo: '300048779'
+                        - ArticuloID: 39
+                          Nombre: CHOCO FLAKES RG2 500GRX30X1
+                          Codigo: '300051322'
+                        - ArticuloID: 138
+                          Nombre: 'Choco Blast 12/450g                '
+                          Codigo: '300006449'
+                        - ArticuloID: 139
+                          Nombre: 'Choco Brontosaurios 12/450g        '
+                          Codigo: '300006450'
+                      sql: "SELECT \r\narticulo.ArticuloID,\r\narticulo.Nombre,\r\narticulo.Codigo\r\n\r\nFROM articulo \r\n\r\nWHERE articulo.CustomerID = 29 AND articulo.EmpresaID = 1\r\nAND (articulo.Nombre LIKE '%choco%' OR articulo.Codigo LIKE '%choco%' )\r\nORDER BY articulo.ArticuloID LIMIT 10 "
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - ArticuloID: 20
+                          Nombre: AZUCARADAD CHOCO 230GRX24X1
+                          Codigo: '300053112'
+                        - ArticuloID: 33
+                          Nombre: CHOCO CRONCHI RG 15000GRX1X1
+                          Codigo: '300048845'
+                        - ArticuloID: 34
+                          Nombre: CHOCO CRONCHI RG 493GRX16X1
+                          Codigo: '300048929'
+                        - ArticuloID: 35
+                          Nombre: CHOCO CRONCHI RG2 493GRX16X1
+                          Codigo: '300051397'
+                        - ArticuloID: 36
+                          Nombre: CHOCO CRUNCHI RG 500GRX30X1
+                          Codigo: '300048843'
+                        - ArticuloID: 37
+                          Nombre: CHOCO CRUNCHI RG2 500GRX30X1
+                          Codigo: '300051495'
+                        - ArticuloID: 38
+                          Nombre: CHOCO FLAKES RG 500GRX30X1
+                          Codigo: '300048779'
+                        - ArticuloID: 39
+                          Nombre: CHOCO FLAKES RG2 500GRX30X1
+                          Codigo: '300051322'
+                        - ArticuloID: 138
+                          Nombre: 'Choco Blast 12/450g                '
+                          Codigo: '300006449'
+                        - ArticuloID: 139
+                          Nombre: 'Choco Brontosaurios 12/450g        '
+                          Codigo: '300006450'
+                      sql: string
+      operationId: get-tables-article
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: choco
+          in: query
+          name: param
+          description: Parámetro a buscar
   /tables/companies:
     get:
       summary: Companie - FindMany
@@ -15108,129 +15234,6 @@ paths:
         in: path
         required: true
         description: '"dario"'
-  /tables/article:
-    get:
-      summary: Article - findManyByParam
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ArticuloID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: string
-                      sql:
-                        type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      records:
-                        - ArticuloID: 14
-                          Nombre: BARRA METALICA REF. 5700001409
-                          Codigo: '5700001409'
-                        - ArticuloID: 16
-                          Nombre: PS POLYSTYROL 165H HXG21 CRISTAL
-                          Codigo: PS 05
-                        - ArticuloID: 22
-                          Nombre: SINKRAL L-320 SUV BLANCO 17572
-                          Codigo: ABS 25
-                        - ArticuloID: 27
-                          Nombre: CINTA MARRON EMBALAJE-BOLSAS PLASTICO-CL
-                          Codigo: VARIOS
-                        - ArticuloID: 33
-                          Nombre: ROLLO CALIBRADO
-                          Codigo: M00425
-                        - ArticuloID: 44
-                          Nombre: CONJ.VALVULA 660 SIN TARAR
-                          Codigo: 17C0006
-                        - ArticuloID: 45
-                          Nombre: MUELLE VALVULA GATO-BOMBA
-                          Codigo: 13D0002
-                        - ArticuloID: 47
-                          Nombre: PULSADOR VALVULA GATO -BOMBA
-                          Codigo: 15N0003
-                        - ArticuloID: 49
-                          Nombre: CUERPO VALVULA BOMBA 660 CM
-                          Codigo: 52Y0002
-                        - ArticuloID: 55
-                          Nombre: BARRA HUECA ERTALON 6 180*90
-                          Codigo: 08D0051
-                      sql: "SELECT \r\narticulo.ArticuloID,\r\narticulo.Nombre,\r\narticulo.Codigo\r\n\r\nFROM articulo \r\n\r\nWHERE articulo.CustomerID = 29 AND articulo.EmpresaID = 1\r\nAND (articulo.Nombre LIKE '%al%' OR articulo.Codigo LIKE '%al%' )\r\nORDER BY articulo.ArticuloID LIMIT 10 "
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      records:
-                        - ArticuloID: 14
-                          Nombre: BARRA METALICA REF. 5700001409
-                          Codigo: '5700001409'
-                        - ArticuloID: 16
-                          Nombre: PS POLYSTYROL 165H HXG21 CRISTAL
-                          Codigo: PS 05
-                        - ArticuloID: 22
-                          Nombre: SINKRAL L-320 SUV BLANCO 17572
-                          Codigo: ABS 25
-                        - ArticuloID: 27
-                          Nombre: CINTA MARRON EMBALAJE-BOLSAS PLASTICO-CL
-                          Codigo: VARIOS
-                        - ArticuloID: 33
-                          Nombre: ROLLO CALIBRADO
-                          Codigo: M00425
-                        - ArticuloID: 44
-                          Nombre: CONJ.VALVULA 660 SIN TARAR
-                          Codigo: 17C0006
-                        - ArticuloID: 45
-                          Nombre: MUELLE VALVULA GATO-BOMBA
-                          Codigo: 13D0002
-                        - ArticuloID: 47
-                          Nombre: PULSADOR VALVULA GATO -BOMBA
-                          Codigo: 15N0003
-                        - ArticuloID: 49
-                          Nombre: CUERPO VALVULA BOMBA 660 CM
-                          Codigo: 52Y0002
-                        - ArticuloID: 55
-                          Nombre: BARRA HUECA ERTALON 6 180*90
-                          Codigo: 08D0051
-                      sql: "SELECT \r\narticulo.ArticuloID,\r\narticulo.Nombre,\r\narticulo.Codigo\r\n\r\nFROM articulo \r\n\r\nWHERE articulo.CustomerID = 29 AND articulo.EmpresaID = 1\r\nAND (articulo.Nombre LIKE '%al%' OR articulo.Codigo LIKE '%al%' )\r\nORDER BY articulo.ArticuloID LIMIT 10 "
-      operationId: get-tables-article
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: string
-          in: query
-          name: param
-          description: al
   '/tables/checkListGroup/{CheckListDefinicionGrupoID}':
     put:
       summary: CheckListGroup - Update
