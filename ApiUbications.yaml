@@ -1528,7 +1528,7 @@ paths:
         required: true
         description: ID del contrato
     get:
-      summary: Ubications -FindLightListForContract
+      summary: Ubications - FindLightListForContract
       tags: []
       responses:
         '200':
