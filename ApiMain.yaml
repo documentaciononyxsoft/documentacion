@@ -4943,6 +4943,17 @@ paths:
           application/json:
             schema:
               type: object
+              x-examples:
+                Example 1:
+                  Clave: ClaveJCO
+                  Descripcion: JuanDes
+                  Abreviatura: JCO
+                  Estandar: '1'
+                  PadreID: '1'
+                  CampoLibre1: ''
+                  CampoLibre2: ''
+                  Defecto: '0'
+                  Obsoleto: '0'
               properties:
                 Clave:
                   type: string
@@ -4962,17 +4973,9 @@ paths:
                   type: string
                 Obsoleto:
                   type: string
-              x-examples:
-                Example 1:
-                  Clave: ClaveJCO
-                  Descripcion: JuanDes
-                  Abreviatura: JCO
-                  Estandar: '1'
-                  PadreID: '1'
-                  CampoLibre1: ''
-                  CampoLibre2: ''
-                  Defecto: '0'
-                  Obsoleto: '0'
+              required:
+                - Clave
+                - Abreviatura
             examples:
               Example 1:
                 value:
