@@ -7233,7 +7233,7 @@ paths:
           required: true
   /methodsofpaymentandcollection:
     get:
-      summary: MethodsOfPaymentAndCollection - FindAll
+      summary: MethodsOfPayment - FindAll
       tags: []
       responses:
         '200':
@@ -7430,7 +7430,7 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
     post:
-      summary: MethodsOfPaymentAndCollection - Create
+      summary: MethodsOfPayment - Create
       operationId: post-methodsofpaymentandcollection
       responses:
         '200':
@@ -7542,7 +7542,7 @@ paths:
         in: path
         required: true
     put:
-      summary: MethodsOfPaymentAndCollection - Update
+      summary: MethodsOfPayment - Update
       operationId: put-methodsofpaymentandcollection-formaPagoCobroID
       responses:
         '200':
@@ -7602,7 +7602,7 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
     delete:
-      summary: MethodsOfPaymentAndCollection - Delete
+      summary: MethodsOfPayment - Delete
       operationId: delete-methodsofpaymentandcollection-formaPagoCobroID
       responses:
         '200':
