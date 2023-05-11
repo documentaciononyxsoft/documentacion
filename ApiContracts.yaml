@@ -1282,7 +1282,7 @@ paths:
         name: ContratoMantenimientoUbicacionID
         in: path
         required: true
-        description: '26'
+        description: '24'
     delete:
       summary: Contracts -DeleteForUbication
       operationId: delete-contracts-ContratoMantenimientoUbicacionID-ubication
