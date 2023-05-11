@@ -5125,6 +5125,7 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '920'
         name: tablaGeneralID
         in: path
         required: true
@@ -5134,6 +5135,37 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: La Registro se ha modificado exitosamente
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: La Registro se ha modificado exitosamente
       parameters:
         - schema:
             type: string
@@ -5142,12 +5174,86 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Descripcion:
+                  type: string
+                Abreviatura:
+                  type: string
+                Estandar:
+                  type: integer
+                PadreID:
+                  type: integer
+                CampoLibre1:
+                  type: string
+                CampoLibre2:
+                  type: string
+                Defecto:
+                  type: integer
+                Obsoleto:
+                  type: integer
+              x-examples:
+                Example 1:
+                  Descripcion: DescActuali
+                  Abreviatura: ACT002
+                  Estandar: 0
+                  PadreID: 0
+                  CampoLibre1: ''
+                  CampoLibre2: ''
+                  Defecto: 0
+                  Obsoleto: 0
+            examples:
+              Example 1:
+                value:
+                  Descripcion: DescActuali
+                  Abreviatura: ACT002
+                  Estandar: 0
+                  PadreID: 0
+                  CampoLibre1: ''
+                  CampoLibre2: ''
+                  Defecto: 0
+                  Obsoleto: 0
     delete:
       summary: GeneralTable - Delete
       operationId: delete-generaltableindex-tablaGeneralID
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: El Registro ha sido Eliminada exitosamente.
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: El Registro ha sido Eliminada exitosamente.
       parameters:
         - schema:
             type: string
