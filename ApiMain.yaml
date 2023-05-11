@@ -7820,7 +7820,7 @@ paths:
         required: true
   /municipality/checkMunicipality:
     get:
-      summary: Municipalities - CheckMunicipalitys
+      summary: Municipalities - CheckMunicipality
       tags: []
       responses:
         '200':
