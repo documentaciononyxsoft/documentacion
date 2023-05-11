@@ -5262,5 +5262,17 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /ivas:
+    get:
+      summary: IVAs - FindAll
+      tags: []
+      responses: {}
+      operationId: get-ivas
+    post:
+      summary: IVAs - Create
+      operationId: post-ivas
+      responses:
+        '200':
+          description: OK
 components:
   schemas: {}
