@@ -6327,5 +6327,221 @@ paths:
                     - CuentaContableID: ''
                       Tipo: ''
     parameters: []
+  '/Ivas/{ivaID}':
+    parameters:
+      - schema:
+          type: string
+          example: '34'
+        name: ivaID
+        in: path
+        required: true
+    put:
+      summary: IVAs - Update
+      operationId: put-Ivas-ivaID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      IvaID:
+                        type: integer
+                      TipoIvaID:
+                        type: string
+                      NomTipoIva:
+                        type: string
+                      CodTipoIva:
+                        type: string
+                      IvaSoporadoID:
+                        type: string
+                      NomIvaSoportado:
+                        type: string
+                      CodIvaSoportado:
+                        type: string
+                      IvaRepercutidoID:
+                        type: string
+                      NomIvaRepercutido:
+                        type: string
+                      CodIvaRepercutido:
+                        type: string
+                      IvaSopCriterioCajaID:
+                        type: string
+                      NomIvaSopCriterioCaja:
+                        type: string
+                      CodIvaSopCriterioCaja:
+                        type: string
+                      IvaRepCriterioCajaID:
+                        type: string
+                      NomIvaRepCriterioCaja:
+                        type: string
+                      CodIvaRepCriterioCaja:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      IvaID: 34
+                      TipoIvaID: ''
+                      NomTipoIva: ''
+                      CodTipoIva: ''
+                      IvaSoporadoID: ''
+                      NomIvaSoportado: ''
+                      CodIvaSoportado: ''
+                      IvaRepercutidoID: ''
+                      NomIvaRepercutido: ''
+                      CodIvaRepercutido: ''
+                      IvaSopCriterioCajaID: ''
+                      NomIvaSopCriterioCaja: ''
+                      CodIvaSopCriterioCaja: ''
+                      IvaRepCriterioCajaID: ''
+                      NomIvaRepCriterioCaja: ''
+                      CodIvaRepCriterioCaja: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      IvaID: 34
+                      TipoIvaID: ''
+                      NomTipoIva: ''
+                      CodTipoIva: ''
+                      IvaSoporadoID: ''
+                      NomIvaSoportado: ''
+                      CodIvaSoportado: ''
+                      IvaRepercutidoID: ''
+                      NomIvaRepercutido: ''
+                      CodIvaRepercutido: ''
+                      IvaSopCriterioCajaID: ''
+                      NomIvaSopCriterioCaja: ''
+                      CodIvaSopCriterioCaja: ''
+                      IvaRepCriterioCajaID: ''
+                      NomIvaRepCriterioCaja: ''
+                      CodIvaRepCriterioCaja: ''
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Nombre:
+                  type: string
+                PorcentajeIva:
+                  type: string
+                PorcentajeRecargo:
+                  type: string
+                TipoIvaID:
+                  type: string
+                PorcentajeRetencionIva:
+                  type: string
+                CodigoIvaSAT:
+                  type: string
+                TipoIvaSIIID:
+                  type: string
+                CCPredeterminadas:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      CuentaContableID:
+                        type: string
+                      Tipo:
+                        type: string
+              x-examples:
+                Example 1:
+                  Nombre: IvaNameActuali
+                  PorcentajeIva: '10'
+                  PorcentajeRecargo: '20'
+                  TipoIvaID: '100'
+                  PorcentajeRetencionIva: '20'
+                  CodigoIvaSAT: ''
+                  TipoIvaSIIID: '420'
+                  CCPredeterminadas:
+                    - CuentaContableID: ''
+                      Tipo: ''
+            examples:
+              Example 1:
+                value:
+                  Nombre: IvaNameActuali
+                  PorcentajeIva: '10'
+                  PorcentajeRecargo: '20'
+                  TipoIvaID: '100'
+                  PorcentajeRetencionIva: '20'
+                  CodigoIvaSAT: ''
+                  TipoIvaSIIID: '420'
+                  CCPredeterminadas:
+                    - CuentaContableID: ''
+                      Tipo: ''
+    delete:
+      summary: IVAs - Delete
+      operationId: delete-Ivas-ivaID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                      error:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: Iva eliminado correctamente
+                      error: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: Iva eliminado correctamente
+                      error: ''
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas: {}
