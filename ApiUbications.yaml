@@ -1613,7 +1613,7 @@ paths:
         required: true
         description: ID del contrato
     get:
-      summary: Ubications - FindLightListForContract
+      summary: Ubications - FindManyByParamForContract
       tags: []
       responses:
         '200':
