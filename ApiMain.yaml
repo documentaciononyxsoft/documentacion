@@ -6849,7 +6849,76 @@ paths:
     get:
       summary: Menu - LoadAboutInformation
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      ServidorBD:
+                        type: string
+                      NameBD:
+                        type: string
+                      NombreExe:
+                        type: string
+                      VersionExe:
+                        type: string
+                      RunTime:
+                        type: string
+                      FechaExe:
+                        type: string
+                      frontVersion2:
+                        type: string
+                      Email:
+                        type: string
+                      Web:
+                        type: string
+                      ConexiónPor:
+                        type: string
+                      VersionMysql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      ServidorBD: 192.168.30.32
+                      NameBD: erpweb
+                      NombreExe: wd260session.exe
+                      VersionExe: 26.0.136.7
+                      RunTime: 26.0.480.22
+                      FechaExe: '2023-05-11'
+                      frontVersion2: ''
+                      Email: info@aner.com
+                      Web: www.aner.com
+                      ConexiónPor: MySql Nativo
+                      VersionMysql: 5.6.26-log
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      ServidorBD: 192.168.30.32
+                      NameBD: erpweb
+                      NombreExe: wd260session.exe
+                      VersionExe: 26.0.136.7
+                      RunTime: 26.0.480.22
+                      FechaExe: '2023-05-11'
+                      frontVersion2: ''
+                      Email: info@aner.com
+                      Web: www.aner.com
+                      ConexiónPor: MySql Nativo
+                      VersionMysql: 5.6.26-log
       operationId: get-information
       parameters:
         - schema:
