@@ -5266,7 +5266,894 @@ paths:
     get:
       summary: IVAs - FindAll
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            IvaID:
+                              type: integer
+                            IvaCod:
+                              type: string
+                            IvaNombre:
+                              type: string
+                            PorcentajeIva:
+                              type: integer
+                            PorcentajeRecargo:
+                              type: integer
+                            TipoIvaID:
+                              type: integer
+                            TipoIvaAbrevi:
+                              type: string
+                            TipoIvaDescrip:
+                              type: string
+                            PorcentajeRetencionIva:
+                              type: integer
+                            CodigoIvaSAT:
+                              type: string
+                            TipoIvaSIIID:
+                              type: integer
+                            TipoIvaSIIAbrevi:
+                              type: string
+                            TipoIvaSIIDescrip:
+                              type: string
+                            CuentaContableSoportadoID:
+                              type:
+                                - integer
+                                - string
+                            CCIvaSoportadoCod:
+                              type: string
+                            CCIvaSoportadoNombre:
+                              type: string
+                            CuentaContableRepercutidoID:
+                              type:
+                                - integer
+                                - string
+                            CCIvaRepercutidoCod:
+                              type: string
+                            CCIvaRepercutidoNom:
+                              type: string
+                            CuentaContableSopCriterioCajaID:
+                              type:
+                                - integer
+                                - string
+                            CCIvaSoportadoCCajaCod:
+                              type: string
+                            CCIvaSoportadoCCajaNom:
+                              type: string
+                            CuentaContableRepCriterioCajaID:
+                              type:
+                                - integer
+                                - string
+                            CCIvaRepercutidoCCajaCod:
+                              type: string
+                            CCIvaRepercutidoCCajaNom:
+                              type: string
+                            CuentaContableRetenCriterioCajaID:
+                              type:
+                                - integer
+                                - string
+                            CCIvaRetencutidoCCajaCod:
+                              type: string
+                            CCIvaRetencutidoCCajaNom:
+                              type: string
+                            CuentaContableReperRequivalenciaID:
+                              type: string
+                            CCIvaReperRequivalenciaCod:
+                              type: string
+                            CCIvaReperRequivalenciaNom:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT \r\nIva.*,\r\nTablaGeneral.Descripcion AS TipoIVa,\r\nTablaGeneral.Abreviatura AS CodTipoIVA\r\nFROM \r\nIva LEFT OUTER JOIN TablaGeneral ON Iva.TipoivaID = TablaGeneral.TablaGeneralID\r\nWHERE\r\nIva.CustomerID = 29\r\n"
+                      records:
+                        - IvaID: 1
+                          IvaCod: IVA
+                          IvaNombre: 'IVA16, ventas, gastos'
+                          PorcentajeIva: 16
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 0
+                          TipoIvaAbrevi: ''
+                          TipoIvaDescrip: ''
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 0
+                          TipoIvaSIIAbrevi: ''
+                          TipoIvaSIIDescrip: ''
+                          CuentaContableSoportadoID: 1380
+                          CCIvaSoportadoCod: '1200005'
+                          CCIvaSoportadoNombre: IVA ACRED PAGADO GASTOS 16%
+                          CuentaContableRepercutidoID: 1770
+                          CCIvaRepercutidoCod: '2220001'
+                          CCIvaRepercutidoNom: IVA TRASL COBRADO AL 16%
+                          CuentaContableSopCriterioCajaID: 1408
+                          CCIvaSoportadoCCajaCod: '1180005'
+                          CCIvaSoportadoCCajaNom: IVA ACRED GASTOS PDPAG 16%
+                          CuentaContableRepCriterioCajaID: 1778
+                          CCIvaRepercutidoCCajaCod: '2200003'
+                          CCIvaRepercutidoCCajaNom: IVA TRASLAD PD COBRO 16%
+                          CuentaContableRetenCriterioCajaID: 1060
+                          CCIvaRetencutidoCCajaCod: '100'
+                          CCIvaRetencutidoCCajaNom: CAJA
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 2
+                          IvaCod: IVA
+                          IvaNombre: 'IVA16, ventas, gastos'
+                          PorcentajeIva: 16
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 0
+                          TipoIvaAbrevi: ''
+                          TipoIvaDescrip: ''
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 0
+                          TipoIvaSIIAbrevi: ''
+                          TipoIvaSIIDescrip: ''
+                          CuentaContableSoportadoID: ''
+                          CCIvaSoportadoCod: ''
+                          CCIvaSoportadoNombre: ''
+                          CuentaContableRepercutidoID: ''
+                          CCIvaRepercutidoCod: ''
+                          CCIvaRepercutidoNom: ''
+                          CuentaContableSopCriterioCajaID: ''
+                          CCIvaSoportadoCCajaCod: ''
+                          CCIvaSoportadoCCajaNom: ''
+                          CuentaContableRepCriterioCajaID: ''
+                          CCIvaRepercutidoCCajaCod: ''
+                          CCIvaRepercutidoCCajaNom: ''
+                          CuentaContableRetenCriterioCajaID: ''
+                          CCIvaRetencutidoCCajaCod: ''
+                          CCIvaRetencutidoCCajaNom: ''
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 4
+                          IvaCod: IVA0
+                          IvaNombre: IVA 0%
+                          PorcentajeIva: 0
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 137
+                          TipoIvaAbrevi: E5
+                          TipoIvaDescrip: Exenta por el artículo 25
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 438
+                          TipoIvaSIIAbrevi: E5
+                          TipoIvaSIIDescrip: Exenta por el artículo 25
+                          CuentaContableSoportadoID: 1975
+                          CCIvaSoportadoCod: '1200012'
+                          CCIvaSoportadoNombre: IVA ACRED 0%
+                          CuentaContableRepercutidoID: 1975
+                          CCIvaRepercutidoCod: '1200012'
+                          CCIvaRepercutidoNom: IVA ACRED 0%
+                          CuentaContableSopCriterioCajaID: 1975
+                          CCIvaSoportadoCCajaCod: '1200012'
+                          CCIvaSoportadoCCajaNom: IVA ACRED 0%
+                          CuentaContableRepCriterioCajaID: 1975
+                          CCIvaRepercutidoCCajaCod: '1200012'
+                          CCIvaRepercutidoCCajaNom: IVA ACRED 0%
+                          CuentaContableRetenCriterioCajaID: ''
+                          CCIvaRetencutidoCCajaCod: ''
+                          CCIvaRetencutidoCCajaNom: ''
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 5
+                          IvaCod: IVAEX
+                          IvaNombre: IVA EXCENTO
+                          PorcentajeIva: 0
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 0
+                          TipoIvaAbrevi: ''
+                          TipoIvaDescrip: ''
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 0
+                          TipoIvaSIIAbrevi: ''
+                          TipoIvaSIIDescrip: ''
+                          CuentaContableSoportadoID: 1974
+                          CCIvaSoportadoCod: '1200011'
+                          CCIvaSoportadoNombre: IVA ACRED EXCENTO
+                          CuentaContableRepercutidoID: 1974
+                          CCIvaRepercutidoCod: '1200011'
+                          CCIvaRepercutidoNom: IVA ACRED EXCENTO
+                          CuentaContableSopCriterioCajaID: 1974
+                          CCIvaSoportadoCCajaCod: '1200011'
+                          CCIvaSoportadoCCajaNom: IVA ACRED EXCENTO
+                          CuentaContableRepCriterioCajaID: 1974
+                          CCIvaRepercutidoCCajaCod: '1200011'
+                          CCIvaRepercutidoCCajaNom: IVA ACRED EXCENTO
+                          CuentaContableRetenCriterioCajaID: ''
+                          CCIvaRetencutidoCCajaCod: ''
+                          CCIvaRetencutidoCCajaNom: ''
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 8
+                          IvaCod: IEPS8
+                          IvaNombre: IEPS 8%
+                          PorcentajeIva: 8
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 0
+                          TipoIvaAbrevi: ''
+                          TipoIvaDescrip: ''
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 0
+                          TipoIvaSIIAbrevi: ''
+                          TipoIvaSIIDescrip: ''
+                          CuentaContableSoportadoID: 1402
+                          CCIvaSoportadoCod: '1210008'
+                          CCIvaSoportadoNombre: IEPS ACREDIT. PAGADO AL 8%
+                          CuentaContableRepercutidoID: 1767
+                          CCIvaRepercutidoCod: '21900010007'
+                          CCIvaRepercutidoNom: IEPS TRASLAD. COBRADO AL 8%
+                          CuentaContableSopCriterioCajaID: 1422
+                          CCIvaSoportadoCCajaCod: '11900010007'
+                          CCIvaSoportadoCCajaNom: IEPS ACREDIT. POR PAGAR AL 8%
+                          CuentaContableRepCriterioCajaID: 1992
+                          CCIvaRepercutidoCCajaCod: '21800020007'
+                          CCIvaRepercutidoCCajaNom: IEPS TRASLAD.POR COBRAR AL 8%
+                          CuentaContableRetenCriterioCajaID: ''
+                          CCIvaRetencutidoCCajaCod: ''
+                          CCIvaRetencutidoCCajaNom: ''
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 9
+                          IvaCod: IVA16C
+                          IvaNombre: 'IVA16, compras'
+                          PorcentajeIva: 16
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 0
+                          TipoIvaAbrevi: ''
+                          TipoIvaDescrip: ''
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 0
+                          TipoIvaSIIAbrevi: ''
+                          TipoIvaSIIDescrip: ''
+                          CuentaContableSoportadoID: 1381
+                          CCIvaSoportadoCod: '1200006'
+                          CCIvaSoportadoNombre: IVA ACRED PAGADO COMPRAS 16%
+                          CuentaContableRepercutidoID: ''
+                          CCIvaRepercutidoCod: ''
+                          CCIvaRepercutidoNom: ''
+                          CuentaContableSopCriterioCajaID: 1409
+                          CCIvaSoportadoCCajaCod: '1180006'
+                          CCIvaSoportadoCCajaNom: IVA ACRED COMPRAS PDPAG 16%
+                          CuentaContableRepCriterioCajaID: ''
+                          CCIvaRepercutidoCCajaCod: ''
+                          CCIvaRepercutidoCCajaNom: ''
+                          CuentaContableRetenCriterioCajaID: ''
+                          CCIvaRetencutidoCCajaCod: ''
+                          CCIvaRetencutidoCCajaNom: ''
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 10
+                          IvaCod: IVA10
+                          IvaNombre: IVA10
+                          PorcentajeIva: 10
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 0
+                          TipoIvaAbrevi: ''
+                          TipoIvaDescrip: ''
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 0
+                          TipoIvaSIIAbrevi: ''
+                          TipoIvaSIIDescrip: ''
+                          CuentaContableSoportadoID: ''
+                          CCIvaSoportadoCod: ''
+                          CCIvaSoportadoNombre: ''
+                          CuentaContableRepercutidoID: ''
+                          CCIvaRepercutidoCod: ''
+                          CCIvaRepercutidoNom: ''
+                          CuentaContableSopCriterioCajaID: ''
+                          CCIvaSoportadoCCajaCod: ''
+                          CCIvaSoportadoCCajaNom: ''
+                          CuentaContableRepCriterioCajaID: ''
+                          CCIvaRepercutidoCCajaCod: ''
+                          CCIvaRepercutidoCCajaNom: ''
+                          CuentaContableRetenCriterioCajaID: ''
+                          CCIvaRetencutidoCCajaCod: ''
+                          CCIvaRetencutidoCCajaNom: ''
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 11
+                          IvaCod: IVAY
+                          IvaNombre: Prueba Yeison Iva
+                          PorcentajeIva: 13
+                          PorcentajeRecargo: 14
+                          TipoIvaID: 138
+                          TipoIvaAbrevi: E6
+                          TipoIvaDescrip: Exenta por otros
+                          PorcentajeRetencionIva: 15
+                          CodigoIvaSAT: yei
+                          TipoIvaSIIID: 439
+                          TipoIvaSIIAbrevi: E6
+                          TipoIvaSIIDescrip: Exenta por otros
+                          CuentaContableSoportadoID: 1088
+                          CCIvaSoportadoCod: '10300010018'
+                          CCIvaSoportadoNombre: TRANSPORTES SUVI SA DE CV
+                          CuentaContableRepercutidoID: 1996
+                          CCIvaRepercutidoCod: '10200010001'
+                          CCIvaRepercutidoNom: BANAMEX
+                          CuentaContableSopCriterioCajaID: 1070
+                          CCIvaSoportadoCCajaCod: '1030001'
+                          CCIvaSoportadoCCajaNom: CLIENTES NACIONALES
+                          CuentaContableRepCriterioCajaID: 1062
+                          CCIvaRepercutidoCCajaCod: '1000002'
+                          CCIvaRepercutidoCCajaNom: FONDOTEOLOYUCAN
+                          CuentaContableRetenCriterioCajaID: 2343
+                          CCIvaRetencutidoCCajaCod: '000035'
+                          CCIvaRetencutidoCCajaNom: prueba LLLLLLLL
+                          CuentaContableReperRequivalenciaID: 1106
+                          CCIvaReperRequivalenciaCod: '10300010036'
+                          CCIvaReperRequivalenciaNom: ABARROTES MONTERREY SA DE CV
+                        - IvaID: 13
+                          IvaCod: Prueb 3 y
+                          IvaNombre: Ye 3
+                          PorcentajeIva: 0
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 0
+                          TipoIvaAbrevi: ''
+                          TipoIvaDescrip: ''
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 0
+                          TipoIvaSIIAbrevi: ''
+                          TipoIvaSIIDescrip: ''
+                          CuentaContableSoportadoID: 2380
+                          CCIvaSoportadoCod: '10200010003'
+                          CCIvaSoportadoNombre: aaaaaaaa
+                          CuentaContableRepercutidoID: 2382
+                          CCIvaRepercutidoCod: '000063'
+                          CCIvaRepercutidoNom: algo pa ver
+                          CuentaContableSopCriterioCajaID: ''
+                          CCIvaSoportadoCCajaCod: ''
+                          CCIvaSoportadoCCajaNom: ''
+                          CuentaContableRepCriterioCajaID: ''
+                          CCIvaRepercutidoCCajaCod: ''
+                          CCIvaRepercutidoCCajaNom: ''
+                          CuentaContableRetenCriterioCajaID: ''
+                          CCIvaRetencutidoCCajaCod: ''
+                          CCIvaRetencutidoCCajaNom: ''
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 14
+                          IvaCod: IvaTest
+                          IvaNombre: Almejo
+                          PorcentajeIva: 19
+                          PorcentajeRecargo: 19
+                          TipoIvaID: 138
+                          TipoIvaAbrevi: E6
+                          TipoIvaDescrip: Exenta por otros
+                          PorcentajeRetencionIva: 19
+                          CodigoIvaSAT: Testing
+                          TipoIvaSIIID: 439
+                          TipoIvaSIIAbrevi: E6
+                          TipoIvaSIIDescrip: Exenta por otros
+                          CuentaContableSoportadoID: 1088
+                          CCIvaSoportadoCod: '10300010018'
+                          CCIvaSoportadoNombre: TRANSPORTES SUVI SA DE CV
+                          CuentaContableRepercutidoID: 1996
+                          CCIvaRepercutidoCod: '10200010001'
+                          CCIvaRepercutidoNom: BANAMEX
+                          CuentaContableSopCriterioCajaID: 1975
+                          CCIvaSoportadoCCajaCod: '1200012'
+                          CCIvaSoportadoCCajaNom: IVA ACRED 0%
+                          CuentaContableRepCriterioCajaID: 1974
+                          CCIvaRepercutidoCCajaCod: '1200011'
+                          CCIvaRepercutidoCCajaNom: IVA ACRED EXCENTO
+                          CuentaContableRetenCriterioCajaID: 2343
+                          CCIvaRetencutidoCCajaCod: '000035'
+                          CCIvaRetencutidoCCajaNom: prueba LLLLLLLL
+                          CuentaContableReperRequivalenciaID: 1106
+                          CCIvaReperRequivalenciaCod: '10300010036'
+                          CCIvaReperRequivalenciaNom: ABARROTES MONTERREY SA DE CV
+                        - IvaID: 15
+                          IvaCod: '1'
+                          IvaNombre: ''
+                          PorcentajeIva: 0
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 0
+                          TipoIvaAbrevi: ''
+                          TipoIvaDescrip: ''
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 0
+                          TipoIvaSIIAbrevi: ''
+                          TipoIvaSIIDescrip: ''
+                          CuentaContableSoportadoID: ''
+                          CCIvaSoportadoCod: ''
+                          CCIvaSoportadoNombre: ''
+                          CuentaContableRepercutidoID: ''
+                          CCIvaRepercutidoCod: ''
+                          CCIvaRepercutidoNom: ''
+                          CuentaContableSopCriterioCajaID: ''
+                          CCIvaSoportadoCCajaCod: ''
+                          CCIvaSoportadoCCajaNom: ''
+                          CuentaContableRepCriterioCajaID: ''
+                          CCIvaRepercutidoCCajaCod: ''
+                          CCIvaRepercutidoCCajaNom: ''
+                          CuentaContableRetenCriterioCajaID: ''
+                          CCIvaRetencutidoCCajaCod: ''
+                          CCIvaRetencutidoCCajaNom: ''
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 16
+                          IvaCod: codd
+                          IvaNombre: IVA-Valen
+                          PorcentajeIva: 0
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 131
+                          TipoIvaAbrevi: S2
+                          TipoIvaDescrip: No Exenta - Con inversión sujeto pasivo
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: '23'
+                          TipoIvaSIIID: 443
+                          TipoIvaSIIAbrevi: S2
+                          TipoIvaSIIDescrip: No Exenta - Con inversión sujeto pasivo
+                          CuentaContableSoportadoID: ''
+                          CCIvaSoportadoCod: ''
+                          CCIvaSoportadoNombre: ''
+                          CuentaContableRepercutidoID: ''
+                          CCIvaRepercutidoCod: ''
+                          CCIvaRepercutidoNom: ''
+                          CuentaContableSopCriterioCajaID: ''
+                          CCIvaSoportadoCCajaCod: ''
+                          CCIvaSoportadoCCajaNom: ''
+                          CuentaContableRepCriterioCajaID: ''
+                          CCIvaRepercutidoCCajaCod: ''
+                          CCIvaRepercutidoCCajaNom: ''
+                          CuentaContableRetenCriterioCajaID: ''
+                          CCIvaRetencutidoCCajaCod: ''
+                          CCIvaRetencutidoCCajaNom: ''
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 22
+                          IvaCod: NUEVO
+                          IvaNombre: NUEVO
+                          PorcentajeIva: 22
+                          PorcentajeRecargo: 22
+                          TipoIvaID: 133
+                          TipoIvaAbrevi: E1
+                          TipoIvaDescrip: Exenta por el artículo 20
+                          PorcentajeRetencionIva: 22
+                          CodigoIvaSAT: '22'
+                          TipoIvaSIIID: 434
+                          TipoIvaSIIAbrevi: E1
+                          TipoIvaSIIDescrip: Exenta por el artículo 20
+                          CuentaContableSoportadoID: 1060
+                          CCIvaSoportadoCod: '100'
+                          CCIvaSoportadoNombre: CAJA
+                          CuentaContableRepercutidoID: 1069
+                          CCIvaRepercutidoCod: '103'
+                          CCIvaRepercutidoNom: CLIENTES
+                          CuentaContableSopCriterioCajaID: ''
+                          CCIvaSoportadoCCajaCod: ''
+                          CCIvaSoportadoCCajaNom: ''
+                          CuentaContableRepCriterioCajaID: ''
+                          CCIvaRepercutidoCCajaCod: ''
+                          CCIvaRepercutidoCCajaNom: ''
+                          CuentaContableRetenCriterioCajaID: 1068
+                          CCIvaRetencutidoCCajaCod: '1340002'
+                          CCIvaRetencutidoCCajaNom: INVERSIONES BANAMEX
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 23
+                          IvaCod: DS
+                          IvaNombre: FDF
+                          PorcentajeIva: 0
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 132
+                          TipoIvaAbrevi: S3
+                          TipoIvaDescrip: No Exenta - Sin inversión sujeto pasivo y con inversión sujeto pasivo
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 445
+                          TipoIvaSIIAbrevi: S3
+                          TipoIvaSIIDescrip: No Exenta - Sin inversión sujeto pasivo y con inversión sujeto pasivo
+                          CuentaContableSoportadoID: 1061
+                          CCIvaSoportadoCod: '1000001'
+                          CCIvaSoportadoNombre: FONDOVALLEJO
+                          CuentaContableRepercutidoID: 1063
+                          CCIvaRepercutidoCod: '102'
+                          CCIvaRepercutidoNom: BANCOS
+                          CuentaContableSopCriterioCajaID: ''
+                          CCIvaSoportadoCCajaCod: ''
+                          CCIvaSoportadoCCajaNom: ''
+                          CuentaContableRepCriterioCajaID: ''
+                          CCIvaRepercutidoCCajaCod: ''
+                          CCIvaRepercutidoCCajaNom: ''
+                          CuentaContableRetenCriterioCajaID: ''
+                          CCIvaRetencutidoCCajaCod: ''
+                          CCIvaRetencutidoCCajaNom: ''
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 24
+                          IvaCod: eee
+                          IvaNombre: eee
+                          PorcentajeIva: 0
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 132
+                          TipoIvaAbrevi: S3
+                          TipoIvaDescrip: No Exenta - Sin inversión sujeto pasivo y con inversión sujeto pasivo
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 445
+                          TipoIvaSIIAbrevi: S3
+                          TipoIvaSIIDescrip: No Exenta - Sin inversión sujeto pasivo y con inversión sujeto pasivo
+                          CuentaContableSoportadoID: 1060
+                          CCIvaSoportadoCod: '100'
+                          CCIvaSoportadoNombre: CAJA
+                          CuentaContableRepercutidoID: 1066
+                          CCIvaRepercutidoCod: '134'
+                          CCIvaRepercutidoNom: INVERSIONES BANCARIAS
+                          CuentaContableSopCriterioCajaID: ''
+                          CCIvaSoportadoCCajaCod: ''
+                          CCIvaSoportadoCCajaNom: ''
+                          CuentaContableRepCriterioCajaID: ''
+                          CCIvaRepercutidoCCajaCod: ''
+                          CCIvaRepercutidoCCajaNom: ''
+                          CuentaContableRetenCriterioCajaID: ''
+                          CCIvaRetencutidoCCajaCod: ''
+                          CCIvaRetencutidoCCajaNom: ''
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 25
+                          IvaCod: nn
+                          IvaNombre: nn
+                          PorcentajeIva: 0
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 132
+                          TipoIvaAbrevi: S3
+                          TipoIvaDescrip: No Exenta - Sin inversión sujeto pasivo y con inversión sujeto pasivo
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 445
+                          TipoIvaSIIAbrevi: S3
+                          TipoIvaSIIDescrip: No Exenta - Sin inversión sujeto pasivo y con inversión sujeto pasivo
+                          CuentaContableSoportadoID: 1062
+                          CCIvaSoportadoCod: '1000002'
+                          CCIvaSoportadoNombre: FONDOTEOLOYUCAN
+                          CuentaContableRepercutidoID: 1167
+                          CCIvaRepercutidoCod: '10300010097'
+                          CCIvaRepercutidoNom: SUPERMERCADOS INTERNACIONALES HEB S
+                          CuentaContableSopCriterioCajaID: ''
+                          CCIvaSoportadoCCajaCod: ''
+                          CCIvaSoportadoCCajaNom: ''
+                          CuentaContableRepCriterioCajaID: ''
+                          CCIvaRepercutidoCCajaCod: ''
+                          CCIvaRepercutidoCCajaNom: ''
+                          CuentaContableRetenCriterioCajaID: ''
+                          CCIvaRetencutidoCCajaCod: ''
+                          CCIvaRetencutidoCCajaNom: ''
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 26
+                          IvaCod: '12345'
+                          IvaNombre: Iva test
+                          PorcentajeIva: 0
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 133
+                          TipoIvaAbrevi: E1
+                          TipoIvaDescrip: Exenta por el artículo 20
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 433
+                          TipoIvaSIIAbrevi: LC
+                          TipoIvaSIIDescrip: Aduana - Liquidación complementaria
+                          CuentaContableSoportadoID: 1060
+                          CCIvaSoportadoCod: '100'
+                          CCIvaSoportadoNombre: CAJA
+                          CuentaContableRepercutidoID: ''
+                          CCIvaRepercutidoCod: ''
+                          CCIvaRepercutidoNom: ''
+                          CuentaContableSopCriterioCajaID: ''
+                          CCIvaSoportadoCCajaCod: ''
+                          CCIvaSoportadoCCajaNom: ''
+                          CuentaContableRepCriterioCajaID: ''
+                          CCIvaRepercutidoCCajaCod: ''
+                          CCIvaRepercutidoCCajaNom: ''
+                          CuentaContableRetenCriterioCajaID: ''
+                          CCIvaRetencutidoCCajaCod: ''
+                          CCIvaRetencutidoCCajaNom: ''
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 27
+                          IvaCod: MIIVA
+                          IvaNombre: Iva Tivi
+                          PorcentajeIva: 0
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 133
+                          TipoIvaAbrevi: E1
+                          TipoIvaDescrip: Exenta por el artículo 20
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 433
+                          TipoIvaSIIAbrevi: LC
+                          TipoIvaSIIDescrip: Aduana - Liquidación complementaria
+                          CuentaContableSoportadoID: ''
+                          CCIvaSoportadoCod: ''
+                          CCIvaSoportadoNombre: ''
+                          CuentaContableRepercutidoID: ''
+                          CCIvaRepercutidoCod: ''
+                          CCIvaRepercutidoNom: ''
+                          CuentaContableSopCriterioCajaID: ''
+                          CCIvaSoportadoCCajaCod: ''
+                          CCIvaSoportadoCCajaNom: ''
+                          CuentaContableRepCriterioCajaID: ''
+                          CCIvaRepercutidoCCajaCod: ''
+                          CCIvaRepercutidoCCajaNom: ''
+                          CuentaContableRetenCriterioCajaID: ''
+                          CCIvaRetencutidoCCajaCod: ''
+                          CCIvaRetencutidoCCajaNom: ''
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 28
+                          IvaCod: iva sto
+                          IvaNombre: este iva
+                          PorcentajeIva: 0
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 133
+                          TipoIvaAbrevi: E1
+                          TipoIvaDescrip: Exenta por el artículo 20
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 433
+                          TipoIvaSIIAbrevi: LC
+                          TipoIvaSIIDescrip: Aduana - Liquidación complementaria
+                          CuentaContableSoportadoID: ''
+                          CCIvaSoportadoCod: ''
+                          CCIvaSoportadoNombre: ''
+                          CuentaContableRepercutidoID: ''
+                          CCIvaRepercutidoCod: ''
+                          CCIvaRepercutidoNom: ''
+                          CuentaContableSopCriterioCajaID: ''
+                          CCIvaSoportadoCCajaCod: ''
+                          CCIvaSoportadoCCajaNom: ''
+                          CuentaContableRepCriterioCajaID: ''
+                          CCIvaRepercutidoCCajaCod: ''
+                          CCIvaRepercutidoCCajaNom: ''
+                          CuentaContableRetenCriterioCajaID: ''
+                          CCIvaRetencutidoCCajaCod: ''
+                          CCIvaRetencutidoCCajaNom: ''
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 29
+                          IvaCod: fgh
+                          IvaNombre: este iva 2
+                          PorcentajeIva: 0
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 0
+                          TipoIvaAbrevi: ''
+                          TipoIvaDescrip: ''
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 0
+                          TipoIvaSIIAbrevi: ''
+                          TipoIvaSIIDescrip: ''
+                          CuentaContableSoportadoID: ''
+                          CCIvaSoportadoCod: ''
+                          CCIvaSoportadoNombre: ''
+                          CuentaContableRepercutidoID: ''
+                          CCIvaRepercutidoCod: ''
+                          CCIvaRepercutidoNom: ''
+                          CuentaContableSopCriterioCajaID: ''
+                          CCIvaSoportadoCCajaCod: ''
+                          CCIvaSoportadoCCajaNom: ''
+                          CuentaContableRepCriterioCajaID: ''
+                          CCIvaRepercutidoCCajaCod: ''
+                          CCIvaRepercutidoCCajaNom: ''
+                          CuentaContableRetenCriterioCajaID: ''
+                          CCIvaRetencutidoCCajaCod: ''
+                          CCIvaRetencutidoCCajaNom: ''
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 30
+                          IvaCod: '157451'
+                          IvaNombre: ''
+                          PorcentajeIva: 0
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 0
+                          TipoIvaAbrevi: ''
+                          TipoIvaDescrip: ''
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 0
+                          TipoIvaSIIAbrevi: ''
+                          TipoIvaSIIDescrip: ''
+                          CuentaContableSoportadoID: ''
+                          CCIvaSoportadoCod: ''
+                          CCIvaSoportadoNombre: ''
+                          CuentaContableRepercutidoID: ''
+                          CCIvaRepercutidoCod: ''
+                          CCIvaRepercutidoNom: ''
+                          CuentaContableSopCriterioCajaID: ''
+                          CCIvaSoportadoCCajaCod: ''
+                          CCIvaSoportadoCCajaNom: ''
+                          CuentaContableRepCriterioCajaID: ''
+                          CCIvaRepercutidoCCajaCod: ''
+                          CCIvaRepercutidoCCajaNom: ''
+                          CuentaContableRetenCriterioCajaID: ''
+                          CCIvaRetencutidoCCajaCod: ''
+                          CCIvaRetencutidoCCajaNom: ''
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 32
+                          IvaCod: '6666666'
+                          IvaNombre: ''
+                          PorcentajeIva: 0
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 0
+                          TipoIvaAbrevi: ''
+                          TipoIvaDescrip: ''
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 0
+                          TipoIvaSIIAbrevi: ''
+                          TipoIvaSIIDescrip: ''
+                          CuentaContableSoportadoID: ''
+                          CCIvaSoportadoCod: ''
+                          CCIvaSoportadoNombre: ''
+                          CuentaContableRepercutidoID: ''
+                          CCIvaRepercutidoCod: ''
+                          CCIvaRepercutidoNom: ''
+                          CuentaContableSopCriterioCajaID: ''
+                          CCIvaSoportadoCCajaCod: ''
+                          CCIvaSoportadoCCajaNom: ''
+                          CuentaContableRepCriterioCajaID: ''
+                          CCIvaRepercutidoCCajaCod: ''
+                          CCIvaRepercutidoCCajaNom: ''
+                          CuentaContableRetenCriterioCajaID: ''
+                          CCIvaRetencutidoCCajaCod: ''
+                          CCIvaRetencutidoCCajaNom: ''
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 33
+                          IvaCod: IVAJCO
+                          IvaNombre: IvaName
+                          PorcentajeIva: 5
+                          PorcentajeRecargo: 10
+                          TipoIvaID: 140
+                          TipoIvaAbrevi: N2
+                          TipoIvaDescrip: ImporteTAIReglasLocalizacion
+                          PorcentajeRetencionIva: 10
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 430
+                          TipoIvaSIIAbrevi: '3'
+                          TipoIvaSIIDescrip: Falta de limpieza
+                          CuentaContableSoportadoID: ''
+                          CCIvaSoportadoCod: ''
+                          CCIvaSoportadoNombre: ''
+                          CuentaContableRepercutidoID: ''
+                          CCIvaRepercutidoCod: ''
+                          CCIvaRepercutidoNom: ''
+                          CuentaContableSopCriterioCajaID: ''
+                          CCIvaSoportadoCCajaCod: ''
+                          CCIvaSoportadoCCajaNom: ''
+                          CuentaContableRepCriterioCajaID: ''
+                          CCIvaRepercutidoCCajaCod: ''
+                          CCIvaRepercutidoCCajaNom: ''
+                          CuentaContableRetenCriterioCajaID: ''
+                          CCIvaRetencutidoCCajaCod: ''
+                          CCIvaRetencutidoCCajaNom: ''
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - IvaID: 1
+                          IvaCod: IVA
+                          IvaNombre: 'IVA16, ventas, gastos'
+                          PorcentajeIva: 16
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 0
+                          TipoIvaAbrevi: ''
+                          TipoIvaDescrip: ''
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 0
+                          TipoIvaSIIAbrevi: ''
+                          TipoIvaSIIDescrip: ''
+                          CuentaContableSoportadoID: 1380
+                          CCIvaSoportadoCod: '1200005'
+                          CCIvaSoportadoNombre: IVA ACRED PAGADO GASTOS 16%
+                          CuentaContableRepercutidoID: 1770
+                          CCIvaRepercutidoCod: '2220001'
+                          CCIvaRepercutidoNom: IVA TRASL COBRADO AL 16%
+                          CuentaContableSopCriterioCajaID: 1408
+                          CCIvaSoportadoCCajaCod: '1180005'
+                          CCIvaSoportadoCCajaNom: IVA ACRED GASTOS PDPAG 16%
+                          CuentaContableRepCriterioCajaID: 1778
+                          CCIvaRepercutidoCCajaCod: '2200003'
+                          CCIvaRepercutidoCCajaNom: IVA TRASLAD PD COBRO 16%
+                          CuentaContableRetenCriterioCajaID: 1060
+                          CCIvaRetencutidoCCajaCod: '100'
+                          CCIvaRetencutidoCCajaNom: CAJA
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
+                        - IvaID: 2
+                          IvaCod: IVA
+                          IvaNombre: 'IVA16, ventas, gastos'
+                          PorcentajeIva: 16
+                          PorcentajeRecargo: 0
+                          TipoIvaID: 0
+                          TipoIvaAbrevi: ''
+                          TipoIvaDescrip: ''
+                          PorcentajeRetencionIva: 0
+                          CodigoIvaSAT: ''
+                          TipoIvaSIIID: 0
+                          TipoIvaSIIAbrevi: ''
+                          TipoIvaSIIDescrip: ''
+                          CuentaContableSoportadoID: ''
+                          CCIvaSoportadoCod: ''
+                          CCIvaSoportadoNombre: ''
+                          CuentaContableRepercutidoID: ''
+                          CCIvaRepercutidoCod: ''
+                          CCIvaRepercutidoNom: ''
+                          CuentaContableSopCriterioCajaID: ''
+                          CCIvaSoportadoCCajaCod: ''
+                          CCIvaSoportadoCCajaNom: ''
+                          CuentaContableRepCriterioCajaID: ''
+                          CCIvaRepercutidoCCajaCod: ''
+                          CCIvaRepercutidoCCajaNom: ''
+                          CuentaContableRetenCriterioCajaID: ''
+                          CCIvaRetencutidoCCajaCod: ''
+                          CCIvaRetencutidoCCajaNom: ''
+                          CuentaContableReperRequivalenciaID: ''
+                          CCIvaReperRequivalenciaCod: ''
+                          CCIvaReperRequivalenciaNom: ''
       operationId: get-ivas
       parameters:
         - schema:
@@ -5282,6 +6169,97 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      IvaID:
+                        type: integer
+                      TipoIvaID:
+                        type: integer
+                      NomTipoIva:
+                        type: string
+                      CodTipoIva:
+                        type: string
+                      IvaSoporadoID:
+                        type: string
+                      NomIvaSoportado:
+                        type: string
+                      CodIvaSoportado:
+                        type: string
+                      IvaRepercutidoID:
+                        type: string
+                      NomIvaRepercutido:
+                        type: string
+                      CodIvaRepercutido:
+                        type: string
+                      IvaSopCriterioCajaID:
+                        type: string
+                      NomIvaSopCriterioCaja:
+                        type: string
+                      CodIvaSopCriterioCaja:
+                        type: string
+                      IvaRepCriterioCajaID:
+                        type: string
+                      NomIvaRepCriterioCaja:
+                        type: string
+                      CodIvaRepCriterioCaja:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      IvaID: 33
+                      TipoIvaID: 140
+                      NomTipoIva: ImporteTAIReglasLocalizacion
+                      CodTipoIva: N2
+                      IvaSoporadoID: ''
+                      NomIvaSoportado: ''
+                      CodIvaSoportado: ''
+                      IvaRepercutidoID: ''
+                      NomIvaRepercutido: ''
+                      CodIvaRepercutido: ''
+                      IvaSopCriterioCajaID: ''
+                      NomIvaSopCriterioCaja: ''
+                      CodIvaSopCriterioCaja: ''
+                      IvaRepCriterioCajaID: ''
+                      NomIvaRepCriterioCaja: ''
+                      CodIvaRepCriterioCaja: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      IvaID: 33
+                      TipoIvaID: 140
+                      NomTipoIva: ImporteTAIReglasLocalizacion
+                      CodTipoIva: N2
+                      IvaSoporadoID: ''
+                      NomIvaSoportado: ''
+                      CodIvaSoportado: ''
+                      IvaRepercutidoID: ''
+                      NomIvaRepercutido: ''
+                      CodIvaRepercutido: ''
+                      IvaSopCriterioCajaID: ''
+                      NomIvaSopCriterioCaja: ''
+                      CodIvaSopCriterioCaja: ''
+                      IvaRepCriterioCajaID: ''
+                      NomIvaRepCriterioCaja: ''
+                      CodIvaRepCriterioCaja: ''
       parameters:
         - schema:
             type: string
@@ -5290,6 +6268,64 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Codigo:
+                  type: string
+                Nombre:
+                  type: string
+                PorcentajeIva:
+                  type: string
+                PorcentajeRecargo:
+                  type: string
+                TipoIvaID:
+                  type: string
+                PorcentajeRetencionIva:
+                  type: string
+                CodigoIvaSAT:
+                  type: string
+                TipoIvaSIIID:
+                  type: string
+                CCPredeterminadas:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      CuentaContableID:
+                        type: string
+                      Tipo:
+                        type: string
+              x-examples:
+                Example 1:
+                  Codigo: IVAJCO
+                  Nombre: IvaName
+                  PorcentajeIva: '5'
+                  PorcentajeRecargo: '10'
+                  TipoIvaID: '140'
+                  PorcentajeRetencionIva: '10'
+                  CodigoIvaSAT: ''
+                  TipoIvaSIIID: '430'
+                  CCPredeterminadas:
+                    - CuentaContableID: ''
+                      Tipo: ''
+            examples:
+              Example 1:
+                value:
+                  Codigo: IVAJCO
+                  Nombre: IvaName
+                  PorcentajeIva: '5'
+                  PorcentajeRecargo: '10'
+                  TipoIvaID: '140'
+                  PorcentajeRetencionIva: '10'
+                  CodigoIvaSAT: ''
+                  TipoIvaSIIID: '430'
+                  CCPredeterminadas:
+                    - CuentaContableID: ''
+                      Tipo: ''
     parameters: []
 components:
   schemas: {}
