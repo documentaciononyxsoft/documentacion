@@ -4871,7 +4871,140 @@ paths:
     get:
       summary: GeneralTable - FindManyByCode
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            TablaGeneralID:
+                              type: integer
+                            Clave:
+                              type: string
+                            Descripcion:
+                              type: string
+                            CustomerID:
+                              type: integer
+                            UsuarioID:
+                              type: integer
+                            FechaHoraModificado:
+                              type: string
+                            Abreviatura:
+                              type: string
+                            Estandar:
+                              type: integer
+                            PadreID:
+                              type: integer
+                            CampoLibre1:
+                              type: string
+                            CampoLibre2:
+                              type: string
+                            Defecto:
+                              type: integer
+                            Obsoleto:
+                              type: integer
+                            Notas:
+                              type: string
+                            Hijos:
+                              type: array
+                              items:
+                                type: object
+                                properties: {}
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT *\r\nFROM TablaGeneral\r\nWHERE TablaGeneral.Clave = \"\" AND\r\nTablaGeneral.CustomerID = 29"
+                      records:
+                        - TablaGeneralID: 316
+                          Clave: ''
+                          Descripcion: 'Entrada de Mercancia '
+                          CustomerID: 29
+                          UsuarioID: 1
+                          FechaHoraModificado: '0000-00-00T00:00:00.000'
+                          Abreviatura: EM
+                          Estandar: 0
+                          PadreID: 0
+                          CampoLibre1: ''
+                          CampoLibre2: ''
+                          Defecto: 0
+                          Obsoleto: 0
+                          Notas: ''
+                          Hijos: []
+                        - TablaGeneralID: 317
+                          Clave: ''
+                          Descripcion: Produccion
+                          CustomerID: 29
+                          UsuarioID: 1
+                          FechaHoraModificado: '0000-00-00T00:00:00.000'
+                          Abreviatura: P
+                          Estandar: 0
+                          PadreID: 0
+                          CampoLibre1: ''
+                          CampoLibre2: ''
+                          Defecto: 0
+                          Obsoleto: 0
+                          Notas: ''
+                          Hijos: []
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - TablaGeneralID: 316
+                          Clave: ''
+                          Descripcion: 'Entrada de Mercancia '
+                          CustomerID: 29
+                          UsuarioID: 1
+                          FechaHoraModificado: '0000-00-00T00:00:00.000'
+                          Abreviatura: EM
+                          Estandar: 0
+                          PadreID: 0
+                          CampoLibre1: ''
+                          CampoLibre2: ''
+                          Defecto: 0
+                          Obsoleto: 0
+                          Notas: ''
+                          Hijos: []
+                        - TablaGeneralID: 317
+                          Clave: ''
+                          Descripcion: Produccion
+                          CustomerID: 29
+                          UsuarioID: 1
+                          FechaHoraModificado: '0000-00-00T00:00:00.000'
+                          Abreviatura: P
+                          Estandar: 0
+                          PadreID: 0
+                          CampoLibre1: ''
+                          CampoLibre2: ''
+                          Defecto: 0
+                          Obsoleto: 0
+                          Notas: ''
+                          Hijos: []
       operationId: get-generaltableindex
       parameters:
         - schema:
