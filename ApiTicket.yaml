@@ -486,7 +486,7 @@ paths:
           name: order
   '/ticket/{ticketID}':
     delete:
-      summary: RemoveForTickets
+      summary: Remove
       operationId: delete-ticket
       responses:
         '200':
