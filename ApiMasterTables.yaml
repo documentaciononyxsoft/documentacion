@@ -484,6 +484,116 @@ paths:
               Example 1:
                 value:
                   Nombre: grupo
+  /tables/accounts/light:
+    get:
+      summary: Account - FindLightList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                            Contador:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT mailing.MailingID,mailing.Nombre ,mailing.ReferenciaCodigo\r\nFROM mailing\r\nWHERE mailing.Activo =TRUE AND\r\nmailing.CustomerID = 29 AND mailing.EmpresaID = 1\r\n"
+                      records:
+                        - ID: 128
+                          Nombre: INGREDION MEXICO SA DE CV
+                          Codigo: '25000010002'
+                          Contador: 1
+                        - ID: 129
+                          Nombre: COMERCIALIZADORA ALCALI SA DE CV
+                          Codigo: '25000010003'
+                          Contador: 2
+                        - ID: 130
+                          Nombre: GIVAUDAN DE MEXICO SA DE CV
+                          Codigo: '25000010004'
+                          Contador: 3
+                        - ID: 131
+                          Nombre: TATE & LYLE MEXICO S DE RL DE CV
+                          Codigo: '25000010007'
+                          Contador: 4
+                        - ID: 132
+                          Nombre: SANUDO SA DE CV
+                          Codigo: '25000010020'
+                          Contador: 5
+                        - ID: 133
+                          Nombre: SYRSA QUIMICOS DE MEXICO SA DE CV
+                          Codigo: '25000010021'
+                          Contador: 6
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT mailing.MailingID,mailing.Nombre ,mailing.ReferenciaCodigo\r\nFROM mailing\r\nWHERE mailing.Activo =TRUE AND\r\nmailing.CustomerID = 29 AND mailing.EmpresaID = 1\r\n"
+                      records:
+                        - ID: 128
+                          Nombre: INGREDION MEXICO SA DE CV
+                          Codigo: '25000010002'
+                          Contador: 1
+                        - ID: 129
+                          Nombre: COMERCIALIZADORA ALCALI SA DE CV
+                          Codigo: '25000010003'
+                          Contador: 2
+                        - ID: 130
+                          Nombre: GIVAUDAN DE MEXICO SA DE CV
+                          Codigo: '25000010004'
+                          Contador: 3
+                        - ID: 131
+                          Nombre: TATE & LYLE MEXICO S DE RL DE CV
+                          Codigo: '25000010007'
+                          Contador: 4
+                        - ID: 132
+                          Nombre: SANUDO SA DE CV
+                          Codigo: '25000010020'
+                          Contador: 5
+                        - ID: 133
+                          Nombre: SYRSA QUIMICOS DE MEXICO SA DE CV
+                          Codigo: '25000010021'
+                          Contador: 6
+      operationId: get-tables-accounts-light
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /tables/companies:
     get:
       summary: Companie - FindMany
@@ -14680,110 +14790,6 @@ paths:
           in: query
           name: param
           description: al
-  /tables/accounts/light:
-    get:
-      summary: Account - findLightList
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: string
-                            Contador:
-                              type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT mailing.MailingID,mailing.Nombre ,mailing.ReferenciaCodigo\r\nFROM mailing\r\nWHERE mailing.Activo =TRUE AND\r\nmailing.CustomerID = 29 AND mailing.EmpresaID = 1\r\n"
-                      records:
-                        - ID: 1
-                          Nombre: LA GUIPUZCOANA-edgos
-                          Codigo: '01 '
-                          Contador: 1
-                        - ID: 2
-                          Nombre: 'TTES. SEUR                              '
-                          Codigo: '40000002'
-                          Contador: 2
-                        - ID: 3
-                          Nombre: DEUTSCHE RECU
-                          Codigo: '40000003'
-                          Contador: 3
-                        - ID: 4
-                          Nombre: dario
-                          Codigo: '43000001'
-                          Contador: 4
-                        - ID: 5
-                          Nombre: 'MUEBLES RUIZ, S.L.'
-                          Codigo: '43000002'
-                          Contador: 5
-                        - ID: 6
-                          Nombre: DEUTSCHE COMMERC
-                          Codigo: '43000003'
-                          Contador: 6
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT mailing.MailingID,mailing.Nombre ,mailing.ReferenciaCodigo\r\nFROM mailing\r\nWHERE mailing.Activo =TRUE AND\r\nmailing.CustomerID = 29 AND mailing.EmpresaID = 1\r\n"
-                      records:
-                        - ID: 1
-                          Nombre: LA GUIPUZCOANA-edgos
-                          Codigo: '01 '
-                          Contador: 1
-                        - ID: 2
-                          Nombre: 'TTES. SEUR                              '
-                          Codigo: '40000002'
-                          Contador: 2
-                        - ID: 3
-                          Nombre: DEUTSCHE RECU
-                          Codigo: '40000003'
-                          Contador: 3
-                        - ID: 4
-                          Nombre: dario
-                          Codigo: '43000001'
-                          Contador: 4
-                        - ID: 5
-                          Nombre: 'MUEBLES RUIZ, S.L.'
-                          Codigo: '43000002'
-                          Contador: 5
-      operationId: get-tables-accounts-light
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: accessToken
-          description: '"tokenReciente"'
   '/tables/checkListGroup/{CheckListDefinicionGrupoID}':
     put:
       summary: CheckListGroup - Update
