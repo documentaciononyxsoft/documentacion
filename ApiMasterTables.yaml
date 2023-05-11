@@ -486,7 +486,7 @@ paths:
                   Nombre: grupo
   /tables/accounts/light:
     get:
-      summary: Account - FindLightListo
+      summary: Account - FindLightList
       tags: []
       responses:
         '200':
