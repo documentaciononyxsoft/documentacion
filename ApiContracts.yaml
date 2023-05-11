@@ -1132,5 +1132,148 @@ paths:
           in: header
           name: 'accessToken '
           description: Token Reciente
+  '/contracts/{contratoID}/ubication':
+    parameters:
+      - schema:
+          type: string
+          example: '20'
+        name: contratoID
+        in: path
+        required: true
+        description: ID del contrato
+    post:
+      summary: Contracts - CreateForUbication
+      operationId: post-contracts-contratoID-ubication
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ContratoMantenimientoUbicacionID:
+                              type: integer
+                            Direccion:
+                              type: string
+                            Nombre:
+                              type: string
+                            CodigoPostal:
+                              type: string
+                            Municipio:
+                              type: string
+                            Provincia:
+                              type: string
+                            Pais:
+                              type: string
+                            Telefono:
+                              type: string
+                            DireccionHabitual:
+                              type: integer
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - ContratoMantenimientoUbicacionID: 18
+                          Direccion: Calle falsa 123
+                          Nombre: Edgos v2
+                          CodigoPostal: ''
+                          Municipio: Dosquebradas
+                          Provincia: Araba
+                          Pais: AfganistÃ¡n
+                          Telefono: '33333'
+                          DireccionHabitual: 0
+                        - ContratoMantenimientoUbicacionID: 19
+                          Direccion: Calle falsa 123
+                          Nombre: Edgos v3
+                          CodigoPostal: ''
+                          Municipio: Dosquebradas
+                          Provincia: Araba
+                          Pais: AfganistÃ¡n
+                          Telefono: '33333'
+                          DireccionHabitual: 0
+                        - ContratoMantenimientoUbicacionID: 20
+                          Direccion: Calle falsa 123
+                          Nombre: Edgos v4
+                          CodigoPostal: ''
+                          Municipio: Dosquebradas
+                          Provincia: Araba
+                          Pais: AfganistÃ¡n
+                          Telefono: '33333'
+                          DireccionHabitual: 0
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - ContratoMantenimientoUbicacionID: 18
+                          Direccion: Calle falsa 123
+                          Nombre: Edgos v2
+                          CodigoPostal: ''
+                          Municipio: Dosquebradas
+                          Provincia: Araba
+                          Pais: AfganistÃ¡n
+                          Telefono: '33333'
+                          DireccionHabitual: 0
+                        - ContratoMantenimientoUbicacionID: 19
+                          Direccion: Calle falsa 123
+                          Nombre: Edgos v3
+                          CodigoPostal: ''
+                          Municipio: Dosquebradas
+                          Provincia: Araba
+                          Pais: AfganistÃ¡n
+                          Telefono: '33333'
+                          DireccionHabitual: 0
+                        - ContratoMantenimientoUbicacionID: 20
+                          Direccion: Calle falsa 123
+                          Nombre: Edgos v4
+                          CodigoPostal: ''
+                          Municipio: Dosquebradas
+                          Provincia: Araba
+                          Pais: AfganistÃ¡n
+                          Telefono: '33333'
+                          DireccionHabitual: 0
+                      success: true
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: 'accessToken '
+          description: Token Reciente
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                UbicacionID:
+                  type: string
+              x-examples:
+                Example 1:
+                  UbicacionID: '61,62,63'
+            examples:
+              Example 1:
+                value:
+                  UbicacionID: '61,62,63'
 components:
   schemas: {}
