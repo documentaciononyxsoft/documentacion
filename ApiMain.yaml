@@ -3874,5 +3874,998 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /menu/favorites:
+    get:
+      summary: Favorites - ListMenuToShow
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        menuID:
+                          type: integer
+                        Codigo:
+                          type: string
+                        opcion:
+                          type: string
+                        paginaWeb:
+                          type: string
+                        icono:
+                          type: string
+                        flaticon:
+                          type: string
+                        Hijos:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              menuID:
+                                type: integer
+                              Codigo:
+                                type: string
+                              opcion:
+                                type: string
+                              paginaWeb:
+                                type: string
+                              icono:
+                                type: string
+                              flaticon:
+                                type: string
+                              esFavorito:
+                                type: boolean
+                              Hijos:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    menuID:
+                                      type: integer
+                                    Codigo:
+                                      type: string
+                                    opcion:
+                                      type: string
+                                    paginaWeb:
+                                      type: string
+                                    icono:
+                                      type: string
+                                    flaticon:
+                                      type: string
+                                    esFavorito:
+                                      type: boolean
+                                    Hijos:
+                                      type: 'null'
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - menuID: 30162
+                        Codigo: ERP_Tablas
+                        opcion: Tablas
+                        paginaWeb: ''
+                        icono: ''
+                        flaticon: ''
+                        Hijos:
+                          - menuID: 30163
+                            Codigo: ERP_Tablas_Empresas
+                            opcion: Empresas
+                            paginaWeb: PAGE_CompaniesAggregate
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tablas-empresas.svg'
+                            flaticon: flaticon-empresa
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30164
+                            Codigo: ERP_Tablas_Articulos
+                            opcion: Artículos
+                            paginaWeb: PAGE_MaintenanceItems
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tablas-articulo.svg'
+                            flaticon: flaticon-articulo
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30165
+                            Codigo: ERP_Tablas_Clientes
+                            opcion: Clientes
+                            paginaWeb: PAGE_ClientsERP
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tablas-cliente.svg'
+                            flaticon: flaticon-grupo-usuario
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30166
+                            Codigo: ERP_Tablas_Proveedores
+                            opcion: Proveedores
+                            paginaWeb: PAGE_TabProveedores
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tablas-proveedor.svg'
+                            flaticon: flaticon-proveedores
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30167
+                            Codigo: ERP_Tablas_Representantes
+                            opcion: Representantes
+                            paginaWeb: PAGE_TabRepresentative
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tablas-reprecentante.svg'
+                            flaticon: flaticon-representantes
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30168
+                            Codigo: ERP_Tablas_Empleados
+                            opcion: Empleados
+                            paginaWeb: PAGE_EmployeeTables
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tablas-empleado.svg'
+                            flaticon: flaticon-tablas-empleado
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30169
+                            Codigo: ERP_Tablas_Bancos
+                            opcion: Bancos
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tablas-bancos.svg'
+                            flaticon: flaticon-tablas-bancos
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30170
+                            Codigo: ERP_Tablas_Transportistas
+                            opcion: Transportistas
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tablas-transportistas.svg'
+                            flaticon: flaticon-tablas-transportistas
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30171
+                            Codigo: ERP_Tablas_ConsultasTablas
+                            opcion: Consulta tab. Auxiliares
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tabla-consulta-auxiliares.svg'
+                            flaticon: flaticon-consulta-tab-auxiliares
+                            esFavorito: false
+                            Hijos:
+                              - menuID: 30172
+                                Codigo: ERP_Tablas_ConsultasTablas_TarifaVenta
+                                opcion: Consulta Tarifa Venta
+                                paginaWeb: PAGE_ConsultSaleRate
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30173
+                                Codigo: ERP_Tablas_ConsultasTablas_ArticuloXAlmacen
+                                opcion: Consulta Artículos X Almacén
+                                paginaWeb: PAGE_ConsultWarehouseItems
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30174
+                                Codigo: ERP_Tablas_ConsultasTablas_Contactos
+                                opcion: Consulta Contactos
+                                paginaWeb: PAGE_ConsultContact
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                          - menuID: 30175
+                            Codigo: ERP_Tablas_OtrasTablasCuentas
+                            opcion: Otras tab. Cuentas
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tablas-otras-cuentas.svg'
+                            flaticon: flaticon-tablas-otras-cuentas
+                            esFavorito: false
+                            Hijos:
+                              - menuID: 30176
+                                Codigo: ERP_Tablas_OtrasTablasCuentas_FormasCobroPago
+                                opcion: Formas de Cobro / Pago
+                                paginaWeb: PAGE_PaymentMethods
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30177
+                                Codigo: ERP_Tablas_OtrasTablasCuentas_Monedas
+                                opcion: Monedas
+                                paginaWeb: PAGE_Currency
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30178
+                                Codigo: ERP_Tablas_OtrasTablasCuentas_IVA
+                                opcion: I.V.A.
+                                paginaWeb: PAGE_IVA
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30181
+                                Codigo: ERP_Tablas_OtrasTablasCuentas_Actividades
+                                opcion: Actividades
+                                paginaWeb: PAGE_GeneralTableTree
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30189
+                                Codigo: ERP_Tablas_OtrasTablasCuentas_Paises
+                                opcion: Países
+                                paginaWeb: PAGE_Countries
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30190
+                                Codigo: ERP_Tablas_OtrasTablasCuentas_Provincias
+                                opcion: Provincias
+                                paginaWeb: null
+                                icono: null
+                                flaticon: null
+                                esFavorito: false
+                                Hijos: null
+                          - menuID: 30209
+                            Codigo: ERP_Tablas_Listas
+                            opcion: Listas
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tablas-listas.svg'
+                            flaticon: flaticon-tablas-listas
+                            esFavorito: false
+                            Hijos: null
+                      - menuID: 30213
+                        Codigo: ERP_Organizador
+                        opcion: Organizador
+                        paginaWeb: ''
+                        icono: ''
+                        flaticon: ''
+                        Hijos:
+                          - menuID: 30216
+                            Codigo: ERP_Organizador_Calendario
+                            opcion: Calendario
+                            paginaWeb: PAGE_CalendarV2
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/organizador/organizador-calendarios.svg'
+                            flaticon: flaticon-organizador-calendarios
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30231
+                            Codigo: ERP_Organizador_CalendarioR
+                            opcion: Calendario de recursos
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/organizador/organizador-calendarios-recursos.svg'
+                            flaticon: flaticon-organizador-calendarios-recursos
+                            esFavorito: false
+                            Hijos:
+                              - menuID: 30232
+                                Codigo: ERP_Organizador_CalendarioR_Calendario
+                                opcion: Calendario de Recursos
+                                paginaWeb: null
+                                icono: null
+                                flaticon: null
+                                esFavorito: false
+                                Hijos: null
+                      - menuID: 30257
+                        Codigo: ERP_CRM
+                        opcion: CRM
+                        paginaWeb: ''
+                        icono: ''
+                        flaticon: ''
+                        Hijos:
+                          - menuID: 30258
+                            Codigo: ERP_CRM_ConsultaDeCuentas
+                            opcion: Consulta de cuentas
+                            paginaWeb: PAGE_ConsultAccounts
+                            icono: ''
+                            flaticon: flaticon-consultas-cuentas
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30259
+                            Codigo: ERP_CRM_FichaDeCuentas
+                            opcion: Ficha de cuentas
+                            paginaWeb: PAGE_TabAccounts
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/crm/crm-fichas-cuentas.svg'
+                            flaticon: flaticon-ficha-cuentas
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30274
+                            Codigo: ERP_CRM_OtrasTablas
+                            opcion: Otras tablas
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/crm/crm-tablas.svg'
+                            flaticon: flaticon-otras-tablas-crm
+                            esFavorito: false
+                            Hijos:
+                              - menuID: 30276
+                                Codigo: ERP_CRM_OtrasTablas_TiposDeMailing
+                                opcion: Tipos de cuenta
+                                paginaWeb: PAGE_TypeAccounts
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                      - menuID: 30296
+                        Codigo: ERP_Compras
+                        opcion: Compras
+                        paginaWeb: ''
+                        icono: ''
+                        flaticon: ''
+                        Hijos:
+                          - menuID: 30308
+                            Codigo: ERP_Compras_AlbaranesCompraMenu
+                            opcion: Recepción de compra
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/compras/compras-recepcion.svg'
+                            flaticon: flaticon-recepcion-compras
+                            esFavorito: false
+                            Hijos:
+                              - menuID: 30311
+                                Codigo: ERP_Compras_AlbaranesDeCompra
+                                opcion: Mant. remisiones de compra
+                                paginaWeb: PAGE_PurchasesMaintenanceV2
+                                icono: ''
+                                flaticon: flaticon-mantenimiento-remisiones-compra
+                                esFavorito: true
+                                Hijos: null
+                              - menuID: 30313
+                                Codigo: ERP_Compras_ConsultaAlbaranesDeCompra
+                                opcion: Consulta de Rem. compra
+                                paginaWeb: PAGE_ConsultPurchaseReceipts
+                                icono: ''
+                                flaticon: flaticon-consulta-remision-compra
+                                esFavorito: true
+                                Hijos: null
+                      - menuID: 30347
+                        Codigo: ERP_Ofertas
+                        opcion: Cotizaciones
+                        paginaWeb: ''
+                        icono: ''
+                        flaticon: ''
+                        Hijos:
+                          - menuID: 30348
+                            Codigo: ERP_Ofertas_Ofertas
+                            opcion: Cotizaciones
+                            paginaWeb: Page_AddOffers
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/ofertas/ofertas-ofertas.svg'
+                            flaticon: flaticon-ofertas-ofertas
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30349
+                            Codigo: ERP_Ofertas_ConsultaDeOfertas
+                            opcion: Consulta de cotizaciones
+                            paginaWeb: PAGE_ConsultOffers
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/ofertas/ofertas-consulta-ofertas.svg'
+                            flaticon: flaticon-ofertas-consulta-ofertas
+                            esFavorito: true
+                            Hijos: null
+                          - menuID: 30351
+                            Codigo: ERP_Ofertas_GeneracionPedidos
+                            opcion: Generación de pedidos
+                            paginaWeb: PAGE_GenerationSalesOrders
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/ofertas/ofertas-pedidos.svg'
+                            flaticon: flaticon-generacion-pedidos
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30354
+                            Codigo: ERP_Ofertas_OtrasTablas
+                            opcion: Otras tablas
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/ofertas/ofertas-tablas.svg'
+                            flaticon: net-otras-tablas-cotizaciones
+                            esFavorito: false
+                            Hijos:
+                              - menuID: 30356
+                                Codigo: ERP_Ofertas_OtrasTablas_TiposDeOferta
+                                opcion: Tipos de Cotización
+                                paginaWeb: PAGE_OverallTable
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30357
+                                Codigo: ERP_Ofertas_OtrasTablas_TiposDeCampaina
+                                opcion: Tipos de campaña
+                                paginaWeb: PAGE_OverallTable
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30359
+                                Codigo: ERP_Ofertas_OtrasTablas_TiposDeSituacion
+                                opcion: Tipos de Situación
+                                paginaWeb: PAGE_OverallTable
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30360
+                                Codigo: ERP_Ofertas_OtrasTablas_TiposDeAtencion
+                                opcion: Tipos de Atención
+                                paginaWeb: PAGE_OverallTable
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30361
+                                Codigo: ERP_Ofertas_OtrasTablas_TiposDeOportunidad
+                                opcion: Tipos de Oportunidad
+                                paginaWeb: PAGE_OverallTable
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30362
+                                Codigo: ERP_Ofertas_OtrasTablas_TiposDeEstrategia
+                                opcion: Tipos de Estrategia
+                                paginaWeb: PAGE_OverallTable
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30363
+                                Codigo: ERP_Ofertas_OtrasTablas_TiposDeRentabilidad
+                                opcion: Tipos de Rentabilidad
+                                paginaWeb: PAGE_OverallTable
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30364
+                                Codigo: ERP_Ofertas_OtrasTablas_TiposDeInteres
+                                opcion: Tipos de Interés
+                                paginaWeb: PAGE_OverallTable
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30365
+                                Codigo: ERP_Ofertas_OtrasTablas_TiposDePlazo
+                                opcion: Tipos de Plazo de Cotizaciones
+                                paginaWeb: PAGE_OverallTable
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                      - menuID: 30366
+                        Codigo: ERP_Ventas
+                        opcion: Ventas
+                        paginaWeb: ''
+                        icono: ''
+                        flaticon: ''
+                        Hijos:
+                          - menuID: 30367
+                            Codigo: ERP_Ventas_PedidosVentaMenu
+                            opcion: Pedidos Venta
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/ventas/ventas-pedidos-ventas.svg'
+                            flaticon: flaticon-ventas-pedidos-ventas
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30368
+                            Codigo: ERP_Ventas_PedidosDeVenta
+                            opcion: Mant. Pedidos de venta
+                            paginaWeb: PAGE_SalesOrders
+                            icono: ''
+                            flaticon: flaticon-mantenimiento-pedidos-venta
+                            esFavorito: true
+                            Hijos: null
+                          - menuID: 30369
+                            Codigo: ERP_Ventas_ConsultaPedidosVenta
+                            opcion: Consulta pedidos de venta
+                            paginaWeb: PAGE_ConsultOrder
+                            icono: ''
+                            flaticon: flaticon-consulta-pedidos-ventas
+                            esFavorito: true
+                            Hijos: null
+                          - menuID: 30372
+                            Codigo: ERP_Ventas_AlbaranesVentaMenu
+                            opcion: Remisión Venta
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/ventas/ventas-remisiones-ventas.svg'
+                            flaticon: flaticon-remision-venta
+                            esFavorito: false
+                            Hijos:
+                              - menuID: 30373
+                                Codigo: ERP_Ventas_GeneracionAlbaranes_GeneracionAlbaranes
+                                opcion: Generación de remisiones
+                                paginaWeb: PAGE_GenerationDeliveryNote
+                                icono: ''
+                                flaticon: flaticon-generacion-remisiones
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30376
+                                Codigo: ERP_Ventas_Albaranes
+                                opcion: Mant. remisiones de venta
+                                paginaWeb: PAGE_DeliveryNote
+                                icono: ''
+                                flaticon: flaticon-mantenimiento-remisiones-ventas
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30378
+                                Codigo: ERP_Ventas_ConsultaDeAlbaranes
+                                opcion: Consulta de remisiones
+                                paginaWeb: PAGE_ConsultDeliveryNotes
+                                icono: ''
+                                flaticon: flaticon-consulta-remisiones
+                                esFavorito: false
+                                Hijos: null
+                          - menuID: 30403
+                            Codigo: ERP_Ventas_FacturasVentaMenu
+                            opcion: Facturas Venta
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/ventas/ventas-facturas-ventas.svg'
+                            flaticon: flaticon-ventas-facturas-ventas
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30404
+                            Codigo: ERP_Ventas_EmisionDeFacturas
+                            opcion: Emisión de facturas
+                            paginaWeb: PAGE_InvoiceGeneration
+                            icono: ''
+                            flaticon: flaticon-emision-facturas
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30405
+                            Codigo: ERP_Ventas_Facturas
+                            opcion: Mant. Facturas
+                            paginaWeb: PAGE_SalesInvoices
+                            icono: ''
+                            flaticon: flaticon-mantenimiento-facturas
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30407
+                            Codigo: ERP_Ventas_ConsultaDeFacturas
+                            opcion: Consulta de facturas
+                            paginaWeb: PAGE_ConsultInvoices
+                            icono: ''
+                            flaticon: flaticon-consulta-facturas
+                            esFavorito: true
+                            Hijos: null
+                          - menuID: 30408
+                            Codigo: ERP_Ventas_EnlaceContable
+                            opcion: Enlace contable
+                            paginaWeb: PAGE_StampedInvoices
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/ventas/ventas-enlace-contable.svg'
+                            flaticon: flaticon-enlace-contable
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30431
+                            Codigo: ERP_Ventas_OtrasTablas
+                            opcion: Otras tablas
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/ventas/ventas-tablas.svg'
+                            flaticon: flaticon-otras-tablas
+                            esFavorito: false
+                            Hijos:
+                              - menuID: 30432
+                                Codigo: ERP_Ventas_OtrasTablas_SeriePedidoAlbaranVenta
+                                opcion: Serie Pedido/remisión venta
+                                paginaWeb: PAGE_SalesSeries
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30433
+                                Codigo: ERP_Ventas_OtrasTablas_SeriesDeFactura
+                                opcion: Series de Factura
+                                paginaWeb: PAGE_InvoiceSeries
+                                icono: ''
+                                flaticon: flaticon-series-factura
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30434
+                                Codigo: ERP_Ventas_OtrasTablas_TarifasDeVenta
+                                opcion: Tarifas de Venta
+                                paginaWeb: PAGE_SaleRate
+                                icono: ''
+                                flaticon: flaticon-tarifas-venta
+                                esFavorito: false
+                                Hijos: null
+                      - menuID: 30448
+                        Codigo: ERP_Proyectos
+                        opcion: Proyectos
+                        paginaWeb: ''
+                        icono: ''
+                        flaticon: ''
+                        Hijos:
+                          - menuID: 30449
+                            Codigo: ERP_Proyectos_Proyectos
+                            opcion: Proyectos
+                            paginaWeb: PAGE_ProjectsV2
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/proyectos/proyecto-proyecto.svg'
+                            flaticon: flaticon-sub-proyectos
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30451
+                            Codigo: ERP_Proyectos_ImputacionDeTrabajos
+                            opcion: Imputación de trabajos
+                            paginaWeb: PAGE_Imputations
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/proyectos/proyecto-imputacion-trabajos.svg'
+                            flaticon: flaticon-imputacion-trabajos
+                            esFavorito: false
+                            Hijos: null
+                      - menuID: 30556
+                        Codigo: ERP_Almacen
+                        opcion: Almacén
+                        paginaWeb: ''
+                        icono: ''
+                        flaticon: ''
+                        Hijos:
+                          - menuID: 30557
+                            Codigo: ERP_Almacen_Articulos
+                            opcion: Artículos
+                            paginaWeb: PAGE_MaintenanceItems
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/crm/crm-enviadas.svg'
+                            flaticon: flaticon-articulo
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30558
+                            Codigo: ERP_Almacen_Almacenes
+                            opcion: Almacenes
+                            paginaWeb: PAGE_Warehouse
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/almacen/almacen-almacenes.svg'
+                            flaticon: flaticon-almacen
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30562
+                            Codigo: ERP_Almacen_IntroduccionInventario
+                            opcion: Introducción de inventario
+                            paginaWeb: PAGE_Inventory
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/almacen/almacen-introduccion-inventario.svg'
+                            flaticon: flaticon-almacen-introduccion-inventario
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30563
+                            Codigo: ERP_Almacen_EntradaDeMovimientos
+                            opcion: Entrada de movimientos
+                            paginaWeb: PAGE_EntryMovement
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/almacen/almacen-entrada-movimientos.svg'
+                            flaticon: flaticon-entrada-movimientos
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30564
+                            Codigo: ERP_Almacen_ConsultaDeMovimientos
+                            opcion: Consulta de movimientos
+                            paginaWeb: PAGE_QueryMovements
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/almacen/almacen-consulta-movimientos.svg'
+                            flaticon: flaticon-almacen-consulta-movimientos
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30566
+                            Codigo: ERP_Almacen_InventarioRetroactivo
+                            opcion: Inventario retroactivo
+                            paginaWeb: PAGE_RetroactiveInventory
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/almacen/almacen-inventario-retroactivo.svg'
+                            flaticon: flaticon-almacen-inventario-retroactivo
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30579
+                            Codigo: ERP_Almacen_RegenerarAlmacen
+                            opcion: Regenerar almacén
+                            paginaWeb: PAGE_RegenerateWarehouse
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/almacen/almacen-regenerar-almacenes.svg'
+                            flaticon: flaticon-regenerar-almacen
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30580
+                            Codigo: ERP_Almacen_OtrasTablas
+                            opcion: Otras tablas
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/almacen/almacen-tablas.svg'
+                            flaticon: flaticon-almacen-tablas
+                            esFavorito: false
+                            Hijos:
+                              - menuID: 30581
+                                Codigo: ERP_Almacen_OtrasTablas_Familias
+                                opcion: Familias
+                                paginaWeb: PAGE_Families
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30583
+                                Codigo: ERP_Almacen_OtrasTablas_Ubicaciones
+                                opcion: Ubicaciones
+                                paginaWeb: PAGE_UbicationsMaintenance
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30586
+                                Codigo: ERP_Almacen_OtrasTablas_TiposDeMovimiento
+                                opcion: Tipos de movimiento
+                                paginaWeb: PAGE_MovementType
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - menuID: 30162
+                        Codigo: ERP_Tablas
+                        opcion: Tablas
+                        paginaWeb: ''
+                        icono: ''
+                        flaticon: ''
+                        Hijos:
+                          - menuID: 30163
+                            Codigo: ERP_Tablas_Empresas
+                            opcion: Empresas
+                            paginaWeb: PAGE_CompaniesAggregate
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tablas-empresas.svg'
+                            flaticon: flaticon-empresa
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30164
+                            Codigo: ERP_Tablas_Articulos
+                            opcion: Artículos
+                            paginaWeb: PAGE_MaintenanceItems
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tablas-articulo.svg'
+                            flaticon: flaticon-articulo
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30165
+                            Codigo: ERP_Tablas_Clientes
+                            opcion: Clientes
+                            paginaWeb: PAGE_ClientsERP
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tablas-cliente.svg'
+                            flaticon: flaticon-grupo-usuario
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30166
+                            Codigo: ERP_Tablas_Proveedores
+                            opcion: Proveedores
+                            paginaWeb: PAGE_TabProveedores
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tablas-proveedor.svg'
+                            flaticon: flaticon-proveedores
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30167
+                            Codigo: ERP_Tablas_Representantes
+                            opcion: Representantes
+                            paginaWeb: PAGE_TabRepresentative
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tablas-reprecentante.svg'
+                            flaticon: flaticon-representantes
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30168
+                            Codigo: ERP_Tablas_Empleados
+                            opcion: Empleados
+                            paginaWeb: PAGE_EmployeeTables
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tablas-empleado.svg'
+                            flaticon: flaticon-tablas-empleado
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30169
+                            Codigo: ERP_Tablas_Bancos
+                            opcion: Bancos
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tablas-bancos.svg'
+                            flaticon: flaticon-tablas-bancos
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30170
+                            Codigo: ERP_Tablas_Transportistas
+                            opcion: Transportistas
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tablas-transportistas.svg'
+                            flaticon: flaticon-tablas-transportistas
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30171
+                            Codigo: ERP_Tablas_ConsultasTablas
+                            opcion: Consulta tab. Auxiliares
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tabla-consulta-auxiliares.svg'
+                            flaticon: flaticon-consulta-tab-auxiliares
+                            esFavorito: false
+                            Hijos:
+                              - menuID: 30172
+                                Codigo: ERP_Tablas_ConsultasTablas_TarifaVenta
+                                opcion: Consulta Tarifa Venta
+                                paginaWeb: PAGE_ConsultSaleRate
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30173
+                                Codigo: ERP_Tablas_ConsultasTablas_ArticuloXAlmacen
+                                opcion: Consulta Artículos X Almacén
+                                paginaWeb: PAGE_ConsultWarehouseItems
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30174
+                                Codigo: ERP_Tablas_ConsultasTablas_Contactos
+                                opcion: Consulta Contactos
+                                paginaWeb: PAGE_ConsultContact
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                          - menuID: 30175
+                            Codigo: ERP_Tablas_OtrasTablasCuentas
+                            opcion: Otras tab. Cuentas
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tablas-otras-cuentas.svg'
+                            flaticon: flaticon-tablas-otras-cuentas
+                            esFavorito: false
+                            Hijos:
+                              - menuID: 30176
+                                Codigo: ERP_Tablas_OtrasTablasCuentas_FormasCobroPago
+                                opcion: Formas de Cobro / Pago
+                                paginaWeb: PAGE_PaymentMethods
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30177
+                                Codigo: ERP_Tablas_OtrasTablasCuentas_Monedas
+                                opcion: Monedas
+                                paginaWeb: PAGE_Currency
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30178
+                                Codigo: ERP_Tablas_OtrasTablasCuentas_IVA
+                                opcion: I.V.A.
+                                paginaWeb: PAGE_IVA
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30181
+                                Codigo: ERP_Tablas_OtrasTablasCuentas_Actividades
+                                opcion: Actividades
+                                paginaWeb: PAGE_GeneralTableTree
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30189
+                                Codigo: ERP_Tablas_OtrasTablasCuentas_Paises
+                                opcion: Países
+                                paginaWeb: PAGE_Countries
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                              - menuID: 30190
+                                Codigo: ERP_Tablas_OtrasTablasCuentas_Provincias
+                                opcion: Provincias
+                                paginaWeb: null
+                                icono: null
+                                flaticon: null
+                                esFavorito: false
+                                Hijos: null
+                          - menuID: 30209
+                            Codigo: ERP_Tablas_Listas
+                            opcion: Listas
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/tablas/tablas-listas.svg'
+                            flaticon: flaticon-tablas-listas
+                            esFavorito: false
+                            Hijos: null
+                      - menuID: 30213
+                        Codigo: ERP_Organizador
+                        opcion: Organizador
+                        paginaWeb: ''
+                        icono: ''
+                        flaticon: ''
+                        Hijos:
+                          - menuID: 30216
+                            Codigo: ERP_Organizador_Calendario
+                            opcion: Calendario
+                            paginaWeb: PAGE_CalendarV2
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/organizador/organizador-calendarios.svg'
+                            flaticon: flaticon-organizador-calendarios
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30231
+                            Codigo: ERP_Organizador_CalendarioR
+                            opcion: Calendario de recursos
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/organizador/organizador-calendarios-recursos.svg'
+                            flaticon: flaticon-organizador-calendarios-recursos
+                            esFavorito: false
+                            Hijos:
+                              - menuID: 30232
+                                Codigo: ERP_Organizador_CalendarioR_Calendario
+                                opcion: Calendario de Recursos
+                                paginaWeb: null
+                                icono: null
+                                flaticon: null
+                                esFavorito: false
+                                Hijos: null
+                      - menuID: 30257
+                        Codigo: ERP_CRM
+                        opcion: CRM
+                        paginaWeb: ''
+                        icono: ''
+                        flaticon: ''
+                        Hijos:
+                          - menuID: 30258
+                            Codigo: ERP_CRM_ConsultaDeCuentas
+                            opcion: Consulta de cuentas
+                            paginaWeb: PAGE_ConsultAccounts
+                            icono: ''
+                            flaticon: flaticon-consultas-cuentas
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30259
+                            Codigo: ERP_CRM_FichaDeCuentas
+                            opcion: Ficha de cuentas
+                            paginaWeb: PAGE_TabAccounts
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/crm/crm-fichas-cuentas.svg'
+                            flaticon: flaticon-ficha-cuentas
+                            esFavorito: false
+                            Hijos: null
+                          - menuID: 30274
+                            Codigo: ERP_CRM_OtrasTablas
+                            opcion: Otras tablas
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/crm/crm-tablas.svg'
+                            flaticon: flaticon-otras-tablas-crm
+                            esFavorito: false
+                            Hijos:
+                              - menuID: 30276
+                                Codigo: ERP_CRM_OtrasTablas_TiposDeMailing
+                                opcion: Tipos de cuenta
+                                paginaWeb: PAGE_TypeAccounts
+                                icono: ''
+                                flaticon: ''
+                                esFavorito: false
+                                Hijos: null
+                      - menuID: 30296
+                        Codigo: ERP_Compras
+                        opcion: Compras
+                        paginaWeb: ''
+                        icono: ''
+                        flaticon: ''
+                        Hijos:
+                          - menuID: 30308
+                            Codigo: ERP_Compras_AlbaranesCompraMenu
+                            opcion: Recepción de compra
+                            paginaWeb: ''
+                            icono: 'https://onyxsoft-latam.s3.us-west-2.amazonaws.com/proyectos/erpweb/dist/image/menu/compras/compras-recepcion.svg'
+                            flaticon: flaticon-recepcion-compras
+                            esFavorito: false
+                            Hijos:
+                              - menuID: 30311
+                                Codigo: ERP_Compras_AlbaranesDeCompra
+                                opcion: Mant. remisiones de compra
+                                paginaWeb: PAGE_PurchasesMaintenanceV2
+                                icono: ''
+                                flaticon: flaticon-mantenimiento-remisiones-compra
+                                esFavorito: true
+                                Hijos: null
+                              - menuID: 30313
+                                Codigo: ERP_Compras_ConsultaAlbaranesDeCompra
+                                opcion: Consulta de Rem. compra
+                                paginaWeb: PAGE_ConsultPurchaseReceipts
+                                icono: ''
+                                flaticon: flaticon-consulta-remision-compra
+                                esFavorito: true
+                                Hijos: null
+      operationId: get-menu-favorites
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas: {}
