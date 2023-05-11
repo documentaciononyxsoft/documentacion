@@ -7824,18 +7824,50 @@ paths:
       tags: []
       responses:
         '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true,
-                    "sCodigoPostal": "001",
-                    "sIDCodigoPostal": 14768,
-                    "MunicipioID": 8149,
-                    "MunicipioNombre": "Pereira"
-                }
-            }
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sCodigoPostal:
+                        type: string
+                      sIDCodigoPostal:
+                        type: integer
+                      MunicipioID:
+                        type: integer
+                      MunicipioNombre:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sCodigoPostal: '03501'
+                      sIDCodigoPostal: 370
+                      MunicipioID: 169
+                      MunicipioNombre: Pereira
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sCodigoPostal: '03501'
+                      sIDCodigoPostal: 370
+                      MunicipioID: 169
+                      MunicipioNombre: Pereira
       operationId: get-municipality-checkMunicipality
       parameters:
         - schema:
