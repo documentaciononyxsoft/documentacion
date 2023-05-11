@@ -8787,7 +8787,7 @@ paths:
           required: true
   /translations:
     post:
-      summary: Translations - Create
+      summary: Translations - Creates
       operationId: post-translations
       responses:
         '200':
