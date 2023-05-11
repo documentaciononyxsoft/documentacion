@@ -6543,5 +6543,171 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /Ivas/cc:
+    get:
+      summary: IVAs - FindAllCCIva
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            CuentaContableID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                            Nivel:
+                              type: integer
+                            AsientoDirecto:
+                              type: string
+                            TipoCuentaID:
+                              type: integer
+                            Naturaleza:
+                              type: integer
+                            Cif:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT * \r\nFROM cuentacontable \r\nWHERE cuentacontable.EmpresaID = 1 AND \r\ncuentacontable.CustomerID = 29 "
+                      records:
+                        - CuentaContableID: 1060
+                          Codigo: '100'
+                          Nombre: CAJA
+                          Nivel: 1
+                          AsientoDirecto: 'N'
+                          TipoCuentaID: 282
+                          Naturaleza: 280
+                          Cif: ''
+                        - CuentaContableID: 1061
+                          Codigo: '1000001'
+                          Nombre: FONDOVALLEJO
+                          Nivel: 2
+                          AsientoDirecto: S
+                          TipoCuentaID: 282
+                          Naturaleza: 280
+                          Cif: ''
+                        - CuentaContableID: 1062
+                          Codigo: '1000002'
+                          Nombre: FONDOTEOLOYUCAN
+                          Nivel: 2
+                          AsientoDirecto: S
+                          TipoCuentaID: 282
+                          Naturaleza: 280
+                          Cif: ''
+                        - CuentaContableID: 1063
+                          Codigo: '102'
+                          Nombre: BANCOS
+                          Nivel: 1
+                          AsientoDirecto: 'N'
+                          TipoCuentaID: 282
+                          Naturaleza: 280
+                          Cif: ''
+                        - CuentaContableID: 1066
+                          Codigo: '134'
+                          Nombre: INVERSIONES BANCARIAS
+                          Nivel: 1
+                          AsientoDirecto: 'N'
+                          TipoCuentaID: 282
+                          Naturaleza: 280
+                          Cif: ''
+                        - CuentaContableID: 1067
+                          Codigo: '1340001'
+                          Nombre: INVERSION SANTANDER
+                          Nivel: 2
+                          AsientoDirecto: S
+                          TipoCuentaID: 282
+                          Naturaleza: 280
+                          Cif: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - CuentaContableID: 1060
+                          Codigo: '100'
+                          Nombre: CAJA
+                          Nivel: 1
+                          AsientoDirecto: 'N'
+                          TipoCuentaID: 282
+                          Naturaleza: 280
+                          Cif: ''
+                        - CuentaContableID: 1061
+                          Codigo: '1000001'
+                          Nombre: FONDOVALLEJO
+                          Nivel: 2
+                          AsientoDirecto: S
+                          TipoCuentaID: 282
+                          Naturaleza: 280
+                          Cif: ''
+                        - CuentaContableID: 1062
+                          Codigo: '1000002'
+                          Nombre: FONDOTEOLOYUCAN
+                          Nivel: 2
+                          AsientoDirecto: S
+                          TipoCuentaID: 282
+                          Naturaleza: 280
+                          Cif: ''
+                        - CuentaContableID: 1063
+                          Codigo: '102'
+                          Nombre: BANCOS
+                          Nivel: 1
+                          AsientoDirecto: 'N'
+                          TipoCuentaID: 282
+                          Naturaleza: 280
+                          Cif: ''
+                        - CuentaContableID: 1066
+                          Codigo: '134'
+                          Nombre: INVERSIONES BANCARIAS
+                          Nivel: 1
+                          AsientoDirecto: 'N'
+                          TipoCuentaID: 282
+                          Naturaleza: 280
+                          Cif: ''
+                        - CuentaContableID: 1067
+                          Codigo: '1340001'
+                          Nombre: INVERSION SANTANDER
+                          Nivel: 2
+                          AsientoDirecto: S
+                          TipoCuentaID: 282
+                          Naturaleza: 280
+                          Cif: ''
+      operationId: get-Ivas-cc
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas: {}
