@@ -7231,5 +7231,123 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /methodsofpaymentandcollection:
+    get:
+      summary: MethodsOfPaymentAndCollection - FindAll
+      tags: []
+      responses: {}
+      operationId: get-methodsofpaymentandcollection
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+    post:
+      summary: MethodsOfPaymentAndCollection - Create
+      operationId: post-methodsofpaymentandcollection
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                      FormaPagoCobroID:
+                        type: integer
+                      FechaHoraUsuario:
+                        type: string
+                      NombreUsuario:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: La Forma de Pago/Cobro se ha Guardado exitosamente.
+                      FormaPagoCobroID: 9
+                      FechaHoraUsuario: '2023-05-11T11:29:51.273'
+                      NombreUsuario: ADMINISTRADOR
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: La Forma de Pago/Cobro se ha Guardado exitosamente.
+                      FormaPagoCobroID: 9
+                      FechaHoraUsuario: '2023-05-11T11:29:51.273'
+                      NombreUsuario: ADMINISTRADOR
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Codigo:
+                  type: string
+                Nombre:
+                  type: string
+                Reclamable:
+                  type: integer
+                CobroAutomatico:
+                  type: integer
+                Negociable:
+                  type: integer
+                PorcentajeDtoProntoPago:
+                  type: integer
+                PorcentajeGastoFinanciero:
+                  type: integer
+                CodigoExterno:
+                  type: string
+                Abreviatura:
+                  type: string
+              x-examples:
+                Example 1:
+                  Codigo: '05'
+                  Nombre: FormaPruebaJCO
+                  Reclamable: 0
+                  CobroAutomatico: 0
+                  Negociable: 0
+                  PorcentajeDtoProntoPago: 10
+                  PorcentajeGastoFinanciero: 10
+                  CodigoExterno: FPJ
+                  Abreviatura: JCO
+            examples:
+              Example 1:
+                value:
+                  Codigo: '05'
+                  Nombre: FormaPruebaJCO
+                  Reclamable: 0
+                  CobroAutomatico: 0
+                  Negociable: 0
+                  PorcentajeDtoProntoPago: 10
+                  PorcentajeGastoFinanciero: 10
+                  CodigoExterno: FPJ
+                  Abreviatura: JCO
 components:
   schemas: {}
