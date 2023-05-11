@@ -598,7 +598,153 @@ paths:
     get:
       summary: Account - FindManyByCoincidence
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            mailingid:
+                              type: integer
+                            nombre:
+                              type: string
+                            telefono:
+                              type: string
+                            referenciacodigo:
+                              type: string
+                            horario:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - mailingid: 129
+                          nombre: COMERCIALIZADORA ALCALI SA DE CV
+                          telefono: '8188633000'
+                          referenciacodigo: '25000010003'
+                          horario: ''
+                        - mailingid: 152
+                          nombre: RAMOS COMERCIALIZADORA PRODUCTORA YSERVICIOS SPR DE RL
+                          telefono: '0'
+                          referenciacodigo: '25000010039'
+                          horario: ''
+                        - mailingid: 153
+                          nombre: BH COMERCIALIZADORA SA DE CV
+                          telefono: '0'
+                          referenciacodigo: '25000010040'
+                          horario: ''
+                        - mailingid: 278
+                          nombre: COMERCIALIZADORA GUEMIL DE MEXICO S
+                          telefono: ''
+                          referenciacodigo: '10300010136'
+                          horario: ''
+                        - mailingid: 279
+                          nombre: COMERCIALIZADORA GRUPO SCORPIONSA D
+                          telefono: ''
+                          referenciacodigo: '10300010134'
+                          horario: ''
+                        - mailingid: 281
+                          nombre: COMERCIALIZADORA LA HOJUELA S.A. DE C.V.
+                          telefono: ''
+                          referenciacodigo: '10300010137'
+                          horario: ''
+                        - mailingid: 289
+                          nombre: COMERCIALIZADORA PEPSICO MEXICO S
+                          telefono: '3218316754'
+                          referenciacodigo: '10300010138'
+                          horario: ''
+                        - mailingid: 292
+                          nombre: COMERCIALIZADORA EL SARDINERO SA DE
+                          telefono: ''
+                          referenciacodigo: '10300010132'
+                          horario: ''
+                        - mailingid: 300
+                          nombre: COMERCIALIZADORA XELHUA SA DE CV
+                          telefono: ''
+                          referenciacodigo: '10300010139'
+                          horario: ''
+                        - mailingid: 524
+                          nombre: COMERCIALIZADORA PEPSICO MEXICO S
+                          telefono: '3218316754'
+                          referenciacodigo: '25000010147'
+                          horario: ''
+                        - mailingid: 922
+                          nombre: COMERCIALIZADORA SERVIGOSO S.A. DE C.V.
+                          telefono: ''
+                          referenciacodigo: '10300010266'
+                          horario: ''
+                        - mailingid: 933
+                          nombre: COMERCIALIZADORA PEPSICO MEXICO S DE RL DE CV
+                          telefono: ''
+                          referenciacodigo: '25000010337'
+                          horario: ''
+                        - mailingid: 935
+                          nombre: 'COMERCIALIZADORA SUAREZ, S.A. DE C.V.'
+                          telefono: ''
+                          referenciacodigo: '10300010270'
+                          horario: ''
+                        - mailingid: 948
+                          nombre: COMERCIALIZADORA CRISMAG SA DE CV
+                          telefono: ''
+                          referenciacodigo: '10300010272'
+                          horario: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - mailingid: 129
+                          nombre: COMERCIALIZADORA ALCALI SA DE CV
+                          telefono: '8188633000'
+                          referenciacodigo: '25000010003'
+                          horario: ''
+                        - mailingid: 152
+                          nombre: RAMOS COMERCIALIZADORA PRODUCTORA YSERVICIOS SPR DE RL
+                          telefono: '0'
+                          referenciacodigo: '25000010039'
+                          horario: ''
+                        - mailingid: 153
+                          nombre: BH COMERCIALIZADORA SA DE CV
+                          telefono: '0'
+                          referenciacodigo: '25000010040'
+                          horario: ''
+                        - mailingid: 278
+                          nombre: COMERCIALIZADORA GUEMIL DE MEXICO S
+                          telefono: ''
+                          referenciacodigo: '10300010136'
+                          horario: ''
+                        - mailingid: 279
+                          nombre: COMERCIALIZADORA GRUPO SCORPIONSA D
+                          telefono: ''
+                          referenciacodigo: '10300010134'
+                          horario: ''
+                        - mailingid: 281
+                          nombre: COMERCIALIZADORA LA HOJUELA S.A. DE C.V.
+                          telefono: ''
+                          referenciacodigo: '10300010137'
+                          horario: ''
       operationId: get-tables-accountsbycoincidence
       parameters:
         - schema:
@@ -610,6 +756,7 @@ paths:
           required: true
         - schema:
             type: string
+            example: comercializadora
           in: query
           name: coincidencia
           description: Coincidencia a buscar
