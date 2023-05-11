@@ -8076,5 +8076,90 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /provinces:
+    post:
+      summary: Provinces - Create
+      operationId: post-provinces
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      ProvinciaID:
+                        type: integer
+                      FechaHoraUsuario:
+                        type: string
+                      NombreUsuario:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      ProvinciaID: 5671
+                      FechaHoraUsuario: '2023-05-11T14:46:27.974'
+                      NombreUsuario: ADMINISTRADOR
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      ProvinciaID: 5671
+                      FechaHoraUsuario: '2023-05-11T14:46:27.974'
+                      NombreUsuario: ADMINISTRADOR
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Nombre:
+                  type: string
+                ComunidadID:
+                  type: string
+                Codigo:
+                  type: string
+                PaisID:
+                  type: integer
+                TipoOperacionesProvinciaID:
+                  type: integer
+              x-examples:
+                Example 1:
+                  Nombre: Provinicius
+                  ComunidadID: ''
+                  Codigo: VINIJR
+                  PaisID: 45
+                  TipoOperacionesProvinciaID: 1
+            examples:
+              Example 1:
+                value:
+                  Nombre: Provinicius
+                  ComunidadID: ''
+                  Codigo: VINIJR
+                  PaisID: 45
+                  TipoOperacionesProvinciaID: 1
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas: {}
