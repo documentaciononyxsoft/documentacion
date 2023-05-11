@@ -915,7 +915,7 @@ paths:
       requestBody:
         content: {}
     put:
-      summary: Account - UpdateForEmployeeSAT
+      summary: Account - UpdateForEmployeeSATo
       operationId: put-tables-employee-account
       responses:
         '200':
