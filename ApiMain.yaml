@@ -7537,6 +7537,7 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '10'
         name: formaPagoCobroID
         in: path
         required: true
@@ -7546,6 +7547,52 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Codigo:
+                    type: string
+                  Nombre:
+                    type: string
+                  Reclamable:
+                    type: integer
+                  CobroAutomatico:
+                    type: integer
+                  Negociable:
+                    type: integer
+                  PorcentajeDtoProntoPago:
+                    type: integer
+                  PorcentajeGastoFinanciero:
+                    type: integer
+                  CodigoExterno:
+                    type: string
+                  Abreviatura:
+                    type: string
+                x-examples:
+                  Example 1:
+                    Codigo: '06'
+                    Nombre: FormaActuali
+                    Reclamable: 0
+                    CobroAutomatico: 0
+                    Negociable: 0
+                    PorcentajeDtoProntoPago: 10
+                    PorcentajeGastoFinanciero: 10
+                    CodigoExterno: ACT
+                    Abreviatura: BER
+              examples:
+                Example 1:
+                  value:
+                    Codigo: '06'
+                    Nombre: FormaActuali
+                    Reclamable: 0
+                    CobroAutomatico: 0
+                    Negociable: 0
+                    PorcentajeDtoProntoPago: 10
+                    PorcentajeGastoFinanciero: 10
+                    CodigoExterno: ACT
+                    Abreviatura: BER
       parameters:
         - schema:
             type: string
@@ -7560,6 +7607,37 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: La Forma de Pago/Cobro ha sido Eliminada exitosamente.
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: La Forma de Pago/Cobro ha sido Eliminada exitosamente.
       parameters:
         - schema:
             type: string
