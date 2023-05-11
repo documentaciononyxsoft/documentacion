@@ -8165,6 +8165,7 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '5672'
         name: provinciaID
         in: path
         required: true
@@ -8273,6 +8274,90 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+  '/provinces/{paisID}':
+    parameters:
+      - schema:
+          type: string
+          example: '45'
+        name: paisID
+        in: path
+        required: true
+    get:
+      summary: Provinces - FindManyByCountry
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        provinciaID:
+                          type: integer
+                        nombre:
+                          type: string
+                        codigo:
+                          type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - provinciaID: 3
+                        nombre: YeiLand2
+                        codigo: 19YEIi2
+                      - provinciaID: 5666
+                        nombre: Risaralda
+                        codigo: 19RIS
+                      - provinciaID: 5667
+                        nombre: Caldas
+                        codigo: 19CAL
+                      - provinciaID: 5668
+                        nombre: Quindio
+                        codigo: 19QUI
+                      - provinciaID: 5671
+                        nombre: Provinicius
+                        codigo: VINIJR
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - provinciaID: 3
+                        nombre: YeiLand2
+                        codigo: 19YEIi2
+                      - provinciaID: 5666
+                        nombre: Risaralda
+                        codigo: 19RIS
+                      - provinciaID: 5667
+                        nombre: Caldas
+                        codigo: 19CAL
+                      - provinciaID: 5668
+                        nombre: Quindio
+                        codigo: 19QUI
+                      - provinciaID: 5671
+                        nombre: Provinicius
+                        codigo: VINIJR
+      operationId: get-provinces-paisID
       parameters:
         - schema:
             type: string
