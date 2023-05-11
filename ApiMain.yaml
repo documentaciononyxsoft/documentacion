@@ -7,41 +7,6 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  /postalcode/checkPostalCode:
-    get:
-      summary: checkPostalCode
-      tags: []
-      responses:
-        '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true,
-                    "codigoPostalID": 14768,
-                    "codigoPostal": "001",
-                    "municipioID": 8149,
-                    "municipioNombre": "Pereira"
-                }
-            }
-      operationId: get-postalcode-checkPostalCode
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: integer
-          in: query
-          name: paisID
-          description: '45'
-        - schema:
-            type: string
-          in: query
-          name: codigoPostal
-          description: '001'
   /grid:
     parameters: []
     post:
@@ -7940,5 +7905,73 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /postalcode/checkPostalCode:
+    get:
+      summary: PostalCodes - Check
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      codigoPostalID:
+                        type: integer
+                      codigoPostal:
+                        type: string
+                      municipioID:
+                        type: integer
+                      municipioNombre:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      codigoPostalID: 15070
+                      codigoPostal: ''
+                      municipioID: 169
+                      municipioNombre: Pereira
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      codigoPostalID: 15070
+                      codigoPostal: ''
+                      municipioID: 169
+                      municipioNombre: Pereira
+      operationId: get-postalcode-checkPostalCode
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: integer
+            example: 45
+          in: query
+          name: paisID
+        - schema:
+            type: string
+          in: query
+          name: codigoPostal
 components:
   schemas: {}
