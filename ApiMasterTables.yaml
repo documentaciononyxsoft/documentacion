@@ -7,8 +7,6 @@ info:
 servers:
   - url: 'http://15.236.85.216'
 paths:
-  example:
-    parameters: []
   /tables/account:
     get:
       summary: Account - FindManyByParam
@@ -135,6 +133,357 @@ paths:
           in: query
           name: param
           description: Parámetro a buscar
+  /tables/accounts:
+    get:
+      summary: Account - FindMany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            MailingId:
+                              type: integer
+                            EmpresaId:
+                              type: integer
+                            CustomerId:
+                              type: integer
+                            MonedaID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Direccion:
+                              type: string
+                            Telefono:
+                              type: string
+                            Fax:
+                              type: string
+                            Email:
+                              type: string
+                            ReferenciaCodigo:
+                              type: string
+                            Web:
+                              type: string
+                            Cif:
+                              type: string
+                            MunicipioID:
+                              type: integer
+                            ProvinciaID:
+                              type: integer
+                            PaisID:
+                              type: integer
+                            Directorio:
+                              type: string
+                            FechaAlta:
+                              type: string
+                            FechaBaja:
+                              type: string
+                            TipoMailID:
+                              type: integer
+                            MotivoBajaID:
+                              type: integer
+                            TomaContactoID:
+                              type: integer
+                            EstadoID:
+                              type: integer
+                            ZonaID:
+                              type: integer
+                            ActividadID:
+                              type: integer
+                            CuentaContableID:
+                              type: integer
+                            NumeroEmpleados:
+                              type: integer
+                            NoEnviarPublicidad:
+                              type: integer
+                            AsignadoA:
+                              type: string
+                            Observacion:
+                              type: string
+                            UsuarioID:
+                              type: integer
+                            FechaHoraUsuario:
+                              type: string
+                            Empresas1ID:
+                              type: integer
+                            DeBaja:
+                              type: integer
+                            Activo:
+                              type: integer
+                            Moneda_Nombre:
+                              type: string
+                            Pais_Nombre:
+                              type: string
+                            Provincia_Nombre:
+                              type: string
+                            Provincia_Codigo:
+                              type: string
+                            Municipio_Nombre:
+                              type: string
+                            TipoMail_Descripcion:
+                              type: string
+                            MotivoBaja_Descripcion:
+                              type: string
+                            TomaContacto_Descripcion:
+                              type: string
+                            Estado_Descripcion:
+                              type: string
+                            Zona_Descripcion:
+                              type: string
+                            Actividad_Descripcion:
+                              type: string
+                            Sector_Descripcion:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - MailingId: 147
+                          EmpresaId: 1
+                          CustomerId: 29
+                          MonedaID: 3
+                          Nombre: GRUPO INDUSTRIAL VIDA SA DE CV
+                          Direccion: EJ 300 0 LA VENTA DEL ASTILLERO 45221 ZAPOPAN JALISCO MX
+                          Telefono: '3332080400'
+                          Fax: '0'
+                          Email: RFG@FLEXISTAFF.COM
+                          ReferenciaCodigo: '25000010034'
+                          Web: ''
+                          Cif: GIV970203LS1
+                          MunicipioID: 52
+                          ProvinciaID: 11
+                          PaisID: 148
+                          Directorio: ''
+                          FechaAlta: '0000-00-00T00:00:00.000'
+                          FechaBaja: ''
+                          TipoMailID: 6
+                          MotivoBajaID: 0
+                          TomaContactoID: 0
+                          EstadoID: 0
+                          ZonaID: 0
+                          ActividadID: 291
+                          CuentaContableID: 1510
+                          NumeroEmpleados: 0
+                          NoEnviarPublicidad: 0
+                          AsignadoA: ''
+                          Observacion: PROVEEDOR DE AVENA Y HARINA DE AVENA
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2021-10-11T20:17:24.034'
+                          Empresas1ID: 0
+                          DeBaja: 0
+                          Activo: 1
+                          Moneda_Nombre: Peso Mexicano
+                          Pais_Nombre: México
+                          Provincia_Nombre: JALISCO
+                          Provincia_Codigo: JALI
+                          Municipio_Nombre: ''
+                          TipoMail_Descripcion: Proveedores Nacionales
+                          MotivoBaja_Descripcion: ''
+                          TomaContacto_Descripcion: ''
+                          Estado_Descripcion: ''
+                          Zona_Descripcion: ''
+                          Actividad_Descripcion: Avenas
+                          Sector_Descripcion: ''
+                        - MailingId: 279
+                          EmpresaId: 1
+                          CustomerId: 29
+                          MonedaID: 3
+                          Nombre: COMERCIALIZADORA GRUPO SCORPIONSA D
+                          Direccion: Calle AV DE LOS CIEN METROS 795 PISO 3 Colonia S C T Vallejo CP 07700 Estado Gustavo A. Madero
+                          Telefono: ''
+                          Fax: ''
+                          Email: ''
+                          ReferenciaCodigo: '10300010134'
+                          Web: ''
+                          Cif: CGS0601188R3
+                          MunicipioID: 0
+                          ProvinciaID: 10
+                          PaisID: 148
+                          Directorio: ''
+                          FechaAlta: '0000-00-00T00:00:00.000'
+                          FechaBaja: ''
+                          TipoMailID: 5
+                          MotivoBajaID: 0
+                          TomaContactoID: 0
+                          EstadoID: 0
+                          ZonaID: 0
+                          ActividadID: 0
+                          CuentaContableID: 1204
+                          NumeroEmpleados: 0
+                          NoEnviarPublicidad: 0
+                          AsignadoA: ''
+                          Observacion: Municipio Gustavo A. Madero
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2021-10-12T14:55:29.381'
+                          Empresas1ID: 0
+                          DeBaja: 0
+                          Activo: 1
+                          Moneda_Nombre: Peso Mexicano
+                          Pais_Nombre: México
+                          Provincia_Nombre: CDMX
+                          Provincia_Codigo: CDMX
+                          Municipio_Nombre: ''
+                          TipoMail_Descripcion: Clientes Nacional
+                          MotivoBaja_Descripcion: ''
+                          TomaContacto_Descripcion: ''
+                          Estado_Descripcion: ''
+                          Zona_Descripcion: ''
+                          Actividad_Descripcion: ''
+                          Sector_Descripcion: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - MailingId: 147
+                          EmpresaId: 1
+                          CustomerId: 29
+                          MonedaID: 3
+                          Nombre: GRUPO INDUSTRIAL VIDA SA DE CV
+                          Direccion: EJ 300 0 LA VENTA DEL ASTILLERO 45221 ZAPOPAN JALISCO MX
+                          Telefono: '3332080400'
+                          Fax: '0'
+                          Email: RFG@FLEXISTAFF.COM
+                          ReferenciaCodigo: '25000010034'
+                          Web: ''
+                          Cif: GIV970203LS1
+                          MunicipioID: 52
+                          ProvinciaID: 11
+                          PaisID: 148
+                          Directorio: ''
+                          FechaAlta: '0000-00-00T00:00:00.000'
+                          FechaBaja: ''
+                          TipoMailID: 6
+                          MotivoBajaID: 0
+                          TomaContactoID: 0
+                          EstadoID: 0
+                          ZonaID: 0
+                          ActividadID: 291
+                          CuentaContableID: 1510
+                          NumeroEmpleados: 0
+                          NoEnviarPublicidad: 0
+                          AsignadoA: ''
+                          Observacion: PROVEEDOR DE AVENA Y HARINA DE AVENA
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2021-10-11T20:17:24.034'
+                          Empresas1ID: 0
+                          DeBaja: 0
+                          Activo: 1
+                          Moneda_Nombre: Peso Mexicano
+                          Pais_Nombre: México
+                          Provincia_Nombre: JALISCO
+                          Provincia_Codigo: JALI
+                          Municipio_Nombre: ''
+                          TipoMail_Descripcion: Proveedores Nacionales
+                          MotivoBaja_Descripcion: ''
+                          TomaContacto_Descripcion: ''
+                          Estado_Descripcion: ''
+                          Zona_Descripcion: ''
+                          Actividad_Descripcion: Avenas
+                          Sector_Descripcion: ''
+                        - MailingId: 279
+                          EmpresaId: 1
+                          CustomerId: 29
+                          MonedaID: 3
+                          Nombre: COMERCIALIZADORA GRUPO SCORPIONSA D
+                          Direccion: Calle AV DE LOS CIEN METROS 795 PISO 3 Colonia S C T Vallejo CP 07700 Estado Gustavo A. Madero
+                          Telefono: ''
+                          Fax: ''
+                          Email: ''
+                          ReferenciaCodigo: '10300010134'
+                          Web: ''
+                          Cif: CGS0601188R3
+                          MunicipioID: 0
+                          ProvinciaID: 10
+                          PaisID: 148
+                          Directorio: ''
+                          FechaAlta: '0000-00-00T00:00:00.000'
+                          FechaBaja: ''
+                          TipoMailID: 5
+                          MotivoBajaID: 0
+                          TomaContactoID: 0
+                          EstadoID: 0
+                          ZonaID: 0
+                          ActividadID: 0
+                          CuentaContableID: 1204
+                          NumeroEmpleados: 0
+                          NoEnviarPublicidad: 0
+                          AsignadoA: ''
+                          Observacion: Municipio Gustavo A. Madero
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2021-10-12T14:55:29.381'
+                          Empresas1ID: 0
+                          DeBaja: 0
+                          Activo: 1
+                          Moneda_Nombre: Peso Mexicano
+                          Pais_Nombre: México
+                          Provincia_Nombre: CDMX
+                          Provincia_Codigo: CDMX
+                          Municipio_Nombre: ''
+                          TipoMail_Descripcion: Clientes Nacional
+                          MotivoBaja_Descripcion: ''
+                          TomaContacto_Descripcion: ''
+                          Estado_Descripcion: ''
+                          Zona_Descripcion: ''
+                          Actividad_Descripcion: ''
+                          Sector_Descripcion: ''
+      operationId: get-tables-accounts
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: '0'
+          in: query
+          name: offset
+        - schema:
+            type: string
+            example: '2'
+          in: query
+          name: limit
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Nombre:
+                  type: string
+              x-examples:
+                Example 1:
+                  Nombre: grupo
+            examples:
+              Example 1:
+                value:
+                  Nombre: grupo
   /tables/companies:
     get:
       summary: Companie - FindMany
