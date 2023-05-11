@@ -7235,7 +7235,191 @@ paths:
     get:
       summary: MethodsOfPaymentAndCollection - FindAll
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            FormaPagoCobroID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            UsuarioID:
+                              type: integer
+                            FechaHoraUsuario:
+                              type: string
+                            Nombre:
+                              type: string
+                            Reclamable:
+                              type: integer
+                            CobroAutomatico:
+                              type: integer
+                            Negociable:
+                              type: integer
+                            PorcentajeDtoProntoPago:
+                              type: integer
+                            PorcentajeGastoFinanciero:
+                              type: integer
+                            CodigoExterno:
+                              type: string
+                            Abreviatura:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT * FROM formapagocobro\r\nWHERE formapagocobro.CustomerID = 29"
+                      records:
+                        - FormaPagoCobroID: 5
+                          Codigo: '01'
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2020-08-12T10:30:33.772'
+                          Nombre: EFECTIVO
+                          Reclamable: 0
+                          CobroAutomatico: 0
+                          Negociable: 0
+                          PorcentajeDtoProntoPago: 0
+                          PorcentajeGastoFinanciero: 0
+                          CodigoExterno: VIS
+                          Abreviatura: ''
+                        - FormaPagoCobroID: 6
+                          Codigo: '03'
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2020-08-12T10:31:21.547'
+                          Nombre: TRANSFERENCIA
+                          Reclamable: 0
+                          CobroAutomatico: 0
+                          Negociable: 0
+                          PorcentajeDtoProntoPago: 0
+                          PorcentajeGastoFinanciero: 0
+                          CodigoExterno: MET
+                          Abreviatura: ''
+                        - FormaPagoCobroID: 7
+                          Codigo: '02'
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2020-08-12T10:31:43.629'
+                          Nombre: CHEQUE
+                          Reclamable: 0
+                          CobroAutomatico: 0
+                          Negociable: 0
+                          PorcentajeDtoProntoPago: 0
+                          PorcentajeGastoFinanciero: 0
+                          CodigoExterno: ''
+                          Abreviatura: ''
+                        - FormaPagoCobroID: 8
+                          Codigo: '04'
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2020-08-12T10:32:18.935'
+                          Nombre: TARJETA DE CREDITO
+                          Reclamable: 0
+                          CobroAutomatico: 0
+                          Negociable: 0
+                          PorcentajeDtoProntoPago: 0
+                          PorcentajeGastoFinanciero: 0
+                          CodigoExterno: ''
+                          Abreviatura: ''
+                        - FormaPagoCobroID: 9
+                          Codigo: '05'
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-05-11T11:29:51.273'
+                          Nombre: FormaPruebaJCO
+                          Reclamable: 0
+                          CobroAutomatico: 0
+                          Negociable: 0
+                          PorcentajeDtoProntoPago: 10
+                          PorcentajeGastoFinanciero: 10
+                          CodigoExterno: FPJ
+                          Abreviatura: JCO
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - FormaPagoCobroID: 5
+                          Codigo: '01'
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2020-08-12T10:30:33.772'
+                          Nombre: EFECTIVO
+                          Reclamable: 0
+                          CobroAutomatico: 0
+                          Negociable: 0
+                          PorcentajeDtoProntoPago: 0
+                          PorcentajeGastoFinanciero: 0
+                          CodigoExterno: VIS
+                          Abreviatura: ''
+                        - FormaPagoCobroID: 6
+                          Codigo: '03'
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2020-08-12T10:31:21.547'
+                          Nombre: TRANSFERENCIA
+                          Reclamable: 0
+                          CobroAutomatico: 0
+                          Negociable: 0
+                          PorcentajeDtoProntoPago: 0
+                          PorcentajeGastoFinanciero: 0
+                          CodigoExterno: MET
+                          Abreviatura: ''
+                        - FormaPagoCobroID: 7
+                          Codigo: '02'
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2020-08-12T10:31:43.629'
+                          Nombre: CHEQUE
+                          Reclamable: 0
+                          CobroAutomatico: 0
+                          Negociable: 0
+                          PorcentajeDtoProntoPago: 0
+                          PorcentajeGastoFinanciero: 0
+                          CodigoExterno: ''
+                          Abreviatura: ''
+                        - FormaPagoCobroID: 8
+                          Codigo: '04'
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2020-08-12T10:32:18.935'
+                          Nombre: TARJETA DE CREDITO
+                          Reclamable: 0
+                          CobroAutomatico: 0
+                          Negociable: 0
+                          PorcentajeDtoProntoPago: 0
+                          PorcentajeGastoFinanciero: 0
+                          CodigoExterno: ''
+                          Abreviatura: ''
+                        - FormaPagoCobroID: 9
+                          Codigo: '05'
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-05-11T11:29:51.273'
+                          Nombre: FormaPruebaJCO
+                          Reclamable: 0
+                          CobroAutomatico: 0
+                          Negociable: 0
+                          PorcentajeDtoProntoPago: 10
+                          PorcentajeGastoFinanciero: 10
+                          CodigoExterno: FPJ
+                          Abreviatura: JCO
       operationId: get-methodsofpaymentandcollection
       parameters:
         - schema:
