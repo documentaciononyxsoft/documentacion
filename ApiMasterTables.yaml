@@ -4012,11 +4012,11 @@ paths:
     parameters:
       - schema:
           type: string
-          example: /tables/companies/52
+          example: '78'
         name: Id
         in: path
         required: true
-        description: ID de la compañia
+        description: EmpresaID
     delete:
       summary: Companie - Delete
       operationId: delete-tables-companies-Id
