@@ -10810,5 +10810,227 @@ paths:
                   NegocioID: ''
                   Municipio: ''
                   Situacion: ''
+  /tables/companies/Iva/generalInformation:
+    get:
+      summary: Companies - FindManyIva
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            IvaID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT \r\niva.IvaID,\r\niva.Codigo,\r\niva.Nombre\r\nFROM iva\r\nWHERE\r\niva.CustomerID = 29"
+                      records:
+                        - IvaID: 1
+                          Codigo: IVA
+                          Nombre: 'IVA16, ventas, gastos'
+                        - IvaID: 2
+                          Codigo: IVA
+                          Nombre: 'IVA16, ventas, gastos'
+                        - IvaID: 4
+                          Codigo: IVA0
+                          Nombre: IVA 0%
+                        - IvaID: 5
+                          Codigo: IVAEX
+                          Nombre: IVA EXCENTO
+                        - IvaID: 8
+                          Codigo: IEPS8
+                          Nombre: IEPS 8%
+                        - IvaID: 9
+                          Codigo: IVA16C
+                          Nombre: 'IVA16, compras'
+                        - IvaID: 10
+                          Codigo: IVA10
+                          Nombre: IVA10
+                        - IvaID: 11
+                          Codigo: IVAY
+                          Nombre: Prueba Yeison Iva
+                        - IvaID: 13
+                          Codigo: Prueb 3 y
+                          Nombre: Ye 3
+                        - IvaID: 14
+                          Codigo: IvaTest
+                          Nombre: Almejo
+                        - IvaID: 15
+                          Codigo: '1'
+                          Nombre: ''
+                        - IvaID: 16
+                          Codigo: codd
+                          Nombre: IVA-Valen
+                        - IvaID: 22
+                          Codigo: NUEVO
+                          Nombre: NUEVO
+                        - IvaID: 23
+                          Codigo: DS
+                          Nombre: FDF
+                        - IvaID: 24
+                          Codigo: eee
+                          Nombre: eee
+                        - IvaID: 25
+                          Codigo: nn
+                          Nombre: nn
+                        - IvaID: 26
+                          Codigo: '12345'
+                          Nombre: Iva test
+                        - IvaID: 27
+                          Codigo: MIIVA
+                          Nombre: Iva Tivi
+                        - IvaID: 28
+                          Codigo: iva sto
+                          Nombre: este iva
+                        - IvaID: 29
+                          Codigo: fgh
+                          Nombre: este iva 2
+                        - IvaID: 30
+                          Codigo: '157451'
+                          Nombre: ''
+                        - IvaID: 32
+                          Codigo: '6666666'
+                          Nombre: ''
+                        - IvaID: 33
+                          Codigo: IVAJCO
+                          Nombre: IvaName
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - IvaID: 1
+                          Codigo: IVA
+                          Nombre: 'IVA16, ventas, gastos'
+                        - IvaID: 2
+                          Codigo: IVA
+                          Nombre: 'IVA16, ventas, gastos'
+                        - IvaID: 4
+                          Codigo: IVA0
+                          Nombre: IVA 0%
+                        - IvaID: 5
+                          Codigo: IVAEX
+                          Nombre: IVA EXCENTO
+                        - IvaID: 8
+                          Codigo: IEPS8
+                          Nombre: IEPS 8%
+                        - IvaID: 9
+                          Codigo: IVA16C
+                          Nombre: 'IVA16, compras'
+                        - IvaID: 10
+                          Codigo: IVA10
+                          Nombre: IVA10
+                        - IvaID: 11
+                          Codigo: IVAY
+                          Nombre: Prueba Yeison Iva
+                        - IvaID: 13
+                          Codigo: Prueb 3 y
+                          Nombre: Ye 3
+                        - IvaID: 14
+                          Codigo: IvaTest
+                          Nombre: Almejo
+                        - IvaID: 15
+                          Codigo: '1'
+                          Nombre: ''
+                        - IvaID: 16
+                          Codigo: codd
+                          Nombre: IVA-Valen
+                        - IvaID: 22
+                          Codigo: NUEVO
+                          Nombre: NUEVO
+                        - IvaID: 23
+                          Codigo: DS
+                          Nombre: FDF
+                        - IvaID: 24
+                          Codigo: eee
+                          Nombre: eee
+                        - IvaID: 25
+                          Codigo: nn
+                          Nombre: nn
+                        - IvaID: 26
+                          Codigo: '12345'
+                          Nombre: Iva test
+                        - IvaID: 27
+                          Codigo: MIIVA
+                          Nombre: Iva Tivi
+                        - IvaID: 28
+                          Codigo: iva sto
+                          Nombre: este iva
+                        - IvaID: 29
+                          Codigo: fgh
+                          Nombre: este iva 2
+                        - IvaID: 30
+                          Codigo: '157451'
+                          Nombre: ''
+                        - IvaID: 32
+                          Codigo: '6666666'
+                          Nombre: ''
+                        - IvaID: 33
+                          Codigo: IVAJCO
+                          Nombre: IvaName
+      operationId: get-tables-companies-Iva-generalInformation
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+  /tables/companies/businessModel/generalInformation:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-tables-companies-businessModel-generalInformation
+  /tables/companies/companyType/generalInformation:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-tables-companies-companyType-generalInformation
+  '/tables/companies/generalInformation/{empresaID}':
+    parameters:
+      - schema:
+          type: string
+        name: empresaID
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-tables-companies-generalInformation-empresaID
 components:
   schemas: {}
