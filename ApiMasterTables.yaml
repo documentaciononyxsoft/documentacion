@@ -9580,8 +9580,104 @@ paths:
     get:
       summary: Employees - FindByAccountLightList
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ID: 128
+                          Nombre: INGREDION MEXICO SA DE CV
+                        - ID: 129
+                          Nombre: COMERCIALIZADORA ALCALI SA DE CV
+                        - ID: 130
+                          Nombre: GIVAUDAN DE MEXICO SA DE CV
+                        - ID: 131
+                          Nombre: TATE & LYLE MEXICO S DE RL DE CV
+                        - ID: 132
+                          Nombre: SANUDO SA DE CV
+                        - ID: 133
+                          Nombre: SYRSA QUIMICOS DE MEXICO SA DE CV
+                        - ID: 134
+                          Nombre: OLAM INTERNATIONAL LIMITED
+                        - ID: 135
+                          Nombre: PICSA DE MEXICO INTERNACIONAL SA DECV
+                        - ID: 136
+                          Nombre: PROTEINAS Y OLEICOS SA DE CV
+                        - ID: 137
+                          Nombre: SEASONING DE MEXICO SA DE CV
+                        - ID: 138
+                          Nombre: COMPLEMENTOS ALIMENTICIOS SA DE CV
+                        - ID: 139
+                          Nombre: LUCTA MEXICANA SA DE CV
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ID: 128
+                          Nombre: INGREDION MEXICO SA DE CV
+                        - ID: 129
+                          Nombre: COMERCIALIZADORA ALCALI SA DE CV
+                        - ID: 130
+                          Nombre: GIVAUDAN DE MEXICO SA DE CV
+                        - ID: 131
+                          Nombre: TATE & LYLE MEXICO S DE RL DE CV
+                        - ID: 132
+                          Nombre: SANUDO SA DE CV
+                        - ID: 133
+                          Nombre: SYRSA QUIMICOS DE MEXICO SA DE CV
+                        - ID: 134
+                          Nombre: OLAM INTERNATIONAL LIMITED
+                        - ID: 135
+                          Nombre: PICSA DE MEXICO INTERNACIONAL SA DECV
+                        - ID: 136
+                          Nombre: PROTEINAS Y OLEICOS SA DE CV
+                        - ID: 137
+                          Nombre: SEASONING DE MEXICO SA DE CV
+                        - ID: 138
+                          Nombre: COMPLEMENTOS ALIMENTICIOS SA DE CV
+                        - ID: 139
+                          Nombre: LUCTA MEXICANA SA DE CV
       operationId: get-employees-light-account
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /tables/employes:
     get:
       summary: Employees - FindAllEmployees
