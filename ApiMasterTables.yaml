@@ -5734,6 +5734,149 @@ paths:
                   IvaCompraID: 10
                   IvaVentaID: 10
                   IvaAutofacturaID: 11
+  /tables/clients/contacts/light:
+    get:
+      summary: Contacts - FindLightListByClient
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT \r\nContacto.*,\r\nMailing.*,\r\nMailing.Activo AS ActivoMailing,\r\nMailing.Nombre AS NombreMailing,\r\nMailing.ReferenciaCodigo AS CodigoMailing,\r\nTablaGeneral.Descripcion\r\nFROM \r\nContacto LEFT JOIN TablaGeneral ON Contacto.DepartamentoID = TablaGeneral.TablaGeneralID\r\nLEFT JOIN Mailing ON Contacto.MailingID = Mailing.MailingID\r\nLEFT JOIN Provincia ON Provincia.ProvinciaID=Contacto.ProvinciaID\r\nWHERE\r\nContacto.MailingID = 455\r\nAND Contacto.CustomerID = 29\r\nAND Contacto.EmpresaID = 1\r\nAND Contacto.Activo = 1\r\nORDER BY \r\nContacto.Nombre ASC \r\n"
+                      records:
+                        - ID: 262
+                          Nombre: Andrea Quintero
+                          Codigo: '10300010329'
+                        - ID: 181
+                          Nombre: BRENDA ELENA HERNANDEZ
+                          Codigo: '10300010329'
+                        - ID: 99
+                          Nombre: CESAR J. MARTINEZ
+                          Codigo: '10300010329'
+                        - ID: 94
+                          Nombre: CINTHIA ENRIQUEZ
+                          Codigo: '10300010329'
+                        - ID: 97
+                          Nombre: CLAUDIA GUADALUPE MARTINEZ
+                          Codigo: '10300010329'
+                        - ID: 208
+                          Nombre: DIANA MARIA DE JESUS SANCHEZ
+                          Codigo: '10300010329'
+                        - ID: 183
+                          Nombre: ELIZABETH GARCIA
+                          Codigo: '10300010329'
+                        - ID: 98
+                          Nombre: FABIAN VELAZQUEZ
+                          Codigo: '10300010329'
+                        - ID: 104
+                          Nombre: FABIAN VELAZQUEZ
+                          Codigo: '10300010329'
+                        - ID: 101
+                          Nombre: GILBERTO BRENA
+                          Codigo: '10300010329'
+                        - ID: 138
+                          Nombre: JESUS FERNANDO GAMEZ
+                          Codigo: '10300010329'
+                        - ID: 100
+                          Nombre: JOSE P. HERNANDEZ
+                          Codigo: '10300010329'
+                        - ID: 171
+                          Nombre: KARLA ANDREA ESPINOZA
+                          Codigo: '10300010329'
+                        - ID: 103
+                          Nombre: MARIA M. SAMARO
+                          Codigo: '10300010329'
+                        - ID: 174
+                          Nombre: MONICA GUADALUPE HNDZ
+                          Codigo: '10300010329'
+                        - ID: 173
+                          Nombre: PABLO LOPEZ
+                          Codigo: '10300010329'
+                        - ID: 102
+                          Nombre: RICARDO FLORES
+                          Codigo: '10300010329'
+                        - ID: 175
+                          Nombre: RIPSON RAMOS
+                          Codigo: '10300010329'
+                        - ID: 95
+                          Nombre: ROSANA SOLIS
+                          Codigo: '10300010329'
+                        - ID: 215
+                          Nombre: 'VICTOR MANUEL PARDO '
+                          Codigo: '10300010329'
+                        - ID: 96
+                          Nombre: VIRIDIANA ARROYO
+                          Codigo: '10300010329'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - ID: 262
+                          Nombre: Andrea Quintero
+                          Codigo: '10300010329'
+                        - ID: 181
+                          Nombre: BRENDA ELENA HERNANDEZ
+                          Codigo: '10300010329'
+                        - ID: 99
+                          Nombre: CESAR J. MARTINEZ
+                          Codigo: '10300010329'
+                        - ID: 94
+                          Nombre: CINTHIA ENRIQUEZ
+                          Codigo: '10300010329'
+                        - ID: 97
+                          Nombre: CLAUDIA GUADALUPE MARTINEZ
+                          Codigo: '10300010329'
+      operationId: get-tables-clients-contacts-light
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+        - schema:
+            type: string
+            example: '455'
+          in: query
+          name: mailingID
+          required: true
   '/tables/client/{Param}':
     get:
       summary: Client - findManyByParam
@@ -11469,149 +11612,6 @@ paths:
                   NegocioID: ''
                   Municipio: ''
                   Situacion: ''
-  /tables/clients/contacts/light:
-    get:
-      summary: Contacts - FindLightListByClient
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT \r\nContacto.*,\r\nMailing.*,\r\nMailing.Activo AS ActivoMailing,\r\nMailing.Nombre AS NombreMailing,\r\nMailing.ReferenciaCodigo AS CodigoMailing,\r\nTablaGeneral.Descripcion\r\nFROM \r\nContacto LEFT JOIN TablaGeneral ON Contacto.DepartamentoID = TablaGeneral.TablaGeneralID\r\nLEFT JOIN Mailing ON Contacto.MailingID = Mailing.MailingID\r\nLEFT JOIN Provincia ON Provincia.ProvinciaID=Contacto.ProvinciaID\r\nWHERE\r\nContacto.MailingID = 455\r\nAND Contacto.CustomerID = 29\r\nAND Contacto.EmpresaID = 1\r\nAND Contacto.Activo = 1\r\nORDER BY \r\nContacto.Nombre ASC \r\n"
-                      records:
-                        - ID: 262
-                          Nombre: Andrea Quintero
-                          Codigo: '10300010329'
-                        - ID: 181
-                          Nombre: BRENDA ELENA HERNANDEZ
-                          Codigo: '10300010329'
-                        - ID: 99
-                          Nombre: CESAR J. MARTINEZ
-                          Codigo: '10300010329'
-                        - ID: 94
-                          Nombre: CINTHIA ENRIQUEZ
-                          Codigo: '10300010329'
-                        - ID: 97
-                          Nombre: CLAUDIA GUADALUPE MARTINEZ
-                          Codigo: '10300010329'
-                        - ID: 208
-                          Nombre: DIANA MARIA DE JESUS SANCHEZ
-                          Codigo: '10300010329'
-                        - ID: 183
-                          Nombre: ELIZABETH GARCIA
-                          Codigo: '10300010329'
-                        - ID: 98
-                          Nombre: FABIAN VELAZQUEZ
-                          Codigo: '10300010329'
-                        - ID: 104
-                          Nombre: FABIAN VELAZQUEZ
-                          Codigo: '10300010329'
-                        - ID: 101
-                          Nombre: GILBERTO BRENA
-                          Codigo: '10300010329'
-                        - ID: 138
-                          Nombre: JESUS FERNANDO GAMEZ
-                          Codigo: '10300010329'
-                        - ID: 100
-                          Nombre: JOSE P. HERNANDEZ
-                          Codigo: '10300010329'
-                        - ID: 171
-                          Nombre: KARLA ANDREA ESPINOZA
-                          Codigo: '10300010329'
-                        - ID: 103
-                          Nombre: MARIA M. SAMARO
-                          Codigo: '10300010329'
-                        - ID: 174
-                          Nombre: MONICA GUADALUPE HNDZ
-                          Codigo: '10300010329'
-                        - ID: 173
-                          Nombre: PABLO LOPEZ
-                          Codigo: '10300010329'
-                        - ID: 102
-                          Nombre: RICARDO FLORES
-                          Codigo: '10300010329'
-                        - ID: 175
-                          Nombre: RIPSON RAMOS
-                          Codigo: '10300010329'
-                        - ID: 95
-                          Nombre: ROSANA SOLIS
-                          Codigo: '10300010329'
-                        - ID: 215
-                          Nombre: 'VICTOR MANUEL PARDO '
-                          Codigo: '10300010329'
-                        - ID: 96
-                          Nombre: VIRIDIANA ARROYO
-                          Codigo: '10300010329'
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: string
-                      records:
-                        - ID: 262
-                          Nombre: Andrea Quintero
-                          Codigo: '10300010329'
-                        - ID: 181
-                          Nombre: BRENDA ELENA HERNANDEZ
-                          Codigo: '10300010329'
-                        - ID: 99
-                          Nombre: CESAR J. MARTINEZ
-                          Codigo: '10300010329'
-                        - ID: 94
-                          Nombre: CINTHIA ENRIQUEZ
-                          Codigo: '10300010329'
-                        - ID: 97
-                          Nombre: CLAUDIA GUADALUPE MARTINEZ
-                          Codigo: '10300010329'
-      operationId: get-tables-clients-contacts-light
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-        - schema:
-            type: string
-            example: '455'
-          in: query
-          name: mailingID
-          required: true
   /tables/contacts:
     get:
       summary: Your GET endpoint
