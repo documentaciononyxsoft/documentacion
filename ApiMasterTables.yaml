@@ -1826,6 +1826,126 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /tables/clients/insuranceCompany/risk:
+    get:
+      summary: Client - FindManyInsuranceCompany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            TipoCuenta:
+                              type: string
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                            Cif:
+                              type: string
+                            Telefono:
+                              type: string
+                            EmailMailing:
+                              type: string
+                            DireccionMailing:
+                              type: string
+                            MunicipioMailing:
+                              type: string
+                            ProvinciaID:
+                              type: integer
+                            Fax:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT \r\ntipomailing.Nombre AS TipoCuenta,\r\nmailing.MailingID       AS  ID,\r\nmailing.ReferenciaCodigo AS Codigo,\r\nmailing.Nombre,\r\nmailing.Cif,\r\nmailing.Telefono,\r\nmailing.Email AS EmailMailing,\r\nmailing.Direccion AS DireccionMailing,\r\nmailing.Municipio AS MunicipioMailing,\r\nmailing.ProvinciaID,\r\nmailing.Fax\r\nFROM mailing\r\nLEFT JOIN tipomailing ON mailing.TipoMailID = tipomailing.TipoMailingID\r\nWHERE mailing.EmpresaID = 1 AND\r\nmailing.CustomerID = 29 AND\r\n(tipomailing.Nombre = 'SeguroRiesgo' OR tipomailing.Nombre = 'Acreedor')"
+                      records:
+                        - ID: 1178
+                          TipoCuenta: Acreedor
+                          Codigo: PruebRiesgo2
+                          Nombre: Yeison Prueba de Riesgo
+                          Cif: '123123'
+                          Telefono: '312312'
+                          EmailMailing: '313123'
+                          DireccionMailing: gdgdfghh
+                          MunicipioMailing: AGUASCALIENTES
+                          ProvinciaID: 287
+                          Fax: '3123123'
+                        - ID: 1177
+                          TipoCuenta: SeguroRiesgo
+                          Codigo: PruebRiesgo
+                          Nombre: Alejandro prueba riesgo
+                          Cif: '123123'
+                          Telefono: '312312'
+                          EmailMailing: '313123'
+                          DireccionMailing: fhfghfghf
+                          MunicipioMailing: AGUASCALIENTES
+                          ProvinciaID: 287
+                          Fax: '3123123'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - ID: 1178
+                          TipoCuenta: Acreedor
+                          Codigo: PruebRiesgo2
+                          Nombre: Yeison Prueba de Riesgo
+                          Cif: '123123'
+                          Telefono: '312312'
+                          EmailMailing: '313123'
+                          DireccionMailing: gdgdfghh
+                          MunicipioMailing: AGUASCALIENTES
+                          ProvinciaID: 287
+                          Fax: '3123123'
+                        - ID: 1177
+                          TipoCuenta: SeguroRiesgo
+                          Codigo: PruebRiesgo
+                          Nombre: Alejandro prueba riesgo
+                          Cif: '123123'
+                          Telefono: '312312'
+                          EmailMailing: '313123'
+                          DireccionMailing: fhfghfghf
+                          MunicipioMailing: AGUASCALIENTES
+                          ProvinciaID: 287
+                          Fax: '3123123'
+      operationId: get-tables-clients-insuranceCompany-risk
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /tables/clients/bank:
     post:
       summary: Client - CreateBank
@@ -21992,12 +22112,6 @@ paths:
                   NegocioID: ''
                   Municipio: ''
                   Situacion: ''
-  /tables/clients/insuranceCompany/risk:
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-tables-clients-insuranceCompany-risk
   '/tables/clients/risk/{clienteID}':
     parameters:
       - schema:
