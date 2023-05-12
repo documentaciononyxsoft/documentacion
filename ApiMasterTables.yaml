@@ -10133,6 +10133,38 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+        - schema:
+            type: string
+            example: '0'
+          in: query
+          name: offset
+          description: 'Registro a partir del cual empezará a traer los datos desde la tabla. Si se envía 20, y en la tabla existen 100 registros, la respuesta traerá solo los registros comprendidos entre las posiciones 20 y 100, y los primero 20 se omitirán.'
+        - schema:
+            type: string
+            example: '5'
+          in: query
+          name: limit
+          description: 'Límite de registros que trae la consulta. Si se envía el número 50, y la tabla tiene 2000 registros solo se traerán 50.'
+        - schema:
+            type: string
+          in: query
+          name: tipoticket
+        - schema:
+            type: string
+          in: query
+          name: coincidencia
+        - schema:
+            type: string
+          in: query
+          name: estado
+        - schema:
+            type: string
+          in: query
+          name: prioridadid
+        - schema:
+            type: string
+          in: query
+          name: orden
     post:
       summary: GmaoTickets - Create
       operationId: post-tables-tickets
