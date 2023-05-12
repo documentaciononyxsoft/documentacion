@@ -1614,6 +1614,7 @@ paths:
           required: true
         - schema:
             type: string
+            example: '1030'
           in: query
           name: param
           description: Parámetro a buscar
