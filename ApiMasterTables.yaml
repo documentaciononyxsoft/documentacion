@@ -8996,36 +8996,65 @@ paths:
                     content:
                       success: true
                       records:
-                        - EmpleadoID: 66
-                          UsuarioID: 82
-                          HorasJornada: 0
+                        - EmpleadoID: 216
+                          UsuarioID: 1
+                          HorasJornada: 12
                           Direccion: ''
                           MunicipioID: 0
-                          Dni: '1231313'
-                          Nota: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
-                          NumeroSS: '131'
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: '658186'
                           FechaIngreso: ''
                           FechaFin: ''
-                          FechaNacimiento: '19990531'
+                          FechaNacimiento: ''
                           DescripcionFuncion: ''
                           NOmbreBanco: ''
-                          Email: yeison@gmail.com
-                          Nombre: yeison David Sanchez
-                          Codigo: '100011999'
+                          Email: ''
+                          Nombre: SANCHEZ OCAMPO VICTOR
+                          Codigo: '70174043'
                           Id_SatMovil: 0
                           seccion: ''
-                          SeccionID: 4
-                          EmpleadoUsuarioID: 82
-                          GrupoPrecioHoraId: 1031
-                          RolID: 263
+                          SeccionID: 9
+                          EmpleadoUsuarioID: 0
+                          GrupoPrecioHoraId: 335
+                          RolID: 0
                           Situacion: ''
-                          NegocioID: 15
+                          NegocioID: 0
                           WebID: 0
                           GeneroID: 0
-                          NombreEmpleado: yeison David Sanchez
-                          CodigoEmpleado: '100011999'
+                          NombreEmpleado: SANCHEZ OCAMPO VICTOR
+                          CodigoEmpleado: '70174043'
                           DescripcionFuncionEmpleado: ''
-                      sql: "SELECT Empleado.*, Municipio.Nombre AS NombreMunicipio,\r\nEmpleado.Nombre AS NombreEmpleado,\r\nEmpleado.Codigo AS CodigoEmpleado,\r\nEmpleado.DescripcionFuncion AS DescripcionFuncionEmpleado\r\nFROM Empleado LEFT JOIN Municipio\r\n ON Municipio.MunicipioID = Empleado.MunicipioID\r\nWHERE\r\nEmpleado.CustomerID = 29 AND\r\nEmpleado.EmpresaID = 1\r\nAND (empleado.Codigo LIKE '%yei%' OR empleado.Dni LIKE '%yei%' OR empleado.Nombre LIKE '%yei%')\r\n\r\nORDER BY empleado.Codigo\r\n"
+                        - EmpleadoID: 349
+                          UsuarioID: 1
+                          HorasJornada: 8
+                          Direccion: Paris
+                          MunicipioID: 169
+                          Dni: '7878787'
+                          Nota: Notest
+                          NumeroSS: '420420'
+                          FechaIngreso: '20230101'
+                          FechaFin: '20231231'
+                          FechaNacimiento: '19990101'
+                          DescripcionFuncion: Dev
+                          NOmbreBanco: Bank
+                          Email: jco@jco
+                          Nombre: Juan Ocampo
+                          Codigo: '998855663322'
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 0
+                          EmpleadoUsuarioID: 0
+                          GrupoPrecioHoraId: 0
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: Juan Ocampo
+                          CodigoEmpleado: '998855663322'
+                          DescripcionFuncionEmpleado: Dev
+                      sql: "SELECT Empleado.*, Municipio.Nombre AS NombreMunicipio,\r\nEmpleado.Nombre AS NombreEmpleado,\r\nEmpleado.Codigo AS CodigoEmpleado,\r\nEmpleado.DescripcionFuncion AS DescripcionFuncionEmpleado\r\nFROM Empleado LEFT JOIN Municipio\r\n ON Municipio.MunicipioID = Empleado.MunicipioID\r\nWHERE\r\nEmpleado.CustomerID = 29 AND\r\nEmpleado.EmpresaID = 1\r\nAND (empleado.Codigo LIKE '%ocampo%' OR empleado.Dni LIKE '%ocampo%' OR empleado.Nombre LIKE '%ocampo%')\r\n\r\nORDER BY empleado.Codigo\r\n"
               examples:
                 Example 1:
                   value:
@@ -9034,48 +9063,80 @@ paths:
                     content:
                       success: true
                       records:
-                        - EmpleadoID: 66
-                          UsuarioID: 82
-                          HorasJornada: 0
+                        - EmpleadoID: 216
+                          UsuarioID: 1
+                          HorasJornada: 12
                           Direccion: ''
                           MunicipioID: 0
-                          Dni: '1231313'
-                          Nota: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
-                          NumeroSS: '131'
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: '658186'
                           FechaIngreso: ''
                           FechaFin: ''
-                          FechaNacimiento: '19990531'
+                          FechaNacimiento: ''
                           DescripcionFuncion: ''
                           NOmbreBanco: ''
-                          Email: yeison@gmail.com
-                          Nombre: yeison David Sanchez
-                          Codigo: '100011999'
+                          Email: ''
+                          Nombre: SANCHEZ OCAMPO VICTOR
+                          Codigo: '70174043'
                           Id_SatMovil: 0
                           seccion: ''
-                          SeccionID: 4
-                          EmpleadoUsuarioID: 82
-                          GrupoPrecioHoraId: 1031
-                          RolID: 263
+                          SeccionID: 9
+                          EmpleadoUsuarioID: 0
+                          GrupoPrecioHoraId: 335
+                          RolID: 0
                           Situacion: ''
-                          NegocioID: 15
+                          NegocioID: 0
                           WebID: 0
                           GeneroID: 0
-                          NombreEmpleado: yeison David Sanchez
-                          CodigoEmpleado: '100011999'
+                          NombreEmpleado: SANCHEZ OCAMPO VICTOR
+                          CodigoEmpleado: '70174043'
                           DescripcionFuncionEmpleado: ''
-                      sql: "SELECT Empleado.*, Municipio.Nombre AS NombreMunicipio,\r\nEmpleado.Nombre AS NombreEmpleado,\r\nEmpleado.Codigo AS CodigoEmpleado,\r\nEmpleado.DescripcionFuncion AS DescripcionFuncionEmpleado\r\nFROM Empleado LEFT JOIN Municipio\r\n ON Municipio.MunicipioID = Empleado.MunicipioID\r\nWHERE\r\nEmpleado.CustomerID = 29 AND\r\nEmpleado.EmpresaID = 1\r\nAND (empleado.Codigo LIKE '%yei%' OR empleado.Dni LIKE '%yei%' OR empleado.Nombre LIKE '%yei%')\r\n\r\nORDER BY empleado.Codigo\r\n"
+                        - EmpleadoID: 349
+                          UsuarioID: 1
+                          HorasJornada: 8
+                          Direccion: Paris
+                          MunicipioID: 169
+                          Dni: '7878787'
+                          Nota: Notest
+                          NumeroSS: '420420'
+                          FechaIngreso: '20230101'
+                          FechaFin: '20231231'
+                          FechaNacimiento: '19990101'
+                          DescripcionFuncion: Dev
+                          NOmbreBanco: Bank
+                          Email: jco@jco
+                          Nombre: Juan Ocampo
+                          Codigo: '998855663322'
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 0
+                          EmpleadoUsuarioID: 0
+                          GrupoPrecioHoraId: 0
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: Juan Ocampo
+                          CodigoEmpleado: '998855663322'
+                          DescripcionFuncionEmpleado: Dev
+                      sql: string
       operationId: get-employee-quicksearch
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
         - schema:
             type: string
+            example: ocampo
           in: query
           name: param
-          description: yei
+          description: Parámetro a buscar
   /employee/theme:
     get:
       summary: Employees - FindByThemeParam
