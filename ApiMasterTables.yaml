@@ -6932,14 +6932,12 @@ paths:
             schema:
               type: object
               properties:
-                EmpleadoID:
-                  type: string
                 HorasJornada:
-                  type: string
+                  type: integer
                 Direccion:
                   type: string
                 MunicipioID:
-                  type: string
+                  type: integer
                 Dni:
                   type: string
                 Nota:
@@ -6955,7 +6953,7 @@ paths:
                 CuentaCorriente:
                   type: string
                 PrecioHora:
-                  type: string
+                  type: integer
                 DescripcionFuncion:
                   type: string
                 NOmbreBanco:
@@ -7005,7 +7003,7 @@ paths:
                 GrupoPrecioHoraId:
                   type: string
                 PaisID:
-                  type: string
+                  type: integer
                 ProvinciaID:
                   type: string
                 Telefono:
@@ -7024,24 +7022,23 @@ paths:
                   type: string
               x-examples:
                 Example 1:
-                  EmpleadoID: ''
-                  HorasJornada: ''
-                  Direccion: ''
-                  MunicipioID: ''
-                  Dni: ''
-                  Nota: ''
-                  NumeroSS: ''
-                  FechaIngreso: ''
-                  FechaFin: ''
-                  FechaNacimiento: ''
-                  CuentaCorriente: ''
-                  PrecioHora: ''
-                  DescripcionFuncion: ''
-                  NOmbreBanco: ''
-                  Email: ''
+                  HorasJornada: 10
+                  Direccion: Berlin
+                  MunicipioID: 169
+                  Dni: '787878712121'
+                  Nota: NotestUPDATED
+                  NumeroSS: '42042050'
+                  FechaIngreso: '20230101'
+                  FechaFin: '20231231'
+                  FechaNacimiento: '19990101'
+                  CuentaCorriente: '78978978787'
+                  PrecioHora: 5
+                  DescripcionFuncion: Dev
+                  NOmbreBanco: Bank
+                  Email: jc@jc
                   OnyxCaptor: ''
-                  Nombre: Andrea Quintero
-                  Codigo: '565656656789'
+                  Nombre: JuanP
+                  Codigo: '9988556633227897789789'
                   Id_SatMovil: ''
                   FechaHoraUsuario: ''
                   DeBaja: ''
@@ -7052,7 +7049,7 @@ paths:
                   Iban: ''
                   Swift: ''
                   Sucursal: ''
-                  NumeroTarjeta: '666'
+                  NumeroTarjeta: '1111'
                   ClaveCaptador: ''
                   FechaHoraNuevo: ''
                   FechaHoraModificado: ''
@@ -7060,7 +7057,7 @@ paths:
                   EmpleadoUsuarioID: ''
                   CodigoEmpresaID: ''
                   GrupoPrecioHoraId: ''
-                  PaisID: '148'
+                  PaisID: 45
                   ProvinciaID: ''
                   Telefono: ''
                   CodigoPostalID: ''
@@ -7072,24 +7069,23 @@ paths:
             examples:
               Example 1:
                 value:
-                  EmpleadoID: ''
-                  HorasJornada: ''
-                  Direccion: ''
-                  MunicipioID: ''
-                  Dni: ''
-                  Nota: ''
-                  NumeroSS: ''
-                  FechaIngreso: ''
-                  FechaFin: ''
-                  FechaNacimiento: ''
-                  CuentaCorriente: ''
-                  PrecioHora: ''
-                  DescripcionFuncion: ''
-                  NOmbreBanco: ''
-                  Email: ''
+                  HorasJornada: 10
+                  Direccion: Berlin
+                  MunicipioID: 169
+                  Dni: '787878712121'
+                  Nota: NotestUPDATED
+                  NumeroSS: '42042050'
+                  FechaIngreso: '20230101'
+                  FechaFin: '20231231'
+                  FechaNacimiento: '19990101'
+                  CuentaCorriente: '78978978787'
+                  PrecioHora: 5
+                  DescripcionFuncion: Dev
+                  NOmbreBanco: Bank
+                  Email: jc@jc
                   OnyxCaptor: ''
-                  Nombre: Andrea Quintero
-                  Codigo: '565656656789'
+                  Nombre: JuanP
+                  Codigo: '9988556633227897789789'
                   Id_SatMovil: ''
                   FechaHoraUsuario: ''
                   DeBaja: ''
@@ -7100,7 +7096,7 @@ paths:
                   Iban: ''
                   Swift: ''
                   Sucursal: ''
-                  NumeroTarjeta: '666'
+                  NumeroTarjeta: '1111'
                   ClaveCaptador: ''
                   FechaHoraNuevo: ''
                   FechaHoraModificado: ''
@@ -7108,7 +7104,7 @@ paths:
                   EmpleadoUsuarioID: ''
                   CodigoEmpresaID: ''
                   GrupoPrecioHoraId: ''
-                  PaisID: '148'
+                  PaisID: 45
                   ProvinciaID: ''
                   Telefono: ''
                   CodigoPostalID: ''
