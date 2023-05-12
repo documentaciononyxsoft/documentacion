@@ -7529,6 +7529,442 @@ paths:
       description: ''
       requestBody:
         content: {}
+  /employees:
+    get:
+      summary: EmployeeSAT - FindMany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            EmpleadoID:
+                              type: integer
+                            UsuarioID:
+                              type: integer
+                            HorasJornada:
+                              type: integer
+                            Direccion:
+                              type: string
+                            MunicipioID:
+                              type: integer
+                            Dni:
+                              type: string
+                            Nota:
+                              type: string
+                            NumeroSS:
+                              type: string
+                            FechaIngreso:
+                              type: string
+                            FechaFin:
+                              type: string
+                            FechaNacimiento:
+                              type: string
+                            DescripcionFuncion:
+                              type: string
+                            NOmbreBanco:
+                              type: string
+                            Email:
+                              type: string
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                            Id_SatMovil:
+                              type: integer
+                            seccion:
+                              type: string
+                            SeccionID:
+                              type: integer
+                            EmpleadoUsuarioID:
+                              type: integer
+                            GrupoPrecioHoraId:
+                              type: integer
+                            RolID:
+                              type: integer
+                            Situacion:
+                              type: string
+                            NegocioID:
+                              type: integer
+                            WebID:
+                              type: integer
+                            GeneroID:
+                              type: integer
+                            NombreEmpleado:
+                              type: string
+                            CodigoEmpleado:
+                              type: string
+                            DescripcionFuncionEmpleado:
+                              type: string
+                            Telefono:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - EmpleadoID: 4
+                          UsuarioID: 1
+                          HorasJornada: 12
+                          Direccion: ''
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: '823696'
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
+                          Nombre: CORIA MAYORGA OSCAR ALBERTO
+                          Codigo: '90088898'
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 1
+                          EmpleadoUsuarioID: 0
+                          GrupoPrecioHoraId: 332
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: CORIA MAYORGA OSCAR ALBERTO
+                          CodigoEmpleado: '90088898'
+                          DescripcionFuncionEmpleado: ''
+                          Telefono: ''
+                        - EmpleadoID: 5
+                          UsuarioID: 1
+                          HorasJornada: 12
+                          Direccion: ''
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: '675341'
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
+                          Nombre: IBARRA HERNANDEZ JAZMIN IVONNE
+                          Codigo: '70183192'
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 1
+                          EmpleadoUsuarioID: 0
+                          GrupoPrecioHoraId: 332
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: IBARRA HERNANDEZ JAZMIN IVONNE
+                          CodigoEmpleado: '70183192'
+                          DescripcionFuncionEmpleado: ''
+                          Telefono: ''
+                        - EmpleadoID: 6
+                          UsuarioID: 1
+                          HorasJornada: 12
+                          Direccion: ''
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: '777252'
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
+                          Nombre: DOSTA HUERTA GERARDO ANHWAR
+                          Codigo: '90032268'
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 1
+                          EmpleadoUsuarioID: 0
+                          GrupoPrecioHoraId: 332
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: DOSTA HUERTA GERARDO ANHWAR
+                          CodigoEmpleado: '90032268'
+                          DescripcionFuncionEmpleado: ''
+                          Telefono: ''
+                        - EmpleadoID: 7
+                          UsuarioID: 1
+                          HorasJornada: 12
+                          Direccion: ''
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: '823702'
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
+                          Nombre: LOPEZ HERRERA MARIA DE LOS ANGELES
+                          Codigo: '90088904'
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 1
+                          EmpleadoUsuarioID: 0
+                          GrupoPrecioHoraId: 332
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: LOPEZ HERRERA MARIA DE LOS ANGELES
+                          CodigoEmpleado: '90088904'
+                          DescripcionFuncionEmpleado: ''
+                          Telefono: ''
+                        - EmpleadoID: 8
+                          UsuarioID: 1
+                          HorasJornada: 12
+                          Direccion: ''
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: '823701'
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
+                          Nombre: ORTIZ RUIZ IVAN
+                          Codigo: '90088903'
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 1
+                          EmpleadoUsuarioID: 0
+                          GrupoPrecioHoraId: 332
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: ORTIZ RUIZ IVAN
+                          CodigoEmpleado: '90088903'
+                          DescripcionFuncionEmpleado: ''
+                          Telefono: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - EmpleadoID: 4
+                          UsuarioID: 1
+                          HorasJornada: 12
+                          Direccion: ''
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: '823696'
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
+                          Nombre: CORIA MAYORGA OSCAR ALBERTO
+                          Codigo: '90088898'
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 1
+                          EmpleadoUsuarioID: 0
+                          GrupoPrecioHoraId: 332
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: CORIA MAYORGA OSCAR ALBERTO
+                          CodigoEmpleado: '90088898'
+                          DescripcionFuncionEmpleado: ''
+                          Telefono: ''
+                        - EmpleadoID: 5
+                          UsuarioID: 1
+                          HorasJornada: 12
+                          Direccion: ''
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: '675341'
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
+                          Nombre: IBARRA HERNANDEZ JAZMIN IVONNE
+                          Codigo: '70183192'
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 1
+                          EmpleadoUsuarioID: 0
+                          GrupoPrecioHoraId: 332
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: IBARRA HERNANDEZ JAZMIN IVONNE
+                          CodigoEmpleado: '70183192'
+                          DescripcionFuncionEmpleado: ''
+                          Telefono: ''
+                        - EmpleadoID: 6
+                          UsuarioID: 1
+                          HorasJornada: 12
+                          Direccion: ''
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: '777252'
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
+                          Nombre: DOSTA HUERTA GERARDO ANHWAR
+                          Codigo: '90032268'
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 1
+                          EmpleadoUsuarioID: 0
+                          GrupoPrecioHoraId: 332
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: DOSTA HUERTA GERARDO ANHWAR
+                          CodigoEmpleado: '90032268'
+                          DescripcionFuncionEmpleado: ''
+                          Telefono: ''
+                        - EmpleadoID: 7
+                          UsuarioID: 1
+                          HorasJornada: 12
+                          Direccion: ''
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: '823702'
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
+                          Nombre: LOPEZ HERRERA MARIA DE LOS ANGELES
+                          Codigo: '90088904'
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 1
+                          EmpleadoUsuarioID: 0
+                          GrupoPrecioHoraId: 332
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: LOPEZ HERRERA MARIA DE LOS ANGELES
+                          CodigoEmpleado: '90088904'
+                          DescripcionFuncionEmpleado: ''
+                          Telefono: ''
+                        - EmpleadoID: 8
+                          UsuarioID: 1
+                          HorasJornada: 12
+                          Direccion: ''
+                          MunicipioID: 0
+                          Dni: ''
+                          Nota: ''
+                          NumeroSS: '823701'
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: ''
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: ''
+                          Nombre: ORTIZ RUIZ IVAN
+                          Codigo: '90088903'
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 1
+                          EmpleadoUsuarioID: 0
+                          GrupoPrecioHoraId: 332
+                          RolID: 0
+                          Situacion: ''
+                          NegocioID: 0
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: ORTIZ RUIZ IVAN
+                          CodigoEmpleado: '90088903'
+                          DescripcionFuncionEmpleado: ''
+                          Telefono: ''
+      operationId: get-tables-employeesSAT
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: integer
+            example: 5
+          in: query
+          name: limit
+          description: 'Límite de registros que trae la consulta. Si se envía el número 50, y la tabla tiene 2000 registros solo se traerán 50.'
+          required: true
+        - schema:
+            type: integer
+            example: 0
+          in: query
+          name: offset
+          description: 'Registro a partir del cual empezará a traer los datos desde la tabla. Si se envía 20, y en la tabla existen 100 registros, la respuesta traerá solo los registros comprendidos entre las posiciones 20 y 100, y los primero 20 se omitirán.'
+        - schema:
+            type: string
+            example: ASC
+          in: query
+          name: order
+          description: 'Esta valor determina si los registros se leerán desde arriba hacia abajo, o desde abajo hacia arriba en la tabla. '
+    parameters: []
+  /ticket/employee:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-ticket-employee
   '/tables/client/{Param}':
     get:
       summary: Client - findManyByParam
@@ -9946,685 +10382,6 @@ paths:
           in: header
           name: accessToken
           description: '"tokenReciente"'
-    parameters: []
-  /employees:
-    get:
-      summary: findManyForEmployee
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      data:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            EmpleadoID:
-                              type: integer
-                            UsuarioID:
-                              type: integer
-                            HorasJornada:
-                              type: integer
-                            Direccion:
-                              type: string
-                            MunicipioID:
-                              type: integer
-                            Dni:
-                              type: string
-                            Nota:
-                              type: string
-                            NumeroSS:
-                              type: string
-                            FechaIngreso:
-                              type: string
-                            FechaFin:
-                              type: string
-                            FechaNacimiento:
-                              type: string
-                            DescripcionFuncion:
-                              type: string
-                            NOmbreBanco:
-                              type: string
-                            Email:
-                              type: string
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: string
-                            Id_SatMovil:
-                              type: integer
-                            seccion:
-                              type: string
-                            SeccionID:
-                              type: integer
-                            EmpleadoUsuarioID:
-                              type: integer
-                            GrupoPrecioHoraId:
-                              type: integer
-                            RolID:
-                              type: integer
-                            Situacion:
-                              type: string
-                            NegocioID:
-                              type: integer
-                            WebID:
-                              type: integer
-                            GeneroID:
-                              type: integer
-                            NombreEmpleado:
-                              type: string
-                            CodigoEmpleado:
-                              type: string
-                            DescripcionFuncionEmpleado:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - EmpleadoID: 1
-                          UsuarioID: 0
-                          HorasJornada: 0
-                          Direccion: .
-                          MunicipioID: 0
-                          Dni: ''
-                          Nota: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17 Ninguna.\\par\r\n}\r\n"
-                          NumeroSS: ''
-                          FechaIngreso: ''
-                          FechaFin: ''
-                          FechaNacimiento: ''
-                          DescripcionFuncion: ''
-                          NOmbreBanco: ''
-                          Email: ''
-                          Nombre: Iñigo Vergara
-                          Codigo: '2'
-                          Id_SatMovil: 0
-                          seccion: ''
-                          SeccionID: 0
-                          EmpleadoUsuarioID: 0
-                          GrupoPrecioHoraId: 0
-                          RolID: 0
-                          Situacion: ''
-                          NegocioID: 0
-                          WebID: 0
-                          GeneroID: 0
-                          NombreEmpleado: Iñigo Vergara
-                          CodigoEmpleado: '2'
-                          DescripcionFuncionEmpleado: ''
-                        - EmpleadoID: 2
-                          UsuarioID: 1
-                          HorasJornada: 0
-                          Direccion: '                              '
-                          MunicipioID: 0
-                          Dni: ''
-                          Nota: ''
-                          NumeroSS: ''
-                          FechaIngreso: ''
-                          FechaFin: ''
-                          FechaNacimiento: ''
-                          DescripcionFuncion: ''
-                          NOmbreBanco: ''
-                          Email: ''
-                          Nombre: JUAN GUERRA
-                          Codigo: '3'
-                          Id_SatMovil: 0
-                          seccion: ''
-                          SeccionID: 0
-                          EmpleadoUsuarioID: 4
-                          GrupoPrecioHoraId: 131
-                          RolID: 0
-                          Situacion: ''
-                          NegocioID: 0
-                          WebID: 0
-                          GeneroID: 0
-                          NombreEmpleado: JUAN GUERRA
-                          CodigoEmpleado: '3'
-                          DescripcionFuncionEmpleado: ''
-                        - EmpleadoID: 3
-                          UsuarioID: 1
-                          HorasJornada: 0
-                          Direccion: .
-                          MunicipioID: 0
-                          Dni: ''
-                          Nota: ''
-                          NumeroSS: ''
-                          FechaIngreso: ''
-                          FechaFin: ''
-                          FechaNacimiento: ''
-                          DescripcionFuncion: ''
-                          NOmbreBanco: ''
-                          Email: ''
-                          Nombre: LORENA SAEZ NAVARRO
-                          Codigo: '4'
-                          Id_SatMovil: 0
-                          seccion: ''
-                          SeccionID: 0
-                          EmpleadoUsuarioID: 13
-                          GrupoPrecioHoraId: 132
-                          RolID: 0
-                          Situacion: ''
-                          NegocioID: 0
-                          WebID: 0
-                          GeneroID: 0
-                          NombreEmpleado: LORENA SAEZ NAVARRO
-                          CodigoEmpleado: '4'
-                          DescripcionFuncionEmpleado: ''
-                        - EmpleadoID: 4
-                          UsuarioID: 1
-                          HorasJornada: 0
-                          Direccion: '                              '
-                          MunicipioID: 0
-                          Dni: ''
-                          Nota: ''
-                          NumeroSS: ''
-                          FechaIngreso: ''
-                          FechaFin: ''
-                          FechaNacimiento: ''
-                          DescripcionFuncion: ''
-                          NOmbreBanco: ''
-                          Email: ''
-                          Nombre: SILVIA PEREZ LACALLE
-                          Codigo: '5'
-                          Id_SatMovil: 0
-                          seccion: ''
-                          SeccionID: 0
-                          EmpleadoUsuarioID: 6
-                          GrupoPrecioHoraId: 133
-                          RolID: 0
-                          Situacion: ''
-                          NegocioID: 0
-                          WebID: 0
-                          GeneroID: 0
-                          NombreEmpleado: SILVIA PEREZ LACALLE
-                          CodigoEmpleado: '5'
-                          DescripcionFuncionEmpleado: ''
-                        - EmpleadoID: 5
-                          UsuarioID: 1
-                          HorasJornada: 0
-                          Direccion: '                              '
-                          MunicipioID: 0
-                          Dni: ''
-                          Nota: ''
-                          NumeroSS: ''
-                          FechaIngreso: ''
-                          FechaFin: ''
-                          FechaNacimiento: ''
-                          DescripcionFuncion: ''
-                          NOmbreBanco: ''
-                          Email: ''
-                          Nombre: SILVIO PACHECO ABASCAL
-                          Codigo: '6'
-                          Id_SatMovil: 0
-                          seccion: ''
-                          SeccionID: 0
-                          EmpleadoUsuarioID: 7
-                          GrupoPrecioHoraId: 134
-                          RolID: 0
-                          Situacion: ''
-                          NegocioID: 0
-                          WebID: 0
-                          GeneroID: 0
-                          NombreEmpleado: SILVIO PACHECO ABASCAL
-                          CodigoEmpleado: '6'
-                          DescripcionFuncionEmpleado: ''
-                        - EmpleadoID: 6
-                          UsuarioID: 1
-                          HorasJornada: 0
-                          Direccion: '                              '
-                          MunicipioID: 0
-                          Dni: ''
-                          Nota: ''
-                          NumeroSS: ''
-                          FechaIngreso: '20050101'
-                          FechaFin: ''
-                          FechaNacimiento: '19680605'
-                          DescripcionFuncion: ''
-                          NOmbreBanco: ''
-                          Email: ''
-                          Nombre: LUIS CASILLAS PUJOL
-                          Codigo: '7'
-                          Id_SatMovil: 0
-                          seccion: ''
-                          SeccionID: 0
-                          EmpleadoUsuarioID: 8
-                          GrupoPrecioHoraId: 135
-                          RolID: 0
-                          Situacion: ''
-                          NegocioID: 0
-                          WebID: 0
-                          GeneroID: 0
-                          NombreEmpleado: LUIS CASILLAS PUJOL
-                          CodigoEmpleado: '7'
-                          DescripcionFuncionEmpleado: ''
-                        - EmpleadoID: 7
-                          UsuarioID: 1
-                          HorasJornada: 0
-                          Direccion: '                              '
-                          MunicipioID: 0
-                          Dni: ''
-                          Nota: ''
-                          NumeroSS: ''
-                          FechaIngreso: ''
-                          FechaFin: ''
-                          FechaNacimiento: ''
-                          DescripcionFuncion: ''
-                          NOmbreBanco: ''
-                          Email: ''
-                          Nombre: BORJA LOPEZ ESTEBAN
-                          Codigo: '49'
-                          Id_SatMovil: 0
-                          seccion: ''
-                          SeccionID: 0
-                          EmpleadoUsuarioID: 0
-                          GrupoPrecioHoraId: 136
-                          RolID: 0
-                          Situacion: ''
-                          NegocioID: 0
-                          WebID: 0
-                          GeneroID: 0
-                          NombreEmpleado: BORJA LOPEZ ESTEBAN
-                          CodigoEmpleado: '49'
-                          DescripcionFuncionEmpleado: ''
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - EmpleadoID: 1
-                          UsuarioID: 0
-                          HorasJornada: 0
-                          Direccion: .
-                          MunicipioID: 0
-                          Dni: ''
-                          Nota: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17 Ninguna.\\par\r\n}\r\n"
-                          NumeroSS: ''
-                          FechaIngreso: ''
-                          FechaFin: ''
-                          FechaNacimiento: ''
-                          DescripcionFuncion: ''
-                          NOmbreBanco: ''
-                          Email: ''
-                          Nombre: Iñigo Vergara
-                          Codigo: '2'
-                          Id_SatMovil: 0
-                          seccion: ''
-                          SeccionID: 0
-                          EmpleadoUsuarioID: 0
-                          GrupoPrecioHoraId: 0
-                          RolID: 0
-                          Situacion: ''
-                          NegocioID: 0
-                          WebID: 0
-                          GeneroID: 0
-                          NombreEmpleado: Iñigo Vergara
-                          CodigoEmpleado: '2'
-                          DescripcionFuncionEmpleado: ''
-                        - EmpleadoID: 2
-                          UsuarioID: 1
-                          HorasJornada: 0
-                          Direccion: '                              '
-                          MunicipioID: 0
-                          Dni: ''
-                          Nota: ''
-                          NumeroSS: ''
-                          FechaIngreso: ''
-                          FechaFin: ''
-                          FechaNacimiento: ''
-                          DescripcionFuncion: ''
-                          NOmbreBanco: ''
-                          Email: ''
-                          Nombre: JUAN GUERRA
-                          Codigo: '3'
-                          Id_SatMovil: 0
-                          seccion: ''
-                          SeccionID: 0
-                          EmpleadoUsuarioID: 4
-                          GrupoPrecioHoraId: 131
-                          RolID: 0
-                          Situacion: ''
-                          NegocioID: 0
-                          WebID: 0
-                          GeneroID: 0
-                          NombreEmpleado: JUAN GUERRA
-                          CodigoEmpleado: '3'
-                          DescripcionFuncionEmpleado: ''
-                        - EmpleadoID: 3
-                          UsuarioID: 1
-                          HorasJornada: 0
-                          Direccion: .
-                          MunicipioID: 0
-                          Dni: ''
-                          Nota: ''
-                          NumeroSS: ''
-                          FechaIngreso: ''
-                          FechaFin: ''
-                          FechaNacimiento: ''
-                          DescripcionFuncion: ''
-                          NOmbreBanco: ''
-                          Email: ''
-                          Nombre: LORENA SAEZ NAVARRO
-                          Codigo: '4'
-                          Id_SatMovil: 0
-                          seccion: ''
-                          SeccionID: 0
-                          EmpleadoUsuarioID: 13
-                          GrupoPrecioHoraId: 132
-                          RolID: 0
-                          Situacion: ''
-                          NegocioID: 0
-                          WebID: 0
-                          GeneroID: 0
-                          NombreEmpleado: LORENA SAEZ NAVARRO
-                          CodigoEmpleado: '4'
-                          DescripcionFuncionEmpleado: ''
-                        - EmpleadoID: 4
-                          UsuarioID: 1
-                          HorasJornada: 0
-                          Direccion: '                              '
-                          MunicipioID: 0
-                          Dni: ''
-                          Nota: ''
-                          NumeroSS: ''
-                          FechaIngreso: ''
-                          FechaFin: ''
-                          FechaNacimiento: ''
-                          DescripcionFuncion: ''
-                          NOmbreBanco: ''
-                          Email: ''
-                          Nombre: SILVIA PEREZ LACALLE
-                          Codigo: '5'
-                          Id_SatMovil: 0
-                          seccion: ''
-                          SeccionID: 0
-                          EmpleadoUsuarioID: 6
-                          GrupoPrecioHoraId: 133
-                          RolID: 0
-                          Situacion: ''
-                          NegocioID: 0
-                          WebID: 0
-                          GeneroID: 0
-                          NombreEmpleado: SILVIA PEREZ LACALLE
-                          CodigoEmpleado: '5'
-                          DescripcionFuncionEmpleado: ''
-                        - EmpleadoID: 5
-                          UsuarioID: 1
-                          HorasJornada: 0
-                          Direccion: '                              '
-                          MunicipioID: 0
-                          Dni: ''
-                          Nota: ''
-                          NumeroSS: ''
-                          FechaIngreso: ''
-                          FechaFin: ''
-                          FechaNacimiento: ''
-                          DescripcionFuncion: ''
-                          NOmbreBanco: ''
-                          Email: ''
-                          Nombre: SILVIO PACHECO ABASCAL
-                          Codigo: '6'
-                          Id_SatMovil: 0
-                          seccion: ''
-                          SeccionID: 0
-                          EmpleadoUsuarioID: 7
-                          GrupoPrecioHoraId: 134
-                          RolID: 0
-                          Situacion: ''
-                          NegocioID: 0
-                          WebID: 0
-                          GeneroID: 0
-                          NombreEmpleado: SILVIO PACHECO ABASCAL
-                          CodigoEmpleado: '6'
-                          DescripcionFuncionEmpleado: ''
-                        - EmpleadoID: 6
-                          UsuarioID: 1
-                          HorasJornada: 0
-                          Direccion: '                              '
-                          MunicipioID: 0
-                          Dni: ''
-                          Nota: ''
-                          NumeroSS: ''
-                          FechaIngreso: '20050101'
-                          FechaFin: ''
-                          FechaNacimiento: '19680605'
-                          DescripcionFuncion: ''
-                          NOmbreBanco: ''
-                          Email: ''
-                          Nombre: LUIS CASILLAS PUJOL
-                          Codigo: '7'
-                          Id_SatMovil: 0
-                          seccion: ''
-                          SeccionID: 0
-                          EmpleadoUsuarioID: 8
-                          GrupoPrecioHoraId: 135
-                          RolID: 0
-                          Situacion: ''
-                          NegocioID: 0
-                          WebID: 0
-                          GeneroID: 0
-                          NombreEmpleado: LUIS CASILLAS PUJOL
-                          CodigoEmpleado: '7'
-                          DescripcionFuncionEmpleado: ''
-                        - EmpleadoID: 7
-                          UsuarioID: 1
-                          HorasJornada: 0
-                          Direccion: '                              '
-                          MunicipioID: 0
-                          Dni: ''
-                          Nota: ''
-                          NumeroSS: ''
-                          FechaIngreso: ''
-                          FechaFin: ''
-                          FechaNacimiento: ''
-                          DescripcionFuncion: ''
-                          NOmbreBanco: ''
-                          Email: ''
-                          Nombre: BORJA LOPEZ ESTEBAN
-                          Codigo: '49'
-                          Id_SatMovil: 0
-                          seccion: ''
-                          SeccionID: 0
-                          EmpleadoUsuarioID: 0
-                          GrupoPrecioHoraId: 136
-                          RolID: 0
-                          Situacion: ''
-                          NegocioID: 0
-                          WebID: 0
-                          GeneroID: 0
-                          NombreEmpleado: BORJA LOPEZ ESTEBAN
-                          CodigoEmpleado: '49'
-                          DescripcionFuncionEmpleado: ''
-        '':
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      data:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            EmpleadoID:
-                              type: integer
-                            UsuarioID:
-                              type: integer
-                            HorasJornada:
-                              type: integer
-                            Direccion:
-                              type: string
-                            MunicipioID:
-                              type: integer
-                            Dni:
-                              type: string
-                            Nota:
-                              type: string
-                            NumeroSS:
-                              type: string
-                            FechaIngreso:
-                              type: string
-                            FechaFin:
-                              type: string
-                            FechaNacimiento:
-                              type: string
-                            DescripcionFuncion:
-                              type: string
-                            NOmbreBanco:
-                              type: string
-                            Email:
-                              type: string
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: string
-                            Id_SatMovil:
-                              type: integer
-                            seccion:
-                              type: string
-                            SeccionID:
-                              type: integer
-                            EmpleadoUsuarioID:
-                              type: integer
-                            GrupoPrecioHoraId:
-                              type: integer
-                            RolID:
-                              type: integer
-                            Situacion:
-                              type: string
-                            NegocioID:
-                              type: integer
-                            WebID:
-                              type: integer
-                            GeneroID:
-                              type: integer
-                            NombreEmpleado:
-                              type: string
-                            CodigoEmpleado:
-                              type: string
-                            DescripcionFuncionEmpleado:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - EmpleadoID: 1
-                          UsuarioID: 0
-                          HorasJornada: 0
-                          Direccion: .
-                          MunicipioID: 0
-                          Dni: ''
-                          Nota: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17 Ninguna.\\par\r\n}\r\n"
-                          NumeroSS: ''
-                          FechaIngreso: ''
-                          FechaFin: ''
-                          FechaNacimiento: ''
-                          DescripcionFuncion: ''
-                          NOmbreBanco: ''
-                          Email: ''
-                          Nombre: Iñigo Vergara
-                          Codigo: '2'
-                          Id_SatMovil: 0
-                          seccion: ''
-                          SeccionID: 0
-                          EmpleadoUsuarioID: 0
-                          GrupoPrecioHoraId: 0
-                          RolID: 0
-                          Situacion: ''
-                          NegocioID: 0
-                          WebID: 0
-                          GeneroID: 0
-                          NombreEmpleado: Iñigo Vergara
-                          CodigoEmpleado: '2'
-                          DescripcionFuncionEmpleado: ''
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - EmpleadoID: 1
-                          UsuarioID: 0
-                          HorasJornada: 0
-                          Direccion: .
-                          MunicipioID: 0
-                          Dni: ''
-                          Nota: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17 Ninguna.\\par\r\n}\r\n"
-                          NumeroSS: ''
-                          FechaIngreso: ''
-                          FechaFin: ''
-                          FechaNacimiento: ''
-                          DescripcionFuncion: ''
-                          NOmbreBanco: ''
-                          Email: ''
-                          Nombre: Iñigo Vergara
-                          Codigo: '2'
-                          Id_SatMovil: 0
-                          seccion: ''
-                          SeccionID: 0
-                          EmpleadoUsuarioID: 0
-                          GrupoPrecioHoraId: 0
-                          RolID: 0
-                          Situacion: ''
-                          NegocioID: 0
-                          WebID: 0
-                          GeneroID: 0
-                          NombreEmpleado: Iñigo Vergara
-                          CodigoEmpleado: '2'
-                          DescripcionFuncionEmpleado: ''
-      operationId: get-tables-employeesSAT
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: integer
-          in: query
-          name: limit
-          description: '50'
-        - schema:
-            type: integer
-          in: query
-          name: offset
-          description: '0'
-        - schema:
-            type: string
-          in: query
-          name: order
-          description: ASC
     parameters: []
   /tables/employee/changeState:
     get:
