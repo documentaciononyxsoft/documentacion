@@ -2081,6 +2081,125 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
     parameters: []
+  '/tables/clients/risk/{clienteID}':
+    parameters:
+      - schema:
+          type: string
+          example: '455'
+        name: clienteID
+        in: path
+        required: true
+    get:
+      summary: Client - FindOneRiskByClient
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ClienteFacturacionID:
+                              type: integer
+                            CompaniaSeguroMailingID:
+                              type: integer
+                            CodigoSeguro:
+                              type: string
+                            RiesgoSolicitadoSeguro:
+                              type: integer
+                            FechaSeguro:
+                              type: string
+                            PolizaSeguro:
+                              type: string
+                            RiesgoConcedidoSeguro:
+                              type: integer
+                            FechaVencimientoRiesgo:
+                              type: string
+                            NotaSeguro:
+                              type: string
+                            CodCampaniaSeguro:
+                              type: string
+                            NomCampaniaSeguro:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - ClienteFacturacionID: 388
+                          CompaniaSeguroMailingID: 0
+                          CodigoSeguro: ''
+                          RiesgoSolicitadoSeguro: 0
+                          FechaSeguro: '20230426'
+                          PolizaSeguro: '0'
+                          RiesgoConcedidoSeguro: 0
+                          FechaVencimientoRiesgo: '20230426'
+                          NotaSeguro: ''
+                          CodCampaniaSeguro: ''
+                          NomCampaniaSeguro: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - ClienteFacturacionID: 388
+                          CompaniaSeguroMailingID: 0
+                          CodigoSeguro: ''
+                          RiesgoSolicitadoSeguro: 0
+                          FechaSeguro: '20230426'
+                          PolizaSeguro: '0'
+                          RiesgoConcedidoSeguro: 0
+                          FechaVencimientoRiesgo: '20230426'
+                          NotaSeguro: ''
+                          CodCampaniaSeguro: ''
+                          NomCampaniaSeguro: ''
+      operationId: get-tables-clients-risk-clienteID
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+    put:
+      summary: Client - UpdateRisk
+      operationId: put-tables-clients-risk-clienteID
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /tables/clients/bank:
     post:
       summary: Client - CreateBank
@@ -22162,17 +22281,5 @@ paths:
                   NegocioID: ''
                   Municipio: ''
                   Situacion: ''
-  '/tables/clients/risk/{clienteID}':
-    parameters:
-      - schema:
-          type: string
-        name: clienteID
-        in: path
-        required: true
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-tables-clients-risk-clienteID
 components:
   schemas: {}
