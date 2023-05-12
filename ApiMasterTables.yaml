@@ -10044,6 +10044,81 @@ paths:
           in: query
           name: sBusqueda
           description: Clave
+  /tables/generalTable/light:
+    get:
+      summary: GeneralTable - FindLightList
+      tags: []
+      responses: {}
+      operationId: get-tables-generalTable-light
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: sBusqueda
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                statusCode:
+                  type: integer
+                message:
+                  type: string
+                content:
+                  type: object
+                  properties:
+                    success:
+                      type: boolean
+                    sql:
+                      type: string
+                    records:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          ID:
+                            type: integer
+                          Nombre:
+                            type: string
+                          Codigo:
+                            type: string
+              x-examples:
+                Example 1:
+                  statusCode: 200
+                  message: Request processed successfully
+                  content:
+                    success: true
+                    sql: "SELECT tablageneral.TablaGeneralID AS ID,\r\ntablageneral.Descripcion AS Nombre,\r\ntablageneral.Abreviatura AS Codigo \r\nFROM tablageneral \r\nWHERE tablageneral.CustomerID = 29 \r\nAND tablageneral.Clave = \"\""
+                    records:
+                      - ID: 316
+                        Nombre: 'Entrada de Mercancia '
+                        Codigo: EM
+                      - ID: 317
+                        Nombre: Produccion
+                        Codigo: P
+            examples:
+              Example 1:
+                value:
+                  statusCode: 200
+                  message: Request processed successfully
+                  content:
+                    success: true
+                    sql: string
+                    records:
+                      - ID: 316
+                        Nombre: 'Entrada de Mercancia '
+                        Codigo: EM
+                      - ID: 317
+                        Nombre: Produccion
+                        Codigo: P
   '/tables/client/{Param}':
     get:
       summary: Client - findManyByParam
@@ -13290,11 +13365,5 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
-  /tables/generalTable/light:
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-tables-generalTable-light
 components:
   schemas: {}
