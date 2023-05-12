@@ -1747,6 +1747,7 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '5'
         name: bancoClienteID
         in: path
         required: true
@@ -1868,6 +1869,37 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: El Banco ha sido Eliminado exitosamente.
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: El Banco ha sido Eliminado exitosamente.
       parameters:
         - schema:
             type: string
