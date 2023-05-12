@@ -6964,6 +6964,104 @@ paths:
           name: opcion
           required: true
       description: ''
+  /employee/groups:
+    get:
+      summary: EmployeeSAT - FindManyByGroups
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT empleadogruposatlinea.*,empleado.EmpleadoID,empleado.Codigo,empleado.Nombre\r\nFROM empleadogruposatlinea\r\nLEFT JOIN empleado \r\nON empleadogruposatlinea.EmpleadoID = empleado.EmpleadoID\r\nWHERE empleadogruposatlinea.EmpleadoGrupoSatCabeceraID = 1\r\nAND empleadogruposatlinea.CustomerID = 29\r\nAND empleadogruposatlinea.UsuarioID = 1\r\n"
+                      records:
+                        - ID: 198
+                          Nombre: ALVARADO PEREZ JOEL
+                          Codigo: '70112021'
+                        - ID: 82
+                          Nombre: ARENAS PEREZ JOSE IGNACIO
+                          Codigo: '70169980'
+                        - ID: 173
+                          Nombre: AVILA NORIEGA ROGELIO ALBERTO
+                          Codigo: '70116487'
+                        - ID: 183
+                          Nombre: AVILES MENESES JOSE LUIS
+                          Codigo: '70166344'
+                        - ID: 14
+                          Nombre: BALLEZA GUDINES LUCIO
+                          Codigo: '90088901'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - ID: 198
+                          Nombre: ALVARADO PEREZ JOEL
+                          Codigo: '70112021'
+                        - ID: 82
+                          Nombre: ARENAS PEREZ JOSE IGNACIO
+                          Codigo: '70169980'
+                        - ID: 173
+                          Nombre: AVILA NORIEGA ROGELIO ALBERTO
+                          Codigo: '70116487'
+                        - ID: 183
+                          Nombre: AVILES MENESES JOSE LUIS
+                          Codigo: '70166344'
+                        - ID: 14
+                          Nombre: BALLEZA GUDINES LUCIO
+                          Codigo: '90088901'
+      operationId: get-employee-groups
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: '1'
+          in: query
+          name: grupoID
+          description: EmpleadoGrupoSatCabeceraID
+          required: true
+      description: ''
   '/tables/client/{Param}':
     get:
       summary: Client - findManyByParam
@@ -7821,6 +7919,74 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  /tables/checkListSections:
+    get:
+      summary: findManyForCheckListSection
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            CheckListApartadoID:
+                              type: integer
+                            Apartado:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT * FROM CheckListApartado\r\nWHERE CheckListApartado.CustomerID = 29\r\nAND CheckListApartado.EmpresaID = 1\r\norder BY CheckListApartadoID  ASC \r\n\r\n\r\n"
+                      records:
+                        - CheckListApartadoID: 1
+                          Apartado: '4551'
+                        - CheckListApartadoID: 2
+                          Apartado: '65221'
+                        - CheckListApartadoID: 4
+                          Apartado: '78547'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT * FROM CheckListApartado\r\nWHERE CheckListApartado.CustomerID = 29\r\nAND CheckListApartado.EmpresaID = 1\r\norder BY CheckListApartadoID  ASC \r\n\r\n\r\n"
+                      records:
+                        - CheckListApartadoID: 1
+                          Apartado: '4551'
+                        - CheckListApartadoID: 2
+                          Apartado: '65221'
+                        - CheckListApartadoID: 4
+                          Apartado: '78547'
+      operationId: get-tables-checkListSections
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
   '/tables/checkListSection/{CheckListApartadoID}':
     put:
       summary: UpdateForCheckListSection
@@ -8254,74 +8420,6 @@ paths:
                   Activo: false
                   Nombre: pruebaNombre
                   Notas: Notas
-  /tables/checkListSections:
-    get:
-      summary: findManyForCheckListSection
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            CheckListApartadoID:
-                              type: integer
-                            Apartado:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT * FROM CheckListApartado\r\nWHERE CheckListApartado.CustomerID = 29\r\nAND CheckListApartado.EmpresaID = 1\r\norder BY CheckListApartadoID  ASC \r\n\r\n\r\n"
-                      records:
-                        - CheckListApartadoID: 1
-                          Apartado: '4551'
-                        - CheckListApartadoID: 2
-                          Apartado: '65221'
-                        - CheckListApartadoID: 4
-                          Apartado: '78547'
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT * FROM CheckListApartado\r\nWHERE CheckListApartado.CustomerID = 29\r\nAND CheckListApartado.EmpresaID = 1\r\norder BY CheckListApartadoID  ASC \r\n\r\n\r\n"
-                      records:
-                        - CheckListApartadoID: 1
-                          Apartado: '4551'
-                        - CheckListApartadoID: 2
-                          Apartado: '65221'
-                        - CheckListApartadoID: 4
-                          Apartado: '78547'
-      operationId: get-tables-checkListSections
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
   /tables/municipaly/checkMunicipaly:
     get:
       summary: checkMunicipaly
