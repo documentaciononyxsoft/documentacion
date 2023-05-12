@@ -1470,6 +1470,153 @@ paths:
             type: string
           in: query
           name: albaranCompraID
+  /tables/client:
+    get:
+      summary: Clients - FindManyByParam
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            ClienteID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT cliente.ClienteID,mailing.MailingID,mailing.Nombre ,cliente.Codigo\r\nFROM cliente\r\nLEFT JOIN mailing\r\nON cliente.MailingID = mailing.MailingID\r\nWHERE mailing.Activo = TRUE AND cliente.CustomerID = 29 AND cliente.EmpresaID = 1\r\nAND (cliente.Codigo LIKE '%1030%' OR mailing.Nombre LIKE '%1030%') \r\nLIMIT 10"
+                      records:
+                        - ID: 469
+                          ClienteID: 3
+                          Nombre: WEHIS NAVARRO FERNANDO
+                          Codigo: '10300010003'
+                        - ID: 468
+                          ClienteID: 4
+                          Nombre: WALDOS DÓLAR MART DE MÉXICO S. DE R.L.DE C.V.
+                          Codigo: '10300010004'
+                        - ID: 467
+                          ClienteID: 5
+                          Nombre: VIVERES DE SAN RAFAEL SA DE CV
+                          Codigo: '10300010005'
+                        - ID: 466
+                          ClienteID: 6
+                          Nombre: VIVERES SANTA ELENA SA
+                          Codigo: '10300010006'
+                        - ID: 223
+                          ClienteID: 8
+                          Nombre: ABARROTERA AVILA GUAMUCHIL
+                          Codigo: '10300010008'
+                        - ID: 261
+                          ClienteID: 9
+                          Nombre: ABARROTERA DE VALLES SA DE CV
+                          Codigo: '10300010009'
+                        - ID: 237
+                          ClienteID: 10
+                          Nombre: ABARROTERA DEL DUERO S A DE C V
+                          Codigo: '10300010010'
+                        - ID: 238
+                          ClienteID: 11
+                          Nombre: ABARROTERA FUENTES SA DE CV
+                          Codigo: '10300010011'
+                        - ID: 241
+                          ClienteID: 12
+                          Nombre: ABARROTERA HIDALGO DE TEHUACAN SA D
+                          Codigo: '10300010012'
+                        - ID: 258
+                          ClienteID: 13
+                          Nombre: ABARROTERA SAN ANTONIO SA DECV
+                          Codigo: '10300010013'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - ID: 469
+                          ClienteID: 3
+                          Nombre: WEHIS NAVARRO FERNANDO
+                          Codigo: '10300010003'
+                        - ID: 468
+                          ClienteID: 4
+                          Nombre: WALDOS DÓLAR MART DE MÉXICO S. DE R.L.DE C.V.
+                          Codigo: '10300010004'
+                        - ID: 467
+                          ClienteID: 5
+                          Nombre: VIVERES DE SAN RAFAEL SA DE CV
+                          Codigo: '10300010005'
+                        - ID: 466
+                          ClienteID: 6
+                          Nombre: VIVERES SANTA ELENA SA
+                          Codigo: '10300010006'
+                        - ID: 223
+                          ClienteID: 8
+                          Nombre: ABARROTERA AVILA GUAMUCHIL
+                          Codigo: '10300010008'
+                        - ID: 261
+                          ClienteID: 9
+                          Nombre: ABARROTERA DE VALLES SA DE CV
+                          Codigo: '10300010009'
+                        - ID: 237
+                          ClienteID: 10
+                          Nombre: ABARROTERA DEL DUERO S A DE C V
+                          Codigo: '10300010010'
+                        - ID: 238
+                          ClienteID: 11
+                          Nombre: ABARROTERA FUENTES SA DE CV
+                          Codigo: '10300010011'
+                        - ID: 241
+                          ClienteID: 12
+                          Nombre: ABARROTERA HIDALGO DE TEHUACAN SA D
+                          Codigo: '10300010012'
+                        - ID: 258
+                          ClienteID: 13
+                          Nombre: ABARROTERA SAN ANTONIO SA DECV
+                          Codigo: '10300010013'
+      operationId: get-tables-client
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: param
+          description: Parámetro a buscar
   /tables/companies:
     get:
       summary: Companie - FindMany
