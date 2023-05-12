@@ -6485,7 +6485,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Contacts - FindByMailing
+      summary: Contacts - FindByMailings
       tags: []
       responses:
         '200':
