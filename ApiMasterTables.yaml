@@ -9072,7 +9072,7 @@ paths:
           description: yei
   /employee/theme:
     get:
-      summary: findManyByParamForTheme
+      summary: Employees - FindByThemeParam
       tags: []
       responses:
         '200':
@@ -9198,7 +9198,7 @@ paths:
     parameters: []
   /employee/theme/light:
     get:
-      summary: findLightListForTheme
+      summary: Employees - FindByThemeLightList
       tags: []
       responses:
         '200':
@@ -9277,7 +9277,7 @@ paths:
     parameters: []
   /employee/versatiles:
     get:
-      summary: findManyForVersatilityByEmployee
+      summary: Employees - FindManyVersatility
       tags: []
       responses:
         '200':
@@ -9362,7 +9362,7 @@ paths:
           description: '1'
   /employee/versatility:
     post:
-      summary: CreateVersatility
+      summary: Employees - CreateVersatility
       operationId: post-employee-versatility
       responses:
         '200':
@@ -9452,7 +9452,7 @@ paths:
         required: true
         description: '28'
     put:
-      summary: UpdateForVersatility
+      summary: Employees - UpdateVersatility
       operationId: put-employee-versatility-id
       responses:
         '200':
@@ -9530,7 +9530,7 @@ paths:
                   MaquinaNombre: ''
                   DescripcionPuesto: Estampador
     delete:
-      summary: RemoveForVersatility
+      summary: Employees - DeleteVersatility
       operationId: delete-employee-versatility-id
       responses:
         '200':
