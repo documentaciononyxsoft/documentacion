@@ -1618,6 +1618,131 @@ paths:
           in: query
           name: param
           description: Parámetro a buscar
+  /tables/clients/bank:
+    post:
+      summary: Client - CreateBank
+      operationId: post-tables-clients-bank
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                      BancoClienteID:
+                        type: integer
+                      FechaHoraUsuario:
+                        type: string
+                      NombreUsuario:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: El Banco se ha Guardado exitosamente.
+                      BancoClienteID: 53
+                      FechaHoraUsuario: '2023-05-12T08:27:16.379'
+                      NombreUsuario: ADMINISTRADOR
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: El Banco se ha Guardado exitosamente.
+                      BancoClienteID: 53
+                      FechaHoraUsuario: '2023-05-12T08:27:16.379'
+                      NombreUsuario: ADMINISTRADOR
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                NombreBanco:
+                  type: string
+                NombreOficina:
+                  type: string
+                PoblacionBanco:
+                  type: string
+                Entidad:
+                  type: string
+                Oficina:
+                  type: string
+                DigitoControl:
+                  type: string
+                CuentaCorriente:
+                  type: string
+                Iban:
+                  type: string
+                Swift:
+                  type: string
+                Principal:
+                  type: integer
+                ClienteID:
+                  type: integer
+                FechaMandato:
+                  type: string
+                NumeroMandato:
+                  type: string
+                TipoPago:
+                  type: string
+              x-examples:
+                Example 1:
+                  NombreBanco: JCBank
+                  NombreOficina: Molinos
+                  PoblacionBanco: Pobla
+                  Entidad: EntiTEST
+                  Oficina: Ofi11
+                  DigitoControl: Control
+                  CuentaCorriente: '19372846'
+                  Iban: Ibanchoy
+                  Swift: Jaze
+                  Principal: 1
+                  ClienteID: 455
+                  FechaMandato: '20230512'
+                  NumeroMandato: '990825'
+                  TipoPago: UNICO
+            examples:
+              Example 1:
+                value:
+                  NombreBanco: JCBank
+                  NombreOficina: Molinos
+                  PoblacionBanco: Pobla
+                  Entidad: EntiTEST
+                  Oficina: Ofi11
+                  DigitoControl: Control
+                  CuentaCorriente: '19372846'
+                  Iban: Ibanchoy
+                  Swift: Jaze
+                  Principal: 1
+                  ClienteID: 455
+                  FechaMandato: '20230512'
+                  NumeroMandato: '990825'
+                  TipoPago: UNICO
   /tables/companies:
     get:
       summary: Companie - FindMany
@@ -15387,6 +15512,91 @@ paths:
                 Example 1:
                   user: admin@admin.com
                   pass: 0nyx2021
+  /tables/clients/light:
+    get:
+      summary: Client - findLightList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                            ClienteID:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT cliente.ClienteID,mailing.MailingID,mailing.Nombre ,cliente.Codigo\r\nFROM cliente\r\nLEFT JOIN mailing\r\nON cliente.MailingID = mailing.MailingID\r\nWHERE mailing.Activo = TRUE AND cliente.CustomerID = 29 AND cliente.EmpresaID = 1"
+                      records:
+                        - ID: 4
+                          Nombre: dario
+                          Codigo: '43000001'
+                          ClienteID: 1
+                        - ID: 5
+                          Nombre: 'MUEBLES RUIZ, S.L.'
+                          Codigo: '43000002'
+                          ClienteID: 2
+                        - ID: 6
+                          Nombre: DEUTSCHE COMMERC
+                          Codigo: '43000003'
+                          ClienteID: 3
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT cliente.ClienteID,mailing.MailingID,mailing.Nombre ,cliente.Codigo\r\nFROM cliente\r\nLEFT JOIN mailing\r\nON cliente.MailingID = mailing.MailingID\r\nWHERE mailing.Activo = TRUE AND cliente.CustomerID = 29 AND cliente.EmpresaID = 1"
+                      records:
+                        - ID: 4
+                          Nombre: dario
+                          Codigo: '43000001'
+                          ClienteID: 1
+                        - ID: 5
+                          Nombre: 'MUEBLES RUIZ, S.L.'
+                          Codigo: '43000002'
+                          ClienteID: 2
+                        - ID: 6
+                          Nombre: DEUTSCHE COMMERC
+                          Codigo: '43000003'
+                          ClienteID: 3
+      operationId: get-tables-clients-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+    parameters: []
   '/tables/companies/{Id}':
     put:
       summary: Companie - Update
@@ -15505,91 +15715,6 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
-  /tables/clients/light:
-    get:
-      summary: Client - findLightList
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: string
-                            ClienteID:
-                              type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT cliente.ClienteID,mailing.MailingID,mailing.Nombre ,cliente.Codigo\r\nFROM cliente\r\nLEFT JOIN mailing\r\nON cliente.MailingID = mailing.MailingID\r\nWHERE mailing.Activo = TRUE AND cliente.CustomerID = 29 AND cliente.EmpresaID = 1"
-                      records:
-                        - ID: 4
-                          Nombre: dario
-                          Codigo: '43000001'
-                          ClienteID: 1
-                        - ID: 5
-                          Nombre: 'MUEBLES RUIZ, S.L.'
-                          Codigo: '43000002'
-                          ClienteID: 2
-                        - ID: 6
-                          Nombre: DEUTSCHE COMMERC
-                          Codigo: '43000003'
-                          ClienteID: 3
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT cliente.ClienteID,mailing.MailingID,mailing.Nombre ,cliente.Codigo\r\nFROM cliente\r\nLEFT JOIN mailing\r\nON cliente.MailingID = mailing.MailingID\r\nWHERE mailing.Activo = TRUE AND cliente.CustomerID = 29 AND cliente.EmpresaID = 1"
-                      records:
-                        - ID: 4
-                          Nombre: dario
-                          Codigo: '43000001'
-                          ClienteID: 1
-                        - ID: 5
-                          Nombre: 'MUEBLES RUIZ, S.L.'
-                          Codigo: '43000002'
-                          ClienteID: 2
-                        - ID: 6
-                          Nombre: DEUTSCHE COMMERC
-                          Codigo: '43000003'
-                          ClienteID: 3
-      operationId: get-tables-clients-light
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: accessToken
-          description: '"tokenReciente"'
-    parameters: []
   '/tables/client/{Param}':
     get:
       summary: Client - findManyByParam
