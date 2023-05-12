@@ -8874,15 +8874,11 @@ paths:
                       success: true
                       data:
                         - ID: 1
-                          Nombre: Mecanico
+                          Nombre: Developer
                         - ID: 2
-                          Nombre: AlmacÃ©n
-                        - ID: 5
-                          Nombre: Estampador
-                        - ID: 6
-                          Nombre: Contador
-                        - ID: 7
-                          Nombre: Puesto Nuevo
+                          Nombre: Designer
+                        - ID: 3
+                          Nombre: Support
               examples:
                 Example 1:
                   value:
@@ -8892,21 +8888,20 @@ paths:
                       success: true
                       data:
                         - ID: 1
-                          Nombre: Mecanico
+                          Nombre: Developer
                         - ID: 2
-                          Nombre: AlmacÃ©n
-                        - ID: 5
-                          Nombre: Estampador
-                        - ID: 6
-                          Nombre: Contador
-                        - ID: 7
-                          Nombre: Puesto Nuevo
+                          Nombre: Designer
+                        - ID: 3
+                          Nombre: Support
       operationId: get-employees-positionType-light
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
     parameters: []
   /employee/quicksearch:
     get:
