@@ -9466,10 +9466,11 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '3'
         name: id
         in: path
         required: true
-        description: '28'
+        description: EmpleadoCompetenciaNivelPuestoCabeceraID
     put:
       summary: Employees - UpdateVersatility
       operationId: put-employee-versatility-id
@@ -9506,9 +9507,11 @@ paths:
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
       requestBody:
         content:
           application/json:
@@ -9521,33 +9524,17 @@ paths:
                   type: string
                 MaquinaID:
                   type: string
-                FechaHoraUsuario:
-                  type: string
-                MaquinaCodigo:
-                  type: string
-                MaquinaNombre:
-                  type: string
-                DescripcionPuesto:
-                  type: string
               x-examples:
                 Example 1:
-                  EmpleadoTipoPuestoID: '5'
-                  EmpleadoID: '1'
-                  MaquinaID: '0'
-                  FechaHoraUsuario: ''
-                  MaquinaCodigo: ''
-                  MaquinaNombre: ''
-                  DescripcionPuesto: Estampador
+                  EmpleadoTipoPuestoID: '4'
+                  EmpleadoID: '340'
+                  MaquinaID: '3'
             examples:
               Example 1:
                 value:
-                  EmpleadoTipoPuestoID: '5'
-                  EmpleadoID: '1'
-                  MaquinaID: '0'
-                  FechaHoraUsuario: ''
-                  MaquinaCodigo: ''
-                  MaquinaNombre: ''
-                  DescripcionPuesto: Estampador
+                  EmpleadoTipoPuestoID: '4'
+                  EmpleadoID: '340'
+                  MaquinaID: '3'
     delete:
       summary: Employees - DeleteVersatility
       operationId: delete-employee-versatility-id
