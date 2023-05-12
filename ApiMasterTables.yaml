@@ -6480,14 +6480,170 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '455'
         name: mailingID
         in: path
         required: true
     get:
       summary: Contacts - FindLightListByClient
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        cotactoID:
+                          type: integer
+                        nombre:
+                          type: string
+                        correo:
+                          type: string
+                        telefono:
+                          type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - cotactoID: 262
+                        nombre: Andrea Quintero
+                        correo: andreaaquintero.26@gmail.com
+                        telefono: '30000000'
+                      - cotactoID: 181
+                        nombre: BRENDA ELENA HERNANDEZ
+                        correo: "analistac2_r10@tiendas3b.com\t\t\t\t\t\t\t\t\t\t\t\t"
+                        telefono: "5576735639\t\t\t\t\t\t\t\t\t\t"
+                      - cotactoID: 99
+                        nombre: CESAR J. MARTINEZ
+                        correo: compras_r3@tiendas3b.com
+                        telefono: '53115831'
+                      - cotactoID: 94
+                        nombre: CINTHIA ENRIQUEZ
+                        correo: compras_r7@tiendas3b.com
+                        telefono: 5088 9163
+                      - cotactoID: 97
+                        nombre: CLAUDIA GUADALUPE MARTINEZ
+                        correo: analistac_r2@tiendas3b.com
+                        telefono: '5576735639'
+                      - cotactoID: 208
+                        nombre: DIANA MARIA DE JESUS SANCHEZ
+                        correo: analistac1_r10@tiendas3b.com
+                        telefono: ''
+                      - cotactoID: 183
+                        nombre: ELIZABETH GARCIA
+                        correo: analistac1_r3@tiendas3b.com
+                        telefono: ''
+                      - cotactoID: 98
+                        nombre: FABIAN VELAZQUEZ
+                        correo: compras_r5@tiendas3b.com
+                        telefono: '5576735639'
+                      - cotactoID: 104
+                        nombre: FABIAN VELAZQUEZ
+                        correo: compras_r5@tiendas3b.com
+                        telefono: '5576735639'
+                      - cotactoID: 101
+                        nombre: GILBERTO BRENA
+                        correo: compras_r1@tiendas3b.com
+                        telefono: '5576735639'
+                      - cotactoID: 138
+                        nombre: JESUS FERNANDO GAMEZ
+                        correo: analistac1_r8@tiendas3b.com
+                        telefono: '5576735639'
+                      - cotactoID: 100
+                        nombre: JOSE P. HERNANDEZ
+                        correo: compras_r9@tiendas3b.com
+                        telefono: '5576735639'
+                      - cotactoID: 171
+                        nombre: KARLA ANDREA ESPINOZA
+                        correo: analistac1_r1@tiendas3b.com
+                        telefono: '5576735639'
+                      - cotactoID: 103
+                        nombre: MARIA M. SAMARO
+                        correo: compras_r4@tiendas3b.com
+                        telefono: '5576735639'
+                      - cotactoID: 174
+                        nombre: MONICA GUADALUPE HNDZ
+                        correo: analistac1_r7@tiendas3b.com
+                        telefono: 5088 9163 / 5087 1484
+                      - cotactoID: 173
+                        nombre: PABLO LOPEZ
+                        correo: analistac1_r5@tiendas3b.com
+                        telefono: '5576735639'
+                      - cotactoID: 102
+                        nombre: RICARDO FLORES
+                        correo: analista_r10@tiendas3b.com
+                        telefono: '5576735639'
+                      - cotactoID: 175
+                        nombre: RIPSON RAMOS
+                        correo: analistac2_r3@tiendas3b.com
+                        telefono: 53115831 - 53115785 - 53115646
+                      - cotactoID: 95
+                        nombre: ROSANA SOLIS
+                        correo: analistac3_r9@tiendas3b.com
+                        telefono: '5576735639'
+                      - cotactoID: 215
+                        nombre: 'VICTOR MANUEL PARDO '
+                        correo: v.pardo@saintfoods.com.mx
+                        telefono: '8536873'
+                      - cotactoID: 96
+                        nombre: VIRIDIANA ARROYO
+                        correo: analistac2_r6@tiendas3b.com
+                        telefono: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - cotactoID: 262
+                        nombre: Andrea Quintero
+                        correo: andreaaquintero.26@gmail.com
+                        telefono: '30000000'
+                      - cotactoID: 181
+                        nombre: BRENDA ELENA HERNANDEZ
+                        correo: "analistac2_r10@tiendas3b.com\t\t\t\t\t\t\t\t\t\t\t\t"
+                        telefono: "5576735639\t\t\t\t\t\t\t\t\t\t"
+                      - cotactoID: 99
+                        nombre: CESAR J. MARTINEZ
+                        correo: compras_r3@tiendas3b.com
+                        telefono: '53115831'
+                      - cotactoID: 94
+                        nombre: CINTHIA ENRIQUEZ
+                        correo: compras_r7@tiendas3b.com
+                        telefono: 5088 9163
+                      - cotactoID: 97
+                        nombre: CLAUDIA GUADALUPE MARTINEZ
+                        correo: analistac_r2@tiendas3b.com
+                        telefono: '5576735639'
+                      - cotactoID: 208
+                        nombre: DIANA MARIA DE JESUS SANCHEZ
+                        correo: analistac1_r10@tiendas3b.com
+                        telefono: ''
+                      - cotactoID: 183
+                        nombre: ELIZABETH GARCIA
+                        correo: analistac1_r3@tiendas3b.com
+                        telefono: ''
       operationId: get-tables-contacts-mailingid
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   '/tables/client/{Param}':
     get:
       summary: Client - findManyByParam
