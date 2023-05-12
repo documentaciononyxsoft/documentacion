@@ -7176,7 +7176,63 @@ paths:
     get:
       summary: EmployeeSAT - FindManyByPlanification
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            AvisoTicketPlanificacionID:
+                              type: integer
+                            AvisoTicketPlanificacionEmpleadoID:
+                              type: integer
+                            NombreEmpleado:
+                              type: string
+                            Situacion:
+                              type: string
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - AvisoTicketPlanificacionID: 13
+                          AvisoTicketPlanificacionEmpleadoID: 2
+                          NombreEmpleado: MENDIETA FLORES DIEGO
+                          Situacion: Pendiente Operario
+                      success: true
+                      sql: string
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 0
+                    message: string
+                    content:
+                      records:
+                        - AvisoTicketPlanificacionID: 0
+                          AvisoTicketPlanificacionEmpleadoID: 0
+                          NombreEmpleado: string
+                          Situacion: string
+                      success: true
+                      sql: string
       operationId: get-employee-planification
       parameters:
         - schema:
@@ -7195,60 +7251,7 @@ paths:
           description: avisoTicketPlanificacionID
       description: ''
       requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                statusCode:
-                  type: integer
-                message:
-                  type: string
-                content:
-                  type: object
-                  properties:
-                    records:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          AvisoTicketPlanificacionID:
-                            type: integer
-                          AvisoTicketPlanificacionEmpleadoID:
-                            type: integer
-                          NombreEmpleado:
-                            type: string
-                          Situacion:
-                            type: string
-                    success:
-                      type: boolean
-                    sql:
-                      type: string
-              x-examples:
-                Example 1:
-                  statusCode: 200
-                  message: Request processed successfully
-                  content:
-                    records:
-                      - AvisoTicketPlanificacionID: 13
-                        AvisoTicketPlanificacionEmpleadoID: 2
-                        NombreEmpleado: MENDIETA FLORES DIEGO
-                        Situacion: Pendiente Operario
-                    success: true
-                    sql: "SELECT\r\n\r\n\tAvisoTicketPlanificacionEmpleado.*,\r\n\tEmpleado.Nombre AS NombreEmpleado\r\nFROM\r\n\tAvisoTicketPlanificacionEmpleado\r\n\tLEFT JOIN\r\n\tAvisoTicketPlanificacion\r\n\tON AvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID=AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\n\tLEFT JOIN\r\n\tEmpleado\r\n\tON Empleado.EmpleadoID=AvisoTicketPlanificacionEmpleado.EmpleadoID\r\nWHERE\r\n\tAvisoTicketPlanificacion.CustomerID = 29\r\n\tAND\r\n\tAvisoTicketPlanificacion.EmpresaID = 1\r\n\tAND\r\n\tAvisoTicketPlanificacion.AvisoTicketPlanificacionID = 13\r\n\r\n"
-            examples:
-              Example 1:
-                value:
-                  statusCode: 200
-                  message: Request processed successfully
-                  content:
-                    records:
-                      - AvisoTicketPlanificacionID: 13
-                        AvisoTicketPlanificacionEmpleadoID: 2
-                        NombreEmpleado: MENDIETA FLORES DIEGO
-                        Situacion: Pendiente Operario
-                    success: true
-                    sql: string
+        content: {}
   '/tables/client/{Param}':
     get:
       summary: Client - findManyByParam
