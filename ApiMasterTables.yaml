@@ -7500,14 +7500,14 @@ paths:
               examples:
                 Example 1:
                   value:
-                    statusCode: 0
-                    message: string
+                    statusCode: 200
+                    message: Request processed successfully
                     content:
                       records:
-                        - AvisoTicketPlanificacionID: 0
-                          AvisoTicketPlanificacionEmpleadoID: 0
-                          NombreEmpleado: string
-                          Situacion: string
+                        - AvisoTicketPlanificacionID: 13
+                          AvisoTicketPlanificacionEmpleadoID: 2
+                          NombreEmpleado: MENDIETA FLORES DIEGO
+                          Situacion: Pendiente Operario
                       success: true
                       sql: string
       operationId: get-employee-planification
