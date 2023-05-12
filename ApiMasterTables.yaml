@@ -8614,10 +8614,11 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '2'
         name: id
         in: path
         required: true
-        description: '28'
+        description: EmpleadoPuestoID
     put:
       summary: Employees - UpdatePosition
       operationId: put-employee-position-id
@@ -8679,33 +8680,25 @@ paths:
                   type: string
                 Descripcion:
                   type: string
-                DescripciónTipoPuesto:
-                  type: string
-                CodigoMaquina:
-                  type: string
               x-examples:
                 Example 1:
                   FechaInicio: '20020426'
-                  FechaFin: '20230303'
-                  EmpleadoTipoPuestoID: '5'
-                  EmpleadoID: '1'
-                  MaquinaID: '0'
-                  Codigo: ''
-                  Descripcion: ''
-                  DescripciónTipoPuesto: Estampador
-                  CodigoMaquina: ''
+                  FechaFin: '20230512'
+                  EmpleadoTipoPuestoID: '1'
+                  EmpleadoID: '349'
+                  MaquinaID: '1'
+                  Codigo: '785655'
+                  Descripcion: UPDATED
             examples:
               Example 1:
                 value:
                   FechaInicio: '20020426'
-                  FechaFin: '20230303'
-                  EmpleadoTipoPuestoID: '5'
-                  EmpleadoID: '1'
-                  MaquinaID: '0'
-                  Codigo: ''
-                  Descripcion: ''
-                  DescripciónTipoPuesto: Estampador
-                  CodigoMaquina: ''
+                  FechaFin: '20230512'
+                  EmpleadoTipoPuestoID: '1'
+                  EmpleadoID: '349'
+                  MaquinaID: '1'
+                  Codigo: '785655'
+                  Descripcion: UPDATED
     delete:
       summary: Employees - DeletePosition
       operationId: delete-employee-position-id
