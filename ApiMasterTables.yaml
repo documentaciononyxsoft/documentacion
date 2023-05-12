@@ -4055,6 +4055,1026 @@ paths:
           required: true
       requestBody:
         content: {}
+  '/tables/companies/{param}':
+    parameters:
+      - schema:
+          type: string
+          example: prueba
+        name: param
+        in: path
+        required: true
+        description: Parámetro a buscar
+    get:
+      summary: Companie - FindManyByFilters
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      Empresas:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            timeStampVO:
+                              type: object
+                              properties:
+                                createdAt:
+                                  type: string
+                                updatedAt:
+                                  type: string
+                                version:
+                                  type: integer
+                            isLockedVO:
+                              type: object
+                              properties:
+                                isLocked:
+                                  type: boolean
+                            isSavedVO:
+                              type: object
+                              properties:
+                                isSaved:
+                                  type: boolean
+                            wasUpdated:
+                              type: boolean
+                            CustomerIDVO:
+                              type: object
+                              properties:
+                                CustomerID:
+                                  type: integer
+                            IDVO:
+                              type: object
+                              properties:
+                                ID:
+                                  type: integer
+                            NombreVO:
+                              type: object
+                              properties:
+                                Nombre:
+                                  type: string
+                            CodigoVO:
+                              type: object
+                              properties:
+                                Codigo:
+                                  type: string
+                            NombreComercialVO:
+                              type: object
+                              properties:
+                                NombreComercial:
+                                  type: string
+                            TelefonoVO:
+                              type: object
+                              properties:
+                                Telefono:
+                                  type: string
+                            FaxVO:
+                              type: object
+                              properties:
+                                Fax:
+                                  type: string
+                            EmailVO:
+                              type: object
+                              properties:
+                                Email:
+                                  type: string
+                            PaisIDVO:
+                              type: object
+                              properties:
+                                PaisID:
+                                  type: integer
+                            CifVO:
+                              type: object
+                              properties:
+                                Cif:
+                                  type: string
+                            MunicipioIDVO:
+                              type: object
+                              properties:
+                                MunicipioID:
+                                  type: integer
+                            DireccionVO:
+                              type: object
+                              properties:
+                                Direccion:
+                                  type: string
+                            WebVO:
+                              type: object
+                              properties:
+                                Web:
+                                  type: string
+                            ProvinciaIDVO:
+                              type: object
+                              properties:
+                                ProvinciaID:
+                                  type: integer
+                            LogoVO:
+                              type: object
+                              properties:
+                                Logo:
+                                  type: string
+                            UsuarioIDVO:
+                              type: object
+                              properties:
+                                UsuarioID:
+                                  type: integer
+                            FechaHoraUsuarioVO:
+                              type: object
+                              properties:
+                                FechaHoraUsuario:
+                                  type: string
+                            CodigoPostalVO:
+                              type: object
+                              properties:
+                                CodigoPostal:
+                                  type: string
+                            IvaVentaIDVO:
+                              type: object
+                              properties:
+                                IvaVentaID:
+                                  type: integer
+                            IvaCompraIDVO:
+                              type: object
+                              properties:
+                                IvaCompraID:
+                                  type: integer
+                            IvaGastoFinancieroIDVO:
+                              type: object
+                              properties:
+                                IvaGastoFinancieroID:
+                                  type: integer
+                            CuentaContableVentaIDVO:
+                              type: object
+                              properties:
+                                CuentaContableVentaID:
+                                  type: integer
+                            CuentaContableCompraIDVO:
+                              type: object
+                              properties:
+                                CuentaContableCompraID:
+                                  type: integer
+                            CuentaDtoProntoPagoVentaIDVO:
+                              type: object
+                              properties:
+                                CuentaDtoProntoPagoVentaID:
+                                  type: integer
+                            CuentaDtoEspecialVenta1IDVO:
+                              type: object
+                              properties:
+                                CuentaDtoEspecialVenta1ID:
+                                  type: integer
+                            CuentaDtoEspecialVenta2IDVO:
+                              type: object
+                              properties:
+                                CuentaDtoEspecialVenta2ID:
+                                  type: integer
+                            CuentaDtoEspecialVenta3IDVO:
+                              type: object
+                              properties:
+                                CuentaDtoEspecialVenta3ID:
+                                  type: integer
+                            CuentaGastoFinancieroVentaIDVO:
+                              type: object
+                              properties:
+                                CuentaGastoFinancieroVentaID:
+                                  type: integer
+                            CuentaPorteVentaIDVO:
+                              type: object
+                              properties:
+                                CuentaPorteVentaID:
+                                  type: integer
+                            FechaInicioEjercicioVO:
+                              type: object
+                              properties:
+                                FechaInicioEjercicio:
+                                  type: string
+                            FechaFinEjercicioVO:
+                              type: object
+                              properties:
+                                FechaFinEjercicio:
+                                  type: string
+                            DesgloseGradosVO:
+                              type: object
+                              properties:
+                                DesgloseGrados:
+                                  type: string
+                            MonedaIDVO:
+                              type: object
+                              properties:
+                                MonedaID:
+                                  type: integer
+                            NumeroDecimalesVO:
+                              type: object
+                              properties:
+                                NumeroDecimales:
+                                  type: integer
+                            CondominioIDVO:
+                              type: object
+                              properties:
+                                CondominioID:
+                                  type: integer
+                            CuentaContableIvaRepercutidoIDVO:
+                              type: object
+                              properties:
+                                CuentaContableIvaRepercutidoID:
+                                  type: integer
+                            EmpresaAnaliticaIDVO:
+                              type: object
+                              properties:
+                                EmpresaAnaliticaID:
+                                  type: integer
+                            IvaVentaPorteIDVO:
+                              type: object
+                              properties:
+                                IvaVentaPorteID:
+                                  type: integer
+                            IvaCompraPorteIDVO:
+                              type: object
+                              properties:
+                                IvaCompraPorteID:
+                                  type: integer
+                            ModeloBalanceCabeceraIDVO:
+                              type: object
+                              properties:
+                                ModeloBalanceCabeceraID:
+                                  type: integer
+                            IvaAutofacturaIDVO:
+                              type: object
+                              properties:
+                                IvaAutofacturaID:
+                                  type: integer
+                            colorfondoVO:
+                              type: object
+                              properties:
+                                colorfondo:
+                                  type: integer
+                            CierreIngresoVO:
+                              type: object
+                              properties:
+                                CierreIngreso:
+                                  type: string
+                            CierreGastoVO:
+                              type: object
+                              properties:
+                                CierreGasto:
+                                  type: string
+                            PrefijoCuentaCompraVO:
+                              type: object
+                              properties:
+                                PrefijoCuentaCompra:
+                                  type: string
+                            PrefijoCuentaVentaVO:
+                              type: object
+                              properties:
+                                PrefijoCuentaVenta:
+                                  type: string
+                            FechaMinimaContableVO:
+                              type: object
+                              properties:
+                                FechaMinimaContable:
+                                  type: string
+                            FechaMinimaContableIvaVO:
+                              type: object
+                              properties:
+                                FechaMinimaContableIva:
+                                  type: string
+                            ControlCuadreVO:
+                              type: object
+                              properties:
+                                ControlCuadre:
+                                  type: boolean
+                            FechaMaximaContableVO:
+                              type: object
+                              properties:
+                                FechaMaximaContable:
+                                  type: string
+                            SerieFacturaVentaNacionalIDVO:
+                              type: object
+                              properties:
+                                SerieFacturaVentaNacionalID:
+                                  type: integer
+                            SerieFacturaVentaIntracomunitariaIDVO:
+                              type: object
+                              properties:
+                                SerieFacturaVentaIntracomunitariaID:
+                                  type: integer
+                            RegistroMercantilVO:
+                              type: object
+                              properties:
+                                RegistroMercantil:
+                                  type: string
+                            TipoEmpresaVO:
+                              type: object
+                              properties:
+                                TipoEmpresa:
+                                  type: string
+                            ActivarTratamientoDelegacionVO:
+                              type: object
+                              properties:
+                                ActivarTratamientoDelegacion:
+                                  type: boolean
+                            GruposActivoVO:
+                              type: object
+                              properties:
+                                GruposActivo:
+                                  type: string
+                            EmpresaConsolidacionVO:
+                              type: object
+                              properties:
+                                EmpresaConsolidacion:
+                                  type: boolean
+                            NombrePaisVO:
+                              type: object
+                              properties:
+                                NombrePais:
+                                  type: string
+                            NombreProvinciaVO:
+                              type: object
+                              properties:
+                                NombreProvincia:
+                                  type: string
+                            CodigoProvinciaVO:
+                              type: object
+                              properties:
+                                CodigoProvincia:
+                                  type: string
+                            NombreMunicipioVO:
+                              type: object
+                              properties:
+                                NombreMunicipio:
+                                  type: string
+                            CodigoMunicipioVO:
+                              type: object
+                              properties:
+                                CodigoMunicipio:
+                                  type: string
+                            IvaVentaNombreVO:
+                              type: object
+                              properties:
+                                IvaVentaNombre:
+                                  type: string
+                            IvaVentaCodigoVO:
+                              type: object
+                              properties:
+                                IvaVentaCodigo:
+                                  type: string
+                            IvaVentaporcentajeIvaVO:
+                              type: object
+                              properties:
+                                IvaVentaporcentajeIva:
+                                  type: string
+                            IvaGastoFinancieroNombreVO:
+                              type: object
+                              properties:
+                                IvaGastoFinancieroNombre:
+                                  type: string
+                            IvaGastoFinancieroCodigoVO:
+                              type: object
+                              properties:
+                                IvaGastoFinancieroCodigo:
+                                  type: string
+                            IvaGastoFinancieroporcentajeIvaVO:
+                              type: object
+                              properties:
+                                IvaGastoFinancieroporcentajeIva:
+                                  type: string
+                            CuentaContableCompraNombreVO:
+                              type: object
+                              properties:
+                                CuentaContableCompraNombre:
+                                  type: string
+                            CuentaContableCompraCodigoVO:
+                              type: object
+                              properties:
+                                CuentaContableCompraCodigo:
+                                  type: string
+                            CuentaDtoProntoPagoVentaNombreVO:
+                              type: object
+                              properties:
+                                CuentaDtoProntoPagoVentaNombre:
+                                  type: string
+                            CuentaDtoProntoPagoVentaCodigoVO:
+                              type: object
+                              properties:
+                                CuentaDtoProntoPagoVentaCodigo:
+                                  type: string
+                            CuentaDtoEspecialVenta1NombreVO:
+                              type: object
+                              properties:
+                                CuentaDtoEspecialVenta1Nombre:
+                                  type: string
+                            CuentaDtoEspecialVenta1CodigoVO:
+                              type: object
+                              properties:
+                                CuentaDtoEspecialVenta1Codigo:
+                                  type: string
+                            CuentaDtoEspecialVenta2NombreVO:
+                              type: object
+                              properties:
+                                CuentaDtoEspecialVenta2Nombre:
+                                  type: string
+                            CuentaDtoEspecialVenta2CodigoVO:
+                              type: object
+                              properties:
+                                CuentaDtoEspecialVenta2Codigo:
+                                  type: string
+                            CuentaDtoEspecialVenta3NombreVO:
+                              type: object
+                              properties:
+                                CuentaDtoEspecialVenta3Nombre:
+                                  type: string
+                            CuentaDtoEspecialVenta3CodigoVO:
+                              type: object
+                              properties:
+                                CuentaDtoEspecialVenta3Codigo:
+                                  type: string
+                            CuentaGastoFinancieroVentaNombreVO:
+                              type: object
+                              properties:
+                                CuentaGastoFinancieroVentaNombre:
+                                  type: string
+                            CuentaGastoFinancieroVentaCodigoVO:
+                              type: object
+                              properties:
+                                CuentaGastoFinancieroVentaCodigo:
+                                  type: string
+                            CuentaPorteVentaNombreVO:
+                              type: object
+                              properties:
+                                CuentaPorteVentaNombre:
+                                  type: string
+                            CuentaPorteVentaCodigoVO:
+                              type: object
+                              properties:
+                                CuentaPorteVentaCodigo:
+                                  type: string
+                            MonedaNombreVO:
+                              type: object
+                              properties:
+                                MonedaNombre:
+                                  type: string
+                            MonedaAbreviaturaVO:
+                              type: object
+                              properties:
+                                MonedaAbreviatura:
+                                  type: string
+                            MonedaUnidadVO:
+                              type: object
+                              properties:
+                                MonedaUnidad:
+                                  type: string
+                            MonedaCodigoISOVO:
+                              type: object
+                              properties:
+                                MonedaCodigoISO:
+                                  type: string
+                            EmpresaAnaliticaNombreVO:
+                              type: object
+                              properties:
+                                EmpresaAnaliticaNombre:
+                                  type: string
+                            EmpresaAnaliticaCodigoVO:
+                              type: object
+                              properties:
+                                EmpresaAnaliticaCodigo:
+                                  type: string
+                            IvaVentaPorteNombreVO:
+                              type: object
+                              properties:
+                                IvaVentaPorteNombre:
+                                  type: string
+                            IvaVentaPorteCodigoVO:
+                              type: object
+                              properties:
+                                IvaVentaPorteCodigo:
+                                  type: string
+                            IvaVentaPortePorcentajeIvaVO:
+                              type: object
+                              properties:
+                                IvaVentaPortePorcentajeIva:
+                                  type: string
+                            IvaCompraPorteNombreVO:
+                              type: object
+                              properties:
+                                IvaCompraPorteNombre:
+                                  type: string
+                            IvaCompraPorteCodigoVO:
+                              type: object
+                              properties:
+                                IvaCompraPorteCodigo:
+                                  type: string
+                            IvaCompraPortePorcentajeIvaVO:
+                              type: object
+                              properties:
+                                IvaCompraPortePorcentajeIva:
+                                  type: string
+                            ModeloBalanceCabeceraNombreVO:
+                              type: object
+                              properties:
+                                ModeloBalanceCabeceraNombre:
+                                  type: string
+                            ModeloBalanceCabeceraCodigoVO:
+                              type: object
+                              properties:
+                                ModeloBalanceCabeceraCodigo:
+                                  type: string
+                            IvaAutofacturaNombreVO:
+                              type: object
+                              properties:
+                                IvaAutofacturaNombre:
+                                  type: string
+                            IvaAutofacturaCodigoVO:
+                              type: object
+                              properties:
+                                IvaAutofacturaCodigo:
+                                  type: string
+                            IvaAutofacturaPorcentajeIvaVO:
+                              type: object
+                              properties:
+                                IvaAutofacturaPorcentajeIva:
+                                  type: string
+                            SerieFacturaVentaNacionalSerieVO:
+                              type: object
+                              properties:
+                                SerieFacturaVentaNacionalSerie:
+                                  type: string
+                            SerieFacturaVentaNacionalNombreVO:
+                              type: object
+                              properties:
+                                SerieFacturaVentaNacionalNombre:
+                                  type: string
+                            SerieFacturaVentaIntracomunitariaSerieVO:
+                              type: object
+                              properties:
+                                SerieFacturaVentaIntracomunitariaSerie:
+                                  type: string
+                            SerieFacturaVentaIntracomunitariaNombreVO:
+                              type: object
+                              properties:
+                                SerieFacturaVentaIntracomunitariaNombre:
+                                  type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      Empresas:
+                        - timeStampVO:
+                            createdAt: '2023-05-12T10:15:27.726'
+                            updatedAt: '2023-05-12T10:15:27.726'
+                            version: 1
+                          isLockedVO:
+                            isLocked: false
+                          isSavedVO:
+                            isSaved: true
+                          wasUpdated: false
+                          CustomerIDVO:
+                            CustomerID: 29
+                          IDVO:
+                            ID: 76
+                          NombreVO:
+                            Nombre: Prueba
+                          CodigoVO:
+                            Codigo: PruebaCOD
+                          NombreComercialVO:
+                            NombreComercial: ComerName
+                          TelefonoVO:
+                            Telefono: '396969'
+                          FaxVO:
+                            Fax: '8888'
+                          EmailVO:
+                            Email: prueba@gmail.com
+                          PaisIDVO:
+                            PaisID: 45
+                          CifVO:
+                            Cif: '5555'
+                          MunicipioIDVO:
+                            MunicipioID: 169
+                          DireccionVO:
+                            Direccion: DireccionPrueba
+                          WebVO:
+                            Web: string
+                          ProvinciaIDVO:
+                            ProvinciaID: 5666
+                          LogoVO:
+                            Logo: '0'
+                          UsuarioIDVO:
+                            UsuarioID: 1
+                          FechaHoraUsuarioVO:
+                            FechaHoraUsuario: '2023-05-12T09:54:00.000'
+                          CodigoPostalVO:
+                            CodigoPostal: '660011'
+                          IvaVentaIDVO:
+                            IvaVentaID: 0
+                          IvaCompraIDVO:
+                            IvaCompraID: 0
+                          IvaGastoFinancieroIDVO:
+                            IvaGastoFinancieroID: 0
+                          CuentaContableVentaIDVO:
+                            CuentaContableVentaID: 0
+                          CuentaContableCompraIDVO:
+                            CuentaContableCompraID: 0
+                          CuentaDtoProntoPagoVentaIDVO:
+                            CuentaDtoProntoPagoVentaID: 0
+                          CuentaDtoEspecialVenta1IDVO:
+                            CuentaDtoEspecialVenta1ID: 0
+                          CuentaDtoEspecialVenta2IDVO:
+                            CuentaDtoEspecialVenta2ID: 0
+                          CuentaDtoEspecialVenta3IDVO:
+                            CuentaDtoEspecialVenta3ID: 0
+                          CuentaGastoFinancieroVentaIDVO:
+                            CuentaGastoFinancieroVentaID: 0
+                          CuentaPorteVentaIDVO:
+                            CuentaPorteVentaID: 0
+                          FechaInicioEjercicioVO:
+                            FechaInicioEjercicio: '1799-12-31'
+                          FechaFinEjercicioVO:
+                            FechaFinEjercicio: '1799-12-31'
+                          DesgloseGradosVO:
+                            DesgloseGrados: '0,0,0,0,0'
+                          MonedaIDVO:
+                            MonedaID: 1
+                          NumeroDecimalesVO:
+                            NumeroDecimales: 0
+                          CondominioIDVO:
+                            CondominioID: 0
+                          CuentaContableIvaRepercutidoIDVO:
+                            CuentaContableIvaRepercutidoID: 0
+                          EmpresaAnaliticaIDVO:
+                            EmpresaAnaliticaID: 0
+                          IvaVentaPorteIDVO:
+                            IvaVentaPorteID: 0
+                          IvaCompraPorteIDVO:
+                            IvaCompraPorteID: 0
+                          ModeloBalanceCabeceraIDVO:
+                            ModeloBalanceCabeceraID: 11
+                          IvaAutofacturaIDVO:
+                            IvaAutofacturaID: 0
+                          colorfondoVO:
+                            colorfondo: 0
+                          CierreIngresoVO:
+                            CierreIngreso: '0'
+                          CierreGastoVO:
+                            CierreGasto: '0'
+                          PrefijoCuentaCompraVO:
+                            PrefijoCuentaCompra: '0'
+                          PrefijoCuentaVentaVO:
+                            PrefijoCuentaVenta: '0'
+                          FechaMinimaContableVO:
+                            FechaMinimaContable: '1799-12-31'
+                          FechaMinimaContableIvaVO:
+                            FechaMinimaContableIva: '1799-12-31'
+                          ControlCuadreVO:
+                            ControlCuadre: false
+                          FechaMaximaContableVO:
+                            FechaMaximaContable: '1799-12-31'
+                          SerieFacturaVentaNacionalIDVO:
+                            SerieFacturaVentaNacionalID: 0
+                          SerieFacturaVentaIntracomunitariaIDVO:
+                            SerieFacturaVentaIntracomunitariaID: 0
+                          RegistroMercantilVO:
+                            RegistroMercantil: '0'
+                          TipoEmpresaVO:
+                            TipoEmpresa: Type
+                          ActivarTratamientoDelegacionVO:
+                            ActivarTratamientoDelegacion: false
+                          GruposActivoVO:
+                            GruposActivo: '0'
+                          EmpresaConsolidacionVO:
+                            EmpresaConsolidacion: false
+                          NombrePaisVO:
+                            NombrePais: Colombia
+                          NombreProvinciaVO:
+                            NombreProvincia: Risaralda
+                          CodigoProvinciaVO:
+                            CodigoProvincia: 19RIS
+                          NombreMunicipioVO:
+                            NombreMunicipio: Pereira
+                          CodigoMunicipioVO:
+                            CodigoMunicipio: CODIGO
+                          IvaVentaNombreVO:
+                            IvaVentaNombre: ''
+                          IvaVentaCodigoVO:
+                            IvaVentaCodigo: ''
+                          IvaVentaporcentajeIvaVO:
+                            IvaVentaporcentajeIva: '0'
+                          IvaGastoFinancieroNombreVO:
+                            IvaGastoFinancieroNombre: ''
+                          IvaGastoFinancieroCodigoVO:
+                            IvaGastoFinancieroCodigo: ''
+                          IvaGastoFinancieroporcentajeIvaVO:
+                            IvaGastoFinancieroporcentajeIva: '0'
+                          CuentaContableCompraNombreVO:
+                            CuentaContableCompraNombre: ''
+                          CuentaContableCompraCodigoVO:
+                            CuentaContableCompraCodigo: ''
+                          CuentaDtoProntoPagoVentaNombreVO:
+                            CuentaDtoProntoPagoVentaNombre: ''
+                          CuentaDtoProntoPagoVentaCodigoVO:
+                            CuentaDtoProntoPagoVentaCodigo: ''
+                          CuentaDtoEspecialVenta1NombreVO:
+                            CuentaDtoEspecialVenta1Nombre: ''
+                          CuentaDtoEspecialVenta1CodigoVO:
+                            CuentaDtoEspecialVenta1Codigo: ''
+                          CuentaDtoEspecialVenta2NombreVO:
+                            CuentaDtoEspecialVenta2Nombre: ''
+                          CuentaDtoEspecialVenta2CodigoVO:
+                            CuentaDtoEspecialVenta2Codigo: ''
+                          CuentaDtoEspecialVenta3NombreVO:
+                            CuentaDtoEspecialVenta3Nombre: ''
+                          CuentaDtoEspecialVenta3CodigoVO:
+                            CuentaDtoEspecialVenta3Codigo: ''
+                          CuentaGastoFinancieroVentaNombreVO:
+                            CuentaGastoFinancieroVentaNombre: ''
+                          CuentaGastoFinancieroVentaCodigoVO:
+                            CuentaGastoFinancieroVentaCodigo: ''
+                          CuentaPorteVentaNombreVO:
+                            CuentaPorteVentaNombre: ''
+                          CuentaPorteVentaCodigoVO:
+                            CuentaPorteVentaCodigo: ''
+                          MonedaNombreVO:
+                            MonedaNombre: Euros
+                          MonedaAbreviaturaVO:
+                            MonedaAbreviatura: €
+                          MonedaUnidadVO:
+                            MonedaUnidad: '1'
+                          MonedaCodigoISOVO:
+                            MonedaCodigoISO: EUR
+                          EmpresaAnaliticaNombreVO:
+                            EmpresaAnaliticaNombre: ''
+                          EmpresaAnaliticaCodigoVO:
+                            EmpresaAnaliticaCodigo: ''
+                          IvaVentaPorteNombreVO:
+                            IvaVentaPorteNombre: ''
+                          IvaVentaPorteCodigoVO:
+                            IvaVentaPorteCodigo: ''
+                          IvaVentaPortePorcentajeIvaVO:
+                            IvaVentaPortePorcentajeIva: '0'
+                          IvaCompraPorteNombreVO:
+                            IvaCompraPorteNombre: ''
+                          IvaCompraPorteCodigoVO:
+                            IvaCompraPorteCodigo: ''
+                          IvaCompraPortePorcentajeIvaVO:
+                            IvaCompraPortePorcentajeIva: '0'
+                          ModeloBalanceCabeceraNombreVO:
+                            ModeloBalanceCabeceraNombre: RESULTADOS COPIA
+                          ModeloBalanceCabeceraCodigoVO:
+                            ModeloBalanceCabeceraCodigo: '2'
+                          IvaAutofacturaNombreVO:
+                            IvaAutofacturaNombre: ''
+                          IvaAutofacturaCodigoVO:
+                            IvaAutofacturaCodigo: ''
+                          IvaAutofacturaPorcentajeIvaVO:
+                            IvaAutofacturaPorcentajeIva: '0'
+                          SerieFacturaVentaNacionalSerieVO:
+                            SerieFacturaVentaNacionalSerie: ''
+                          SerieFacturaVentaNacionalNombreVO:
+                            SerieFacturaVentaNacionalNombre: ''
+                          SerieFacturaVentaIntracomunitariaSerieVO:
+                            SerieFacturaVentaIntracomunitariaSerie: ''
+                          SerieFacturaVentaIntracomunitariaNombreVO:
+                            SerieFacturaVentaIntracomunitariaNombre: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      Empresas:
+                        - timeStampVO:
+                            createdAt: '2023-05-12T10:15:27.726'
+                            updatedAt: '2023-05-12T10:15:27.726'
+                            version: 1
+                          isLockedVO:
+                            isLocked: false
+                          isSavedVO:
+                            isSaved: true
+                          wasUpdated: false
+                          CustomerIDVO:
+                            CustomerID: 29
+                          IDVO:
+                            ID: 76
+                          NombreVO:
+                            Nombre: Prueba
+                          CodigoVO:
+                            Codigo: PruebaCOD
+                          NombreComercialVO:
+                            NombreComercial: ComerName
+                          TelefonoVO:
+                            Telefono: '396969'
+                          FaxVO:
+                            Fax: '8888'
+                          EmailVO:
+                            Email: prueba@gmail.com
+                          PaisIDVO:
+                            PaisID: 45
+                          CifVO:
+                            Cif: '5555'
+                          MunicipioIDVO:
+                            MunicipioID: 169
+                          DireccionVO:
+                            Direccion: DireccionPrueba
+                          WebVO:
+                            Web: string
+                          ProvinciaIDVO:
+                            ProvinciaID: 5666
+                          LogoVO:
+                            Logo: '0'
+                          UsuarioIDVO:
+                            UsuarioID: 1
+                          FechaHoraUsuarioVO:
+                            FechaHoraUsuario: '2023-05-12T09:54:00.000'
+                          CodigoPostalVO:
+                            CodigoPostal: '660011'
+                          IvaVentaIDVO:
+                            IvaVentaID: 0
+                          IvaCompraIDVO:
+                            IvaCompraID: 0
+                          IvaGastoFinancieroIDVO:
+                            IvaGastoFinancieroID: 0
+                          CuentaContableVentaIDVO:
+                            CuentaContableVentaID: 0
+                          CuentaContableCompraIDVO:
+                            CuentaContableCompraID: 0
+                          CuentaDtoProntoPagoVentaIDVO:
+                            CuentaDtoProntoPagoVentaID: 0
+                          CuentaDtoEspecialVenta1IDVO:
+                            CuentaDtoEspecialVenta1ID: 0
+                          CuentaDtoEspecialVenta2IDVO:
+                            CuentaDtoEspecialVenta2ID: 0
+                          CuentaDtoEspecialVenta3IDVO:
+                            CuentaDtoEspecialVenta3ID: 0
+                          CuentaGastoFinancieroVentaIDVO:
+                            CuentaGastoFinancieroVentaID: 0
+                          CuentaPorteVentaIDVO:
+                            CuentaPorteVentaID: 0
+                          FechaInicioEjercicioVO:
+                            FechaInicioEjercicio: '1799-12-31'
+                          FechaFinEjercicioVO:
+                            FechaFinEjercicio: '1799-12-31'
+                          DesgloseGradosVO:
+                            DesgloseGrados: '0,0,0,0,0'
+                          MonedaIDVO:
+                            MonedaID: 1
+                          NumeroDecimalesVO:
+                            NumeroDecimales: 0
+                          CondominioIDVO:
+                            CondominioID: 0
+                          CuentaContableIvaRepercutidoIDVO:
+                            CuentaContableIvaRepercutidoID: 0
+                          EmpresaAnaliticaIDVO:
+                            EmpresaAnaliticaID: 0
+                          IvaVentaPorteIDVO:
+                            IvaVentaPorteID: 0
+                          IvaCompraPorteIDVO:
+                            IvaCompraPorteID: 0
+                          ModeloBalanceCabeceraIDVO:
+                            ModeloBalanceCabeceraID: 11
+                          IvaAutofacturaIDVO:
+                            IvaAutofacturaID: 0
+                          colorfondoVO:
+                            colorfondo: 0
+                          CierreIngresoVO:
+                            CierreIngreso: '0'
+                          CierreGastoVO:
+                            CierreGasto: '0'
+                          PrefijoCuentaCompraVO:
+                            PrefijoCuentaCompra: '0'
+                          PrefijoCuentaVentaVO:
+                            PrefijoCuentaVenta: '0'
+                          FechaMinimaContableVO:
+                            FechaMinimaContable: '1799-12-31'
+                          FechaMinimaContableIvaVO:
+                            FechaMinimaContableIva: '1799-12-31'
+                          ControlCuadreVO:
+                            ControlCuadre: false
+                          FechaMaximaContableVO:
+                            FechaMaximaContable: '1799-12-31'
+                          SerieFacturaVentaNacionalIDVO:
+                            SerieFacturaVentaNacionalID: 0
+                          SerieFacturaVentaIntracomunitariaIDVO:
+                            SerieFacturaVentaIntracomunitariaID: 0
+                          RegistroMercantilVO:
+                            RegistroMercantil: '0'
+                          TipoEmpresaVO:
+                            TipoEmpresa: Type
+                          ActivarTratamientoDelegacionVO:
+                            ActivarTratamientoDelegacion: false
+                          GruposActivoVO:
+                            GruposActivo: '0'
+                          EmpresaConsolidacionVO:
+                            EmpresaConsolidacion: false
+                          NombrePaisVO:
+                            NombrePais: Colombia
+                          NombreProvinciaVO:
+                            NombreProvincia: Risaralda
+                          CodigoProvinciaVO:
+                            CodigoProvincia: 19RIS
+                          NombreMunicipioVO:
+                            NombreMunicipio: Pereira
+                          CodigoMunicipioVO:
+                            CodigoMunicipio: CODIGO
+                          IvaVentaNombreVO:
+                            IvaVentaNombre: ''
+                          IvaVentaCodigoVO:
+                            IvaVentaCodigo: ''
+                          IvaVentaporcentajeIvaVO:
+                            IvaVentaporcentajeIva: '0'
+                          IvaGastoFinancieroNombreVO:
+                            IvaGastoFinancieroNombre: ''
+                          IvaGastoFinancieroCodigoVO:
+                            IvaGastoFinancieroCodigo: ''
+                          IvaGastoFinancieroporcentajeIvaVO:
+                            IvaGastoFinancieroporcentajeIva: '0'
+                          CuentaContableCompraNombreVO:
+                            CuentaContableCompraNombre: ''
+                          CuentaContableCompraCodigoVO:
+                            CuentaContableCompraCodigo: ''
+                          CuentaDtoProntoPagoVentaNombreVO:
+                            CuentaDtoProntoPagoVentaNombre: ''
+                          CuentaDtoProntoPagoVentaCodigoVO:
+                            CuentaDtoProntoPagoVentaCodigo: ''
+                          CuentaDtoEspecialVenta1NombreVO:
+                            CuentaDtoEspecialVenta1Nombre: ''
+                          CuentaDtoEspecialVenta1CodigoVO:
+                            CuentaDtoEspecialVenta1Codigo: ''
+                          CuentaDtoEspecialVenta2NombreVO:
+                            CuentaDtoEspecialVenta2Nombre: ''
+                          CuentaDtoEspecialVenta2CodigoVO:
+                            CuentaDtoEspecialVenta2Codigo: ''
+                          CuentaDtoEspecialVenta3NombreVO:
+                            CuentaDtoEspecialVenta3Nombre: ''
+                          CuentaDtoEspecialVenta3CodigoVO:
+                            CuentaDtoEspecialVenta3Codigo: ''
+                          CuentaGastoFinancieroVentaNombreVO:
+                            CuentaGastoFinancieroVentaNombre: ''
+                          CuentaGastoFinancieroVentaCodigoVO:
+                            CuentaGastoFinancieroVentaCodigo: ''
+                          CuentaPorteVentaNombreVO:
+                            CuentaPorteVentaNombre: ''
+                          CuentaPorteVentaCodigoVO:
+                            CuentaPorteVentaCodigo: ''
+                          MonedaNombreVO:
+                            MonedaNombre: Euros
+                          MonedaAbreviaturaVO:
+                            MonedaAbreviatura: €
+                          MonedaUnidadVO:
+                            MonedaUnidad: '1'
+                          MonedaCodigoISOVO:
+                            MonedaCodigoISO: EUR
+                          EmpresaAnaliticaNombreVO:
+                            EmpresaAnaliticaNombre: ''
+                          EmpresaAnaliticaCodigoVO:
+                            EmpresaAnaliticaCodigo: ''
+                          IvaVentaPorteNombreVO:
+                            IvaVentaPorteNombre: ''
+                          IvaVentaPorteCodigoVO:
+                            IvaVentaPorteCodigo: ''
+                          IvaVentaPortePorcentajeIvaVO:
+                            IvaVentaPortePorcentajeIva: '0'
+                          IvaCompraPorteNombreVO:
+                            IvaCompraPorteNombre: ''
+                          IvaCompraPorteCodigoVO:
+                            IvaCompraPorteCodigo: ''
+                          IvaCompraPortePorcentajeIvaVO:
+                            IvaCompraPortePorcentajeIva: '0'
+                          ModeloBalanceCabeceraNombreVO:
+                            ModeloBalanceCabeceraNombre: RESULTADOS COPIA
+                          ModeloBalanceCabeceraCodigoVO:
+                            ModeloBalanceCabeceraCodigo: '2'
+                          IvaAutofacturaNombreVO:
+                            IvaAutofacturaNombre: ''
+                          IvaAutofacturaCodigoVO:
+                            IvaAutofacturaCodigo: ''
+                          IvaAutofacturaPorcentajeIvaVO:
+                            IvaAutofacturaPorcentajeIva: '0'
+                          SerieFacturaVentaNacionalSerieVO:
+                            SerieFacturaVentaNacionalSerie: ''
+                          SerieFacturaVentaNacionalNombreVO:
+                            SerieFacturaVentaNacionalNombre: ''
+                          SerieFacturaVentaIntracomunitariaSerieVO:
+                            SerieFacturaVentaIntracomunitariaSerie: ''
+                          SerieFacturaVentaIntracomunitariaNombreVO:
+                            SerieFacturaVentaIntracomunitariaNombre: ''
+      operationId: get-tables-companies-param
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   '/tables/client/{Param}':
     get:
       summary: Client - findManyByParam
