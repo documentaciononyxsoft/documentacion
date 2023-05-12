@@ -9354,14 +9354,14 @@ paths:
                     content:
                       success: true
                       data:
-                        - EmpleadoCompetenciaNivelPuestoCabeceraID: 25
+                        - EmpleadoCompetenciaNivelPuestoCabeceraID: 2
                           EmpleadoTipoPuestoID: 1
-                          EmpleadoID: 1
-                          MaquinaID: 7
-                          FechaHoraUsuario: '2023-03-30T10:26:54.180'
-                          MaquinaCodigo: COR2
-                          MaquinaNombre: 'SIERRA MECANIZA 2                                 '
-                          DescripcionPuesto: Mecanico
+                          EmpleadoID: 349
+                          MaquinaID: 1
+                          FechaHoraUsuario: '2023-03-13T01:06:05.119'
+                          MaquinaCodigo: GEN
+                          MaquinaNombre: Generica
+                          DescripcionPuesto: Developer
               examples:
                 Example 1:
                   value:
@@ -9370,26 +9370,29 @@ paths:
                     content:
                       success: true
                       data:
-                        - EmpleadoCompetenciaNivelPuestoCabeceraID: 25
+                        - EmpleadoCompetenciaNivelPuestoCabeceraID: 2
                           EmpleadoTipoPuestoID: 1
-                          EmpleadoID: 1
-                          MaquinaID: 7
-                          FechaHoraUsuario: '2023-03-30T10:26:54.180'
-                          MaquinaCodigo: COR2
-                          MaquinaNombre: 'SIERRA MECANIZA 2                                 '
-                          DescripcionPuesto: Mecanico
+                          EmpleadoID: 349
+                          MaquinaID: 1
+                          FechaHoraUsuario: '2023-03-13T01:06:05.119'
+                          MaquinaCodigo: GEN
+                          MaquinaNombre: Generica
+                          DescripcionPuesto: Developer
       operationId: get-employee-versatiles
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: 'accessToken '
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
         - schema:
             type: string
+            example: '349'
           in: query
           name: EmpleadoID
-          description: '1'
+          required: true
   /employee/versatility:
     post:
       summary: Employees - CreateVersatility
