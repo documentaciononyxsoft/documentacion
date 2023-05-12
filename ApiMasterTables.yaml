@@ -1618,6 +1618,214 @@ paths:
           in: query
           name: param
           description: Parámetro a buscar
+  '/tables/clients/client/{id}':
+    parameters:
+      - schema:
+          type: string
+          example: '455'
+        name: id
+        in: path
+        required: true
+        description: clienteID
+    get:
+      summary: Client - FindOne
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      BusquedaClienteCodigo:
+                        type: string
+                      BusquedaClienteNombre:
+                        type: string
+                      NombreCliente:
+                        type: string
+                      NumeroCopiasAlbaran:
+                        type: integer
+                      AlbaranNoValorado:
+                        type: integer
+                      tarifaVenta:
+                        type: integer
+                      ComboBancoClienteGrayed:
+                        type: boolean
+                      listaDirecciones:
+                        type: 'null'
+                      listaBancos:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            bancoclienteID:
+                              type: integer
+                            nombreBanco:
+                              type: string
+                      bancoDefecto:
+                        type: integer
+                      ClienteFacturaID:
+                        type: integer
+                      ClienteFacturaCodigo:
+                        type: string
+                      ClienteFacturaNombre:
+                        type: string
+                      DiasPrimerVencimiento:
+                        type: string
+                      DiasResto:
+                        type: string
+                      DiaFijo1:
+                        type: string
+                      DiaFijo2:
+                        type: string
+                      DiaFijo3:
+                        type: string
+                      DiaFijo4:
+                        type: string
+                      MesVacacion:
+                        type: string
+                      DiaSiguientePago:
+                        type: string
+                      AgruparAlbaran:
+                        type: string
+                      Portes:
+                        type: string
+                      DtoEspecial1:
+                        type: string
+                      DtoEspecial2:
+                        type: string
+                      NumeroVencimientos:
+                        type: string
+                      GastoFinanciero:
+                        type: integer
+                      DtoPP:
+                        type: integer
+                      PorcentajeDtoComercial1:
+                        type: string
+                      PorcentajeDtoComercial2:
+                        type: string
+                      PorcentajeDtoComercial3:
+                        type: string
+                      NumeroCopiasFactura:
+                        type: string
+                      moneda:
+                        type: string
+                      TelefonoCliente:
+                        type: string
+                      cambio:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      BusquedaClienteCodigo: '10300010383'
+                      BusquedaClienteNombre: JCO
+                      NombreCliente: JCO
+                      NumeroCopiasAlbaran: 0
+                      AlbaranNoValorado: 0
+                      tarifaVenta: 0
+                      ComboBancoClienteGrayed: false
+                      listaDirecciones: null
+                      listaBancos:
+                        - bancoclienteID: 52
+                          nombreBanco: JCBank
+                        - bancoclienteID: 53
+                          nombreBanco: JCBankUPDATED
+                      bancoDefecto: 53
+                      ClienteFacturaID: 455
+                      ClienteFacturaCodigo: '10300010383'
+                      ClienteFacturaNombre: JCO
+                      DiasPrimerVencimiento: '0'
+                      DiasResto: '0'
+                      DiaFijo1: '0'
+                      DiaFijo2: '0'
+                      DiaFijo3: '0'
+                      DiaFijo4: '0'
+                      MesVacacion: '0'
+                      DiaSiguientePago: '0'
+                      AgruparAlbaran: ''
+                      Portes: '0'
+                      DtoEspecial1: '0'
+                      DtoEspecial2: '0'
+                      NumeroVencimientos: '0'
+                      GastoFinanciero: 0
+                      DtoPP: 0
+                      PorcentajeDtoComercial1: '0'
+                      PorcentajeDtoComercial2: '0'
+                      PorcentajeDtoComercial3: '0'
+                      NumeroCopiasFactura: '0'
+                      moneda: '0'
+                      TelefonoCliente: '666555'
+                      cambio: 0
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      BusquedaClienteCodigo: '10300010383'
+                      BusquedaClienteNombre: JCO
+                      NombreCliente: JCO
+                      NumeroCopiasAlbaran: 0
+                      AlbaranNoValorado: 0
+                      tarifaVenta: 0
+                      ComboBancoClienteGrayed: false
+                      listaDirecciones: null
+                      listaBancos:
+                        - bancoclienteID: 52
+                          nombreBanco: JCBank
+                        - bancoclienteID: 53
+                          nombreBanco: JCBankUPDATED
+                      bancoDefecto: 53
+                      ClienteFacturaID: 455
+                      ClienteFacturaCodigo: '10300010383'
+                      ClienteFacturaNombre: JCO
+                      DiasPrimerVencimiento: '0'
+                      DiasResto: '0'
+                      DiaFijo1: '0'
+                      DiaFijo2: '0'
+                      DiaFijo3: '0'
+                      DiaFijo4: '0'
+                      MesVacacion: '0'
+                      DiaSiguientePago: '0'
+                      AgruparAlbaran: ''
+                      Portes: '0'
+                      DtoEspecial1: '0'
+                      DtoEspecial2: '0'
+                      NumeroVencimientos: '0'
+                      GastoFinanciero: 0
+                      DtoPP: 0
+                      PorcentajeDtoComercial1: '0'
+                      PorcentajeDtoComercial2: '0'
+                      PorcentajeDtoComercial3: '0'
+                      NumeroCopiasFactura: '0'
+                      moneda: '0'
+                      TelefonoCliente: '666555'
+                      cambio: 0
+      operationId: get-tables-clients-client-id
+      requestBody:
+        content: {}
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /tables/clients/bank:
     post:
       summary: Client - CreateBank
@@ -21784,5 +21992,23 @@ paths:
                   NegocioID: ''
                   Municipio: ''
                   Situacion: ''
+  /tables/clients/insuranceCompany/risk:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-tables-clients-insuranceCompany-risk
+  '/tables/clients/risk/{clienteID}':
+    parameters:
+      - schema:
+          type: string
+        name: clienteID
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-tables-clients-risk-clienteID
 components:
   schemas: {}
