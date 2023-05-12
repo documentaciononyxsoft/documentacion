@@ -1908,6 +1908,175 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  '/tables/clients/bank/{clienteID}':
+    parameters:
+      - schema:
+          type: string
+          example: '455'
+        name: clienteID
+        in: path
+        required: true
+    get:
+      summary: Client - FindManyBanksByClient
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            BancoClienteID:
+                              type: integer
+                            CustomerID:
+                              type: integer
+                            UsuarioID:
+                              type: integer
+                            FechaHoraUsuario:
+                              type: string
+                            NombreBanco:
+                              type: string
+                            NombreOficina:
+                              type: string
+                            PoblacionBanco:
+                              type: string
+                            Entidad:
+                              type: string
+                            Oficina:
+                              type: string
+                            DigitoControl:
+                              type: string
+                            CuentaCorriente:
+                              type: string
+                            Iban:
+                              type: string
+                            Swift:
+                              type: string
+                            Principal:
+                              type: integer
+                            ClienteID:
+                              type: integer
+                            FechaMandanto:
+                              type: string
+                            NumeroMandato:
+                              type: string
+                            TipoPago:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT * \r\nFROM \r\nbancocliente\r\nWHERE\r\nbancocliente.CustomerID = 29 AND\r\nbancocliente.ClienteID = 455 "
+                      records:
+                        - BancoClienteID: 52
+                          CustomerID: 29
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-05-12T08:26:38.272'
+                          NombreBanco: JCBank
+                          NombreOficina: Molinos
+                          PoblacionBanco: Pobla
+                          Entidad: Enti
+                          Oficina: Ofi1
+                          DigitoControl: Control
+                          CuentaCorriente: '19372846'
+                          Iban: Ibanchoy
+                          Swift: Jaze
+                          Principal: 1
+                          ClienteID: 455
+                          FechaMandanto: '20230512'
+                          NumeroMandato: '990825'
+                          TipoPago: UNICO
+                        - BancoClienteID: 53
+                          CustomerID: 29
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-05-12T08:27:16.379'
+                          NombreBanco: JCBankUPDATED
+                          NombreOficina: NewAddress
+                          PoblacionBanco: PoblaUP
+                          Entidad: Enti
+                          Oficina: Ofi2
+                          DigitoControl: Controller
+                          CuentaCorriente: '454554'
+                          Iban: IbanUP
+                          Swift: JazeUP
+                          Principal: 1
+                          ClienteID: 455
+                          FechaMandanto: '20230512'
+                          NumeroMandato: '992828'
+                          TipoPago: RECURRENTE
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - BancoClienteID: 52
+                          CustomerID: 29
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-05-12T08:26:38.272'
+                          NombreBanco: JCBank
+                          NombreOficina: Molinos
+                          PoblacionBanco: Pobla
+                          Entidad: Enti
+                          Oficina: Ofi1
+                          DigitoControl: Control
+                          CuentaCorriente: '19372846'
+                          Iban: Ibanchoy
+                          Swift: Jaze
+                          Principal: 1
+                          ClienteID: 455
+                          FechaMandanto: '20230512'
+                          NumeroMandato: '990825'
+                          TipoPago: UNICO
+                        - BancoClienteID: 53
+                          CustomerID: 29
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-05-12T08:27:16.379'
+                          NombreBanco: JCBankUPDATED
+                          NombreOficina: NewAddress
+                          PoblacionBanco: PoblaUP
+                          Entidad: Enti
+                          Oficina: Ofi2
+                          DigitoControl: Controller
+                          CuentaCorriente: '454554'
+                          Iban: IbanUP
+                          Swift: JazeUP
+                          Principal: 1
+                          ClienteID: 455
+                          FechaMandanto: '20230512'
+                          NumeroMandato: '992828'
+                          TipoPago: RECURRENTE
+      operationId: get-tables-clients-bank-clienteID
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /tables/companies:
     get:
       summary: Companie - FindMany
