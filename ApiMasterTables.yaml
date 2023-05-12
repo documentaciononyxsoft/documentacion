@@ -6646,7 +6646,7 @@ paths:
           required: true
   /employee:
     post:
-      summary: Employee - Create
+      summary: EmployeeSAT - Create
       operationId: post-employee
       responses:
         '200':
@@ -6877,6 +6877,93 @@ paths:
                   NegocioID: ''
                   Municipio: ''
                   Situacion: ''
+  /employee/changeState:
+    get:
+      summary: EmployeeSAT - ChangeState
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      estadoEmpleado:
+                        type: string
+                      estadoTicket:
+                        type: string
+                      estadoEmpleadoNombre:
+                        type: string
+                      estadoTicketNombre:
+                        type: string
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      estadoEmpleado: AC
+                      estadoTicket: AC
+                      estadoEmpleadoNombre: Aceptado
+                      estadoTicketNombre: Aceptado
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      estadoEmpleado: AC
+                      estadoTicket: AC
+                      estadoEmpleadoNombre: Aceptado
+                      estadoTicketNombre: Aceptado
+                      success: true
+      operationId: get-employee-changeState
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: '14'
+          in: query
+          name: ticketID
+          required: true
+        - schema:
+            type: string
+            example: '11'
+          in: query
+          name: avisoTicketPlanificadoID
+          required: true
+        - schema:
+            type: string
+            example: '1'
+          in: query
+          name: avisoTicketPlanificadoEmpleadoID
+          required: true
+        - schema:
+            type: string
+            enum:
+              - '1:Aceptado'
+              - '2:Rechazado'
+            example: '1'
+          in: query
+          name: opcion
+          required: true
+      description: ''
   '/tables/client/{Param}':
     get:
       summary: Client - findManyByParam
