@@ -6877,6 +6877,287 @@ paths:
                   NegocioID: ''
                   Municipio: ''
                   Situacion: ''
+  '/employee/{EmpleadoID}':
+    parameters:
+      - schema:
+          type: string
+        name: EmpleadoID
+        in: path
+        required: true
+        description: '68'
+    put:
+      summary: EmployeeSAT - Update
+      operationId: put-employee-EmpleadoID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                EmpleadoID:
+                  type: string
+                HorasJornada:
+                  type: string
+                Direccion:
+                  type: string
+                MunicipioID:
+                  type: string
+                Dni:
+                  type: string
+                Nota:
+                  type: string
+                NumeroSS:
+                  type: string
+                FechaIngreso:
+                  type: string
+                FechaFin:
+                  type: string
+                FechaNacimiento:
+                  type: string
+                CuentaCorriente:
+                  type: string
+                PrecioHora:
+                  type: string
+                DescripcionFuncion:
+                  type: string
+                NOmbreBanco:
+                  type: string
+                Email:
+                  type: string
+                OnyxCaptor:
+                  type: string
+                Nombre:
+                  type: string
+                Codigo:
+                  type: string
+                Id_SatMovil:
+                  type: string
+                FechaHoraUsuario:
+                  type: string
+                DeBaja:
+                  type: string
+                CustomerIDId_SatMovil:
+                  type: string
+                seccion:
+                  type: string
+                VisibleEnCaptador:
+                  type: string
+                SeccionID:
+                  type: string
+                Iban:
+                  type: string
+                Swift:
+                  type: string
+                Sucursal:
+                  type: string
+                NumeroTarjeta:
+                  type: string
+                ClaveCaptador:
+                  type: string
+                FechaHoraNuevo:
+                  type: string
+                FechaHoraModificado:
+                  type: string
+                FechaHoraBorrado:
+                  type: string
+                EmpleadoUsuarioID:
+                  type: string
+                CodigoEmpresaID:
+                  type: string
+                GrupoPrecioHoraId:
+                  type: string
+                PaisID:
+                  type: string
+                ProvinciaID:
+                  type: string
+                Telefono:
+                  type: string
+                CodigoPostalID:
+                  type: string
+                RolID:
+                  type: string
+                Movil:
+                  type: string
+                NegocioID:
+                  type: string
+                Municipio:
+                  type: string
+                Situacion:
+                  type: string
+              x-examples:
+                Example 1:
+                  EmpleadoID: ''
+                  HorasJornada: ''
+                  Direccion: ''
+                  MunicipioID: ''
+                  Dni: ''
+                  Nota: ''
+                  NumeroSS: ''
+                  FechaIngreso: ''
+                  FechaFin: ''
+                  FechaNacimiento: ''
+                  CuentaCorriente: ''
+                  PrecioHora: ''
+                  DescripcionFuncion: ''
+                  NOmbreBanco: ''
+                  Email: ''
+                  OnyxCaptor: ''
+                  Nombre: Andrea Quintero
+                  Codigo: '565656656789'
+                  Id_SatMovil: ''
+                  FechaHoraUsuario: ''
+                  DeBaja: ''
+                  CustomerIDId_SatMovil: ''
+                  seccion: ''
+                  VisibleEnCaptador: ''
+                  SeccionID: ''
+                  Iban: ''
+                  Swift: ''
+                  Sucursal: ''
+                  NumeroTarjeta: '666'
+                  ClaveCaptador: ''
+                  FechaHoraNuevo: ''
+                  FechaHoraModificado: ''
+                  FechaHoraBorrado: ''
+                  EmpleadoUsuarioID: ''
+                  CodigoEmpresaID: ''
+                  GrupoPrecioHoraId: ''
+                  PaisID: '148'
+                  ProvinciaID: ''
+                  Telefono: ''
+                  CodigoPostalID: ''
+                  RolID: ''
+                  Movil: ''
+                  NegocioID: ''
+                  Municipio: ''
+                  Situacion: ''
+            examples:
+              Example 1:
+                value:
+                  EmpleadoID: ''
+                  HorasJornada: ''
+                  Direccion: ''
+                  MunicipioID: ''
+                  Dni: ''
+                  Nota: ''
+                  NumeroSS: ''
+                  FechaIngreso: ''
+                  FechaFin: ''
+                  FechaNacimiento: ''
+                  CuentaCorriente: ''
+                  PrecioHora: ''
+                  DescripcionFuncion: ''
+                  NOmbreBanco: ''
+                  Email: ''
+                  OnyxCaptor: ''
+                  Nombre: Andrea Quintero
+                  Codigo: '565656656789'
+                  Id_SatMovil: ''
+                  FechaHoraUsuario: ''
+                  DeBaja: ''
+                  CustomerIDId_SatMovil: ''
+                  seccion: ''
+                  VisibleEnCaptador: ''
+                  SeccionID: ''
+                  Iban: ''
+                  Swift: ''
+                  Sucursal: ''
+                  NumeroTarjeta: '666'
+                  ClaveCaptador: ''
+                  FechaHoraNuevo: ''
+                  FechaHoraModificado: ''
+                  FechaHoraBorrado: ''
+                  EmpleadoUsuarioID: ''
+                  CodigoEmpresaID: ''
+                  GrupoPrecioHoraId: ''
+                  PaisID: '148'
+                  ProvinciaID: ''
+                  Telefono: ''
+                  CodigoPostalID: ''
+                  RolID: ''
+                  Movil: ''
+                  NegocioID: ''
+                  Municipio: ''
+                  Situacion: ''
+    delete:
+      summary: EmployeeSAT - Delete
+      operationId: delete-employee-EmpleadoID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /employee/changeState:
     get:
       summary: EmployeeSAT - ChangeState
@@ -12456,282 +12737,5 @@ paths:
           in: query
           name: param
           description: yei
-  '/employee/{EmpleadoID}':
-    parameters:
-      - schema:
-          type: string
-        name: EmpleadoID
-        in: path
-        required: true
-        description: '68'
-    put:
-      summary: UpdateForEmployee
-      operationId: put-employee-EmpleadoID
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: accessToken
-          description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                EmpleadoID:
-                  type: string
-                HorasJornada:
-                  type: string
-                Direccion:
-                  type: string
-                MunicipioID:
-                  type: string
-                Dni:
-                  type: string
-                Nota:
-                  type: string
-                NumeroSS:
-                  type: string
-                FechaIngreso:
-                  type: string
-                FechaFin:
-                  type: string
-                FechaNacimiento:
-                  type: string
-                CuentaCorriente:
-                  type: string
-                PrecioHora:
-                  type: string
-                DescripcionFuncion:
-                  type: string
-                NOmbreBanco:
-                  type: string
-                Email:
-                  type: string
-                OnyxCaptor:
-                  type: string
-                Nombre:
-                  type: string
-                Codigo:
-                  type: string
-                Id_SatMovil:
-                  type: string
-                FechaHoraUsuario:
-                  type: string
-                DeBaja:
-                  type: string
-                CustomerIDId_SatMovil:
-                  type: string
-                seccion:
-                  type: string
-                VisibleEnCaptador:
-                  type: string
-                SeccionID:
-                  type: string
-                Iban:
-                  type: string
-                Swift:
-                  type: string
-                Sucursal:
-                  type: string
-                NumeroTarjeta:
-                  type: string
-                ClaveCaptador:
-                  type: string
-                FechaHoraNuevo:
-                  type: string
-                FechaHoraModificado:
-                  type: string
-                FechaHoraBorrado:
-                  type: string
-                EmpleadoUsuarioID:
-                  type: string
-                CodigoEmpresaID:
-                  type: string
-                GrupoPrecioHoraId:
-                  type: string
-                PaisID:
-                  type: string
-                ProvinciaID:
-                  type: string
-                Telefono:
-                  type: string
-                CodigoPostalID:
-                  type: string
-                RolID:
-                  type: string
-                Movil:
-                  type: string
-                NegocioID:
-                  type: string
-                Municipio:
-                  type: string
-                Situacion:
-                  type: string
-              x-examples:
-                Example 1:
-                  EmpleadoID: ''
-                  HorasJornada: ''
-                  Direccion: ''
-                  MunicipioID: ''
-                  Dni: ''
-                  Nota: ''
-                  NumeroSS: ''
-                  FechaIngreso: ''
-                  FechaFin: ''
-                  FechaNacimiento: ''
-                  CuentaCorriente: ''
-                  PrecioHora: ''
-                  DescripcionFuncion: ''
-                  NOmbreBanco: ''
-                  Email: ''
-                  OnyxCaptor: ''
-                  Nombre: Andrea Quintero
-                  Codigo: '565656656789'
-                  Id_SatMovil: ''
-                  FechaHoraUsuario: ''
-                  DeBaja: ''
-                  CustomerIDId_SatMovil: ''
-                  seccion: ''
-                  VisibleEnCaptador: ''
-                  SeccionID: ''
-                  Iban: ''
-                  Swift: ''
-                  Sucursal: ''
-                  NumeroTarjeta: '666'
-                  ClaveCaptador: ''
-                  FechaHoraNuevo: ''
-                  FechaHoraModificado: ''
-                  FechaHoraBorrado: ''
-                  EmpleadoUsuarioID: ''
-                  CodigoEmpresaID: ''
-                  GrupoPrecioHoraId: ''
-                  PaisID: '148'
-                  ProvinciaID: ''
-                  Telefono: ''
-                  CodigoPostalID: ''
-                  RolID: ''
-                  Movil: ''
-                  NegocioID: ''
-                  Municipio: ''
-                  Situacion: ''
-            examples:
-              Example 1:
-                value:
-                  EmpleadoID: ''
-                  HorasJornada: ''
-                  Direccion: ''
-                  MunicipioID: ''
-                  Dni: ''
-                  Nota: ''
-                  NumeroSS: ''
-                  FechaIngreso: ''
-                  FechaFin: ''
-                  FechaNacimiento: ''
-                  CuentaCorriente: ''
-                  PrecioHora: ''
-                  DescripcionFuncion: ''
-                  NOmbreBanco: ''
-                  Email: ''
-                  OnyxCaptor: ''
-                  Nombre: Andrea Quintero
-                  Codigo: '565656656789'
-                  Id_SatMovil: ''
-                  FechaHoraUsuario: ''
-                  DeBaja: ''
-                  CustomerIDId_SatMovil: ''
-                  seccion: ''
-                  VisibleEnCaptador: ''
-                  SeccionID: ''
-                  Iban: ''
-                  Swift: ''
-                  Sucursal: ''
-                  NumeroTarjeta: '666'
-                  ClaveCaptador: ''
-                  FechaHoraNuevo: ''
-                  FechaHoraModificado: ''
-                  FechaHoraBorrado: ''
-                  EmpleadoUsuarioID: ''
-                  CodigoEmpresaID: ''
-                  GrupoPrecioHoraId: ''
-                  PaisID: '148'
-                  ProvinciaID: ''
-                  Telefono: ''
-                  CodigoPostalID: ''
-                  RolID: ''
-                  Movil: ''
-                  NegocioID: ''
-                  Municipio: ''
-                  Situacion: ''
-    delete:
-      summary: DeleteForEmployee
-      operationId: delete-employee-EmpleadoID
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: accessToken
-          description: '"tokenReciente"'
 components:
   schemas: {}
