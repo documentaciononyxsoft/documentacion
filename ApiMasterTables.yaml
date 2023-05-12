@@ -9570,19 +9570,19 @@ paths:
           description: '"tokenReciente"'
   /employees/light/account:
     get:
-      summary: Your GET endpoint
+      summary: Employees - FindByAccountLightList
       tags: []
       responses: {}
       operationId: get-employees-light-account
   /tables/employes:
     get:
-      summary: Your GET endpoint
+      summary: Employees - FindAllEmployees
       tags: []
       responses: {}
       operationId: get-tables-employes
   /tables/employes/userAuth:
     get:
-      summary: Your GET endpoint
+      summary: Employees - FindOneByJWT
       tags: []
       responses: {}
       operationId: get-tables-employes-userAuth
