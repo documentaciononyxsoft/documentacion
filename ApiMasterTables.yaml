@@ -8034,6 +8034,332 @@ paths:
             example: '13'
           in: query
           name: avisoTicketPlanificadoID
+  /employee/detailHours:
+    get:
+      summary: Employes - FindManyByFilterDetailHours
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Fecha:
+                              type: string
+                            TiempoTrabajoID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Cliente:
+                              type: string
+                            Concepto:
+                              type: string
+                            Viaje:
+                              type: integer
+                            Horas:
+                              type: integer
+                            Cod_proyecto:
+                              type: integer
+                            Proyecto:
+                              type: string
+                            NumeroTarea:
+                              type: integer
+                            NombreTarea:
+                              type: string
+                            Clave:
+                              type: string
+                            NumeroTarjeta:
+                              type: integer
+                            DescripcionTarjeta:
+                              type: string
+                            Version:
+                              type: integer
+                            Notas:
+                              type: string
+                            Motivo:
+                              type: string
+                            Desc_motivo:
+                              type: string
+                            NomEmpleado:
+                              type: string
+                            EmpleadoID:
+                              type: integer
+                            HorasDecimal:
+                              type: number
+                            Tiempo:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - Fecha: '20211102'
+                          TiempoTrabajoID: 2
+                          Codigo: '10300010250'
+                          Cliente: VARIOS PRODUCCION
+                          Concepto: 'OF: 33 - Proceso: 64 Paquetera (Producción)'
+                          Viaje: 0
+                          Horas: 345425
+                          Cod_proyecto: 0
+                          Proyecto: ''
+                          NumeroTarea: 64
+                          NombreTarea: Paquetera
+                          Clave: ''
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: ''
+                          Motivo: ''
+                          Desc_motivo: ''
+                          NomEmpleado: Onyx Admin
+                          EmpleadoID: 339
+                          HorasDecimal: 0.096
+                          Tiempo: 345425
+                        - Fecha: '20211104'
+                          TiempoTrabajoID: 3
+                          Codigo: '10300010042'
+                          Cliente: ABASTECEDORA COMERCIAL DE PARRAL S.A. DE C.V.
+                          Concepto: seguimiento1
+                          Viaje: 0
+                          Horas: 600000
+                          Cod_proyecto: 0
+                          Proyecto: ''
+                          NumeroTarea: 0
+                          NombreTarea: ''
+                          Clave: RECEPCION
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: se le llamo
+                          Motivo: REC
+                          Desc_motivo: RECEPCION
+                          NomEmpleado: Onyx Admin
+                          EmpleadoID: 339
+                          HorasDecimal: 0.1667
+                          Tiempo: 600000
+                        - Fecha: '20211104'
+                          TiempoTrabajoID: 4
+                          Codigo: '10300010250'
+                          Cliente: VARIOS PRODUCCION
+                          Concepto: 'OF: 35 - Proceso: 66 Proceso (Producción)'
+                          Viaje: 0
+                          Horas: 1812277
+                          Cod_proyecto: 0
+                          Proyecto: ''
+                          NumeroTarea: 66
+                          NombreTarea: Proceso
+                          Clave: ''
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: ''
+                          Motivo: ''
+                          Desc_motivo: ''
+                          NomEmpleado: Onyx Admin
+                          EmpleadoID: 339
+                          HorasDecimal: 0.5034
+                          Tiempo: 1812277
+                        - Fecha: '20211104'
+                          TiempoTrabajoID: 5
+                          Codigo: ''
+                          Cliente: GRANEROS CEDILLO SA DE CV
+                          Concepto: llamada de seguimiento 1
+                          Viaje: 0
+                          Horas: 300000
+                          Cod_proyecto: 0
+                          Proyecto: ''
+                          NumeroTarea: 0
+                          NombreTarea: ''
+                          Clave: RECEPCION
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: hola
+                          Motivo: REC
+                          Desc_motivo: RECEPCION
+                          NomEmpleado: Onyx Admin
+                          EmpleadoID: 339
+                          HorasDecimal: 0.0833
+                          Tiempo: 300000
+                        - Fecha: '20211104'
+                          TiempoTrabajoID: 6
+                          Codigo: '10300010250'
+                          Cliente: VARIOS PRODUCCION
+                          Concepto: 'OF: 39 - Proceso: 70 Proceso (Producción)'
+                          Viaje: 0
+                          Horas: 612972973
+                          Cod_proyecto: 39
+                          Proyecto: BASE JUNGLE RINGS
+                          NumeroTarea: 70
+                          NombreTarea: Proceso
+                          Clave: ''
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: ''
+                          Motivo: ''
+                          Desc_motivo: ''
+                          NomEmpleado: Onyx Admin
+                          EmpleadoID: 339
+                          HorasDecimal: 170.2703
+                          Tiempo: 612972973
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - Fecha: '20211102'
+                          TiempoTrabajoID: 2
+                          Codigo: '10300010250'
+                          Cliente: VARIOS PRODUCCION
+                          Concepto: 'OF: 33 - Proceso: 64 Paquetera (Producción)'
+                          Viaje: 0
+                          Horas: 345425
+                          Cod_proyecto: 0
+                          Proyecto: ''
+                          NumeroTarea: 64
+                          NombreTarea: Paquetera
+                          Clave: ''
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: ''
+                          Motivo: ''
+                          Desc_motivo: ''
+                          NomEmpleado: Onyx Admin
+                          EmpleadoID: 339
+                          HorasDecimal: 0.096
+                          Tiempo: 345425
+                        - Fecha: '20211104'
+                          TiempoTrabajoID: 3
+                          Codigo: '10300010042'
+                          Cliente: ABASTECEDORA COMERCIAL DE PARRAL S.A. DE C.V.
+                          Concepto: seguimiento1
+                          Viaje: 0
+                          Horas: 600000
+                          Cod_proyecto: 0
+                          Proyecto: ''
+                          NumeroTarea: 0
+                          NombreTarea: ''
+                          Clave: RECEPCION
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: se le llamo
+                          Motivo: REC
+                          Desc_motivo: RECEPCION
+                          NomEmpleado: Onyx Admin
+                          EmpleadoID: 339
+                          HorasDecimal: 0.1667
+                          Tiempo: 600000
+                        - Fecha: '20211104'
+                          TiempoTrabajoID: 4
+                          Codigo: '10300010250'
+                          Cliente: VARIOS PRODUCCION
+                          Concepto: 'OF: 35 - Proceso: 66 Proceso (Producción)'
+                          Viaje: 0
+                          Horas: 1812277
+                          Cod_proyecto: 0
+                          Proyecto: ''
+                          NumeroTarea: 66
+                          NombreTarea: Proceso
+                          Clave: ''
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: ''
+                          Motivo: ''
+                          Desc_motivo: ''
+                          NomEmpleado: Onyx Admin
+                          EmpleadoID: 339
+                          HorasDecimal: 0.5034
+                          Tiempo: 1812277
+                        - Fecha: '20211104'
+                          TiempoTrabajoID: 5
+                          Codigo: ''
+                          Cliente: GRANEROS CEDILLO SA DE CV
+                          Concepto: llamada de seguimiento 1
+                          Viaje: 0
+                          Horas: 300000
+                          Cod_proyecto: 0
+                          Proyecto: ''
+                          NumeroTarea: 0
+                          NombreTarea: ''
+                          Clave: RECEPCION
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: hola
+                          Motivo: REC
+                          Desc_motivo: RECEPCION
+                          NomEmpleado: Onyx Admin
+                          EmpleadoID: 339
+                          HorasDecimal: 0.0833
+                          Tiempo: 300000
+                        - Fecha: '20211104'
+                          TiempoTrabajoID: 6
+                          Codigo: '10300010250'
+                          Cliente: VARIOS PRODUCCION
+                          Concepto: 'OF: 39 - Proceso: 70 Proceso (Producción)'
+                          Viaje: 0
+                          Horas: 612972973
+                          Cod_proyecto: 39
+                          Proyecto: BASE JUNGLE RINGS
+                          NumeroTarea: 70
+                          NombreTarea: Proceso
+                          Clave: ''
+                          NumeroTarjeta: 0
+                          DescripcionTarjeta: ''
+                          Version: 0
+                          Notas: ''
+                          Motivo: ''
+                          Desc_motivo: ''
+                          NomEmpleado: Onyx Admin
+                          EmpleadoID: 339
+                          HorasDecimal: 170.2703
+                          Tiempo: 612972973
+      operationId: get-employee-detailHours
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+        - schema:
+            type: string
+            example: '0'
+          in: query
+          name: offset
+          description: 'Registro a partir del cual empezará a traer los datos desde la tabla. Si se envía 20, y en la tabla existen 100 registros, la respuesta traerá solo los registros comprendidos entre las posiciones 20 y 100, y los primero 20 se omitirán.'
+        - schema:
+            type: string
+            example: '5'
+          in: query
+          name: limit
+          description: 'Límite de registros que trae la consulta. Si se envía el número 50, y la tabla tiene 2000 registros solo se traerán 50.'
+          required: true
   '/tables/client/{Param}':
     get:
       summary: Client - findManyByParam
