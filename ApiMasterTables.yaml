@@ -9422,7 +9422,7 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      EmpleadoCompetenciaNivelPuestoCabeceraID: 28
+                      EmpleadoCompetenciaNivelPuestoCabeceraID: 3
               examples:
                 Example 1:
                   value:
@@ -9430,13 +9430,15 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      EmpleadoCompetenciaNivelPuestoCabeceraID: 28
+                      EmpleadoCompetenciaNivelPuestoCabeceraID: 3
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
       requestBody:
         content:
           application/json:
@@ -9449,33 +9451,17 @@ paths:
                   type: string
                 MaquinaID:
                   type: string
-                FechaHoraUsuario:
-                  type: string
-                MaquinaCodigo:
-                  type: string
-                MaquinaNombre:
-                  type: string
-                DescripcionPuesto:
-                  type: string
               x-examples:
                 Example 1:
-                  EmpleadoTipoPuestoID: '5'
-                  EmpleadoID: '1'
-                  MaquinaID: '0'
-                  FechaHoraUsuario: ''
-                  MaquinaCodigo: ''
-                  MaquinaNombre: ''
-                  DescripcionPuesto: Estampador
+                  EmpleadoTipoPuestoID: '3'
+                  EmpleadoID: '340'
+                  MaquinaID: '2'
             examples:
               Example 1:
                 value:
-                  EmpleadoTipoPuestoID: '5'
-                  EmpleadoID: '1'
-                  MaquinaID: '0'
-                  FechaHoraUsuario: ''
-                  MaquinaCodigo: ''
-                  MaquinaNombre: ''
-                  DescripcionPuesto: Estampador
+                  EmpleadoTipoPuestoID: '3'
+                  EmpleadoID: '340'
+                  MaquinaID: '2'
   '/employee/versatility/{id}':
     parameters:
       - schema:
