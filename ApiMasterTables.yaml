@@ -6461,6 +6461,21 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                MailingID:
+                  type: integer
+              x-examples:
+                Example 1:
+                  MailingID: 455
+            examples:
+              Example 1:
+                value:
+                  MailingID: 455
   '/tables/contacts/{mailingID}':
     parameters:
       - schema:
