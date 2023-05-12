@@ -9682,8 +9682,206 @@ paths:
     get:
       summary: Employees - FindAllEmployees
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                            EmpleadoID:
+                              type: integer
+                            EmpleadoUsuarioID:
+                              type: integer
+                            EmpleadoCorreo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT\r\nEmpleado.*,\r\nusuario.ClienteCorreo\r\nFROM\r\nEmpleado LEFT JOIN Usuario ON usuario.UsuarioID = empleado.EmpleadoUsuarioID\r\nWHERE\r\nEmpleado.CustomerID = 29 AND\r\nEmpleado.EmpresaID = 1 AND\r\nempleado.DeBaja=0\r\nORDER BY Empleado.nombre"
+                      records:
+                        - Nombre: ACOSTA RODRIGUEZ MANUEL DE JESUS
+                          Codigo: '70111887'
+                          EmpleadoID: 232
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: 'ALANIS COLORES, KARLA DENISSE'
+                          Codigo: ADDC10
+                          EmpleadoID: 332
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: ALCALA SALAZAR EDUARDO
+                          Codigo: '90014222'
+                          EmpleadoID: 72
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: ALCANTARA ALVARADO AURELIO
+                          Codigo: '70111998'
+                          EmpleadoID: 292
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: ALDANA OLIVARES ANTONIO
+                          Codigo: '70197290'
+                          EmpleadoID: 215
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: ALEJO BAÑOS ALVARO
+                          Codigo: '90032216'
+                          EmpleadoID: 217
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: ALONSO ESTEBAN CELIA
+                          Codigo: '90088905'
+                          EmpleadoID: 24
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: ALVARADO PEREZ JOEL
+                          Codigo: '70112021'
+                          EmpleadoID: 198
+                          EmpleadoUsuarioID: 124
+                          EmpleadoCorreo: ''
+                        - Nombre: Andrea Quintero
+                          Codigo: '565656656'
+                          EmpleadoID: 348
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: ANTONIO CRUZ MAXIMINO
+                          Codigo: '70112060'
+                          EmpleadoID: 144
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: ARELLANO CAUDILLO ALEJANDRO
+                          Codigo: '70166314'
+                          EmpleadoID: 274
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: ARENAS PEREZ JOSE IGNACIO
+                          Codigo: '70169980'
+                          EmpleadoID: 82
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: ARENAS VALLE RICARDO
+                          Codigo: '70112093'
+                          EmpleadoID: 285
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: AVILA NORIEGA ROGELIO ALBERTO
+                          Codigo: '70116487'
+                          EmpleadoID: 173
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - Nombre: ACOSTA RODRIGUEZ MANUEL DE JESUS
+                          Codigo: '70111887'
+                          EmpleadoID: 232
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: 'ALANIS COLORES, KARLA DENISSE'
+                          Codigo: ADDC10
+                          EmpleadoID: 332
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: ALCALA SALAZAR EDUARDO
+                          Codigo: '90014222'
+                          EmpleadoID: 72
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: ALCANTARA ALVARADO AURELIO
+                          Codigo: '70111998'
+                          EmpleadoID: 292
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: ALDANA OLIVARES ANTONIO
+                          Codigo: '70197290'
+                          EmpleadoID: 215
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: ALEJO BAÑOS ALVARO
+                          Codigo: '90032216'
+                          EmpleadoID: 217
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: ALONSO ESTEBAN CELIA
+                          Codigo: '90088905'
+                          EmpleadoID: 24
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: ALVARADO PEREZ JOEL
+                          Codigo: '70112021'
+                          EmpleadoID: 198
+                          EmpleadoUsuarioID: 124
+                          EmpleadoCorreo: ''
+                        - Nombre: Andrea Quintero
+                          Codigo: '565656656'
+                          EmpleadoID: 348
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: ANTONIO CRUZ MAXIMINO
+                          Codigo: '70112060'
+                          EmpleadoID: 144
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: ARELLANO CAUDILLO ALEJANDRO
+                          Codigo: '70166314'
+                          EmpleadoID: 274
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: ARENAS PEREZ JOSE IGNACIO
+                          Codigo: '70169980'
+                          EmpleadoID: 82
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: ARENAS VALLE RICARDO
+                          Codigo: '70112093'
+                          EmpleadoID: 285
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
+                        - Nombre: AVILA NORIEGA ROGELIO ALBERTO
+                          Codigo: '70116487'
+                          EmpleadoID: 173
+                          EmpleadoUsuarioID: 0
+                          EmpleadoCorreo: ''
       operationId: get-tables-employes
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /tables/employes/userAuth:
     get:
       summary: Employees - FindOneByJWT
