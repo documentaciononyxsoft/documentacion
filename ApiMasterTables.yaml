@@ -1628,7 +1628,7 @@ paths:
         required: true
         description: clienteID
     get:
-      summary: Client - FindOne
+      summary: Client - FindOnes
       tags: []
       responses:
         '200':
