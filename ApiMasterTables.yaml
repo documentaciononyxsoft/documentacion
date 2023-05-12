@@ -8363,7 +8363,7 @@ paths:
           required: true
   /employee/machine/light:
     get:
-      summary: Employees - FinByMachineLightList
+      summary: Employees - FindByMachineLightList
       tags: []
       responses:
         '200':
@@ -8449,7 +8449,7 @@ paths:
           required: true
   /employee/position:
     post:
-      summary: CreateForPosition
+      summary: Employees - CreatePosition
       operationId: post-employee-position
       responses:
         '200':
@@ -8547,7 +8547,7 @@ paths:
         required: true
         description: '28'
     put:
-      summary: UpdateForPosition
+      summary: Employees - UpdatePosition
       operationId: put-employee-position-id
       responses:
         '200':
@@ -8633,7 +8633,7 @@ paths:
                   DescripciónTipoPuesto: Estampador
                   CodigoMaquina: ''
     delete:
-      summary: RemoveForPosition
+      summary: Employees - DeletePosition
       operationId: delete-employee-position-id
       responses:
         '200':
@@ -8673,7 +8673,7 @@ paths:
           description: '"tokenReciente"'
   /employee/positions:
     get:
-      summary: findManyForPositionByEmployee
+      summary: Employees - FindManyPosition
       tags: []
       responses:
         '200':
@@ -8827,7 +8827,7 @@ paths:
     parameters: []
   /employee/positionType/light:
     get:
-      summary: findLightListForPositionType
+      summary: Employees - FindByPositionTypeLightList
       tags: []
       responses:
         '200':
@@ -8899,7 +8899,7 @@ paths:
     parameters: []
   /employee/quicksearch:
     get:
-      summary: findManyByFilterForEmployee
+      summary: Employees - Quicksearch
       tags: []
       responses:
         '200':
