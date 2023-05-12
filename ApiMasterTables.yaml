@@ -9258,17 +9258,20 @@ paths:
                       success: true
                       data:
                         - ID: 1
-                          Nombre: CURSO DE INGLES
-                          Codigo: '01'
+                          Nombre: Tema1
+                          Codigo: '785456'
                         - ID: 2
-                          Nombre: MANEJO DE CARRETILLA
-                          Codigo: '02'
+                          Nombre: Temazo
+                          Codigo: '15465'
+                        - ID: 3
+                          Nombre: Temaki
+                          Codigo: '7984645'
                         - ID: 4
-                          Nombre: CURSO DEL PROGRAMA DE CAPTURA EL PLANTA
-                          Codigo: '03'
+                          Nombre: FormaName
+                          Codigo: '7984645'
                         - ID: 5
-                          Nombre: Office 365
-                          Codigo: '04'
+                          Nombre: Ejemplo
+                          Codigo: '7984645'
               examples:
                 Example 1:
                   value:
@@ -9278,24 +9281,29 @@ paths:
                       success: true
                       data:
                         - ID: 1
-                          Nombre: CURSO DE INGLES
-                          Codigo: '01'
+                          Nombre: Tema1
+                          Codigo: '785456'
                         - ID: 2
-                          Nombre: MANEJO DE CARRETILLA
-                          Codigo: '02'
+                          Nombre: Temazo
+                          Codigo: '15465'
+                        - ID: 3
+                          Nombre: Temaki
+                          Codigo: '7984645'
                         - ID: 4
-                          Nombre: CURSO DEL PROGRAMA DE CAPTURA EL PLANTA
-                          Codigo: '03'
+                          Nombre: FormaName
+                          Codigo: '7984645'
                         - ID: 5
-                          Nombre: Office 365
-                          Codigo: '04'
+                          Nombre: Ejemplo
+                          Codigo: '7984645'
       operationId: get-tables-employees-light-theme
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: 'accessToken '
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
     parameters: []
   /employee/versatiles:
     get:
