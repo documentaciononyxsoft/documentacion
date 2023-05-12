@@ -7172,6 +7172,83 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /employee/planification:
+    get:
+      summary: EmployeeSAT - FindManyByPlanification
+      tags: []
+      responses: {}
+      operationId: get-employee-planification
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: '13'
+          in: query
+          name: avisoTicketPlanificadoID
+          required: true
+          description: avisoTicketPlanificacionID
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                statusCode:
+                  type: integer
+                message:
+                  type: string
+                content:
+                  type: object
+                  properties:
+                    records:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          AvisoTicketPlanificacionID:
+                            type: integer
+                          AvisoTicketPlanificacionEmpleadoID:
+                            type: integer
+                          NombreEmpleado:
+                            type: string
+                          Situacion:
+                            type: string
+                    success:
+                      type: boolean
+                    sql:
+                      type: string
+              x-examples:
+                Example 1:
+                  statusCode: 200
+                  message: Request processed successfully
+                  content:
+                    records:
+                      - AvisoTicketPlanificacionID: 13
+                        AvisoTicketPlanificacionEmpleadoID: 2
+                        NombreEmpleado: MENDIETA FLORES DIEGO
+                        Situacion: Pendiente Operario
+                    success: true
+                    sql: "SELECT\r\n\r\n\tAvisoTicketPlanificacionEmpleado.*,\r\n\tEmpleado.Nombre AS NombreEmpleado\r\nFROM\r\n\tAvisoTicketPlanificacionEmpleado\r\n\tLEFT JOIN\r\n\tAvisoTicketPlanificacion\r\n\tON AvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID=AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\n\tLEFT JOIN\r\n\tEmpleado\r\n\tON Empleado.EmpleadoID=AvisoTicketPlanificacionEmpleado.EmpleadoID\r\nWHERE\r\n\tAvisoTicketPlanificacion.CustomerID = 29\r\n\tAND\r\n\tAvisoTicketPlanificacion.EmpresaID = 1\r\n\tAND\r\n\tAvisoTicketPlanificacion.AvisoTicketPlanificacionID = 13\r\n\r\n"
+            examples:
+              Example 1:
+                value:
+                  statusCode: 200
+                  message: Request processed successfully
+                  content:
+                    records:
+                      - AvisoTicketPlanificacionID: 13
+                        AvisoTicketPlanificacionEmpleadoID: 2
+                        NombreEmpleado: MENDIETA FLORES DIEGO
+                        Situacion: Pendiente Operario
+                    success: true
+                    sql: string
   '/tables/client/{Param}':
     get:
       summary: Client - findManyByParam
