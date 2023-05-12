@@ -5273,6 +5273,166 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /tables/companies/businessModel/generalInformation:
+    get:
+      summary: Companie - FindManyBusinessModel
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ModeloBalanceCabeceraID:
+                              type: integer
+                            Modelo:
+                              type: string
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT\r\nmodelobalancecabecera.ModeloBalanceCabeceraID,\r\nmodelobalancecabecera.Modelo,\r\nmodelobalancecabecera.Codigo,\r\nmodelobalancecabecera.Nombre\r\nFROM modelobalancecabecera \r\nWHERE \r\nmodelobalancecabecera.CustomerID = 29"
+                      records:
+                        - ModeloBalanceCabeceraID: 7
+                          Modelo: AYP
+                          Codigo: ER
+                          Nombre: BALANZA DE COMPROBACIÓN
+                        - ModeloBalanceCabeceraID: 10
+                          Modelo: PYG
+                          Codigo: '1'
+                          Nombre: ESTADO DE RESULTADOS
+                        - ModeloBalanceCabeceraID: 11
+                          Modelo: PYG
+                          Codigo: '2'
+                          Nombre: RESULTADOS COPIA
+                        - ModeloBalanceCabeceraID: 15
+                          Modelo: PYG
+                          Codigo: '3'
+                          Nombre: '21122021'
+                        - ModeloBalanceCabeceraID: 16
+                          Modelo: PYG
+                          Codigo: '4'
+                          Nombre: EDO RESULADOS
+                        - ModeloBalanceCabeceraID: 18
+                          Modelo: AYP
+                          Codigo: '1'
+                          Nombre: RESPALDO BALANZA 27-12-2021
+                        - ModeloBalanceCabeceraID: 19
+                          Modelo: PYG
+                          Codigo: '100'
+                          Nombre: 'estado de resultados pruba '
+                        - ModeloBalanceCabeceraID: 20
+                          Modelo: PYG
+                          Codigo: '169'
+                          Nombre: prueba sistemas
+                        - ModeloBalanceCabeceraID: 22
+                          Modelo: AYP
+                          Codigo: '4'
+                          Nombre: BALANZA DE COMPROBACIÓN 07-01-22
+                        - ModeloBalanceCabeceraID: 23
+                          Modelo: AYP
+                          Codigo: '3'
+                          Nombre: RESPALDO ONYX NO MOVER
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - ModeloBalanceCabeceraID: 7
+                          Modelo: AYP
+                          Codigo: ER
+                          Nombre: BALANZA DE COMPROBACIÓN
+                        - ModeloBalanceCabeceraID: 10
+                          Modelo: PYG
+                          Codigo: '1'
+                          Nombre: ESTADO DE RESULTADOS
+                        - ModeloBalanceCabeceraID: 11
+                          Modelo: PYG
+                          Codigo: '2'
+                          Nombre: RESULTADOS COPIA
+                        - ModeloBalanceCabeceraID: 15
+                          Modelo: PYG
+                          Codigo: '3'
+                          Nombre: '21122021'
+                        - ModeloBalanceCabeceraID: 16
+                          Modelo: PYG
+                          Codigo: '4'
+                          Nombre: EDO RESULADOS
+                        - ModeloBalanceCabeceraID: 18
+                          Modelo: AYP
+                          Codigo: '1'
+                          Nombre: RESPALDO BALANZA 27-12-2021
+                        - ModeloBalanceCabeceraID: 19
+                          Modelo: PYG
+                          Codigo: '100'
+                          Nombre: 'estado de resultados pruba '
+                        - ModeloBalanceCabeceraID: 20
+                          Modelo: PYG
+                          Codigo: '169'
+                          Nombre: prueba sistemas
+                        - ModeloBalanceCabeceraID: 22
+                          Modelo: AYP
+                          Codigo: '4'
+                          Nombre: BALANZA DE COMPROBACIÓN 07-01-22
+                        - ModeloBalanceCabeceraID: 23
+                          Modelo: AYP
+                          Codigo: '3'
+                          Nombre: RESPALDO ONYX NO MOVER
+      operationId: get-tables-companies-businessModel-generalInformation
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+  /tables/companies/companyType/generalInformation:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-tables-companies-companyType-generalInformation
+  '/tables/companies/generalInformation/{empresaID}':
+    parameters:
+      - schema:
+          type: string
+        name: empresaID
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-tables-companies-generalInformation-empresaID
   '/tables/client/{Param}':
     get:
       summary: Client - findManyByParam
@@ -6130,6 +6290,118 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
+  '/tables/checkListSection/{CheckListApartadoID}':
+    put:
+      summary: UpdateForCheckListSection
+      operationId: put-tables-checkListSection
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+        '':
+          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true } } '
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Apartado:
+                  type: integer
+                CheckListApartadoID:
+                  type: integer
+              x-examples:
+                Example 1:
+                  Apartado: 78547
+                  CheckListApartadoID: 4
+            examples:
+              Example 1:
+                value:
+                  Apartado: 78547
+                  CheckListApartadoID: 4
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: ''
+    parameters:
+      - schema:
+          type: string
+        name: CheckListApartadoID
+        in: path
+        required: true
+        description: '4'
+    delete:
+      summary: RemoveForCheckListSection
+      operationId: delete-tables-checkListSection-CheckListApartadoID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
   /tables/fieldType/light:
     get:
       summary: findLightListForFieldType
@@ -6451,118 +6723,6 @@ paths:
                   Activo: false
                   Nombre: pruebaNombre
                   Notas: Notas
-  '/tables/checkListSection/{CheckListApartadoID}':
-    put:
-      summary: UpdateForCheckListSection
-      operationId: put-tables-checkListSection
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-        '':
-          description: '{ "statusCode":200, "message":"Request processed successfully", "content":{ "success":true } } '
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                Apartado:
-                  type: integer
-                CheckListApartadoID:
-                  type: integer
-              x-examples:
-                Example 1:
-                  Apartado: 78547
-                  CheckListApartadoID: 4
-            examples:
-              Example 1:
-                value:
-                  Apartado: 78547
-                  CheckListApartadoID: 4
-          application/xml:
-            schema:
-              type: object
-              properties: {}
-        description: ''
-    parameters:
-      - schema:
-          type: string
-        name: CheckListApartadoID
-        in: path
-        required: true
-        description: '4'
-    delete:
-      summary: RemoveForCheckListSection
-      operationId: delete-tables-checkListSection-CheckListApartadoID
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
   /tables/checkListSections:
     get:
       summary: findManyForCheckListSection
@@ -11008,29 +11168,5 @@ paths:
                   NegocioID: ''
                   Municipio: ''
                   Situacion: ''
-  /tables/companies/businessModel/generalInformation:
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-tables-companies-businessModel-generalInformation
-  /tables/companies/companyType/generalInformation:
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-tables-companies-companyType-generalInformation
-  '/tables/companies/generalInformation/{empresaID}':
-    parameters:
-      - schema:
-          type: string
-        name: empresaID
-        in: path
-        required: true
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-tables-companies-generalInformation-empresaID
 components:
   schemas: {}
