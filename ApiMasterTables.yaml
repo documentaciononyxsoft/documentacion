@@ -10199,7 +10199,7 @@ paths:
       operationId: get-tables-tickets-layouts
   '/tables/client/{Param}':
     get:
-      summary: Client - findManyByParam
+      summary: Client - FindManyByParam
       tags: []
       responses:
         '200':
