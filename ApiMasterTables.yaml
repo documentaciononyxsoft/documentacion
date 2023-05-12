@@ -8554,7 +8554,7 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      EmpleadoPuestoID: 29
+                      EmpleadoPuestoID: 1
               examples:
                 Example 1:
                   value:
@@ -8562,13 +8562,15 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      EmpleadoPuestoID: 29
+                      EmpleadoPuestoID: 1
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: 'accessToken '
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
       requestBody:
         content:
           application/json:
@@ -8589,33 +8591,25 @@ paths:
                   type: string
                 Descripcion:
                   type: string
-                DescripciónTipoPuesto:
-                  type: string
-                CodigoMaquina:
-                  type: string
               x-examples:
                 Example 1:
                   FechaInicio: '20020426'
-                  FechaFin: '20230303'
-                  EmpleadoTipoPuestoID: '5'
-                  EmpleadoID: '1'
-                  MaquinaID: '0'
-                  Codigo: ''
-                  Descripcion: ''
-                  DescripciónTipoPuesto: Estampador
-                  CodigoMaquina: ''
+                  FechaFin: '20230512'
+                  EmpleadoTipoPuestoID: '1'
+                  EmpleadoID: '349'
+                  MaquinaID: '1'
+                  Codigo: '7754565'
+                  Descripcion: DescripJCO
             examples:
               Example 1:
                 value:
                   FechaInicio: '20020426'
-                  FechaFin: '20230303'
-                  EmpleadoTipoPuestoID: '5'
-                  EmpleadoID: '1'
-                  MaquinaID: '0'
-                  Codigo: ''
-                  Descripcion: ''
-                  DescripciónTipoPuesto: Estampador
-                  CodigoMaquina: ''
+                  FechaFin: '20230512'
+                  EmpleadoTipoPuestoID: '1'
+                  EmpleadoID: '349'
+                  MaquinaID: '1'
+                  Codigo: '7754565'
+                  Descripcion: DescripJCO
   '/employee/position/{id}':
     parameters:
       - schema:
