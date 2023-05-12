@@ -7062,6 +7062,116 @@ paths:
           description: EmpleadoGrupoSatCabeceraID
           required: true
       description: ''
+  /employee/light:
+    get:
+      summary: EmployeeSAT - FindLightList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            EmpleadoID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - EmpleadoID: 4
+                          Nombre: CORIA MAYORGA OSCAR ALBERTO
+                          Codigo: '90088898'
+                        - EmpleadoID: 5
+                          Nombre: IBARRA HERNANDEZ JAZMIN IVONNE
+                          Codigo: '70183192'
+                        - EmpleadoID: 6
+                          Nombre: DOSTA HUERTA GERARDO ANHWAR
+                          Codigo: '90032268'
+                        - EmpleadoID: 7
+                          Nombre: LOPEZ HERRERA MARIA DE LOS ANGELES
+                          Codigo: '90088904'
+                        - EmpleadoID: 8
+                          Nombre: ORTIZ RUIZ IVAN
+                          Codigo: '90088903'
+                        - EmpleadoID: 9
+                          Nombre: PEREZ ARANDA MARY JUANA
+                          Codigo: '90058055'
+                        - EmpleadoID: 10
+                          Nombre: 'JIMENEZ CUREÑO JOHAN '
+                          Codigo: '90085247'
+                        - EmpleadoID: 11
+                          Nombre: DOMINGUEZ RODRIGUEZ JONATAN
+                          Codigo: '80875862'
+                        - EmpleadoID: 12
+                          Nombre: MOSQUEDA ACOSTA OSCAR
+                          Codigo: '90088917'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - EmpleadoID: 4
+                          Nombre: CORIA MAYORGA OSCAR ALBERTO
+                          Codigo: '90088898'
+                        - EmpleadoID: 5
+                          Nombre: IBARRA HERNANDEZ JAZMIN IVONNE
+                          Codigo: '70183192'
+                        - EmpleadoID: 6
+                          Nombre: DOSTA HUERTA GERARDO ANHWAR
+                          Codigo: '90032268'
+                        - EmpleadoID: 7
+                          Nombre: LOPEZ HERRERA MARIA DE LOS ANGELES
+                          Codigo: '90088904'
+                        - EmpleadoID: 8
+                          Nombre: ORTIZ RUIZ IVAN
+                          Codigo: '90088903'
+                        - EmpleadoID: 9
+                          Nombre: PEREZ ARANDA MARY JUANA
+                          Codigo: '90058055'
+                        - EmpleadoID: 10
+                          Nombre: 'JIMENEZ CUREÑO JOHAN '
+                          Codigo: '90085247'
+                        - EmpleadoID: 11
+                          Nombre: DOMINGUEZ RODRIGUEZ JONATAN
+                          Codigo: '80875862'
+                        - EmpleadoID: 12
+                          Nombre: MOSQUEDA ACOSTA OSCAR
+                          Codigo: '90088917'
+      operationId: get-employee-light
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   '/tables/client/{Param}':
     get:
       summary: Client - findManyByParam
@@ -8939,6 +9049,85 @@ paths:
           name: 'accessToken '
           description: '"tokenReciente"'
     parameters: []
+  /tables/light/generalTable:
+    get:
+      summary: findLightListForGeneralTable
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT tablageneral.TablaGeneralID AS ID,\r\ntablageneral.Descripcion AS Nombre,\r\ntablageneral.Abreviatura AS Codigo \r\nFROM tablageneral \r\nWHERE tablageneral.CustomerID = 29 \r\nAND tablageneral.Clave = \"RUTAENTREGA\"\r\nAND (tablageneral.Descripcion LIKE '%%' OR tablageneral.Abreviatura LIKE '%%' )\r\nLIMIT 10"
+                      records:
+                        - ID: 10004
+                          Nombre: aaaaaaaaaa
+                          Codigo: aaaa
+                        - ID: 10005
+                          Nombre: bbbbbbbbbbb
+                          Codigo: bbbb
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT tablageneral.TablaGeneralID AS ID,\r\ntablageneral.Descripcion AS Nombre,\r\ntablageneral.Abreviatura AS Codigo \r\nFROM tablageneral \r\nWHERE tablageneral.CustomerID = 29 \r\nAND tablageneral.Clave = \"RUTAENTREGA\"\r\nAND (tablageneral.Descripcion LIKE '%%' OR tablageneral.Abreviatura LIKE '%%' )\r\nLIMIT 10"
+                      records:
+                        - ID: 10004
+                          Nombre: aaaaaaaaaa
+                          Codigo: aaaa
+                        - ID: 10005
+                          Nombre: bbbbbbbbbbb
+                          Codigo: bbbb
+      operationId: get-tables-generalTable
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: sBusqueda
+          description: RUTAENTREGA
+        - schema:
+            type: string
+          in: query
+    parameters: []
   /employees/consult/formation:
     get:
       summary: findManyByFiltersForFormationByEmployee
@@ -9067,85 +9256,6 @@ paths:
           in: query
           name: order
           description: ASC
-    parameters: []
-  /tables/light/generalTable:
-    get:
-      summary: findLightListForGeneralTable
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT tablageneral.TablaGeneralID AS ID,\r\ntablageneral.Descripcion AS Nombre,\r\ntablageneral.Abreviatura AS Codigo \r\nFROM tablageneral \r\nWHERE tablageneral.CustomerID = 29 \r\nAND tablageneral.Clave = \"RUTAENTREGA\"\r\nAND (tablageneral.Descripcion LIKE '%%' OR tablageneral.Abreviatura LIKE '%%' )\r\nLIMIT 10"
-                      records:
-                        - ID: 10004
-                          Nombre: aaaaaaaaaa
-                          Codigo: aaaa
-                        - ID: 10005
-                          Nombre: bbbbbbbbbbb
-                          Codigo: bbbb
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT tablageneral.TablaGeneralID AS ID,\r\ntablageneral.Descripcion AS Nombre,\r\ntablageneral.Abreviatura AS Codigo \r\nFROM tablageneral \r\nWHERE tablageneral.CustomerID = 29 \r\nAND tablageneral.Clave = \"RUTAENTREGA\"\r\nAND (tablageneral.Descripcion LIKE '%%' OR tablageneral.Abreviatura LIKE '%%' )\r\nLIMIT 10"
-                      records:
-                        - ID: 10004
-                          Nombre: aaaaaaaaaa
-                          Codigo: aaaa
-                        - ID: 10005
-                          Nombre: bbbbbbbbbbb
-                          Codigo: bbbb
-      operationId: get-tables-generalTable
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: string
-          in: query
-          name: sBusqueda
-          description: RUTAENTREGA
-        - schema:
-            type: string
-          in: query
     parameters: []
   /tables/generalTable:
     get:
@@ -11642,25 +11752,6 @@ paths:
             type: string
           in: header
           name: 'accessToken '
-          description: '"tokenReciente"'
-  /employee/light:
-    get:
-      summary: findLightListForEmployee
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
-      operationId: get-employee-light
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: accessToken
           description: '"tokenReciente"'
   /employee/consult/hourDetail:
     get:
