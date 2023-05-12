@@ -8036,7 +8036,7 @@ paths:
           name: avisoTicketPlanificadoID
   /employee/detailHours:
     get:
-      summary: Employes - FindManyByFilterDetailHours
+      summary: Employees - FindManyByFilterDetailHours
       tags: []
       responses:
         '200':
