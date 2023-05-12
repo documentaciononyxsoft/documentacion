@@ -8401,20 +8401,59 @@ paths:
                       success: true
                       data:
                         - ID: 1
-                          Nombre: CENTRO DE MECANIZADO 1
-                          Codigo: ME-01
+                          Nombre: MA-01
+                          Codigo: GEN
                         - ID: 2
-                          Nombre: CENTRO DE MECANIZADO 2
-                          Codigo: ME-02
+                          Nombre: MA-02
+                          Codigo: L2
                         - ID: 3
-                          Nombre: CENTRO DE MECANIZADO 3
-                          Codigo: ME-03
+                          Nombre: ME-002
+                          Codigo: L3
                         - ID: 4
-                          Nombre: CENTRO DE MONTAJE
-                          Codigo: MO-01
+                          Nombre: MI-001
+                          Codigo: L4
                         - ID: 5
-                          Nombre: MAQ.ENVASADO
-                          Codigo: ENV1
+                          Nombre: MU-92
+                          Codigo: L5
+                        - ID: 6
+                          Nombre: MU-81
+                          Codigo: L6
+                        - ID: 7
+                          Nombre: MU-71
+                          Codigo: P1
+                        - ID: 8
+                          Nombre: ME-61
+                          Codigo: P2
+                        - ID: 9
+                          Nombre: ME-009
+                          Codigo: P3
+                        - ID: 10
+                          Nombre: MA-14
+                          Codigo: P4
+                        - ID: 11
+                          Nombre: MO-88
+                          Codigo: P5
+                        - ID: 12
+                          Nombre: ME-44
+                          Codigo: P6
+                        - ID: 13
+                          Nombre: MT-55
+                          Codigo: P7
+                        - ID: 14
+                          Nombre: MA-111
+                          Codigo: P8
+                        - ID: 15
+                          Nombre: MK-32
+                          Codigo: P9
+                        - ID: 16
+                          Nombre: MJ-43
+                          Codigo: P10
+                        - ID: 17
+                          Nombre: MH-32
+                          Codigo: P11
+                        - ID: 18
+                          Nombre: MI-992
+                          Codigo: P12
               examples:
                 Example 1:
                   value:
@@ -8424,20 +8463,59 @@ paths:
                       success: true
                       data:
                         - ID: 1
-                          Nombre: CENTRO DE MECANIZADO 1
-                          Codigo: ME-01
+                          Nombre: MA-01
+                          Codigo: GEN
                         - ID: 2
-                          Nombre: CENTRO DE MECANIZADO 2
-                          Codigo: ME-02
+                          Nombre: MA-02
+                          Codigo: L2
                         - ID: 3
-                          Nombre: CENTRO DE MECANIZADO 3
-                          Codigo: ME-03
+                          Nombre: ME-002
+                          Codigo: L3
                         - ID: 4
-                          Nombre: CENTRO DE MONTAJE
-                          Codigo: MO-01
+                          Nombre: MI-001
+                          Codigo: L4
                         - ID: 5
-                          Nombre: MAQ.ENVASADO
-                          Codigo: ENV1
+                          Nombre: MU-92
+                          Codigo: L5
+                        - ID: 6
+                          Nombre: MU-81
+                          Codigo: L6
+                        - ID: 7
+                          Nombre: MU-71
+                          Codigo: P1
+                        - ID: 8
+                          Nombre: ME-61
+                          Codigo: P2
+                        - ID: 9
+                          Nombre: ME-009
+                          Codigo: P3
+                        - ID: 10
+                          Nombre: MA-14
+                          Codigo: P4
+                        - ID: 11
+                          Nombre: MO-88
+                          Codigo: P5
+                        - ID: 12
+                          Nombre: ME-44
+                          Codigo: P6
+                        - ID: 13
+                          Nombre: MT-55
+                          Codigo: P7
+                        - ID: 14
+                          Nombre: MA-111
+                          Codigo: P8
+                        - ID: 15
+                          Nombre: MK-32
+                          Codigo: P9
+                        - ID: 16
+                          Nombre: MJ-43
+                          Codigo: P10
+                        - ID: 17
+                          Nombre: MH-32
+                          Codigo: P11
+                        - ID: 18
+                          Nombre: MI-992
+                          Codigo: P12
       operationId: get-employee-machine-light
       parameters:
         - schema:
