@@ -2192,6 +2192,41 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                      ClienteFacturacionID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: Se ha modificado exitosamente.
+                      ClienteFacturacionID: 331
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: Se ha modificado exitosamente.
+                      ClienteFacturacionID: 331
       parameters:
         - schema:
             type: string
@@ -2200,6 +2235,49 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CompaniaSeguroMailingID:
+                  type: integer
+                CodigoSeguro:
+                  type: string
+                RiesgoSolicitadoSeguro:
+                  type: integer
+                FechaSeguro:
+                  type: string
+                PolizaSeguro:
+                  type: string
+                RiesgoConcedidoSeguro:
+                  type: integer
+                FechaVencimientoRiesgo:
+                  type: string
+                NotaSeguro:
+                  type: string
+              x-examples:
+                Example 1:
+                  CompaniaSeguroMailingID: 1178
+                  CodigoSeguro: NewCode
+                  RiesgoSolicitadoSeguro: 10
+                  FechaSeguro: '20230512'
+                  PolizaSeguro: PoliTest
+                  RiesgoConcedidoSeguro: 20
+                  FechaVencimientoRiesgo: '20230812'
+                  NotaSeguro: Notest
+            examples:
+              Example 1:
+                value:
+                  CompaniaSeguroMailingID: 1178
+                  CodigoSeguro: NewCode
+                  RiesgoSolicitadoSeguro: 10
+                  FechaSeguro: '20230512'
+                  PolizaSeguro: PoliTest
+                  RiesgoConcedidoSeguro: 20
+                  FechaVencimientoRiesgo: '20230812'
+                  NotaSeguro: Notest
   /tables/clients/bank:
     post:
       summary: Client - CreateBank
