@@ -1743,6 +1743,139 @@ paths:
                   FechaMandato: '20230512'
                   NumeroMandato: '990825'
                   TipoPago: UNICO
+  '/tables/clients/bank/{bancoClienteID}':
+    parameters:
+      - schema:
+          type: string
+        name: bancoClienteID
+        in: path
+        required: true
+    put:
+      summary: Client - UpdateBank
+      operationId: put-tables-clients-bank-bancoClienteID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: El Banco se ha Modificado exitosamente.
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: El Banco se ha Modificado exitosamente.
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                NombreBanco:
+                  type: string
+                NombreOficina:
+                  type: string
+                PoblacionBanco:
+                  type: string
+                Entidad:
+                  type: string
+                Oficina:
+                  type: string
+                DigitoControl:
+                  type: string
+                CuentaCorriente:
+                  type: string
+                Iban:
+                  type: string
+                Swift:
+                  type: string
+                Principal:
+                  type: integer
+                ClienteID:
+                  type: integer
+                FechaMandato:
+                  type: string
+                NumeroMandato:
+                  type: string
+                TipoPago:
+                  type: string
+              x-examples:
+                Example 1:
+                  NombreBanco: JCBankUPDATED
+                  NombreOficina: NewAddress
+                  PoblacionBanco: PoblaUP
+                  Entidad: EntiUP
+                  Oficina: Ofi20
+                  DigitoControl: Controller
+                  CuentaCorriente: '454554'
+                  Iban: IbanUP
+                  Swift: JazeUP
+                  Principal: 1
+                  ClienteID: 455
+                  FechaMandato: '20230512'
+                  NumeroMandato: '992828'
+                  TipoPago: RECURRENTE
+            examples:
+              Example 1:
+                value:
+                  NombreBanco: JCBankUPDATED
+                  NombreOficina: NewAddress
+                  PoblacionBanco: PoblaUP
+                  Entidad: EntiUP
+                  Oficina: Ofi20
+                  DigitoControl: Controller
+                  CuentaCorriente: '454554'
+                  Iban: IbanUP
+                  Swift: JazeUP
+                  Principal: 1
+                  ClienteID: 455
+                  FechaMandato: '20230512'
+                  NumeroMandato: '992828'
+                  TipoPago: RECURRENTE
+    delete:
+      summary: Client - DeleteBank
+      operationId: delete-tables-clients-bank-bancoClienteID
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /tables/companies:
     get:
       summary: Companie - FindMany
