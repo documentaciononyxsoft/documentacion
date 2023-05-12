@@ -5485,10 +5485,176 @@ paths:
         in: path
         required: true
     get:
-      summary: Your GET endpoint
+      summary: Companie - FindOneGeneralInformationByCompany
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            EmpresaID:
+                              type: integer
+                            NomEmpresa:
+                              type: string
+                            DesgloseGrados:
+                              type: string
+                            Nivel1:
+                              type: string
+                            Nivel2:
+                              type: string
+                            Nivel3:
+                              type: string
+                            Nivel4:
+                              type: string
+                            Nivel5:
+                              type: string
+                            Nivel6:
+                              type: string
+                            Nivel7:
+                              type: string
+                            NumeroGrados:
+                              type: integer
+                            MonedaID:
+                              type: integer
+                            NomMoneda:
+                              type: string
+                            CodMoneda:
+                              type: string
+                            AbreviaturaMoneda:
+                              type: string
+                            TipoEmpresa:
+                              type: string
+                            ControlCuadre:
+                              type: integer
+                            ModeloBalanceCabeceraID:
+                              type: integer
+                            FechaInicioEjercicio:
+                              type: string
+                            FechaFinEjercicio:
+                              type: string
+                            FechaMinimaContable:
+                              type: string
+                            FechaMinimaContableIva:
+                              type: string
+                            FechaMaximaContable:
+                              type: string
+                            IvaCompraID:
+                              type: integer
+                            IvaVentaID:
+                              type: integer
+                            IvaAutofacturaID:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT\r\nempresa.EmpresaID,\r\nempresa.Nombre AS NomEmpresa,\r\nempresa.DesgloseGrados,\r\nempresa.MonedaID,\r\nmoneda.Nombre AS NomMoneda,\r\nmoneda.CodigoISO AS CodMoneda,\r\nmoneda.Abreviatura AS AbreviaturaMoneda,\r\nempresa.TipoEmpresa,\r\nempresa.ControlCuadre,\r\nempresa.ModeloBalanceCabeceraID,\r\nempresa.FechaInicioEjercicio,\r\nempresa.FechaFinEjercicio,\r\nempresa.FechaMinimaContable,\r\nempresa.FechaMinimaContableIva,\r\nempresa.FechaMaximaContable,\r\nempresa.IvaCompraID,\r\nempresa.IvaVentaID,\r\nempresa.IvaAutofacturaID\r\nFROM empresa\r\nLEFT JOIN moneda ON moneda.MonedaID = empresa.MonedaID\r\nWHERE empresa.EmpresaID = 76 AND empresa.CustomerID = 29"
+                      records:
+                        - EmpresaID: 76
+                          NomEmpresa: Prueba
+                          DesgloseGrados: '0,0,0,0,0'
+                          Nivel1: '0'
+                          Nivel2: '0'
+                          Nivel3: '0'
+                          Nivel4: '0'
+                          Nivel5: '0'
+                          Nivel6: ''
+                          Nivel7: ''
+                          NumeroGrados: 0
+                          MonedaID: 1
+                          NomMoneda: Euros
+                          CodMoneda: EUR
+                          AbreviaturaMoneda: €
+                          TipoEmpresa: Type
+                          ControlCuadre: 0
+                          ModeloBalanceCabeceraID: 11
+                          FechaInicioEjercicio: '17991231'
+                          FechaFinEjercicio: '17991231'
+                          FechaMinimaContable: '17991231'
+                          FechaMinimaContableIva: '17991231'
+                          FechaMaximaContable: '17991231'
+                          IvaCompraID: 0
+                          IvaVentaID: 0
+                          IvaAutofacturaID: 0
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - EmpresaID: 76
+                          NomEmpresa: Prueba
+                          DesgloseGrados: '0,0,0,0,0'
+                          Nivel1: '0'
+                          Nivel2: '0'
+                          Nivel3: '0'
+                          Nivel4: '0'
+                          Nivel5: '0'
+                          Nivel6: ''
+                          Nivel7: ''
+                          NumeroGrados: 0
+                          MonedaID: 1
+                          NomMoneda: Euros
+                          CodMoneda: EUR
+                          AbreviaturaMoneda: €
+                          TipoEmpresa: Type
+                          ControlCuadre: 0
+                          ModeloBalanceCabeceraID: 11
+                          FechaInicioEjercicio: '17991231'
+                          FechaFinEjercicio: '17991231'
+                          FechaMinimaContable: '17991231'
+                          FechaMinimaContableIva: '17991231'
+                          FechaMaximaContable: '17991231'
+                          IvaCompraID: 0
+                          IvaVentaID: 0
+                          IvaAutofacturaID: 0
       operationId: get-tables-companies-generalInformation-empresaID
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+    put:
+      summary: Companie - UpdateGeneralInformation
+      operationId: put-tables-companies-generalInformation-empresaID
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   '/tables/client/{Param}':
     get:
       summary: Client - findManyByParam
