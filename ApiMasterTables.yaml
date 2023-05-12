@@ -10119,6 +10119,52 @@ paths:
                       - ID: 317
                         Nombre: Produccion
                         Codigo: P
+  /tables/tickets:
+    get:
+      summary: GmaoTickets - FindMany
+      tags: []
+      responses: {}
+      operationId: get-tables-tickets
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+    post:
+      summary: GmaoTickets - Create
+      operationId: post-tables-tickets
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+  /tables/tickets/equipments:
+    get:
+      summary: GmaoTickets - FindManyEquipmentsByLayout
+      tags: []
+      responses: {}
+      operationId: get-tables-tickets-equipments
+  /tables/tickets/generaltable:
+    get:
+      summary: GmaoTickets - FindManyGeneralTable
+      tags: []
+      responses: {}
+      operationId: get-tables-tickets-generaltable
+  /tables/tickets/layouts:
+    get:
+      summary: GmaoTickets - FindAllLayouts
+      tags: []
+      responses: {}
+      operationId: get-tables-tickets-layouts
   '/tables/client/{Param}':
     get:
       summary: Client - findManyByParam
@@ -12701,220 +12747,6 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
-  /tables/checkList:
-    get:
-      summary: findManyByParamForCheckList
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            CheckListApartadoID:
-                              type: integer
-                            Apartado:
-                              type: string
-                      sql:
-                        type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      records:
-                        - CheckListApartadoID: 1
-                          Apartado: '4551'
-                        - CheckListApartadoID: 2
-                          Apartado: '65221'
-                      sql: "SELECT\r\nchecklistapartado.CheckListApartadoID,\r\nchecklistapartado.Apartado\r\nFROM\r\nchecklistapartado\r\nWHERE\r\nchecklistapartado.CustomerID = 29 AND\r\nchecklistapartado.EmpresaID = 1 AND\r\nchecklistapartado.Apartado LIKE '%1%'\r\n"
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      records:
-                        - CheckListApartadoID: 1
-                          Apartado: '4551'
-                        - CheckListApartadoID: 2
-                          Apartado: '65221'
-                      sql: "SELECT\r\nchecklistapartado.CheckListApartadoID,\r\nchecklistapartado.Apartado\r\nFROM\r\nchecklistapartado\r\nWHERE\r\nchecklistapartado.CustomerID = 29 AND\r\nchecklistapartado.EmpresaID = 1 AND\r\nchecklistapartado.Apartado LIKE '%1%'\r\n"
-      operationId: get-tables-checkList
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: string
-          in: query
-          name: 'param '
-          description: '1'
-    post:
-      summary: CreateForCheckList
-      operationId: post-tables-checkList
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      CheckListApartadoID:
-                        type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      CheckListApartadoID: 32
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      CheckListApartadoID: 32
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: accessToken
-          description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                checkListDefinicionGrupoID:
-                  type: integer
-                texto:
-                  type: string
-                activo:
-                  type: boolean
-                orden:
-                  type: integer
-                tipoCampoID:
-                  type: integer
-                notas:
-                  type: string
-                valores:
-                  type: string
-                apartadoCheckListID:
-                  type: integer
-              x-examples:
-                Example 1:
-                  checkListDefinicionGrupoID: 5
-                  texto: textoPrueba
-                  activo: true
-                  orden: 56
-                  tipoCampoID: 5
-                  notas: pruebaDTH
-                  valores: pruebaaValores
-                  apartadoCheckListID: 1
-            examples:
-              Example 1:
-                value:
-                  checkListDefinicionGrupoID: 5
-                  texto: textoPrueba
-                  activo: true
-                  orden: 56
-                  tipoCampoID: 5
-                  notas: pruebaDTH
-                  valores: pruebaaValores
-                  apartadoCheckListID: 1
-  /tables/checkListSection:
-    post:
-      summary: CreateCheckListSection
-      operationId: post-tables-checkListSection
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      CheckListApartadoID:
-                        type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      CheckListApartadoID: 8
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      CheckListApartadoID: 8
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                Apartado:
-                  type: integer
-              x-examples:
-                Example 1:
-                  Apartado: 785417
-            examples:
-              Example 1:
-                value:
-                  Apartado: 785417
   /employee/consult/hourDetail:
     get:
       summary: findManyByFiltersForHourDetail
@@ -13301,6 +13133,220 @@ paths:
           in: query
           name: offset
           description: '0'
+  /tables/checkList:
+    get:
+      summary: findManyByParamForCheckList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            CheckListApartadoID:
+                              type: integer
+                            Apartado:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - CheckListApartadoID: 1
+                          Apartado: '4551'
+                        - CheckListApartadoID: 2
+                          Apartado: '65221'
+                      sql: "SELECT\r\nchecklistapartado.CheckListApartadoID,\r\nchecklistapartado.Apartado\r\nFROM\r\nchecklistapartado\r\nWHERE\r\nchecklistapartado.CustomerID = 29 AND\r\nchecklistapartado.EmpresaID = 1 AND\r\nchecklistapartado.Apartado LIKE '%1%'\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - CheckListApartadoID: 1
+                          Apartado: '4551'
+                        - CheckListApartadoID: 2
+                          Apartado: '65221'
+                      sql: "SELECT\r\nchecklistapartado.CheckListApartadoID,\r\nchecklistapartado.Apartado\r\nFROM\r\nchecklistapartado\r\nWHERE\r\nchecklistapartado.CustomerID = 29 AND\r\nchecklistapartado.EmpresaID = 1 AND\r\nchecklistapartado.Apartado LIKE '%1%'\r\n"
+      operationId: get-tables-checkList
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: 'param '
+          description: '1'
+    post:
+      summary: CreateForCheckList
+      operationId: post-tables-checkList
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      CheckListApartadoID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      CheckListApartadoID: 32
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      CheckListApartadoID: 32
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                checkListDefinicionGrupoID:
+                  type: integer
+                texto:
+                  type: string
+                activo:
+                  type: boolean
+                orden:
+                  type: integer
+                tipoCampoID:
+                  type: integer
+                notas:
+                  type: string
+                valores:
+                  type: string
+                apartadoCheckListID:
+                  type: integer
+              x-examples:
+                Example 1:
+                  checkListDefinicionGrupoID: 5
+                  texto: textoPrueba
+                  activo: true
+                  orden: 56
+                  tipoCampoID: 5
+                  notas: pruebaDTH
+                  valores: pruebaaValores
+                  apartadoCheckListID: 1
+            examples:
+              Example 1:
+                value:
+                  checkListDefinicionGrupoID: 5
+                  texto: textoPrueba
+                  activo: true
+                  orden: 56
+                  tipoCampoID: 5
+                  notas: pruebaDTH
+                  valores: pruebaaValores
+                  apartadoCheckListID: 1
+  /tables/checkListSection:
+    post:
+      summary: CreateCheckListSection
+      operationId: post-tables-checkListSection
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      CheckListApartadoID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      CheckListApartadoID: 8
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      CheckListApartadoID: 8
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Apartado:
+                  type: integer
+              x-examples:
+                Example 1:
+                  Apartado: 785417
+            examples:
+              Example 1:
+                value:
+                  Apartado: 785417
   /tables/user/light:
     get:
       summary: findLightListForUser
