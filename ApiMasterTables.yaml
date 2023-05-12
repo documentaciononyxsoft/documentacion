@@ -8347,6 +8347,7 @@ paths:
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
         - schema:
             type: string
             example: '0'
@@ -8360,6 +8361,1231 @@ paths:
           name: limit
           description: 'Límite de registros que trae la consulta. Si se envía el número 50, y la tabla tiene 2000 registros solo se traerán 50.'
           required: true
+  /employee/machine/light:
+    get:
+      summary: Employees - FinByMachineLightList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ID: 1
+                          Nombre: CENTRO DE MECANIZADO 1
+                          Codigo: ME-01
+                        - ID: 2
+                          Nombre: CENTRO DE MECANIZADO 2
+                          Codigo: ME-02
+                        - ID: 3
+                          Nombre: CENTRO DE MECANIZADO 3
+                          Codigo: ME-03
+                        - ID: 4
+                          Nombre: CENTRO DE MONTAJE
+                          Codigo: MO-01
+                        - ID: 5
+                          Nombre: MAQ.ENVASADO
+                          Codigo: ENV1
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ID: 1
+                          Nombre: CENTRO DE MECANIZADO 1
+                          Codigo: ME-01
+                        - ID: 2
+                          Nombre: CENTRO DE MECANIZADO 2
+                          Codigo: ME-02
+                        - ID: 3
+                          Nombre: CENTRO DE MECANIZADO 3
+                          Codigo: ME-03
+                        - ID: 4
+                          Nombre: CENTRO DE MONTAJE
+                          Codigo: MO-01
+                        - ID: 5
+                          Nombre: MAQ.ENVASADO
+                          Codigo: ENV1
+      operationId: get-employee-machine-light
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+  /employee/position:
+    post:
+      summary: CreateForPosition
+      operationId: post-employee-position
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      EmpleadoPuestoID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      EmpleadoPuestoID: 29
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      EmpleadoPuestoID: 29
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FechaInicio:
+                  type: string
+                FechaFin:
+                  type: string
+                EmpleadoTipoPuestoID:
+                  type: string
+                EmpleadoID:
+                  type: string
+                MaquinaID:
+                  type: string
+                Codigo:
+                  type: string
+                Descripcion:
+                  type: string
+                DescripciónTipoPuesto:
+                  type: string
+                CodigoMaquina:
+                  type: string
+              x-examples:
+                Example 1:
+                  FechaInicio: '20020426'
+                  FechaFin: '20230303'
+                  EmpleadoTipoPuestoID: '5'
+                  EmpleadoID: '1'
+                  MaquinaID: '0'
+                  Codigo: ''
+                  Descripcion: ''
+                  DescripciónTipoPuesto: Estampador
+                  CodigoMaquina: ''
+            examples:
+              Example 1:
+                value:
+                  FechaInicio: '20020426'
+                  FechaFin: '20230303'
+                  EmpleadoTipoPuestoID: '5'
+                  EmpleadoID: '1'
+                  MaquinaID: '0'
+                  Codigo: ''
+                  Descripcion: ''
+                  DescripciónTipoPuesto: Estampador
+                  CodigoMaquina: ''
+  '/employee/position/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: '28'
+    put:
+      summary: UpdateForPosition
+      operationId: put-employee-position-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FechaInicio:
+                  type: string
+                FechaFin:
+                  type: string
+                EmpleadoTipoPuestoID:
+                  type: string
+                EmpleadoID:
+                  type: string
+                MaquinaID:
+                  type: string
+                Codigo:
+                  type: string
+                Descripcion:
+                  type: string
+                DescripciónTipoPuesto:
+                  type: string
+                CodigoMaquina:
+                  type: string
+              x-examples:
+                Example 1:
+                  FechaInicio: '20020426'
+                  FechaFin: '20230303'
+                  EmpleadoTipoPuestoID: '5'
+                  EmpleadoID: '1'
+                  MaquinaID: '0'
+                  Codigo: ''
+                  Descripcion: ''
+                  DescripciónTipoPuesto: Estampador
+                  CodigoMaquina: ''
+            examples:
+              Example 1:
+                value:
+                  FechaInicio: '20020426'
+                  FechaFin: '20230303'
+                  EmpleadoTipoPuestoID: '5'
+                  EmpleadoID: '1'
+                  MaquinaID: '0'
+                  Codigo: ''
+                  Descripcion: ''
+                  DescripciónTipoPuesto: Estampador
+                  CodigoMaquina: ''
+    delete:
+      summary: RemoveForPosition
+      operationId: delete-employee-position-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+  /employee/positions:
+    get:
+      summary: findManyForPositionByEmployee
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            EmpleadoPuestoID:
+                              type: integer
+                            FechaInicio:
+                              type: string
+                            FechaFin:
+                              type: string
+                            EmpleadoTipoPuestoID:
+                              type: integer
+                            EmpleadoID:
+                              type: integer
+                            MaquinaID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Descripcion:
+                              type: string
+                            DescripciónTipoPuesto:
+                              type: string
+                            CodigoMaquina:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - EmpleadoPuestoID: 7
+                          FechaInicio: '20210505'
+                          FechaFin: '20210526'
+                          EmpleadoTipoPuestoID: 1
+                          EmpleadoID: 1
+                          MaquinaID: 0
+                          Codigo: ''
+                          Descripcion: ''
+                          DescripciónTipoPuesto: Mecanico
+                          CodigoMaquina: ''
+                        - EmpleadoPuestoID: 3
+                          FechaInicio: '20170601'
+                          FechaFin: ''
+                          EmpleadoTipoPuestoID: 5
+                          EmpleadoID: 1
+                          MaquinaID: 0
+                          Codigo: ''
+                          Descripcion: ''
+                          DescripciónTipoPuesto: Estampador
+                          CodigoMaquina: ''
+                        - EmpleadoPuestoID: 18
+                          FechaInicio: '20170106'
+                          FechaFin: '00000101'
+                          EmpleadoTipoPuestoID: 5
+                          EmpleadoID: 1
+                          MaquinaID: 0
+                          Codigo: '0'
+                          Descripcion: '0'
+                          DescripciónTipoPuesto: Estampador
+                          CodigoMaquina: ''
+                        - EmpleadoPuestoID: 19
+                          FechaInicio: '20170101'
+                          FechaFin: '00000101'
+                          EmpleadoTipoPuestoID: 5
+                          EmpleadoID: 1
+                          MaquinaID: 0
+                          Codigo: '0'
+                          Descripcion: '0'
+                          DescripciónTipoPuesto: Estampador
+                          CodigoMaquina: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - EmpleadoPuestoID: 7
+                          FechaInicio: '20210505'
+                          FechaFin: '20210526'
+                          EmpleadoTipoPuestoID: 1
+                          EmpleadoID: 1
+                          MaquinaID: 0
+                          Codigo: ''
+                          Descripcion: ''
+                          DescripciónTipoPuesto: Mecanico
+                          CodigoMaquina: ''
+                        - EmpleadoPuestoID: 3
+                          FechaInicio: '20170601'
+                          FechaFin: ''
+                          EmpleadoTipoPuestoID: 5
+                          EmpleadoID: 1
+                          MaquinaID: 0
+                          Codigo: ''
+                          Descripcion: ''
+                          DescripciónTipoPuesto: Estampador
+                          CodigoMaquina: ''
+                        - EmpleadoPuestoID: 18
+                          FechaInicio: '20170106'
+                          FechaFin: '00000101'
+                          EmpleadoTipoPuestoID: 5
+                          EmpleadoID: 1
+                          MaquinaID: 0
+                          Codigo: '0'
+                          Descripcion: '0'
+                          DescripciónTipoPuesto: Estampador
+                          CodigoMaquina: ''
+                        - EmpleadoPuestoID: 19
+                          FechaInicio: '20170101'
+                          FechaFin: '00000101'
+                          EmpleadoTipoPuestoID: 5
+                          EmpleadoID: 1
+                          MaquinaID: 0
+                          Codigo: '0'
+                          Descripcion: '0'
+                          DescripciónTipoPuesto: Estampador
+                          CodigoMaquina: ''
+      operationId: get-employees-position
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: empleadoID
+          description: '1'
+    parameters: []
+  /employee/positionType/light:
+    get:
+      summary: findLightListForPositionType
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ID: 1
+                          Nombre: Mecanico
+                        - ID: 2
+                          Nombre: AlmacÃ©n
+                        - ID: 5
+                          Nombre: Estampador
+                        - ID: 6
+                          Nombre: Contador
+                        - ID: 7
+                          Nombre: Puesto Nuevo
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ID: 1
+                          Nombre: Mecanico
+                        - ID: 2
+                          Nombre: AlmacÃ©n
+                        - ID: 5
+                          Nombre: Estampador
+                        - ID: 6
+                          Nombre: Contador
+                        - ID: 7
+                          Nombre: Puesto Nuevo
+      operationId: get-employees-positionType-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+    parameters: []
+  /employee/quicksearch:
+    get:
+      summary: findManyByFilterForEmployee
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            EmpleadoID:
+                              type: integer
+                            UsuarioID:
+                              type: integer
+                            HorasJornada:
+                              type: integer
+                            Direccion:
+                              type: string
+                            MunicipioID:
+                              type: integer
+                            Dni:
+                              type: string
+                            Nota:
+                              type: string
+                            NumeroSS:
+                              type: string
+                            FechaIngreso:
+                              type: string
+                            FechaFin:
+                              type: string
+                            FechaNacimiento:
+                              type: string
+                            DescripcionFuncion:
+                              type: string
+                            NOmbreBanco:
+                              type: string
+                            Email:
+                              type: string
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                            Id_SatMovil:
+                              type: integer
+                            seccion:
+                              type: string
+                            SeccionID:
+                              type: integer
+                            EmpleadoUsuarioID:
+                              type: integer
+                            GrupoPrecioHoraId:
+                              type: integer
+                            RolID:
+                              type: integer
+                            Situacion:
+                              type: string
+                            NegocioID:
+                              type: integer
+                            WebID:
+                              type: integer
+                            GeneroID:
+                              type: integer
+                            NombreEmpleado:
+                              type: string
+                            CodigoEmpleado:
+                              type: string
+                            DescripcionFuncionEmpleado:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - EmpleadoID: 66
+                          UsuarioID: 82
+                          HorasJornada: 0
+                          Direccion: ''
+                          MunicipioID: 0
+                          Dni: '1231313'
+                          Nota: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+                          NumeroSS: '131'
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: '19990531'
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: yeison@gmail.com
+                          Nombre: yeison David Sanchez
+                          Codigo: '100011999'
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 4
+                          EmpleadoUsuarioID: 82
+                          GrupoPrecioHoraId: 1031
+                          RolID: 263
+                          Situacion: ''
+                          NegocioID: 15
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: yeison David Sanchez
+                          CodigoEmpleado: '100011999'
+                          DescripcionFuncionEmpleado: ''
+                      sql: "SELECT Empleado.*, Municipio.Nombre AS NombreMunicipio,\r\nEmpleado.Nombre AS NombreEmpleado,\r\nEmpleado.Codigo AS CodigoEmpleado,\r\nEmpleado.DescripcionFuncion AS DescripcionFuncionEmpleado\r\nFROM Empleado LEFT JOIN Municipio\r\n ON Municipio.MunicipioID = Empleado.MunicipioID\r\nWHERE\r\nEmpleado.CustomerID = 29 AND\r\nEmpleado.EmpresaID = 1\r\nAND (empleado.Codigo LIKE '%yei%' OR empleado.Dni LIKE '%yei%' OR empleado.Nombre LIKE '%yei%')\r\n\r\nORDER BY empleado.Codigo\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - EmpleadoID: 66
+                          UsuarioID: 82
+                          HorasJornada: 0
+                          Direccion: ''
+                          MunicipioID: 0
+                          Dni: '1231313'
+                          Nota: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+                          NumeroSS: '131'
+                          FechaIngreso: ''
+                          FechaFin: ''
+                          FechaNacimiento: '19990531'
+                          DescripcionFuncion: ''
+                          NOmbreBanco: ''
+                          Email: yeison@gmail.com
+                          Nombre: yeison David Sanchez
+                          Codigo: '100011999'
+                          Id_SatMovil: 0
+                          seccion: ''
+                          SeccionID: 4
+                          EmpleadoUsuarioID: 82
+                          GrupoPrecioHoraId: 1031
+                          RolID: 263
+                          Situacion: ''
+                          NegocioID: 15
+                          WebID: 0
+                          GeneroID: 0
+                          NombreEmpleado: yeison David Sanchez
+                          CodigoEmpleado: '100011999'
+                          DescripcionFuncionEmpleado: ''
+                      sql: "SELECT Empleado.*, Municipio.Nombre AS NombreMunicipio,\r\nEmpleado.Nombre AS NombreEmpleado,\r\nEmpleado.Codigo AS CodigoEmpleado,\r\nEmpleado.DescripcionFuncion AS DescripcionFuncionEmpleado\r\nFROM Empleado LEFT JOIN Municipio\r\n ON Municipio.MunicipioID = Empleado.MunicipioID\r\nWHERE\r\nEmpleado.CustomerID = 29 AND\r\nEmpleado.EmpresaID = 1\r\nAND (empleado.Codigo LIKE '%yei%' OR empleado.Dni LIKE '%yei%' OR empleado.Nombre LIKE '%yei%')\r\n\r\nORDER BY empleado.Codigo\r\n"
+      operationId: get-employee-quicksearch
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: param
+          description: yei
+  /employee/theme:
+    get:
+      summary: findManyByParamForTheme
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ID: 2
+                          Nombre: MANEJO DE CARRETILLA
+                          Codigo: '02'
+                        - ID: 4
+                          Nombre: CURSO DEL PROGRAMA DE CAPTURA EL PLANTA
+                          Codigo: '03'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ID: 2
+                          Nombre: MANEJO DE CARRETILLA
+                          Codigo: '02'
+                        - ID: 4
+                          Nombre: CURSO DEL PROGRAMA DE CAPTURA EL PLANTA
+                          Codigo: '03'
+        '':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ID: 2
+                          Nombre: MANEJO DE CARRETILLA
+                          Codigo: '02'
+                        - ID: 4
+                          Nombre: CURSO DEL PROGRAMA DE CAPTURA EL PLANTA
+                          Codigo: '03'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ID: 2
+                          Nombre: MANEJO DE CARRETILLA
+                          Codigo: '02'
+                        - ID: 4
+                          Nombre: CURSO DEL PROGRAMA DE CAPTURA EL PLANTA
+                          Codigo: '03'
+      operationId: get-tables-employees-theme
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          description: '"a"'
+          name: param
+    parameters: []
+  /employee/theme/light:
+    get:
+      summary: findLightListForTheme
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ID: 1
+                          Nombre: CURSO DE INGLES
+                          Codigo: '01'
+                        - ID: 2
+                          Nombre: MANEJO DE CARRETILLA
+                          Codigo: '02'
+                        - ID: 4
+                          Nombre: CURSO DEL PROGRAMA DE CAPTURA EL PLANTA
+                          Codigo: '03'
+                        - ID: 5
+                          Nombre: Office 365
+                          Codigo: '04'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ID: 1
+                          Nombre: CURSO DE INGLES
+                          Codigo: '01'
+                        - ID: 2
+                          Nombre: MANEJO DE CARRETILLA
+                          Codigo: '02'
+                        - ID: 4
+                          Nombre: CURSO DEL PROGRAMA DE CAPTURA EL PLANTA
+                          Codigo: '03'
+                        - ID: 5
+                          Nombre: Office 365
+                          Codigo: '04'
+      operationId: get-tables-employees-light-theme
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+    parameters: []
+  /employee/versatiles:
+    get:
+      summary: findManyForVersatilityByEmployee
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            EmpleadoCompetenciaNivelPuestoCabeceraID:
+                              type: integer
+                            EmpleadoTipoPuestoID:
+                              type: integer
+                            EmpleadoID:
+                              type: integer
+                            MaquinaID:
+                              type: integer
+                            FechaHoraUsuario:
+                              type: string
+                            MaquinaCodigo:
+                              type: string
+                            MaquinaNombre:
+                              type: string
+                            DescripcionPuesto:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - EmpleadoCompetenciaNivelPuestoCabeceraID: 25
+                          EmpleadoTipoPuestoID: 1
+                          EmpleadoID: 1
+                          MaquinaID: 7
+                          FechaHoraUsuario: '2023-03-30T10:26:54.180'
+                          MaquinaCodigo: COR2
+                          MaquinaNombre: 'SIERRA MECANIZA 2                                 '
+                          DescripcionPuesto: Mecanico
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - EmpleadoCompetenciaNivelPuestoCabeceraID: 25
+                          EmpleadoTipoPuestoID: 1
+                          EmpleadoID: 1
+                          MaquinaID: 7
+                          FechaHoraUsuario: '2023-03-30T10:26:54.180'
+                          MaquinaCodigo: COR2
+                          MaquinaNombre: 'SIERRA MECANIZA 2                                 '
+                          DescripcionPuesto: Mecanico
+      operationId: get-employee-versatiles
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: EmpleadoID
+          description: '1'
+  /employee/versatility:
+    post:
+      summary: CreateVersatility
+      operationId: post-employee-versatility
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      EmpleadoCompetenciaNivelPuestoCabeceraID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      EmpleadoCompetenciaNivelPuestoCabeceraID: 28
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      EmpleadoCompetenciaNivelPuestoCabeceraID: 28
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                EmpleadoTipoPuestoID:
+                  type: string
+                EmpleadoID:
+                  type: string
+                MaquinaID:
+                  type: string
+                FechaHoraUsuario:
+                  type: string
+                MaquinaCodigo:
+                  type: string
+                MaquinaNombre:
+                  type: string
+                DescripcionPuesto:
+                  type: string
+              x-examples:
+                Example 1:
+                  EmpleadoTipoPuestoID: '5'
+                  EmpleadoID: '1'
+                  MaquinaID: '0'
+                  FechaHoraUsuario: ''
+                  MaquinaCodigo: ''
+                  MaquinaNombre: ''
+                  DescripcionPuesto: Estampador
+            examples:
+              Example 1:
+                value:
+                  EmpleadoTipoPuestoID: '5'
+                  EmpleadoID: '1'
+                  MaquinaID: '0'
+                  FechaHoraUsuario: ''
+                  MaquinaCodigo: ''
+                  MaquinaNombre: ''
+                  DescripcionPuesto: Estampador
+  '/employee/versatility/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: '28'
+    put:
+      summary: UpdateForVersatility
+      operationId: put-employee-versatility-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                EmpleadoTipoPuestoID:
+                  type: string
+                EmpleadoID:
+                  type: string
+                MaquinaID:
+                  type: string
+                FechaHoraUsuario:
+                  type: string
+                MaquinaCodigo:
+                  type: string
+                MaquinaNombre:
+                  type: string
+                DescripcionPuesto:
+                  type: string
+              x-examples:
+                Example 1:
+                  EmpleadoTipoPuestoID: '5'
+                  EmpleadoID: '1'
+                  MaquinaID: '0'
+                  FechaHoraUsuario: ''
+                  MaquinaCodigo: ''
+                  MaquinaNombre: ''
+                  DescripcionPuesto: Estampador
+            examples:
+              Example 1:
+                value:
+                  EmpleadoTipoPuestoID: '5'
+                  EmpleadoID: '1'
+                  MaquinaID: '0'
+                  FechaHoraUsuario: ''
+                  MaquinaCodigo: ''
+                  MaquinaNombre: ''
+                  DescripcionPuesto: Estampador
+    delete:
+      summary: RemoveForVersatility
+      operationId: delete-employee-versatility-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+  /employees/light/account:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-employees-light-account
+  /tables/employes:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-tables-employes
+  /tables/employes/userAuth:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-tables-employes-userAuth
   '/tables/client/{Param}':
     get:
       summary: Client - findManyByParam
@@ -9045,6 +10271,60 @@ paths:
               type: object
               properties: {}
         description: ''
+  /tables/checkList/afterFieldType:
+    get:
+      summary: afterFieldType
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      valores:
+                        type: boolean
+                      notas:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      valores: false
+                      notas: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      valores: false
+                      notas: true
+      operationId: get-tables-checkList-afterFieldType
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: tipoCampoID
+          description: '1'
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
   /tables/checkListSection/checkList:
     get:
       summary: findManyForCheckListByCheckListSection
@@ -9163,60 +10443,6 @@ paths:
           in: query
           name: CheckListApartadoID
           description: '1'
-  /tables/checkList/afterFieldType:
-    get:
-      summary: afterFieldType
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      valores:
-                        type: boolean
-                      notas:
-                        type: boolean
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      valores: false
-                      notas: true
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      valores: false
-                      notas: true
-      operationId: get-tables-checkList-afterFieldType
-      parameters:
-        - schema:
-            type: integer
-          in: query
-          name: tipoCampoID
-          description: '1'
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
   /tables/checkListSections:
     get:
       summary: findManyForCheckListSection
@@ -10032,211 +11258,6 @@ paths:
           name: tiempoTrabajoID
           description: '1'
     parameters: []
-  /employee/theme:
-    get:
-      summary: findManyByParamForTheme
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      data:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - ID: 2
-                          Nombre: MANEJO DE CARRETILLA
-                          Codigo: '02'
-                        - ID: 4
-                          Nombre: CURSO DEL PROGRAMA DE CAPTURA EL PLANTA
-                          Codigo: '03'
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - ID: 2
-                          Nombre: MANEJO DE CARRETILLA
-                          Codigo: '02'
-                        - ID: 4
-                          Nombre: CURSO DEL PROGRAMA DE CAPTURA EL PLANTA
-                          Codigo: '03'
-        '':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      data:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - ID: 2
-                          Nombre: MANEJO DE CARRETILLA
-                          Codigo: '02'
-                        - ID: 4
-                          Nombre: CURSO DEL PROGRAMA DE CAPTURA EL PLANTA
-                          Codigo: '03'
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - ID: 2
-                          Nombre: MANEJO DE CARRETILLA
-                          Codigo: '02'
-                        - ID: 4
-                          Nombre: CURSO DEL PROGRAMA DE CAPTURA EL PLANTA
-                          Codigo: '03'
-      operationId: get-tables-employees-theme
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: string
-          in: query
-          description: '"a"'
-          name: param
-    parameters: []
-  /employee/theme/light:
-    get:
-      summary: findLightListForTheme
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      data:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - ID: 1
-                          Nombre: CURSO DE INGLES
-                          Codigo: '01'
-                        - ID: 2
-                          Nombre: MANEJO DE CARRETILLA
-                          Codigo: '02'
-                        - ID: 4
-                          Nombre: CURSO DEL PROGRAMA DE CAPTURA EL PLANTA
-                          Codigo: '03'
-                        - ID: 5
-                          Nombre: Office 365
-                          Codigo: '04'
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - ID: 1
-                          Nombre: CURSO DE INGLES
-                          Codigo: '01'
-                        - ID: 2
-                          Nombre: MANEJO DE CARRETILLA
-                          Codigo: '02'
-                        - ID: 4
-                          Nombre: CURSO DEL PROGRAMA DE CAPTURA EL PLANTA
-                          Codigo: '03'
-                        - ID: 5
-                          Nombre: Office 365
-                          Codigo: '04'
-      operationId: get-tables-employees-light-theme
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-    parameters: []
   /tables/light/generalTable:
     get:
       summary: findLightListForGeneralTable
@@ -10778,6 +11799,72 @@ paths:
           name: accessToken
           description: '"tokenReciente"'
     parameters: []
+  /tables/suppliers/light:
+    get:
+      summary: findLightListForSupplier
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ProveedorID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ProveedorID: 1
+                          Nombre: LA GUIPUZCOANA-edgos
+                          Codigo: '01 '
+                        - ProveedorID: 2
+                          Nombre: 'TTES. SEUR                              '
+                          Codigo: '40000002'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ProveedorID: 1
+                          Nombre: LA GUIPUZCOANA-edgos
+                          Codigo: '01 '
+                        - ProveedorID: 2
+                          Nombre: 'TTES. SEUR                              '
+                          Codigo: '40000002'
+      operationId: get-tables-suppliers-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
   /tables/employee/changeState:
     get:
       summary: changeStateForEmployee
@@ -11079,72 +12166,6 @@ paths:
           name: accessToken
           description: '"tokenReciente"'
     parameters: []
-  /tables/suppliers/light:
-    get:
-      summary: findLightListForSupplier
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      data:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ProveedorID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - ProveedorID: 1
-                          Nombre: LA GUIPUZCOANA-edgos
-                          Codigo: '01 '
-                        - ProveedorID: 2
-                          Nombre: 'TTES. SEUR                              '
-                          Codigo: '40000002'
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - ProveedorID: 1
-                          Nombre: LA GUIPUZCOANA-edgos
-                          Codigo: '01 '
-                        - ProveedorID: 2
-                          Nombre: 'TTES. SEUR                              '
-                          Codigo: '40000002'
-      operationId: get-tables-suppliers-light
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
   /tables/checkList/light:
     get:
       summary: findLightListForCheckList
@@ -11435,833 +12456,6 @@ paths:
               Example 1:
                 value:
                   Apartado: 785417
-  /employee/positions:
-    get:
-      summary: findManyForPositionByEmployee
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      data:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            EmpleadoPuestoID:
-                              type: integer
-                            FechaInicio:
-                              type: string
-                            FechaFin:
-                              type: string
-                            EmpleadoTipoPuestoID:
-                              type: integer
-                            EmpleadoID:
-                              type: integer
-                            MaquinaID:
-                              type: integer
-                            Codigo:
-                              type: string
-                            Descripcion:
-                              type: string
-                            DescripciónTipoPuesto:
-                              type: string
-                            CodigoMaquina:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - EmpleadoPuestoID: 7
-                          FechaInicio: '20210505'
-                          FechaFin: '20210526'
-                          EmpleadoTipoPuestoID: 1
-                          EmpleadoID: 1
-                          MaquinaID: 0
-                          Codigo: ''
-                          Descripcion: ''
-                          DescripciónTipoPuesto: Mecanico
-                          CodigoMaquina: ''
-                        - EmpleadoPuestoID: 3
-                          FechaInicio: '20170601'
-                          FechaFin: ''
-                          EmpleadoTipoPuestoID: 5
-                          EmpleadoID: 1
-                          MaquinaID: 0
-                          Codigo: ''
-                          Descripcion: ''
-                          DescripciónTipoPuesto: Estampador
-                          CodigoMaquina: ''
-                        - EmpleadoPuestoID: 18
-                          FechaInicio: '20170106'
-                          FechaFin: '00000101'
-                          EmpleadoTipoPuestoID: 5
-                          EmpleadoID: 1
-                          MaquinaID: 0
-                          Codigo: '0'
-                          Descripcion: '0'
-                          DescripciónTipoPuesto: Estampador
-                          CodigoMaquina: ''
-                        - EmpleadoPuestoID: 19
-                          FechaInicio: '20170101'
-                          FechaFin: '00000101'
-                          EmpleadoTipoPuestoID: 5
-                          EmpleadoID: 1
-                          MaquinaID: 0
-                          Codigo: '0'
-                          Descripcion: '0'
-                          DescripciónTipoPuesto: Estampador
-                          CodigoMaquina: ''
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - EmpleadoPuestoID: 7
-                          FechaInicio: '20210505'
-                          FechaFin: '20210526'
-                          EmpleadoTipoPuestoID: 1
-                          EmpleadoID: 1
-                          MaquinaID: 0
-                          Codigo: ''
-                          Descripcion: ''
-                          DescripciónTipoPuesto: Mecanico
-                          CodigoMaquina: ''
-                        - EmpleadoPuestoID: 3
-                          FechaInicio: '20170601'
-                          FechaFin: ''
-                          EmpleadoTipoPuestoID: 5
-                          EmpleadoID: 1
-                          MaquinaID: 0
-                          Codigo: ''
-                          Descripcion: ''
-                          DescripciónTipoPuesto: Estampador
-                          CodigoMaquina: ''
-                        - EmpleadoPuestoID: 18
-                          FechaInicio: '20170106'
-                          FechaFin: '00000101'
-                          EmpleadoTipoPuestoID: 5
-                          EmpleadoID: 1
-                          MaquinaID: 0
-                          Codigo: '0'
-                          Descripcion: '0'
-                          DescripciónTipoPuesto: Estampador
-                          CodigoMaquina: ''
-                        - EmpleadoPuestoID: 19
-                          FechaInicio: '20170101'
-                          FechaFin: '00000101'
-                          EmpleadoTipoPuestoID: 5
-                          EmpleadoID: 1
-                          MaquinaID: 0
-                          Codigo: '0'
-                          Descripcion: '0'
-                          DescripciónTipoPuesto: Estampador
-                          CodigoMaquina: ''
-      operationId: get-employees-position
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: string
-          in: query
-          name: empleadoID
-          description: '1'
-    parameters: []
-  /employee/positionType/light:
-    get:
-      summary: findLightListForPositionType
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      data:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - ID: 1
-                          Nombre: Mecanico
-                        - ID: 2
-                          Nombre: AlmacÃ©n
-                        - ID: 5
-                          Nombre: Estampador
-                        - ID: 6
-                          Nombre: Contador
-                        - ID: 7
-                          Nombre: Puesto Nuevo
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - ID: 1
-                          Nombre: Mecanico
-                        - ID: 2
-                          Nombre: AlmacÃ©n
-                        - ID: 5
-                          Nombre: Estampador
-                        - ID: 6
-                          Nombre: Contador
-                        - ID: 7
-                          Nombre: Puesto Nuevo
-      operationId: get-employees-positionType-light
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: accessToken
-    parameters: []
-  /employee/position:
-    post:
-      summary: CreateForPosition
-      operationId: post-employee-position
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      EmpleadoPuestoID:
-                        type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      EmpleadoPuestoID: 29
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      EmpleadoPuestoID: 29
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                FechaInicio:
-                  type: string
-                FechaFin:
-                  type: string
-                EmpleadoTipoPuestoID:
-                  type: string
-                EmpleadoID:
-                  type: string
-                MaquinaID:
-                  type: string
-                Codigo:
-                  type: string
-                Descripcion:
-                  type: string
-                DescripciónTipoPuesto:
-                  type: string
-                CodigoMaquina:
-                  type: string
-              x-examples:
-                Example 1:
-                  FechaInicio: '20020426'
-                  FechaFin: '20230303'
-                  EmpleadoTipoPuestoID: '5'
-                  EmpleadoID: '1'
-                  MaquinaID: '0'
-                  Codigo: ''
-                  Descripcion: ''
-                  DescripciónTipoPuesto: Estampador
-                  CodigoMaquina: ''
-            examples:
-              Example 1:
-                value:
-                  FechaInicio: '20020426'
-                  FechaFin: '20230303'
-                  EmpleadoTipoPuestoID: '5'
-                  EmpleadoID: '1'
-                  MaquinaID: '0'
-                  Codigo: ''
-                  Descripcion: ''
-                  DescripciónTipoPuesto: Estampador
-                  CodigoMaquina: ''
-  '/employee/position/{id}':
-    parameters:
-      - schema:
-          type: string
-        name: id
-        in: path
-        required: true
-        description: '28'
-    put:
-      summary: UpdateForPosition
-      operationId: put-employee-position-id
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                FechaInicio:
-                  type: string
-                FechaFin:
-                  type: string
-                EmpleadoTipoPuestoID:
-                  type: string
-                EmpleadoID:
-                  type: string
-                MaquinaID:
-                  type: string
-                Codigo:
-                  type: string
-                Descripcion:
-                  type: string
-                DescripciónTipoPuesto:
-                  type: string
-                CodigoMaquina:
-                  type: string
-              x-examples:
-                Example 1:
-                  FechaInicio: '20020426'
-                  FechaFin: '20230303'
-                  EmpleadoTipoPuestoID: '5'
-                  EmpleadoID: '1'
-                  MaquinaID: '0'
-                  Codigo: ''
-                  Descripcion: ''
-                  DescripciónTipoPuesto: Estampador
-                  CodigoMaquina: ''
-            examples:
-              Example 1:
-                value:
-                  FechaInicio: '20020426'
-                  FechaFin: '20230303'
-                  EmpleadoTipoPuestoID: '5'
-                  EmpleadoID: '1'
-                  MaquinaID: '0'
-                  Codigo: ''
-                  Descripcion: ''
-                  DescripciónTipoPuesto: Estampador
-                  CodigoMaquina: ''
-    delete:
-      summary: RemoveForPosition
-      operationId: delete-employee-position-id
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-  /employee/machine/light:
-    get:
-      summary: findLightListForMachine
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      data:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - ID: 1
-                          Nombre: CENTRO DE MECANIZADO 1
-                          Codigo: ME-01
-                        - ID: 2
-                          Nombre: CENTRO DE MECANIZADO 2
-                          Codigo: ME-02
-                        - ID: 3
-                          Nombre: CENTRO DE MECANIZADO 3
-                          Codigo: ME-03
-                        - ID: 4
-                          Nombre: CENTRO DE MONTAJE
-                          Codigo: MO-01
-                        - ID: 5
-                          Nombre: MAQ.ENVASADO
-                          Codigo: ENV1
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - ID: 1
-                          Nombre: CENTRO DE MECANIZADO 1
-                          Codigo: ME-01
-                        - ID: 2
-                          Nombre: CENTRO DE MECANIZADO 2
-                          Codigo: ME-02
-                        - ID: 3
-                          Nombre: CENTRO DE MECANIZADO 3
-                          Codigo: ME-03
-                        - ID: 4
-                          Nombre: CENTRO DE MONTAJE
-                          Codigo: MO-01
-                        - ID: 5
-                          Nombre: MAQ.ENVASADO
-                          Codigo: ENV1
-      operationId: get-employee-machine-light
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-  /employee/versatiles:
-    get:
-      summary: findManyForVersatilityByEmployee
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      data:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            EmpleadoCompetenciaNivelPuestoCabeceraID:
-                              type: integer
-                            EmpleadoTipoPuestoID:
-                              type: integer
-                            EmpleadoID:
-                              type: integer
-                            MaquinaID:
-                              type: integer
-                            FechaHoraUsuario:
-                              type: string
-                            MaquinaCodigo:
-                              type: string
-                            MaquinaNombre:
-                              type: string
-                            DescripcionPuesto:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - EmpleadoCompetenciaNivelPuestoCabeceraID: 25
-                          EmpleadoTipoPuestoID: 1
-                          EmpleadoID: 1
-                          MaquinaID: 7
-                          FechaHoraUsuario: '2023-03-30T10:26:54.180'
-                          MaquinaCodigo: COR2
-                          MaquinaNombre: 'SIERRA MECANIZA 2                                 '
-                          DescripcionPuesto: Mecanico
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - EmpleadoCompetenciaNivelPuestoCabeceraID: 25
-                          EmpleadoTipoPuestoID: 1
-                          EmpleadoID: 1
-                          MaquinaID: 7
-                          FechaHoraUsuario: '2023-03-30T10:26:54.180'
-                          MaquinaCodigo: COR2
-                          MaquinaNombre: 'SIERRA MECANIZA 2                                 '
-                          DescripcionPuesto: Mecanico
-      operationId: get-employee-versatiles
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: string
-          in: query
-          name: EmpleadoID
-          description: '1'
-  /employee/versatility:
-    post:
-      summary: CreateVersatility
-      operationId: post-employee-versatility
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      EmpleadoCompetenciaNivelPuestoCabeceraID:
-                        type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      EmpleadoCompetenciaNivelPuestoCabeceraID: 28
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      EmpleadoCompetenciaNivelPuestoCabeceraID: 28
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: accessToken
-          description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                EmpleadoTipoPuestoID:
-                  type: string
-                EmpleadoID:
-                  type: string
-                MaquinaID:
-                  type: string
-                FechaHoraUsuario:
-                  type: string
-                MaquinaCodigo:
-                  type: string
-                MaquinaNombre:
-                  type: string
-                DescripcionPuesto:
-                  type: string
-              x-examples:
-                Example 1:
-                  EmpleadoTipoPuestoID: '5'
-                  EmpleadoID: '1'
-                  MaquinaID: '0'
-                  FechaHoraUsuario: ''
-                  MaquinaCodigo: ''
-                  MaquinaNombre: ''
-                  DescripcionPuesto: Estampador
-            examples:
-              Example 1:
-                value:
-                  EmpleadoTipoPuestoID: '5'
-                  EmpleadoID: '1'
-                  MaquinaID: '0'
-                  FechaHoraUsuario: ''
-                  MaquinaCodigo: ''
-                  MaquinaNombre: ''
-                  DescripcionPuesto: Estampador
-  '/employee/versatility/{id}':
-    parameters:
-      - schema:
-          type: string
-        name: id
-        in: path
-        required: true
-        description: '28'
-    put:
-      summary: UpdateForVersatility
-      operationId: put-employee-versatility-id
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: accessToken
-          description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                EmpleadoTipoPuestoID:
-                  type: string
-                EmpleadoID:
-                  type: string
-                MaquinaID:
-                  type: string
-                FechaHoraUsuario:
-                  type: string
-                MaquinaCodigo:
-                  type: string
-                MaquinaNombre:
-                  type: string
-                DescripcionPuesto:
-                  type: string
-              x-examples:
-                Example 1:
-                  EmpleadoTipoPuestoID: '5'
-                  EmpleadoID: '1'
-                  MaquinaID: '0'
-                  FechaHoraUsuario: ''
-                  MaquinaCodigo: ''
-                  MaquinaNombre: ''
-                  DescripcionPuesto: Estampador
-            examples:
-              Example 1:
-                value:
-                  EmpleadoTipoPuestoID: '5'
-                  EmpleadoID: '1'
-                  MaquinaID: '0'
-                  FechaHoraUsuario: ''
-                  MaquinaCodigo: ''
-                  MaquinaNombre: ''
-                  DescripcionPuesto: Estampador
-    delete:
-      summary: RemoveForVersatility
-      operationId: delete-employee-versatility-id
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
   /employee/consult/hourDetail:
     get:
       summary: findManyByFiltersForHourDetail
@@ -12712,178 +12906,5 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
-  /employee/quicksearch:
-    get:
-      summary: findManyByFilterForEmployee
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            EmpleadoID:
-                              type: integer
-                            UsuarioID:
-                              type: integer
-                            HorasJornada:
-                              type: integer
-                            Direccion:
-                              type: string
-                            MunicipioID:
-                              type: integer
-                            Dni:
-                              type: string
-                            Nota:
-                              type: string
-                            NumeroSS:
-                              type: string
-                            FechaIngreso:
-                              type: string
-                            FechaFin:
-                              type: string
-                            FechaNacimiento:
-                              type: string
-                            DescripcionFuncion:
-                              type: string
-                            NOmbreBanco:
-                              type: string
-                            Email:
-                              type: string
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: string
-                            Id_SatMovil:
-                              type: integer
-                            seccion:
-                              type: string
-                            SeccionID:
-                              type: integer
-                            EmpleadoUsuarioID:
-                              type: integer
-                            GrupoPrecioHoraId:
-                              type: integer
-                            RolID:
-                              type: integer
-                            Situacion:
-                              type: string
-                            NegocioID:
-                              type: integer
-                            WebID:
-                              type: integer
-                            GeneroID:
-                              type: integer
-                            NombreEmpleado:
-                              type: string
-                            CodigoEmpleado:
-                              type: string
-                            DescripcionFuncionEmpleado:
-                              type: string
-                      sql:
-                        type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      records:
-                        - EmpleadoID: 66
-                          UsuarioID: 82
-                          HorasJornada: 0
-                          Direccion: ''
-                          MunicipioID: 0
-                          Dni: '1231313'
-                          Nota: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
-                          NumeroSS: '131'
-                          FechaIngreso: ''
-                          FechaFin: ''
-                          FechaNacimiento: '19990531'
-                          DescripcionFuncion: ''
-                          NOmbreBanco: ''
-                          Email: yeison@gmail.com
-                          Nombre: yeison David Sanchez
-                          Codigo: '100011999'
-                          Id_SatMovil: 0
-                          seccion: ''
-                          SeccionID: 4
-                          EmpleadoUsuarioID: 82
-                          GrupoPrecioHoraId: 1031
-                          RolID: 263
-                          Situacion: ''
-                          NegocioID: 15
-                          WebID: 0
-                          GeneroID: 0
-                          NombreEmpleado: yeison David Sanchez
-                          CodigoEmpleado: '100011999'
-                          DescripcionFuncionEmpleado: ''
-                      sql: "SELECT Empleado.*, Municipio.Nombre AS NombreMunicipio,\r\nEmpleado.Nombre AS NombreEmpleado,\r\nEmpleado.Codigo AS CodigoEmpleado,\r\nEmpleado.DescripcionFuncion AS DescripcionFuncionEmpleado\r\nFROM Empleado LEFT JOIN Municipio\r\n ON Municipio.MunicipioID = Empleado.MunicipioID\r\nWHERE\r\nEmpleado.CustomerID = 29 AND\r\nEmpleado.EmpresaID = 1\r\nAND (empleado.Codigo LIKE '%yei%' OR empleado.Dni LIKE '%yei%' OR empleado.Nombre LIKE '%yei%')\r\n\r\nORDER BY empleado.Codigo\r\n"
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      records:
-                        - EmpleadoID: 66
-                          UsuarioID: 82
-                          HorasJornada: 0
-                          Direccion: ''
-                          MunicipioID: 0
-                          Dni: '1231313'
-                          Nota: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
-                          NumeroSS: '131'
-                          FechaIngreso: ''
-                          FechaFin: ''
-                          FechaNacimiento: '19990531'
-                          DescripcionFuncion: ''
-                          NOmbreBanco: ''
-                          Email: yeison@gmail.com
-                          Nombre: yeison David Sanchez
-                          Codigo: '100011999'
-                          Id_SatMovil: 0
-                          seccion: ''
-                          SeccionID: 4
-                          EmpleadoUsuarioID: 82
-                          GrupoPrecioHoraId: 1031
-                          RolID: 263
-                          Situacion: ''
-                          NegocioID: 15
-                          WebID: 0
-                          GeneroID: 0
-                          NombreEmpleado: yeison David Sanchez
-                          CodigoEmpleado: '100011999'
-                          DescripcionFuncionEmpleado: ''
-                      sql: "SELECT Empleado.*, Municipio.Nombre AS NombreMunicipio,\r\nEmpleado.Nombre AS NombreEmpleado,\r\nEmpleado.Codigo AS CodigoEmpleado,\r\nEmpleado.DescripcionFuncion AS DescripcionFuncionEmpleado\r\nFROM Empleado LEFT JOIN Municipio\r\n ON Municipio.MunicipioID = Empleado.MunicipioID\r\nWHERE\r\nEmpleado.CustomerID = 29 AND\r\nEmpleado.EmpresaID = 1\r\nAND (empleado.Codigo LIKE '%yei%' OR empleado.Dni LIKE '%yei%' OR empleado.Nombre LIKE '%yei%')\r\n\r\nORDER BY empleado.Codigo\r\n"
-      operationId: get-employee-quicksearch
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: accessToken
-          description: '"tokenReciente"'
-        - schema:
-            type: string
-          in: query
-          name: param
-          description: yei
 components:
   schemas: {}
