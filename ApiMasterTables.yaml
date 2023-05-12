@@ -5481,6 +5481,7 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '76'
         name: empresaID
         in: path
         required: true
@@ -5647,6 +5648,41 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      EmpresaID:
+                        type: integer
+                      msg:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      EmpresaID: 76
+                      msg: Se ha modificado exitosamente.
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      EmpresaID: 76
+                      msg: Se ha modificado exitosamente.
       parameters:
         - schema:
             type: string
@@ -5655,6 +5691,49 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FechaInicioEjercicio:
+                  type: string
+                FechaFinEjercicio:
+                  type: string
+                FechaMinimaContable:
+                  type: string
+                FechaMinimaContableIva:
+                  type: string
+                FechaMaximaContable:
+                  type: string
+                IvaCompraID:
+                  type: integer
+                IvaVentaID:
+                  type: integer
+                IvaAutofacturaID:
+                  type: integer
+              x-examples:
+                Example 1:
+                  FechaInicioEjercicio: '20230512'
+                  FechaFinEjercicio: '20230530'
+                  FechaMinimaContable: '20230101'
+                  FechaMinimaContableIva: '20230101'
+                  FechaMaximaContable: '20231231'
+                  IvaCompraID: 10
+                  IvaVentaID: 10
+                  IvaAutofacturaID: 11
+            examples:
+              Example 1:
+                value:
+                  FechaInicioEjercicio: '20230512'
+                  FechaFinEjercicio: '20230530'
+                  FechaMinimaContable: '20230101'
+                  FechaMinimaContableIva: '20230101'
+                  FechaMaximaContable: '20231231'
+                  IvaCompraID: 10
+                  IvaVentaID: 10
+                  IvaAutofacturaID: 11
   '/tables/client/{Param}':
     get:
       summary: Client - findManyByParam
