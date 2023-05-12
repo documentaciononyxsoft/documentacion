@@ -5877,6 +5877,602 @@ paths:
           in: query
           name: mailingID
           required: true
+  /tables/contacts:
+    get:
+      summary: Contacts - FindMany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            MailingID:
+                              type: integer
+                            EmpresaID:
+                              type: integer
+                            CustomerID:
+                              type: integer
+                            MonedaID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Direccion:
+                              type: string
+                            Telefono:
+                              type: string
+                            EstadoID:
+                              type: integer
+                            Fax:
+                              type: string
+                            Email:
+                              type: string
+                            Web:
+                              type: string
+                            Cif:
+                              type: string
+                            CodigoPostalID:
+                              type: integer
+                            MunicipioID:
+                              type: integer
+                            ProvinciaID:
+                              type: integer
+                            PaisID:
+                              type: integer
+                            Directorio:
+                              type: string
+                            FechaHoraAlta:
+                              type: string
+                            FechaBaja:
+                              type: string
+                            TipoMailID:
+                              type: integer
+                            MotivoBajaID:
+                              type: integer
+                            TomaContactoID:
+                              type: integer
+                            ZonaID:
+                              type: integer
+                            ActividadID:
+                              type: integer
+                            CuentaContableID:
+                              type: integer
+                            NumeroEmpleados:
+                              type: integer
+                            NoEnviarPublicidad:
+                              type: integer
+                            AsignadoA:
+                              type: string
+                            Observacion:
+                              type: string
+                            UsuarioID:
+                              type: integer
+                            FechaHoraUsuario:
+                              type: string
+                            Empresas1ID:
+                              type: integer
+                            UsuarioBajaID:
+                              type: integer
+                            Facturacion:
+                              type: integer
+                            ReferenciaCodigo:
+                              type: string
+                            Activo:
+                              type: integer
+                            Id_SatMovil:
+                              type: integer
+                            Latitud:
+                              type: string
+                            Longitud:
+                              type: string
+                            NombreComercial:
+                              type: string
+                            DeBaja:
+                              type: integer
+                            RepresentanteID:
+                              type: integer
+                            FechaHoraNuevo:
+                              type: string
+                            FechaHoraModificado:
+                              type: string
+                            FechaHoraBorrado:
+                              type: string
+                            Descargado:
+                              type: integer
+                            SectorID:
+                              type: integer
+                            IdiomaID:
+                              type: integer
+                            FechaAltaActividad:
+                              type: string
+                            FechaFinalActividad:
+                              type: string
+                            NotaBaja:
+                              type: string
+                            NotaAviso:
+                              type: string
+                            Horario:
+                              type: string
+                            Notas:
+                              type: string
+                            GrupoCuentaID:
+                              type: integer
+                            Municipio:
+                              type: string
+                            InmuebleID:
+                              type: integer
+                            TipoIdentificacionFiscalID:
+                              type: integer
+                            PosibilidadID:
+                              type: integer
+                            InteresID:
+                              type: integer
+                            AtencionID:
+                              type: integer
+                            SituacionID:
+                              type: integer
+                            TipoCuentaComercialID:
+                              type: integer
+                            CuentaPrincipalID:
+                              type: integer
+                            URLDeInteres:
+                              type: string
+                            NoAdmitePublicidad:
+                              type: integer
+                            MotivoBloqueoID:
+                              type: integer
+                            QuienRecibeEDI:
+                              type: string
+                            ResponsableUsuarioID:
+                              type: integer
+                            NotaCuenta:
+                              type: string
+                            FechaUltimaAccion:
+                              type: string
+                            Representante2ID:
+                              type: integer
+                            ContactoID:
+                              type: integer
+                            DepartamentoID:
+                              type: integer
+                            Movil:
+                              type: string
+                            Extension:
+                              type: string
+                            Foto:
+                              type: string
+                            FechaNacimiento:
+                              type: string
+                            Puesto:
+                              type: string
+                            Defecto:
+                              type: string
+                            CodigoDpto:
+                              type: string
+                            NombreDpto:
+                              type: string
+                            CodigoPostalContacto:
+                              type: string
+                            ProvinciaContacto:
+                              type: string
+                            PaisContacto:
+                              type: string
+                            Descripcion:
+                              type: string
+                            ActivoMailing:
+                              type: integer
+                            NombreMailing:
+                              type: string
+                            CodigoMailing:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - MailingID: 469
+                          EmpresaID: 1
+                          CustomerID: 29
+                          MonedaID: 1
+                          Nombre: asadfa
+                          Direccion: asfas
+                          Telefono: fasdf
+                          EstadoID: 0
+                          Fax: adfasd
+                          Email: fasdf
+                          Web: ''
+                          Cif: WENF7007244XA
+                          CodigoPostalID: 0
+                          MunicipioID: 0
+                          ProvinciaID: 12
+                          PaisID: 148
+                          Directorio: ''
+                          FechaHoraAlta: '0000-00-00T00:00:00.000'
+                          FechaBaja: ''
+                          TipoMailID: 5
+                          MotivoBajaID: 0
+                          TomaContactoID: 0
+                          ZonaID: 0
+                          ActividadID: 0
+                          CuentaContableID: 2413
+                          NumeroEmpleados: 0
+                          NoEnviarPublicidad: 0
+                          AsignadoA: ''
+                          Observacion: Municipio Cajeme
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-01-13T15:42:48.087'
+                          Empresas1ID: 0
+                          UsuarioBajaID: 0
+                          Facturacion: 0
+                          ReferenciaCodigo: '10300010003'
+                          Activo: 1
+                          Id_SatMovil: 0
+                          Latitud: ''
+                          Longitud: ''
+                          NombreComercial: WEHIS NAVARRO FERNANDO
+                          DeBaja: 0
+                          RepresentanteID: 0
+                          FechaHoraNuevo: '0000-00-00T00:00:00.000'
+                          FechaHoraModificado: '2023-02-02T06:40:29.482'
+                          FechaHoraBorrado: '0000-00-00T00:00:00.000'
+                          Descargado: 0
+                          SectorID: 0
+                          IdiomaID: 0
+                          FechaAltaActividad: '20211011'
+                          FechaFinalActividad: ''
+                          NotaBaja: ''
+                          NotaAviso: ''
+                          Horario: ''
+                          Notas: mera nota
+                          GrupoCuentaID: 0
+                          Municipio: ''
+                          InmuebleID: 0
+                          TipoIdentificacionFiscalID: 583
+                          PosibilidadID: 0
+                          InteresID: 0
+                          AtencionID: 0
+                          SituacionID: 0
+                          TipoCuentaComercialID: 0
+                          CuentaPrincipalID: 0
+                          URLDeInteres: ''
+                          NoAdmitePublicidad: 0
+                          MotivoBloqueoID: 0
+                          QuienRecibeEDI: ''
+                          ResponsableUsuarioID: 0
+                          NotaCuenta: ''
+                          FechaUltimaAccion: '0000-00-00T00:00:00.000'
+                          Representante2ID: 0
+                          ContactoID: 259
+                          DepartamentoID: 11
+                          Movil: asdfsa
+                          Extension: ''
+                          Foto: '0'
+                          FechaNacimiento: '20230113'
+                          Puesto: un cargo
+                          Defecto: ''
+                          CodigoDpto: GTO
+                          NombreDpto: GUANAJUATO
+                          CodigoPostalContacto: ''
+                          ProvinciaContacto: GUANAJUATO
+                          PaisContacto: México
+                          Descripcion: VENTASUWU
+                          ActivoMailing: 1
+                          NombreMailing: WEHIS NAVARRO FERNANDO
+                          CodigoMailing: '10300010003'
+                        - MailingID: 469
+                          EmpresaID: 1
+                          CustomerID: 29
+                          MonedaID: 1
+                          Nombre: nombre
+                          Direccion: direccion
+                          Telefono: telefono
+                          EstadoID: 0
+                          Fax: fax
+                          Email: email
+                          Web: ''
+                          Cif: WENF7007244XA
+                          CodigoPostalID: 0
+                          MunicipioID: 0
+                          ProvinciaID: 19
+                          PaisID: 148
+                          Directorio: ''
+                          FechaHoraAlta: '0000-00-00T00:00:00.000'
+                          FechaBaja: ''
+                          TipoMailID: 5
+                          MotivoBajaID: 0
+                          TomaContactoID: 0
+                          ZonaID: 0
+                          ActividadID: 0
+                          CuentaContableID: 2413
+                          NumeroEmpleados: 0
+                          NoEnviarPublicidad: 0
+                          AsignadoA: ''
+                          Observacion: Municipio Cajeme
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-02-02T06:41:36.820'
+                          Empresas1ID: 0
+                          UsuarioBajaID: 0
+                          Facturacion: 0
+                          ReferenciaCodigo: '10300010003'
+                          Activo: 1
+                          Id_SatMovil: 0
+                          Latitud: ''
+                          Longitud: ''
+                          NombreComercial: WEHIS NAVARRO FERNANDO
+                          DeBaja: 0
+                          RepresentanteID: 0
+                          FechaHoraNuevo: '0000-00-00T00:00:00.000'
+                          FechaHoraModificado: '2023-02-02T06:42:43.598'
+                          FechaHoraBorrado: '0000-00-00T00:00:00.000'
+                          Descargado: 0
+                          SectorID: 0
+                          IdiomaID: 0
+                          FechaAltaActividad: '20211011'
+                          FechaFinalActividad: ''
+                          NotaBaja: ''
+                          NotaAviso: ''
+                          Horario: ''
+                          Notas: una nota pro
+                          GrupoCuentaID: 0
+                          Municipio: ''
+                          InmuebleID: 0
+                          TipoIdentificacionFiscalID: 583
+                          PosibilidadID: 0
+                          InteresID: 0
+                          AtencionID: 0
+                          SituacionID: 0
+                          TipoCuentaComercialID: 0
+                          CuentaPrincipalID: 0
+                          URLDeInteres: ''
+                          NoAdmitePublicidad: 1
+                          MotivoBloqueoID: 0
+                          QuienRecibeEDI: ''
+                          ResponsableUsuarioID: 0
+                          NotaCuenta: ''
+                          FechaUltimaAccion: '0000-00-00T00:00:00.000'
+                          Representante2ID: 0
+                          ContactoID: 265
+                          DepartamentoID: 11
+                          Movil: movil
+                          Extension: ''
+                          Foto: '0'
+                          FechaNacimiento: '19980608'
+                          Puesto: otro cargo
+                          Defecto: ''
+                          CodigoDpto: HIDA
+                          NombreDpto: 'HIDALGO '
+                          CodigoPostalContacto: ''
+                          ProvinciaContacto: 'HIDALGO '
+                          PaisContacto: México
+                          Descripcion: VENTASUWU
+                          ActivoMailing: 1
+                          NombreMailing: WEHIS NAVARRO FERNANDO
+                          CodigoMailing: '10300010003'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - MailingID: 469
+                          EmpresaID: 1
+                          CustomerID: 29
+                          MonedaID: 1
+                          Nombre: asadfa
+                          Direccion: asfas
+                          Telefono: fasdf
+                          EstadoID: 0
+                          Fax: adfasd
+                          Email: fasdf
+                          Web: ''
+                          Cif: WENF7007244XA
+                          CodigoPostalID: 0
+                          MunicipioID: 0
+                          ProvinciaID: 12
+                          PaisID: 148
+                          Directorio: ''
+                          FechaHoraAlta: '0000-00-00T00:00:00.000'
+                          FechaBaja: ''
+                          TipoMailID: 5
+                          MotivoBajaID: 0
+                          TomaContactoID: 0
+                          ZonaID: 0
+                          ActividadID: 0
+                          CuentaContableID: 2413
+                          NumeroEmpleados: 0
+                          NoEnviarPublicidad: 0
+                          AsignadoA: ''
+                          Observacion: Municipio Cajeme
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-01-13T15:42:48.087'
+                          Empresas1ID: 0
+                          UsuarioBajaID: 0
+                          Facturacion: 0
+                          ReferenciaCodigo: '10300010003'
+                          Activo: 1
+                          Id_SatMovil: 0
+                          Latitud: ''
+                          Longitud: ''
+                          NombreComercial: WEHIS NAVARRO FERNANDO
+                          DeBaja: 0
+                          RepresentanteID: 0
+                          FechaHoraNuevo: '0000-00-00T00:00:00.000'
+                          FechaHoraModificado: '2023-02-02T06:40:29.482'
+                          FechaHoraBorrado: '0000-00-00T00:00:00.000'
+                          Descargado: 0
+                          SectorID: 0
+                          IdiomaID: 0
+                          FechaAltaActividad: '20211011'
+                          FechaFinalActividad: ''
+                          NotaBaja: ''
+                          NotaAviso: ''
+                          Horario: ''
+                          Notas: mera nota
+                          GrupoCuentaID: 0
+                          Municipio: ''
+                          InmuebleID: 0
+                          TipoIdentificacionFiscalID: 583
+                          PosibilidadID: 0
+                          InteresID: 0
+                          AtencionID: 0
+                          SituacionID: 0
+                          TipoCuentaComercialID: 0
+                          CuentaPrincipalID: 0
+                          URLDeInteres: ''
+                          NoAdmitePublicidad: 0
+                          MotivoBloqueoID: 0
+                          QuienRecibeEDI: ''
+                          ResponsableUsuarioID: 0
+                          NotaCuenta: ''
+                          FechaUltimaAccion: '0000-00-00T00:00:00.000'
+                          Representante2ID: 0
+                          ContactoID: 259
+                          DepartamentoID: 11
+                          Movil: asdfsa
+                          Extension: ''
+                          Foto: '0'
+                          FechaNacimiento: '20230113'
+                          Puesto: un cargo
+                          Defecto: ''
+                          CodigoDpto: GTO
+                          NombreDpto: GUANAJUATO
+                          CodigoPostalContacto: ''
+                          ProvinciaContacto: GUANAJUATO
+                          PaisContacto: México
+                          Descripcion: VENTASUWU
+                          ActivoMailing: 1
+                          NombreMailing: WEHIS NAVARRO FERNANDO
+                          CodigoMailing: '10300010003'
+                        - MailingID: 469
+                          EmpresaID: 1
+                          CustomerID: 29
+                          MonedaID: 1
+                          Nombre: nombre
+                          Direccion: direccion
+                          Telefono: telefono
+                          EstadoID: 0
+                          Fax: fax
+                          Email: email
+                          Web: ''
+                          Cif: WENF7007244XA
+                          CodigoPostalID: 0
+                          MunicipioID: 0
+                          ProvinciaID: 19
+                          PaisID: 148
+                          Directorio: ''
+                          FechaHoraAlta: '0000-00-00T00:00:00.000'
+                          FechaBaja: ''
+                          TipoMailID: 5
+                          MotivoBajaID: 0
+                          TomaContactoID: 0
+                          ZonaID: 0
+                          ActividadID: 0
+                          CuentaContableID: 2413
+                          NumeroEmpleados: 0
+                          NoEnviarPublicidad: 0
+                          AsignadoA: ''
+                          Observacion: Municipio Cajeme
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2023-02-02T06:41:36.820'
+                          Empresas1ID: 0
+                          UsuarioBajaID: 0
+                          Facturacion: 0
+                          ReferenciaCodigo: '10300010003'
+                          Activo: 1
+                          Id_SatMovil: 0
+                          Latitud: ''
+                          Longitud: ''
+                          NombreComercial: WEHIS NAVARRO FERNANDO
+                          DeBaja: 0
+                          RepresentanteID: 0
+                          FechaHoraNuevo: '0000-00-00T00:00:00.000'
+                          FechaHoraModificado: '2023-02-02T06:42:43.598'
+                          FechaHoraBorrado: '0000-00-00T00:00:00.000'
+                          Descargado: 0
+                          SectorID: 0
+                          IdiomaID: 0
+                          FechaAltaActividad: '20211011'
+                          FechaFinalActividad: ''
+                          NotaBaja: ''
+                          NotaAviso: ''
+                          Horario: ''
+                          Notas: una nota pro
+                          GrupoCuentaID: 0
+                          Municipio: ''
+                          InmuebleID: 0
+                          TipoIdentificacionFiscalID: 583
+                          PosibilidadID: 0
+                          InteresID: 0
+                          AtencionID: 0
+                          SituacionID: 0
+                          TipoCuentaComercialID: 0
+                          CuentaPrincipalID: 0
+                          URLDeInteres: ''
+                          NoAdmitePublicidad: 1
+                          MotivoBloqueoID: 0
+                          QuienRecibeEDI: ''
+                          ResponsableUsuarioID: 0
+                          NotaCuenta: ''
+                          FechaUltimaAccion: '0000-00-00T00:00:00.000'
+                          Representante2ID: 0
+                          ContactoID: 265
+                          DepartamentoID: 11
+                          Movil: movil
+                          Extension: ''
+                          Foto: '0'
+                          FechaNacimiento: '19980608'
+                          Puesto: otro cargo
+                          Defecto: ''
+                          CodigoDpto: HIDA
+                          NombreDpto: 'HIDALGO '
+                          CodigoPostalContacto: ''
+                          ProvinciaContacto: 'HIDALGO '
+                          PaisContacto: México
+                          Descripcion: VENTASUWU
+                          ActivoMailing: 1
+                          NombreMailing: WEHIS NAVARRO FERNANDO
+                          CodigoMailing: '10300010003'
+      operationId: get-tables-contacts
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+  '/tables/contacts/{mailingID}':
+    parameters:
+      - schema:
+          type: string
+        name: mailingID
+        in: path
+        required: true
+    get:
+      summary: Contacts - FindLightListByClient
+      tags: []
+      responses: {}
+      operationId: get-tables-contacts-mailingid
   '/tables/client/{Param}':
     get:
       summary: Client - findManyByParam
@@ -11612,23 +12208,5 @@ paths:
                   NegocioID: ''
                   Municipio: ''
                   Situacion: ''
-  /tables/contacts:
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-tables-contacts
-  '/tables/contacts/{mailingID}':
-    parameters:
-      - schema:
-          type: string
-        name: mailingID
-        in: path
-        required: true
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-tables-contacts-mailingid
 components:
   schemas: {}
