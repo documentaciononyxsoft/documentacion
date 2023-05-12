@@ -6881,10 +6881,10 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '350'
         name: EmpleadoID
         in: path
         required: true
-        description: '68'
     put:
       summary: EmployeeSAT - Update
       operationId: put-employee-EmpleadoID
