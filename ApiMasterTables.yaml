@@ -3776,6 +3776,33 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      empresaID:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      empresaID: '78'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      empresaID: '78'
       parameters:
         - schema:
             type: string
@@ -3790,100 +3817,91 @@ paths:
             schema:
               type: object
               properties:
-                td:
-                  type: object
-                  properties:
-                    Nombre:
-                      type: string
-                    Codigo:
-                      type: string
-                    NombreComercial:
-                      type: string
-                    Telefono:
-                      type: string
-                    Fax:
-                      type: string
-                    Email:
-                      type: string
-                    PaisID:
-                      type: string
-                    Cif:
-                      type: string
-                    MunicipioID:
-                      type: string
-                    Direccion:
-                      type: string
-                    Web:
-                      type: string
-                    ProvinciaID:
-                      type: string
-                    CodigoPostal:
-                      type: string
-                    MonedaID:
-                      type: string
-                    ColorFondo:
-                      type: string
-                    ModeloBalanceCabeceraID:
-                      type: string
-                    TipoEmpresa:
-                      type: string
-                    ActivarTratamientoDelegacion:
-                      type: string
-                    ControlCuadre:
-                      type: string
-                    DesgloseGrados:
-                      type: string
-                    Authorization:
-                      type: string
+                Nombre:
+                  type: string
+                Codigo:
+                  type: string
+                NombreComercial:
+                  type: string
+                Telefono:
+                  type: string
+                Fax:
+                  type: string
+                Email:
+                  type: string
+                PaisID:
+                  type: integer
+                Cif:
+                  type: string
+                MunicipioID:
+                  type: integer
+                Direccion:
+                  type: string
+                Web:
+                  type: string
+                ProvinciaID:
+                  type: integer
+                CodigoPostal:
+                  type: string
+                MonedaID:
+                  type: integer
+                ColorFondo:
+                  type: integer
+                ModeloBalanceCabeceraID:
+                  type: integer
+                TipoEmpresa:
+                  type: string
+                ActivarTratamientoDelegacion:
+                  type: integer
+                ControlCuadre:
+                  type: integer
+                DesgloseGrados:
+                  type: string
               x-examples:
                 Example 1:
-                  td:
-                    Nombre: Alejandra
-                    Codigo: '400'
-                    NombreComercial: prueba
-                    Telefono: ''
-                    Fax: ''
-                    Email: ''
-                    PaisID: ''
-                    Cif: ''
-                    MunicipioID: ''
-                    Direccion: ''
-                    Web: ''
-                    ProvinciaID: ''
-                    CodigoPostal: ''
-                    MonedaID: ''
-                    ColorFondo: ''
-                    ModeloBalanceCabeceraID: ''
-                    TipoEmpresa: ''
-                    ActivarTratamientoDelegacion: ''
-                    ControlCuadre: ''
-                    DesgloseGrados: ''
-                    Authorization: ''
+                  Nombre: Prueba
+                  Codigo: PruebaCOD2
+                  NombreComercial: ComerName
+                  Telefono: '396969'
+                  Fax: '8888'
+                  Email: prueba@gmail.com
+                  PaisID: 45
+                  Cif: '5555'
+                  MunicipioID: 169
+                  Direccion: DireccionPrueba
+                  Web: string
+                  ProvinciaID: 5666
+                  CodigoPostal: '660011'
+                  MonedaID: 1
+                  ColorFondo: 0
+                  ModeloBalanceCabeceraID: 11
+                  TipoEmpresa: Type
+                  ActivarTratamientoDelegacion: 0
+                  ControlCuadre: 0
+                  DesgloseGrados: '0,0,0,0,0'
             examples:
               Example 1:
                 value:
-                  td:
-                    Nombre: string
-                    Codigo: string
-                    NombreComercial: string
-                    Telefono: string
-                    Fax: string
-                    Email: string
-                    PaisID: string
-                    Cif: string
-                    MunicipioID: string
-                    Direccion: string
-                    Web: string
-                    ProvinciaID: string
-                    CodigoPostal: string
-                    MonedaID: string
-                    ColorFondo: string
-                    ModeloBalanceCabeceraID: string
-                    TipoEmpresa: string
-                    ActivarTratamientoDelegacion: string
-                    ControlCuadre: string
-                    DesgloseGrados: string
-                    Authorization: string
+                  Nombre: Prueba
+                  Codigo: PruebaCOD2
+                  NombreComercial: ComerName
+                  Telefono: '396969'
+                  Fax: '8888'
+                  Email: prueba@gmail.com
+                  PaisID: 45
+                  Cif: '5555'
+                  MunicipioID: 169
+                  Direccion: DireccionPrueba
+                  Web: string
+                  ProvinciaID: 5666
+                  CodigoPostal: '660011'
+                  MonedaID: 1
+                  ColorFondo: 0
+                  ModeloBalanceCabeceraID: 11
+                  TipoEmpresa: Type
+                  ActivarTratamientoDelegacion: 0
+                  ControlCuadre: 0
+                  DesgloseGrados: '0,0,0,0,0'
     put:
       summary: ''
       operationId: put-tables-companies
