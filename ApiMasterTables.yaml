@@ -1472,7 +1472,7 @@ paths:
           name: albaranCompraID
   /tables/client:
     get:
-      summary: Clients - FindManyByParam
+      summary: Client - FindManyByParam
       tags: []
       responses:
         '200':
