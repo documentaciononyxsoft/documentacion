@@ -1249,6 +1249,158 @@ paths:
           name: 'accessToken '
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /ubications/mailing:
+    get:
+      summary: FindManyByParamByMailing
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT direccion.DireccionID,direccion.Nombre,direccion.Codigo\r\nFROM direccion\r\nWHERE Direccion.Clave = 'SAT'  AND direccion.CustomerID = 29 AND direccion.EmpresaID = 1\r\nAND ( direccion.Codigo LIKE '%Nueva%' OR direccion.Nombre LIKE '%Nueva%' ) \r\nAND direccion.mailingID = 873\r\nLIMIT 10"
+                      records:
+                        - ID: 32
+                          Nombre: DireccionNUEVA
+                          Codigo: 43
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - ID: 32
+                          Nombre: DireccionNUEVA
+                          Codigo: 43
+      operationId: get-ubications-mailing
+      parameters:
+        - schema:
+            type: integer
+            example: 873
+          in: query
+          name: mailing
+        - schema:
+            type: string
+            example: Nueva
+          in: query
+          name: 'param '
+          description: Nueva
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+  /ubications/mailing/light:
+    get:
+      summary: findLightListForUbicationByMailing
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT direccion.DireccionID,direccion.Nombre,direccion.Codigo\r\nFROM direccion\r\nWHERE Direccion.Clave = 'SAT'  AND direccion.CustomerID = 29 AND direccion.EmpresaID = 1\r\nAND direccion.mailingID = 873\r\n"
+                      records:
+                        - ID: 32
+                          Nombre: DireccionNUEVA
+                          Codigo: 43
+                        - ID: 33
+                          Nombre: DireccionSoloNombre
+                          Codigo: 44
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT direccion.DireccionID,direccion.Nombre,direccion.Codigo\r\nFROM direccion\r\nWHERE Direccion.Clave = 'SAT'  AND direccion.CustomerID = 29 AND direccion.EmpresaID = 1\r\nAND direccion.mailingID = 873\r\n"
+                      records:
+                        - ID: 32
+                          Nombre: DireccionNUEVA
+                          Codigo: 43
+                        - ID: 33
+                          Nombre: DireccionSoloNombre
+                          Codigo: 44
+      operationId: get-ubications-mailing-light
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: mailingID
+          description: '873'
   '/ubications/quicksearch/{sBusqueda}':
     get:
       summary: findManyByFilterForUbication
@@ -1413,154 +1565,5 @@ paths:
         in: path
         required: true
         description: '44'
-  /ubications/mailing/light:
-    get:
-      summary: findLightListForUbicationByMailing
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT direccion.DireccionID,direccion.Nombre,direccion.Codigo\r\nFROM direccion\r\nWHERE Direccion.Clave = 'SAT'  AND direccion.CustomerID = 29 AND direccion.EmpresaID = 1\r\nAND direccion.mailingID = 873\r\n"
-                      records:
-                        - ID: 32
-                          Nombre: DireccionNUEVA
-                          Codigo: 43
-                        - ID: 33
-                          Nombre: DireccionSoloNombre
-                          Codigo: 44
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT direccion.DireccionID,direccion.Nombre,direccion.Codigo\r\nFROM direccion\r\nWHERE Direccion.Clave = 'SAT'  AND direccion.CustomerID = 29 AND direccion.EmpresaID = 1\r\nAND direccion.mailingID = 873\r\n"
-                      records:
-                        - ID: 32
-                          Nombre: DireccionNUEVA
-                          Codigo: 43
-                        - ID: 33
-                          Nombre: DireccionSoloNombre
-                          Codigo: 44
-      operationId: get-ubications-mailing-light
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: integer
-          in: query
-          name: mailingID
-          description: '873'
-  /ubications/mailing:
-    get:
-      summary: findManyByParamForUbicationByMailing
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT direccion.DireccionID,direccion.Nombre,direccion.Codigo\r\nFROM direccion\r\nWHERE Direccion.Clave = 'SAT'  AND direccion.CustomerID = 29 AND direccion.EmpresaID = 1\r\nAND ( direccion.Codigo LIKE '%Nueva%' OR direccion.Nombre LIKE '%Nueva%' ) \r\nAND direccion.mailingID = 873\r\nLIMIT 10"
-                      records:
-                        - ID: 32
-                          Nombre: DireccionNUEVA
-                          Codigo: 43
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT direccion.DireccionID,direccion.Nombre,direccion.Codigo\r\nFROM direccion\r\nWHERE Direccion.Clave = 'SAT'  AND direccion.CustomerID = 29 AND direccion.EmpresaID = 1\r\nAND ( direccion.Codigo LIKE '%Nueva%' OR direccion.Nombre LIKE '%Nueva%' ) \r\nAND direccion.mailingID = 873\r\nLIMIT 10"
-                      records:
-                        - ID: 32
-                          Nombre: DireccionNUEVA
-                          Codigo: 43
-      operationId: get-ubications-mailing
-      parameters:
-        - schema:
-            type: integer
-          in: query
-          name: mailing
-          description: '873'
-        - schema:
-            type: string
-          in: query
-          name: 'param '
-          description: Nueva
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
 components:
   schemas: {}
