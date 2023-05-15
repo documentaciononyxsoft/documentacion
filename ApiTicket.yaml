@@ -427,7 +427,7 @@ paths:
           required: true
   /equipment/contracts:
     get:
-      summary: FindManyForContractsByEquipment
+      summary: Contracts - FindManyByEquipment
       tags: []
       responses:
         '200':
@@ -480,30 +480,30 @@ paths:
                     statusCode: 200
                     message: Request processed successfully
                     content:
-                      sql: "SELECT\r\nContratoMantenimiento.ContratoMantenimientoID,\r\nContratoMantenimiento.Numero,\r\nContratoMantenimiento.FechaInicio,\r\nContratoMantenimiento.FechaFinalizacion,\r\nContratoMantenimiento.Duracion,\r\nContratoMantenimiento.Nota,\r\nContratoMantenimiento.RenovacionAutomatica,\r\nContratoMantenimiento.Activo,\r\nTipoContrato.Descripcion AS DescTipoContrato,\r\nMailingContacto.Nombre AS NombreContacto,\r\nArticulo.Nombre AS ArticuloNombre,\r\nArticulo.Codigo AS ArticuloCodigo,\r\nMailing.ReferenciaCodigo AS ClienteCodigo,\r\nMailing.Nombre AS ClienteNombre,\r\nDireccion.Direccion,\r\nUsuario.NombreUsuario,\r\nTablaGeneral.Descripcion AS tipoEquipo\r\n\r\nFROM ContratoMantenimientoElemento LEFT JOIN Elemento ON ContratoMantenimientoElemento.ElementoID = Elemento.ElementoID\r\nLEFT JOIN Articulo ON Elemento.ArticuloID = Articulo.ArticuloID\r\nLEFT JOIN Usuario ON ContratoMantenimientoElemento.UsuarioID = Usuario.UsuarioID\r\nLEFT JOIN Cliente ON Cliente.ClienteID=Elemento.ClienteID\r\nLEFT JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT JOIN Direccion ON Direccion.DireccionID = Elemento.DireccionID\r\nLEFT JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = Elemento.TipoEquipoID\r\nLEFT JOIN ContratoMantenimiento ON ContratoMantenimiento.ContratoMantenimientoID = ContratoMantenimientoElemento.ContratoMantenimientoID\r\nLEFT JOIN TablaGeneral AS TipoContrato ON TipoContrato.TablaGeneralID = ContratoMantenimiento.TipoContratoMantenimientoID\r\nLEFT JOIN Contacto ON Contacto.ContactoID = ContratoMantenimiento.ContactoID\r\nLEFT JOIN Mailing AS MailingContacto ON MailingContacto.MailingID = Contacto.MailingID\r\n\r\nWHERE ContratoMantenimientoElemento.ElementoID = 9"
+                      sql: "SELECT\r\nContratoMantenimiento.ContratoMantenimientoID,\r\nContratoMantenimiento.Numero,\r\nContratoMantenimiento.FechaInicio,\r\nContratoMantenimiento.FechaFinalizacion,\r\nContratoMantenimiento.Duracion,\r\nContratoMantenimiento.Nota,\r\nContratoMantenimiento.RenovacionAutomatica,\r\nContratoMantenimiento.Activo,\r\nTipoContrato.Descripcion AS DescTipoContrato,\r\nMailingContacto.Nombre AS NombreContacto,\r\nArticulo.Nombre AS ArticuloNombre,\r\nArticulo.Codigo AS ArticuloCodigo,\r\nMailing.ReferenciaCodigo AS ClienteCodigo,\r\nMailing.Nombre AS ClienteNombre,\r\nDireccion.Direccion,\r\nUsuario.NombreUsuario,\r\nTablaGeneral.Descripcion AS tipoEquipo\r\n\r\nFROM ContratoMantenimientoElemento LEFT JOIN Elemento ON ContratoMantenimientoElemento.ElementoID = Elemento.ElementoID\r\nLEFT JOIN Articulo ON Elemento.ArticuloID = Articulo.ArticuloID\r\nLEFT JOIN Usuario ON ContratoMantenimientoElemento.UsuarioID = Usuario.UsuarioID\r\nLEFT JOIN Cliente ON Cliente.ClienteID=Elemento.ClienteID\r\nLEFT JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT JOIN Direccion ON Direccion.DireccionID = Elemento.DireccionID\r\nLEFT JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = Elemento.TipoEquipoID\r\nLEFT JOIN ContratoMantenimiento ON ContratoMantenimiento.ContratoMantenimientoID = ContratoMantenimientoElemento.ContratoMantenimientoID\r\nLEFT JOIN TablaGeneral AS TipoContrato ON TipoContrato.TablaGeneralID = ContratoMantenimiento.TipoContratoMantenimientoID\r\nLEFT JOIN Contacto ON Contacto.ContactoID = ContratoMantenimiento.ContactoID\r\nLEFT JOIN Mailing AS MailingContacto ON MailingContacto.MailingID = Contacto.MailingID\r\n\r\nWHERE ContratoMantenimientoElemento.ElementoID = 24"
                       records:
-                        - nID: 8
-                          nNumeroContrato: '3'
-                          dFechaInicio: '20230321'
-                          nDuracion: 12
-                          dFechaFin: '20240321'
-                          TipoContrato: GGGGHGH
-                          sNombreCliente: dario
+                        - nID: 1
+                          nNumeroContrato: '658965'
+                          dFechaInicio: '20230508'
+                          nDuracion: 0
+                          dFechaFin: '20230202'
+                          TipoContrato: ''
+                          sNombreCliente: TIENDAS TRES B S A DE C V
                           sNombreContacto: ''
-                          sNota: FDFDGHFHGHFHFHF
+                          sNota: NotaJCO
                           bRenovacionAutomatica: 0
                           bActivo: 0
-                        - nID: 9
-                          nNumeroContrato: '4'
-                          dFechaInicio: '20230327'
-                          nDuracion: 12
-                          dFechaFin: '20240327'
-                          TipoContrato: GGGGHGH
-                          sNombreCliente: dario
-                          sNombreContacto: dario
-                          sNota: bvcbcvbvcbvcbcv     cvbcvbcv
-                          bRenovacionAutomatica: 1
-                          bActivo: 1
+                        - nID: 1
+                          nNumeroContrato: '658965'
+                          dFechaInicio: '20230508'
+                          nDuracion: 0
+                          dFechaFin: '20230202'
+                          TipoContrato: ''
+                          sNombreCliente: TIENDAS TRES B S A DE C V
+                          sNombreContacto: ''
+                          sNota: NotaJCO
+                          bRenovacionAutomatica: 0
+                          bActivo: 0
                       success: true
               examples:
                 Example 1:
@@ -511,43 +511,46 @@ paths:
                     statusCode: 200
                     message: Request processed successfully
                     content:
-                      sql: "SELECT\r\nContratoMantenimiento.ContratoMantenimientoID,\r\nContratoMantenimiento.Numero,\r\nContratoMantenimiento.FechaInicio,\r\nContratoMantenimiento.FechaFinalizacion,\r\nContratoMantenimiento.Duracion,\r\nContratoMantenimiento.Nota,\r\nContratoMantenimiento.RenovacionAutomatica,\r\nContratoMantenimiento.Activo,\r\nTipoContrato.Descripcion AS DescTipoContrato,\r\nMailingContacto.Nombre AS NombreContacto,\r\nArticulo.Nombre AS ArticuloNombre,\r\nArticulo.Codigo AS ArticuloCodigo,\r\nMailing.ReferenciaCodigo AS ClienteCodigo,\r\nMailing.Nombre AS ClienteNombre,\r\nDireccion.Direccion,\r\nUsuario.NombreUsuario,\r\nTablaGeneral.Descripcion AS tipoEquipo\r\n\r\nFROM ContratoMantenimientoElemento LEFT JOIN Elemento ON ContratoMantenimientoElemento.ElementoID = Elemento.ElementoID\r\nLEFT JOIN Articulo ON Elemento.ArticuloID = Articulo.ArticuloID\r\nLEFT JOIN Usuario ON ContratoMantenimientoElemento.UsuarioID = Usuario.UsuarioID\r\nLEFT JOIN Cliente ON Cliente.ClienteID=Elemento.ClienteID\r\nLEFT JOIN Mailing ON Mailing.MailingID = Cliente.MailingID\r\nLEFT JOIN Direccion ON Direccion.DireccionID = Elemento.DireccionID\r\nLEFT JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = Elemento.TipoEquipoID\r\nLEFT JOIN ContratoMantenimiento ON ContratoMantenimiento.ContratoMantenimientoID = ContratoMantenimientoElemento.ContratoMantenimientoID\r\nLEFT JOIN TablaGeneral AS TipoContrato ON TipoContrato.TablaGeneralID = ContratoMantenimiento.TipoContratoMantenimientoID\r\nLEFT JOIN Contacto ON Contacto.ContactoID = ContratoMantenimiento.ContactoID\r\nLEFT JOIN Mailing AS MailingContacto ON MailingContacto.MailingID = Contacto.MailingID\r\n\r\nWHERE ContratoMantenimientoElemento.ElementoID = 9"
+                      sql: string
                       records:
-                        - nID: 8
-                          nNumeroContrato: '3'
-                          dFechaInicio: '20230321'
-                          nDuracion: 12
-                          dFechaFin: '20240321'
-                          TipoContrato: GGGGHGH
-                          sNombreCliente: dario
+                        - nID: 1
+                          nNumeroContrato: '658965'
+                          dFechaInicio: '20230508'
+                          nDuracion: 0
+                          dFechaFin: '20230202'
+                          TipoContrato: ''
+                          sNombreCliente: TIENDAS TRES B S A DE C V
                           sNombreContacto: ''
-                          sNota: FDFDGHFHGHFHFHF
+                          sNota: NotaJCO
                           bRenovacionAutomatica: 0
                           bActivo: 0
-                        - nID: 9
-                          nNumeroContrato: '4'
-                          dFechaInicio: '20230327'
-                          nDuracion: 12
-                          dFechaFin: '20240327'
-                          TipoContrato: GGGGHGH
-                          sNombreCliente: dario
-                          sNombreContacto: dario
-                          sNota: bvcbcvbvcbvcbcv     cvbcvbcv
-                          bRenovacionAutomatica: 1
-                          bActivo: 1
+                        - nID: 1
+                          nNumeroContrato: '658965'
+                          dFechaInicio: '20230508'
+                          nDuracion: 0
+                          dFechaFin: '20230202'
+                          TipoContrato: ''
+                          sNombreCliente: TIENDAS TRES B S A DE C V
+                          sNombreContacto: ''
+                          sNota: NotaJCO
+                          bRenovacionAutomatica: 0
+                          bActivo: 0
                       success: true
       operationId: get-equipment-contracts
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: 'accessToken '
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
         - schema:
             type: string
+            example: '24'
           in: query
           name: equipoID
-          description: '4'
+          description: ElementoID
   /tickets:
     get:
       summary: FindMany
