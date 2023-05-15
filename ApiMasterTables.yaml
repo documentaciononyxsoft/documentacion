@@ -11391,6 +11391,44 @@ paths:
                         - ProveedorID: 43
                           Nombre: GIVAUDAN DE MEXICO SA DE CV
                           Codigo: '25000010004'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ProveedorID: 31
+                          Nombre: INGREDION MEXICO SA DE CV
+                          Codigo: '25000010002'
+                        - ProveedorID: 33
+                          Nombre: PROCESADORA DE GRANOS AUSTRAL SA
+                          Codigo: '25000020002'
+                        - ProveedorID: 34
+                          Nombre: BRIDGE INTERNATIONAL COMPANY
+                          Codigo: '25000020003'
+                        - ProveedorID: 37
+                          Nombre: CEPIA INTERNACIONAL SA
+                          Codigo: '25000020006'
+                        - ProveedorID: 38
+                          Nombre: BLOMMER CHOCOLATE COMPANY
+                          Codigo: '25000020007'
+                        - ProveedorID: 39
+                          Nombre: TREE TOP INC
+                          Codigo: '25000020008'
+                        - ProveedorID: 40
+                          Nombre: OLAM AMERICAS INC
+                          Codigo: '25000020009'
+                        - ProveedorID: 41
+                          Nombre: PORTFOLIO CONCENTRATE SOLUTIONS UC
+                          Codigo: '25000020010'
+                        - ProveedorID: 42
+                          Nombre: COMERCIALIZADORA ALCALI SA DE CV
+                          Codigo: '25000010003'
+                        - ProveedorID: 43
+                          Nombre: GIVAUDAN DE MEXICO SA DE CV
+                          Codigo: '25000010004'
       operationId: get-tables-suppliers-light
       parameters:
         - schema:
