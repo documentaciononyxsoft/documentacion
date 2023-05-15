@@ -11,7 +11,191 @@ paths:
     get:
       summary: Contracts - FindManyByFilters
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ContratoMantenimientoID:
+                              type: integer
+                            NContrato:
+                              type: string
+                            FechaAlta:
+                              type: string
+                            TipoContratoID:
+                              type: integer
+                            ClienteID:
+                              type: integer
+                            ContactoID:
+                              type: integer
+                            Notas:
+                              type: string
+                            ClienteNombre:
+                              type: string
+                            TipoContratoNombre:
+                              type: string
+                            ContactoNombre:
+                              type: string
+                            FechaInicio:
+                              type: string
+                            FechaFin:
+                              type: string
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - ContratoMantenimientoID: 1
+                          NContrato: '658965'
+                          FechaAlta: '20230515'
+                          TipoContratoID: 1000
+                          ClienteID: 10
+                          ContactoID: 0
+                          Notas: NotaJCO
+                          ClienteNombre: ABARROTERA DEL DUERO S A DE C V
+                          TipoContratoNombre: ''
+                          ContactoNombre: ''
+                          FechaInicio: '20230508'
+                          FechaFin: '20230202'
+                        - ContratoMantenimientoID: 4
+                          NContrato: '89898'
+                          FechaAlta: '20230515'
+                          TipoContratoID: 1000
+                          ClienteID: 10
+                          ContactoID: 0
+                          Notas: NotaJCO
+                          ClienteNombre: ABARROTERA DEL DUERO S A DE C V
+                          TipoContratoNombre: ''
+                          ContactoNombre: ''
+                          FechaInicio: '20230508'
+                          FechaFin: '20230515'
+                        - ContratoMantenimientoID: 5
+                          NContrato: '79879879'
+                          FechaAlta: '20230515'
+                          TipoContratoID: 1000
+                          ClienteID: 10
+                          ContactoID: 0
+                          Notas: NotaJCO
+                          ClienteNombre: ABARROTERA DEL DUERO S A DE C V
+                          TipoContratoNombre: ''
+                          ContactoNombre: ''
+                          FechaInicio: '20230508'
+                          FechaFin: '20230825'
+                        - ContratoMantenimientoID: 6
+                          NContrato: '121321'
+                          FechaAlta: '20230515'
+                          TipoContratoID: 1000
+                          ClienteID: 10
+                          ContactoID: 0
+                          Notas: NotaJCO
+                          ClienteNombre: ABARROTERA DEL DUERO S A DE C V
+                          TipoContratoNombre: ''
+                          ContactoNombre: ''
+                          FechaInicio: '20230508'
+                          FechaFin: '20230530'
+                        - ContratoMantenimientoID: 7
+                          NContrato: '66445'
+                          FechaAlta: '20230515'
+                          TipoContratoID: 1000
+                          ClienteID: 10
+                          ContactoID: 0
+                          Notas: NotaJCO
+                          ClienteNombre: ABARROTERA DEL DUERO S A DE C V
+                          TipoContratoNombre: ''
+                          ContactoNombre: ''
+                          FechaInicio: '20230508'
+                          FechaFin: '20230525'
+                      success: true
+                      sql: "select \r\nContratoMantenimiento.*\r\n\r\n from ContratoMantenimiento\r\n \r\n WHERE \r\n \r\nContratoMantenimiento.CustomerID = 29\r\nAND ContratoMantenimiento.EmpresaID = 1 AND (DATE(ContratoMantenimiento.FechaHoraUsuario) >= 20230515 AND DATE(ContratoMantenimiento.FechaHoraUsuario) <= 20231231 AND DATE(ContratoMantenimiento.FechaInicio) >= 20200101 AND DATE(ContratoMantenimiento.FechaInicio) <= 20231231 AND DATE(ContratoMantenimiento.FechaBaja) >= 20200101 AND DATE(ContratoMantenimiento.FechaBaja) <= 20231231)\r\nlimit 5 \r\noffset 0"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - ContratoMantenimientoID: 1
+                          NContrato: '658965'
+                          FechaAlta: '20230515'
+                          TipoContratoID: 1000
+                          ClienteID: 10
+                          ContactoID: 0
+                          Notas: NotaJCO
+                          ClienteNombre: ABARROTERA DEL DUERO S A DE C V
+                          TipoContratoNombre: ''
+                          ContactoNombre: ''
+                          FechaInicio: '20230508'
+                          FechaFin: '20230202'
+                        - ContratoMantenimientoID: 4
+                          NContrato: '89898'
+                          FechaAlta: '20230515'
+                          TipoContratoID: 1000
+                          ClienteID: 10
+                          ContactoID: 0
+                          Notas: NotaJCO
+                          ClienteNombre: ABARROTERA DEL DUERO S A DE C V
+                          TipoContratoNombre: ''
+                          ContactoNombre: ''
+                          FechaInicio: '20230508'
+                          FechaFin: '20230515'
+                        - ContratoMantenimientoID: 5
+                          NContrato: '79879879'
+                          FechaAlta: '20230515'
+                          TipoContratoID: 1000
+                          ClienteID: 10
+                          ContactoID: 0
+                          Notas: NotaJCO
+                          ClienteNombre: ABARROTERA DEL DUERO S A DE C V
+                          TipoContratoNombre: ''
+                          ContactoNombre: ''
+                          FechaInicio: '20230508'
+                          FechaFin: '20230825'
+                        - ContratoMantenimientoID: 6
+                          NContrato: '121321'
+                          FechaAlta: '20230515'
+                          TipoContratoID: 1000
+                          ClienteID: 10
+                          ContactoID: 0
+                          Notas: NotaJCO
+                          ClienteNombre: ABARROTERA DEL DUERO S A DE C V
+                          TipoContratoNombre: ''
+                          ContactoNombre: ''
+                          FechaInicio: '20230508'
+                          FechaFin: '20230530'
+                        - ContratoMantenimientoID: 7
+                          NContrato: '66445'
+                          FechaAlta: '20230515'
+                          TipoContratoID: 1000
+                          ClienteID: 10
+                          ContactoID: 0
+                          Notas: NotaJCO
+                          ClienteNombre: ABARROTERA DEL DUERO S A DE C V
+                          TipoContratoNombre: ''
+                          ContactoNombre: ''
+                          FechaInicio: '20230508'
+                          FechaFin: '20230525'
+                      success: true
+                      sql: string
       operationId: get-consult-contracts
       parameters:
         - schema:
@@ -35,26 +219,32 @@ paths:
           description: 'Límite de registros que trae la consulta. Si se envía el número 50, y la tabla tiene 2000 registros solo se traerán 50.'
         - schema:
             type: string
+            example: '20230515'
           in: query
           name: fechaAltaIn
         - schema:
             type: string
+            example: '20231231'
           in: query
           name: fechaAltaOut
         - schema:
             type: string
+            example: '20200101'
           in: query
           name: fechaInicioIn
         - schema:
             type: string
+            example: '20231231'
           in: query
           name: fechaInicioOut
         - schema:
             type: string
+            example: '20200101'
           in: query
           name: fechaBajaIn
         - schema:
             type: string
+            example: '20231231'
           in: query
           name: fechaBajaOut
         - schema:
