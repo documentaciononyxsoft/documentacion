@@ -1085,6 +1085,85 @@ paths:
           name: order
       requestBody:
         content: {}
+  '/ubications/contract/{contratoID}':
+    parameters:
+      - schema:
+          type: string
+          example: '20'
+        name: contratoID
+        in: path
+        required: true
+        description: ID del contrato
+    get:
+      summary: FindManyByParamForContract
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            UbicacionID:
+                              type: integer
+                            Codigo:
+                              type: integer
+                            Nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT\r\nDireccion.*,\r\nCodigoPostal.CodigoPostal AS CodigoPostal,\r\nDireccion.Municipio AS Municipio,\r\nProvincia.Nombre AS Provincia,\r\nPais.Nombre AS Pais,\r\nCONCAT (Direccion.Direccion, ' - ', Direccion.Municipio) AS DireccionCompleta\r\n\r\nFROM\r\n((((Direccion LEFT OUTER JOIN CodigoPostal ON Direccion.CodigoPostalID = CodigoPostal.CodigoPostalID)\r\nLEFT OUTER JOIN Municipio ON Direccion.MunicipioID = Municipio.MunicipioID)\r\nLEFT OUTER JOIN Provincia ON Direccion.ProvinciaID = Provincia.ProvinciaID)\r\nLEFT OUTER JOIN Pais ON Direccion.PaisID = Pais.PaisID)\r\n\r\nWHERE\r\nDireccion.CustomerID = 29 AND\r\nDireccion.EmpresaID = 1 AND\r\nDireccion.MailingID = 4 AND\r\nDireccion.Clave = 'SAT' AND\r\nDireccion.Activo = 1 AND\r\ndireccion.DireccionID NOT IN \r\n(SELECT\r\ndireccion.DireccionID\r\n\r\nFROM\r\n(((((ContratoMantenimientoDireccion LEFT OUTER JOIN Direccion ON Direccion.DireccionID = ContratoMantenimientoDireccion.DireccionID)\r\nLEFT OUTER JOIN CodigoPostal ON Direccion.CodigoPostalID = CodigoPostal.CodigoPostalID)\r\nLEFT OUTER JOIN Municipio ON Direccion.MunicipioID = Municipio.MunicipioID)\r\nLEFT OUTER JOIN Provincia ON Direccion.ProvinciaID = Provincia.ProvinciaID)\r\nLEFT OUTER JOIN Pais ON Direccion.PaisID = Pais.PaisID)\r\n\r\nWHERE\r\nDireccion.CustomerID = 29 AND\r\nDireccion.EmpresaID = 1  AND\r\nDireccion.Clave = 'SAT' AND\r\nContratoMantenimientoDireccion.ContratoMantenimientoID = 20 AND\r\nDireccion.Activo=1)\r\nAND (Direccion.Codigo LIKE '%Edgos v1%' OR Direccion.Nombre LIKE '%Edgos v1%')\r\nLIMIT 10\r\n"
+                      records:
+                        - UbicacionID: 57
+                          Codigo: 51
+                          Nombre: Edgos v1
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - UbicacionID: 57
+                          Codigo: 51
+                          Nombre: Edgos v1
+      operationId: get-ubications-contract-contratoID
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: Edgos v1
+          in: query
+          name: param
   '/ubications/quicksearch/{sBusqueda}':
     get:
       summary: findManyByFilterForUbication
@@ -1482,83 +1561,5 @@ paths:
           in: header
           name: 'accessToken '
           description: Token Reciente
-  '/ubications/contract/{contratoID}':
-    parameters:
-      - schema:
-          type: string
-          example: '20'
-        name: contratoID
-        in: path
-        required: true
-        description: ID del contrato
-    get:
-      summary: Ubications - FindManyByParamForContract
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            UbicacionID:
-                              type: integer
-                            Codigo:
-                              type: integer
-                            Nombre:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT\r\nDireccion.*,\r\nCodigoPostal.CodigoPostal AS CodigoPostal,\r\nDireccion.Municipio AS Municipio,\r\nProvincia.Nombre AS Provincia,\r\nPais.Nombre AS Pais,\r\nCONCAT (Direccion.Direccion, ' - ', Direccion.Municipio) AS DireccionCompleta\r\n\r\nFROM\r\n((((Direccion LEFT OUTER JOIN CodigoPostal ON Direccion.CodigoPostalID = CodigoPostal.CodigoPostalID)\r\nLEFT OUTER JOIN Municipio ON Direccion.MunicipioID = Municipio.MunicipioID)\r\nLEFT OUTER JOIN Provincia ON Direccion.ProvinciaID = Provincia.ProvinciaID)\r\nLEFT OUTER JOIN Pais ON Direccion.PaisID = Pais.PaisID)\r\n\r\nWHERE\r\nDireccion.CustomerID = 29 AND\r\nDireccion.EmpresaID = 1 AND\r\nDireccion.MailingID = 4 AND\r\nDireccion.Clave = 'SAT' AND\r\nDireccion.Activo = 1 AND\r\ndireccion.DireccionID NOT IN \r\n(SELECT\r\ndireccion.DireccionID\r\n\r\nFROM\r\n(((((ContratoMantenimientoDireccion LEFT OUTER JOIN Direccion ON Direccion.DireccionID = ContratoMantenimientoDireccion.DireccionID)\r\nLEFT OUTER JOIN CodigoPostal ON Direccion.CodigoPostalID = CodigoPostal.CodigoPostalID)\r\nLEFT OUTER JOIN Municipio ON Direccion.MunicipioID = Municipio.MunicipioID)\r\nLEFT OUTER JOIN Provincia ON Direccion.ProvinciaID = Provincia.ProvinciaID)\r\nLEFT OUTER JOIN Pais ON Direccion.PaisID = Pais.PaisID)\r\n\r\nWHERE\r\nDireccion.CustomerID = 29 AND\r\nDireccion.EmpresaID = 1  AND\r\nDireccion.Clave = 'SAT' AND\r\nContratoMantenimientoDireccion.ContratoMantenimientoID = 20 AND\r\nDireccion.Activo=1)\r\nAND (Direccion.Codigo LIKE '%Edgos v1%' OR Direccion.Nombre LIKE '%Edgos v1%')\r\nLIMIT 10\r\n"
-                      records:
-                        - UbicacionID: 57
-                          Codigo: 51
-                          Nombre: Edgos v1
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT\r\nDireccion.*,\r\nCodigoPostal.CodigoPostal AS CodigoPostal,\r\nDireccion.Municipio AS Municipio,\r\nProvincia.Nombre AS Provincia,\r\nPais.Nombre AS Pais,\r\nCONCAT (Direccion.Direccion, ' - ', Direccion.Municipio) AS DireccionCompleta\r\n\r\nFROM\r\n((((Direccion LEFT OUTER JOIN CodigoPostal ON Direccion.CodigoPostalID = CodigoPostal.CodigoPostalID)\r\nLEFT OUTER JOIN Municipio ON Direccion.MunicipioID = Municipio.MunicipioID)\r\nLEFT OUTER JOIN Provincia ON Direccion.ProvinciaID = Provincia.ProvinciaID)\r\nLEFT OUTER JOIN Pais ON Direccion.PaisID = Pais.PaisID)\r\n\r\nWHERE\r\nDireccion.CustomerID = 29 AND\r\nDireccion.EmpresaID = 1 AND\r\nDireccion.MailingID = 4 AND\r\nDireccion.Clave = 'SAT' AND\r\nDireccion.Activo = 1 AND\r\ndireccion.DireccionID NOT IN \r\n(SELECT\r\ndireccion.DireccionID\r\n\r\nFROM\r\n(((((ContratoMantenimientoDireccion LEFT OUTER JOIN Direccion ON Direccion.DireccionID = ContratoMantenimientoDireccion.DireccionID)\r\nLEFT OUTER JOIN CodigoPostal ON Direccion.CodigoPostalID = CodigoPostal.CodigoPostalID)\r\nLEFT OUTER JOIN Municipio ON Direccion.MunicipioID = Municipio.MunicipioID)\r\nLEFT OUTER JOIN Provincia ON Direccion.ProvinciaID = Provincia.ProvinciaID)\r\nLEFT OUTER JOIN Pais ON Direccion.PaisID = Pais.PaisID)\r\n\r\nWHERE\r\nDireccion.CustomerID = 29 AND\r\nDireccion.EmpresaID = 1  AND\r\nDireccion.Clave = 'SAT' AND\r\nContratoMantenimientoDireccion.ContratoMantenimientoID = 20 AND\r\nDireccion.Activo=1)\r\nAND (Direccion.Codigo LIKE '%Edgos v1%' OR Direccion.Nombre LIKE '%Edgos v1%')\r\nLIMIT 10\r\n"
-                      records:
-                        - UbicacionID: 57
-                          Codigo: 51
-                          Nombre: Edgos v1
-      operationId: get-ubications-contract-contratoID
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
-          in: header
-          name: accessToken
-          description: Token Reciente
-        - schema:
-            type: string
-          in: query
-          name: param
-          description: Edgos v1
 components:
   schemas: {}
