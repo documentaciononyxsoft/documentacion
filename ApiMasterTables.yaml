@@ -11260,6 +11260,68 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /tables/sendList:
+    get:
+      summary: SendList - FindMany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            listaenvioid:
+                              type: integer
+                            nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - listaenvioid: 1
+                          nombre: twrt
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - listaenvioid: 1
+                          nombre: Envio1
+                        - listaenvioid: 2
+                          nombre: Envio2
+                        - listaenvioid: 3
+                          nombre: Envio3
+      operationId: get-tables-sendList
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   '/tables/client/{Param}':
     get:
       summary: Client - FindManyByParam
@@ -12463,161 +12525,6 @@ paths:
           in: header
           name: accessToken
           description: '"tokenReciente"'
-  /tables/checkListGroup:
-    get:
-      summary: findManyByParamForCheckListGroup
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            CheckListDefinicionGrupoID:
-                              type: integer
-                            Codigo:
-                              type: string
-                            Nombre:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT * \r\nFROM CheckListDefinicionGrupo\r\nWHERE CheckListDefinicionGrupo.CustomerID = 29\r\nAND CheckListDefinicionGrupo.EmpresaID = 1\r\nAND CheckListDefinicionGrupo.Tipo = 'SAT'\r\nAND (CheckListDefinicionGrupo.Codigo LIKE '%a%' OR CheckListDefinicionGrupo.Nombre LIKE '%a%') \r\norder BY CheckListDefinicionGrupoID  ASC\r\nLIMIT 10 \r\n\r\n"
-                      records:
-                        - CheckListDefinicionGrupoID: 5
-                          Codigo: JJJJ
-                          Nombre: PRUEBA
-                        - CheckListDefinicionGrupoID: 8
-                          Codigo: nihili997587
-                          Nombre: pruebaNombreFTTF
-                        - CheckListDefinicionGrupoID: 11
-                          Codigo: nihili997587
-                          Nombre: pruebaNombreFTTF
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT * \r\nFROM CheckListDefinicionGrupo\r\nWHERE CheckListDefinicionGrupo.CustomerID = 29\r\nAND CheckListDefinicionGrupo.EmpresaID = 1\r\nAND CheckListDefinicionGrupo.Tipo = 'SAT'\r\nAND (CheckListDefinicionGrupo.Codigo LIKE '%a%' OR CheckListDefinicionGrupo.Nombre LIKE '%a%') \r\norder BY CheckListDefinicionGrupoID  ASC\r\nLIMIT 10 \r\n\r\n"
-                      records:
-                        - CheckListDefinicionGrupoID: 5
-                          Codigo: JJJJ
-                          Nombre: PRUEBA
-                        - CheckListDefinicionGrupoID: 8
-                          Codigo: nihili997587
-                          Nombre: pruebaNombreFTTF
-                        - CheckListDefinicionGrupoID: 11
-                          Codigo: nihili997587
-                          Nombre: pruebaNombreFTTF
-      operationId: get-tables-checkListGroup
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: tokenReciente
-        - schema:
-            type: string
-          in: query
-          name: 'param '
-          description: a
-    post:
-      summary: CreateForCheckListGroup
-      operationId: post-tables-checkListGroup
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      CheckListDefinicionGrupoID:
-                        type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      CheckListDefinicionGrupoID: 12
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      CheckListDefinicionGrupoID: 12
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                Codigo:
-                  type: string
-                Orden:
-                  type: integer
-                Activo:
-                  type: boolean
-                Nombre:
-                  type: string
-                Notas:
-                  type: string
-              x-examples:
-                Example 1:
-                  Codigo: nihili997587
-                  Orden: 41
-                  Activo: false
-                  Nombre: pruebaNombre
-                  Notas: Notas
-            examples:
-              Example 1:
-                value:
-                  Codigo: nihili997587
-                  Orden: 41
-                  Activo: false
-                  Nombre: pruebaNombre
-                  Notas: Notas
   /tables/employee/work:
     get:
       summary: FindWorkByEmployee
@@ -12798,6 +12705,161 @@ paths:
           name: tiempoTrabajoID
           description: '1'
     parameters: []
+  /tables/checkListGroup:
+    get:
+      summary: findManyByParamForCheckListGroup
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            CheckListDefinicionGrupoID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT * \r\nFROM CheckListDefinicionGrupo\r\nWHERE CheckListDefinicionGrupo.CustomerID = 29\r\nAND CheckListDefinicionGrupo.EmpresaID = 1\r\nAND CheckListDefinicionGrupo.Tipo = 'SAT'\r\nAND (CheckListDefinicionGrupo.Codigo LIKE '%a%' OR CheckListDefinicionGrupo.Nombre LIKE '%a%') \r\norder BY CheckListDefinicionGrupoID  ASC\r\nLIMIT 10 \r\n\r\n"
+                      records:
+                        - CheckListDefinicionGrupoID: 5
+                          Codigo: JJJJ
+                          Nombre: PRUEBA
+                        - CheckListDefinicionGrupoID: 8
+                          Codigo: nihili997587
+                          Nombre: pruebaNombreFTTF
+                        - CheckListDefinicionGrupoID: 11
+                          Codigo: nihili997587
+                          Nombre: pruebaNombreFTTF
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT * \r\nFROM CheckListDefinicionGrupo\r\nWHERE CheckListDefinicionGrupo.CustomerID = 29\r\nAND CheckListDefinicionGrupo.EmpresaID = 1\r\nAND CheckListDefinicionGrupo.Tipo = 'SAT'\r\nAND (CheckListDefinicionGrupo.Codigo LIKE '%a%' OR CheckListDefinicionGrupo.Nombre LIKE '%a%') \r\norder BY CheckListDefinicionGrupoID  ASC\r\nLIMIT 10 \r\n\r\n"
+                      records:
+                        - CheckListDefinicionGrupoID: 5
+                          Codigo: JJJJ
+                          Nombre: PRUEBA
+                        - CheckListDefinicionGrupoID: 8
+                          Codigo: nihili997587
+                          Nombre: pruebaNombreFTTF
+                        - CheckListDefinicionGrupoID: 11
+                          Codigo: nihili997587
+                          Nombre: pruebaNombreFTTF
+      operationId: get-tables-checkListGroup
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: tokenReciente
+        - schema:
+            type: string
+          in: query
+          name: 'param '
+          description: a
+    post:
+      summary: CreateForCheckListGroup
+      operationId: post-tables-checkListGroup
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      CheckListDefinicionGrupoID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      CheckListDefinicionGrupoID: 12
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      CheckListDefinicionGrupoID: 12
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Codigo:
+                  type: string
+                Orden:
+                  type: integer
+                Activo:
+                  type: boolean
+                Nombre:
+                  type: string
+                Notas:
+                  type: string
+              x-examples:
+                Example 1:
+                  Codigo: nihili997587
+                  Orden: 41
+                  Activo: false
+                  Nombre: pruebaNombre
+                  Notas: Notas
+            examples:
+              Example 1:
+                value:
+                  Codigo: nihili997587
+                  Orden: 41
+                  Activo: false
+                  Nombre: pruebaNombre
+                  Notas: Notas
   /tables/light/generalTable:
     get:
       summary: findLightListForGeneralTable
