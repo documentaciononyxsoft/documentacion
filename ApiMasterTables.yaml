@@ -10341,6 +10341,28 @@ paths:
       tags: []
       responses: {}
       operationId: get-tables-tickets-generaltable
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            enum:
+              - '0'
+              - '1'
+          in: query
+          name: offset
+          description: 'Registro a partir del cual empezará a traer los datos desde la tabla. Si se envía 20, y en la tabla existen 100 registros, la respuesta traerá solo los registros comprendidos entre las posiciones 20 y 100, y los primero 20 se omitirán.'
+        - schema:
+            type: string
+            example: '5'
+          in: query
+          name: limit
+          description: 'Límite de registros que trae la consulta. Si se envía el número 50, y la tabla tiene 2000 registros solo se traerán 50.'
   /tables/tickets/layouts:
     get:
       summary: GmaoTickets - FindAllLayouts
