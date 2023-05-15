@@ -451,7 +451,7 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      ubicacionID: 62
+                      ubicacionID: 1033
               examples:
                 Example 1:
                   value:
@@ -459,13 +459,15 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      ubicacionID: 62
+                      ubicacionID: 1033
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
       requestBody:
         content:
           application/json:
@@ -506,40 +508,40 @@ paths:
                   type: integer
               x-examples:
                 Example 1:
-                  nombre: Edgos v2
+                  nombre: Edgos v6
                   paisID: '1'
-                  Direccion: Calle falsa 123
+                  Direccion: Calle falsa updated
                   ProvinciaID: '1'
-                  Municipio: Dosquebradas
+                  Municipio: Pereira
                   Activo: '1'
-                  mailingID: '4'
-                  telefono: '33333'
+                  mailingID: '1252'
+                  telefono: '1111111'
                   fax: '44444'
                   email: a@a.com
                   rutaEntregaID: ''
-                  longitud: '343'
-                  latitud: '32432'
+                  longitud: '343454'
+                  latitud: '7878'
                   codigoPostalID: ''
-                  referenciaCliente: dasdas
+                  referenciaCliente: Updated
                   actualizarContrato: 0
             examples:
               Example 1:
                 value:
-                  nombre: Edgos v2
+                  nombre: Edgos v6
                   paisID: '1'
-                  Direccion: Calle falsa 123
+                  Direccion: Calle falsa updated
                   ProvinciaID: '1'
-                  Municipio: Dosquebradas
+                  Municipio: Pereira
                   Activo: '1'
-                  mailingID: '4'
-                  telefono: '33333'
+                  mailingID: '1252'
+                  telefono: '1111111'
                   fax: '44444'
                   email: a@a.com
                   rutaEntregaID: ''
-                  longitud: '343'
-                  latitud: '32432'
+                  longitud: '343454'
+                  latitud: '7878'
                   codigoPostalID: ''
-                  referenciaCliente: dasdas
+                  referenciaCliente: Updated
                   actualizarContrato: 0
         description: ''
     delete:
@@ -575,28 +577,22 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-        '':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true
-                }
-            }
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: 'accessToken '
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
     parameters:
       - schema:
           type: integer
+          example: 103
         name: ubicacionID
         in: path
         required: true
-        description: '62'
+        description: DireccionID
   /ubications:
     get:
       summary: FindMany
