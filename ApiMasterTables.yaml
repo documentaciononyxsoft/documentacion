@@ -11010,6 +11010,17 @@ paths:
                       codigoPostal: '001'
                       municipioID: 169
                       municipioNombre: Pereira
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      codigoPostalID: 15089
+                      codigoPostal: '001'
+                      municipioID: 169
+                      municipioNombre: Pereira
       operationId: get-tables-postalCode-checkPostalCode
       parameters:
         - schema:
