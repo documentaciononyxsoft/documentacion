@@ -27,6 +27,122 @@ paths:
           in: query
           name: param
           description: Parámetro a buscar
+  /warehouse/light:
+    get:
+      summary: FindLightList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      Almacens:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            AlmacenID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                      almacenPrincipalID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      Almacens:
+                        - AlmacenID: 3
+                          Codigo: Q1-MPE
+                          Nombre: Calidad MP ME
+                        - AlmacenID: 4
+                          Codigo: MP
+                          Nombre: Materia Prima
+                        - AlmacenID: 5
+                          Codigo: SA01
+                          Nombre: Silos Maiz 01
+                        - AlmacenID: 6
+                          Codigo: SF01
+                          Nombre: Silo Forraje 01JUJJU
+                        - AlmacenID: 7
+                          Codigo: SS01
+                          Nombre: Silo Semola 01
+                        - AlmacenID: 8
+                          Codigo: SP01
+                          Nombre: Subproductos
+                        - AlmacenID: 9
+                          Codigo: RECEP
+                          Nombre: Recepción
+                        - AlmacenID: 12
+                          Codigo: MRO
+                          Nombre: MRO
+                        - AlmacenID: 13
+                          Codigo: EPP
+                          Nombre: EQUIPO PROTECCION PERSONAL
+                        - AlmacenID: 15
+                          Codigo: CEDISTEO
+                          Nombre: CEDIS TEOLOYUCAN
+                      almacenPrincipalID: 3
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      Almacens:
+                        - AlmacenID: 3
+                          Codigo: Q1-MPE
+                          Nombre: Calidad MP ME
+                        - AlmacenID: 4
+                          Codigo: MP
+                          Nombre: Materia Prima
+                        - AlmacenID: 5
+                          Codigo: SA01
+                          Nombre: Silos Maiz 01
+                        - AlmacenID: 6
+                          Codigo: SF01
+                          Nombre: Silo Forraje 01JUJJU
+                        - AlmacenID: 7
+                          Codigo: SS01
+                          Nombre: Silo Semola 01
+                        - AlmacenID: 8
+                          Codigo: SP01
+                          Nombre: Subproductos
+                        - AlmacenID: 9
+                          Codigo: RECEP
+                          Nombre: Recepción
+                        - AlmacenID: 12
+                          Codigo: MRO
+                          Nombre: MRO
+                        - AlmacenID: 13
+                          Codigo: EPP
+                          Nombre: EQUIPO PROTECCION PERSONAL
+                        - AlmacenID: 15
+                          Codigo: CEDISTEO
+                          Nombre: CEDIS TEOLOYUCAN
+                      almacenPrincipalID: 3
+      operationId: get-warehouse-light
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas:
     User:
