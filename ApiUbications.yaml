@@ -224,7 +224,7 @@ paths:
           name: codigoPostal
   /ubication:
     post:
-      summary: CreateForUbication
+      summary: Create
       operationId: post-ubication
       responses:
         '200':
