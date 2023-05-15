@@ -10894,6 +10894,83 @@ paths:
             example: 45
           in: query
           name: paisID
+  /tables/payment/light:
+    get:
+      summary: PaymentType - FindAll
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        FormaPagoCobroID:
+                          type: integer
+                        Codigo:
+                          type: string
+                        Nombre:
+                          type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - FormaPagoCobroID: 5
+                        Codigo: '01'
+                        Nombre: EFECTIVO
+                      - FormaPagoCobroID: 6
+                        Codigo: '03'
+                        Nombre: TRANSFERENCIA
+                      - FormaPagoCobroID: 7
+                        Codigo: '02'
+                        Nombre: CHEQUE
+                      - FormaPagoCobroID: 8
+                        Codigo: '04'
+                        Nombre: TARJETA DE CREDITO
+                      - FormaPagoCobroID: 9
+                        Codigo: '05'
+                        Nombre: FormaPruebaJCO
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - FormaPagoCobroID: 5
+                        Codigo: '01'
+                        Nombre: EFECTIVO
+                      - FormaPagoCobroID: 6
+                        Codigo: '03'
+                        Nombre: TRANSFERENCIA
+                      - FormaPagoCobroID: 7
+                        Codigo: '02'
+                        Nombre: CHEQUE
+                      - FormaPagoCobroID: 8
+                        Codigo: '04'
+                        Nombre: TARJETA DE CREDITO
+                      - FormaPagoCobroID: 9
+                        Codigo: '05'
+                        Nombre: FormaPruebaJCO
+      operationId: get-tables-payment-light
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   '/tables/client/{Param}':
     get:
       summary: Client - FindManyByParam
