@@ -657,6 +657,115 @@ paths:
           description: AvisoTicketID
           required: true
     parameters: []
+  /generateTickets/generate:
+    post:
+      summary: GenerateTickets - Generate
+      operationId: post-generateTickets-generate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      ticket:
+                        type: integer
+                      intervencion:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      ticket: 24
+                      intervencion: 59
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      ticket: 24
+                      intervencion: 59
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                clienteID:
+                  type: integer
+                ubicacionID:
+                  type: integer
+                equipoID:
+                  type: integer
+                tipoTicket:
+                  type: integer
+                prioridadID:
+                  type: integer
+                servicioID:
+                  type: integer
+                tipoProblemaID:
+                  type: integer
+                observacionInterna:
+                  type: string
+                descripcionIntervencion:
+                  type: string
+                descripcionTicket:
+                  type: string
+                generarIntervencion:
+                  type: boolean
+                Tprevisto:
+                  type: integer
+              x-examples:
+                Example 1:
+                  clienteID: 4
+                  ubicacionID: 13
+                  equipoID: 1
+                  tipoTicket: 337
+                  prioridadID: 2
+                  servicioID: 1
+                  tipoProblemaID: 1
+                  observacionInterna: PRUEBAOBSERVACIONINTERNA
+                  descripcionIntervencion: PRUEBALL
+                  descripcionTicket: PRUEBALL2
+                  generarIntervencion: true
+                  Tprevisto: 4
+            examples:
+              Example 1:
+                value:
+                  clienteID: 4
+                  ubicacionID: 13
+                  equipoID: 1
+                  tipoTicket: 337
+                  prioridadID: 2
+                  servicioID: 1
+                  tipoProblemaID: 1
+                  observacionInterna: PRUEBAOBSERVACIONINTERNA
+                  descripcionIntervencion: PRUEBALL
+                  descripcionTicket: PRUEBALL2
+                  generarIntervencion: true
+                  Tprevisto: 4
   /tickets:
     get:
       summary: FindMany
@@ -4085,114 +4194,6 @@ paths:
           name: ticketID
           description: '3'
       x-extension-1: null
-  /generateTickets/generate:
-    get:
-      summary: generateTickets
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      ticket:
-                        type: integer
-                      intervencion:
-                        type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      ticket: 106
-                      intervencion: 52
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      ticket: 106
-                      intervencion: 52
-      operationId: get-generateTickets-generate
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                clienteID:
-                  type: integer
-                ubicacionID:
-                  type: integer
-                equipoID:
-                  type: integer
-                tipoTicket:
-                  type: integer
-                prioridadID:
-                  type: integer
-                servicioID:
-                  type: integer
-                tipoProblemaID:
-                  type: integer
-                observacionInterna:
-                  type: string
-                descripcionIntervencion:
-                  type: string
-                descripcionTicket:
-                  type: string
-                generarIntervencion:
-                  type: boolean
-                Tprevisto:
-                  type: integer
-              x-examples:
-                Example 1:
-                  clienteID: 4
-                  ubicacionID: 13
-                  equipoID: 1
-                  tipoTicket: 337
-                  prioridadID: 2
-                  servicioID: 1
-                  tipoProblemaID: 1
-                  observacionInterna: PRUEBAOBSERVACIONINTERNA
-                  descripcionIntervencion: PRUEBALL
-                  descripcionTicket: PRUEBALL2
-                  generarIntervencion: true
-                  Tprevisto: 4
-            examples:
-              Example 1:
-                value:
-                  clienteID: 4
-                  ubicacionID: 13
-                  equipoID: 1
-                  tipoTicket: 337
-                  prioridadID: 2
-                  servicioID: 1
-                  tipoProblemaID: 1
-                  observacionInterna: PRUEBAOBSERVACIONINTERNA
-                  descripcionIntervencion: PRUEBALL
-                  descripcionTicket: PRUEBALL2
-                  generarIntervencion: true
-                  Tprevisto: 4
   /consult/preventiveTickets:
     get:
       summary: findManyByFiltersForPreventiveTickets
