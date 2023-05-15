@@ -10825,6 +10825,75 @@ paths:
             example: '0'
           in: query
           name: offset
+  /tables/municipaly/checkMunicipaly:
+    get:
+      summary: Municipality - FindMany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sCodigoPostal:
+                        type: string
+                      sIDCodigoPostal:
+                        type: integer
+                      MunicipioID:
+                        type: integer
+                      MunicipioNombre:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sCodigoPostal: '001'
+                      sIDCodigoPostal: 14768
+                      MunicipioID: 8149
+                      MunicipioNombre: Pereira
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sCodigoPostal: '001'
+                      sIDCodigoPostal: 14768
+                      MunicipioID: 8149
+                      MunicipioNombre: Pereira
+      operationId: get-tables-municipaly-checkMunicipaly
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: pereira
+          in: query
+          name: sMunicipio
+        - schema:
+            type: integer
+            example: 45
+          in: query
+          name: paisID
   '/tables/client/{Param}':
     get:
       summary: Client - FindManyByParam
@@ -12183,73 +12252,6 @@ paths:
                   Activo: false
                   Nombre: pruebaNombre
                   Notas: Notas
-  /tables/municipaly/checkMunicipaly:
-    get:
-      summary: checkMunicipaly
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sCodigoPostal:
-                        type: string
-                      sIDCodigoPostal:
-                        type: integer
-                      MunicipioID:
-                        type: integer
-                      MunicipioNombre:
-                        type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sCodigoPostal: '001'
-                      sIDCodigoPostal: 14768
-                      MunicipioID: 8149
-                      MunicipioNombre: Pereira
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sCodigoPostal: '001'
-                      sIDCodigoPostal: 14768
-                      MunicipioID: 8149
-                      MunicipioNombre: Pereira
-      operationId: get-tables-municipaly-checkMunicipaly
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: string
-          in: query
-          name: sMunicipio
-          description: pereira
-        - schema:
-            type: integer
-          in: query
-          name: paisID
-          description: '45'
   /tables/postalCode/checkPostalCode:
     get:
       summary: checkPostalCode
