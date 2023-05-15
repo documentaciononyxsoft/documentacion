@@ -222,9 +222,390 @@ paths:
             type: string
           in: query
           name: codigoPostal
+  /ubication:
+    post:
+      summary: CreateForUbication
+      operationId: post-ubication
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      ubicacionID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      ubicacionID: 64
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      ubicacionID: 64
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                paisID:
+                  type: string
+                Direccion:
+                  type: string
+                ProvinciaID:
+                  type: string
+                Municipio:
+                  type: string
+                Activo:
+                  type: string
+                mailingID:
+                  type: string
+                telefono:
+                  type: string
+                fax:
+                  type: string
+                email:
+                  type: string
+                rutaEntregaID:
+                  type: string
+                longitud:
+                  type: string
+                latitud:
+                  type: string
+                codigoPostalID:
+                  type: string
+                referenciaCliente:
+                  type: string
+                actualizarContrato:
+                  type: integer
+              x-examples:
+                Example 1:
+                  nombre: Edgos v2
+                  paisID: '1'
+                  Direccion: Calle falsa 123
+                  ProvinciaID: '1'
+                  Municipio: Dosquebradas
+                  Activo: '1'
+                  mailingID: '4'
+                  telefono: '33333'
+                  fax: '44444'
+                  email: a@a.com
+                  rutaEntregaID: ''
+                  longitud: '343'
+                  latitud: '32432'
+                  codigoPostalID: ''
+                  referenciaCliente: dasdas
+                  actualizarContrato: 0
+            examples:
+              Example 1:
+                value:
+                  nombre: Edgos v2
+                  paisID: '1'
+                  Direccion: Calle falsa 123
+                  ProvinciaID: '1'
+                  Municipio: Dosquebradas
+                  Activo: '1'
+                  mailingID: '4'
+                  telefono: '33333'
+                  fax: '44444'
+                  email: a@a.com
+                  rutaEntregaID: ''
+                  longitud: '343'
+                  latitud: '32432'
+                  codigoPostalID: ''
+                  referenciaCliente: dasdas
+                  actualizarContrato: 0
+        description: ''
+      description: ''
+    get:
+      summary: findManyByParam
+      operationId: get-ubication
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT direccion.DireccionID,direccion.Nombre,direccion.Codigo\r\nFROM direccion\r\nWHERE Direccion.Clave = 'SAT'  AND direccion.CustomerID = 29 AND direccion.EmpresaID = 1\r\nAND ( direccion.Codigo LIKE '%a%' OR direccion.Nombre LIKE '%a%' ) \r\nLIMIT 10"
+                      records:
+                        - ID: 13
+                          Nombre: SAT MADRID 1
+                          Codigo: 1
+                        - ID: 14
+                          Nombre: ANER VITORIA
+                          Codigo: 2
+                        - ID: 32
+                          Nombre: DireccionNUEVA
+                          Codigo: 43
+                        - ID: 34
+                          Nombre: PR-NUEVA
+                          Codigo: 45
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT direccion.DireccionID,direccion.Nombre,direccion.Codigo\r\nFROM direccion\r\nWHERE Direccion.Clave = 'SAT'  AND direccion.CustomerID = 29 AND direccion.EmpresaID = 1\r\nAND ( direccion.Codigo LIKE '%a%' OR direccion.Nombre LIKE '%a%' ) \r\nLIMIT 10"
+                      records:
+                        - ID: 13
+                          Nombre: SAT MADRID 1
+                          Codigo: 1
+                        - ID: 14
+                          Nombre: ANER VITORIA
+                          Codigo: 2
+                        - ID: 32
+                          Nombre: DireccionNUEVA
+                          Codigo: 43
+                        - ID: 34
+                          Nombre: PR-NUEVA
+                          Codigo: 45
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: 'param '
+          description: a
+  '/ubication/{ubicacionID}':
+    put:
+      summary: UpdateForUbication
+      operationId: put-ubication
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      ubicacionID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      ubicacionID: 62
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      ubicacionID: 62
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                paisID:
+                  type: string
+                Direccion:
+                  type: string
+                ProvinciaID:
+                  type: string
+                Municipio:
+                  type: string
+                Activo:
+                  type: string
+                mailingID:
+                  type: string
+                telefono:
+                  type: string
+                fax:
+                  type: string
+                email:
+                  type: string
+                rutaEntregaID:
+                  type: string
+                longitud:
+                  type: string
+                latitud:
+                  type: string
+                codigoPostalID:
+                  type: string
+                referenciaCliente:
+                  type: string
+                actualizarContrato:
+                  type: integer
+              x-examples:
+                Example 1:
+                  nombre: Edgos v2
+                  paisID: '1'
+                  Direccion: Calle falsa 123
+                  ProvinciaID: '1'
+                  Municipio: Dosquebradas
+                  Activo: '1'
+                  mailingID: '4'
+                  telefono: '33333'
+                  fax: '44444'
+                  email: a@a.com
+                  rutaEntregaID: ''
+                  longitud: '343'
+                  latitud: '32432'
+                  codigoPostalID: ''
+                  referenciaCliente: dasdas
+                  actualizarContrato: 0
+            examples:
+              Example 1:
+                value:
+                  nombre: Edgos v2
+                  paisID: '1'
+                  Direccion: Calle falsa 123
+                  ProvinciaID: '1'
+                  Municipio: Dosquebradas
+                  Activo: '1'
+                  mailingID: '4'
+                  telefono: '33333'
+                  fax: '44444'
+                  email: a@a.com
+                  rutaEntregaID: ''
+                  longitud: '343'
+                  latitud: '32432'
+                  codigoPostalID: ''
+                  referenciaCliente: dasdas
+                  actualizarContrato: 0
+        description: ''
+    delete:
+      summary: RemoveForUbication
+      operationId: delete-ubication
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+        '':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true
+                }
+            }
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+    parameters:
+      - schema:
+          type: integer
+        name: ubicacionID
+        in: path
+        required: true
+        description: '62'
   /ubications:
     get:
-      summary: FindManyByParam
+      summary: FindMany
       tags: []
       responses:
         '200':
@@ -589,13 +970,6 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
         - schema:
-            type: integer
-            example: prueba
-          in: query
-          name: param
-          description: Parámetro a buscar
-          required: true
-        - schema:
             type: string
             example: '5'
           in: query
@@ -783,387 +1157,6 @@ paths:
         in: path
         required: true
         description: '44'
-  '/ubication/{ubicacionID}':
-    put:
-      summary: UpdateForUbication
-      operationId: put-ubication
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      ubicacionID:
-                        type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      ubicacionID: 62
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      ubicacionID: 62
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: accessToken
-          description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                nombre:
-                  type: string
-                paisID:
-                  type: string
-                Direccion:
-                  type: string
-                ProvinciaID:
-                  type: string
-                Municipio:
-                  type: string
-                Activo:
-                  type: string
-                mailingID:
-                  type: string
-                telefono:
-                  type: string
-                fax:
-                  type: string
-                email:
-                  type: string
-                rutaEntregaID:
-                  type: string
-                longitud:
-                  type: string
-                latitud:
-                  type: string
-                codigoPostalID:
-                  type: string
-                referenciaCliente:
-                  type: string
-                actualizarContrato:
-                  type: integer
-              x-examples:
-                Example 1:
-                  nombre: Edgos v2
-                  paisID: '1'
-                  Direccion: Calle falsa 123
-                  ProvinciaID: '1'
-                  Municipio: Dosquebradas
-                  Activo: '1'
-                  mailingID: '4'
-                  telefono: '33333'
-                  fax: '44444'
-                  email: a@a.com
-                  rutaEntregaID: ''
-                  longitud: '343'
-                  latitud: '32432'
-                  codigoPostalID: ''
-                  referenciaCliente: dasdas
-                  actualizarContrato: 0
-            examples:
-              Example 1:
-                value:
-                  nombre: Edgos v2
-                  paisID: '1'
-                  Direccion: Calle falsa 123
-                  ProvinciaID: '1'
-                  Municipio: Dosquebradas
-                  Activo: '1'
-                  mailingID: '4'
-                  telefono: '33333'
-                  fax: '44444'
-                  email: a@a.com
-                  rutaEntregaID: ''
-                  longitud: '343'
-                  latitud: '32432'
-                  codigoPostalID: ''
-                  referenciaCliente: dasdas
-                  actualizarContrato: 0
-        description: ''
-    delete:
-      summary: RemoveForUbication
-      operationId: delete-ubication
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-        '':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true
-                }
-            }
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-    parameters:
-      - schema:
-          type: integer
-        name: ubicacionID
-        in: path
-        required: true
-        description: '62'
-  /ubication:
-    post:
-      summary: CreateForUbication
-      operationId: post-ubication
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      ubicacionID:
-                        type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      ubicacionID: 64
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      ubicacionID: 64
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                nombre:
-                  type: string
-                paisID:
-                  type: string
-                Direccion:
-                  type: string
-                ProvinciaID:
-                  type: string
-                Municipio:
-                  type: string
-                Activo:
-                  type: string
-                mailingID:
-                  type: string
-                telefono:
-                  type: string
-                fax:
-                  type: string
-                email:
-                  type: string
-                rutaEntregaID:
-                  type: string
-                longitud:
-                  type: string
-                latitud:
-                  type: string
-                codigoPostalID:
-                  type: string
-                referenciaCliente:
-                  type: string
-                actualizarContrato:
-                  type: integer
-              x-examples:
-                Example 1:
-                  nombre: Edgos v2
-                  paisID: '1'
-                  Direccion: Calle falsa 123
-                  ProvinciaID: '1'
-                  Municipio: Dosquebradas
-                  Activo: '1'
-                  mailingID: '4'
-                  telefono: '33333'
-                  fax: '44444'
-                  email: a@a.com
-                  rutaEntregaID: ''
-                  longitud: '343'
-                  latitud: '32432'
-                  codigoPostalID: ''
-                  referenciaCliente: dasdas
-                  actualizarContrato: 0
-            examples:
-              Example 1:
-                value:
-                  nombre: Edgos v2
-                  paisID: '1'
-                  Direccion: Calle falsa 123
-                  ProvinciaID: '1'
-                  Municipio: Dosquebradas
-                  Activo: '1'
-                  mailingID: '4'
-                  telefono: '33333'
-                  fax: '44444'
-                  email: a@a.com
-                  rutaEntregaID: ''
-                  longitud: '343'
-                  latitud: '32432'
-                  codigoPostalID: ''
-                  referenciaCliente: dasdas
-                  actualizarContrato: 0
-        description: ''
-      description: ''
-    get:
-      summary: findManyByParam
-      operationId: get-ubication
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT direccion.DireccionID,direccion.Nombre,direccion.Codigo\r\nFROM direccion\r\nWHERE Direccion.Clave = 'SAT'  AND direccion.CustomerID = 29 AND direccion.EmpresaID = 1\r\nAND ( direccion.Codigo LIKE '%a%' OR direccion.Nombre LIKE '%a%' ) \r\nLIMIT 10"
-                      records:
-                        - ID: 13
-                          Nombre: SAT MADRID 1
-                          Codigo: 1
-                        - ID: 14
-                          Nombre: ANER VITORIA
-                          Codigo: 2
-                        - ID: 32
-                          Nombre: DireccionNUEVA
-                          Codigo: 43
-                        - ID: 34
-                          Nombre: PR-NUEVA
-                          Codigo: 45
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT direccion.DireccionID,direccion.Nombre,direccion.Codigo\r\nFROM direccion\r\nWHERE Direccion.Clave = 'SAT'  AND direccion.CustomerID = 29 AND direccion.EmpresaID = 1\r\nAND ( direccion.Codigo LIKE '%a%' OR direccion.Nombre LIKE '%a%' ) \r\nLIMIT 10"
-                      records:
-                        - ID: 13
-                          Nombre: SAT MADRID 1
-                          Codigo: 1
-                        - ID: 14
-                          Nombre: ANER VITORIA
-                          Codigo: 2
-                        - ID: 32
-                          Nombre: DireccionNUEVA
-                          Codigo: 43
-                        - ID: 34
-                          Nombre: PR-NUEVA
-                          Codigo: 45
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: string
-          in: query
-          name: 'param '
-          description: a
   /ubication/light:
     get:
       summary: findLightListForUbication
