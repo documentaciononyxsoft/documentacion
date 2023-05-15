@@ -10330,7 +10330,7 @@ paths:
         - schema:
             type: string
             example: '1'
-          in: header
+          in: query
           name: gmao_layoutid
           description: Gmao_LayoutID
           required: true
