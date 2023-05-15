@@ -1753,6 +1753,6 @@ paths:
                   diaSemana: '2'
                   desdeHora: '5:24'
                   hastaHora: '8:25'
-                  concepto: Almejo 5.0
+                  concepto: Almejo 8.0
 components:
   schemas: {}
