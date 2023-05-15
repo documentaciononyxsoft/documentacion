@@ -1496,5 +1496,134 @@ paths:
         in: path
         required: true
         description: Id del contrato
+  '/contracts/{contratoID}/preventive':
+    parameters:
+      - schema:
+          type: string
+          example: '13'
+        name: contratoID
+        in: path
+        required: true
+        description: Id del contrato
+    post:
+      summary: Contracts - CreatePreventive
+      operationId: post-contracts-contratoID-preventive
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      data:
+                        type: object
+                        properties:
+                          MantenimientoPreventivoID:
+                            type: integer
+                          FechaAlta:
+                            type: string
+                          FechaBaja:
+                            type: string
+                          Concepto:
+                            type: string
+                          Frecuencia:
+                            type: integer
+                          Periodo:
+                            type: string
+                          DesdeHora:
+                            type: string
+                          HastaHora:
+                            type: string
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      data:
+                        MantenimientoPreventivoID: 32
+                        FechaAlta: '20230205'
+                        FechaBaja: '20230405'
+                        Concepto: Almejo 5.0
+                        Frecuencia: 2
+                        Periodo: Semanas
+                        DesdeHora: '05:24:00.000'
+                        HastaHora: '08:25:00.000'
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      data:
+                        MantenimientoPreventivoID: 32
+                        FechaAlta: '20230205'
+                        FechaBaja: '20230405'
+                        Concepto: Almejo 5.0
+                        Frecuencia: 2
+                        Periodo: Semanas
+                        DesdeHora: '05:24:00.000'
+                        HastaHora: '08:25:00.000'
+                      success: true
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: 'accessToken '
+          description: Token reciente
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fechaAlta:
+                  type: string
+                fechaBaja:
+                  type: string
+                frecuencia:
+                  type: integer
+                periodo:
+                  type: string
+                diaSemana:
+                  type: string
+                desdeHora:
+                  type: string
+                hastaHora:
+                  type: string
+                concepto:
+                  type: string
+              x-examples:
+                Example 1:
+                  fechaAlta: '20230205'
+                  fechaBaja: '20230405'
+                  frecuencia: 2
+                  periodo: SE
+                  diaSemana: '2'
+                  desdeHora: '5:24'
+                  hastaHora: '8:25'
+                  concepto: Almejo 5.0
+            examples:
+              Example 1:
+                value:
+                  fechaAlta: '20230205'
+                  fechaBaja: '20230405'
+                  frecuencia: 2
+                  periodo: SE
+                  diaSemana: '2'
+                  desdeHora: '5:24'
+                  hastaHora: '8:25'
+                  concepto: Almejo 5.0
 components:
   schemas: {}
