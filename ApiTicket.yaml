@@ -551,6 +551,112 @@ paths:
           in: query
           name: equipoID
           description: ElementoID
+  /interventions/tickets:
+    get:
+      summary: ExtraTickets - FindOneByIntervention
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            FechaAltaTicket:
+                              type: string
+                            TipoTicket:
+                              type: string
+                            Prioridad:
+                              type: string
+                            DescripcionTicket:
+                              type: string
+                            Cliente:
+                              type: string
+                            ClienteCodigo:
+                              type: string
+                            Ubicacion:
+                              type: string
+                            UbicacionCodigo:
+                              type: integer
+                            Equipo:
+                              type: string
+                            EquipoCodigo:
+                              type: string
+                            tipoEquipoNombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT \r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre\r\n\r\n\r\nFROM AvisoTicket\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nwhere AvisoTicket.CustomerID = 29 AND AvisoTicket.EmpresaID = 1 AND AvisoTicket.Cerrado = False AND\r\nAvisoTicket.AvisoTicketID =1"
+                      records:
+                        - FechaAltaTicket: '2023-01-10T14:25:51.000'
+                          TipoTicket: Mantenimiento
+                          Prioridad: PRUEBALO
+                          DescripcionTicket: PRUEBATICKET
+                          Cliente: TIENDAS TRES B S A DE C V
+                          ClienteCodigo: '10300010329'
+                          Ubicacion: UNAM
+                          UbicacionCodigo: 1
+                          Equipo: PRUEBALUIS
+                          EquipoCodigo: '12'
+                          tipoEquipoNombre: General
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - FechaAltaTicket: '2023-01-10T14:25:51.000'
+                          TipoTicket: Mantenimiento
+                          Prioridad: PRUEBALO
+                          DescripcionTicket: PRUEBATICKET
+                          Cliente: TIENDAS TRES B S A DE C V
+                          ClienteCodigo: '10300010329'
+                          Ubicacion: UNAM
+                          UbicacionCodigo: 1
+                          Equipo: PRUEBALUIS
+                          EquipoCodigo: '12'
+                          tipoEquipoNombre: General
+      operationId: get-tickets-intervention
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: integer
+            example: 1
+          in: query
+          name: ticketID
+          description: AvisoTicketID
+          required: true
+    parameters: []
   /tickets:
     get:
       summary: FindMany
@@ -5499,108 +5605,6 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
-  /interventions/tickets:
-    get:
-      summary: findOneForTicketsByIntervention
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            FechaAltaTicket:
-                              type: string
-                            TipoTicket:
-                              type: string
-                            Prioridad:
-                              type: string
-                            DescripcionTicket:
-                              type: string
-                            Cliente:
-                              type: string
-                            ClienteCodigo:
-                              type: string
-                            Ubicacion:
-                              type: string
-                            UbicacionCodigo:
-                              type: integer
-                            Equipo:
-                              type: string
-                            EquipoCodigo:
-                              type: string
-                            tipoEquipoNombre:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT \r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre\r\n\r\n\r\nFROM AvisoTicket\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nwhere AvisoTicket.CustomerID = 29 AND AvisoTicket.EmpresaID = 1 AND AvisoTicket.Cerrado = False AND\r\nAvisoTicket.AvisoTicketID =8"
-                      records:
-                        - FechaAltaTicket: '2019-02-28T14:59:49.000'
-                          TipoTicket: Averia
-                          Prioridad: ''
-                          DescripcionTicket: "Se enciende luz de alarma y se queda bloqueado\r\n"
-                          Cliente: dario
-                          ClienteCodigo: '43000001'
-                          Ubicacion: ANER VITORIA
-                          UbicacionCodigo: 2
-                          Equipo: Plegadora
-                          EquipoCodigo: '123'
-                          tipoEquipoNombre: Proveedores por tipo
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT \r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre\r\n\r\n\r\nFROM AvisoTicket\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nwhere AvisoTicket.CustomerID = 29 AND AvisoTicket.EmpresaID = 1 AND AvisoTicket.Cerrado = False AND\r\nAvisoTicket.AvisoTicketID =8"
-                      records:
-                        - FechaAltaTicket: '2019-02-28T14:59:49.000'
-                          TipoTicket: Averia
-                          Prioridad: ''
-                          DescripcionTicket: "Se enciende luz de alarma y se queda bloqueado\r\n"
-                          Cliente: dario
-                          ClienteCodigo: '43000001'
-                          Ubicacion: ANER VITORIA
-                          UbicacionCodigo: 2
-                          Equipo: Plegadora
-                          EquipoCodigo: '123'
-                          tipoEquipoNombre: Proveedores por tipo
-      operationId: get-tickets-intervention
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: accessToken
-          description: '"tokenReciente"'
-        - schema:
-            type: integer
-          in: query
-          name: ticketID
-          description: '8'
-    parameters: []
   /equipment/consult/tickets:
     get:
       summary: FindManyByFiltersForTicketsByEquipment
