@@ -69,49 +69,49 @@ paths:
                     message: Request processed successfully
                     content:
                       records:
-                        - DireccionID: 13
-                          Codigo: 1
-                          Nombre: SAT MADRID 1
-                          Direccion: 'Calle de los comuneros de Castilla, 18'
-                          Municipio: MADRID
-                          CodigoPostal: '28000'
-                          Pais: España
-                          Provincia: Araba
-                          CodigoCliente: '43000001'
-                          NombreCliente: dario
-                          Telefono: '3218316754'
-                          Email: ''
-                          codigoContrato: ''
-                          NombreContrato: ''
-                        - DireccionID: 14
-                          Codigo: 2
-                          Nombre: ANER VITORIA
-                          Direccion: 'Zumar Hiribidea, 1'
-                          Municipio: ''
-                          CodigoPostal: ''
-                          Pais: España
-                          Provincia: Araba
-                          CodigoCliente: '43000001'
-                          NombreCliente: dario
-                          Telefono: '3218316754'
-                          Email: ''
-                          codigoContrato: ''
-                          NombreContrato: ''
-                        - DireccionID: 52
-                          Codigo: 46
-                          Nombre: wewe
-                          Direccion: ''
-                          Municipio: ''
-                          CodigoPostal: ''
-                          Pais: ''
-                          Provincia: ''
-                          CodigoCliente: '43000001'
-                          NombreCliente: dario
+                        - DireccionID: 1023
+                          Codigo: 3
+                          Nombre: hola xd343
+                          Direccion: hola xdxdxdxdx
+                          Municipio: PUEBLA
+                          CodigoPostal: '72019'
+                          Pais: México
+                          Provincia: PUEBLA
+                          CodigoCliente: '25000010002'
+                          NombreCliente: INGREDION MEXICO SA DE CV
                           Telefono: ''
                           Email: ''
                           codigoContrato: ''
                           NombreContrato: ''
-                      sql: "SELECT DISTINCT Direccion.*,\r\nPais.Nombre AS NombrePais,\r\nProvincia.Nombre AS NombreProvincia,\r\nCodigoPostal.CodigoPostal AS NombreCodigoPostal,\r\nMailing.ReferenciaCodigo AS CodigoMailing,\r\nMailing.Nombre AS NombreMailing \r\nFROM Direccion\r\nLEFT OUTER JOIN Elemento ON Elemento.DireccionID = Direccion.DireccionID\r\nLEFT OUTER JOIN Pais ON Pais.PaisID = Direccion.PaisID\r\nLEFT OUTER JOIN Provincia ON Provincia.ProvinciaID = Direccion.ProvinciaID\r\nLEFT OUTER JOIN CodigoPostal ON CodigoPostal.CodigoPostalID = Direccion.CodigoPostalID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Direccion.MailingID\r\nWHERE Direccion.CustomerID = 29\r\nAND Direccion.EmpresaID = 1\r\nAND Direccion.Clave IN ('SAT')\r\n AND (Direccion.MailingID IN (4))\r\nlimit 50 \r\noffset 0"
+                        - DireccionID: 1026
+                          Codigo: 1
+                          Nombre: Direcion Alejo
+                          Direccion: adsdsaa
+                          Municipio: YeiLand
+                          CodigoPostal: '03769'
+                          Pais: Colombia
+                          Provincia: ''
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          Telefono: '123123'
+                          Email: '12312213213'
+                          codigoContrato: ''
+                          NombreContrato: ''
+                        - DireccionID: 1020
+                          Codigo: 3
+                          Nombre: hola xd
+                          Direccion: hola xdxdxdxdx
+                          Municipio: PUEBLA
+                          CodigoPostal: '72019'
+                          Pais: México
+                          Provincia: PUEBLA
+                          CodigoCliente: '10300010347'
+                          NombreCliente: nombre fiscal
+                          Telefono: ''
+                          Email: ''
+                          codigoContrato: ''
+                          NombreContrato: ''
+                      sql: "SELECT DISTINCT Direccion.*,\r\nPais.Nombre AS NombrePais,\r\nProvincia.Nombre AS NombreProvincia,\r\nCodigoPostal.CodigoPostal AS NombreCodigoPostal,\r\nMailing.ReferenciaCodigo AS CodigoMailing,\r\nMailing.Nombre AS NombreMailing \r\nFROM Direccion\r\nLEFT OUTER JOIN Elemento ON Elemento.DireccionID = Direccion.DireccionID\r\nLEFT OUTER JOIN Pais ON Pais.PaisID = Direccion.PaisID\r\nLEFT OUTER JOIN Provincia ON Provincia.ProvinciaID = Direccion.ProvinciaID\r\nLEFT OUTER JOIN CodigoPostal ON CodigoPostal.CodigoPostalID = Direccion.CodigoPostalID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Direccion.MailingID\r\nWHERE Direccion.CustomerID = 29\r\nAND Direccion.EmpresaID = 1\r\nAND Direccion.Clave IN ('SAT')\r\n\r\nlimit 10 \r\noffset 0"
                       success: true
               examples:
                 Example 1:
@@ -120,49 +120,49 @@ paths:
                     message: Request processed successfully
                     content:
                       records:
-                        - DireccionID: 13
-                          Codigo: 1
-                          Nombre: SAT MADRID 1
-                          Direccion: 'Calle de los comuneros de Castilla, 18'
-                          Municipio: MADRID
-                          CodigoPostal: '28000'
-                          Pais: España
-                          Provincia: Araba
-                          CodigoCliente: '43000001'
-                          NombreCliente: dario
-                          Telefono: '3218316754'
-                          Email: ''
-                          codigoContrato: ''
-                          NombreContrato: ''
-                        - DireccionID: 14
-                          Codigo: 2
-                          Nombre: ANER VITORIA
-                          Direccion: 'Zumar Hiribidea, 1'
-                          Municipio: ''
-                          CodigoPostal: ''
-                          Pais: España
-                          Provincia: Araba
-                          CodigoCliente: '43000001'
-                          NombreCliente: dario
-                          Telefono: '3218316754'
-                          Email: ''
-                          codigoContrato: ''
-                          NombreContrato: ''
-                        - DireccionID: 52
-                          Codigo: 46
-                          Nombre: wewe
-                          Direccion: ''
-                          Municipio: ''
-                          CodigoPostal: ''
-                          Pais: ''
-                          Provincia: ''
-                          CodigoCliente: '43000001'
-                          NombreCliente: dario
+                        - DireccionID: 1023
+                          Codigo: 3
+                          Nombre: hola xd343
+                          Direccion: hola xdxdxdxdx
+                          Municipio: PUEBLA
+                          CodigoPostal: '72019'
+                          Pais: México
+                          Provincia: PUEBLA
+                          CodigoCliente: '25000010002'
+                          NombreCliente: INGREDION MEXICO SA DE CV
                           Telefono: ''
                           Email: ''
                           codigoContrato: ''
                           NombreContrato: ''
-                      sql: "SELECT DISTINCT Direccion.*,\r\nPais.Nombre AS NombrePais,\r\nProvincia.Nombre AS NombreProvincia,\r\nCodigoPostal.CodigoPostal AS NombreCodigoPostal,\r\nMailing.ReferenciaCodigo AS CodigoMailing,\r\nMailing.Nombre AS NombreMailing \r\nFROM Direccion\r\nLEFT OUTER JOIN Elemento ON Elemento.DireccionID = Direccion.DireccionID\r\nLEFT OUTER JOIN Pais ON Pais.PaisID = Direccion.PaisID\r\nLEFT OUTER JOIN Provincia ON Provincia.ProvinciaID = Direccion.ProvinciaID\r\nLEFT OUTER JOIN CodigoPostal ON CodigoPostal.CodigoPostalID = Direccion.CodigoPostalID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = Direccion.MailingID\r\nWHERE Direccion.CustomerID = 29\r\nAND Direccion.EmpresaID = 1\r\nAND Direccion.Clave IN ('SAT')\r\n AND (Direccion.MailingID IN (4))\r\nlimit 50 \r\noffset 0"
+                        - DireccionID: 1026
+                          Codigo: 1
+                          Nombre: Direcion Alejo
+                          Direccion: adsdsaa
+                          Municipio: YeiLand
+                          CodigoPostal: '03769'
+                          Pais: Colombia
+                          Provincia: ''
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          Telefono: '123123'
+                          Email: '12312213213'
+                          codigoContrato: ''
+                          NombreContrato: ''
+                        - DireccionID: 1020
+                          Codigo: 3
+                          Nombre: hola xd
+                          Direccion: hola xdxdxdxdx
+                          Municipio: PUEBLA
+                          CodigoPostal: '72019'
+                          Pais: México
+                          Provincia: PUEBLA
+                          CodigoCliente: '10300010347'
+                          NombreCliente: nombre fiscal
+                          Telefono: ''
+                          Email: ''
+                          codigoContrato: ''
+                          NombreContrato: ''
+                      sql: string
                       success: true
       operationId: get-consult-ubications
       parameters:
@@ -185,6 +185,7 @@ paths:
           in: query
           name: limit
           description: 'Límite de registros que trae la consulta. Si se envía el número 50, y la tabla tiene 2000 registros solo se traerán 50.'
+          required: true
         - schema:
             type: string
           in: query
@@ -205,7 +206,6 @@ paths:
             type: string
           in: query
           name: mailingID
-          description: '4'
         - schema:
             type: string
           in: query
