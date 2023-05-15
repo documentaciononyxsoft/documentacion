@@ -1858,6 +1858,96 @@ paths:
       requestBody:
         content: {}
     parameters: []
+  /groups/problemType/light:
+    get:
+      summary: ProblemType - FindLightListForGroups
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT * FROM AvisoTicketTipoProblema\r\nINNER JOIN TablaGeneral AS Agrupa ON Agrupa.TablaGeneralID=AvisoTicketTipoProblema.TablaGeneralID\r\nWHERE AvisoTicketTipoProblema.TablaGeneralID=738 AND\r\nAvisoTicketTipoProblema.CustomerID=29"
+                      records:
+                        - ID: 1
+                          Nombre: ProbleTest
+                          Codigo: 1
+                        - ID: 2
+                          Nombre: ProblemaPrueba
+                          Codigo: 2
+                        - ID: 3
+                          Nombre: Trouble
+                          Codigo: 3
+                        - ID: 4
+                          Nombre: cz<xcz<xc
+                          Codigo: 4
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - ID: 1
+                          Nombre: ProbleTest
+                          Codigo: 1
+                        - ID: 2
+                          Nombre: ProblemaPrueba
+                          Codigo: 2
+                        - ID: 3
+                          Nombre: Trouble
+                          Codigo: 3
+                        - ID: 4
+                          Nombre: cz<xcz<xc
+                          Codigo: 4
+      operationId: get-groups-problemType-light
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: integer
+            example: 738
+          in: query
+          name: grupoID
+          description: TablaGeneralID
   /tickets:
     get:
       summary: FindMany
@@ -3804,75 +3894,6 @@ paths:
           in: query
           name: ticketID
           description: '104'
-  /groups/problemType/light:
-    get:
-      summary: findLightListForGroups
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT * FROM AvisoTicketTipoProblema\r\nINNER JOIN TablaGeneral AS Agrupa ON Agrupa.TablaGeneralID=AvisoTicketTipoProblema.TablaGeneralID\r\nWHERE AvisoTicketTipoProblema.TablaGeneralID=1234 AND\r\nAvisoTicketTipoProblema.CustomerID=29"
-                      records:
-                        - ID: 1
-                          Nombre: GFF
-                          Codigo: 1
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT * FROM AvisoTicketTipoProblema\r\nINNER JOIN TablaGeneral AS Agrupa ON Agrupa.TablaGeneralID=AvisoTicketTipoProblema.TablaGeneralID\r\nWHERE AvisoTicketTipoProblema.TablaGeneralID=1234 AND\r\nAvisoTicketTipoProblema.CustomerID=29"
-                      records:
-                        - ID: 1
-                          Nombre: GFF
-                          Codigo: 1
-      operationId: get-groups-problemType-light
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: integer
-          in: query
-          name: grupoID
-          description: '1234'
   /consult/tickets:
     get:
       summary: findManyByFiltersForTickets
