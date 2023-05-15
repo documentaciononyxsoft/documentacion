@@ -1686,6 +1686,79 @@ paths:
             example: 0
           in: query
           name: offset
+  /preventiveTickets/generate:
+    parameters: []
+    post:
+      summary: PreventiveTickets - Generate
+      operationId: post-preventiveTickets-generate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ArrayData:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      MantenimientoID:
+                        type: integer
+                      FechaPrevisto:
+                        type: string
+                      TipoPreventivo:
+                        type: string
+              x-examples:
+                Example 1:
+                  ArrayData:
+                    - MantenimientoID: 9
+                      FechaPrevisto: '20200601'
+                      TipoPreventivo: Equipo
+            examples:
+              Example 1:
+                value:
+                  ArrayData:
+                    - MantenimientoID: 9
+                      FechaPrevisto: '20200601'
+                      TipoPreventivo: Equipo
   /tickets:
     get:
       summary: FindMany
@@ -4969,78 +5042,6 @@ paths:
           in: query
           name: radio
           description: '2'
-  /preventiveTickets/generate:
-    get:
-      summary: generatePreventiveTickets
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-      operationId: get-preventiveTickets-Generate
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                ArrayData:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      MantenimientoID:
-                        type: integer
-                      FechaPrevisto:
-                        type: string
-                      TipoPreventivo:
-                        type: string
-              x-examples:
-                Example 1:
-                  ArrayData:
-                    - MantenimientoID: 9
-                      FechaPrevisto: '20200601'
-                      TipoPreventivo: Equipo
-            examples:
-              Example 1:
-                value:
-                  ArrayData:
-                    - MantenimientoID: 9
-                      FechaPrevisto: '20200601'
-                      TipoPreventivo: Equipo
-    parameters: []
   /ticket/expenseAnalysis:
     get:
       summary: expenseAnalysisForTickets
