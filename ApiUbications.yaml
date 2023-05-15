@@ -424,7 +424,7 @@ paths:
           required: true
   '/ubication/{ubicacionID}':
     put:
-      summary: UpdateForUbication
+      summary: Update
       operationId: put-ubication
       responses:
         '200':
@@ -545,7 +545,7 @@ paths:
                   actualizarContrato: 0
         description: ''
     delete:
-      summary: RemoveForUbication
+      summary: Remove
       operationId: delete-ubication
       responses:
         '200':
