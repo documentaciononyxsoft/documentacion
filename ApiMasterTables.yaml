@@ -11054,6 +11054,212 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /tables/salesmans/light:
+    get:
+      summary: Salesmans - FindLightList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      Representantes:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            RepresentanteID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                            NombreComercial:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      Representantes:
+                        - RepresentanteID: 171
+                          Codigo: '10'
+                          Nombre: Oscar Iván Partida Ponce
+                          NombreComercial: PRODUCTOS DE CONSUMO Z
+                        - RepresentanteID: 174
+                          Codigo: '20'
+                          Nombre: Julio Sanchez Trejo
+                          NombreComercial: GERENCIA REGIONAL MAYOREO CENTRO
+                        - RepresentanteID: 175
+                          Codigo: '30'
+                          Nombre: Bertha Gonzalez Jimenez
+                          NombreComercial: La Hojuela
+                        - RepresentanteID: 176
+                          Codigo: '40'
+                          Nombre: Jorge Enrique Sole Ortega
+                          NombreComercial: Multi Superet
+                        - RepresentanteID: 177
+                          Codigo: '50'
+                          Nombre: Jorge Amador Quiroz
+                          NombreComercial: Miel Mex.
+                        - RepresentanteID: 178
+                          Codigo: '60'
+                          Nombre: Vyacheslav Robbie Santillan Muñoz
+                          NombreComercial: Garis
+                        - RepresentanteID: 179
+                          Codigo: '70'
+                          Nombre: Sergio A.  Alvarez
+                          NombreComercial: CORPORACION SANCHEZ SA DE CV
+                        - RepresentanteID: 180
+                          Codigo: '80'
+                          Nombre: David Moreno Romero
+                          NombreComercial: ABARROTES CHUPER NEGRO
+                        - RepresentanteID: 181
+                          Codigo: '90'
+                          Nombre: Jorge Fulgencio
+                          NombreComercial: ABARROTERA FUENTES SA DE CV - VMT
+                        - RepresentanteID: 182
+                          Codigo: '100'
+                          Nombre: Melisa E. Torres R.
+                          NombreComercial: FELIPE LIZARRAGA FARFAN - GR
+                        - RepresentanteID: 183
+                          Codigo: '110'
+                          Nombre: 'Oscar G Guarneros '
+                          NombreComercial: COMERCIALIZADORA SUAREZ - GR
+                        - RepresentanteID: 184
+                          Codigo: '120'
+                          Nombre: ''
+                          NombreComercial: DISTRIBUIDORA DE ABARROTES SN JOSE
+                        - RepresentanteID: 185
+                          Codigo: ' 13222222'
+                          Nombre: MARTIN ALFONSO MARTINEZ MARTINEZ
+                          NombreComercial: ALIMENTOS NUTRITIVOS
+                        - RepresentanteID: 186
+                          Codigo: '140'
+                          Nombre: ''
+                          NombreComercial: BENJAMIN MUNOZ MARISCAL
+                        - RepresentanteID: 187
+                          Codigo: '150'
+                          Nombre: Javier Noriega Álvarez
+                          NombreComercial: Walmart
+                        - RepresentanteID: 188
+                          Codigo: '160'
+                          Nombre: Carlos Andujo Martínez
+                          NombreComercial: Soriana
+                        - RepresentanteID: 189
+                          Codigo: '170'
+                          Nombre: Victor Manuel Pardo Váldez
+                          NombreComercial: Casa Ley
+                        - RepresentanteID: 190
+                          Codigo: '180'
+                          Nombre: Roberto Martín López Hernández
+                          NombreComercial: GERENTE NACIONAL CANAL MODERNO
+                        - RepresentanteID: 191
+                          Codigo: VEND-000004
+                          Nombre: ''
+                          NombreComercial: ''
+                        - RepresentanteID: 192
+                          Codigo: VEND-000005
+                          Nombre: Jorge Amador Quiroz
+                          NombreComercial: ''
+                        - RepresentanteID: 193
+                          Codigo: VEND-000006
+                          Nombre: Julio Cesar Ortega
+                          NombreComercial: ''
+                        - RepresentanteID: 194
+                          Codigo: VEND-000007
+                          Nombre: Carlos Adriahan Quintana Carbajal
+                          NombreComercial: ''
+                        - RepresentanteID: 195
+                          Codigo: VEND-000008
+                          Nombre: JORGE FRANCISCO MENDOZA RAMIREZ
+                          NombreComercial: ''
+                        - RepresentanteID: 196
+                          Codigo: VEND-000009
+                          Nombre: '898788778'
+                          NombreComercial: ''
+                        - RepresentanteID: 197
+                          Codigo: VEND-000010
+                          Nombre: oliguis
+                          NombreComercial: ''
+                        - RepresentanteID: 230
+                          Codigo: VEND-001881
+                          Nombre: El Yeison
+                          NombreComercial: ''
+                        - RepresentanteID: 233
+                          Codigo: VEND-001884
+                          Nombre: El Yeison
+                          NombreComercial: ''
+                        - RepresentanteID: 234
+                          Codigo: VEND-001885
+                          Nombre: david
+                          NombreComercial: ''
+                        - RepresentanteID: 235
+                          Codigo: VEND-001886
+                          Nombre: david
+                          NombreComercial: ''
+                        - RepresentanteID: 236
+                          Codigo: VEND-001887
+                          Nombre: El Yeison
+                          NombreComercial: ''
+                        - RepresentanteID: 237
+                          Codigo: '1111122222'
+                          Nombre: ''
+                          NombreComercial: DISTRIBUIDORA DE ABARROTES SN JOSE
+                        - RepresentanteID: 238
+                          Codigo: '111112222212'
+                          Nombre: ''
+                          NombreComercial: DISTRIBUIDORA DE ABARROTES SN JOSE
+                        - RepresentanteID: 239
+                          Codigo: '123123123123'
+                          Nombre: ''
+                          NombreComercial: BENJAMIN MUNOZ MARISCAL
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      Representantes:
+                        - RepresentanteID: 171
+                          Codigo: '10'
+                          Nombre: Oscar Iván Partida Ponce
+                          NombreComercial: PRODUCTOS DE CONSUMO Z
+                        - RepresentanteID: 174
+                          Codigo: '20'
+                          Nombre: Julio Sanchez Trejo
+                          NombreComercial: GERENCIA REGIONAL MAYOREO CENTRO
+                        - RepresentanteID: 175
+                          Codigo: '30'
+                          Nombre: Bertha Gonzalez Jimenez
+                          NombreComercial: La Hojuela
+                        - RepresentanteID: 176
+                          Codigo: '40'
+                          Nombre: Jorge Enrique Sole Ortega
+                          NombreComercial: Multi Superet
+                        - RepresentanteID: 177
+                          Codigo: '50'
+                          Nombre: Jorge Amador Quiroz
+                          NombreComercial: Miel Mex.
+      operationId: get-tables-salesmans-light
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   '/tables/client/{Param}':
     get:
       summary: Client - FindManyByParam
