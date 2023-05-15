@@ -11869,19 +11869,19 @@ paths:
                     statusCode: 200
                     message: Request processed successfully
                     content:
-                      CodigoCuenta: '43000001'
-                      NombreCuenta: dario
-                      Concepto: Conceptotrabajo
-                      CodigoProyecto: '25'
-                      NombreProyecto: PRUEBALUIS
-                      CodigoTarea: '30'
-                      NombreTarea: PRUEBAS TARJETAS PRUEBA
-                      NombreMotivo: '3333'
-                      NombreContacto: Edgos
+                      CodigoCuenta: '10300010250'
+                      NombreCuenta: VARIOS PRODUCCION
+                      Concepto: 'OF: 33 - Proceso: 64 Paquetera (Producción)'
+                      CodigoProyecto: ''
+                      NombreProyecto: ''
+                      CodigoTarea: '64'
+                      NombreTarea: Paquetera
+                      NombreMotivo: ''
+                      NombreContacto: ''
                       Viaje: false
-                      NombreClave: '3333'
-                      HorasDef: '01:00:00:00'
-                      Notas: nota trabajo
+                      NombreClave: ''
+                      HorasDef: '00:06:00:00'
+                      Notas: ''
                       success: true
               examples:
                 Example 1:
@@ -11889,19 +11889,19 @@ paths:
                     statusCode: 200
                     message: Request processed successfully
                     content:
-                      CodigoCuenta: '43000001'
-                      NombreCuenta: dario
-                      Concepto: Conceptotrabajo
-                      CodigoProyecto: '25'
-                      NombreProyecto: PRUEBALUIS
-                      CodigoTarea: '30'
-                      NombreTarea: PRUEBAS TARJETAS PRUEBA
-                      NombreMotivo: '3333'
-                      NombreContacto: Edgos
+                      CodigoCuenta: '10300010250'
+                      NombreCuenta: VARIOS PRODUCCION
+                      Concepto: 'OF: 33 - Proceso: 64 Paquetera (Producción)'
+                      CodigoProyecto: ''
+                      NombreProyecto: ''
+                      CodigoTarea: '64'
+                      NombreTarea: Paquetera
+                      NombreMotivo: ''
+                      NombreContacto: ''
                       Viaje: false
-                      NombreClave: '3333'
-                      HorasDef: '01:00:00:00'
-                      Notas: nota trabajo
+                      NombreClave: ''
+                      HorasDef: '00:06:00:00'
+                      Notas: ''
                       success: true
         '':
           description: OK
@@ -11995,7 +11995,7 @@ paths:
           required: true
         - schema:
             type: integer
-            example: 1
+            example: 2
           in: query
           name: tiempoTrabajoID
     parameters: []
