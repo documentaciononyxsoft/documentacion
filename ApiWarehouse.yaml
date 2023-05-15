@@ -2,30 +2,31 @@ openapi: 3.1.0
 x-stoplight:
   id: 09mafsaf81kyl
 info:
-  title: ApiWarehouse
+  title: API -Warehouse
   version: '1.0'
 servers:
   - url: 'http://localhost:3000'
 paths:
   /warehouse:
     get:
-      summary: findManyByParam
+      summary: FindManyByParam
       tags: []
-      responses:
-        '200':
-          description: "{\n\t\"fContent\":\n\t{\n\t\t\"success\":true,\n\t\t\"records\":\n\t\t[\n\t\t\t{\n\t\t\t\t\"ArticuloID\":1,\n\t\t\t\t\"Nombre\":\"Articulo ...3\",\n\t\t\t\t\"Codigo\":\".\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ArticuloID\":2,\n\t\t\t\t\"Nombre\":\"ARTICULO DE VENTA 1\",\n\t\t\t\t\"Codigo\":\"ART1\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ArticuloID\":5,\n\t\t\t\t\"Nombre\":\"ACERO TIPO 1\",\n\t\t\t\t\"Codigo\":\"ACE1\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ArticuloID\":6,\n\t\t\t\t\"Nombre\":\"ACERO TIPO 2\",\n\t\t\t\t\"Codigo\":\"ACE2\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ArticuloID\":7,\n\t\t\t\t\"Nombre\":\"UTILLAJE 01\",\n\t\t\t\t\"Codigo\":\"U01\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ArticuloID\":8,\n\t\t\t\t\"Nombre\":\"UTILLAJE 02\",\n\t\t\t\t\"Codigo\":\"U02\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ArticuloID\":9,\n\t\t\t\t\"Nombre\":\"TORNILLO DE HIERRO FORJADO, VENTA POR LOTE\",\n\t\t\t\t\"Codigo\":\"APL1\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ArticuloID\":10,\n\t\t\t\t\"Nombre\":\"ARTICULO POR LOTES 2\",\n\t\t\t\t\"Codigo\":\"APL2\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ArticuloID\":11,\n\t\t\t\t\"Nombre\":\"ARTICULO POR SERIE 1\",\n\t\t\t\t\"Codigo\":\"APS1\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"ArticuloID\":12,\n\t\t\t\t\"Nombre\":\"ARTICULO POR SERIE 2\",\n\t\t\t\t\"Codigo\":\"APS2\"\n\t\t\t}\n\t\t],\n\t\t\"sql\":\"SELECT \\r\\narticulo.ArticuloID,\\r\\narticulo.Nombre,\\r\\narticulo.Codigo\\r\\n\\r\\nFROM articulo \\r\\n\\r\\nWHERE articulo.CustomerID = 29 AND articulo.EmpresaID = 1\\r\\nAND (articulo.Nombre LIKE '%a%' OR articulo.Codigo LIKE '%a%' )\\r\\nORDER BY articulo.ArticuloID LIMIT 10 \"\n\t},\n\t\"fMessage\":\"Request processed successfully\",\n\t\"fStatusCode\":200\n}"
+      responses: {}
       operationId: get-warehouse
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: 'accessToken '
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
         - schema:
             type: string
+            example: silo
           in: query
           name: param
-          description: a
+          description: Parámetro a buscar
 components:
   schemas:
     User:
