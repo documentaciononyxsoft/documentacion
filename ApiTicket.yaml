@@ -1759,6 +1759,105 @@ paths:
                     - MantenimientoID: 9
                       FechaPrevisto: '20200601'
                       TipoPreventivo: Equipo
+  /priority/light:
+    get:
+      summary: Priority - FindLightList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT\r\nAvisoTicketPrioridad.*\r\nFROM\r\nAvisoTicketPrioridad\r\nWHERE\r\nAvisoTicketPrioridad.CustomerID = 29\r\n"
+                      records:
+                        - ID: 1
+                          Nombre: PRUEBALO
+                          Codigo: 1
+                        - ID: 2
+                          Nombre: c<zsdfaSDASDF
+                          Codigo: 2
+                        - ID: 3
+                          Nombre: ''
+                          Codigo: 3
+                        - ID: 4
+                          Nombre: ''
+                          Codigo: 4
+                        - ID: 5
+                          Nombre: ''
+                          Codigo: 5
+                        - ID: 6
+                          Nombre: PrioridadJCO
+                          Codigo: 6
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - ID: 1
+                          Nombre: PRUEBALO
+                          Codigo: 1
+                        - ID: 2
+                          Nombre: c<zsdfaSDASDF
+                          Codigo: 2
+                        - ID: 3
+                          Nombre: ''
+                          Codigo: 3
+                        - ID: 4
+                          Nombre: ''
+                          Codigo: 4
+                        - ID: 5
+                          Nombre: ''
+                          Codigo: 5
+                        - ID: 6
+                          Nombre: PrioridadJCO
+                          Codigo: 6
+      operationId: get-priority-all
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content: {}
+    parameters: []
   /tickets:
     get:
       summary: FindMany
@@ -3093,98 +3192,6 @@ paths:
           in: query
           name: clienteID
           description: '77'
-  /priority/light:
-    get:
-      summary: findLightListForPriority
-      tags: []
-      responses:
-        '200':
-          description: OK
-          headers: {}
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT\r\nAvisoTicketPrioridad.*\r\nFROM\r\nAvisoTicketPrioridad\r\nWHERE\r\nAvisoTicketPrioridad.CustomerID = 29\r\n"
-                      records:
-                        - ID: 1
-                          Nombre: '1'
-                          Codigo: 1
-                        - ID: 2
-                          Nombre: pruebaLUIS23
-                          Codigo: 2
-                        - ID: 3
-                          Nombre: PRUEBALUIS24
-                          Codigo: 3
-                        - ID: 4
-                          Nombre: PRUEBALUIS25
-                          Codigo: 4
-                        - ID: 5
-                          Nombre: Fabian PRUEBA
-                          Codigo: 5
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT\r\nAvisoTicketPrioridad.*\r\nFROM\r\nAvisoTicketPrioridad\r\nWHERE\r\nAvisoTicketPrioridad.CustomerID = 29\r\n"
-                      records:
-                        - ID: 1
-                          Nombre: '1'
-                          Codigo: 1
-                        - ID: 2
-                          Nombre: pruebaLUIS23
-                          Codigo: 2
-                        - ID: 3
-                          Nombre: PRUEBALUIS24
-                          Codigo: 3
-                        - ID: 4
-                          Nombre: PRUEBALUIS25
-                          Codigo: 4
-                        - ID: 5
-                          Nombre: Fabian PRUEBA
-                          Codigo: 5
-      operationId: get-priority-all
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-      requestBody:
-        content: {}
-    parameters: []
   /technician:
     get:
       summary: findManyByParamForTechnician
