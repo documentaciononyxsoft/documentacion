@@ -11,7 +11,113 @@ paths:
     get:
       summary: FindManyByParam
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            AlmacenID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT *\r\n\r\nFROM\r\nAlmacen\r\n\r\nWHERE\r\nAlmacen.CustomerID = 29 AND\r\nAlmacen.EmpresaID = 1 AND\r\nAlmacen.Disponible = 1\r\nAND (Almacen.Nombre LIKE '%silo%' OR Almacen.Codigo LIKE '%silo%')\r\nORDER BY Almacen.AlmacenID \r\nLIMIT 10 "
+                      records:
+                        - AlmacenID: 5
+                          Codigo: SA01
+                          Nombre: Silos Maiz 01
+                        - AlmacenID: 6
+                          Codigo: SF01
+                          Nombre: Silo Forraje 01JUJJU
+                        - AlmacenID: 7
+                          Codigo: SS01
+                          Nombre: Silo Semola 01
+                        - AlmacenID: 39
+                          Codigo: SA02
+                          Nombre: Silos Maiz 02
+                        - AlmacenID: 40
+                          Codigo: SA03
+                          Nombre: Silos Maiz 03
+                        - AlmacenID: 41
+                          Codigo: SA04
+                          Nombre: Silos Maiz 04
+                        - AlmacenID: 42
+                          Codigo: SA05
+                          Nombre: Silos Maiz 05
+                        - AlmacenID: 43
+                          Codigo: SA06
+                          Nombre: Silos Maiz 06
+                        - AlmacenID: 44
+                          Codigo: SA07
+                          Nombre: Silos Maiz 07
+                        - AlmacenID: 46
+                          Codigo: SS02
+                          Nombre: Silo Semola 02
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - AlmacenID: 5
+                          Codigo: SA01
+                          Nombre: Silos Maiz 01
+                        - AlmacenID: 6
+                          Codigo: SF01
+                          Nombre: Silo Forraje 01JUJJU
+                        - AlmacenID: 7
+                          Codigo: SS01
+                          Nombre: Silo Semola 01
+                        - AlmacenID: 39
+                          Codigo: SA02
+                          Nombre: Silos Maiz 02
+                        - AlmacenID: 40
+                          Codigo: SA03
+                          Nombre: Silos Maiz 03
+                        - AlmacenID: 41
+                          Codigo: SA04
+                          Nombre: Silos Maiz 04
+                        - AlmacenID: 42
+                          Codigo: SA05
+                          Nombre: Silos Maiz 05
+                        - AlmacenID: 43
+                          Codigo: SA06
+                          Nombre: Silos Maiz 06
+                        - AlmacenID: 44
+                          Codigo: SA07
+                          Nombre: Silos Maiz 07
+                        - AlmacenID: 46
+                          Codigo: SS02
+                          Nombre: Silo Semola 02
       operationId: get-warehouse
       parameters:
         - schema:
