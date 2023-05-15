@@ -9,7 +9,7 @@ servers:
 paths:
   /warehouse:
     get:
-      summary: FindManyByParams
+      summary: FindManyByParam
       tags: []
       responses:
         '200':
