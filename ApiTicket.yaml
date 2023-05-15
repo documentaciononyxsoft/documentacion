@@ -1948,6 +1948,133 @@ paths:
           in: query
           name: grupoID
           description: TablaGeneralID
+  /technician:
+    get:
+      summary: Technician - FindManyByParam
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT empleado.EmpleadoID AS ID,\r\nempleado.Codigo,\r\nempleado.Nombre\r\nFROM empleado \r\nWHERE empleado.CustomerID = 29\r\nAND empleado.EmpresaID = 1\r\nAND empleado.DeBaja = 0\r\nAND empleado.Codigo LIKE '%juan%' OR empleado.Nombre LIKE '%juan%' \r\nLIMIT 10"
+                      records:
+                        - ID: 9
+                          Nombre: PEREZ ARANDA MARY JUANA
+                          Codigo: '90058055'
+                        - ID: 51
+                          Nombre: PADILLA LAGUNA JUAN RAMON
+                          Codigo: '90088970'
+                        - ID: 60
+                          Nombre: CRUZ JUAN GUSTAVO
+                          Codigo: '90066100'
+                        - ID: 149
+                          Nombre: GUTIERREZ RAMOS JUAN CARLOS
+                          Codigo: '70166291'
+                        - ID: 185
+                          Nombre: LOPEZ DEL RAZO JUAN CARLOS
+                          Codigo: '70166324'
+                        - ID: 213
+                          Nombre: RODRIGUEZ FLORES JUAN MANUEL
+                          Codigo: '70181655'
+                        - ID: 228
+                          Nombre: PERCASTEGUI MERA JUAN ANTONIO
+                          Codigo: '70116280'
+                        - ID: 229
+                          Nombre: RODRIGUEZ BASILIO JUAN GABRIEL
+                          Codigo: '70111995'
+                        - ID: 234
+                          Nombre: VALLE GUERRERO JUAN
+                          Codigo: '70166513'
+                        - ID: 243
+                          Nombre: DELGADO SOLIS JUAN CARLOS
+                          Codigo: '70116421'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - ID: 9
+                          Nombre: PEREZ ARANDA MARY JUANA
+                          Codigo: '90058055'
+                        - ID: 51
+                          Nombre: PADILLA LAGUNA JUAN RAMON
+                          Codigo: '90088970'
+                        - ID: 60
+                          Nombre: CRUZ JUAN GUSTAVO
+                          Codigo: '90066100'
+                        - ID: 149
+                          Nombre: GUTIERREZ RAMOS JUAN CARLOS
+                          Codigo: '70166291'
+                        - ID: 185
+                          Nombre: LOPEZ DEL RAZO JUAN CARLOS
+                          Codigo: '70166324'
+                        - ID: 213
+                          Nombre: RODRIGUEZ FLORES JUAN MANUEL
+                          Codigo: '70181655'
+                        - ID: 228
+                          Nombre: PERCASTEGUI MERA JUAN ANTONIO
+                          Codigo: '70116280'
+                        - ID: 229
+                          Nombre: RODRIGUEZ BASILIO JUAN GABRIEL
+                          Codigo: '70111995'
+                        - ID: 234
+                          Nombre: VALLE GUERRERO JUAN
+                          Codigo: '70166513'
+                        - ID: 243
+                          Nombre: DELGADO SOLIS JUAN CARLOS
+                          Codigo: '70116421'
+      operationId: get-technician
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: juan
+          in: query
+          name: param
+          description: Parámetro a buscar
+          required: true
   /tickets:
     get:
       summary: FindMany
@@ -3282,76 +3409,6 @@ paths:
           in: query
           name: clienteID
           description: '77'
-  /technician:
-    get:
-      summary: findManyByParamForTechnician
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            Codigo:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT empleado.EmpleadoID AS ID,\r\nempleado.Codigo,\r\nempleado.Nombre\r\nFROM empleado \r\nWHERE empleado.CustomerID = 29\r\nAND empleado.EmpresaID = 1\r\nAND empleado.DeBaja = 0\r\nAND empleado.Codigo LIKE '%juan%' OR empleado.Nombre LIKE '%juan%' \r\nLIMIT 10"
-                      records:
-                        - ID: 2
-                          Nombre: JUAN GUERRA
-                          Codigo: '3'
-                        - ID: 59
-                          Nombre: Juana Ceballos
-                          Codigo: 02JP
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT empleado.EmpleadoID AS ID,\r\nempleado.Codigo,\r\nempleado.Nombre\r\nFROM empleado \r\nWHERE empleado.CustomerID = 29\r\nAND empleado.EmpresaID = 1\r\nAND empleado.DeBaja = 0\r\nAND empleado.Codigo LIKE '%juan%' OR empleado.Nombre LIKE '%juan%' \r\nLIMIT 10"
-                      records:
-                        - ID: 2
-                          Nombre: JUAN GUERRA
-                          Codigo: '3'
-                        - ID: 59
-                          Nombre: Juana Ceballos
-                          Codigo: 02JP
-      operationId: get-technician
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
   /tickets/afterUbication:
     get:
       summary: afterUbicationForTickets
