@@ -3,7 +3,7 @@ x-stoplight:
   id: mbapm8z3lg6wm
 info:
   version: '1.0'
-  title: ApiLogin
+  title: API - Login
   description: ''
 servers:
   - description: Direccion Francia
