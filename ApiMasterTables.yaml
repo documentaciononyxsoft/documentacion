@@ -11817,6 +11817,188 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
       description: ''
+  /tables/employee/work:
+    get:
+      summary: Work - FindByEmployee
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      CodigoCuenta:
+                        type: string
+                      NombreCuenta:
+                        type: string
+                      Concepto:
+                        type: string
+                      CodigoProyecto:
+                        type: string
+                      NombreProyecto:
+                        type: string
+                      CodigoTarea:
+                        type: string
+                      NombreTarea:
+                        type: string
+                      NombreMotivo:
+                        type: string
+                      NombreContacto:
+                        type: string
+                      Viaje:
+                        type: boolean
+                      NombreClave:
+                        type: string
+                      HorasDef:
+                        type: string
+                      Notas:
+                        type: string
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      CodigoCuenta: '43000001'
+                      NombreCuenta: dario
+                      Concepto: Conceptotrabajo
+                      CodigoProyecto: '25'
+                      NombreProyecto: PRUEBALUIS
+                      CodigoTarea: '30'
+                      NombreTarea: PRUEBAS TARJETAS PRUEBA
+                      NombreMotivo: '3333'
+                      NombreContacto: Edgos
+                      Viaje: false
+                      NombreClave: '3333'
+                      HorasDef: '01:00:00:00'
+                      Notas: nota trabajo
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      CodigoCuenta: '43000001'
+                      NombreCuenta: dario
+                      Concepto: Conceptotrabajo
+                      CodigoProyecto: '25'
+                      NombreProyecto: PRUEBALUIS
+                      CodigoTarea: '30'
+                      NombreTarea: PRUEBAS TARJETAS PRUEBA
+                      NombreMotivo: '3333'
+                      NombreContacto: Edgos
+                      Viaje: false
+                      NombreClave: '3333'
+                      HorasDef: '01:00:00:00'
+                      Notas: nota trabajo
+                      success: true
+        '':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      CodigoCuenta:
+                        type: string
+                      NombreCuenta:
+                        type: string
+                      Concepto:
+                        type: string
+                      CodigoProyecto:
+                        type: string
+                      NombreProyecto:
+                        type: string
+                      CodigoTarea:
+                        type: string
+                      NombreTarea:
+                        type: string
+                      NombreMotivo:
+                        type: string
+                      NombreContacto:
+                        type: string
+                      Viaje:
+                        type: boolean
+                      NombreClave:
+                        type: string
+                      HorasDef:
+                        type: string
+                      Notas:
+                        type: string
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      CodigoCuenta: '43000001'
+                      NombreCuenta: dario
+                      Concepto: Conceptotrabajo
+                      CodigoProyecto: '25'
+                      NombreProyecto: PRUEBALUIS
+                      CodigoTarea: '30'
+                      NombreTarea: PRUEBAS TARJETAS PRUEBA
+                      NombreMotivo: '3333'
+                      NombreContacto: Edgos
+                      Viaje: false
+                      NombreClave: '3333'
+                      HorasDef: '01:00:00:00'
+                      Notas: nota trabajo
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      CodigoCuenta: '43000001'
+                      NombreCuenta: dario
+                      Concepto: Conceptotrabajo
+                      CodigoProyecto: '25'
+                      NombreProyecto: PRUEBALUIS
+                      CodigoTarea: '30'
+                      NombreTarea: PRUEBAS TARJETAS PRUEBA
+                      NombreMotivo: '3333'
+                      NombreContacto: Edgos
+                      Viaje: false
+                      NombreClave: '3333'
+                      HorasDef: '01:00:00:00'
+                      Notas: nota trabajo
+                      success: true
+      operationId: get-tables-workTime-work
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: integer
+            example: 1
+          in: query
+          name: tiempoTrabajoID
+    parameters: []
   '/tables/client/{Param}':
     get:
       summary: Client - FindManyByParam
@@ -13020,186 +13202,6 @@ paths:
           in: header
           name: accessToken
           description: '"tokenReciente"'
-  /tables/employee/work:
-    get:
-      summary: FindWorkByEmployee
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      CodigoCuenta:
-                        type: string
-                      NombreCuenta:
-                        type: string
-                      Concepto:
-                        type: string
-                      CodigoProyecto:
-                        type: string
-                      NombreProyecto:
-                        type: string
-                      CodigoTarea:
-                        type: string
-                      NombreTarea:
-                        type: string
-                      NombreMotivo:
-                        type: string
-                      NombreContacto:
-                        type: string
-                      Viaje:
-                        type: boolean
-                      NombreClave:
-                        type: string
-                      HorasDef:
-                        type: string
-                      Notas:
-                        type: string
-                      success:
-                        type: boolean
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      CodigoCuenta: '43000001'
-                      NombreCuenta: dario
-                      Concepto: Conceptotrabajo
-                      CodigoProyecto: '25'
-                      NombreProyecto: PRUEBALUIS
-                      CodigoTarea: '30'
-                      NombreTarea: PRUEBAS TARJETAS PRUEBA
-                      NombreMotivo: '3333'
-                      NombreContacto: Edgos
-                      Viaje: false
-                      NombreClave: '3333'
-                      HorasDef: '01:00:00:00'
-                      Notas: nota trabajo
-                      success: true
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      CodigoCuenta: '43000001'
-                      NombreCuenta: dario
-                      Concepto: Conceptotrabajo
-                      CodigoProyecto: '25'
-                      NombreProyecto: PRUEBALUIS
-                      CodigoTarea: '30'
-                      NombreTarea: PRUEBAS TARJETAS PRUEBA
-                      NombreMotivo: '3333'
-                      NombreContacto: Edgos
-                      Viaje: false
-                      NombreClave: '3333'
-                      HorasDef: '01:00:00:00'
-                      Notas: nota trabajo
-                      success: true
-        '':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      CodigoCuenta:
-                        type: string
-                      NombreCuenta:
-                        type: string
-                      Concepto:
-                        type: string
-                      CodigoProyecto:
-                        type: string
-                      NombreProyecto:
-                        type: string
-                      CodigoTarea:
-                        type: string
-                      NombreTarea:
-                        type: string
-                      NombreMotivo:
-                        type: string
-                      NombreContacto:
-                        type: string
-                      Viaje:
-                        type: boolean
-                      NombreClave:
-                        type: string
-                      HorasDef:
-                        type: string
-                      Notas:
-                        type: string
-                      success:
-                        type: boolean
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      CodigoCuenta: '43000001'
-                      NombreCuenta: dario
-                      Concepto: Conceptotrabajo
-                      CodigoProyecto: '25'
-                      NombreProyecto: PRUEBALUIS
-                      CodigoTarea: '30'
-                      NombreTarea: PRUEBAS TARJETAS PRUEBA
-                      NombreMotivo: '3333'
-                      NombreContacto: Edgos
-                      Viaje: false
-                      NombreClave: '3333'
-                      HorasDef: '01:00:00:00'
-                      Notas: nota trabajo
-                      success: true
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      CodigoCuenta: '43000001'
-                      NombreCuenta: dario
-                      Concepto: Conceptotrabajo
-                      CodigoProyecto: '25'
-                      NombreProyecto: PRUEBALUIS
-                      CodigoTarea: '30'
-                      NombreTarea: PRUEBAS TARJETAS PRUEBA
-                      NombreMotivo: '3333'
-                      NombreContacto: Edgos
-                      Viaje: false
-                      NombreClave: '3333'
-                      HorasDef: '01:00:00:00'
-                      Notas: nota trabajo
-                      success: true
-      operationId: get-tables-workTime-work
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: integer
-          in: query
-          name: tiempoTrabajoID
-          description: '1'
-    parameters: []
   /tables/checkListGroup:
     get:
       summary: findManyByParamForCheckListGroup
