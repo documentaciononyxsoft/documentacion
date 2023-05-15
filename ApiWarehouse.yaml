@@ -143,6 +143,163 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  '/material/warehouse/{materialID}':
+    parameters:
+      - schema:
+          type: string
+          example: '246'
+        name: materialID
+        in: path
+        required: true
+        description: ArticuloID
+    get:
+      summary: FindManyForMaterial
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            contador:
+                              type: integer
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: ''
+                      records:
+                        - contador: 1
+                        - ID: 3
+                          Nombre: Calidad MP ME
+                          Codigo: Q1-MPE
+                          contador: 2
+                        - ID: 4
+                          Nombre: Materia Prima
+                          Codigo: MP
+                          contador: 3
+                        - contador: 4
+                        - ID: 12
+                          Nombre: MRO
+                          Codigo: MRO
+                          contador: 5
+                        - ID: 13
+                          Nombre: EQUIPO PROTECCION PERSONAL
+                          Codigo: EPP
+                          contador: 6
+                        - contador: 7
+                        - ID: 15
+                          Nombre: CEDIS TEOLOYUCAN
+                          Codigo: CEDISTEO
+                          contador: 8
+                        - ID: 16
+                          Nombre: CEDIS AGUASCALIENTES
+                          Codigo: CEDISAG
+                          contador: 9
+                        - ID: 17
+                          Nombre: CEDIS VILLA HERMOSA
+                          Codigo: CEDISVH
+                          contador: 10
+                        - ID: 18
+                          Nombre: Producto terminado Sin Validar
+                          Codigo: PT01
+                          contador: 11
+                        - ID: 19
+                          Nombre: Producto terminado
+                          Codigo: PT02
+                          contador: 12
+                        - ID: 28
+                          Nombre: Granel A
+                          Codigo: PQ-GRA_A
+                          contador: 13
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: ''
+                      records:
+                        - contador: 1
+                        - ID: 3
+                          Nombre: Calidad MP ME
+                          Codigo: Q1-MPE
+                          contador: 2
+                        - ID: 4
+                          Nombre: Materia Prima
+                          Codigo: MP
+                          contador: 3
+                        - contador: 4
+                        - ID: 12
+                          Nombre: MRO
+                          Codigo: MRO
+                          contador: 5
+                        - ID: 13
+                          Nombre: EQUIPO PROTECCION PERSONAL
+                          Codigo: EPP
+                          contador: 6
+                        - contador: 7
+                        - ID: 15
+                          Nombre: CEDIS TEOLOYUCAN
+                          Codigo: CEDISTEO
+                          contador: 8
+                        - ID: 16
+                          Nombre: CEDIS AGUASCALIENTES
+                          Codigo: CEDISAG
+                          contador: 9
+                        - ID: 17
+                          Nombre: CEDIS VILLA HERMOSA
+                          Codigo: CEDISVH
+                          contador: 10
+                        - ID: 18
+                          Nombre: Producto terminado Sin Validar
+                          Codigo: PT01
+                          contador: 11
+                        - ID: 19
+                          Nombre: Producto terminado
+                          Codigo: PT02
+                          contador: 12
+                        - ID: 28
+                          Nombre: Granel A
+                          Codigo: PQ-GRA_A
+                          contador: 13
+      operationId: get-material-warehouse-materialID
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      description: Busca en la tabla ArticuloXAlmacen por ArticuloID
 components:
   schemas:
     User:
