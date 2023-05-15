@@ -10183,8 +10183,158 @@ paths:
     get:
       summary: GmaoTickets - FindManyEquipmentsByLayout
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            gmao_equipoid:
+                              type: integer
+                            nombre:
+                              type: string
+                            numeroserie:
+                              type: string
+                            marca:
+                              type: string
+                            modelo:
+                              type: string
+                            tipoequipoid:
+                              type: integer
+                            codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - gmao_equipoid: 7
+                          nombre: cocedor
+                          numeroserie: ''
+                          marca: ''
+                          modelo: ''
+                          tipoequipoid: 0
+                          codigo: FGJ
+                        - gmao_equipoid: 8
+                          nombre: Tolva de recepcion Maiz de camiones
+                          numeroserie: ''
+                          marca: ''
+                          modelo: ''
+                          tipoequipoid: 0
+                          codigo: '1'
+                        - gmao_equipoid: 9
+                          nombre: Transportador helicoidal
+                          numeroserie: ''
+                          marca: ''
+                          modelo: ''
+                          tipoequipoid: 0
+                          codigo: '2'
+                        - gmao_equipoid: 10
+                          nombre: Elevador de maiz sucio (fuera de silos)
+                          numeroserie: ''
+                          marca: ''
+                          modelo: ''
+                          tipoequipoid: 0
+                          codigo: '3'
+                        - gmao_equipoid: 11
+                          nombre: Cribadora (arriba silos)
+                          numeroserie: ''
+                          marca: ''
+                          modelo: ''
+                          tipoequipoid: 0
+                          codigo: '4'
+                        - gmao_equipoid: 12
+                          nombre: Transportador de rastras (arriba silos)
+                          numeroserie: ''
+                          marca: ''
+                          modelo: ''
+                          tipoequipoid: 0
+                          codigo: '5'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - gmao_equipoid: 7
+                          nombre: cocedor
+                          numeroserie: ''
+                          marca: ''
+                          modelo: ''
+                          tipoequipoid: 0
+                          codigo: FGJ
+                        - gmao_equipoid: 8
+                          nombre: Tolva de recepcion Maiz de camiones
+                          numeroserie: ''
+                          marca: ''
+                          modelo: ''
+                          tipoequipoid: 0
+                          codigo: '1'
+                        - gmao_equipoid: 9
+                          nombre: Transportador helicoidal
+                          numeroserie: ''
+                          marca: ''
+                          modelo: ''
+                          tipoequipoid: 0
+                          codigo: '2'
+                        - gmao_equipoid: 10
+                          nombre: Elevador de maiz sucio (fuera de silos)
+                          numeroserie: ''
+                          marca: ''
+                          modelo: ''
+                          tipoequipoid: 0
+                          codigo: '3'
+                        - gmao_equipoid: 11
+                          nombre: Cribadora (arriba silos)
+                          numeroserie: ''
+                          marca: ''
+                          modelo: ''
+                          tipoequipoid: 0
+                          codigo: '4'
+                        - gmao_equipoid: 12
+                          nombre: Transportador de rastras (arriba silos)
+                          numeroserie: ''
+                          marca: ''
+                          modelo: ''
+                          tipoequipoid: 0
+                          codigo: '5'
       operationId: get-tables-tickets-equipments
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: '1'
+          in: header
+          name: gmao_layoutid
+          description: Gmao_LayoutID
+          required: true
+      description: Buscar en gmao_equipo por Gmao_LayoutID
   /tables/tickets/generaltable:
     get:
       summary: GmaoTickets - FindManyGeneralTable
