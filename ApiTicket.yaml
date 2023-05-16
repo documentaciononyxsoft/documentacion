@@ -3319,8 +3319,6 @@ paths:
                     content:
                       success: true
                       msg: ''
-        '':
-          description: OK
       parameters:
         - schema:
             type: string
