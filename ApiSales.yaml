@@ -311,15 +311,48 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '11'
         name: id
         in: path
         required: true
+        description: SerieFacturaVentaID
     put:
       summary: InvoicesSeries - Update
       operationId: put-sales-invoice-series-id
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      SerieFacturaVentaID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      SerieFacturaVentaID: 11
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      SerieFacturaVentaID: 11
       parameters:
         - schema:
             type: string
@@ -328,6 +361,45 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Serie:
+                  type: string
+                Descripcion:
+                  type: string
+                Bloqueo:
+                  type: integer
+                Autofactura:
+                  type: integer
+                FacturacionTercero:
+                  type: integer
+                Abono:
+                  type: integer
+                IvaID:
+                  type: integer
+              x-examples:
+                Example 1:
+                  Serie: SE01
+                  Descripcion: Prueba
+                  Bloqueo: 0
+                  Autofactura: 0
+                  FacturacionTercero: 0
+                  Abono: 0
+                  IvaID: 1
+            examples:
+              Example 1:
+                value:
+                  Serie: UP01
+                  Descripcion: PruebaUpdated
+                  Bloqueo: 0
+                  Autofactura: 0
+                  FacturacionTercero: 0
+                  Abono: 0
+                  IvaID: 2
     delete:
       summary: InvoicesSeries - Delete
       operationId: delete-sales-invoice-series-id
