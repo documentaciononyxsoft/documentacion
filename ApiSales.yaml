@@ -12745,6 +12745,31 @@ paths:
       responses:
         '200':
           description: OK
+  '/sales/orders/{saleorderid}/open/lines':
+    parameters:
+      - schema:
+          type: string
+        name: saleorderid
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: put-sales-orders-saleorderid-open-lines
+      responses:
+        '200':
+          description: OK
+  /sales/orders/duplicate:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-sales-orders-duplicate
+  /sales/orders/generate:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-sales-orders-generate
   /sales/receipts:
     post:
       summary: Create Receipts
