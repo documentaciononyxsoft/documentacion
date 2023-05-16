@@ -13638,15 +13638,44 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '223'
         name: id
         in: path
         required: true
+        description: PedidoVentaCabeceraID
     put:
       summary: SalesOrder - Complete
       operationId: put-sales-orders-id-complete
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
       parameters:
         - schema:
             type: string
@@ -13655,6 +13684,21 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                '':
+                  type: integer
+              x-examples:
+                Example 1:
+                  '': 0
+            examples:
+              Example 1:
+                value:
+                  '': 0
   '/sales/orders/{saleorderid}/lines':
     parameters:
       - schema:
