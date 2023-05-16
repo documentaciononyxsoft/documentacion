@@ -4701,7 +4701,7 @@ paths:
           name: 'ubicacionID '
   /tickets/closeTicket:
     get:
-      summary: closeTicket
+      summary: CloseTicket
       tags: []
       responses:
         '200':
@@ -4855,7 +4855,7 @@ paths:
                     content:
                       data:
                         success: true
-                        sql: "SELECT AvisoTicket.*,\r\nAvisoTicketElemento.ElementoID, \r\nElemento.NumeroSerie,\r\nElemento.Nombre AS NombreEquipo,\r\nelemento.FechaInstalacion AS FechaInicioGarantia,\r\nelemento.FechaBaja AS FechaFinGarantia,\r\nMailing.ReferenciaCodigo,\r\nmailing.Horario ,\r\nmailing.Telefono ,\r\nMailing.Nombre AS NombreMailing,\r\nmailing.Municipio AS MunicipioNombre,\r\nDireccion.Codigo AS CodigoDireccion,\r\nDireccion.Nombre AS NombreDireccion,\r\ndireccion.Direccion ,\r\ndireccion.municipio AS UbicacionMunicipio,\r\ndireccion.Latitud,\r\ndireccion.Longitud,\r\nTablaGeneralAbrev.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneralAbrev.Descripcion AS TipoTicketTexto,\r\nAvisoTicketPrioridad.Nombre AS NombrePrioridad,\r\nAvisoTicketPrioridad.Icono AS IconoPrioridad,\r\ncodigopostal.CodigoPostal AS NombreCodigoPostal,\r\nprovincia.Nombre AS ProvinciaNombre,\r\npais.Nombre AS PaisNombre,\r\ncontacto.Nombre AS ContactoNombre,\r\navisotickettipoproblema.Nombre AS TipoProblemaNombre,\r\nservicio.Descripcion AS ServicioNombre,\r\ncodigoPostalUbicacion.CodigoPostal AS NombreCodigoPostalUbicacion,\r\nprovinciaUbicacion.Nombre AS NombreUbicacionProvincia,\r\nusuario.NombreUsuario AS usuarioAlta,\r\nempleado.Nombre AS nombreTecnico,\r\nempleado.Codigo AS codigoTecnico,\r\nusuarioCierre.NombreUsuario AS usuarioCierre\r\n\r\n\r\n\r\nFROM avisoticket\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nLEFT OUTER JOIN AvisoTicketElemento ON AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Elemento ON Elemento.ElementoID = AvisoTicketElemento.ElementoID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = AvisoTicket.DireccionID\r\nLEFT OUTER JOIN TablaGeneral AS TablaGeneralAbrev ON TablaGeneralAbrev.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN AvisoTicketPrioridad ON AvisoTicket.AvisoTicketPrioridadID = AvisoTicketPrioridad.AvisoTicketPrioridadID\r\nLEFT JOIN avisotickettipoproblema ON avisoticket.AvisoTicketTipoProblemaID = avisotickettipoproblema.AvisoTicketTipoProblemaID\r\nLEFT JOIN codigopostal ON codigopostal.CodigoPostalID = mailing.CodigoPostalID\r\nLEFT JOIN codigopostal AS codigoPostalUbicacion ON codigoPostalUbicacion.CodigoPostalID = direccion.CodigoPostalID\r\n\r\nLEFT JOIN empleado ON avisoticket.EmpleadoID = empleado.EmpleadoID\r\nLEFT JOIN usuario ON usuario.UsuarioID = avisoticket.UsuarioID\r\nLEFT JOIN usuario AS usuarioCierre ON usuarioCierre.UsuarioID = avisoticket.UsuarioCierreID\r\n\r\nLEFT JOIN provincia ON provincia.ProvinciaID = mailing.ProvinciaID\r\nLEFT JOIN provincia AS provinciaUbicacion  ON provinciaUbicacion.ProvinciaID = direccion.ProvinciaID\r\nLEFT JOIN pais ON pais.PaisID = mailing.PaisID\r\nLEFT JOIN contacto ON contacto.ContactoID = avisoticket.ContactoID \r\nLEFT OUTER JOIN TablaGeneral AS Servicio ON Servicio.TablaGeneralID = avisoticket.ServicioID\r\n\r\nWHERE AvisoTicket.CustomerID = 29\r\nAND\tAvisoTicket.EmpresaID = 1\r\nAND\tAvisoTicket.AvisoTicketID = 104"
+                        sql: string
                         records:
                           - TicketID: 104
                             Numero: 80
@@ -4897,17 +4897,20 @@ paths:
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: 'accessToken '
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
         - schema:
             type: integer
+            example: 104
           in: query
           name: ticketID
-          description: '104'
+          required: true
   /tickets/cronology:
     get:
-      summary: cronologyForTickets
+      summary: Cronology
       tags: []
       responses:
         '200':
@@ -4945,17 +4948,14 @@ paths:
                     message: Request processed successfully
                     content:
                       records:
-                        - Fecha: '20220317171116670'
-                          Descripcion: Intervención nº 13 realizada.
-                          Usuario: PRO
-                        - Fecha: '20220317170937916'
-                          Descripcion: Ticket planificado.
-                          Usuario: PRO
-                        - Fecha: '20220317170902000'
-                          Descripcion: Ticket nº 16 creado.
-                          Usuario: PRO
+                        - Fecha: '20230512132252202'
+                          Descripcion: Aceptada la intervención para el 20230412101600000 por MENDIETA FLORES DIEGO
+                          Usuario: ADMINISTRADOR
+                        - Fecha: '20230504022507456'
+                          Descripcion: Intervención nº 50 realizada.
+                          Usuario: ADMINISTRADOR
                       success: true
-                      sql: "select avisoticketcronologia.*,usuario.NombreUsuario\r\n\r\nfrom avisoticketcronologia \r\nleft join usuario on usuario.usuarioid = AvisoTicketCronologia.UsuarioID\r\nleft join AvisoTicket on AvisoTicket.AvisoTicketID = AvisoTicketCronologia.AvisoTicketID\r\n\r\nwhere AvisoTicketCronologia.customerid = 29 \r\nand AvisoTicketCronologia.empresaid = 1 \r\nand AvisoTicketCronologia.AvisoTicketID = 22\r\n\r\norder by AvisoTicketCronologia.FechaHoraUsuario desc"
+                      sql: "select avisoticketcronologia.*,usuario.NombreUsuario\r\n\r\nfrom avisoticketcronologia \r\nleft join usuario on usuario.usuarioid = AvisoTicketCronologia.UsuarioID\r\nleft join AvisoTicket on AvisoTicket.AvisoTicketID = AvisoTicketCronologia.AvisoTicketID\r\n\r\nwhere AvisoTicketCronologia.customerid = 29 \r\nand AvisoTicketCronologia.empresaid = 1 \r\nand AvisoTicketCronologia.AvisoTicketID = 16\r\n\r\norder by AvisoTicketCronologia.FechaHoraUsuario desc"
               examples:
                 Example 1:
                   value:
@@ -4963,29 +4963,28 @@ paths:
                     message: Request processed successfully
                     content:
                       records:
-                        - Fecha: '20220317171116670'
-                          Descripcion: Intervención nº 13 realizada.
-                          Usuario: PRO
-                        - Fecha: '20220317170937916'
-                          Descripcion: Ticket planificado.
-                          Usuario: PRO
-                        - Fecha: '20220317170902000'
-                          Descripcion: Ticket nº 16 creado.
-                          Usuario: PRO
+                        - Fecha: '20230512132252202'
+                          Descripcion: Aceptada la intervención para el 20230412101600000 por MENDEZ
+                          Usuario: ADMINISTRADOR
+                        - Fecha: '20230504022507456'
+                          Descripcion: Intervención nº 50 realizada.
+                          Usuario: ADMINISTRADOR
                       success: true
-                      sql: "select avisoticketcronologia.*,usuario.NombreUsuario\r\n\r\nfrom avisoticketcronologia \r\nleft join usuario on usuario.usuarioid = AvisoTicketCronologia.UsuarioID\r\nleft join AvisoTicket on AvisoTicket.AvisoTicketID = AvisoTicketCronologia.AvisoTicketID\r\n\r\nwhere AvisoTicketCronologia.customerid = 29 \r\nand AvisoTicketCronologia.empresaid = 1 \r\nand AvisoTicketCronologia.AvisoTicketID = 22\r\n\r\norder by AvisoTicketCronologia.FechaHoraUsuario desc"
+                      sql: string
       operationId: get-tickets-cronology
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: 'accessToken '
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
         - schema:
             type: integer
+            example: 16
           in: query
           name: ticketID
-          description: '22'
   /tickets/expenses:
     get:
       summary: expensesForTickets
