@@ -2352,6 +2352,197 @@ paths:
             type: integer
           in: query
           name: offset
+  /equipment/consult/tickets:
+    get:
+      summary: FindManyByFiltersByEquipment
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            NumeroTicket:
+                              type: integer
+                            CodigoCuenta:
+                              type: string
+                            NombreCuenta:
+                              type: string
+                            CodigoUbicacion:
+                              type: integer
+                            NombreUbicacion:
+                              type: string
+                            CodigoEquipo:
+                              type: string
+                            NombreEquipo:
+                              type: string
+                            TipoTicket:
+                              type: string
+                            Prioridad:
+                              type: string
+                            Estado:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT AvisoTicket.*,\r\nAvisoTicketElemento.ElementoID, \r\nElemento.NumeroSerie,\r\nElemento.Nombre AS NombreEquipo,\r\nMailing.ReferenciaCodigo,\r\nMailing.Nombre AS NombreMailing,\r\nDireccion.Codigo AS CodigoDireccion,\r\nDireccion.Nombre AS NombreDireccion,\r\nTablaGeneral.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneral.Descripcion AS TipoTicketTexto,\r\nAvisoTicketPrioridad.Nombre AS NombrePrioridad,\r\nAvisoTicketPrioridad.Icono AS IconoPrioridad\r\nFROM AvisoTicket\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nLEFT OUTER JOIN AvisoTicketElemento ON AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Elemento ON Elemento.ElementoID = AvisoTicketElemento.ElementoID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = AvisoTicket.DireccionID\r\nLEFT OUTER JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN AvisoTicketPrioridad ON AvisoTicket.AvisoTicketPrioridadID = AvisoTicketPrioridad.AvisoTicketPrioridadID\r\nWHERE AvisoTicket.CustomerID = 29\r\nAND\tAvisoTicket.EmpresaID = 1\r\n AND (AvisoTicketElemento.ElementoID IN (1))\r\nlimit 4 \r\noffset 0"
+                      records:
+                        - NumeroTicket: 28
+                          CodigoCuenta: '43020007'
+                          NombreCuenta: TID TECNICAS INDUSTRIALES
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          CodigoEquipo: '3442342'
+                          NombreEquipo: EXTINTOR
+                          TipoTicket: Averia
+                          Prioridad: pruebaLUIS23
+                          Estado: PD
+                        - NumeroTicket: 29
+                          CodigoCuenta: '43020007'
+                          NombreCuenta: TID TECNICAS INDUSTRIALES
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          CodigoEquipo: '3442342'
+                          NombreEquipo: EXTINTOR
+                          TipoTicket: Averia
+                          Prioridad: pruebaLUIS23
+                          Estado: PD
+                        - NumeroTicket: 31
+                          CodigoCuenta: '43020007'
+                          NombreCuenta: TID TECNICAS INDUSTRIALES
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          CodigoEquipo: '3442342'
+                          NombreEquipo: EXTINTOR
+                          TipoTicket: Averia
+                          Prioridad: pruebaLUIS23
+                          Estado: PD
+                        - NumeroTicket: 33
+                          CodigoCuenta: '43020007'
+                          NombreCuenta: TID TECNICAS INDUSTRIALES
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          CodigoEquipo: '3442342'
+                          NombreEquipo: EXTINTOR
+                          TipoTicket: Averia
+                          Prioridad: pruebaLUIS23
+                          Estado: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - NumeroTicket: 28
+                          CodigoCuenta: '43020007'
+                          NombreCuenta: TID TECNICAS INDUSTRIALES
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          CodigoEquipo: '3442342'
+                          NombreEquipo: EXTINTOR
+                          TipoTicket: Averia
+                          Prioridad: pruebaLUIS23
+                          Estado: PD
+                        - NumeroTicket: 29
+                          CodigoCuenta: '43020007'
+                          NombreCuenta: TID TECNICAS INDUSTRIALES
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          CodigoEquipo: '3442342'
+                          NombreEquipo: EXTINTOR
+                          TipoTicket: Averia
+                          Prioridad: pruebaLUIS23
+                          Estado: PD
+                        - NumeroTicket: 31
+                          CodigoCuenta: '43020007'
+                          NombreCuenta: TID TECNICAS INDUSTRIALES
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          CodigoEquipo: '3442342'
+                          NombreEquipo: EXTINTOR
+                          TipoTicket: Averia
+                          Prioridad: pruebaLUIS23
+                          Estado: PD
+                        - NumeroTicket: 33
+                          CodigoCuenta: '43020007'
+                          NombreCuenta: TID TECNICAS INDUSTRIALES
+                          CodigoUbicacion: 1
+                          NombreUbicacion: SAT MADRID 1
+                          CodigoEquipo: '3442342'
+                          NombreEquipo: EXTINTOR
+                          TipoTicket: Averia
+                          Prioridad: pruebaLUIS23
+                          Estado: ''
+      operationId: get-equipment-consult-tickets
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: '19990223'
+          in: query
+          name: fechaDesdeIn
+        - schema:
+            type: string
+            example: '20230327'
+          in: query
+          name: fechaHastaIn
+        - schema:
+            type: string
+          in: query
+          name: ticketID
+        - schema:
+            type: string
+          in: query
+          name: mailingID
+        - schema:
+            type: string
+            example: '1'
+          in: query
+          name: equipoID
+        - schema:
+            type: string
+          in: query
+          name: ubicacionID
+        - schema:
+            type: string
+            example: '0'
+          in: query
+          name: offset
+        - schema:
+            type: string
+            example: '4'
+          in: query
+          name: limit
   /tickets:
     get:
       summary: FindMany
@@ -5697,195 +5888,6 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
-  /equipment/consult/tickets:
-    get:
-      summary: FindManyByFiltersForTicketsByEquipment
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            NumeroTicket:
-                              type: integer
-                            CodigoCuenta:
-                              type: string
-                            NombreCuenta:
-                              type: string
-                            CodigoUbicacion:
-                              type: integer
-                            NombreUbicacion:
-                              type: string
-                            CodigoEquipo:
-                              type: string
-                            NombreEquipo:
-                              type: string
-                            TipoTicket:
-                              type: string
-                            Prioridad:
-                              type: string
-                            Estado:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT AvisoTicket.*,\r\nAvisoTicketElemento.ElementoID, \r\nElemento.NumeroSerie,\r\nElemento.Nombre AS NombreEquipo,\r\nMailing.ReferenciaCodigo,\r\nMailing.Nombre AS NombreMailing,\r\nDireccion.Codigo AS CodigoDireccion,\r\nDireccion.Nombre AS NombreDireccion,\r\nTablaGeneral.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneral.Descripcion AS TipoTicketTexto,\r\nAvisoTicketPrioridad.Nombre AS NombrePrioridad,\r\nAvisoTicketPrioridad.Icono AS IconoPrioridad\r\nFROM AvisoTicket\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nLEFT OUTER JOIN AvisoTicketElemento ON AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Elemento ON Elemento.ElementoID = AvisoTicketElemento.ElementoID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = AvisoTicket.DireccionID\r\nLEFT OUTER JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN AvisoTicketPrioridad ON AvisoTicket.AvisoTicketPrioridadID = AvisoTicketPrioridad.AvisoTicketPrioridadID\r\nWHERE AvisoTicket.CustomerID = 29\r\nAND\tAvisoTicket.EmpresaID = 1\r\n AND (AvisoTicketElemento.ElementoID IN (1))\r\nlimit 4 \r\noffset 0"
-                      records:
-                        - NumeroTicket: 28
-                          CodigoCuenta: '43020007'
-                          NombreCuenta: TID TECNICAS INDUSTRIALES
-                          CodigoUbicacion: 1
-                          NombreUbicacion: SAT MADRID 1
-                          CodigoEquipo: '3442342'
-                          NombreEquipo: EXTINTOR
-                          TipoTicket: Averia
-                          Prioridad: pruebaLUIS23
-                          Estado: PD
-                        - NumeroTicket: 29
-                          CodigoCuenta: '43020007'
-                          NombreCuenta: TID TECNICAS INDUSTRIALES
-                          CodigoUbicacion: 1
-                          NombreUbicacion: SAT MADRID 1
-                          CodigoEquipo: '3442342'
-                          NombreEquipo: EXTINTOR
-                          TipoTicket: Averia
-                          Prioridad: pruebaLUIS23
-                          Estado: PD
-                        - NumeroTicket: 31
-                          CodigoCuenta: '43020007'
-                          NombreCuenta: TID TECNICAS INDUSTRIALES
-                          CodigoUbicacion: 1
-                          NombreUbicacion: SAT MADRID 1
-                          CodigoEquipo: '3442342'
-                          NombreEquipo: EXTINTOR
-                          TipoTicket: Averia
-                          Prioridad: pruebaLUIS23
-                          Estado: PD
-                        - NumeroTicket: 33
-                          CodigoCuenta: '43020007'
-                          NombreCuenta: TID TECNICAS INDUSTRIALES
-                          CodigoUbicacion: 1
-                          NombreUbicacion: SAT MADRID 1
-                          CodigoEquipo: '3442342'
-                          NombreEquipo: EXTINTOR
-                          TipoTicket: Averia
-                          Prioridad: pruebaLUIS23
-                          Estado: ''
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT AvisoTicket.*,\r\nAvisoTicketElemento.ElementoID, \r\nElemento.NumeroSerie,\r\nElemento.Nombre AS NombreEquipo,\r\nMailing.ReferenciaCodigo,\r\nMailing.Nombre AS NombreMailing,\r\nDireccion.Codigo AS CodigoDireccion,\r\nDireccion.Nombre AS NombreDireccion,\r\nTablaGeneral.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneral.Descripcion AS TipoTicketTexto,\r\nAvisoTicketPrioridad.Nombre AS NombrePrioridad,\r\nAvisoTicketPrioridad.Icono AS IconoPrioridad\r\nFROM AvisoTicket\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nLEFT OUTER JOIN AvisoTicketElemento ON AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Elemento ON Elemento.ElementoID = AvisoTicketElemento.ElementoID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = AvisoTicket.DireccionID\r\nLEFT OUTER JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN AvisoTicketPrioridad ON AvisoTicket.AvisoTicketPrioridadID = AvisoTicketPrioridad.AvisoTicketPrioridadID\r\nWHERE AvisoTicket.CustomerID = 29\r\nAND\tAvisoTicket.EmpresaID = 1\r\n AND (AvisoTicketElemento.ElementoID IN (1))\r\nlimit 4 \r\noffset 0"
-                      records:
-                        - NumeroTicket: 28
-                          CodigoCuenta: '43020007'
-                          NombreCuenta: TID TECNICAS INDUSTRIALES
-                          CodigoUbicacion: 1
-                          NombreUbicacion: SAT MADRID 1
-                          CodigoEquipo: '3442342'
-                          NombreEquipo: EXTINTOR
-                          TipoTicket: Averia
-                          Prioridad: pruebaLUIS23
-                          Estado: PD
-                        - NumeroTicket: 29
-                          CodigoCuenta: '43020007'
-                          NombreCuenta: TID TECNICAS INDUSTRIALES
-                          CodigoUbicacion: 1
-                          NombreUbicacion: SAT MADRID 1
-                          CodigoEquipo: '3442342'
-                          NombreEquipo: EXTINTOR
-                          TipoTicket: Averia
-                          Prioridad: pruebaLUIS23
-                          Estado: PD
-                        - NumeroTicket: 31
-                          CodigoCuenta: '43020007'
-                          NombreCuenta: TID TECNICAS INDUSTRIALES
-                          CodigoUbicacion: 1
-                          NombreUbicacion: SAT MADRID 1
-                          CodigoEquipo: '3442342'
-                          NombreEquipo: EXTINTOR
-                          TipoTicket: Averia
-                          Prioridad: pruebaLUIS23
-                          Estado: PD
-                        - NumeroTicket: 33
-                          CodigoCuenta: '43020007'
-                          NombreCuenta: TID TECNICAS INDUSTRIALES
-                          CodigoUbicacion: 1
-                          NombreUbicacion: SAT MADRID 1
-                          CodigoEquipo: '3442342'
-                          NombreEquipo: EXTINTOR
-                          TipoTicket: Averia
-                          Prioridad: pruebaLUIS23
-                          Estado: ''
-      operationId: get-equipment-consult-tickets
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: string
-          in: query
-          name: fechaDesdeIn
-          description: '19990223'
-        - schema:
-            type: string
-          in: query
-          name: fechaHastaIn
-          description: '20230327'
-        - schema:
-            type: string
-          in: query
-          name: ticketID
-        - schema:
-            type: string
-          in: query
-          name: mailingID
-        - schema:
-            type: string
-          in: query
-          name: equipoID
-          description: '1'
-        - schema:
-            type: string
-          in: query
-          name: ubicacionID
-        - schema:
-            type: string
-          in: query
-          name: offset
-          description: '0'
-        - schema:
-            type: string
-          in: query
-          name: limit
-          description: '4'
   /ticket/openTickets:
     get:
       summary: OpenTickets
