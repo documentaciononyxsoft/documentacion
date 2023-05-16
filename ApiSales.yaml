@@ -14231,13 +14231,13 @@ paths:
           required: true
   /sales/orders/duplicate:
     get:
-      summary: Your GET endpoint
+      summary: SalesOrder - Duplicate
       tags: []
       responses: {}
       operationId: get-sales-orders-duplicate
   /sales/orders/generate:
     get:
-      summary: Your GET endpoint
+      summary: SalesOrder - Generate
       tags: []
       responses: {}
       operationId: get-sales-orders-generate
