@@ -5667,30 +5667,48 @@ paths:
                     message: Request processed successfully
                     content:
                       records:
-                        - Fecha: '20181113'
-                          CodigoMaterial: 01ARM3R
-                          Material: ARANDELA M3 RIZADA T2631
-                          Cantidad: 100
-                          Precio: 0.12
-                          Importe: 12
-                        - Fecha: '20230216'
-                          CodigoMaterial: APL2
-                          Material: ARTICULO POR LOTES 2
-                          Cantidad: 3
-                          Precio: 10
-                          Importe: 30
-                        - Fecha: '20230216'
-                          CodigoMaterial: APL2
-                          Material: ARTICULO POR LOTES 2
-                          Cantidad: 3
-                          Precio: 10
-                          Importe: 30
-                        - Fecha: '20230216'
-                          CodigoMaterial: APL2
-                          Material: ARTICULO POR LOTES 2
-                          Cantidad: 3
-                          Precio: 10
-                          Importe: 30
+                        - Fecha: '20230303'
+                          CodigoMaterial: '1000004549'
+                          Material: POLIZA DE SERVICIO PARTSWASHER - ULTRA SOLVE 40 SC
+                          Cantidad: 5
+                          Precio: 5000
+                          Importe: 25000
+                        - Fecha: '10050101'
+                          CodigoMaterial: '100000587'
+                          Material: LECHE DESCREMADA EN POLVO
+                          Cantidad: 5
+                          Precio: 500
+                          Importe: 2500
+                        - Fecha: '20230224'
+                          CodigoMaterial: '1000001311'
+                          Material: 'POLIZA DE SERVICIO DE TRATAMIENTO DE AGUA CALDERAS '
+                          Cantidad: 1
+                          Precio: 10400
+                          Importe: 10400
+                        - Fecha: '20230224'
+                          CodigoMaterial: '100000626'
+                          Material: SALVADILLO
+                          Cantidad: 5
+                          Precio: 7.95
+                          Importe: 39.75
+                        - Fecha: '20230224'
+                          CodigoMaterial: '100000626'
+                          Material: SALVADILLO
+                          Cantidad: 5
+                          Precio: 7.95
+                          Importe: 39.75
+                        - Fecha: '20230224'
+                          CodigoMaterial: '100000626'
+                          Material: SALVADILLO
+                          Cantidad: 7
+                          Precio: 7.95
+                          Importe: 55.65
+                        - Fecha: '20230224'
+                          CodigoMaterial: '100000626'
+                          Material: SALVADILLO
+                          Cantidad: 10
+                          Precio: 7.95
+                          Importe: 79.5
                       success: true
                       sql: string
       operationId: get-tickets-materials
@@ -5704,7 +5722,7 @@ paths:
           required: true
         - schema:
             type: string
-            example: '3'
+            example: '1'
           in: query
           name: ticketID
   /tickets/openTicket:
