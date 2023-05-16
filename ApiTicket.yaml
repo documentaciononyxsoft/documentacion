@@ -5163,7 +5163,7 @@ paths:
           name: ticketID
   /tickets/hours:
     get:
-      summary: hoursForTickets
+      summary: Hours
       tags: []
       responses:
         '200':
@@ -5429,19 +5429,21 @@ paths:
                           Horas: '02:00:00.000'
                           Importe: '1000'
                       success: true
-                      sql: "SELECT\r\nTiempoTrabajo.*,\r\nTipoRechazo.Nombre AS TipoRechazoNombre,\r\nTipoInterrupcion.Nombre AS TipoInterrupcionNombre,\r\nTablaGeneral.Descripcion AS TurnoNombre,\r\nEmpleado.Nombre AS EmpleadoNombre,\r\nEmpleado.Codigo AS EmpleadoCodigo\r\n\r\nFROM TiempoTrabajo \r\nLEFT OUTER JOIN TipoInterrupcion ON TiempoTrabajo.TipoInterrupcionID = TipoInterrupcion.TipoInterrupcionID\r\nLEFT OUTER JOIN TipoRechazo ON TiempoTrabajo.TipoRechazoID = TipoRechazo.TipoRechazoID\r\nLEFT OUTER JOIN TablaGeneral ON TiempoTrabajo.TurnoID = TablaGeneral.TablaGeneralID\r\nLEFT OUTER JOIN Empleado ON TiempoTrabajo.EmpleadoID = Empleado.EmpleadoID\r\n\r\nWHERE\r\nTiempoTrabajo.CustomerID = 29 AND\r\nTiempoTrabajo.EmpresaID = 1 AND\r\nTiempoTrabajo.ProcesoID IN (3784,5313)\r\n"
+                      sql: string
       operationId: get-tickets-hours
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: 'accessToken '
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
         - schema:
             type: string
+            example: '22'
           in: query
           name: ticketID
-          description: '22'
   /tickets/light:
     get:
       summary: Your GET endpoint
