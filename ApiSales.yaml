@@ -12710,11 +12710,117 @@ paths:
           name: orientation
           description: 'Esta valor determina si los registros se leerán desde arriba hacia abajo, o desde abajo hacia arriba en la tabla.'
     post:
-      summary: SalesOrder - FindManyByFilters
+      summary: SalesOrder - Create
       operationId: post-sales-orders
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      idPedidoVenta:
+                        type: integer
+                      numero:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      idPedidoVenta: 2235
+                      numero: 2110
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      idPedidoVenta: 2235
+                      numero: 2110
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SeriePedidoID:
+                  type: string
+                Fecha:
+                  type: string
+                AlmacenID:
+                  type: string
+                ClienteID:
+                  type: string
+                ReferenciaCliente:
+                  type: string
+                TipoPedidoID:
+                  type: string
+                FechaCaptacion:
+                  type: string
+                FechaEntregaPrevistaInterna:
+                  type: string
+                FechaEntregaPrevistaCliente:
+                  type: string
+                DireccionEnvioID:
+                  type: string
+                Confirmado:
+                  type: string
+                AlbaranNoValorado:
+                  type: string
+                TarifaVentaID:
+                  type: string
+              x-examples:
+                Example 1:
+                  SeriePedidoID: '4'
+                  Fecha: '2023-05-16'
+                  AlmacenID: '15'
+                  ClienteID: '84'
+                  ReferenciaCliente: '225577'
+                  TipoPedidoID: '1'
+                  FechaCaptacion: '2023-01-01'
+                  FechaEntregaPrevistaInterna: '2023-05-30'
+                  FechaEntregaPrevistaCliente: '2023-06-10'
+                  DireccionEnvioID: '740'
+                  Confirmado: '0'
+                  AlbaranNoValorado: '0'
+                  TarifaVentaID: '11'
+            examples:
+              Example 1:
+                value:
+                  SeriePedidoID: '4'
+                  Fecha: '2023-05-16'
+                  AlmacenID: '15'
+                  ClienteID: '84'
+                  ReferenciaCliente: '225577'
+                  TipoPedidoID: '1'
+                  FechaCaptacion: '2023-01-01'
+                  FechaEntregaPrevistaInterna: '2023-05-30'
+                  FechaEntregaPrevistaCliente: '2023-06-10'
+                  DireccionEnvioID: '740'
+                  Confirmado: '0'
+                  AlbaranNoValorado: '0'
+                  TarifaVentaID: '11'
   /sales/orders/:
     post:
       summary: Create SaleOrder
