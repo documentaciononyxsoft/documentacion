@@ -9,7 +9,7 @@ servers:
 paths:
   /sales/invoices/series:
     get:
-      summary: InvoicesSeries - Create
+      summary: InvoicesSeries - FindAll
       tags: []
       responses:
         '200':
@@ -223,7 +223,7 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
     post:
-      summary: ''
+      summary: InvoicesSeries - Create
       operationId: post-sales-invoices-series
       responses:
         '200':
