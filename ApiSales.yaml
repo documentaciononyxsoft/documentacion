@@ -16531,6 +16531,30 @@ paths:
       responses:
         '200':
           description: OK
+  '/sales/orders/{saleorderid}/lines':
+    parameters:
+      - schema:
+          type: string
+        name: saleorderid
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-sales-orders-saleorderid-lines
+  '/sales/orders/{id}/open':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-sales-orders-id-open
 components:
   schemas:
     User:
