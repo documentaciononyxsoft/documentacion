@@ -528,10 +528,94 @@ paths:
           required: true
   /sales/consult/invoices:
     get:
-      summary: Your GET endpoint
+      summary: SalesInvoices - FindManyByFilters
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      sql:
+                        type: string
+                      records:
+                        type: 'null'
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      sql: "SELECT\r\nFacturaVentaCabecera.FacturaVentaCabeceraID,\r\nFacturaVentaCabecera.Ejercicio,\r\nFacturaVentaCabecera.Numero,\r\nFacturaVentaCabecera.FechaFactura,\r\nFacturaVentaCabecera.FechaContable,\r\nFacturaVentaCabecera.TotalFactura,\r\nFacturaVentaCabecera.CambioMoneda,\r\nFacturaVentaCabecera.MonedaID,\r\nFacturaVentaCabecera.ImporteAnticipo,\r\nFacturaVentaCabecera.ImportePosterior,\r\nFacturaVentaCabecera.ReferenciaCliente,\r\nFacturaVentaCabecera.PaisID,\r\nFacturaVentaCabecera.TipoOperacionTerceroID,\r\nFacturaVentaCabecera.IdiomaID,\r\nFacturaVentaCabecera.NumeroCopias,\r\nFacturaVentaCabecera.NombreFactura,\r\nFacturaVentaCabecera.PorcentajeComision,\r\nMailingRepresentante.Nombre AS NombreRepresentante,\r\nMoneda.Abreviatura,\r\nCliente.Codigo AS CodigoCliente,\r\nMailing.Nombre AS NombreCliente,\r\nMailing.Cif AS CIFCliente,\r\nSerieFacturaVenta.Serie,\r\nSUM(FacturaVentaIVA.BaseImponible) AS TotalBaseMonedaBase,\r\nSUM(FacturaVentaIVA.BaseMonedaOrigen) AS TotalBaseOrigen,\r\nTipoRetencion.Nombre AS TipoRetencionGarantia,\r\nFacturaVentaRetencion.Cuota AS ImporteRetencionGarantia,\r\nFacturaVentaRetencion.Porcentaje AS PorcentajeRetencionGarantia,\r\nTPIRPF.Nombre AS TipoRetencion,\r\nFVRIRPF.Cuota AS ImporteRetencion,\r\nFVRIRPF.Porcentaje AS PorcentajeRetencion,\r\nTablaGeneral.Descripcion AS TipoFactura,\r\nFacturaVentaCabecera.ImporteOtroGasto,\r\nRepresentante.Codigo AS codigoRepresentante,\r\nMailingRepresentante2.Nombre AS NombreRepresentante2,\r\nFacturaVentaCabecera.PorcentajeComision2 as PorcComision2,\r\nFacturaVentaCabecera.CriterioCaja,\r\nFacturaVentaCabecera.EnviadoPorEmail,\r\nFacturaVentaCabecera.ImportePortes,\r\nFacturaVentaCabecera.ImporteDtoEspecial1,\r\nfacturaventacabecera.ImporteDtoEspecial2,\r\nFacturaVentaCabecera.ImporteDtoEspecial3,\r\nFacturaVentaCabecera.ImporteDtoProntoPago,\r\nSUM(FacturaVentaIVA.ImporteIVA) AS TotalIVA,\r\nFacturaVentaCabecera.cif as cifFactura,\r\nFacturaVentaCabecera.Estado as EstadoFactura,\r\nFacturaVentaCabecera.TicketBaiError,\r\nFacturaVentaCabecera.CodigoIdentificativo,\r\nTipoFactura.Abreviatura AS CodigoTipoFactura,\r\nTipoFactura.Descripcion AS descripcionTipoFactura,\r\nCASE\r\n    WHEN FacturaVentaCabecera.RectificativaTipo = 'S' THEN 'Sustitución'\r\n    WHEN FacturaVentaCabecera.RectificativaTipo = 'I' THEN 'Diferencias'\r\n    ELSE ''\r\nEND AS descripcionTipoRectificativa\r\n\r\nFROM\r\n(((((((FacturaVentaCabecera LEFT JOIN Cliente ON Cliente.ClienteID = FacturaVentaCabecera.ClienteID)\r\nLEFT JOIN SerieFacturaVenta ON SerieFacturaVenta.SerieFacturaVentaID = FacturaVentaCabecera.SerieFacturaVentaID)\r\nLEFT JOIN Representante ON Representante.RepresentanteID = FacturaVentaCabecera.RepresentanteID)\r\nLEFT JOIN Mailing AS MailingRepresentante ON MailingRepresentante.MailingID = Representante.MailingID)\r\nLEFT JOIN Mailing ON Mailing.MailingID = Cliente.MailingID)\r\nLEFT JOIN FacturaVentaIVA ON FacturaVentaIVA.FacturaVentaCabeceraID = FacturaVentaCabecera.FacturaVentaCabeceraID)\r\nLEFT JOIN Moneda ON Moneda.MonedaID = FacturaVentaCabecera.MonedaID)\r\nLEFT JOIN FacturaVentaRetencion ON FacturaVentaRetencion.FacturaVentaCabeceraID = FacturaVentaCabecera.FacturaVentaCabeceraID AND FacturaVentaRetencion.TipoRetencionID IN (SELECT TipoRetencion.TipoRetencionID FROM TipoRetencion WHERE TIPO = 'GARANTIA')\r\nLEFT JOIN TipoRetencion ON TipoRetencion.TipoRetencionID = FacturaVentaRetencion.TipoRetencionID AND TipoRetencion.Tipo = 'GARANTIA'\r\nLEFT JOIN FacturaVentaRetencion AS FVRIRPF ON FVRIRPF.FacturaVentaCabeceraID = FacturaVentaCabecera.FacturaVentaCabeceraID AND FVRIRPF.TipoRetencionID IN (SELECT TipoRetencion.TipoRetencionID FROM TipoRetencion WHERE TIPO = 'IRPF')\r\nLEFT JOIN TipoRetencion AS TPIRPF  ON TPIRPF.TipoRetencionID = FVRIRPF.TipoRetencionID AND TPIRPF.Tipo = 'GARANTIA'\r\nLEFT JOIN TablaGeneral on TablaGeneral.TablaGeneralID = FacturaVentaCabecera.TipoFacturaID\r\nLEFT JOIN Representante as Representante2 ON Representante2.RepresentanteID = FacturaVentaCabecera.Representante2ID\r\nLEFT JOIN Mailing AS MailingRepresentante2 ON MailingRepresentante2.MailingID = Representante2.MailingID\r\nLEFT JOIN TablaGeneral AS TipoFactura ON TipoFactura.TablaGeneralID = FacturaVentaCabecera.CodigoTipoFacturaID\r\n\r\nWHERE\r\nFacturaVentaCabecera.EmpresaID = 1 AND\r\nFacturaVentaCabecera.CustomerID = 29\r\n\r\n AND (FacturaVentaCabecera.FechaFactura >= 20200101 AND DATE(FacturaVentaCabecera.FechaFactura) <= 20250101 AND FacturaVentaCabecera.Numero >= '10' AND FacturaVentaCabecera.Numero <= '20' AND FacturaVentaCabecera.SerieFacturaVentaID = 4 AND FacturaVentaCabecera.ClienteID = 84 AND FacturaVentaCabecera.RepresentanteID IN (185) AND FacturaVentaCabecera.TipoOperacionTerceroID = 180 AND FacturaVentaCabecera.TipoIva = 1 AND FacturaVentaCabecera.Ejercicio = 2021 AND FacturaVentaCabecera.FechaContable IS NULL  AND facturaventaCabecera.MonedaID = 0 AND FacturaVentaCabecera.TipoFacturaID = 0) GROUP BY\r\nFacturaVentaCabecera.FacturaVentaCabeceraID,\r\nFacturaVentaCabecera.Ejercicio,\r\nFacturaVentaCabecera.Numero,\r\nFacturaVentaCabecera.FechaFactura,\r\nFacturaVentaCabecera.FechaContable,\r\nFacturaVentaCabecera.TotalFactura,\r\nFacturaVentaCabecera.CambioMoneda,\r\nFacturaVentaCabecera.MonedaID,\r\nFacturaVentaCabecera.ImporteAnticipo,\r\nFacturaVentaCabecera.ImportePosterior,\r\nFacturaVentaCabecera.ReferenciaCliente,\r\nFacturaVentaCabecera.PaisID,\r\nFacturaVentaCabecera.TipoOperacionTerceroID,\r\nFacturaVentaCabecera.IdiomaID,\r\nFacturaVentaCabecera.NumeroCopias,\r\nFacturaVentaCabecera.NombreFactura,\r\nFacturaVentaCabecera.PorcentajeComision,\r\nMailingRepresentante.Nombre,\r\nMoneda.Abreviatura,\r\nCliente.Codigo,\r\nMailing.Nombre,\r\nMailing.Cif,\r\nSerieFacturaVenta.Serie,\r\nTipoRetencion.Nombre,\r\nFacturaVentaRetencion.Cuota,\r\nFacturaVentaRetencion.Porcentaje,\r\nTPIRPF.Nombre,\r\nFVRIRPF.Cuota,\r\nFVRIRPF.Porcentaje,\r\nTablaGeneral.Descripcion,\r\nFacturaVentaCabecera.ImporteOtroGasto,\r\ncodigoRepresentante,\r\nNombreRepresentante2,\r\nFacturaVentaCabecera.PorcentajeComision2,\r\nFacturaVentaCabecera.CriterioCaja,\r\nFacturaVentaCabecera.EnviadoPorEmail,\r\nFacturaVentaCabecera.ImportePortes,\r\nFacturaVentaCabecera.ImporteDtoEspecial1,\r\nFacturaVentaCabecera.ImporteDtoEspecial2,\r\nFacturaVentaCabecera.ImporteDtoEspecial3,\r\nFacturaVentaCabecera.ImporteDtoProntoPago,\r\ncifFactura,\r\nFacturaVentaCabecera.Estado,FacturaVentaCabecera.TicketBaiError,\r\nCodigoIdentificativo,CodigoTipoFactura,descripcionTipoFactura,descripcionTipoRectificativa\r\n\r\n\r\n\r\nORDER BY FacturaVentaCabecera.Ejercicio,SerieFacturaVenta.Serie, FacturaVentaCabecera.Numero"
+                      records: null
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      sql: string
+                      records: null
       operationId: get-sales-consult-invoices
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fechaDesde:
+                  type: string
+                fechaHasta:
+                  type: string
+                numeroFActuraDesde:
+                  type: string
+                numeroFActuraHasta:
+                  type: string
+                serieFacturaVentaID:
+                  type: string
+                clienteID:
+                  type: string
+                listaRepresentantesID:
+                  type: string
+                tipoOperacionTerceroID:
+                  type: string
+                tipoIvaID:
+                  type: string
+                ejercicio:
+                  type: string
+              x-examples:
+                Example 1:
+                  fechaDesde: '20200101'
+                  fechaHasta: '20250101'
+                  numeroFActuraDesde: '10'
+                  numeroFActuraHasta: '20'
+                  serieFacturaVentaID: '4'
+                  clienteID: '84'
+                  listaRepresentantesID: '185'
+                  tipoOperacionTerceroID: '180'
+                  tipoIvaID: '1'
+                  ejercicio: '2021'
+            examples:
+              Example 1:
+                value:
+                  fechaDesde: '20200101'
+                  fechaHasta: '20250101'
+                  numeroFActuraDesde: '10'
+                  numeroFActuraHasta: '20'
+                  serieFacturaVentaID: '4'
+                  clienteID: '84'
+                  listaRepresentantesID: '185'
+                  tipoOperacionTerceroID: '180'
+                  tipoIvaID: '1'
+                  ejercicio: '2021'
   /sales/invoices:
     get:
       summary: List Invoices
