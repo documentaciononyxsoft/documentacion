@@ -13019,6 +13019,12 @@ paths:
         in: path
         required: true
         description: ID de la tarifa de venta que se va a actualizar o eliminar
+  /sales/consult/receipts:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-sales-consult-receipts
   /sales/receipts:
     post:
       summary: Create Receipts
@@ -16076,6 +16082,18 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  '/sales/receipts/{param}':
+    parameters:
+      - schema:
+          type: string
+        name: param
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-sales-receipts-param
   '/sales/receipts/{receiptid}/lines':
     parameters:
       - schema:
