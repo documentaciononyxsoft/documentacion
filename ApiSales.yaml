@@ -7,7 +7,7 @@ info:
 servers:
   - url: 'http://15.236.85.216/'
 paths:
-  /sales/invoices/series:
+  /sales/invoice/series:
     get:
       summary: InvoicesSeries - FindAll
       tags: []
@@ -236,6 +236,7 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+    parameters: []
   '/sales/invoice/series/{id}':
     parameters:
       - schema:
