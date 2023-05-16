@@ -1257,14 +1257,626 @@ paths:
     parameters:
       - schema:
           type: string
+          example: prueba
         name: param
         in: path
         required: true
+        description: Parámetro a buscar
     get:
-      summary: Your GET endpoint
+      summary: SalesInvoices - FindManyByFilter
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      facturas:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            FacturaVentaCabeceraID:
+                              type: integer
+                            Numero:
+                              type: integer
+                            FechaFactura:
+                              type: string
+                            NombreFactura:
+                              type: string
+                            CIF:
+                              type: string
+                            CambioMoneda:
+                              type: integer
+                            NombreComercial:
+                              type: string
+                            DireccionFactura:
+                              type: string
+                            ImporteBruto:
+                              type: number
+                            ImporteGasto:
+                              type: integer
+                            ImporteDtoEspecial1:
+                              type: integer
+                            ImporteDtoEspecial2:
+                              type: integer
+                            ImporteDtoEspecial3:
+                              type: integer
+                            ImporteDtoProntoPago:
+                              type: integer
+                            ImportePortes:
+                              type: integer
+                            ClienteID:
+                              type: integer
+                            TipoSerieFacturaID:
+                              type: integer
+                            EmpresaID:
+                              type: integer
+                            CustomerID:
+                              type: integer
+                            FechaHoraUsuario:
+                              type: string
+                            TotalFactura:
+                              type: integer
+                            Ejercicio:
+                              type: integer
+                            SerieFacturaVentaID:
+                              type: integer
+                            MonedaID:
+                              type: integer
+                            PropietarioID:
+                              type: integer
+                            PropiedadID:
+                              type: integer
+                            FechaContable:
+                              type: string
+                            DiarioLineaID:
+                              type: integer
+                            MunicipioID:
+                              type: integer
+                            PaisID:
+                              type: integer
+                            ProvinciaID:
+                              type: integer
+                            RepresentanteID:
+                              type: integer
+                            ReferenciaCliente:
+                              type: string
+                            ReferenciaInterna:
+                              type: string
+                            FormaPagoID:
+                              type: integer
+                            NumeroVencimiento:
+                              type: integer
+                            DiasResto:
+                              type: integer
+                            DiasPrimerVencimiento:
+                              type: integer
+                            DiaFijoPago1:
+                              type: integer
+                            DiaFijoPago2:
+                              type: integer
+                            DiaFijoPago3:
+                              type: integer
+                            DiaFijoPago4:
+                              type: integer
+                            MesVacacion:
+                              type: integer
+                            DiaSiguientePago:
+                              type: integer
+                            UsuarioID:
+                              type: integer
+                            DireccionFacturaID:
+                              type: integer
+                            DireccionEnvioFacturaID:
+                              type: integer
+                            Entidad:
+                              type: string
+                            Oficina:
+                              type: string
+                            DigitoControl:
+                              type: string
+                            CuentaCorriente:
+                              type: string
+                            Iban:
+                              type: string
+                            Swift:
+                              type: string
+                            TipoOperacionTerceroID:
+                              type: integer
+                            TipoIva:
+                              type: string
+                            FechaHoraModificado:
+                              type: string
+                            ImporteAnticipo:
+                              type: integer
+                            ImportePosterior:
+                              type: integer
+                            NumeroCopias:
+                              type: integer
+                            CodigoPostalID:
+                              type: integer
+                            ClienteAlbaranID:
+                              type: integer
+                            NombreBanco:
+                              type: string
+                            Municipio:
+                              type: string
+                            IdiomaID:
+                              type: integer
+                            FacturaRectificativaID:
+                              type: integer
+                            TipoFacturaID:
+                              type: integer
+                            BancoDomiciliacionID:
+                              type: integer
+                            NumeroRegistroAcuerdoFacturacion:
+                              type: string
+                            FechaOperacion:
+                              type: string
+                            Exportado:
+                              type: integer
+                            ReferenciaContrato:
+                              type: string
+                            FechaReferenciaContrato:
+                              type: string
+                            ReferenciaOperacion:
+                              type: string
+                            FechaReferenciaOperacion:
+                              type: string
+                            ImporteOtroGasto:
+                              type: integer
+                            PorcentajeComision:
+                              type: integer
+                            ComisionTratada:
+                              type: integer
+                            Representante2ID:
+                              type: integer
+                            PorcentajeComision2:
+                              type: integer
+                            CriterioCaja:
+                              type: integer
+                            EnviadoPorEmail:
+                              type: string
+                            Observacion:
+                              type: string
+                            Firma:
+                              type: string
+                            Firma100:
+                              type: string
+                            CodigoQR:
+                              type: string
+                            CodigoIdentificativo:
+                              type: string
+                            TicketBaiError:
+                              type: string
+                            CodigoTipoFacturaID:
+                              type: integer
+                            RectificativaTipo:
+                              type: string
+                            Estado:
+                              type: string
+                            abreviaturaMoneda:
+                              type: string
+                            nombreMoneda:
+                              type: string
+                            FacturaElectronicaID:
+                              type: string
+                            NumeroFacturaElectronica:
+                              type: integer
+                            Serie:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      facturas:
+                        - FacturaVentaCabeceraID: 1006
+                          Numero: 164
+                          FechaFactura: '20220106'
+                          NombreFactura: FACTURA PRUEBA
+                          CIF: PCZ071128UM9
+                          CambioMoneda: 1
+                          NombreComercial: PRODUCTOS DE CONSUMO Z SA DE CV
+                          DireccionFactura: 'CALLE INCALPA 2000 COL. EJIDO LOS RANCHITOS CP 45590, SAN PEDRO TLAQUEPAQUE'
+                          ImporteBruto: -18874.5
+                          ImporteGasto: 0
+                          ImporteDtoEspecial1: 0
+                          ImporteDtoEspecial2: 0
+                          ImporteDtoEspecial3: 0
+                          ImporteDtoProntoPago: 0
+                          ImportePortes: 0
+                          ClienteID: 219
+                          TipoSerieFacturaID: 0
+                          EmpresaID: 1
+                          CustomerID: 29
+                          FechaHoraUsuario: '2022-01-06T13:51:34.038'
+                          TotalFactura: 0
+                          Ejercicio: 2022
+                          SerieFacturaVentaID: 8
+                          MonedaID: 3
+                          PropietarioID: 0
+                          PropiedadID: 0
+                          FechaContable: '20220106'
+                          DiarioLineaID: 7005
+                          MunicipioID: 0
+                          PaisID: 148
+                          ProvinciaID: 11
+                          RepresentanteID: 0
+                          ReferenciaCliente: ''
+                          ReferenciaInterna: ''
+                          FormaPagoID: 0
+                          NumeroVencimiento: 1
+                          DiasResto: 0
+                          DiasPrimerVencimiento: 15
+                          DiaFijoPago1: 0
+                          DiaFijoPago2: 0
+                          DiaFijoPago3: 0
+                          DiaFijoPago4: 0
+                          MesVacacion: 0
+                          DiaSiguientePago: 0
+                          UsuarioID: 94
+                          DireccionFacturaID: 0
+                          DireccionEnvioFacturaID: 0
+                          Entidad: ''
+                          Oficina: ''
+                          DigitoControl: ''
+                          CuentaCorriente: ''
+                          Iban: ''
+                          Swift: ''
+                          TipoOperacionTerceroID: 180
+                          TipoIva: ''
+                          FechaHoraModificado: '2022-01-10T11:50:30.402'
+                          ImporteAnticipo: 0
+                          ImportePosterior: 0
+                          NumeroCopias: 0
+                          CodigoPostalID: 15011
+                          ClienteAlbaranID: 219
+                          NombreBanco: ''
+                          Municipio: ''
+                          IdiomaID: 0
+                          FacturaRectificativaID: 0
+                          TipoFacturaID: 0
+                          BancoDomiciliacionID: 22
+                          NumeroRegistroAcuerdoFacturacion: ''
+                          FechaOperacion: ''
+                          Exportado: 0
+                          ReferenciaContrato: ''
+                          FechaReferenciaContrato: ''
+                          ReferenciaOperacion: ''
+                          FechaReferenciaOperacion: ''
+                          ImporteOtroGasto: 0
+                          PorcentajeComision: 0
+                          ComisionTratada: 0
+                          Representante2ID: 0
+                          PorcentajeComision2: 0
+                          CriterioCaja: 1
+                          EnviadoPorEmail: ''
+                          Observacion: ''
+                          Firma: ''
+                          Firma100: ''
+                          CodigoQR: ''
+                          CodigoIdentificativo: ''
+                          TicketBaiError: ''
+                          CodigoTipoFacturaID: 0
+                          RectificativaTipo: ''
+                          Estado: "Onyx ERP\r\nAnulada"
+                          abreviaturaMoneda: MXN
+                          nombreMoneda: Peso Mexicano
+                          FacturaElectronicaID: ''
+                          NumeroFacturaElectronica: 0
+                          Serie: NC
+                        - FacturaVentaCabeceraID: 1007
+                          Numero: 165
+                          FechaFactura: '20220106'
+                          NombreFactura: PRUEBA FAC
+                          CIF: CHO041130264
+                          CambioMoneda: 1
+                          NombreComercial: COMERCIALIZADORA LA HOJUELA S.A. DE C.V.
+                          DireccionFactura: 'Bodega E No, 23, Secc. Abarrotes Andador, Central de Abastos, Iztapalapa, C.P. 09040'
+                          ImporteBruto: -18874.5
+                          ImporteGasto: 0
+                          ImporteDtoEspecial1: 0
+                          ImporteDtoEspecial2: 0
+                          ImporteDtoEspecial3: 0
+                          ImporteDtoProntoPago: 0
+                          ImportePortes: 0
+                          ClienteID: 137
+                          TipoSerieFacturaID: 0
+                          EmpresaID: 1
+                          CustomerID: 29
+                          FechaHoraUsuario: '2022-01-06T13:54:02.664'
+                          TotalFactura: 0
+                          Ejercicio: 2022
+                          SerieFacturaVentaID: 8
+                          MonedaID: 3
+                          PropietarioID: 0
+                          PropiedadID: 0
+                          FechaContable: '20220106'
+                          DiarioLineaID: 13949
+                          MunicipioID: 0
+                          PaisID: 148
+                          ProvinciaID: 10
+                          RepresentanteID: 0
+                          ReferenciaCliente: ''
+                          ReferenciaInterna: ''
+                          FormaPagoID: 6
+                          NumeroVencimiento: 1
+                          DiasResto: 0
+                          DiasPrimerVencimiento: 30
+                          DiaFijoPago1: 0
+                          DiaFijoPago2: 0
+                          DiaFijoPago3: 0
+                          DiaFijoPago4: 0
+                          MesVacacion: 0
+                          DiaSiguientePago: 0
+                          UsuarioID: 94
+                          DireccionFacturaID: 0
+                          DireccionEnvioFacturaID: 0
+                          Entidad: ''
+                          Oficina: ''
+                          DigitoControl: ''
+                          CuentaCorriente: ''
+                          Iban: ''
+                          Swift: ''
+                          TipoOperacionTerceroID: 180
+                          TipoIva: ''
+                          FechaHoraModificado: '2022-01-24T10:53:07.854'
+                          ImporteAnticipo: 0
+                          ImportePosterior: 0
+                          NumeroCopias: 0
+                          CodigoPostalID: 15039
+                          ClienteAlbaranID: 137
+                          NombreBanco: ''
+                          Municipio: ''
+                          IdiomaID: 0
+                          FacturaRectificativaID: 0
+                          TipoFacturaID: 0
+                          BancoDomiciliacionID: 0
+                          NumeroRegistroAcuerdoFacturacion: ''
+                          FechaOperacion: ''
+                          Exportado: 0
+                          ReferenciaContrato: ''
+                          FechaReferenciaContrato: ''
+                          ReferenciaOperacion: ''
+                          FechaReferenciaOperacion: ''
+                          ImporteOtroGasto: 0
+                          PorcentajeComision: 0
+                          ComisionTratada: 0
+                          Representante2ID: 0
+                          PorcentajeComision2: 0
+                          CriterioCaja: 1
+                          EnviadoPorEmail: ''
+                          Observacion: ''
+                          Firma: ''
+                          Firma100: ''
+                          CodigoQR: ''
+                          CodigoIdentificativo: ''
+                          TicketBaiError: ''
+                          CodigoTipoFacturaID: 0
+                          RectificativaTipo: ''
+                          Estado: "Onyx ERP\r\nAnulada"
+                          abreviaturaMoneda: MXN
+                          nombreMoneda: Peso Mexicano
+                          FacturaElectronicaID: ''
+                          NumeroFacturaElectronica: 0
+                          Serie: NC
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      facturas:
+                        - FacturaVentaCabeceraID: 1006
+                          Numero: 164
+                          FechaFactura: '20220106'
+                          NombreFactura: FACTURA PRUEBA
+                          CIF: PCZ071128UM9
+                          CambioMoneda: 1
+                          NombreComercial: PRODUCTOS DE CONSUMO Z SA DE CV
+                          DireccionFactura: 'CALLE INCALPA 2000 COL. EJIDO LOS RANCHITOS CP 45590, SAN PEDRO TLAQUEPAQUE'
+                          ImporteBruto: -18874.5
+                          ImporteGasto: 0
+                          ImporteDtoEspecial1: 0
+                          ImporteDtoEspecial2: 0
+                          ImporteDtoEspecial3: 0
+                          ImporteDtoProntoPago: 0
+                          ImportePortes: 0
+                          ClienteID: 219
+                          TipoSerieFacturaID: 0
+                          EmpresaID: 1
+                          CustomerID: 29
+                          FechaHoraUsuario: '2022-01-06T13:51:34.038'
+                          TotalFactura: 0
+                          Ejercicio: 2022
+                          SerieFacturaVentaID: 8
+                          MonedaID: 3
+                          PropietarioID: 0
+                          PropiedadID: 0
+                          FechaContable: '20220106'
+                          DiarioLineaID: 7005
+                          MunicipioID: 0
+                          PaisID: 148
+                          ProvinciaID: 11
+                          RepresentanteID: 0
+                          ReferenciaCliente: ''
+                          ReferenciaInterna: ''
+                          FormaPagoID: 0
+                          NumeroVencimiento: 1
+                          DiasResto: 0
+                          DiasPrimerVencimiento: 15
+                          DiaFijoPago1: 0
+                          DiaFijoPago2: 0
+                          DiaFijoPago3: 0
+                          DiaFijoPago4: 0
+                          MesVacacion: 0
+                          DiaSiguientePago: 0
+                          UsuarioID: 94
+                          DireccionFacturaID: 0
+                          DireccionEnvioFacturaID: 0
+                          Entidad: ''
+                          Oficina: ''
+                          DigitoControl: ''
+                          CuentaCorriente: ''
+                          Iban: ''
+                          Swift: ''
+                          TipoOperacionTerceroID: 180
+                          TipoIva: ''
+                          FechaHoraModificado: '2022-01-10T11:50:30.402'
+                          ImporteAnticipo: 0
+                          ImportePosterior: 0
+                          NumeroCopias: 0
+                          CodigoPostalID: 15011
+                          ClienteAlbaranID: 219
+                          NombreBanco: ''
+                          Municipio: ''
+                          IdiomaID: 0
+                          FacturaRectificativaID: 0
+                          TipoFacturaID: 0
+                          BancoDomiciliacionID: 22
+                          NumeroRegistroAcuerdoFacturacion: ''
+                          FechaOperacion: ''
+                          Exportado: 0
+                          ReferenciaContrato: ''
+                          FechaReferenciaContrato: ''
+                          ReferenciaOperacion: ''
+                          FechaReferenciaOperacion: ''
+                          ImporteOtroGasto: 0
+                          PorcentajeComision: 0
+                          ComisionTratada: 0
+                          Representante2ID: 0
+                          PorcentajeComision2: 0
+                          CriterioCaja: 1
+                          EnviadoPorEmail: ''
+                          Observacion: ''
+                          Firma: ''
+                          Firma100: ''
+                          CodigoQR: ''
+                          CodigoIdentificativo: ''
+                          TicketBaiError: ''
+                          CodigoTipoFacturaID: 0
+                          RectificativaTipo: ''
+                          Estado: "Onyx ERP\r\nAnulada"
+                          abreviaturaMoneda: MXN
+                          nombreMoneda: Peso Mexicano
+                          FacturaElectronicaID: ''
+                          NumeroFacturaElectronica: 0
+                          Serie: NC
+                        - FacturaVentaCabeceraID: 1007
+                          Numero: 165
+                          FechaFactura: '20220106'
+                          NombreFactura: PRUEBA FAC
+                          CIF: CHO041130264
+                          CambioMoneda: 1
+                          NombreComercial: COMERCIALIZADORA LA HOJUELA S.A. DE C.V.
+                          DireccionFactura: 'Bodega E No, 23, Secc. Abarrotes Andador, Central de Abastos, Iztapalapa, C.P. 09040'
+                          ImporteBruto: -18874.5
+                          ImporteGasto: 0
+                          ImporteDtoEspecial1: 0
+                          ImporteDtoEspecial2: 0
+                          ImporteDtoEspecial3: 0
+                          ImporteDtoProntoPago: 0
+                          ImportePortes: 0
+                          ClienteID: 137
+                          TipoSerieFacturaID: 0
+                          EmpresaID: 1
+                          CustomerID: 29
+                          FechaHoraUsuario: '2022-01-06T13:54:02.664'
+                          TotalFactura: 0
+                          Ejercicio: 2022
+                          SerieFacturaVentaID: 8
+                          MonedaID: 3
+                          PropietarioID: 0
+                          PropiedadID: 0
+                          FechaContable: '20220106'
+                          DiarioLineaID: 13949
+                          MunicipioID: 0
+                          PaisID: 148
+                          ProvinciaID: 10
+                          RepresentanteID: 0
+                          ReferenciaCliente: ''
+                          ReferenciaInterna: ''
+                          FormaPagoID: 6
+                          NumeroVencimiento: 1
+                          DiasResto: 0
+                          DiasPrimerVencimiento: 30
+                          DiaFijoPago1: 0
+                          DiaFijoPago2: 0
+                          DiaFijoPago3: 0
+                          DiaFijoPago4: 0
+                          MesVacacion: 0
+                          DiaSiguientePago: 0
+                          UsuarioID: 94
+                          DireccionFacturaID: 0
+                          DireccionEnvioFacturaID: 0
+                          Entidad: ''
+                          Oficina: ''
+                          DigitoControl: ''
+                          CuentaCorriente: ''
+                          Iban: ''
+                          Swift: ''
+                          TipoOperacionTerceroID: 180
+                          TipoIva: ''
+                          FechaHoraModificado: '2022-01-24T10:53:07.854'
+                          ImporteAnticipo: 0
+                          ImportePosterior: 0
+                          NumeroCopias: 0
+                          CodigoPostalID: 15039
+                          ClienteAlbaranID: 137
+                          NombreBanco: ''
+                          Municipio: ''
+                          IdiomaID: 0
+                          FacturaRectificativaID: 0
+                          TipoFacturaID: 0
+                          BancoDomiciliacionID: 0
+                          NumeroRegistroAcuerdoFacturacion: ''
+                          FechaOperacion: ''
+                          Exportado: 0
+                          ReferenciaContrato: ''
+                          FechaReferenciaContrato: ''
+                          ReferenciaOperacion: ''
+                          FechaReferenciaOperacion: ''
+                          ImporteOtroGasto: 0
+                          PorcentajeComision: 0
+                          ComisionTratada: 0
+                          Representante2ID: 0
+                          PorcentajeComision2: 0
+                          CriterioCaja: 1
+                          EnviadoPorEmail: ''
+                          Observacion: ''
+                          Firma: ''
+                          Firma100: ''
+                          CodigoQR: ''
+                          CodigoIdentificativo: ''
+                          TicketBaiError: ''
+                          CodigoTipoFacturaID: 0
+                          RectificativaTipo: ''
+                          Estado: "Onyx ERP\r\nAnulada"
+                          abreviaturaMoneda: MXN
+                          nombreMoneda: Peso Mexicano
+                          FacturaElectronicaID: ''
+                          NumeroFacturaElectronica: 0
+                          Serie: NC
       operationId: get-sales-invoices-param
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /sales/consult/orders:
     get:
       summary: Your GET endpoint
