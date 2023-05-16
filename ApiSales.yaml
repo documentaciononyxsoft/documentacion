@@ -16470,6 +16470,30 @@ paths:
       tags: []
       responses: {}
       operationId: get-sales-order
+  /sales/orders/invoices/series:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-sales-orders-invoices-series
+  /sales/consult/invoices:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-sales-consult-invoices
+  '/sales/invoices/{param}':
+    parameters:
+      - schema:
+          type: string
+        name: param
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-sales-invoices-param
 components:
   schemas:
     User:
