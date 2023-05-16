@@ -4479,6 +4479,87 @@ paths:
           name: 'accessToken '
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /tickets/afterClient:
+    get:
+      summary: AfterClient
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: object
+                        properties:
+                          Horario:
+                            type: string
+                          Direccion:
+                            type: string
+                          Pais:
+                            type: string
+                          Municipio:
+                            type: string
+                          CodigoPostal:
+                            type: string
+                          Provincia:
+                            type: string
+                          Telefono:
+                            type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        Horario: fewfew
+                        Direccion: scdscdscdscds
+                        Pais: Colombia
+                        Municipio: BOGOTA DC
+                        CodigoPostal: '01193'
+                        Provincia: BOGOTA DC
+                        Telefono: '3218316755'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        Horario: fewfew
+                        Direccion: scdscdscdscds
+                        Pais: Colombia
+                        Municipio: BOGOTA DC
+                        CodigoPostal: '01193'
+                        Provincia: BOGOTA DC
+                        Telefono: '3218316755'
+      operationId: get-tickets-afterClient
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: integer
+            example: 77
+          in: query
+          name: clienteID
   '/tickets/quicksearch/{sBusqueda}':
     get:
       summary: findManyByFilterForTickets
@@ -4683,85 +4764,6 @@ paths:
         in: path
         required: true
         description: '70'
-  /tickets/afterClient:
-    get:
-      summary: afterClientForTickets
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      data:
-                        type: object
-                        properties:
-                          Horario:
-                            type: string
-                          Direccion:
-                            type: string
-                          Pais:
-                            type: string
-                          Municipio:
-                            type: string
-                          CodigoPostal:
-                            type: string
-                          Provincia:
-                            type: string
-                          Telefono:
-                            type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        Horario: fewfew
-                        Direccion: scdscdscdscds
-                        Pais: Colombia
-                        Municipio: BOGOTA DC
-                        CodigoPostal: '01193'
-                        Provincia: BOGOTA DC
-                        Telefono: '3218316755'
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        Horario: fewfew
-                        Direccion: scdscdscdscds
-                        Pais: Colombia
-                        Municipio: BOGOTA DC
-                        CodigoPostal: '01193'
-                        Provincia: BOGOTA DC
-                        Telefono: '3218316755'
-      operationId: get-tickets-afterClient
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: integer
-          in: query
-          name: clienteID
-          description: '77'
   /tickets/afterUbication:
     get:
       summary: afterUbicationForTickets
