@@ -12790,6 +12790,72 @@ paths:
                   type: string
                 TarifaVentaID:
                   type: string
+                ClienteFacturaID:
+                  type: string
+                FormaPagoID:
+                  type: string
+                MonedaID:
+                  type: string
+                MonedaCambio:
+                  type: string
+                Portes:
+                  type: string
+                ImportePortes:
+                  type: string
+                ImporteOtroGasto:
+                  type: string
+                IvaID:
+                  type: string
+                PedidoPor:
+                  type: string
+                NumeroVencimiento:
+                  type: string
+                DiasPrimerVencimiento:
+                  type: string
+                DiasResto:
+                  type: string
+                DiaFijoPago1:
+                  type: string
+                DiaFijoPago2:
+                  type: string
+                DiaFijoPago3:
+                  type: string
+                DiaFijoPago4:
+                  type: string
+                MesVacacion:
+                  type: string
+                DiaSiguientePago:
+                  type: string
+                PorcentajeDtoComercial1:
+                  type: string
+                PorcentajeDtoComercial2:
+                  type: string
+                PorcentaDtoComercial3:
+                  type: string
+                PorcentajeDtoProntoPago:
+                  type: string
+                PorcentajeDtoEspecial1:
+                  type: string
+                PorcentajeDtoEspecial2:
+                  type: string
+                PorcentajeGastoFinanciero:
+                  type: string
+                NumeroCopiasAlbaran:
+                  type: string
+                NumeroCopiasFactura:
+                  type: string
+                AgruparAlbaran:
+                  type: string
+                BancoClienteID:
+                  type: string
+                Iban:
+                  type: string
+                Descripcion:
+                  type: string
+                NotaCliente:
+                  type: string
+                NotaGeneral:
+                  type: string
               x-examples:
                 Example 1:
                   SeriePedidoID: '4'
@@ -12805,6 +12871,39 @@ paths:
                   Confirmado: '0'
                   AlbaranNoValorado: '0'
                   TarifaVentaID: '11'
+                  ClienteFacturaID: ''
+                  FormaPagoID: ''
+                  MonedaID: ''
+                  MonedaCambio: ''
+                  Portes: ''
+                  ImportePortes: ''
+                  ImporteOtroGasto: ''
+                  IvaID: ''
+                  PedidoPor: ''
+                  NumeroVencimiento: ''
+                  DiasPrimerVencimiento: ''
+                  DiasResto: ''
+                  DiaFijoPago1: ''
+                  DiaFijoPago2: ''
+                  DiaFijoPago3: ''
+                  DiaFijoPago4: ''
+                  MesVacacion: ''
+                  DiaSiguientePago: ''
+                  PorcentajeDtoComercial1: ''
+                  PorcentajeDtoComercial2: ''
+                  PorcentaDtoComercial3: ''
+                  PorcentajeDtoProntoPago: ''
+                  PorcentajeDtoEspecial1: ''
+                  PorcentajeDtoEspecial2: ''
+                  PorcentajeGastoFinanciero: ''
+                  NumeroCopiasAlbaran: ''
+                  NumeroCopiasFactura: ''
+                  AgruparAlbaran: ''
+                  BancoClienteID: ''
+                  Iban: ''
+                  Descripcion: DescripcionPrueba
+                  NotaCliente: Notatest
+                  NotaGeneral: Notest
             examples:
               Example 1:
                 value:
@@ -12821,6 +12920,39 @@ paths:
                   Confirmado: '0'
                   AlbaranNoValorado: '0'
                   TarifaVentaID: '11'
+                  ClienteFacturaID: ''
+                  FormaPagoID: ''
+                  MonedaID: ''
+                  MonedaCambio: ''
+                  Portes: ''
+                  ImportePortes: ''
+                  ImporteOtroGasto: ''
+                  IvaID: ''
+                  PedidoPor: ''
+                  NumeroVencimiento: ''
+                  DiasPrimerVencimiento: ''
+                  DiasResto: ''
+                  DiaFijoPago1: ''
+                  DiaFijoPago2: ''
+                  DiaFijoPago3: ''
+                  DiaFijoPago4: ''
+                  MesVacacion: ''
+                  DiaSiguientePago: ''
+                  PorcentajeDtoComercial1: ''
+                  PorcentajeDtoComercial2: ''
+                  PorcentaDtoComercial3: ''
+                  PorcentajeDtoProntoPago: ''
+                  PorcentajeDtoEspecial1: ''
+                  PorcentajeDtoEspecial2: ''
+                  PorcentajeGastoFinanciero: ''
+                  NumeroCopiasAlbaran: ''
+                  NumeroCopiasFactura: ''
+                  AgruparAlbaran: ''
+                  BancoClienteID: ''
+                  Iban: ''
+                  Descripcion: DescripcionPrueba
+                  NotaCliente: Notatest
+                  NotaGeneral: Notest
   '/sales/orders/{id}':
     parameters:
       - schema:
