@@ -13906,31 +13906,59 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '2238'
         name: saleorderid
         in: path
         required: true
-        description: id del pedido
+        description: PedidoVentaCabeceraID
       - schema:
           type: string
+          example: '5034'
         name: id
         in: path
         required: true
-        description: id de la linea de pedido
+        description: PedidoVentaLineaID
     put:
       summary: SalesOrder - UpdateLine
       operationId: put-sales-orders-saleorderid-lines-id
       responses:
         '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true,
-                    "pedidoVentaLineaID": 4973,
-                    "numeroLinea": 20
-                }
-            }
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      pedidoVentaLineaID:
+                        type: integer
+                      numeroLinea:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      pedidoVentaLineaID: 5034
+                      numeroLinea: 70
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      pedidoVentaLineaID: 5034
+                      numeroLinea: 70
       description: ''
       parameters:
         - schema:
@@ -14014,13 +14042,13 @@ paths:
                   pedidoVentaLineaData:
                     pedidoventaLineaID: ''
                     pedidoVentaCabeceraID: ''
-                    linea: ''
-                    almacenID: '77'
-                    articuloID: '3517'
-                    NombreArticulo: Prueba LAPTOP DELL INSPIRON 15 3501 15.6 INTEL CORE i5 1135G7
-                    descripcion: LAPTOP DELL INSPIRON 15 3501 15.6 INTEL CORE i5 1135G7 DISCODURO 256 GB SSD RAM 8 GB WINDOWS 10 HOME
+                    linea: '100'
+                    almacenID: '10'
+                    articuloID: '20'
+                    NombreArticulo: ''
+                    descripcion: ''
                     referencia: ''
-                    cantidad: '100'
+                    cantidad: ''
                     cajas: ''
                     precio: ''
                     ivaID: ''
@@ -14034,8 +14062,8 @@ paths:
                     confirmado: ''
                     Proyecto_OFID: ''
                     ReferenciaCliente: ''
-                    NotaInterna: pedido prueba
-                    NotaCliente: descripcion prueba
+                    NotaInterna: ''
+                    NotaCliente: ''
                     RappelPorcentaje: ''
                     RappelImporte: ''
                     CrossdockingPorcentaje: ''
@@ -14043,39 +14071,39 @@ paths:
                     PorcentajeComision: ''
                     ComisionImporte: ''
             examples:
-              Example 1:
+              Example 2:
                 value:
                   pedidoVentaLineaData:
-                    pedidoventaLineaID: string
-                    pedidoVentaCabeceraID: string
-                    linea: string
-                    almacenID: string
-                    articuloID: string
-                    NombreArticulo: string
-                    descripcion: string
-                    referencia: string
-                    cantidad: string
-                    cajas: string
-                    precio: string
-                    ivaID: string
-                    PorcentajeIVA: string
-                    nivelIngenieriaID: string
-                    Dto1: string
-                    Dto2: string
-                    Dto3: string
-                    FechaEntregaPrevistaInterna: string
-                    FechaEntregaPrevistaCliente: string
-                    confirmado: string
-                    Proyecto_OFID: string
-                    ReferenciaCliente: string
-                    NotaInterna: string
-                    NotaCliente: string
-                    RappelPorcentaje: string
-                    RappelImporte: string
-                    CrossdockingPorcentaje: string
-                    CrossdockingImporte: string
-                    PorcentajeComision: string
-                    ComisionImporte: string
+                    pedidoventaLineaID: ''
+                    pedidoVentaCabeceraID: ''
+                    linea: '100'
+                    almacenID: '10'
+                    articuloID: '20'
+                    NombreArticulo: ''
+                    descripcion: ''
+                    referencia: ''
+                    cantidad: ''
+                    cajas: ''
+                    precio: ''
+                    ivaID: ''
+                    PorcentajeIVA: ''
+                    nivelIngenieriaID: ''
+                    Dto1: ''
+                    Dto2: ''
+                    Dto3: ''
+                    FechaEntregaPrevistaInterna: ''
+                    FechaEntregaPrevistaCliente: ''
+                    confirmado: ''
+                    Proyecto_OFID: ''
+                    ReferenciaCliente: ''
+                    NotaInterna: ''
+                    NotaCliente: ''
+                    RappelPorcentaje: ''
+                    RappelImporte: ''
+                    CrossdockingPorcentaje: ''
+                    CrossdockingImporte: ''
+                    PorcentajeComision: ''
+                    ComisionImporte: ''
     delete:
       summary: SalesOrder - DeleteLine
       operationId: delete-sales-orders-saleorderid-lines-id
