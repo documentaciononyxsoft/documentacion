@@ -13699,6 +13699,7 @@ paths:
               Example 1:
                 value:
                   '': 0
+      description: Cambia el valor del campo "Entregado" por un 1.
   '/sales/orders/{saleorderid}/lines':
     parameters:
       - schema:
