@@ -5446,10 +5446,146 @@ paths:
           name: ticketID
   /tickets/light:
     get:
-      summary: Your GET endpoint
+      summary: FindLightList
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: integer
+                            Contador:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - ID: 1
+                          Nombre: PRUEBATICKET
+                          Codigo: 1
+                          Contador: 1
+                        - ID: 14
+                          Nombre: ''
+                          Codigo: 1999
+                          Contador: 14
+                        - ID: 16
+                          Nombre: ProblemaJCO
+                          Codigo: 2000
+                          Contador: 15
+                        - ID: 17
+                          Nombre: Prueba
+                          Codigo: 2001
+                          Contador: 16
+                        - ID: 19
+                          Nombre: PruebaPR
+                          Codigo: 2002
+                          Contador: 17
+                        - ID: 20
+                          Nombre: PruebaJuan
+                          Codigo: 2003
+                          Contador: 18
+                        - ID: 22
+                          Nombre: Curry
+                          Codigo: 2004
+                          Contador: 19
+                        - ID: 23
+                          Nombre: Harden
+                          Codigo: 2005
+                          Contador: 20
+                        - ID: 24
+                          Nombre: PRUEBALL2
+                          Codigo: 2006
+                          Contador: 21
+                        - ID: 25
+                          Nombre: pruebassss25
+                          Codigo: 2007
+                          Contador: 22
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - ID: 1
+                          Nombre: PRUEBATICKET
+                          Codigo: 1
+                          Contador: 1
+                        - ID: 14
+                          Nombre: ''
+                          Codigo: 1999
+                          Contador: 14
+                        - ID: 16
+                          Nombre: ProblemaJCO
+                          Codigo: 2000
+                          Contador: 15
+                        - ID: 17
+                          Nombre: Prueba
+                          Codigo: 2001
+                          Contador: 16
+                        - ID: 19
+                          Nombre: PruebaPR
+                          Codigo: 2002
+                          Contador: 17
+                        - ID: 20
+                          Nombre: PruebaJuan
+                          Codigo: 2003
+                          Contador: 18
+                        - ID: 22
+                          Nombre: Curry
+                          Codigo: 2004
+                          Contador: 19
+                        - ID: 23
+                          Nombre: Harden
+                          Codigo: 2005
+                          Contador: 20
+                        - ID: 24
+                          Nombre: PRUEBALL2
+                          Codigo: 2006
+                          Contador: 21
+                        - ID: 25
+                          Nombre: pruebassss25
+                          Codigo: 2007
+                          Contador: 22
       operationId: get-tickets-light
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /tickets/materials:
     get:
       summary: materialsForTickets
