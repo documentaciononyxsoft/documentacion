@@ -13708,7 +13708,7 @@ paths:
         in: path
         required: true
     post:
-      summary: Create Lines
+      summary: SalesOrder - CreateLine
       operationId: post-sales-orders-saleorderid-lines
       responses:
         '200':
@@ -13867,11 +13867,19 @@ paths:
                     PorcentajeComision: string
                     ComisionImporte: string
     get:
-      summary: ''
+      summary: SalesOrder - FindLinesByOrder
       operationId: get-sales-orders-saleorderid-lines
       responses:
         '200':
           description: OK
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   '/sales/orders/{saleorderid}/lines/{id}':
     parameters:
       - schema:
@@ -13887,7 +13895,7 @@ paths:
         required: true
         description: id de la linea de pedido
     put:
-      summary: UpdateLines
+      summary: SalesOrder - UpdateLine
       operationId: put-sales-orders-saleorderid-lines-id
       responses:
         '200':
@@ -14047,7 +14055,7 @@ paths:
                     PorcentajeComision: string
                     ComisionImporte: string
     delete:
-      summary: DeleteLines
+      summary: SalesOrder - DeleteLine
       operationId: delete-sales-orders-saleorderid-lines-id
       responses:
         '200':
