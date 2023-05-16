@@ -9,7 +9,7 @@ servers:
 paths:
   /sales/invoices/series:
     get:
-      summary: InvoicesSeries - FindAll
+      summary: InvoicesSeries - Create
       tags: []
       responses:
         '200':
@@ -236,13 +236,13 @@ paths:
         in: path
         required: true
     put:
-      summary: ''
+      summary: InvoicesSeries - Update
       operationId: put-sales-invoice-series-id
       responses:
         '200':
           description: OK
     delete:
-      summary: ''
+      summary: InvoicesSeries - Delete
       operationId: delete-sales-invoice-series-id
       responses:
         '200':
