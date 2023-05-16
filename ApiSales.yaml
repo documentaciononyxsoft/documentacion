@@ -13712,20 +13712,46 @@ paths:
       operationId: post-sales-orders-saleorderid-lines
       responses:
         '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true,
-                    "pedidoVentaLineaID": 4984,
-                    "numeroLinea": 10
-                }
-            }
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      pedidoVentaLineaID:
+                        type: integer
+                      numeroLinea:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      pedidoVentaLineaID: 5034
+                      numeroLinea: 70
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      pedidoVentaLineaID: 5034
+                      numeroLinea: 70
       parameters:
         - schema:
             type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzI0NjE4LCAiZXhwIjoxNjcyMzMxODE4IH0.gbz6m9KxwMuXwMh_bDQjXlQDBgr_ic9f3SAxvOs2gkM
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
@@ -13739,19 +13765,17 @@ paths:
                 pedidoVentaLineaData:
                   type: object
                   properties:
-                    pedidoventaLineaID:
-                      type: string
                     pedidoVentaCabeceraID:
                       type: string
                     linea:
                       type: string
                     almacenID:
-                      type: string
+                      type: integer
                     articuloID:
-                      type: string
+                      type: integer
                     NombreArticulo:
                       type: string
-                    descripcion:
+                    Descripcion:
                       type: string
                     referencia:
                       type: string
@@ -13802,30 +13826,29 @@ paths:
               x-examples:
                 Example 1:
                   pedidoVentaLineaData:
-                    pedidoventaLineaID: ''
                     pedidoVentaCabeceraID: ''
-                    linea: ''
-                    almacenID: '77'
-                    articuloID: '3517'
-                    NombreArticulo: LAPTOP DELL INSPIRON 15 3501 15.6 INTEL CORE i5 1135G7
-                    descripcion: LAPTOP DELL INSPIRON 15 3501 15.6 INTEL CORE i5 1135G7 DISCODURO 256 GB SSD RAM 8 GB WINDOWS 10 HOME
-                    referencia: ''
-                    cantidad: '100'
-                    cajas: ''
-                    precio: ''
-                    ivaID: ''
-                    PorcentajeIVA: ''
-                    nivelIngenieriaID: ''
+                    linea: '90'
+                    almacenID: 71
+                    articuloID: 3517
+                    NombreArticulo: NombrePrueba
+                    Descripcion: Linea10
+                    referencia: '0'
+                    cantidad: '5'
+                    cajas: '0'
+                    precio: '0'
+                    ivaID: '1'
+                    PorcentajeIVA: '0'
+                    nivelIngenieriaID: '1'
                     Dto1: ''
                     Dto2: ''
                     Dto3: ''
-                    FechaEntregaPrevistaInterna: ''
-                    FechaEntregaPrevistaCliente: ''
+                    FechaEntregaPrevistaInterna: '20230510'
+                    FechaEntregaPrevistaCliente: '20230515'
                     confirmado: ''
                     Proyecto_OFID: ''
                     ReferenciaCliente: ''
-                    NotaInterna: pedido prueba
-                    NotaCliente: descripcion prueba
+                    NotaInterna: Notest
+                    NotaCliente: NotaCliente
                     RappelPorcentaje: ''
                     RappelImporte: ''
                     CrossdockingPorcentaje: ''
@@ -13836,36 +13859,35 @@ paths:
               Example 1:
                 value:
                   pedidoVentaLineaData:
-                    pedidoventaLineaID: string
-                    pedidoVentaCabeceraID: string
-                    linea: string
-                    almacenID: string
-                    articuloID: string
-                    NombreArticulo: string
-                    descripcion: string
-                    referencia: string
-                    cantidad: string
-                    cajas: string
-                    precio: string
-                    ivaID: string
-                    PorcentajeIVA: string
-                    nivelIngenieriaID: string
-                    Dto1: string
-                    Dto2: string
-                    Dto3: string
-                    FechaEntregaPrevistaInterna: string
-                    FechaEntregaPrevistaCliente: string
-                    confirmado: string
-                    Proyecto_OFID: string
-                    ReferenciaCliente: string
-                    NotaInterna: string
-                    NotaCliente: string
-                    RappelPorcentaje: string
-                    RappelImporte: string
-                    CrossdockingPorcentaje: string
-                    CrossdockingImporte: string
-                    PorcentajeComision: string
-                    ComisionImporte: string
+                    pedidoVentaCabeceraID: ''
+                    linea: '90'
+                    almacenID: 71
+                    articuloID: 3517
+                    NombreArticulo: NombrePrueba
+                    Descripcion: Linea10
+                    referencia: '0'
+                    cantidad: '5'
+                    cajas: '0'
+                    precio: '0'
+                    ivaID: '1'
+                    PorcentajeIVA: '0'
+                    nivelIngenieriaID: '1'
+                    Dto1: ''
+                    Dto2: ''
+                    Dto3: ''
+                    FechaEntregaPrevistaInterna: '20230510'
+                    FechaEntregaPrevistaCliente: '20230515'
+                    confirmado: ''
+                    Proyecto_OFID: ''
+                    ReferenciaCliente: ''
+                    NotaInterna: Notest
+                    NotaCliente: NotaCliente
+                    RappelPorcentaje: ''
+                    RappelImporte: ''
+                    CrossdockingPorcentaje: ''
+                    CrossdockingImporte: ''
+                    PorcentajeComision: ''
+                    ComisionImporte: ''
     get:
       summary: SalesOrder - FindLinesByOrder
       operationId: get-sales-orders-saleorderid-lines
