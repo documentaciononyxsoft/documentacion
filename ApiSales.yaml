@@ -14261,7 +14261,7 @@ paths:
           required: true
   /sales/rate:
     get:
-      summary: FindAll
+      summary: SalesRate - FindAll
       tags: []
       responses:
         '200':
@@ -14358,7 +14358,7 @@ paths:
           name: order
           required: true
     post:
-      summary: CreateSalesRate
+      summary: SalesRate - Create
       operationId: post-sales-rate
       responses:
         '200':
@@ -14422,7 +14422,7 @@ paths:
         description: ''
   '/sales/rate/{id}':
     put:
-      summary: UpdateSalesRate
+      summary: SalesRate - Update
       operationId: put-sales-rate
       responses:
         '200':
@@ -14480,7 +14480,7 @@ paths:
                     TipoID: string
                     activo: string
     delete:
-      summary: DeleteSalesRate
+      summary: SalesRate - Delete
       operationId: delete-sales-rate
       responses:
         '200':
