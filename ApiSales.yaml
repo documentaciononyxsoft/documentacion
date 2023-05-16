@@ -7,6 +7,221 @@ info:
 servers:
   - url: 'http://15.236.85.216/'
 paths:
+  /sales/invoices/series:
+    get:
+      summary: InvoicesSeries - FindAll
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        SerieFacturaVentaID:
+                          type: integer
+                        Serie:
+                          type: string
+                        Descripcion:
+                          type: string
+                        Bloqueo:
+                          type: integer
+                        Autofactura:
+                          type: integer
+                        FacturacionTercero:
+                          type: integer
+                        Abono:
+                          type: integer
+                        IvaID:
+                          type:
+                            - integer
+                            - string
+                        IVASoportadoId:
+                          type:
+                            - integer
+                            - string
+                        IVASoportadoCodigo:
+                          type: string
+                        IVASoportadoNombre:
+                          type: string
+                        IVARepercutidoId:
+                          type:
+                            - integer
+                            - string
+                        IVARepercutidoCodigo:
+                          type: string
+                        IVARepercutidoNombre:
+                          type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - SerieFacturaVentaID: 4
+                        Serie: GF
+                        Descripcion: Facturas Venta
+                        Bloqueo: 0
+                        Autofactura: 0
+                        FacturacionTercero: 0
+                        Abono: 0
+                        IvaID: 0
+                        IVASoportadoId: 1061
+                        IVASoportadoCodigo: '1000001'
+                        IVASoportadoNombre: FONDOVALLEJO
+                        IVARepercutidoId: 1635
+                        IVARepercutidoCodigo: '25000010159'
+                        IVARepercutidoNombre: FONKEL MEXICANA SA DE CV
+                      - SerieFacturaVentaID: 5
+                        Serie: GA
+                        Descripcion: Factura Anticipo
+                        Bloqueo: 0
+                        Autofactura: 0
+                        FacturacionTercero: 0
+                        Abono: 0
+                        IvaID: ''
+                        IVASoportadoId: ''
+                        IVASoportadoCodigo: ''
+                        IVASoportadoNombre: ''
+                        IVARepercutidoId: ''
+                        IVARepercutidoCodigo: ''
+                        IVARepercutidoNombre: ''
+                      - SerieFacturaVentaID: 6
+                        Serie: GM
+                        Descripcion: Factura Mostrador
+                        Bloqueo: 0
+                        Autofactura: 0
+                        FacturacionTercero: 0
+                        Abono: 0
+                        IvaID: ''
+                        IVASoportadoId: ''
+                        IVASoportadoCodigo: ''
+                        IVASoportadoNombre: ''
+                        IVARepercutidoId: ''
+                        IVARepercutidoCodigo: ''
+                        IVARepercutidoNombre: ''
+                      - SerieFacturaVentaID: 7
+                        Serie: Sin
+                        Descripcion: Sin Serie
+                        Bloqueo: 0
+                        Autofactura: 0
+                        FacturacionTercero: 0
+                        Abono: 0
+                        IvaID: ''
+                        IVASoportadoId: ''
+                        IVASoportadoCodigo: ''
+                        IVASoportadoNombre: ''
+                        IVARepercutidoId: ''
+                        IVARepercutidoCodigo: ''
+                        IVARepercutidoNombre: ''
+                      - SerieFacturaVentaID: 8
+                        Serie: NC
+                        Descripcion: Nota crédito
+                        Bloqueo: 0
+                        Autofactura: 0
+                        FacturacionTercero: 0
+                        Abono: 0
+                        IvaID: ''
+                        IVASoportadoId: ''
+                        IVASoportadoCodigo: ''
+                        IVASoportadoNombre: ''
+                        IVARepercutidoId: ''
+                        IVARepercutidoCodigo: ''
+                        IVARepercutidoNombre: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - SerieFacturaVentaID: 4
+                        Serie: GF
+                        Descripcion: Facturas Venta
+                        Bloqueo: 0
+                        Autofactura: 0
+                        FacturacionTercero: 0
+                        Abono: 0
+                        IvaID: 0
+                        IVASoportadoId: 1061
+                        IVASoportadoCodigo: '1000001'
+                        IVASoportadoNombre: FONDOVALLEJO
+                        IVARepercutidoId: 1635
+                        IVARepercutidoCodigo: '25000010159'
+                        IVARepercutidoNombre: FONKEL MEXICANA SA DE CV
+                      - SerieFacturaVentaID: 5
+                        Serie: GA
+                        Descripcion: Factura Anticipo
+                        Bloqueo: 0
+                        Autofactura: 0
+                        FacturacionTercero: 0
+                        Abono: 0
+                        IvaID: ''
+                        IVASoportadoId: ''
+                        IVASoportadoCodigo: ''
+                        IVASoportadoNombre: ''
+                        IVARepercutidoId: ''
+                        IVARepercutidoCodigo: ''
+                        IVARepercutidoNombre: ''
+                      - SerieFacturaVentaID: 6
+                        Serie: GM
+                        Descripcion: Factura Mostrador
+                        Bloqueo: 0
+                        Autofactura: 0
+                        FacturacionTercero: 0
+                        Abono: 0
+                        IvaID: ''
+                        IVASoportadoId: ''
+                        IVASoportadoCodigo: ''
+                        IVASoportadoNombre: ''
+                        IVARepercutidoId: ''
+                        IVARepercutidoCodigo: ''
+                        IVARepercutidoNombre: ''
+                      - SerieFacturaVentaID: 7
+                        Serie: Sin
+                        Descripcion: Sin Serie
+                        Bloqueo: 0
+                        Autofactura: 0
+                        FacturacionTercero: 0
+                        Abono: 0
+                        IvaID: ''
+                        IVASoportadoId: ''
+                        IVASoportadoCodigo: ''
+                        IVASoportadoNombre: ''
+                        IVARepercutidoId: ''
+                        IVARepercutidoCodigo: ''
+                        IVARepercutidoNombre: ''
+                      - SerieFacturaVentaID: 8
+                        Serie: NC
+                        Descripcion: Nota crédito
+                        Bloqueo: 0
+                        Autofactura: 0
+                        FacturacionTercero: 0
+                        Abono: 0
+                        IvaID: ''
+                        IVASoportadoId: ''
+                        IVASoportadoCodigo: ''
+                        IVASoportadoNombre: ''
+                        IVARepercutidoId: ''
+                        IVARepercutidoCodigo: ''
+                        IVARepercutidoNombre: ''
+      operationId: get-sales-invoices-series
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /sales/orders/:
     post:
       summary: Create SaleOrder
