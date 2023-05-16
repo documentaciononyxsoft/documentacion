@@ -8247,6 +8247,25 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                conDetalle:
+                  type: string
+                clienteID:
+                  type: string
+              x-examples:
+                Example 1:
+                  conDetalle: '0'
+                  clienteID: '254'
+            examples:
+              Example 1:
+                value:
+                  conDetalle: '0'
+                  clienteID: '254'
   /sales/orders:
     get:
       summary: Your GET endpoint
