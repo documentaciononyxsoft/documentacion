@@ -3594,6 +3594,590 @@ paths:
                   realizarPlanificacion: false
                   FechaInicialPlanificacion: '20220306160119'
                   FechaFinalPlanificacion: '20230306160119'
+  /ticket/expiringContracts:
+    get:
+      summary: ExpiringContracts
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      numeroContratosAVencer:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "\r\nSELECT COUNT(*) AS contratosProximosAVencer\r\nFROM empleadocontrato\r\nWHERE empleadocontrato.FechaBajaContrato >= '2023-05-08' AND empleadocontrato.FechaBajaContrato <= DATE_ADD('2023-05-08', INTERVAL 1 month)\r\nAND empleadocontrato.CustomerID = 29\r\nAND empleadocontrato.EmpresaID = 1"
+                      numeroContratosAVencer: 3
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      numeroContratosAVencer: 3
+      operationId: get-ticket-expiringContracts
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+  /ticket/openTickets:
+    get:
+      summary: OpenTickets
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      numeroTicketsAbiertos:
+                        type: integer
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      numeroTicketsAbiertos: 17
+                      sql: SELECT COUNT(*) AS numeroTicketsAbiertos FROM avisoticket WHERE avisoticket.Cerrado = 0 AND avisoticket.CustomerID = 29 AND avisoticket.EmpresaID = 1
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      numeroTicketsAbiertos: 17
+                      sql: string
+      operationId: get-ticket-openTickets
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+  /ticket/openTicketsByPriority:
+    get:
+      summary: OpenTicketsByPriority
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Prioridad:
+                              type: string
+                            NumeroTicketsAbiertos:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT COALESCE(atp.nombre, 'Sin prioridad') AS nombrePrioridad, COUNT(*) as numeroTicketsAbiertos\r\nFROM avisoticket at\r\nLEFT JOIN avisoticketprioridad atp ON at.AvisoTicketPrioridadID = atp.AvisoTicketPrioridadID\r\nWHERE at.CustomerID = 29\r\nAND at.EmpresaID = 1\r\nAND at.Cerrado = 0\r\nGROUP BY atp.AvisoTicketPrioridadID, COALESCE(atp.nombre, 'Sin prioridad')"
+                      data:
+                        - Prioridad: Sin prioridad
+                          NumeroTicketsAbiertos: 3
+                        - Prioridad: PRUEBALO
+                          NumeroTicketsAbiertos: 8
+                        - Prioridad: PrioridadJCO
+                          NumeroTicketsAbiertos: 6
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - Prioridad: Sin prioridad
+                          NumeroTicketsAbiertos: 3
+                        - Prioridad: PRUEBALO
+                          NumeroTicketsAbiertos: 8
+                        - Prioridad: PrioridadJCO
+                          NumeroTicketsAbiertos: 6
+      operationId: get-ticket-openTicketsByPriority
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+  /ticket/openTicketsByTrouble:
+    get:
+      summary: OpenTicketsByTrouble
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Problema:
+                              type: string
+                            NumeroTicketsAbiertos:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "\r\nSELECT COALESCE(attp.nombre, 'Sin problema') AS nombreProblema, COUNT(*) as numeroTicketsAbiertos\r\nFROM avisoticket at\r\nLEFT JOIN avisotickettipoproblema attp ON at.AvisoTicketTipoProblemaID = attp.AvisoTicketTipoProblemaID\r\nWHERE at.CustomerID = 29\r\nAND at.EmpresaID = 1\r\nAND at.Cerrado = 0\r\nGROUP BY attp.AvisoTicketTipoProblemaID, COALESCE(attp.nombre, 'Sin problema')"
+                      data:
+                        - Problema: Sin problema
+                          NumeroTicketsAbiertos: 13
+                        - Problema: ProblemaPrueba
+                          NumeroTicketsAbiertos: 1
+                        - Problema: Trouble
+                          NumeroTicketsAbiertos: 3
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - Problema: Sin problema
+                          NumeroTicketsAbiertos: 13
+                        - Problema: ProblemaPrueba
+                          NumeroTicketsAbiertos: 1
+                        - Problema: Trouble
+                          NumeroTicketsAbiertos: 3
+      operationId: get-ticket-openTicketsByTrouble
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+  /ticket/openTicketsByType:
+    get:
+      summary: OpenTicketsByType
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            TipoProblema:
+                              type: string
+                            Abreviatura:
+                              type: string
+                            NumeroTickets:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT COALESCE(tg.descripcion, 'Sin tipo') AS Tipo, COALESCE(tg.abreviatura, 'SIN') AS Abreviatura, COUNT(*) AS NumeroTickets\r\nFROM avisoticket at\r\nLEFT JOIN tablageneral tg ON at.TipoAvisoID = tg.TablaGeneralID\r\nWHERE at.CustomerID = 29\r\nAND at.EmpresaID = 1 \r\nAND at.Cerrado = 0\r\nGROUP BY at.TipoAvisoID, tg.descripcion"
+                      data:
+                        - TipoProblema: Sin tipo
+                          Abreviatura: SIN
+                          NumeroTickets: 2
+                        - TipoProblema: Averia
+                          Abreviatura: AVE
+                          NumeroTickets: 7
+                        - TipoProblema: Mantenimiento
+                          Abreviatura: MAN
+                          NumeroTickets: 6
+                        - TipoProblema: Mejora
+                          Abreviatura: MEJ
+                          NumeroTickets: 4
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - TipoProblema: Sin tipo
+                          Abreviatura: SIN
+                          NumeroTickets: 2
+                        - TipoProblema: Averia
+                          Abreviatura: AVE
+                          NumeroTickets: 7
+                        - TipoProblema: Mantenimiento
+                          Abreviatura: MAN
+                          NumeroTickets: 6
+                        - TipoProblema: Mejora
+                          Abreviatura: MEJ
+                          NumeroTickets: 4
+      operationId: get-ticket-openTicketsByType
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+  /ticket/openTicketsList:
+    get:
+      summary: OpenTicketsList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Numero:
+                              type: integer
+                            Hora:
+                              type: string
+                            Serial_Equipo:
+                              type: string
+                            Problema:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT at.Numero, \r\nDATE_FORMAT(at.FechaHoraUsuario, '%h:%i:%s %p') AS Hora, \r\nCOALESCE(e.NumeroSerie, 'Sin equipo asignado') AS `Serial_Equipo`, \r\nCOALESCE(tp.Nombre, 'Sin problema asignado') AS Problema\r\nFROM avisoticket at\r\nLEFT JOIN avisoticketelemento ate ON at.AvisoTicketID = ate.AvisoTicketID\r\nLEFT JOIN elemento e ON ate.ElementoID = e.ElementoID\r\nLEFT JOIN avisotickettipoproblema tp ON at.AvisoTicketTipoProblemaID = tp.AvisoTicketTipoProblemaID\r\nWHERE at.CustomerID = 29\r\nAND at.EmpresaID = 1\r\nAND at.Cerrado = 0"
+                      data:
+                        - Numero: 1
+                          Hora: '02:25:51 PM'
+                          Serial_Equipo: '12'
+                          Problema: Sin problema asignado
+                        - Numero: 8642
+                          Hora: '04:24:57 PM'
+                          Serial_Equipo: '12'
+                          Problema: Sin problema asignado
+                        - Numero: 87412
+                          Hora: '04:17:27 PM'
+                          Serial_Equipo: '12'
+                          Problema: Sin problema asignado
+                        - Numero: 5
+                          Hora: '02:05:43 PM'
+                          Serial_Equipo: '12'
+                          Problema: Sin problema asignado
+                        - Numero: 6
+                          Hora: '02:50:53 PM'
+                          Serial_Equipo: '456789'
+                          Problema: ProblemaPrueba
+                        - Numero: 1999
+                          Hora: '10:16:51 AM'
+                          Serial_Equipo: '456789'
+                          Problema: ProbleTest
+                        - Numero: 2458
+                          Hora: '04:21:23 PM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: Sin problema asignado
+                        - Numero: 2
+                          Hora: '11:42:15 AM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: Sin problema asignado
+                        - Numero: 3
+                          Hora: '01:56:54 PM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: Sin problema asignado
+                        - Numero: 4
+                          Hora: '01:57:54 PM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: Sin problema asignado
+                        - Numero: 8
+                          Hora: '01:56:10 PM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: cz<xcz<xc
+                        - Numero: 9
+                          Hora: '02:54:09 PM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: cz<xcz<xc
+                        - Numero: 10
+                          Hora: '02:55:54 PM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: cz<xcz<xc
+                        - Numero: 2000
+                          Hora: '11:00:00 AM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: Trouble
+                        - Numero: 2001
+                          Hora: '12:00:00 PM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: Trouble
+                        - Numero: 2002
+                          Hora: '12:00:00 PM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: ProblemaPrueba
+                        - Numero: 2003
+                          Hora: '12:00:00 PM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: Trouble
+                        - Numero: 2004
+                          Hora: '12:00:00 PM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: Trouble
+                        - Numero: 2005
+                          Hora: '12:00:00 AM'
+                          Serial_Equipo: Sin equipo asignado
+                          Problema: Trouble
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - Numero: 1
+                          Hora: '02:25:51 PM'
+                          Serial_Equipo: '12'
+                          Problema: Sin problema asignado
+                        - Numero: 8642
+                          Hora: '04:24:57 PM'
+                          Serial_Equipo: '12'
+                          Problema: Sin problema asignado
+                        - Numero: 87412
+                          Hora: '04:17:27 PM'
+                          Serial_Equipo: '12'
+                          Problema: Sin problema asignado
+                        - Numero: 5
+                          Hora: '02:05:43 PM'
+                          Serial_Equipo: '12'
+                          Problema: Sin problema asignado
+      operationId: get-ticket-openTicketsList
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+  /ticket/openToday:
+    get:
+      summary: OpenTicketsToday
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      numeroTicketsAbiertosHoy:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "\r\nSELECT COUNT(*) AS numeroTicketsAbiertosHoy\r\nFROM avisoticket \r\nWHERE avisoticket.FechaHoraUsuario LIKE '%2023-05-08%'\r\nAND avisoticket.Cerrado = 0\r\nAND avisoticket.CustomerID = 29\r\nAND avisoticket.EmpresaID = 1"
+                      numeroTicketsAbiertosHoy: 2
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      numeroTicketsAbiertosHoy: 2
+      operationId: get-ticket-openToday
+      requestBody:
+        content: {}
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+  /ticket/pendingTickets:
+    get:
+      summary: PendingTickets
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      numeroTicketsPendientes:
+                        type: integer
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      numeroTicketsPendientes: 14
+                      sql: "\r\nSELECT COUNT(*) AS numeroTicketsPendientes\r\nFROM avisoticket\r\nWHERE avisoticket.AsignadoAUsuarioID IS NULL\r\nAND avisoticket.CustomerID = 29\r\nAND avisoticket.EmpresaID = 1"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      numeroTicketsPendientes: 14
+                      sql: string
+      operationId: get-ticket-pendingTickets
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   '/tickets/quicksearch/{sBusqueda}':
     get:
       summary: findManyByFilterForTickets
@@ -5317,97 +5901,6 @@ paths:
           in: query
           name: radio
           description: '2'
-  /ticket/expenseAnalysis:
-    get:
-      summary: expenseAnalysisForTickets
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      datosGrafica:
-                        type: object
-                        properties:
-                          CostesIntervencion:
-                            type: integer
-                          ImporteAlbaranado:
-                            type: integer
-                          ImporteFacturado:
-                            type: integer
-                          ImporteManoObra:
-                            type: integer
-                          ImporteMaterial:
-                            type: number
-                          ImporteGastos:
-                            type: number
-                          NumeroIntervenciones:
-                            type: integer
-                          Horas:
-                            type: number
-                          Margen:
-                            type: integer
-                      ImporteOferta:
-                        type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      datosGrafica:
-                        CostesIntervencion: 170
-                        ImporteAlbaranado: 0
-                        ImporteFacturado: 0
-                        ImporteManoObra: 45
-                        ImporteMaterial: 12.5
-                        ImporteGastos: 112.5
-                        NumeroIntervenciones: 2
-                        Horas: 4.5
-                        Margen: 0
-                      ImporteOferta: 0
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      datosGrafica:
-                        CostesIntervencion: 170
-                        ImporteAlbaranado: 0
-                        ImporteFacturado: 0
-                        ImporteManoObra: 45
-                        ImporteMaterial: 12.5
-                        ImporteGastos: 112.5
-                        NumeroIntervenciones: 2
-                        Horas: 4.5
-                        Margen: 0
-                      ImporteOferta: 0
-      operationId: get-ticket-expenseAnalysis
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: string
-          in: query
-          name: ticketID
-          description: '2'
   /tickets/activeTicket:
     get:
       summary: activeTicket
@@ -5886,9 +6379,9 @@ paths:
           in: header
           name: 'accessToken '
           description: '"tokenReciente"'
-  /ticket/openTickets:
+  /ticket/expenseAnalysis:
     get:
-      summary: OpenTickets
+      summary: expenseAnalysisForTickets
       tags: []
       responses:
         '200':
@@ -5907,111 +6400,28 @@ paths:
                     properties:
                       success:
                         type: boolean
-                      numeroTicketsAbiertos:
-                        type: integer
-                      sql:
-                        type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      numeroTicketsAbiertos: 17
-                      sql: SELECT COUNT(*) AS numeroTicketsAbiertos FROM avisoticket WHERE avisoticket.Cerrado = 0 AND avisoticket.CustomerID = 29 AND avisoticket.EmpresaID = 1
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      numeroTicketsAbiertos: 17
-                      sql: string
-      operationId: get-ticket-openTickets
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-  /ticket/pendingTickets:
-    get:
-      summary: PendingTickets
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      numeroTicketsPendientes:
-                        type: integer
-                      sql:
-                        type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      numeroTicketsPendientes: 14
-                      sql: "\r\nSELECT COUNT(*) AS numeroTicketsPendientes\r\nFROM avisoticket\r\nWHERE avisoticket.AsignadoAUsuarioID IS NULL\r\nAND avisoticket.CustomerID = 29\r\nAND avisoticket.EmpresaID = 1"
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      numeroTicketsPendientes: 14
-                      sql: string
-      operationId: get-ticket-pendingTickets
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-  /ticket/openToday:
-    get:
-      summary: OpenTicketsToday
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      numeroTicketsAbiertosHoy:
+                      datosGrafica:
+                        type: object
+                        properties:
+                          CostesIntervencion:
+                            type: integer
+                          ImporteAlbaranado:
+                            type: integer
+                          ImporteFacturado:
+                            type: integer
+                          ImporteManoObra:
+                            type: integer
+                          ImporteMaterial:
+                            type: number
+                          ImporteGastos:
+                            type: number
+                          NumeroIntervenciones:
+                            type: integer
+                          Horas:
+                            type: number
+                          Margen:
+                            type: integer
+                      ImporteOferta:
                         type: integer
                 x-examples:
                   Example 1:
@@ -6019,8 +6429,17 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      sql: "\r\nSELECT COUNT(*) AS numeroTicketsAbiertosHoy\r\nFROM avisoticket \r\nWHERE avisoticket.FechaHoraUsuario LIKE '%2023-05-08%'\r\nAND avisoticket.Cerrado = 0\r\nAND avisoticket.CustomerID = 29\r\nAND avisoticket.EmpresaID = 1"
-                      numeroTicketsAbiertosHoy: 2
+                      datosGrafica:
+                        CostesIntervencion: 170
+                        ImporteAlbaranado: 0
+                        ImporteFacturado: 0
+                        ImporteManoObra: 45
+                        ImporteMaterial: 12.5
+                        ImporteGastos: 112.5
+                        NumeroIntervenciones: 2
+                        Horas: 4.5
+                        Margen: 0
+                      ImporteOferta: 0
               examples:
                 Example 1:
                   value:
@@ -6028,447 +6447,28 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      sql: string
-                      numeroTicketsAbiertosHoy: 2
-      operationId: get-ticket-openToday
-      requestBody:
-        content: {}
+                      datosGrafica:
+                        CostesIntervencion: 170
+                        ImporteAlbaranado: 0
+                        ImporteFacturado: 0
+                        ImporteManoObra: 45
+                        ImporteMaterial: 12.5
+                        ImporteGastos: 112.5
+                        NumeroIntervenciones: 2
+                        Horas: 4.5
+                        Margen: 0
+                      ImporteOferta: 0
+      operationId: get-ticket-expenseAnalysis
       parameters:
         - schema:
             type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-  /ticket/openTicketsByPriority:
-    get:
-      summary: OpenTicketsByPriority
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      data:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            Prioridad:
-                              type: string
-                            NumeroTicketsAbiertos:
-                              type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT COALESCE(atp.nombre, 'Sin prioridad') AS nombrePrioridad, COUNT(*) as numeroTicketsAbiertos\r\nFROM avisoticket at\r\nLEFT JOIN avisoticketprioridad atp ON at.AvisoTicketPrioridadID = atp.AvisoTicketPrioridadID\r\nWHERE at.CustomerID = 29\r\nAND at.EmpresaID = 1\r\nAND at.Cerrado = 0\r\nGROUP BY atp.AvisoTicketPrioridadID, COALESCE(atp.nombre, 'Sin prioridad')"
-                      data:
-                        - Prioridad: Sin prioridad
-                          NumeroTicketsAbiertos: 3
-                        - Prioridad: PRUEBALO
-                          NumeroTicketsAbiertos: 8
-                        - Prioridad: PrioridadJCO
-                          NumeroTicketsAbiertos: 6
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: string
-                      data:
-                        - Prioridad: Sin prioridad
-                          NumeroTicketsAbiertos: 3
-                        - Prioridad: PRUEBALO
-                          NumeroTicketsAbiertos: 8
-                        - Prioridad: PrioridadJCO
-                          NumeroTicketsAbiertos: 6
-      operationId: get-ticket-openTicketsByPriority
-      parameters:
+          name: 'accessToken '
+          description: '"tokenReciente"'
         - schema:
             type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-  /ticket/openTicketsByTrouble:
-    get:
-      summary: OpenTicketsByTrouble
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      data:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            Problema:
-                              type: string
-                            NumeroTicketsAbiertos:
-                              type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "\r\nSELECT COALESCE(attp.nombre, 'Sin problema') AS nombreProblema, COUNT(*) as numeroTicketsAbiertos\r\nFROM avisoticket at\r\nLEFT JOIN avisotickettipoproblema attp ON at.AvisoTicketTipoProblemaID = attp.AvisoTicketTipoProblemaID\r\nWHERE at.CustomerID = 29\r\nAND at.EmpresaID = 1\r\nAND at.Cerrado = 0\r\nGROUP BY attp.AvisoTicketTipoProblemaID, COALESCE(attp.nombre, 'Sin problema')"
-                      data:
-                        - Problema: Sin problema
-                          NumeroTicketsAbiertos: 13
-                        - Problema: ProblemaPrueba
-                          NumeroTicketsAbiertos: 1
-                        - Problema: Trouble
-                          NumeroTicketsAbiertos: 3
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: string
-                      data:
-                        - Problema: Sin problema
-                          NumeroTicketsAbiertos: 13
-                        - Problema: ProblemaPrueba
-                          NumeroTicketsAbiertos: 1
-                        - Problema: Trouble
-                          NumeroTicketsAbiertos: 3
-      operationId: get-ticket-openTicketsByTrouble
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-  /ticket/expiringContracts:
-    get:
-      summary: ExpiringContracts
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      numeroContratosAVencer:
-                        type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "\r\nSELECT COUNT(*) AS contratosProximosAVencer\r\nFROM empleadocontrato\r\nWHERE empleadocontrato.FechaBajaContrato >= '2023-05-08' AND empleadocontrato.FechaBajaContrato <= DATE_ADD('2023-05-08', INTERVAL 1 month)\r\nAND empleadocontrato.CustomerID = 29\r\nAND empleadocontrato.EmpresaID = 1"
-                      numeroContratosAVencer: 3
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: string
-                      numeroContratosAVencer: 3
-      operationId: get-ticket-expiringContracts
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-  /ticket/openTicketsByType:
-    get:
-      summary: OpenTicketsByType
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      data:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            TipoProblema:
-                              type: string
-                            Abreviatura:
-                              type: string
-                            NumeroTickets:
-                              type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT COALESCE(tg.descripcion, 'Sin tipo') AS Tipo, COALESCE(tg.abreviatura, 'SIN') AS Abreviatura, COUNT(*) AS NumeroTickets\r\nFROM avisoticket at\r\nLEFT JOIN tablageneral tg ON at.TipoAvisoID = tg.TablaGeneralID\r\nWHERE at.CustomerID = 29\r\nAND at.EmpresaID = 1 \r\nAND at.Cerrado = 0\r\nGROUP BY at.TipoAvisoID, tg.descripcion"
-                      data:
-                        - TipoProblema: Sin tipo
-                          Abreviatura: SIN
-                          NumeroTickets: 2
-                        - TipoProblema: Averia
-                          Abreviatura: AVE
-                          NumeroTickets: 7
-                        - TipoProblema: Mantenimiento
-                          Abreviatura: MAN
-                          NumeroTickets: 6
-                        - TipoProblema: Mejora
-                          Abreviatura: MEJ
-                          NumeroTickets: 4
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: string
-                      data:
-                        - TipoProblema: Sin tipo
-                          Abreviatura: SIN
-                          NumeroTickets: 2
-                        - TipoProblema: Averia
-                          Abreviatura: AVE
-                          NumeroTickets: 7
-                        - TipoProblema: Mantenimiento
-                          Abreviatura: MAN
-                          NumeroTickets: 6
-                        - TipoProblema: Mejora
-                          Abreviatura: MEJ
-                          NumeroTickets: 4
-      operationId: get-ticket-openTicketsByType
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-  /ticket/openTicketsList:
-    get:
-      summary: OpenTicketsList
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      data:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            Numero:
-                              type: integer
-                            Hora:
-                              type: string
-                            Serial_Equipo:
-                              type: string
-                            Problema:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: "SELECT at.Numero, \r\nDATE_FORMAT(at.FechaHoraUsuario, '%h:%i:%s %p') AS Hora, \r\nCOALESCE(e.NumeroSerie, 'Sin equipo asignado') AS `Serial_Equipo`, \r\nCOALESCE(tp.Nombre, 'Sin problema asignado') AS Problema\r\nFROM avisoticket at\r\nLEFT JOIN avisoticketelemento ate ON at.AvisoTicketID = ate.AvisoTicketID\r\nLEFT JOIN elemento e ON ate.ElementoID = e.ElementoID\r\nLEFT JOIN avisotickettipoproblema tp ON at.AvisoTicketTipoProblemaID = tp.AvisoTicketTipoProblemaID\r\nWHERE at.CustomerID = 29\r\nAND at.EmpresaID = 1\r\nAND at.Cerrado = 0"
-                      data:
-                        - Numero: 1
-                          Hora: '02:25:51 PM'
-                          Serial_Equipo: '12'
-                          Problema: Sin problema asignado
-                        - Numero: 8642
-                          Hora: '04:24:57 PM'
-                          Serial_Equipo: '12'
-                          Problema: Sin problema asignado
-                        - Numero: 87412
-                          Hora: '04:17:27 PM'
-                          Serial_Equipo: '12'
-                          Problema: Sin problema asignado
-                        - Numero: 5
-                          Hora: '02:05:43 PM'
-                          Serial_Equipo: '12'
-                          Problema: Sin problema asignado
-                        - Numero: 6
-                          Hora: '02:50:53 PM'
-                          Serial_Equipo: '456789'
-                          Problema: ProblemaPrueba
-                        - Numero: 1999
-                          Hora: '10:16:51 AM'
-                          Serial_Equipo: '456789'
-                          Problema: ProbleTest
-                        - Numero: 2458
-                          Hora: '04:21:23 PM'
-                          Serial_Equipo: Sin equipo asignado
-                          Problema: Sin problema asignado
-                        - Numero: 2
-                          Hora: '11:42:15 AM'
-                          Serial_Equipo: Sin equipo asignado
-                          Problema: Sin problema asignado
-                        - Numero: 3
-                          Hora: '01:56:54 PM'
-                          Serial_Equipo: Sin equipo asignado
-                          Problema: Sin problema asignado
-                        - Numero: 4
-                          Hora: '01:57:54 PM'
-                          Serial_Equipo: Sin equipo asignado
-                          Problema: Sin problema asignado
-                        - Numero: 8
-                          Hora: '01:56:10 PM'
-                          Serial_Equipo: Sin equipo asignado
-                          Problema: cz<xcz<xc
-                        - Numero: 9
-                          Hora: '02:54:09 PM'
-                          Serial_Equipo: Sin equipo asignado
-                          Problema: cz<xcz<xc
-                        - Numero: 10
-                          Hora: '02:55:54 PM'
-                          Serial_Equipo: Sin equipo asignado
-                          Problema: cz<xcz<xc
-                        - Numero: 2000
-                          Hora: '11:00:00 AM'
-                          Serial_Equipo: Sin equipo asignado
-                          Problema: Trouble
-                        - Numero: 2001
-                          Hora: '12:00:00 PM'
-                          Serial_Equipo: Sin equipo asignado
-                          Problema: Trouble
-                        - Numero: 2002
-                          Hora: '12:00:00 PM'
-                          Serial_Equipo: Sin equipo asignado
-                          Problema: ProblemaPrueba
-                        - Numero: 2003
-                          Hora: '12:00:00 PM'
-                          Serial_Equipo: Sin equipo asignado
-                          Problema: Trouble
-                        - Numero: 2004
-                          Hora: '12:00:00 PM'
-                          Serial_Equipo: Sin equipo asignado
-                          Problema: Trouble
-                        - Numero: 2005
-                          Hora: '12:00:00 AM'
-                          Serial_Equipo: Sin equipo asignado
-                          Problema: Trouble
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: string
-                      data:
-                        - Numero: 1
-                          Hora: '02:25:51 PM'
-                          Serial_Equipo: '12'
-                          Problema: Sin problema asignado
-                        - Numero: 8642
-                          Hora: '04:24:57 PM'
-                          Serial_Equipo: '12'
-                          Problema: Sin problema asignado
-                        - Numero: 87412
-                          Hora: '04:17:27 PM'
-                          Serial_Equipo: '12'
-                          Problema: Sin problema asignado
-                        - Numero: 5
-                          Hora: '02:05:43 PM'
-                          Serial_Equipo: '12'
-                          Problema: Sin problema asignado
-      operationId: get-ticket-openTicketsList
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
+          in: query
+          name: ticketID
+          description: '2'
 components:
   schemas: {}
