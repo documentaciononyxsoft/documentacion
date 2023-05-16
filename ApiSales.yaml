@@ -12957,10 +12957,11 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '2234'
         name: id
         in: path
         required: true
-        description: ID de el pedido de venta a actualizar.
+        description: PedidoVentaCabeceraID
     put:
       summary: SalesOrder - Update
       operationId: put-sales-orders
