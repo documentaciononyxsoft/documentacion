@@ -4560,9 +4560,9 @@ paths:
             example: 77
           in: query
           name: clienteID
-  '/tickets/quicksearch/{sBusqueda}':
+  /tickets/afterEquipment:
     get:
-      summary: findManyByFilterForTickets
+      summary: afterEquipmentForTickets
       tags: []
       responses:
         '200':
@@ -4579,86 +4579,13 @@ paths:
                   content:
                     type: object
                     properties:
-                      sql:
-                        type: string
-                      records:
+                      data:
                         type: object
                         properties:
-                          records:
-                            type: array
-                            items:
-                              type: object
-                              properties:
-                                TicketID:
-                                  type: integer
-                                Numero:
-                                  type: integer
-                                FechaHoraAlta:
-                                  type: string
-                                DescripcionEstado:
-                                  type: string
-                                nombreTecnico:
-                                  type: string
-                                codigoTecnico:
-                                  type: string
-                                usuarioCierre:
-                                  type: string
-                                FechaHoraCierre:
-                                  type: string
-                                CodigoCliente:
-                                  type: string
-                                NombreCliente:
-                                  type: string
-                                Horario:
-                                  type: string
-                                PaisNombre:
-                                  type: string
-                                MunicipioNombre:
-                                  type: string
-                                ProvinciaNombre:
-                                  type: string
-                                NombreCodigoPostal:
-                                  type: string
-                                ContactoNombre:
-                                  type: string
-                                Telefono:
-                                  type: string
-                                TipoTicket:
-                                  type: string
-                                NombrePrioridad:
-                                  type: string
-                                ServicioNombre:
-                                  type: string
-                                TipoProblemaNombre:
-                                  type: string
-                                Descripcion:
-                                  type: string
-                                UbicacionNombre:
-                                  type: string
-                                UbicacionCodigo:
-                                  type: integer
-                                Direccion:
-                                  type: string
-                                UbicacionCodigoPostal:
-                                  type: string
-                                UbicacionMunicipio:
-                                  type: string
-                                UbicacionProvincia:
-                                  type: string
-                                Longitud:
-                                  type: string
-                                Latitud:
-                                  type: string
-                                Equipo:
-                                  type: string
-                                NombreEquipo:
-                                  type: string
-                                FechaInicioGarantia:
-                                  type: string
-                                FechaFinGarantia:
-                                  type: string
-                          success:
-                            type: boolean
+                          FechaInicioGarantia:
+                            type: string
+                          FechaFinGarantia:
+                            type: string
                       success:
                         type: boolean
                 x-examples:
@@ -4666,44 +4593,9 @@ paths:
                     statusCode: 200
                     message: Request processed successfully
                     content:
-                      sql: "SELECT AvisoTicket.*,\r\nAvisoTicketElemento.ElementoID, \r\nElemento.NumeroSerie,\r\nElemento.Nombre AS NombreEquipo,\r\nelemento.FechaInstalacion AS FechaInicioGarantia,\r\nelemento.FechaBaja AS FechaFinGarantia,\r\nMailing.ReferenciaCodigo,\r\nmailing.Horario ,\r\nmailing.Telefono ,\r\nMailing.Nombre AS NombreMailing,\r\nmailing.Municipio AS MunicipioNombre,\r\nDireccion.Codigo AS CodigoDireccion,\r\nDireccion.Nombre AS NombreDireccion,\r\ndireccion.Direccion ,\r\ndireccion.municipio AS UbicacionMunicipio,\r\ndireccion.Latitud,\r\ndireccion.Longitud,\r\nTablaGeneralAbrev.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneralAbrev.Descripcion AS TipoTicketTexto,\r\nAvisoTicketPrioridad.Nombre AS NombrePrioridad,\r\nAvisoTicketPrioridad.Icono AS IconoPrioridad,\r\ncodigopostal.CodigoPostal AS NombreCodigoPostal,\r\nprovincia.Nombre AS ProvinciaNombre,\r\npais.Nombre AS PaisNombre,\r\ncontacto.Nombre AS ContactoNombre,\r\navisotickettipoproblema.Nombre AS TipoProblemaNombre,\r\nservicio.Descripcion AS ServicioNombre,\r\ncodigoPostalUbicacion.CodigoPostal AS NombreCodigoPostalUbicacion,\r\nprovinciaUbicacion.Nombre AS NombreUbicacionProvincia,\r\nusuario.NombreUsuario AS usuarioAlta,\r\nempleado.Nombre AS nombreTecnico,\r\nempleado.Codigo AS codigoTecnico,\r\nusuarioCierre.NombreUsuario AS usuarioCierre\r\n\r\n\r\n\r\nFROM avisoticket\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nLEFT OUTER JOIN AvisoTicketElemento ON AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Elemento ON Elemento.ElementoID = AvisoTicketElemento.ElementoID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = AvisoTicket.DireccionID\r\nLEFT OUTER JOIN TablaGeneral AS TablaGeneralAbrev ON TablaGeneralAbrev.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN AvisoTicketPrioridad ON AvisoTicket.AvisoTicketPrioridadID = AvisoTicketPrioridad.AvisoTicketPrioridadID\r\nLEFT JOIN avisotickettipoproblema ON avisoticket.AvisoTicketTipoProblemaID = avisotickettipoproblema.AvisoTicketTipoProblemaID\r\nLEFT JOIN codigopostal ON codigopostal.CodigoPostalID = mailing.CodigoPostalID\r\nLEFT JOIN codigopostal AS codigoPostalUbicacion ON codigoPostalUbicacion.CodigoPostalID = direccion.CodigoPostalID\r\n\r\nLEFT JOIN empleado ON avisoticket.EmpleadoID = empleado.EmpleadoID\r\nLEFT JOIN usuario ON usuario.UsuarioID = avisoticket.UsuarioID\r\nLEFT JOIN usuario AS usuarioCierre ON usuarioCierre.UsuarioID = avisoticket.UsuarioCierreID\r\n\r\nLEFT JOIN provincia ON provincia.ProvinciaID = mailing.ProvinciaID\r\nLEFT JOIN provincia AS provinciaUbicacion  ON provinciaUbicacion.ProvinciaID = direccion.ProvinciaID\r\nLEFT JOIN pais ON pais.PaisID = mailing.PaisID\r\nLEFT JOIN contacto ON contacto.ContactoID = avisoticket.ContactoID \r\nLEFT OUTER JOIN TablaGeneral AS Servicio ON Servicio.TablaGeneralID = avisoticket.ServicioID\r\n\r\nWHERE (AvisoTicket.Numero like \"70\")\r\nand (AvisoTicket.EmpresaID = 1 AND AvisoTicket.CustomerID = 29)"
-                      records:
-                        records:
-                          - TicketID: 88
-                            Numero: 70
-                            FechaHoraAlta: '2023-03-17T13:14:14.000'
-                            DescripcionEstado: ''
-                            nombreTecnico: ''
-                            codigoTecnico: ''
-                            usuarioCierre: ''
-                            FechaHoraCierre: '0000-00-00T00:00:00.000'
-                            CodigoCliente: '43020005'
-                            NombreCliente: RESTAURANTE ALDAN-ONDO
-                            Horario: ''
-                            PaisNombre: España
-                            MunicipioNombre: ''
-                            ProvinciaNombre: ''
-                            NombreCodigoPostal: '20800'
-                            ContactoNombre: ''
-                            Telefono: ''
-                            TipoTicket: Averia
-                            NombrePrioridad: pruebaLUIS23
-                            ServicioNombre: '3333'
-                            TipoProblemaNombre: GFF
-                            Descripcion: PRUEBALL2
-                            UbicacionNombre: SAT MADRID 1
-                            UbicacionCodigo: 1
-                            Direccion: 'Calle de los comuneros de Castilla, 18'
-                            UbicacionCodigoPostal: '28000'
-                            UbicacionMunicipio: MADRID
-                            UbicacionProvincia: Araba
-                            Longitud: '54545'
-                            Latitud: '48755'
-                            Equipo: '3442342'
-                            NombreEquipo: EXTINTOR
-                            FechaInicioGarantia: '20180322'
-                            FechaFinGarantia: '20230303'
-                        success: true
+                      data:
+                        FechaInicioGarantia: '20180322'
+                        FechaFinGarantia: '20230303'
                       success: true
               examples:
                 Example 1:
@@ -4711,59 +4603,22 @@ paths:
                     statusCode: 200
                     message: Request processed successfully
                     content:
-                      sql: "SELECT AvisoTicket.*,\r\nAvisoTicketElemento.ElementoID, \r\nElemento.NumeroSerie,\r\nElemento.Nombre AS NombreEquipo,\r\nelemento.FechaInstalacion AS FechaInicioGarantia,\r\nelemento.FechaBaja AS FechaFinGarantia,\r\nMailing.ReferenciaCodigo,\r\nmailing.Horario ,\r\nmailing.Telefono ,\r\nMailing.Nombre AS NombreMailing,\r\nmailing.Municipio AS MunicipioNombre,\r\nDireccion.Codigo AS CodigoDireccion,\r\nDireccion.Nombre AS NombreDireccion,\r\ndireccion.Direccion ,\r\ndireccion.municipio AS UbicacionMunicipio,\r\ndireccion.Latitud,\r\ndireccion.Longitud,\r\nTablaGeneralAbrev.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneralAbrev.Descripcion AS TipoTicketTexto,\r\nAvisoTicketPrioridad.Nombre AS NombrePrioridad,\r\nAvisoTicketPrioridad.Icono AS IconoPrioridad,\r\ncodigopostal.CodigoPostal AS NombreCodigoPostal,\r\nprovincia.Nombre AS ProvinciaNombre,\r\npais.Nombre AS PaisNombre,\r\ncontacto.Nombre AS ContactoNombre,\r\navisotickettipoproblema.Nombre AS TipoProblemaNombre,\r\nservicio.Descripcion AS ServicioNombre,\r\ncodigoPostalUbicacion.CodigoPostal AS NombreCodigoPostalUbicacion,\r\nprovinciaUbicacion.Nombre AS NombreUbicacionProvincia,\r\nusuario.NombreUsuario AS usuarioAlta,\r\nempleado.Nombre AS nombreTecnico,\r\nempleado.Codigo AS codigoTecnico,\r\nusuarioCierre.NombreUsuario AS usuarioCierre\r\n\r\n\r\n\r\nFROM avisoticket\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nLEFT OUTER JOIN AvisoTicketElemento ON AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Elemento ON Elemento.ElementoID = AvisoTicketElemento.ElementoID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = AvisoTicket.DireccionID\r\nLEFT OUTER JOIN TablaGeneral AS TablaGeneralAbrev ON TablaGeneralAbrev.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN AvisoTicketPrioridad ON AvisoTicket.AvisoTicketPrioridadID = AvisoTicketPrioridad.AvisoTicketPrioridadID\r\nLEFT JOIN avisotickettipoproblema ON avisoticket.AvisoTicketTipoProblemaID = avisotickettipoproblema.AvisoTicketTipoProblemaID\r\nLEFT JOIN codigopostal ON codigopostal.CodigoPostalID = mailing.CodigoPostalID\r\nLEFT JOIN codigopostal AS codigoPostalUbicacion ON codigoPostalUbicacion.CodigoPostalID = direccion.CodigoPostalID\r\n\r\nLEFT JOIN empleado ON avisoticket.EmpleadoID = empleado.EmpleadoID\r\nLEFT JOIN usuario ON usuario.UsuarioID = avisoticket.UsuarioID\r\nLEFT JOIN usuario AS usuarioCierre ON usuarioCierre.UsuarioID = avisoticket.UsuarioCierreID\r\n\r\nLEFT JOIN provincia ON provincia.ProvinciaID = mailing.ProvinciaID\r\nLEFT JOIN provincia AS provinciaUbicacion  ON provinciaUbicacion.ProvinciaID = direccion.ProvinciaID\r\nLEFT JOIN pais ON pais.PaisID = mailing.PaisID\r\nLEFT JOIN contacto ON contacto.ContactoID = avisoticket.ContactoID \r\nLEFT OUTER JOIN TablaGeneral AS Servicio ON Servicio.TablaGeneralID = avisoticket.ServicioID\r\n\r\nWHERE (AvisoTicket.Numero like \"70\")\r\nand (AvisoTicket.EmpresaID = 1 AND AvisoTicket.CustomerID = 29)"
-                      records:
-                        records:
-                          - TicketID: 88
-                            Numero: 70
-                            FechaHoraAlta: '2023-03-17T13:14:14.000'
-                            DescripcionEstado: ''
-                            nombreTecnico: ''
-                            codigoTecnico: ''
-                            usuarioCierre: ''
-                            FechaHoraCierre: '0000-00-00T00:00:00.000'
-                            CodigoCliente: '43020005'
-                            NombreCliente: RESTAURANTE ALDAN-ONDO
-                            Horario: ''
-                            PaisNombre: España
-                            MunicipioNombre: ''
-                            ProvinciaNombre: ''
-                            NombreCodigoPostal: '20800'
-                            ContactoNombre: ''
-                            Telefono: ''
-                            TipoTicket: Averia
-                            NombrePrioridad: pruebaLUIS23
-                            ServicioNombre: '3333'
-                            TipoProblemaNombre: GFF
-                            Descripcion: PRUEBALL2
-                            UbicacionNombre: SAT MADRID 1
-                            UbicacionCodigo: 1
-                            Direccion: 'Calle de los comuneros de Castilla, 18'
-                            UbicacionCodigoPostal: '28000'
-                            UbicacionMunicipio: MADRID
-                            UbicacionProvincia: Araba
-                            Longitud: '54545'
-                            Latitud: '48755'
-                            Equipo: '3442342'
-                            NombreEquipo: EXTINTOR
-                            FechaInicioGarantia: '20180322'
-                            FechaFinGarantia: '20230303'
-                        success: true
+                      data:
+                        FechaInicioGarantia: '20180322'
+                        FechaFinGarantia: '20230303'
                       success: true
-      operationId: get-tickets-quicksearch
+      operationId: get-tickets-afterEquipment
       parameters:
         - schema:
             type: string
           in: header
-          name: accessToken
+          name: 'accessToken '
           description: '"tokenReciente"'
-    parameters:
-      - schema:
-          type: string
-        name: sBusqueda
-        in: path
-        required: true
-        description: '70'
+        - schema:
+            type: integer
+          in: query
+          name: 'equipoID '
+          description: '1'
   /tickets/afterUbication:
     get:
       summary: afterUbicationForTickets
@@ -4839,65 +4694,6 @@ paths:
           in: query
           name: 'ubicacionID '
           description: '13'
-  /tickets/afterEquipment:
-    get:
-      summary: afterEquipmentForTickets
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      data:
-                        type: object
-                        properties:
-                          FechaInicioGarantia:
-                            type: string
-                          FechaFinGarantia:
-                            type: string
-                      success:
-                        type: boolean
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      data:
-                        FechaInicioGarantia: '20180322'
-                        FechaFinGarantia: '20230303'
-                      success: true
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      data:
-                        FechaInicioGarantia: '20180322'
-                        FechaFinGarantia: '20230303'
-                      success: true
-      operationId: get-tickets-afterEquipment
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: integer
-          in: query
-          name: 'equipoID '
-          description: '1'
   /tickets/closeTicket:
     get:
       summary: closeTicket
@@ -5104,208 +4900,6 @@ paths:
           in: query
           name: ticketID
           description: '104'
-  /tickets/openTicket:
-    get:
-      summary: openTicket
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      data:
-                        type: object
-                        properties:
-                          success:
-                            type: boolean
-                          sql:
-                            type: string
-                          records:
-                            type: array
-                            items:
-                              type: object
-                              properties:
-                                TicketID:
-                                  type: integer
-                                Numero:
-                                  type: integer
-                                FechaHoraAlta:
-                                  type: string
-                                DescripcionEstado:
-                                  type: string
-                                nombreTecnico:
-                                  type: string
-                                codigoTecnico:
-                                  type: string
-                                usuarioCierre:
-                                  type: string
-                                FechaHoraCierre:
-                                  type: string
-                                CodigoCliente:
-                                  type: string
-                                NombreCliente:
-                                  type: string
-                                Horario:
-                                  type: string
-                                PaisNombre:
-                                  type: string
-                                MunicipioNombre:
-                                  type: string
-                                ProvinciaNombre:
-                                  type: string
-                                NombreCodigoPostal:
-                                  type: string
-                                ContactoNombre:
-                                  type: string
-                                Telefono:
-                                  type: string
-                                TipoTicket:
-                                  type: string
-                                NombrePrioridad:
-                                  type: string
-                                ServicioNombre:
-                                  type: string
-                                TipoProblemaNombre:
-                                  type: string
-                                Descripcion:
-                                  type: string
-                                UbicacionNombre:
-                                  type: string
-                                UbicacionCodigo:
-                                  type: integer
-                                Direccion:
-                                  type: string
-                                UbicacionCodigoPostal:
-                                  type: string
-                                UbicacionMunicipio:
-                                  type: string
-                                UbicacionProvincia:
-                                  type: string
-                                Longitud:
-                                  type: string
-                                Latitud:
-                                  type: string
-                                Equipo:
-                                  type: string
-                                NombreEquipo:
-                                  type: string
-                                FechaInicioGarantia:
-                                  type: string
-                                FechaFinGarantia:
-                                  type: string
-                      success:
-                        type: boolean
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      data:
-                        success: true
-                        sql: "SELECT AvisoTicket.*,\r\nAvisoTicketElemento.ElementoID, \r\nElemento.NumeroSerie,\r\nElemento.Nombre AS NombreEquipo,\r\nelemento.FechaInstalacion AS FechaInicioGarantia,\r\nelemento.FechaBaja AS FechaFinGarantia,\r\nMailing.ReferenciaCodigo,\r\nmailing.Horario ,\r\nmailing.Telefono ,\r\nMailing.Nombre AS NombreMailing,\r\nmailing.Municipio AS MunicipioNombre,\r\nDireccion.Codigo AS CodigoDireccion,\r\nDireccion.Nombre AS NombreDireccion,\r\ndireccion.Direccion ,\r\ndireccion.municipio AS UbicacionMunicipio,\r\ndireccion.Latitud,\r\ndireccion.Longitud,\r\nTablaGeneralAbrev.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneralAbrev.Descripcion AS TipoTicketTexto,\r\nAvisoTicketPrioridad.Nombre AS NombrePrioridad,\r\nAvisoTicketPrioridad.Icono AS IconoPrioridad,\r\ncodigopostal.CodigoPostal AS NombreCodigoPostal,\r\nprovincia.Nombre AS ProvinciaNombre,\r\npais.Nombre AS PaisNombre,\r\ncontacto.Nombre AS ContactoNombre,\r\navisotickettipoproblema.Nombre AS TipoProblemaNombre,\r\nservicio.Descripcion AS ServicioNombre,\r\ncodigoPostalUbicacion.CodigoPostal AS NombreCodigoPostalUbicacion,\r\nprovinciaUbicacion.Nombre AS NombreUbicacionProvincia,\r\nusuario.NombreUsuario AS usuarioAlta,\r\nempleado.Nombre AS nombreTecnico,\r\nempleado.Codigo AS codigoTecnico,\r\nusuarioCierre.NombreUsuario AS usuarioCierre\r\n\r\n\r\n\r\nFROM avisoticket\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nLEFT OUTER JOIN AvisoTicketElemento ON AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Elemento ON Elemento.ElementoID = AvisoTicketElemento.ElementoID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = AvisoTicket.DireccionID\r\nLEFT OUTER JOIN TablaGeneral AS TablaGeneralAbrev ON TablaGeneralAbrev.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN AvisoTicketPrioridad ON AvisoTicket.AvisoTicketPrioridadID = AvisoTicketPrioridad.AvisoTicketPrioridadID\r\nLEFT JOIN avisotickettipoproblema ON avisoticket.AvisoTicketTipoProblemaID = avisotickettipoproblema.AvisoTicketTipoProblemaID\r\nLEFT JOIN codigopostal ON codigopostal.CodigoPostalID = mailing.CodigoPostalID\r\nLEFT JOIN codigopostal AS codigoPostalUbicacion ON codigoPostalUbicacion.CodigoPostalID = direccion.CodigoPostalID\r\n\r\nLEFT JOIN empleado ON avisoticket.EmpleadoID = empleado.EmpleadoID\r\nLEFT JOIN usuario ON usuario.UsuarioID = avisoticket.UsuarioID\r\nLEFT JOIN usuario AS usuarioCierre ON usuarioCierre.UsuarioID = avisoticket.UsuarioCierreID\r\n\r\nLEFT JOIN provincia ON provincia.ProvinciaID = mailing.ProvinciaID\r\nLEFT JOIN provincia AS provinciaUbicacion  ON provinciaUbicacion.ProvinciaID = direccion.ProvinciaID\r\nLEFT JOIN pais ON pais.PaisID = mailing.PaisID\r\nLEFT JOIN contacto ON contacto.ContactoID = avisoticket.ContactoID \r\nLEFT OUTER JOIN TablaGeneral AS Servicio ON Servicio.TablaGeneralID = avisoticket.ServicioID\r\n\r\nWHERE AvisoTicket.CustomerID = 29\r\nAND\tAvisoTicket.EmpresaID = 1\r\nAND\tAvisoTicket.AvisoTicketID = 104"
-                        records:
-                          - TicketID: 104
-                            Numero: 80
-                            FechaHoraAlta: '2023-04-10T16:39:35.000'
-                            DescripcionEstado: ''
-                            nombreTecnico: Juana Ceballos
-                            codigoTecnico: 02JP
-                            usuarioCierre: ''
-                            FechaHoraCierre: '0000-00-00T00:00:00.000'
-                            CodigoCliente: '43020007'
-                            NombreCliente: TID TECNICAS INDUSTRIALES
-                            Horario: fewfew
-                            PaisNombre: Colombia
-                            MunicipioNombre: BOGOTA DC
-                            ProvinciaNombre: BOGOTA DC
-                            NombreCodigoPostal: '01193'
-                            ContactoNombre: Leire
-                            Telefono: '3218316755'
-                            TipoTicket: Averia
-                            NombrePrioridad: pruebaLUIS23
-                            ServicioNombre: '3333'
-                            TipoProblemaNombre: GFF
-                            Descripcion: pruebassss274
-                            UbicacionNombre: SAT MADRID 1
-                            UbicacionCodigo: 1
-                            Direccion: 'Calle de los comuneros de Castilla, 18'
-                            UbicacionCodigoPostal: '28000'
-                            UbicacionMunicipio: MADRID
-                            UbicacionProvincia: Araba
-                            Longitud: '54545'
-                            Latitud: '48755'
-                            Equipo: '3442342'
-                            NombreEquipo: EXTINTOR
-                            FechaInicioGarantia: '20180322'
-                            FechaFinGarantia: '20230303'
-                      success: true
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      data:
-                        success: true
-                        sql: "SELECT AvisoTicket.*,\r\nAvisoTicketElemento.ElementoID, \r\nElemento.NumeroSerie,\r\nElemento.Nombre AS NombreEquipo,\r\nelemento.FechaInstalacion AS FechaInicioGarantia,\r\nelemento.FechaBaja AS FechaFinGarantia,\r\nMailing.ReferenciaCodigo,\r\nmailing.Horario ,\r\nmailing.Telefono ,\r\nMailing.Nombre AS NombreMailing,\r\nmailing.Municipio AS MunicipioNombre,\r\nDireccion.Codigo AS CodigoDireccion,\r\nDireccion.Nombre AS NombreDireccion,\r\ndireccion.Direccion ,\r\ndireccion.municipio AS UbicacionMunicipio,\r\ndireccion.Latitud,\r\ndireccion.Longitud,\r\nTablaGeneralAbrev.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneralAbrev.Descripcion AS TipoTicketTexto,\r\nAvisoTicketPrioridad.Nombre AS NombrePrioridad,\r\nAvisoTicketPrioridad.Icono AS IconoPrioridad,\r\ncodigopostal.CodigoPostal AS NombreCodigoPostal,\r\nprovincia.Nombre AS ProvinciaNombre,\r\npais.Nombre AS PaisNombre,\r\ncontacto.Nombre AS ContactoNombre,\r\navisotickettipoproblema.Nombre AS TipoProblemaNombre,\r\nservicio.Descripcion AS ServicioNombre,\r\ncodigoPostalUbicacion.CodigoPostal AS NombreCodigoPostalUbicacion,\r\nprovinciaUbicacion.Nombre AS NombreUbicacionProvincia,\r\nusuario.NombreUsuario AS usuarioAlta,\r\nempleado.Nombre AS nombreTecnico,\r\nempleado.Codigo AS codigoTecnico,\r\nusuarioCierre.NombreUsuario AS usuarioCierre\r\n\r\n\r\n\r\nFROM avisoticket\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nLEFT OUTER JOIN AvisoTicketElemento ON AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Elemento ON Elemento.ElementoID = AvisoTicketElemento.ElementoID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = AvisoTicket.DireccionID\r\nLEFT OUTER JOIN TablaGeneral AS TablaGeneralAbrev ON TablaGeneralAbrev.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN AvisoTicketPrioridad ON AvisoTicket.AvisoTicketPrioridadID = AvisoTicketPrioridad.AvisoTicketPrioridadID\r\nLEFT JOIN avisotickettipoproblema ON avisoticket.AvisoTicketTipoProblemaID = avisotickettipoproblema.AvisoTicketTipoProblemaID\r\nLEFT JOIN codigopostal ON codigopostal.CodigoPostalID = mailing.CodigoPostalID\r\nLEFT JOIN codigopostal AS codigoPostalUbicacion ON codigoPostalUbicacion.CodigoPostalID = direccion.CodigoPostalID\r\n\r\nLEFT JOIN empleado ON avisoticket.EmpleadoID = empleado.EmpleadoID\r\nLEFT JOIN usuario ON usuario.UsuarioID = avisoticket.UsuarioID\r\nLEFT JOIN usuario AS usuarioCierre ON usuarioCierre.UsuarioID = avisoticket.UsuarioCierreID\r\n\r\nLEFT JOIN provincia ON provincia.ProvinciaID = mailing.ProvinciaID\r\nLEFT JOIN provincia AS provinciaUbicacion  ON provinciaUbicacion.ProvinciaID = direccion.ProvinciaID\r\nLEFT JOIN pais ON pais.PaisID = mailing.PaisID\r\nLEFT JOIN contacto ON contacto.ContactoID = avisoticket.ContactoID \r\nLEFT OUTER JOIN TablaGeneral AS Servicio ON Servicio.TablaGeneralID = avisoticket.ServicioID\r\n\r\nWHERE AvisoTicket.CustomerID = 29\r\nAND\tAvisoTicket.EmpresaID = 1\r\nAND\tAvisoTicket.AvisoTicketID = 104"
-                        records:
-                          - TicketID: 104
-                            Numero: 80
-                            FechaHoraAlta: '2023-04-10T16:39:35.000'
-                            DescripcionEstado: ''
-                            nombreTecnico: Juana Ceballos
-                            codigoTecnico: 02JP
-                            usuarioCierre: ''
-                            FechaHoraCierre: '0000-00-00T00:00:00.000'
-                            CodigoCliente: '43020007'
-                            NombreCliente: TID TECNICAS INDUSTRIALES
-                            Horario: fewfew
-                            PaisNombre: Colombia
-                            MunicipioNombre: BOGOTA DC
-                            ProvinciaNombre: BOGOTA DC
-                            NombreCodigoPostal: '01193'
-                            ContactoNombre: Leire
-                            Telefono: '3218316755'
-                            TipoTicket: Averia
-                            NombrePrioridad: pruebaLUIS23
-                            ServicioNombre: '3333'
-                            TipoProblemaNombre: GFF
-                            Descripcion: pruebassss274
-                            UbicacionNombre: SAT MADRID 1
-                            UbicacionCodigo: 1
-                            Direccion: 'Calle de los comuneros de Castilla, 18'
-                            UbicacionCodigoPostal: '28000'
-                            UbicacionMunicipio: MADRID
-                            UbicacionProvincia: Araba
-                            Longitud: '54545'
-                            Latitud: '48755'
-                            Equipo: '3442342'
-                            NombreEquipo: EXTINTOR
-                            FechaInicioGarantia: '20180322'
-                            FechaFinGarantia: '20230303'
-                      success: true
-      operationId: get-tickets-openTicket
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: string
-          in: query
-          name: ticketID
-          description: '104'
   /tickets/cronology:
     get:
       summary: cronologyForTickets
@@ -5387,6 +4981,178 @@ paths:
           in: query
           name: ticketID
           description: '22'
+  /tickets/expenses:
+    get:
+      summary: expensesForTickets
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            concepto:
+                              type: string
+                            cantidad:
+                              type: integer
+                            precio:
+                              type: number
+                            importe:
+                              type: number
+                            fecha:
+                              type: string
+                            notas:
+                              type: string
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - concepto: KILOMETRAJE
+                          cantidad: 150
+                          precio: 0.25
+                          importe: 37.5
+                          fecha: '20181113'
+                          notas: ''
+                      success: true
+                      sql: "SELECT * \r\nFROM ProcesoGasto\r\nLEFT OUTER JOIN Proceso ON Proceso.ProcesoID = ProcesoGasto.ProcesoID\r\nLEFT JOIN TipoProcesoGasto ON TipoProcesoGasto.TipoProcesoGastoID = ProcesoGasto.TipoProcesoGastoID\r\nWHERE ProcesoGasto.CustomerID = 29\r\nAND ProcesoGasto.EmpresaID = 1\r\nAND ProcesoGasto.ProcesoID IN (3784,5313)\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      records:
+                        - concepto: KILOMETRAJE
+                          cantidad: 150
+                          precio: 0.25
+                          importe: 37.5
+                          fecha: '20181113'
+                          notas: ''
+                      success: true
+                      sql: "SELECT * \r\nFROM ProcesoGasto\r\nLEFT OUTER JOIN Proceso ON Proceso.ProcesoID = ProcesoGasto.ProcesoID\r\nLEFT JOIN TipoProcesoGasto ON TipoProcesoGasto.TipoProcesoGastoID = ProcesoGasto.TipoProcesoGastoID\r\nWHERE ProcesoGasto.CustomerID = 29\r\nAND ProcesoGasto.EmpresaID = 1\r\nAND ProcesoGasto.ProcesoID IN (3784,5313)\r\n"
+      operationId: get-tickets-expenses
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"Token Reciente"'
+        - schema:
+            type: string
+          in: query
+          name: ticketID
+          description: '3'
+  /ticket/expenseAnalysis:
+    get:
+      summary: expenseAnalysisForTickets
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      datosGrafica:
+                        type: object
+                        properties:
+                          CostesIntervencion:
+                            type: integer
+                          ImporteAlbaranado:
+                            type: integer
+                          ImporteFacturado:
+                            type: integer
+                          ImporteManoObra:
+                            type: integer
+                          ImporteMaterial:
+                            type: number
+                          ImporteGastos:
+                            type: number
+                          NumeroIntervenciones:
+                            type: integer
+                          Horas:
+                            type: number
+                          Margen:
+                            type: integer
+                      ImporteOferta:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      datosGrafica:
+                        CostesIntervencion: 170
+                        ImporteAlbaranado: 0
+                        ImporteFacturado: 0
+                        ImporteManoObra: 45
+                        ImporteMaterial: 12.5
+                        ImporteGastos: 112.5
+                        NumeroIntervenciones: 2
+                        Horas: 4.5
+                        Margen: 0
+                      ImporteOferta: 0
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      datosGrafica:
+                        CostesIntervencion: 170
+                        ImporteAlbaranado: 0
+                        ImporteFacturado: 0
+                        ImporteManoObra: 45
+                        ImporteMaterial: 12.5
+                        ImporteGastos: 112.5
+                        NumeroIntervenciones: 2
+                        Horas: 4.5
+                        Margen: 0
+                      ImporteOferta: 0
+      operationId: get-ticket-expenseAnalysis
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: ticketID
+          description: '2'
   /tickets/hours:
     get:
       summary: hoursForTickets
@@ -5668,87 +5434,12 @@ paths:
           in: query
           name: ticketID
           description: '22'
-  /tickets/expenses:
+  /tickets/light:
     get:
-      summary: expensesForTickets
+      summary: Your GET endpoint
       tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            concepto:
-                              type: string
-                            cantidad:
-                              type: integer
-                            precio:
-                              type: number
-                            importe:
-                              type: number
-                            fecha:
-                              type: string
-                            notas:
-                              type: string
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      records:
-                        - concepto: KILOMETRAJE
-                          cantidad: 150
-                          precio: 0.25
-                          importe: 37.5
-                          fecha: '20181113'
-                          notas: ''
-                      success: true
-                      sql: "SELECT * \r\nFROM ProcesoGasto\r\nLEFT OUTER JOIN Proceso ON Proceso.ProcesoID = ProcesoGasto.ProcesoID\r\nLEFT JOIN TipoProcesoGasto ON TipoProcesoGasto.TipoProcesoGastoID = ProcesoGasto.TipoProcesoGastoID\r\nWHERE ProcesoGasto.CustomerID = 29\r\nAND ProcesoGasto.EmpresaID = 1\r\nAND ProcesoGasto.ProcesoID IN (3784,5313)\r\n"
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      records:
-                        - concepto: KILOMETRAJE
-                          cantidad: 150
-                          precio: 0.25
-                          importe: 37.5
-                          fecha: '20181113'
-                          notas: ''
-                      success: true
-                      sql: "SELECT * \r\nFROM ProcesoGasto\r\nLEFT OUTER JOIN Proceso ON Proceso.ProcesoID = ProcesoGasto.ProcesoID\r\nLEFT JOIN TipoProcesoGasto ON TipoProcesoGasto.TipoProcesoGastoID = ProcesoGasto.TipoProcesoGastoID\r\nWHERE ProcesoGasto.CustomerID = 29\r\nAND ProcesoGasto.EmpresaID = 1\r\nAND ProcesoGasto.ProcesoID IN (3784,5313)\r\n"
-      operationId: get-tickets-expenses
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"Token Reciente"'
-        - schema:
-            type: string
-          in: query
-          name: ticketID
-          description: '3'
+      responses: {}
+      operationId: get-tickets-light
   /tickets/materials:
     get:
       summary: materialsForTickets
@@ -5868,6 +5559,579 @@ paths:
           in: query
           name: ticketID
           description: '3'
+  /tickets/openTicket:
+    get:
+      summary: openTicket
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      data:
+                        type: object
+                        properties:
+                          success:
+                            type: boolean
+                          sql:
+                            type: string
+                          records:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                TicketID:
+                                  type: integer
+                                Numero:
+                                  type: integer
+                                FechaHoraAlta:
+                                  type: string
+                                DescripcionEstado:
+                                  type: string
+                                nombreTecnico:
+                                  type: string
+                                codigoTecnico:
+                                  type: string
+                                usuarioCierre:
+                                  type: string
+                                FechaHoraCierre:
+                                  type: string
+                                CodigoCliente:
+                                  type: string
+                                NombreCliente:
+                                  type: string
+                                Horario:
+                                  type: string
+                                PaisNombre:
+                                  type: string
+                                MunicipioNombre:
+                                  type: string
+                                ProvinciaNombre:
+                                  type: string
+                                NombreCodigoPostal:
+                                  type: string
+                                ContactoNombre:
+                                  type: string
+                                Telefono:
+                                  type: string
+                                TipoTicket:
+                                  type: string
+                                NombrePrioridad:
+                                  type: string
+                                ServicioNombre:
+                                  type: string
+                                TipoProblemaNombre:
+                                  type: string
+                                Descripcion:
+                                  type: string
+                                UbicacionNombre:
+                                  type: string
+                                UbicacionCodigo:
+                                  type: integer
+                                Direccion:
+                                  type: string
+                                UbicacionCodigoPostal:
+                                  type: string
+                                UbicacionMunicipio:
+                                  type: string
+                                UbicacionProvincia:
+                                  type: string
+                                Longitud:
+                                  type: string
+                                Latitud:
+                                  type: string
+                                Equipo:
+                                  type: string
+                                NombreEquipo:
+                                  type: string
+                                FechaInicioGarantia:
+                                  type: string
+                                FechaFinGarantia:
+                                  type: string
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      data:
+                        success: true
+                        sql: "SELECT AvisoTicket.*,\r\nAvisoTicketElemento.ElementoID, \r\nElemento.NumeroSerie,\r\nElemento.Nombre AS NombreEquipo,\r\nelemento.FechaInstalacion AS FechaInicioGarantia,\r\nelemento.FechaBaja AS FechaFinGarantia,\r\nMailing.ReferenciaCodigo,\r\nmailing.Horario ,\r\nmailing.Telefono ,\r\nMailing.Nombre AS NombreMailing,\r\nmailing.Municipio AS MunicipioNombre,\r\nDireccion.Codigo AS CodigoDireccion,\r\nDireccion.Nombre AS NombreDireccion,\r\ndireccion.Direccion ,\r\ndireccion.municipio AS UbicacionMunicipio,\r\ndireccion.Latitud,\r\ndireccion.Longitud,\r\nTablaGeneralAbrev.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneralAbrev.Descripcion AS TipoTicketTexto,\r\nAvisoTicketPrioridad.Nombre AS NombrePrioridad,\r\nAvisoTicketPrioridad.Icono AS IconoPrioridad,\r\ncodigopostal.CodigoPostal AS NombreCodigoPostal,\r\nprovincia.Nombre AS ProvinciaNombre,\r\npais.Nombre AS PaisNombre,\r\ncontacto.Nombre AS ContactoNombre,\r\navisotickettipoproblema.Nombre AS TipoProblemaNombre,\r\nservicio.Descripcion AS ServicioNombre,\r\ncodigoPostalUbicacion.CodigoPostal AS NombreCodigoPostalUbicacion,\r\nprovinciaUbicacion.Nombre AS NombreUbicacionProvincia,\r\nusuario.NombreUsuario AS usuarioAlta,\r\nempleado.Nombre AS nombreTecnico,\r\nempleado.Codigo AS codigoTecnico,\r\nusuarioCierre.NombreUsuario AS usuarioCierre\r\n\r\n\r\n\r\nFROM avisoticket\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nLEFT OUTER JOIN AvisoTicketElemento ON AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Elemento ON Elemento.ElementoID = AvisoTicketElemento.ElementoID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = AvisoTicket.DireccionID\r\nLEFT OUTER JOIN TablaGeneral AS TablaGeneralAbrev ON TablaGeneralAbrev.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN AvisoTicketPrioridad ON AvisoTicket.AvisoTicketPrioridadID = AvisoTicketPrioridad.AvisoTicketPrioridadID\r\nLEFT JOIN avisotickettipoproblema ON avisoticket.AvisoTicketTipoProblemaID = avisotickettipoproblema.AvisoTicketTipoProblemaID\r\nLEFT JOIN codigopostal ON codigopostal.CodigoPostalID = mailing.CodigoPostalID\r\nLEFT JOIN codigopostal AS codigoPostalUbicacion ON codigoPostalUbicacion.CodigoPostalID = direccion.CodigoPostalID\r\n\r\nLEFT JOIN empleado ON avisoticket.EmpleadoID = empleado.EmpleadoID\r\nLEFT JOIN usuario ON usuario.UsuarioID = avisoticket.UsuarioID\r\nLEFT JOIN usuario AS usuarioCierre ON usuarioCierre.UsuarioID = avisoticket.UsuarioCierreID\r\n\r\nLEFT JOIN provincia ON provincia.ProvinciaID = mailing.ProvinciaID\r\nLEFT JOIN provincia AS provinciaUbicacion  ON provinciaUbicacion.ProvinciaID = direccion.ProvinciaID\r\nLEFT JOIN pais ON pais.PaisID = mailing.PaisID\r\nLEFT JOIN contacto ON contacto.ContactoID = avisoticket.ContactoID \r\nLEFT OUTER JOIN TablaGeneral AS Servicio ON Servicio.TablaGeneralID = avisoticket.ServicioID\r\n\r\nWHERE AvisoTicket.CustomerID = 29\r\nAND\tAvisoTicket.EmpresaID = 1\r\nAND\tAvisoTicket.AvisoTicketID = 104"
+                        records:
+                          - TicketID: 104
+                            Numero: 80
+                            FechaHoraAlta: '2023-04-10T16:39:35.000'
+                            DescripcionEstado: ''
+                            nombreTecnico: Juana Ceballos
+                            codigoTecnico: 02JP
+                            usuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            CodigoCliente: '43020007'
+                            NombreCliente: TID TECNICAS INDUSTRIALES
+                            Horario: fewfew
+                            PaisNombre: Colombia
+                            MunicipioNombre: BOGOTA DC
+                            ProvinciaNombre: BOGOTA DC
+                            NombreCodigoPostal: '01193'
+                            ContactoNombre: Leire
+                            Telefono: '3218316755'
+                            TipoTicket: Averia
+                            NombrePrioridad: pruebaLUIS23
+                            ServicioNombre: '3333'
+                            TipoProblemaNombre: GFF
+                            Descripcion: pruebassss274
+                            UbicacionNombre: SAT MADRID 1
+                            UbicacionCodigo: 1
+                            Direccion: 'Calle de los comuneros de Castilla, 18'
+                            UbicacionCodigoPostal: '28000'
+                            UbicacionMunicipio: MADRID
+                            UbicacionProvincia: Araba
+                            Longitud: '54545'
+                            Latitud: '48755'
+                            Equipo: '3442342'
+                            NombreEquipo: EXTINTOR
+                            FechaInicioGarantia: '20180322'
+                            FechaFinGarantia: '20230303'
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      data:
+                        success: true
+                        sql: "SELECT AvisoTicket.*,\r\nAvisoTicketElemento.ElementoID, \r\nElemento.NumeroSerie,\r\nElemento.Nombre AS NombreEquipo,\r\nelemento.FechaInstalacion AS FechaInicioGarantia,\r\nelemento.FechaBaja AS FechaFinGarantia,\r\nMailing.ReferenciaCodigo,\r\nmailing.Horario ,\r\nmailing.Telefono ,\r\nMailing.Nombre AS NombreMailing,\r\nmailing.Municipio AS MunicipioNombre,\r\nDireccion.Codigo AS CodigoDireccion,\r\nDireccion.Nombre AS NombreDireccion,\r\ndireccion.Direccion ,\r\ndireccion.municipio AS UbicacionMunicipio,\r\ndireccion.Latitud,\r\ndireccion.Longitud,\r\nTablaGeneralAbrev.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneralAbrev.Descripcion AS TipoTicketTexto,\r\nAvisoTicketPrioridad.Nombre AS NombrePrioridad,\r\nAvisoTicketPrioridad.Icono AS IconoPrioridad,\r\ncodigopostal.CodigoPostal AS NombreCodigoPostal,\r\nprovincia.Nombre AS ProvinciaNombre,\r\npais.Nombre AS PaisNombre,\r\ncontacto.Nombre AS ContactoNombre,\r\navisotickettipoproblema.Nombre AS TipoProblemaNombre,\r\nservicio.Descripcion AS ServicioNombre,\r\ncodigoPostalUbicacion.CodigoPostal AS NombreCodigoPostalUbicacion,\r\nprovinciaUbicacion.Nombre AS NombreUbicacionProvincia,\r\nusuario.NombreUsuario AS usuarioAlta,\r\nempleado.Nombre AS nombreTecnico,\r\nempleado.Codigo AS codigoTecnico,\r\nusuarioCierre.NombreUsuario AS usuarioCierre\r\n\r\n\r\n\r\nFROM avisoticket\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nLEFT OUTER JOIN AvisoTicketElemento ON AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Elemento ON Elemento.ElementoID = AvisoTicketElemento.ElementoID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = AvisoTicket.DireccionID\r\nLEFT OUTER JOIN TablaGeneral AS TablaGeneralAbrev ON TablaGeneralAbrev.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN AvisoTicketPrioridad ON AvisoTicket.AvisoTicketPrioridadID = AvisoTicketPrioridad.AvisoTicketPrioridadID\r\nLEFT JOIN avisotickettipoproblema ON avisoticket.AvisoTicketTipoProblemaID = avisotickettipoproblema.AvisoTicketTipoProblemaID\r\nLEFT JOIN codigopostal ON codigopostal.CodigoPostalID = mailing.CodigoPostalID\r\nLEFT JOIN codigopostal AS codigoPostalUbicacion ON codigoPostalUbicacion.CodigoPostalID = direccion.CodigoPostalID\r\n\r\nLEFT JOIN empleado ON avisoticket.EmpleadoID = empleado.EmpleadoID\r\nLEFT JOIN usuario ON usuario.UsuarioID = avisoticket.UsuarioID\r\nLEFT JOIN usuario AS usuarioCierre ON usuarioCierre.UsuarioID = avisoticket.UsuarioCierreID\r\n\r\nLEFT JOIN provincia ON provincia.ProvinciaID = mailing.ProvinciaID\r\nLEFT JOIN provincia AS provinciaUbicacion  ON provinciaUbicacion.ProvinciaID = direccion.ProvinciaID\r\nLEFT JOIN pais ON pais.PaisID = mailing.PaisID\r\nLEFT JOIN contacto ON contacto.ContactoID = avisoticket.ContactoID \r\nLEFT OUTER JOIN TablaGeneral AS Servicio ON Servicio.TablaGeneralID = avisoticket.ServicioID\r\n\r\nWHERE AvisoTicket.CustomerID = 29\r\nAND\tAvisoTicket.EmpresaID = 1\r\nAND\tAvisoTicket.AvisoTicketID = 104"
+                        records:
+                          - TicketID: 104
+                            Numero: 80
+                            FechaHoraAlta: '2023-04-10T16:39:35.000'
+                            DescripcionEstado: ''
+                            nombreTecnico: Juana Ceballos
+                            codigoTecnico: 02JP
+                            usuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            CodigoCliente: '43020007'
+                            NombreCliente: TID TECNICAS INDUSTRIALES
+                            Horario: fewfew
+                            PaisNombre: Colombia
+                            MunicipioNombre: BOGOTA DC
+                            ProvinciaNombre: BOGOTA DC
+                            NombreCodigoPostal: '01193'
+                            ContactoNombre: Leire
+                            Telefono: '3218316755'
+                            TipoTicket: Averia
+                            NombrePrioridad: pruebaLUIS23
+                            ServicioNombre: '3333'
+                            TipoProblemaNombre: GFF
+                            Descripcion: pruebassss274
+                            UbicacionNombre: SAT MADRID 1
+                            UbicacionCodigo: 1
+                            Direccion: 'Calle de los comuneros de Castilla, 18'
+                            UbicacionCodigoPostal: '28000'
+                            UbicacionMunicipio: MADRID
+                            UbicacionProvincia: Araba
+                            Longitud: '54545'
+                            Latitud: '48755'
+                            Equipo: '3442342'
+                            NombreEquipo: EXTINTOR
+                            FechaInicioGarantia: '20180322'
+                            FechaFinGarantia: '20230303'
+                      success: true
+      operationId: get-tickets-openTicket
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: '"tokenReciente"'
+        - schema:
+            type: string
+          in: query
+          name: ticketID
+          description: '104'
+  /tickets/outsourcing:
+    get:
+      summary: outsourcingForTickets
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: object
+                        properties:
+                          success:
+                            type: boolean
+                          sql:
+                            type: string
+                          records:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                Serie:
+                                  type: string
+                                Numero:
+                                  type: integer
+                                Nombre:
+                                  type: string
+                                FechaPedido:
+                                  type: string
+                                FechaRecepcion:
+                                  type: string
+                                CodigoProveedor:
+                                  type: string
+                                NombreProveedor:
+                                  type: string
+                                NumeroProyectoOF:
+                                  type: integer
+                                CodigoArticulo:
+                                  type: string
+                                NombreArticulo:
+                                  type: string
+                                Cantidad:
+                                  type: integer
+                                CantidadRecibida:
+                                  type: integer
+                                PrecioCompra:
+                                  type: integer
+                                ImporteCompra:
+                                  type: number
+                                Estado:
+                                  type: string
+                                Tipo:
+                                  type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        success: true
+                        sql: "SELECT \r\nDISTINCT \r\nPedidoCompraLinea.FechaRecepcionPrevista,\r\nPedidoCompraCabecera.*,\r\nPedidoCompraLinea.*,\r\nArticulo.Codigo AS CodigoArticulo,\r\nArticulo.Nombre AS NombreArticulo1,\r\nproveedor.Codigo as CodigoProveedor,\r\nMailing.Nombre AS NombreProveedor,\r\nSerie.Serie AS Serie,\r\nProyecto_OF.CodigoProyecto_OF as CodigoProyecto,\r\nProyecto_OF.Proyecto_OFID as OrdenID,\r\nProceso.NumeroProceso as CodigoProceso,\r\nProceso.Nombre as NombreProceso,\r\nPedidoCompraLinea.Recibido as Recibidos,\r\nPedidoCompraLinea.Factor as Factor1,\r\nusuario.NombreUsuario,\r\nProyecto_OF.EsObraOf,\r\nproyecto_of.FechaEntrega,\r\nPedidoCompraLinea.FechaRecepcionPrevista as LineaFechaRecepcionPrevista,\r\nPedidoCompraLinea.FechaEntregaProveedor as LineaFechaEntregaProveedor,\r\nProceso.ProcesoID\r\nFROM \r\n((((((((((PedidoCompraCabecera LEFT JOIN PedidoCompraLinea on pedidocompralinea.PedidoCompraCabeceraID = PedidoCompraCabecera.PedidoCompraCabeceraID)\r\nLEFT join Proveedor ON PedidoCompraCabecera.ProveedorID=Proveedor.proveedorID)\r\nLeft join Mailing on Proveedor.MailingID = mailing.MailingID)\r\nLEFT JOIN Serie ON PedidoCompraCabecera.SeriePedidoID=Serie.SerieID)\r\nleft JOIN Articulo ON PedidoCompraLinea.ArticuloID=Articulo.ArticuloID)\r\nLEFT JOIN Familia ON Articulo.FamiliaID=Familia.FamiliaID)\r\nLeft Join PedidoCompraLineaProceso on PedidoCompraLineaProceso.PedidoCompraLineaID=PedidoCompraLinea.PedidoCompraLineaID)\r\nLEFT JOIN Proceso On Proceso.ProcesoID = PedidoCompraLineaProceso.ProcesoID)\r\nLEFT JOIN Proyecto_OF on Proyecto_OF.Proyecto_OFID = proceso.Proyecto_OFID)\r\nLEFT JOIN Operacion on Operacion.OperacionID = proceso.OperacionID)\r\nLEFT JOIN Usuario on PedidoCompraCabecera.UsuarioID = usuario.UsuarioID\r\n\r\nWHERE PedidoCompraCabecera.CustomerID = 29 and\r\nPedidoCompraCabecera.EmpresaID = 1\r\n\r\n AND (PedidoCompraCabecera.EsSubcontratacion = 1 AND Proyecto_OF.Proyecto_OFID IN (1087,1149))"
+                        records:
+                          - Serie: Sin
+                            Numero: 1
+                            Nombre: ASASSASS
+                            FechaPedido: '20191210'
+                            FechaRecepcion: '20191210'
+                            CodigoProveedor: '40001001'
+                            NombreProveedor: TRATAMIENTOS ABC
+                            NumeroProyectoOF: 16
+                            CodigoArticulo: ''
+                            NombreArticulo: ''
+                            Cantidad: 564
+                            CantidadRecibida: 0
+                            PrecioCompra: 15
+                            ImporteCompra: 750.44
+                            Estado: ''
+                            Tipo: ''
+                          - Serie: Sin
+                            Numero: 246
+                            Nombre: SSSSSS
+                            FechaPedido: '20190913'
+                            FechaRecepcion: '20190913'
+                            CodigoProveedor: '40000002'
+                            NombreProveedor: 'TTES. SEUR                              '
+                            NumeroProyectoOF: 16
+                            CodigoArticulo: ''
+                            NombreArticulo: ''
+                            Cantidad: 251
+                            CantidadRecibida: 0
+                            PrecioCompra: 4
+                            ImporteCompra: 885.62
+                            Estado: Parcial
+                            Tipo: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        success: true
+                        sql: "SELECT \r\nDISTINCT \r\nPedidoCompraLinea.FechaRecepcionPrevista,\r\nPedidoCompraCabecera.*,\r\nPedidoCompraLinea.*,\r\nArticulo.Codigo AS CodigoArticulo,\r\nArticulo.Nombre AS NombreArticulo1,\r\nproveedor.Codigo as CodigoProveedor,\r\nMailing.Nombre AS NombreProveedor,\r\nSerie.Serie AS Serie,\r\nProyecto_OF.CodigoProyecto_OF as CodigoProyecto,\r\nProyecto_OF.Proyecto_OFID as OrdenID,\r\nProceso.NumeroProceso as CodigoProceso,\r\nProceso.Nombre as NombreProceso,\r\nPedidoCompraLinea.Recibido as Recibidos,\r\nPedidoCompraLinea.Factor as Factor1,\r\nusuario.NombreUsuario,\r\nProyecto_OF.EsObraOf,\r\nproyecto_of.FechaEntrega,\r\nPedidoCompraLinea.FechaRecepcionPrevista as LineaFechaRecepcionPrevista,\r\nPedidoCompraLinea.FechaEntregaProveedor as LineaFechaEntregaProveedor,\r\nProceso.ProcesoID\r\nFROM \r\n((((((((((PedidoCompraCabecera LEFT JOIN PedidoCompraLinea on pedidocompralinea.PedidoCompraCabeceraID = PedidoCompraCabecera.PedidoCompraCabeceraID)\r\nLEFT join Proveedor ON PedidoCompraCabecera.ProveedorID=Proveedor.proveedorID)\r\nLeft join Mailing on Proveedor.MailingID = mailing.MailingID)\r\nLEFT JOIN Serie ON PedidoCompraCabecera.SeriePedidoID=Serie.SerieID)\r\nleft JOIN Articulo ON PedidoCompraLinea.ArticuloID=Articulo.ArticuloID)\r\nLEFT JOIN Familia ON Articulo.FamiliaID=Familia.FamiliaID)\r\nLeft Join PedidoCompraLineaProceso on PedidoCompraLineaProceso.PedidoCompraLineaID=PedidoCompraLinea.PedidoCompraLineaID)\r\nLEFT JOIN Proceso On Proceso.ProcesoID = PedidoCompraLineaProceso.ProcesoID)\r\nLEFT JOIN Proyecto_OF on Proyecto_OF.Proyecto_OFID = proceso.Proyecto_OFID)\r\nLEFT JOIN Operacion on Operacion.OperacionID = proceso.OperacionID)\r\nLEFT JOIN Usuario on PedidoCompraCabecera.UsuarioID = usuario.UsuarioID\r\n\r\nWHERE PedidoCompraCabecera.CustomerID = 29 and\r\nPedidoCompraCabecera.EmpresaID = 1\r\n\r\n AND (PedidoCompraCabecera.EsSubcontratacion = 1 AND Proyecto_OF.Proyecto_OFID IN (1087,1149))"
+                        records:
+                          - Serie: Sin
+                            Numero: 1
+                            Nombre: ASASSASS
+                            FechaPedido: '20191210'
+                            FechaRecepcion: '20191210'
+                            CodigoProveedor: '40001001'
+                            NombreProveedor: TRATAMIENTOS ABC
+                            NumeroProyectoOF: 16
+                            CodigoArticulo: ''
+                            NombreArticulo: ''
+                            Cantidad: 564
+                            CantidadRecibida: 0
+                            PrecioCompra: 15
+                            ImporteCompra: 750.44
+                            Estado: ''
+                            Tipo: ''
+                          - Serie: Sin
+                            Numero: 246
+                            Nombre: SSSSSS
+                            FechaPedido: '20190913'
+                            FechaRecepcion: '20190913'
+                            CodigoProveedor: '40000002'
+                            NombreProveedor: 'TTES. SEUR                              '
+                            NumeroProyectoOF: 16
+                            CodigoArticulo: ''
+                            NombreArticulo: ''
+                            Cantidad: 251
+                            CantidadRecibida: 0
+                            PrecioCompra: 4
+                            ImporteCompra: 885.62
+                            Estado: Parcial
+                            Tipo: ''
+      operationId: get-tickets-outsourcing
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+        - schema:
+            type: integer
+          in: query
+          name: ticketID
+          description: '27'
+        - schema:
+            type: integer
+          in: query
+          name: radio
+          description: '2'
+  '/tickets/quicksearch/{sBusqueda}':
+    get:
+      summary: findManyByFilterForTickets
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      sql:
+                        type: string
+                      records:
+                        type: object
+                        properties:
+                          records:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                TicketID:
+                                  type: integer
+                                Numero:
+                                  type: integer
+                                FechaHoraAlta:
+                                  type: string
+                                DescripcionEstado:
+                                  type: string
+                                nombreTecnico:
+                                  type: string
+                                codigoTecnico:
+                                  type: string
+                                usuarioCierre:
+                                  type: string
+                                FechaHoraCierre:
+                                  type: string
+                                CodigoCliente:
+                                  type: string
+                                NombreCliente:
+                                  type: string
+                                Horario:
+                                  type: string
+                                PaisNombre:
+                                  type: string
+                                MunicipioNombre:
+                                  type: string
+                                ProvinciaNombre:
+                                  type: string
+                                NombreCodigoPostal:
+                                  type: string
+                                ContactoNombre:
+                                  type: string
+                                Telefono:
+                                  type: string
+                                TipoTicket:
+                                  type: string
+                                NombrePrioridad:
+                                  type: string
+                                ServicioNombre:
+                                  type: string
+                                TipoProblemaNombre:
+                                  type: string
+                                Descripcion:
+                                  type: string
+                                UbicacionNombre:
+                                  type: string
+                                UbicacionCodigo:
+                                  type: integer
+                                Direccion:
+                                  type: string
+                                UbicacionCodigoPostal:
+                                  type: string
+                                UbicacionMunicipio:
+                                  type: string
+                                UbicacionProvincia:
+                                  type: string
+                                Longitud:
+                                  type: string
+                                Latitud:
+                                  type: string
+                                Equipo:
+                                  type: string
+                                NombreEquipo:
+                                  type: string
+                                FechaInicioGarantia:
+                                  type: string
+                                FechaFinGarantia:
+                                  type: string
+                          success:
+                            type: boolean
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      sql: "SELECT AvisoTicket.*,\r\nAvisoTicketElemento.ElementoID, \r\nElemento.NumeroSerie,\r\nElemento.Nombre AS NombreEquipo,\r\nelemento.FechaInstalacion AS FechaInicioGarantia,\r\nelemento.FechaBaja AS FechaFinGarantia,\r\nMailing.ReferenciaCodigo,\r\nmailing.Horario ,\r\nmailing.Telefono ,\r\nMailing.Nombre AS NombreMailing,\r\nmailing.Municipio AS MunicipioNombre,\r\nDireccion.Codigo AS CodigoDireccion,\r\nDireccion.Nombre AS NombreDireccion,\r\ndireccion.Direccion ,\r\ndireccion.municipio AS UbicacionMunicipio,\r\ndireccion.Latitud,\r\ndireccion.Longitud,\r\nTablaGeneralAbrev.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneralAbrev.Descripcion AS TipoTicketTexto,\r\nAvisoTicketPrioridad.Nombre AS NombrePrioridad,\r\nAvisoTicketPrioridad.Icono AS IconoPrioridad,\r\ncodigopostal.CodigoPostal AS NombreCodigoPostal,\r\nprovincia.Nombre AS ProvinciaNombre,\r\npais.Nombre AS PaisNombre,\r\ncontacto.Nombre AS ContactoNombre,\r\navisotickettipoproblema.Nombre AS TipoProblemaNombre,\r\nservicio.Descripcion AS ServicioNombre,\r\ncodigoPostalUbicacion.CodigoPostal AS NombreCodigoPostalUbicacion,\r\nprovinciaUbicacion.Nombre AS NombreUbicacionProvincia,\r\nusuario.NombreUsuario AS usuarioAlta,\r\nempleado.Nombre AS nombreTecnico,\r\nempleado.Codigo AS codigoTecnico,\r\nusuarioCierre.NombreUsuario AS usuarioCierre\r\n\r\n\r\n\r\nFROM avisoticket\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nLEFT OUTER JOIN AvisoTicketElemento ON AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Elemento ON Elemento.ElementoID = AvisoTicketElemento.ElementoID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = AvisoTicket.DireccionID\r\nLEFT OUTER JOIN TablaGeneral AS TablaGeneralAbrev ON TablaGeneralAbrev.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN AvisoTicketPrioridad ON AvisoTicket.AvisoTicketPrioridadID = AvisoTicketPrioridad.AvisoTicketPrioridadID\r\nLEFT JOIN avisotickettipoproblema ON avisoticket.AvisoTicketTipoProblemaID = avisotickettipoproblema.AvisoTicketTipoProblemaID\r\nLEFT JOIN codigopostal ON codigopostal.CodigoPostalID = mailing.CodigoPostalID\r\nLEFT JOIN codigopostal AS codigoPostalUbicacion ON codigoPostalUbicacion.CodigoPostalID = direccion.CodigoPostalID\r\n\r\nLEFT JOIN empleado ON avisoticket.EmpleadoID = empleado.EmpleadoID\r\nLEFT JOIN usuario ON usuario.UsuarioID = avisoticket.UsuarioID\r\nLEFT JOIN usuario AS usuarioCierre ON usuarioCierre.UsuarioID = avisoticket.UsuarioCierreID\r\n\r\nLEFT JOIN provincia ON provincia.ProvinciaID = mailing.ProvinciaID\r\nLEFT JOIN provincia AS provinciaUbicacion  ON provinciaUbicacion.ProvinciaID = direccion.ProvinciaID\r\nLEFT JOIN pais ON pais.PaisID = mailing.PaisID\r\nLEFT JOIN contacto ON contacto.ContactoID = avisoticket.ContactoID \r\nLEFT OUTER JOIN TablaGeneral AS Servicio ON Servicio.TablaGeneralID = avisoticket.ServicioID\r\n\r\nWHERE (AvisoTicket.Numero like \"70\")\r\nand (AvisoTicket.EmpresaID = 1 AND AvisoTicket.CustomerID = 29)"
+                      records:
+                        records:
+                          - TicketID: 88
+                            Numero: 70
+                            FechaHoraAlta: '2023-03-17T13:14:14.000'
+                            DescripcionEstado: ''
+                            nombreTecnico: ''
+                            codigoTecnico: ''
+                            usuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            CodigoCliente: '43020005'
+                            NombreCliente: RESTAURANTE ALDAN-ONDO
+                            Horario: ''
+                            PaisNombre: España
+                            MunicipioNombre: ''
+                            ProvinciaNombre: ''
+                            NombreCodigoPostal: '20800'
+                            ContactoNombre: ''
+                            Telefono: ''
+                            TipoTicket: Averia
+                            NombrePrioridad: pruebaLUIS23
+                            ServicioNombre: '3333'
+                            TipoProblemaNombre: GFF
+                            Descripcion: PRUEBALL2
+                            UbicacionNombre: SAT MADRID 1
+                            UbicacionCodigo: 1
+                            Direccion: 'Calle de los comuneros de Castilla, 18'
+                            UbicacionCodigoPostal: '28000'
+                            UbicacionMunicipio: MADRID
+                            UbicacionProvincia: Araba
+                            Longitud: '54545'
+                            Latitud: '48755'
+                            Equipo: '3442342'
+                            NombreEquipo: EXTINTOR
+                            FechaInicioGarantia: '20180322'
+                            FechaFinGarantia: '20230303'
+                        success: true
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      sql: "SELECT AvisoTicket.*,\r\nAvisoTicketElemento.ElementoID, \r\nElemento.NumeroSerie,\r\nElemento.Nombre AS NombreEquipo,\r\nelemento.FechaInstalacion AS FechaInicioGarantia,\r\nelemento.FechaBaja AS FechaFinGarantia,\r\nMailing.ReferenciaCodigo,\r\nmailing.Horario ,\r\nmailing.Telefono ,\r\nMailing.Nombre AS NombreMailing,\r\nmailing.Municipio AS MunicipioNombre,\r\nDireccion.Codigo AS CodigoDireccion,\r\nDireccion.Nombre AS NombreDireccion,\r\ndireccion.Direccion ,\r\ndireccion.municipio AS UbicacionMunicipio,\r\ndireccion.Latitud,\r\ndireccion.Longitud,\r\nTablaGeneralAbrev.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneralAbrev.Descripcion AS TipoTicketTexto,\r\nAvisoTicketPrioridad.Nombre AS NombrePrioridad,\r\nAvisoTicketPrioridad.Icono AS IconoPrioridad,\r\ncodigopostal.CodigoPostal AS NombreCodigoPostal,\r\nprovincia.Nombre AS ProvinciaNombre,\r\npais.Nombre AS PaisNombre,\r\ncontacto.Nombre AS ContactoNombre,\r\navisotickettipoproblema.Nombre AS TipoProblemaNombre,\r\nservicio.Descripcion AS ServicioNombre,\r\ncodigoPostalUbicacion.CodigoPostal AS NombreCodigoPostalUbicacion,\r\nprovinciaUbicacion.Nombre AS NombreUbicacionProvincia,\r\nusuario.NombreUsuario AS usuarioAlta,\r\nempleado.Nombre AS nombreTecnico,\r\nempleado.Codigo AS codigoTecnico,\r\nusuarioCierre.NombreUsuario AS usuarioCierre\r\n\r\n\r\n\r\nFROM avisoticket\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nLEFT OUTER JOIN AvisoTicketElemento ON AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Elemento ON Elemento.ElementoID = AvisoTicketElemento.ElementoID\r\nLEFT OUTER JOIN Direccion ON Direccion.DireccionID = AvisoTicket.DireccionID\r\nLEFT OUTER JOIN TablaGeneral AS TablaGeneralAbrev ON TablaGeneralAbrev.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN AvisoTicketPrioridad ON AvisoTicket.AvisoTicketPrioridadID = AvisoTicketPrioridad.AvisoTicketPrioridadID\r\nLEFT JOIN avisotickettipoproblema ON avisoticket.AvisoTicketTipoProblemaID = avisotickettipoproblema.AvisoTicketTipoProblemaID\r\nLEFT JOIN codigopostal ON codigopostal.CodigoPostalID = mailing.CodigoPostalID\r\nLEFT JOIN codigopostal AS codigoPostalUbicacion ON codigoPostalUbicacion.CodigoPostalID = direccion.CodigoPostalID\r\n\r\nLEFT JOIN empleado ON avisoticket.EmpleadoID = empleado.EmpleadoID\r\nLEFT JOIN usuario ON usuario.UsuarioID = avisoticket.UsuarioID\r\nLEFT JOIN usuario AS usuarioCierre ON usuarioCierre.UsuarioID = avisoticket.UsuarioCierreID\r\n\r\nLEFT JOIN provincia ON provincia.ProvinciaID = mailing.ProvinciaID\r\nLEFT JOIN provincia AS provinciaUbicacion  ON provinciaUbicacion.ProvinciaID = direccion.ProvinciaID\r\nLEFT JOIN pais ON pais.PaisID = mailing.PaisID\r\nLEFT JOIN contacto ON contacto.ContactoID = avisoticket.ContactoID \r\nLEFT OUTER JOIN TablaGeneral AS Servicio ON Servicio.TablaGeneralID = avisoticket.ServicioID\r\n\r\nWHERE (AvisoTicket.Numero like \"70\")\r\nand (AvisoTicket.EmpresaID = 1 AND AvisoTicket.CustomerID = 29)"
+                      records:
+                        records:
+                          - TicketID: 88
+                            Numero: 70
+                            FechaHoraAlta: '2023-03-17T13:14:14.000'
+                            DescripcionEstado: ''
+                            nombreTecnico: ''
+                            codigoTecnico: ''
+                            usuarioCierre: ''
+                            FechaHoraCierre: '0000-00-00T00:00:00.000'
+                            CodigoCliente: '43020005'
+                            NombreCliente: RESTAURANTE ALDAN-ONDO
+                            Horario: ''
+                            PaisNombre: España
+                            MunicipioNombre: ''
+                            ProvinciaNombre: ''
+                            NombreCodigoPostal: '20800'
+                            ContactoNombre: ''
+                            Telefono: ''
+                            TipoTicket: Averia
+                            NombrePrioridad: pruebaLUIS23
+                            ServicioNombre: '3333'
+                            TipoProblemaNombre: GFF
+                            Descripcion: PRUEBALL2
+                            UbicacionNombre: SAT MADRID 1
+                            UbicacionCodigo: 1
+                            Direccion: 'Calle de los comuneros de Castilla, 18'
+                            UbicacionCodigoPostal: '28000'
+                            UbicacionMunicipio: MADRID
+                            UbicacionProvincia: Araba
+                            Longitud: '54545'
+                            Latitud: '48755'
+                            Equipo: '3442342'
+                            NombreEquipo: EXTINTOR
+                            FechaInicioGarantia: '20180322'
+                            FechaFinGarantia: '20230303'
+                        success: true
+                      success: true
+      operationId: get-tickets-quicksearch
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: '"tokenReciente"'
+    parameters:
+      - schema:
+          type: string
+        name: sBusqueda
+        in: path
+        required: true
+        description: '70'
   /tickets/shopping:
     get:
       summary: shoppingForTickets
@@ -6037,263 +6301,5 @@ paths:
           in: query
           name: ticketID
           description: '55'
-  /tickets/outsourcing:
-    get:
-      summary: outsourcingForTickets
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      records:
-                        type: object
-                        properties:
-                          success:
-                            type: boolean
-                          sql:
-                            type: string
-                          records:
-                            type: array
-                            items:
-                              type: object
-                              properties:
-                                Serie:
-                                  type: string
-                                Numero:
-                                  type: integer
-                                Nombre:
-                                  type: string
-                                FechaPedido:
-                                  type: string
-                                FechaRecepcion:
-                                  type: string
-                                CodigoProveedor:
-                                  type: string
-                                NombreProveedor:
-                                  type: string
-                                NumeroProyectoOF:
-                                  type: integer
-                                CodigoArticulo:
-                                  type: string
-                                NombreArticulo:
-                                  type: string
-                                Cantidad:
-                                  type: integer
-                                CantidadRecibida:
-                                  type: integer
-                                PrecioCompra:
-                                  type: integer
-                                ImporteCompra:
-                                  type: number
-                                Estado:
-                                  type: string
-                                Tipo:
-                                  type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      records:
-                        success: true
-                        sql: "SELECT \r\nDISTINCT \r\nPedidoCompraLinea.FechaRecepcionPrevista,\r\nPedidoCompraCabecera.*,\r\nPedidoCompraLinea.*,\r\nArticulo.Codigo AS CodigoArticulo,\r\nArticulo.Nombre AS NombreArticulo1,\r\nproveedor.Codigo as CodigoProveedor,\r\nMailing.Nombre AS NombreProveedor,\r\nSerie.Serie AS Serie,\r\nProyecto_OF.CodigoProyecto_OF as CodigoProyecto,\r\nProyecto_OF.Proyecto_OFID as OrdenID,\r\nProceso.NumeroProceso as CodigoProceso,\r\nProceso.Nombre as NombreProceso,\r\nPedidoCompraLinea.Recibido as Recibidos,\r\nPedidoCompraLinea.Factor as Factor1,\r\nusuario.NombreUsuario,\r\nProyecto_OF.EsObraOf,\r\nproyecto_of.FechaEntrega,\r\nPedidoCompraLinea.FechaRecepcionPrevista as LineaFechaRecepcionPrevista,\r\nPedidoCompraLinea.FechaEntregaProveedor as LineaFechaEntregaProveedor,\r\nProceso.ProcesoID\r\nFROM \r\n((((((((((PedidoCompraCabecera LEFT JOIN PedidoCompraLinea on pedidocompralinea.PedidoCompraCabeceraID = PedidoCompraCabecera.PedidoCompraCabeceraID)\r\nLEFT join Proveedor ON PedidoCompraCabecera.ProveedorID=Proveedor.proveedorID)\r\nLeft join Mailing on Proveedor.MailingID = mailing.MailingID)\r\nLEFT JOIN Serie ON PedidoCompraCabecera.SeriePedidoID=Serie.SerieID)\r\nleft JOIN Articulo ON PedidoCompraLinea.ArticuloID=Articulo.ArticuloID)\r\nLEFT JOIN Familia ON Articulo.FamiliaID=Familia.FamiliaID)\r\nLeft Join PedidoCompraLineaProceso on PedidoCompraLineaProceso.PedidoCompraLineaID=PedidoCompraLinea.PedidoCompraLineaID)\r\nLEFT JOIN Proceso On Proceso.ProcesoID = PedidoCompraLineaProceso.ProcesoID)\r\nLEFT JOIN Proyecto_OF on Proyecto_OF.Proyecto_OFID = proceso.Proyecto_OFID)\r\nLEFT JOIN Operacion on Operacion.OperacionID = proceso.OperacionID)\r\nLEFT JOIN Usuario on PedidoCompraCabecera.UsuarioID = usuario.UsuarioID\r\n\r\nWHERE PedidoCompraCabecera.CustomerID = 29 and\r\nPedidoCompraCabecera.EmpresaID = 1\r\n\r\n AND (PedidoCompraCabecera.EsSubcontratacion = 1 AND Proyecto_OF.Proyecto_OFID IN (1087,1149))"
-                        records:
-                          - Serie: Sin
-                            Numero: 1
-                            Nombre: ASASSASS
-                            FechaPedido: '20191210'
-                            FechaRecepcion: '20191210'
-                            CodigoProveedor: '40001001'
-                            NombreProveedor: TRATAMIENTOS ABC
-                            NumeroProyectoOF: 16
-                            CodigoArticulo: ''
-                            NombreArticulo: ''
-                            Cantidad: 564
-                            CantidadRecibida: 0
-                            PrecioCompra: 15
-                            ImporteCompra: 750.44
-                            Estado: ''
-                            Tipo: ''
-                          - Serie: Sin
-                            Numero: 246
-                            Nombre: SSSSSS
-                            FechaPedido: '20190913'
-                            FechaRecepcion: '20190913'
-                            CodigoProveedor: '40000002'
-                            NombreProveedor: 'TTES. SEUR                              '
-                            NumeroProyectoOF: 16
-                            CodigoArticulo: ''
-                            NombreArticulo: ''
-                            Cantidad: 251
-                            CantidadRecibida: 0
-                            PrecioCompra: 4
-                            ImporteCompra: 885.62
-                            Estado: Parcial
-                            Tipo: ''
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      records:
-                        success: true
-                        sql: "SELECT \r\nDISTINCT \r\nPedidoCompraLinea.FechaRecepcionPrevista,\r\nPedidoCompraCabecera.*,\r\nPedidoCompraLinea.*,\r\nArticulo.Codigo AS CodigoArticulo,\r\nArticulo.Nombre AS NombreArticulo1,\r\nproveedor.Codigo as CodigoProveedor,\r\nMailing.Nombre AS NombreProveedor,\r\nSerie.Serie AS Serie,\r\nProyecto_OF.CodigoProyecto_OF as CodigoProyecto,\r\nProyecto_OF.Proyecto_OFID as OrdenID,\r\nProceso.NumeroProceso as CodigoProceso,\r\nProceso.Nombre as NombreProceso,\r\nPedidoCompraLinea.Recibido as Recibidos,\r\nPedidoCompraLinea.Factor as Factor1,\r\nusuario.NombreUsuario,\r\nProyecto_OF.EsObraOf,\r\nproyecto_of.FechaEntrega,\r\nPedidoCompraLinea.FechaRecepcionPrevista as LineaFechaRecepcionPrevista,\r\nPedidoCompraLinea.FechaEntregaProveedor as LineaFechaEntregaProveedor,\r\nProceso.ProcesoID\r\nFROM \r\n((((((((((PedidoCompraCabecera LEFT JOIN PedidoCompraLinea on pedidocompralinea.PedidoCompraCabeceraID = PedidoCompraCabecera.PedidoCompraCabeceraID)\r\nLEFT join Proveedor ON PedidoCompraCabecera.ProveedorID=Proveedor.proveedorID)\r\nLeft join Mailing on Proveedor.MailingID = mailing.MailingID)\r\nLEFT JOIN Serie ON PedidoCompraCabecera.SeriePedidoID=Serie.SerieID)\r\nleft JOIN Articulo ON PedidoCompraLinea.ArticuloID=Articulo.ArticuloID)\r\nLEFT JOIN Familia ON Articulo.FamiliaID=Familia.FamiliaID)\r\nLeft Join PedidoCompraLineaProceso on PedidoCompraLineaProceso.PedidoCompraLineaID=PedidoCompraLinea.PedidoCompraLineaID)\r\nLEFT JOIN Proceso On Proceso.ProcesoID = PedidoCompraLineaProceso.ProcesoID)\r\nLEFT JOIN Proyecto_OF on Proyecto_OF.Proyecto_OFID = proceso.Proyecto_OFID)\r\nLEFT JOIN Operacion on Operacion.OperacionID = proceso.OperacionID)\r\nLEFT JOIN Usuario on PedidoCompraCabecera.UsuarioID = usuario.UsuarioID\r\n\r\nWHERE PedidoCompraCabecera.CustomerID = 29 and\r\nPedidoCompraCabecera.EmpresaID = 1\r\n\r\n AND (PedidoCompraCabecera.EsSubcontratacion = 1 AND Proyecto_OF.Proyecto_OFID IN (1087,1149))"
-                        records:
-                          - Serie: Sin
-                            Numero: 1
-                            Nombre: ASASSASS
-                            FechaPedido: '20191210'
-                            FechaRecepcion: '20191210'
-                            CodigoProveedor: '40001001'
-                            NombreProveedor: TRATAMIENTOS ABC
-                            NumeroProyectoOF: 16
-                            CodigoArticulo: ''
-                            NombreArticulo: ''
-                            Cantidad: 564
-                            CantidadRecibida: 0
-                            PrecioCompra: 15
-                            ImporteCompra: 750.44
-                            Estado: ''
-                            Tipo: ''
-                          - Serie: Sin
-                            Numero: 246
-                            Nombre: SSSSSS
-                            FechaPedido: '20190913'
-                            FechaRecepcion: '20190913'
-                            CodigoProveedor: '40000002'
-                            NombreProveedor: 'TTES. SEUR                              '
-                            NumeroProyectoOF: 16
-                            CodigoArticulo: ''
-                            NombreArticulo: ''
-                            Cantidad: 251
-                            CantidadRecibida: 0
-                            PrecioCompra: 4
-                            ImporteCompra: 885.62
-                            Estado: Parcial
-                            Tipo: ''
-      operationId: get-tickets-outsourcing
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: accessToken
-          description: '"tokenReciente"'
-        - schema:
-            type: integer
-          in: query
-          name: ticketID
-          description: '27'
-        - schema:
-            type: integer
-          in: query
-          name: radio
-          description: '2'
-  /ticket/expenseAnalysis:
-    get:
-      summary: expenseAnalysisForTickets
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      datosGrafica:
-                        type: object
-                        properties:
-                          CostesIntervencion:
-                            type: integer
-                          ImporteAlbaranado:
-                            type: integer
-                          ImporteFacturado:
-                            type: integer
-                          ImporteManoObra:
-                            type: integer
-                          ImporteMaterial:
-                            type: number
-                          ImporteGastos:
-                            type: number
-                          NumeroIntervenciones:
-                            type: integer
-                          Horas:
-                            type: number
-                          Margen:
-                            type: integer
-                      ImporteOferta:
-                        type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      datosGrafica:
-                        CostesIntervencion: 170
-                        ImporteAlbaranado: 0
-                        ImporteFacturado: 0
-                        ImporteManoObra: 45
-                        ImporteMaterial: 12.5
-                        ImporteGastos: 112.5
-                        NumeroIntervenciones: 2
-                        Horas: 4.5
-                        Margen: 0
-                      ImporteOferta: 0
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      datosGrafica:
-                        CostesIntervencion: 170
-                        ImporteAlbaranado: 0
-                        ImporteFacturado: 0
-                        ImporteManoObra: 45
-                        ImporteMaterial: 12.5
-                        ImporteGastos: 112.5
-                        NumeroIntervenciones: 2
-                        Horas: 4.5
-                        Margen: 0
-                      ImporteOferta: 0
-      operationId: get-ticket-expenseAnalysis
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: 'accessToken '
-          description: '"tokenReciente"'
-        - schema:
-            type: string
-          in: query
-          name: ticketID
-          description: '2'
 components:
   schemas: {}
