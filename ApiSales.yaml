@@ -443,10 +443,89 @@ paths:
           required: true
   /sales/orders/invoices/series:
     get:
-      summary: Your GET endpoint
+      summary: OrderSeries - FindAll
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serie:
+                          type: string
+                        seriePedidoAlbaranVenta:
+                          type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - serie: GE
+                        seriePedidoAlbaranVenta: 2
+                      - serie: Sin
+                        seriePedidoAlbaranVenta: 4
+                      - serie: GN
+                        seriePedidoAlbaranVenta: 5
+                      - serie: PT
+                        seriePedidoAlbaranVenta: 6
+                      - serie: AB
+                        seriePedidoAlbaranVenta: 16
+                      - serie: TT
+                        seriePedidoAlbaranVenta: 17
+                      - serie: JA
+                        seriePedidoAlbaranVenta: 21
+                      - serie: EMN
+                        seriePedidoAlbaranVenta: 22
+                      - serie: JP
+                        seriePedidoAlbaranVenta: 23
+                      - serie: JL
+                        seriePedidoAlbaranVenta: 24
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - serie: GE
+                        seriePedidoAlbaranVenta: 2
+                      - serie: Sin
+                        seriePedidoAlbaranVenta: 4
+                      - serie: GN
+                        seriePedidoAlbaranVenta: 5
+                      - serie: PT
+                        seriePedidoAlbaranVenta: 6
+                      - serie: AB
+                        seriePedidoAlbaranVenta: 16
+                      - serie: TT
+                        seriePedidoAlbaranVenta: 17
+                      - serie: JA
+                        seriePedidoAlbaranVenta: 21
+                      - serie: EMN
+                        seriePedidoAlbaranVenta: 22
+                      - serie: JP
+                        seriePedidoAlbaranVenta: 23
+                      - serie: JL
+                        seriePedidoAlbaranVenta: 24
       operationId: get-sales-orders-invoices-series
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /sales/consult/invoices:
     get:
       summary: Your GET endpoint
