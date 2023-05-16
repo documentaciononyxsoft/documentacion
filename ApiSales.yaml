@@ -13248,14 +13248,392 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '44'
         name: param
         in: path
         required: true
+        description: Parámetro a buscar
     get:
-      summary: Your GET endpoint
+      summary: SalesOrder - FindManyByFilter
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      listaPedidosVenta:
+                        type: object
+                        properties:
+                          sql:
+                            type: string
+                          records:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                PedidoVentaCabeceraID:
+                                  type: integer
+                                seriepedidoid:
+                                  type: integer
+                                Numero:
+                                  type: integer
+                                fecha:
+                                  type: string
+                                almacenid:
+                                  type: integer
+                                ClienteID:
+                                  type: integer
+                                referenciacliente:
+                                  type: string
+                                TipoPedidoID:
+                                  type: integer
+                                fechaCaptacion:
+                                  type: string
+                                fechaentregaprevistainterna:
+                                  type: string
+                                fechaentregaprevistacliente:
+                                  type: string
+                                fechahorausuario:
+                                  type: string
+                                DireccionEnvioID:
+                                  type: integer
+                                Codigo:
+                                  type: string
+                                nombreCliente:
+                                  type: string
+                                codigoDireccion:
+                                  type: integer
+                                nombreDireccion:
+                                  type: string
+                                Municipio:
+                                  type: string
+                                CodigoPostalID:
+                                  type: integer
+                                CodigoPostal:
+                                  type: string
+                                telefono:
+                                  type: string
+                                UsuarioCreacion:
+                                  type: string
+                                estado:
+                                  type: string
+                                provincia:
+                                  type: string
+                                pais:
+                                  type: string
+                                email:
+                                  type: string
+                                NotaCliente:
+                                  type: string
+                                NotaGeneral:
+                                  type: string
+                                Descripcion:
+                                  type: string
+                                abreviaturaMoneda:
+                                  type: string
+                                nombreMoned:
+                                  type: string
+                                mailingID:
+                                  type: integer
+                                lineas:
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      pedidoventalineaid:
+                                        type: integer
+                                      linea:
+                                        type: integer
+                                      almacenNombre:
+                                        type: string
+                                      articuloID:
+                                        type: integer
+                                      codigoArticulo:
+                                        type: string
+                                      nombreArticulo:
+                                        type: string
+                                      Referencia:
+                                        type: string
+                                      Cantidad:
+                                        type: integer
+                                      CantidadEntregada:
+                                        type: integer
+                                      PrecioVenta:
+                                        type: integer
+                                      Dto1:
+                                        type: integer
+                                      Dto2:
+                                        type: integer
+                                      Dto3:
+                                        type: integer
+                                      ImporteVenta:
+                                        type: integer
+                                      entregado:
+                                        type: integer
+                                      Numero:
+                                        type: integer
+                                      CodigoProyecto_OF:
+                                        type: integer
+                                      FechaEntregaPrevistaInterna:
+                                        type: string
+                                      FechaEntregaPrevistaCliente:
+                                        type: string
+                                      NotaInterna:
+                                        type: string
+                                      codigoIVA:
+                                        type: string
+                                      PorcentajeIva:
+                                        type: integer
+                                      PorcentajeRecargo:
+                                        type: integer
+                                      PorcentajeIvaLinea:
+                                        type: integer
+                                      PorcentajeRecargoLinea:
+                                        type: integer
+                                      Cantidad2:
+                                        type: integer
+                                      Factor:
+                                        type: integer
+                                      FactorCantidad:
+                                        type: integer
+                                      MargenComercial:
+                                        type: integer
+                                      PrecioCoste:
+                                        type: integer
+                                      proyectoID:
+                                        type: integer
+                                      cajas:
+                                        type: integer
+                                      ReferenciaCliente:
+                                        type: string
+                                      notacliente:
+                                        type: string
+                                      cantidadProf:
+                                        type: integer
+                                      porcentajeCrossdocking:
+                                        type: integer
+                                      importeCrossdocking:
+                                        type: integer
+                                      porcentajeComision:
+                                        type: integer
+                                      importeComision:
+                                        type: integer
+                                      RappelPorcentaje:
+                                        type: integer
+                                      RappelImporte:
+                                        type: integer
+                                      ParaProforma:
+                                        type: integer
+                                      Confirmado:
+                                        type: integer
+                                      nombreProyecto:
+                                        type: string
+                                      ivaNombre:
+                                        type: string
+                                      descripcionArticulo:
+                                        type: string
+                                      AlmacenID:
+                                        type: integer
+                                      ivaID:
+                                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      listaPedidosVenta:
+                        sql: "select \r\npedidoVentaCabecera.pedidoVentaCabeceraID,\r\npedidoVentaCabecera.seriepedidoid,\r\npedidoventacabecera.Numero,\r\npedidoventacabecera.fecha,\r\npedidoventacabecera.almacenid,\r\npedidoventacabecera.ClienteID,\r\npedidoventacabecera.referenciacliente,\r\npedidoventacabecera.TipoPedidoID,\r\npedidoventacabecera.fechaCaptacion,\r\npedidoventacabecera.fechaentregaprevistainterna,\r\npedidoventacabecera.fechaentregaprevistacliente,\r\npedidoventacabecera.fechahorausuario,\r\npedidoventacabecera.DireccionEnvioID,\r\npedidoventacabecera.Estado,\r\nPedidoVentaCabecera.NotaCliente,\r\nPedidoVentaCabecera.NotaGeneral,\r\nPedidoVentaCabecera.Descripcion,\r\ncliente.Codigo,\r\nmailing.nombre as nombreCliente,\r\nmailing.MailingID,\r\ndireccion.codigo as codigoDireccion,\r\ndireccion.nombre as nombreDireccion,\r\ndireccion.Municipio,\r\ndireccion.CodigoPostalID,\r\ncodigopostal.CodigoPostal,\r\nmailing.telefono,\r\nusuario.NombreUsuario,\r\n\r\npedidoVentaLinea.pedidoventalineaid,\r\npedidoVentaLinea.linea,\r\npedidoventalinea.AlmacenID as AlmacenIDLinea,\r\nalmacen.Nombre as almacenNombre,\r\npedidoventalinea.articuloID  as articuloIDLinea,\r\narticulo.Codigo as codigoArticulo,\r\narticulo.nombre as nombreArticulo,\r\npedidoventalinea.Referencia,\r\npedidoventalinea.Cantidad,\r\npedidoventalinea.CantidadEntregada,\r\npedidoventalinea.PrecioVenta,\r\npedidoventalinea.Dto1,\r\npedidoventalinea.Dto2,\r\npedidoventalinea.Dto3,\r\npedidoventalinea.ImporteVenta,\r\npedidoventalinea.entregado,\r\noferta.Numero as numeroOferta,\r\nproyecto_of.CodigoProyecto_OF,\r\npedidoventalinea.FechaEntregaPrevistaInterna as FechaEntregaPrevistaInternalinea,\r\npedidoventalinea.FechaEntregaPrevistaCliente as FechaEntregaPrevistaClientelinea,\r\npedidoventalinea.NotaInterna,\r\npedidoventalinea.IvaID as ivaIDLinea,\r\npedidoventalinea.Cajas,\r\npedidoventalinea.Confirmado as lineaConfirmado,\r\npedidoventalinea.NivelIngenieriaID,\r\npedidoventalinea.Proyecto_OFID,\r\npedidoventalinea.NotaCliente,\r\niva.Codigo codigoIVA,\r\niva.PorcentajeIva,\r\niva.PorcentajeRecargo,\r\nPedidoVentaLinea.PorcentajeIVA AS PorcentajeIvaLinea,\r\nPedidoVentaLinea.PorcentajeRecargo AS PorcentajeRecargoLinea,\r\npedidoventalinea.Cantidad2,\r\npedidoventalinea.Factor,\r\npedidoventalinea.FactorCantidad,\r\npedidoventalinea.MargenComercial,\r\npedidoventalinea.PrecioCoste,\r\npedidoventalinea.CantidadProforma,\r\npedidoventalinea.CrossdockingImporte,\r\npedidoventalinea.CrossdockingPorcentaje,\r\npedidoventalinea.ComisionImporte,\r\npedidoventalinea.PorcentajeComision,\r\npedidoventalinea.RappelPorcentaje,\r\npedidoventalinea.RappelImporte,\r\npedidoventalinea.ParaProforma,\r\npedidoventalinea.Confirmado,\r\npedidoventalinea.IvaID,\r\nProyecto_OF.nombre as nombreProyecto,\r\niva.Nombre as nombreIVA,\r\npedidoventalinea.Descripcion as descripcionArticulo,\r\nprovincia.nombre as provincia,\r\npais.nombre as pais,\r\ndireccion.telefono,\r\ndireccion.email,\r\nmoneda.Abreviatura as abreviaturaMoneda,\r\nmoneda.Nombre as nombreMoneda\r\nfrom pedidoVentaCabecera\r\nleft join pedidoventaLinea on pedidoventacabecera.pedidoventaCabeceraID = pedidoventaLinea.pedidoVentaCabeceraID\r\nleft join almacen on almacen.AlmacenID = pedidoventalinea.AlmacenID\r\nleft join articulo on articulo.articuloid = pedidoventalinea.articuloid\r\nleft join cliente on cliente.ClienteID = pedidoventacabecera.ClienteID\r\nleft join mailing on cliente.MailingID = mailing.MailingID\r\nleft join direccion on direccion.direccionid = pedidoventacabecera.DireccionEnvioID \r\nleft join codigopostal on codigopostal.CodigoPostalID = direccion.CodigoPostalID\r\nleft join pais on Pais.PaisID = direccion.paisid\r\nleft join provincia on provincia.provinciaID = direccion.ProvinciaID\r\nLEFT JOIN OfertaLinea ON PedidoVentaLinea.OfertaLineaID = OfertaLinea.OfertaLineaID\r\nLEFT JOIN Oferta ON Oferta.OfertaID = OfertaLinea.OfertaID\r\nLEFT JOIN Proyecto_OF ON Proyecto_OF.Proyecto_OFID=PedidoVentaLinea.Proyecto_OFID\r\nLEFT JOIN Iva ON PedidoVentaLinea.IvaID = Iva.IvaID\r\nleft join usuario on usuario.usuarioID = pedidoventaCabecera.usuarioID\r\nleft join moneda on moneda.monedaID = pedidoventaCabecera.monedaID\r\nwhere \r\n(PedidoVentaCabecera.Numero = 44 or Cliente.Codigo = '44') \r\nand (PedidoVentaCabecera.CustomerID = 29 and PedidoVentaCabecera.EmpresaID = 1)"
+                        records:
+                          - PedidoVentaCabeceraID: 2229
+                            seriepedidoid: 2
+                            Numero: 44
+                            fecha: '20230329'
+                            almacenid: 3
+                            ClienteID: 84
+                            referenciacliente: ''
+                            TipoPedidoID: 0
+                            fechaCaptacion: '20230329'
+                            fechaentregaprevistainterna: '20230329'
+                            fechaentregaprevistacliente: '20230329'
+                            fechahorausuario: '2023-03-29T15:55:25.649'
+                            DireccionEnvioID: 12
+                            Codigo: '10300010329'
+                            nombreCliente: TIENDAS TRES B S A DE C V
+                            codigoDireccion: 6
+                            nombreDireccion: 1006 TLAHUAC
+                            Municipio: TLAHUAC
+                            CodigoPostalID: 14952
+                            CodigoPostal: '13210'
+                            telefono: '312222222'
+                            UsuarioCreacion: ADMINISTRADOR
+                            estado: ''
+                            provincia: CDMX
+                            pais: México
+                            email: ''
+                            NotaCliente: ''
+                            NotaGeneral: ''
+                            Descripcion: ''
+                            abreviaturaMoneda: ''
+                            nombreMoned: ''
+                            mailingID: 455
+                            lineas:
+                              - pedidoventalineaid: 5019
+                                linea: 10
+                                almacenNombre: ADMINISTRACION
+                                articuloID: 3517
+                                codigoArticulo: V9T2R
+                                nombreArticulo: LAPTOP DELL INSPIRON 15 3501 15.6" INTEL CORE i5 1135G7
+                                Referencia: ''
+                                Cantidad: 1
+                                CantidadEntregada: 0
+                                PrecioVenta: 500
+                                Dto1: 10
+                                Dto2: 15
+                                Dto3: 0
+                                ImporteVenta: 383
+                                entregado: 0
+                                Numero: 2242
+                                CodigoProyecto_OF: 0
+                                FechaEntregaPrevistaInterna: '20230103'
+                                FechaEntregaPrevistaCliente: '20230103'
+                                NotaInterna: ''
+                                codigoIVA: IVA
+                                PorcentajeIva: 16
+                                PorcentajeRecargo: 0
+                                PorcentajeIvaLinea: 16
+                                PorcentajeRecargoLinea: 0
+                                Cantidad2: 1
+                                Factor: 1
+                                FactorCantidad: 1
+                                MargenComercial: 0
+                                PrecioCoste: 1
+                                proyectoID: 0
+                                cajas: 0
+                                ReferenciaCliente: ''
+                                notacliente: ''
+                                cantidadProf: 0
+                                porcentajeCrossdocking: 0
+                                importeCrossdocking: 0
+                                porcentajeComision: 0
+                                importeComision: 0
+                                RappelPorcentaje: 0
+                                RappelImporte: 0
+                                ParaProforma: 0
+                                Confirmado: 0
+                                nombreProyecto: ''
+                                ivaNombre: 'IVA16, ventas, gastos'
+                                descripcionArticulo: LAPTOP DELL INSPIRON 15 3501 15.6" INTEL CORE i5 1135G7DISCODURO 256 GB SSD RAM 8 GB WINDOWS 10 HOME
+                                AlmacenID: 77
+                                ivaID: 1
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      listaPedidosVenta:
+                        sql: string
+                        records:
+                          - PedidoVentaCabeceraID: 2229
+                            seriepedidoid: 2
+                            Numero: 44
+                            fecha: '20230329'
+                            almacenid: 3
+                            ClienteID: 84
+                            referenciacliente: ''
+                            TipoPedidoID: 0
+                            fechaCaptacion: '20230329'
+                            fechaentregaprevistainterna: '20230329'
+                            fechaentregaprevistacliente: '20230329'
+                            fechahorausuario: '2023-03-29T15:55:25.649'
+                            DireccionEnvioID: 12
+                            Codigo: '10300010329'
+                            nombreCliente: TIENDAS TRES B S A DE C V
+                            codigoDireccion: 6
+                            nombreDireccion: 1006 TLAHUAC
+                            Municipio: TLAHUAC
+                            CodigoPostalID: 14952
+                            CodigoPostal: '13210'
+                            telefono: '312222222'
+                            UsuarioCreacion: ADMINISTRADOR
+                            estado: ''
+                            provincia: CDMX
+                            pais: México
+                            email: ''
+                            NotaCliente: ''
+                            NotaGeneral: ''
+                            Descripcion: ''
+                            abreviaturaMoneda: ''
+                            nombreMoned: ''
+                            mailingID: 455
+                            lineas:
+                              - pedidoventalineaid: 5019
+                                linea: 10
+                                almacenNombre: ADMINISTRACION
+                                articuloID: 3517
+                                codigoArticulo: V9T2R
+                                nombreArticulo: LAPTOP DELL INSPIRON 15 3501 15.6" INTEL CORE i5 1135G7
+                                Referencia: ''
+                                Cantidad: 1
+                                CantidadEntregada: 0
+                                PrecioVenta: 500
+                                Dto1: 10
+                                Dto2: 15
+                                Dto3: 0
+                                ImporteVenta: 383
+                                entregado: 0
+                                Numero: 2242
+                                CodigoProyecto_OF: 0
+                                FechaEntregaPrevistaInterna: '20230103'
+                                FechaEntregaPrevistaCliente: '20230103'
+                                NotaInterna: ''
+                                codigoIVA: IVA
+                                PorcentajeIva: 16
+                                PorcentajeRecargo: 0
+                                PorcentajeIvaLinea: 16
+                                PorcentajeRecargoLinea: 0
+                                Cantidad2: 1
+                                Factor: 1
+                                FactorCantidad: 1
+                                MargenComercial: 0
+                                PrecioCoste: 1
+                                proyectoID: 0
+                                cajas: 0
+                                ReferenciaCliente: ''
+                                notacliente: ''
+                                cantidadProf: 0
+                                porcentajeCrossdocking: 0
+                                importeCrossdocking: 0
+                                porcentajeComision: 0
+                                importeComision: 0
+                                RappelPorcentaje: 0
+                                RappelImporte: 0
+                                ParaProforma: 0
+                                Confirmado: 0
+                                nombreProyecto: ''
+                                ivaNombre: 'IVA16, ventas, gastos'
+                                descripcionArticulo: LAPTOP DELL INSPIRON 15 3501 15.6" INTEL CORE i5 1135G7DISCODURO 256 GB SSD RAM 8 GB WINDOWS 10 HOME
+                                AlmacenID: 77
+                                ivaID: 1
       operationId: get-sales-orders-param
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   '/sales/orders/{id}/complete':
     parameters:
       - schema:
