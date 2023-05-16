@@ -5675,7 +5675,7 @@ paths:
                           Importe: 25000
                         - Fecha: '10050101'
                           CodigoMaterial: '100000587'
-                          Material: LECHE DESCREMADA EN POLVO
+                          Material: LECHE EN POLVO
                           Cantidad: 5
                           Precio: 500
                           Importe: 2500
