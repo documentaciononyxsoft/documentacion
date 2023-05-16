@@ -5072,6 +5072,12 @@ paths:
       tags: []
       responses: {}
       operationId: get-sales-consult-orders
+  /sales/orders:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-sales-orders
   /sales/orders/:
     post:
       summary: Create SaleOrder
@@ -16094,6 +16100,12 @@ paths:
       tags: []
       responses: {}
       operationId: get-sales-receipts-param
+  /sales/receipts/generate:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-sales-receipts-generate
   '/sales/receipts/{receiptid}/lines':
     parameters:
       - schema:
@@ -16581,18 +16593,6 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
-  /sales/order:
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-sales-order
-  /sales/orders:
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-sales-orders
 components:
   schemas:
     User:
