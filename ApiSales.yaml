@@ -12962,24 +12962,50 @@ paths:
         required: true
         description: ID de el pedido de venta a actualizar.
     put:
-      summary: UpdateOrder
+      summary: SalesOrder - Update
       operationId: put-sales-orders
       responses:
         '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true,
-                    "idPedidoVenta": 2183,
-                    "numero": 72
-                }
-            }
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      idPedidoVenta:
+                        type: integer
+                      numero:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      idPedidoVenta: 2234
+                      numero: 2109
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      idPedidoVenta: 2234
+                      numero: 2109
       parameters:
         - schema:
             type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzIyMjc4LCAiZXhwIjoxNjcyMzI5NDc4IH0.w03HLUtxNDe2uvg_RuiuZeSzMHx1SRK7TCjvSDX9rio
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
@@ -12990,216 +13016,229 @@ paths:
             schema:
               type: object
               properties:
-                pedidoVentaData:
-                  type: object
-                  properties:
-                    SeriePedidoID:
-                      type: string
-                    fecha:
-                      type: string
-                    ClienteID:
-                      type: string
-                    ReferenciaCliente:
-                      type: string
-                    FechaCaptacion:
-                      type: string
-                    FechaEntregaPrevistaInterna:
-                      type: string
-                    FechaEntregaPrevistaCliente:
-                      type: string
-                    DireccionEnvioID:
-                      type: string
-                    AlmacenID:
-                      type: string
-                    TipoPedidoID:
-                      type: string
-                    ClienteFacturaID:
-                      type: string
-                    FormaPagoID:
-                      type: string
-                    Confirmado:
-                      type: string
-                    AlbaranNoValorado:
-                      type: string
-                    MonedaID:
-                      type: string
-                    MonedaCambio:
-                      type: string
-                    Portes:
-                      type: string
-                    ImportePortes:
-                      type: string
-                    ImporteOtroGasto:
-                      type: string
-                    IvaID:
-                      type: string
-                    TarifaVentaID:
-                      type: string
-                    PedidoPor:
-                      type: string
-                    NumeroVencimiento:
-                      type: string
-                    DiasPrimerVencimiento:
-                      type: string
-                    DiasResto:
-                      type: string
-                    DiaFijoPago1:
-                      type: string
-                    DiaFijoPago2:
-                      type: string
-                    DiaFijoPago3:
-                      type: string
-                    DiaFijoPago4:
-                      type: string
-                    MesVacacion:
-                      type: string
-                    DiaSiguientePago:
-                      type: string
-                    PorcentajeDtoComercial1:
-                      type: string
-                    PorcentajeDtoComercial2:
-                      type: string
-                    PorcentaDtoComercial3:
-                      type: string
-                    PorcentajeDtoProntoPago:
-                      type: string
-                    PorcentajeDtoEspecial1:
-                      type: string
-                    PorcentajeDtoEspecial2:
-                      type: string
-                    PorcentajeGastoFinanciero:
-                      type: string
-                    NumeroCopiasAlbaran:
-                      type: string
-                    NumeroCopiasFactura:
-                      type: string
-                    AgruparAlbaran:
-                      type: string
-                    BancoClienteID:
-                      type: string
-                    Iban:
-                      type: string
-                    descripcion:
-                      type: string
-                    notaCliente:
-                      type: string
-                    notaGeneral:
-                      type: string
+                SeriePedidoID:
+                  type: string
+                Fecha:
+                  type: string
+                AlmacenID:
+                  type: string
+                ClienteID:
+                  type: string
+                ReferenciaCliente:
+                  type: string
+                TipoPedidoID:
+                  type: string
+                FechaCaptacion:
+                  type: string
+                FechaEntregaPrevistaInterna:
+                  type: string
+                FechaEntregaPrevistaCliente:
+                  type: string
+                DireccionEnvioID:
+                  type: string
+                Confirmado:
+                  type: string
+                AlbaranNoValorado:
+                  type: string
+                TarifaVentaID:
+                  type: string
+                ClienteFacturaID:
+                  type: string
+                FormaPagoID:
+                  type: string
+                MonedaID:
+                  type: string
+                MonedaCambio:
+                  type: string
+                Portes:
+                  type: string
+                ImportePortes:
+                  type: string
+                ImporteOtroGasto:
+                  type: string
+                IvaID:
+                  type: string
+                PedidoPor:
+                  type: string
+                NumeroVencimiento:
+                  type: string
+                DiasPrimerVencimiento:
+                  type: string
+                DiasResto:
+                  type: string
+                DiaFijoPago1:
+                  type: string
+                DiaFijoPago2:
+                  type: string
+                DiaFijoPago3:
+                  type: string
+                DiaFijoPago4:
+                  type: string
+                MesVacacion:
+                  type: string
+                DiaSiguientePago:
+                  type: string
+                PorcentajeDtoComercial1:
+                  type: string
+                PorcentajeDtoComercial2:
+                  type: string
+                PorcentaDtoComercial3:
+                  type: string
+                PorcentajeDtoProntoPago:
+                  type: string
+                PorcentajeDtoEspecial1:
+                  type: string
+                PorcentajeDtoEspecial2:
+                  type: string
+                PorcentajeGastoFinanciero:
+                  type: string
+                NumeroCopiasAlbaran:
+                  type: string
+                NumeroCopiasFactura:
+                  type: string
+                AgruparAlbaran:
+                  type: string
+                BancoClienteID:
+                  type: string
+                Iban:
+                  type: string
+                Descripcion:
+                  type: string
+                NotaCliente:
+                  type: string
+                NotaGeneral:
+                  type: string
               x-examples:
                 Example 1:
-                  pedidoVentaData:
-                    SeriePedidoID: ''
-                    fecha: ''
-                    ClienteID: ''
-                    ReferenciaCliente: ''
-                    FechaCaptacion: ''
-                    FechaEntregaPrevistaInterna: ''
-                    FechaEntregaPrevistaCliente: ''
-                    DireccionEnvioID: ''
-                    AlmacenID: ''
-                    TipoPedidoID: ''
-                    ClienteFacturaID: ''
-                    FormaPagoID: ''
-                    Confirmado: ''
-                    AlbaranNoValorado: ''
-                    MonedaID: ''
-                    MonedaCambio: ''
-                    Portes: ''
-                    ImportePortes: ''
-                    ImporteOtroGasto: ''
-                    IvaID: ''
-                    TarifaVentaID: ''
-                    PedidoPor: ''
-                    NumeroVencimiento: ''
-                    DiasPrimerVencimiento: ''
-                    DiasResto: ''
-                    DiaFijoPago1: ''
-                    DiaFijoPago2: ''
-                    DiaFijoPago3: ''
-                    DiaFijoPago4: ''
-                    MesVacacion: ''
-                    DiaSiguientePago: ''
-                    PorcentajeDtoComercial1: ''
-                    PorcentajeDtoComercial2: ''
-                    PorcentaDtoComercial3: ''
-                    PorcentajeDtoProntoPago: ''
-                    PorcentajeDtoEspecial1: ''
-                    PorcentajeDtoEspecial2: ''
-                    PorcentajeGastoFinanciero: ''
-                    NumeroCopiasAlbaran: ''
-                    NumeroCopiasFactura: ''
-                    AgruparAlbaran: ''
-                    BancoClienteID: ''
-                    Iban: ''
-                    descripcion: ''
-                    notaCliente: test
-                    notaGeneral: test
+                  SeriePedidoID: '4'
+                  Fecha: '2023-05-16'
+                  AlmacenID: '15'
+                  ClienteID: '84'
+                  ReferenciaCliente: '225577'
+                  TipoPedidoID: '1'
+                  FechaCaptacion: '2023-01-01'
+                  FechaEntregaPrevistaInterna: '2023-05-30'
+                  FechaEntregaPrevistaCliente: '2023-06-10'
+                  DireccionEnvioID: '740'
+                  Confirmado: '0'
+                  AlbaranNoValorado: '0'
+                  TarifaVentaID: '11'
+                  ClienteFacturaID: ''
+                  FormaPagoID: ''
+                  MonedaID: ''
+                  MonedaCambio: ''
+                  Portes: ''
+                  ImportePortes: ''
+                  ImporteOtroGasto: ''
+                  IvaID: ''
+                  PedidoPor: ''
+                  NumeroVencimiento: ''
+                  DiasPrimerVencimiento: ''
+                  DiasResto: ''
+                  DiaFijoPago1: ''
+                  DiaFijoPago2: ''
+                  DiaFijoPago3: ''
+                  DiaFijoPago4: ''
+                  MesVacacion: ''
+                  DiaSiguientePago: ''
+                  PorcentajeDtoComercial1: ''
+                  PorcentajeDtoComercial2: ''
+                  PorcentaDtoComercial3: ''
+                  PorcentajeDtoProntoPago: ''
+                  PorcentajeDtoEspecial1: ''
+                  PorcentajeDtoEspecial2: ''
+                  PorcentajeGastoFinanciero: ''
+                  NumeroCopiasAlbaran: ''
+                  NumeroCopiasFactura: ''
+                  AgruparAlbaran: ''
+                  BancoClienteID: ''
+                  Iban: ''
+                  Descripcion: DescUP
+                  NotaCliente: NotaUpdated
+                  NotaGeneral: NotaUpdated2
             examples:
               Example 1:
                 value:
-                  pedidoVentaData:
-                    SeriePedidoID: string
-                    fecha: string
-                    ClienteID: string
-                    ReferenciaCliente: string
-                    FechaCaptacion: string
-                    FechaEntregaPrevistaInterna: string
-                    FechaEntregaPrevistaCliente: string
-                    DireccionEnvioID: string
-                    AlmacenID: string
-                    TipoPedidoID: string
-                    ClienteFacturaID: string
-                    FormaPagoID: string
-                    Confirmado: string
-                    AlbaranNoValorado: string
-                    MonedaID: string
-                    MonedaCambio: string
-                    Portes: string
-                    ImportePortes: string
-                    ImporteOtroGasto: string
-                    IvaID: string
-                    TarifaVentaID: string
-                    PedidoPor: string
-                    NumeroVencimiento: string
-                    DiasPrimerVencimiento: string
-                    DiasResto: string
-                    DiaFijoPago1: string
-                    DiaFijoPago2: string
-                    DiaFijoPago3: string
-                    DiaFijoPago4: string
-                    MesVacacion: string
-                    DiaSiguientePago: string
-                    PorcentajeDtoComercial1: string
-                    PorcentajeDtoComercial2: string
-                    PorcentaDtoComercial3: string
-                    PorcentajeDtoProntoPago: string
-                    PorcentajeDtoEspecial1: string
-                    PorcentajeDtoEspecial2: string
-                    PorcentajeGastoFinanciero: string
-                    NumeroCopiasAlbaran: string
-                    NumeroCopiasFactura: string
-                    AgruparAlbaran: string
-                    BancoClienteID: string
-                    Iban: string
-                    descripcion: string
-                    notaCliente: string
-                    notaGeneral: string
+                  SeriePedidoID: '4'
+                  Fecha: '2023-05-16'
+                  AlmacenID: '15'
+                  ClienteID: '84'
+                  ReferenciaCliente: '225577'
+                  TipoPedidoID: '1'
+                  FechaCaptacion: '2023-01-01'
+                  FechaEntregaPrevistaInterna: '2023-05-30'
+                  FechaEntregaPrevistaCliente: '2023-06-10'
+                  DireccionEnvioID: '740'
+                  Confirmado: '0'
+                  AlbaranNoValorado: '0'
+                  TarifaVentaID: '11'
+                  ClienteFacturaID: ''
+                  FormaPagoID: ''
+                  MonedaID: ''
+                  MonedaCambio: ''
+                  Portes: ''
+                  ImportePortes: ''
+                  ImporteOtroGasto: ''
+                  IvaID: ''
+                  PedidoPor: ''
+                  NumeroVencimiento: ''
+                  DiasPrimerVencimiento: ''
+                  DiasResto: ''
+                  DiaFijoPago1: ''
+                  DiaFijoPago2: ''
+                  DiaFijoPago3: ''
+                  DiaFijoPago4: ''
+                  MesVacacion: ''
+                  DiaSiguientePago: ''
+                  PorcentajeDtoComercial1: ''
+                  PorcentajeDtoComercial2: ''
+                  PorcentaDtoComercial3: ''
+                  PorcentajeDtoProntoPago: ''
+                  PorcentajeDtoEspecial1: ''
+                  PorcentajeDtoEspecial2: ''
+                  PorcentajeGastoFinanciero: ''
+                  NumeroCopiasAlbaran: ''
+                  NumeroCopiasFactura: ''
+                  AgruparAlbaran: ''
+                  BancoClienteID: ''
+                  Iban: ''
+                  Descripcion: DescUP
+                  NotaCliente: NotaUpdated
+                  NotaGeneral: NotaUpdated2
         description: ''
     delete:
-      summary: DeleteOrder
+      summary: SalesOrder - Delete
       operationId: delete-sales-orders-id
       responses:
         '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {}
-            }
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties: {}
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content: {}
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content: {}
       parameters:
         - schema:
             type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzIzOTA4LCAiZXhwIjoxNjcyMzMxMTA4IH0.6igjm00IEfxl4q6YOHd5s94Vuz8TVlw6FmHppVu90as
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
