@@ -12770,6 +12770,255 @@ paths:
       tags: []
       responses: {}
       operationId: get-sales-orders-generate
+  /sales/rate:
+    get:
+      summary: FindAll
+      tags: []
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": [
+                    {
+                        "tarifaVentaID": 9,
+                        "codigo": "OTR",
+                        "nombre": "OTRO",
+                        "descripcion": "",
+                        "tipo": "General",
+                        "moneda": "Peso Mexicano",
+                        "activo": true,
+                        "monedaID": 3,
+                        "tipoID": 278
+                    },
+                    {
+                        "tarifaVentaID": 10,
+                        "codigo": "MAY",
+                        "nombre": "Mayoreo",
+                        "descripcion": "",
+                        "tipo": "General",
+                        "moneda": "Peso Mexicano",
+                        "activo": true,
+                        "monedaID": 3,
+                        "tipoID": 278
+                    },
+                    {
+                        "tarifaVentaID": 11,
+                        "codigo": "AUT",
+                        "nombre": "Autoservicio",
+                        "descripcion": "Autoservicio",
+                        "tipo": "General",
+                        "moneda": "Peso Mexicano",
+                        "activo": true,
+                        "monedaID": 3,
+                        "tipoID": 278
+                    },
+                    {
+                        "tarifaVentaID": 12,
+                        "codigo": "GRA",
+                        "nombre": "GRANEL",
+                        "descripcion": "GRANEL",
+                        "tipo": "General",
+                        "moneda": "Peso Mexicano",
+                        "activo": true,
+                        "monedaID": 3,
+                        "tipoID": 278
+                    },
+                    {
+                        "tarifaVentaID": 14,
+                        "codigo": "OTRa1",
+                        "nombre": "TARIFA TPV",
+                        "descripcion": "",
+                        "tipo": "General",
+                        "moneda": "Peso Mexicano",
+                        "activo": true,
+                        "monedaID": 3,
+                        "tipoID": 278
+                    }
+                ]
+            }
+      operationId: get-sales-rate
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzM0Mjg4LCAiZXhwIjoxNjcyMzQxNDg4IH0.UhH8yi-ah0ffeVORj47WjSn35LH1GnZoj39ufwvy8i0
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: '0'
+          in: query
+          name: offset
+          description: 'Registro a partir del cual empezará a traer los datos desde la tabla. Si se envía por ejemplo 20, y en la tabla existen 100 registros, la respuesta traerá solo los registros comprendidos entre las posiciones 20 y 100, y los primero 20 se omitirán.'
+          required: true
+        - schema:
+            type: string
+            example: '13'
+          in: query
+          name: limit
+          description: 'Límite de registros que trae la consulta. Si se envía por ejemplo el número 50, si la tabla tiene 2000 registros solo se traerán 50.'
+          required: true
+        - schema:
+            type: string
+            example: '1'
+          in: query
+          description: 'Esta valor determina si los registros de leerán desde arriba hacia abajo, o desde abajo hacia arriba en la tabla. Si por ejemplo la tabla cuenta con 100 registros'
+          name: order
+          required: true
+    post:
+      summary: CreateSalesRate
+      operationId: post-sales-rate
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "TarifaVentaID": 16
+                }
+            }
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzM0Mjg4LCAiZXhwIjoxNjcyMzQxNDg4IH0.UhH8yi-ah0ffeVORj47WjSn35LH1GnZoj39ufwvy8i0
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dataTarifaVenta:
+                  type: object
+                  properties:
+                    tarifaVentaID:
+                      type: string
+                    codigo:
+                      type: string
+                    nombre:
+                      type: string
+                    descripcion:
+                      type: string
+                    TipoID:
+                      type: string
+                    activo:
+                      type: string
+              x-examples:
+                Example 1:
+                  dataTarifaVenta:
+                    tarifaVentaID: '16'
+                    codigo: '200'
+                    nombre: aleja
+                    descripcion: pruebac
+                    TipoID: '278'
+                    activo: '1'
+            examples:
+              Example 1:
+                value:
+                  dataTarifaVenta:
+                    tarifaVentaID: string
+                    codigo: string
+                    nombre: string
+                    descripcion: string
+                    TipoID: string
+                    activo: string
+        description: ''
+  '/sales/rate/{id}':
+    put:
+      summary: UpdateSalesRate
+      operationId: put-sales-rate
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true,
+                    "TarifaVentaID": 14
+                }
+            }
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzM0Mjg4LCAiZXhwIjoxNjcyMzQxNDg4IH0.UhH8yi-ah0ffeVORj47WjSn35LH1GnZoj39ufwvy8i0
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dataTarifaVenta:
+                  type: object
+                  properties:
+                    codigo:
+                      type: string
+                    nombre:
+                      type: string
+                    descripcion:
+                      type: string
+                    TipoID:
+                      type: string
+                    activo:
+                      type: string
+              x-examples:
+                Example 1:
+                  dataTarifaVenta:
+                    codigo: '200'
+                    nombre: aleja
+                    descripcion: pruebac
+                    TipoID: '278'
+                    activo: '1'
+            examples:
+              Example 1:
+                value:
+                  dataTarifaVenta:
+                    codigo: string
+                    nombre: string
+                    descripcion: string
+                    TipoID: string
+                    activo: string
+    delete:
+      summary: DeleteSalesRate
+      operationId: delete-sales-rate
+      responses:
+        '200':
+          description: |-
+            {
+                "statusCode": 200,
+                "message": "Request processed successfully",
+                "content": {
+                    "success": true
+                }
+            }
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzM0Mjg4LCAiZXhwIjoxNjcyMzQxNDg4IH0.UhH8yi-ah0ffeVORj47WjSn35LH1GnZoj39ufwvy8i0
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+    parameters:
+      - schema:
+          type: string
+          example: sales/rate/14
+        name: id
+        in: path
+        required: true
+        description: ID de la tarifa de venta que se va a actualizar o eliminar
   /sales/receipts:
     post:
       summary: Create Receipts
@@ -16314,255 +16563,6 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
-  /sales/rate:
-    get:
-      summary: FindAll
-      tags: []
-      responses:
-        '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": [
-                    {
-                        "tarifaVentaID": 9,
-                        "codigo": "OTR",
-                        "nombre": "OTRO",
-                        "descripcion": "",
-                        "tipo": "General",
-                        "moneda": "Peso Mexicano",
-                        "activo": true,
-                        "monedaID": 3,
-                        "tipoID": 278
-                    },
-                    {
-                        "tarifaVentaID": 10,
-                        "codigo": "MAY",
-                        "nombre": "Mayoreo",
-                        "descripcion": "",
-                        "tipo": "General",
-                        "moneda": "Peso Mexicano",
-                        "activo": true,
-                        "monedaID": 3,
-                        "tipoID": 278
-                    },
-                    {
-                        "tarifaVentaID": 11,
-                        "codigo": "AUT",
-                        "nombre": "Autoservicio",
-                        "descripcion": "Autoservicio",
-                        "tipo": "General",
-                        "moneda": "Peso Mexicano",
-                        "activo": true,
-                        "monedaID": 3,
-                        "tipoID": 278
-                    },
-                    {
-                        "tarifaVentaID": 12,
-                        "codigo": "GRA",
-                        "nombre": "GRANEL",
-                        "descripcion": "GRANEL",
-                        "tipo": "General",
-                        "moneda": "Peso Mexicano",
-                        "activo": true,
-                        "monedaID": 3,
-                        "tipoID": 278
-                    },
-                    {
-                        "tarifaVentaID": 14,
-                        "codigo": "OTRa1",
-                        "nombre": "TARIFA TPV",
-                        "descripcion": "",
-                        "tipo": "General",
-                        "moneda": "Peso Mexicano",
-                        "activo": true,
-                        "monedaID": 3,
-                        "tipoID": 278
-                    }
-                ]
-            }
-      operationId: get-sales-rate
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzM0Mjg4LCAiZXhwIjoxNjcyMzQxNDg4IH0.UhH8yi-ah0ffeVORj47WjSn35LH1GnZoj39ufwvy8i0
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-        - schema:
-            type: string
-            example: '0'
-          in: query
-          name: offset
-          description: 'Registro a partir del cual empezará a traer los datos desde la tabla. Si se envía por ejemplo 20, y en la tabla existen 100 registros, la respuesta traerá solo los registros comprendidos entre las posiciones 20 y 100, y los primero 20 se omitirán.'
-          required: true
-        - schema:
-            type: string
-            example: '13'
-          in: query
-          name: limit
-          description: 'Límite de registros que trae la consulta. Si se envía por ejemplo el número 50, si la tabla tiene 2000 registros solo se traerán 50.'
-          required: true
-        - schema:
-            type: string
-            example: '1'
-          in: query
-          description: 'Esta valor determina si los registros de leerán desde arriba hacia abajo, o desde abajo hacia arriba en la tabla. Si por ejemplo la tabla cuenta con 100 registros'
-          name: order
-          required: true
-    post:
-      summary: CreateSalesRate
-      operationId: post-sales-rate
-      responses:
-        '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true,
-                    "TarifaVentaID": 16
-                }
-            }
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzM0Mjg4LCAiZXhwIjoxNjcyMzQxNDg4IH0.UhH8yi-ah0ffeVORj47WjSn35LH1GnZoj39ufwvy8i0
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                dataTarifaVenta:
-                  type: object
-                  properties:
-                    tarifaVentaID:
-                      type: string
-                    codigo:
-                      type: string
-                    nombre:
-                      type: string
-                    descripcion:
-                      type: string
-                    TipoID:
-                      type: string
-                    activo:
-                      type: string
-              x-examples:
-                Example 1:
-                  dataTarifaVenta:
-                    tarifaVentaID: '16'
-                    codigo: '200'
-                    nombre: aleja
-                    descripcion: pruebac
-                    TipoID: '278'
-                    activo: '1'
-            examples:
-              Example 1:
-                value:
-                  dataTarifaVenta:
-                    tarifaVentaID: string
-                    codigo: string
-                    nombre: string
-                    descripcion: string
-                    TipoID: string
-                    activo: string
-        description: ''
-  '/sales/rate/{id}':
-    put:
-      summary: UpdateSalesRate
-      operationId: put-sales-rate
-      responses:
-        '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true,
-                    "TarifaVentaID": 14
-                }
-            }
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzM0Mjg4LCAiZXhwIjoxNjcyMzQxNDg4IH0.UhH8yi-ah0ffeVORj47WjSn35LH1GnZoj39ufwvy8i0
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                dataTarifaVenta:
-                  type: object
-                  properties:
-                    codigo:
-                      type: string
-                    nombre:
-                      type: string
-                    descripcion:
-                      type: string
-                    TipoID:
-                      type: string
-                    activo:
-                      type: string
-              x-examples:
-                Example 1:
-                  dataTarifaVenta:
-                    codigo: '200'
-                    nombre: aleja
-                    descripcion: pruebac
-                    TipoID: '278'
-                    activo: '1'
-            examples:
-              Example 1:
-                value:
-                  dataTarifaVenta:
-                    codigo: string
-                    nombre: string
-                    descripcion: string
-                    TipoID: string
-                    activo: string
-    delete:
-      summary: DeleteSalesRate
-      operationId: delete-sales-rate
-      responses:
-        '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true
-                }
-            }
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzM0Mjg4LCAiZXhwIjoxNjcyMzQxNDg4IH0.UhH8yi-ah0ffeVORj47WjSn35LH1GnZoj39ufwvy8i0
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-    parameters:
-      - schema:
-          type: string
-          example: sales/rate/14
-        name: id
-        in: path
-        required: true
-        description: ID de la tarifa de venta que se va a actualizar o eliminar
   /sales/order:
     get:
       summary: Your GET endpoint
