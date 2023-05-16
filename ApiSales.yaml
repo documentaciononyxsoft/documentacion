@@ -16494,6 +16494,43 @@ paths:
       tags: []
       responses: {}
       operationId: get-sales-order
+  /sales/consult/orders:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-sales-consult-orders
+  /sales/orders:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-sales-orders
+  '/sales/orders/{param}':
+    parameters:
+      - schema:
+          type: string
+        name: param
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-sales-orders-param
+  '/sales/orders/{id}/complete':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: put-sales-orders-id-complete
+      responses:
+        '200':
+          description: OK
 components:
   schemas:
     User:
