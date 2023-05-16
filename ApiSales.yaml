@@ -222,6 +222,31 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+    post:
+      summary: ''
+      operationId: post-sales-invoices-series
+      responses:
+        '200':
+          description: OK
+  '/sales/invoice/series/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: put-sales-invoice-series-id
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: ''
+      operationId: delete-sales-invoice-series-id
+      responses:
+        '200':
+          description: OK
   /sales/orders/:
     post:
       summary: Create SaleOrder
