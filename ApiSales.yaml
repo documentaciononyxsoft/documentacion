@@ -14230,25 +14230,27 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
   /sales/orders/duplicate:
-    get:
+    post:
       summary: SalesOrder - Duplicate
-      tags: []
-      responses: {}
-      operationId: get-sales-orders-duplicate
+      operationId: post-sales-orders-duplicate
+      responses:
+        '200':
+          description: OK
       parameters:
         - schema:
             type: string
             example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
   /sales/orders/generate:
-    get:
+    post:
       summary: SalesOrder - Generate
-      tags: []
-      responses: {}
-      operationId: get-sales-orders-generate
+      operationId: post-sales-orders-generate
+      responses:
+        '200':
+          description: OK
       parameters:
         - schema:
             type: string
