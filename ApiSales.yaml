@@ -16117,21 +16117,50 @@ paths:
       operationId: post-sales-receipts-id-lines
       responses:
         '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true,
-                    "importe": 0,
-                    "linea": 40,
-                    "albaranVentaLineaID": 4997
-                }
-            }
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      importe:
+                        type: integer
+                      linea:
+                        type: integer
+                      albaranVentaLineaID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      importe: 0
+                      linea: 20
+                      albaranVentaLineaID: 5201
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      importe: 0
+                      linea: 20
+                      albaranVentaLineaID: 5201
       parameters:
         - schema:
             type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzM0Mjg4LCAiZXhwIjoxNjcyMzQxNDg4IH0.UhH8yi-ah0ffeVORj47WjSn35LH1GnZoj39ufwvy8i0
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
@@ -16202,17 +16231,17 @@ paths:
                   dataLinea:
                     AlbaranVentaCabeceraID: ''
                     AlbaranVentalineaID: ''
-                    Linea: ''
-                    AlmacenID: ''
-                    ArticuloID: ''
-                    Nombre: ''
-                    Descripcion: ''
+                    Linea: '10'
+                    AlmacenID: '15'
+                    ArticuloID: '1000'
+                    Nombre: NombrePrueba
+                    Descripcion: Descrip
                     Cantidad: ''
                     Cajas: ''
                     PrecioVenta: ''
                     IvaID: ''
-                    Dto1: 123456prueba
-                    Dto2: '1234'
+                    Dto1: ''
+                    Dto2: ''
                     Dto3: ''
                     PorcentajeRetencion: ''
                     ImporteVenta: ''
@@ -16230,32 +16259,32 @@ paths:
               Example 1:
                 value:
                   dataLinea:
-                    AlbaranVentaCabeceraID: string
-                    AlbaranVentalineaID: string
-                    Linea: string
-                    AlmacenID: string
-                    ArticuloID: string
-                    Nombre: string
-                    Descripcion: string
-                    Cantidad: string
-                    Cajas: string
-                    PrecioVenta: string
-                    IvaID: string
-                    Dto1: string
-                    Dto2: string
-                    Dto3: string
-                    PorcentajeRetencion: string
-                    ImporteVenta: string
-                    TipoRetencionID: string
-                    ReferenciaCliente: string
-                    NotaInterna: string
-                    NotaCliente: string
-                    RappelPorcentaje: string
-                    RappelImporte: string
-                    CrossdockingPorcentaje: string
-                    CrossdockingImporte: string
-                    PorcentajeComision: string
-                    ComisionImporte: string
+                    AlbaranVentaCabeceraID: ''
+                    AlbaranVentalineaID: ''
+                    Linea: '10'
+                    AlmacenID: '15'
+                    ArticuloID: '1000'
+                    Nombre: NombrePrueba
+                    Descripcion: Descrip
+                    Cantidad: ''
+                    Cajas: ''
+                    PrecioVenta: ''
+                    IvaID: ''
+                    Dto1: ''
+                    Dto2: ''
+                    Dto3: ''
+                    PorcentajeRetencion: ''
+                    ImporteVenta: ''
+                    TipoRetencionID: ''
+                    ReferenciaCliente: ''
+                    NotaInterna: ''
+                    NotaCliente: ''
+                    RappelPorcentaje: ''
+                    RappelImporte: ''
+                    CrossdockingPorcentaje: ''
+                    CrossdockingImporte: ''
+                    PorcentajeComision: ''
+                    ComisionImporte: ''
     get:
       summary: SalesReceiptsLine - FindManyByReceipt
       operationId: get-sales-receipts-id-lines
