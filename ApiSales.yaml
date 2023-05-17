@@ -14596,14 +14596,34 @@ paths:
       operationId: delete-sales-rate
       responses:
         '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true
-                }
-            }
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
       parameters:
         - schema:
             type: string
