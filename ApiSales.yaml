@@ -14265,68 +14265,140 @@ paths:
       tags: []
       responses:
         '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": [
-                    {
-                        "tarifaVentaID": 9,
-                        "codigo": "OTR",
-                        "nombre": "OTRO",
-                        "descripcion": "",
-                        "tipo": "General",
-                        "moneda": "Peso Mexicano",
-                        "activo": true,
-                        "monedaID": 3,
-                        "tipoID": 278
-                    },
-                    {
-                        "tarifaVentaID": 10,
-                        "codigo": "MAY",
-                        "nombre": "Mayoreo",
-                        "descripcion": "",
-                        "tipo": "General",
-                        "moneda": "Peso Mexicano",
-                        "activo": true,
-                        "monedaID": 3,
-                        "tipoID": 278
-                    },
-                    {
-                        "tarifaVentaID": 11,
-                        "codigo": "AUT",
-                        "nombre": "Autoservicio",
-                        "descripcion": "Autoservicio",
-                        "tipo": "General",
-                        "moneda": "Peso Mexicano",
-                        "activo": true,
-                        "monedaID": 3,
-                        "tipoID": 278
-                    },
-                    {
-                        "tarifaVentaID": 12,
-                        "codigo": "GRA",
-                        "nombre": "GRANEL",
-                        "descripcion": "GRANEL",
-                        "tipo": "General",
-                        "moneda": "Peso Mexicano",
-                        "activo": true,
-                        "monedaID": 3,
-                        "tipoID": 278
-                    },
-                    {
-                        "tarifaVentaID": 14,
-                        "codigo": "OTRa1",
-                        "nombre": "TARIFA TPV",
-                        "descripcion": "",
-                        "tipo": "General",
-                        "moneda": "Peso Mexicano",
-                        "activo": true,
-                        "monedaID": 3,
-                        "tipoID": 278
-                    }
-                ]
-            }
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        tarifaVentaID:
+                          type: integer
+                        codigo:
+                          type: string
+                        nombre:
+                          type: string
+                        descripcion:
+                          type: string
+                        tipo:
+                          type: string
+                        moneda:
+                          type: string
+                        activo:
+                          type: integer
+                        monedaID:
+                          type: integer
+                        tipoID:
+                          type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - tarifaVentaID: 9
+                        codigo: OTR
+                        nombre: OTRO
+                        descripcion: ''
+                        tipo: General
+                        moneda: Peso Mexicano
+                        activo: 1
+                        monedaID: 3
+                        tipoID: 278
+                      - tarifaVentaID: 10
+                        codigo: MAY
+                        nombre: Mayoreo
+                        descripcion: ''
+                        tipo: General
+                        moneda: Peso Mexicano
+                        activo: 1
+                        monedaID: 3
+                        tipoID: 278
+                      - tarifaVentaID: 11
+                        codigo: AUT
+                        nombre: Autoservicio
+                        descripcion: Autoservicio
+                        tipo: General
+                        moneda: Peso Mexicano
+                        activo: 1
+                        monedaID: 3
+                        tipoID: 278
+                      - tarifaVentaID: 12
+                        codigo: GRA
+                        nombre: GRANEL
+                        descripcion: GRANEL
+                        tipo: General
+                        moneda: Peso Mexicano
+                        activo: 1
+                        monedaID: 3
+                        tipoID: 278
+                      - tarifaVentaID: 14
+                        codigo: OTRa1
+                        nombre: TARIFA TPV
+                        descripcion: hola
+                        tipo: General
+                        moneda: ''
+                        activo: 1
+                        monedaID: 0
+                        tipoID: 278
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - tarifaVentaID: 9
+                        codigo: OTR
+                        nombre: OTRO
+                        descripcion: ''
+                        tipo: General
+                        moneda: Peso Mexicano
+                        activo: 1
+                        monedaID: 3
+                        tipoID: 278
+                      - tarifaVentaID: 10
+                        codigo: MAY
+                        nombre: Mayoreo
+                        descripcion: ''
+                        tipo: General
+                        moneda: Peso Mexicano
+                        activo: 1
+                        monedaID: 3
+                        tipoID: 278
+                      - tarifaVentaID: 11
+                        codigo: AUT
+                        nombre: Autoservicio
+                        descripcion: Autoservicio
+                        tipo: General
+                        moneda: Peso Mexicano
+                        activo: 1
+                        monedaID: 3
+                        tipoID: 278
+                      - tarifaVentaID: 12
+                        codigo: GRA
+                        nombre: GRANEL
+                        descripcion: GRANEL
+                        tipo: General
+                        moneda: Peso Mexicano
+                        activo: 1
+                        monedaID: 3
+                        tipoID: 278
+                      - tarifaVentaID: 14
+                        codigo: OTRa1
+                        nombre: TARIFA TPV
+                        descripcion: hola
+                        tipo: General
+                        moneda: ''
+                        activo: 1
+                        monedaID: 0
+                        tipoID: 278
       operationId: get-sales-rate
       parameters:
         - schema:
@@ -14341,20 +14413,20 @@ paths:
             example: '0'
           in: query
           name: offset
-          description: 'Registro a partir del cual empezará a traer los datos desde la tabla. Si se envía por ejemplo 20, y en la tabla existen 100 registros, la respuesta traerá solo los registros comprendidos entre las posiciones 20 y 100, y los primero 20 se omitirán.'
+          description: 'Registro a partir del cual empezará a traer los datos desde la tabla. Si se envía 20, y en la tabla existen 100 registros, la respuesta traerá solo los registros comprendidos entre las posiciones 20 y 100, y los primero 20 se omitirán.'
           required: true
         - schema:
             type: string
-            example: '13'
+            example: '5'
           in: query
           name: limit
-          description: 'Límite de registros que trae la consulta. Si se envía por ejemplo el número 50, si la tabla tiene 2000 registros solo se traerán 50.'
+          description: 'Límite de registros que trae la consulta. Si se envía el número 50, y la tabla tiene 2000 registros solo se traerán 50.'
           required: true
         - schema:
             type: string
-            example: '1'
+            example: '0'
           in: query
-          description: 'Esta valor determina si los registros de leerán desde arriba hacia abajo, o desde abajo hacia arriba en la tabla. Si por ejemplo la tabla cuenta con 100 registros'
+          description: 'Esta valor determina si los registros se leerán desde arriba hacia abajo, o desde abajo hacia arriba en la tabla.'
           name: order
           required: true
     post:
