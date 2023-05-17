@@ -15227,5 +15227,171 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /intervention/openListUbication:
+    get:
+      summary: InterventionListOpenUbications
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Direccion:
+                              type: string
+                            Municipio:
+                              type: string
+                            Provincia:
+                              type: string
+                            Pais:
+                              type: string
+                            Continente:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "\r\nSELECT\r\n  d.DireccionID,\r\n  d.Nombre AS NombreDireccion,\r\n  m.MunicipioID,\r\n  m.Nombre AS NombreMunicipio,\r\n  p.ProvinciaID,\r\n  p.Nombre AS NombreProvincia,\r\n  pa.PaisID,\r\n  pa.Nombre AS NombrePais,\r\n  c.ContinenteID,\r\n  c.Nombre AS NombreContinente\r\nFROM\r\n  avisoticketintervencion ati\r\n  INNER JOIN avisoticket at ON ati.AvisoTicketID = at.AvisoTicketID\r\n  INNER JOIN direccion d ON at.DireccionID = d.DireccionID\r\n  INNER JOIN municipio m ON d.MunicipioID = m.MunicipioID\r\n  INNER JOIN provincia p ON m.ProvinciaID = p.ProvinciaID\r\n  INNER JOIN pais pa ON p.PaisID = pa.PaisID\r\n  INNER JOIN continente c ON pa.ContinenteID = c.ContinenteID\r\n  INNER JOIN proyecto_of po ON ati.Proyecto_OFID = po.Proyecto_OFID\r\nWHERE\r\n  at.CustomerID = 29\r\n  AND at.EmpresaID = 1\r\n  AND po.FechaHoraUsuarioCierre IS NULL;"
+                      data:
+                        - Direccion: UNAM
+                          Municipio: SANTIAGO CUAUTLALPAN
+                          Provincia: MEXICO
+                          Pais: México
+                          Continente: America
+                        - Direccion: UNAM
+                          Municipio: SANTIAGO CUAUTLALPAN
+                          Provincia: MEXICO
+                          Pais: México
+                          Continente: America
+                        - Direccion: UNAM
+                          Municipio: SANTIAGO CUAUTLALPAN
+                          Provincia: MEXICO
+                          Pais: México
+                          Continente: America
+                        - Direccion: UNAM
+                          Municipio: SANTIAGO CUAUTLALPAN
+                          Provincia: MEXICO
+                          Pais: México
+                          Continente: America
+                        - Direccion: UNAM
+                          Municipio: SANTIAGO CUAUTLALPAN
+                          Provincia: MEXICO
+                          Pais: México
+                          Continente: America
+                        - Direccion: hola xd343
+                          Municipio: PUEBLA
+                          Provincia: PUEBLA
+                          Pais: México
+                          Continente: America
+                        - Direccion: hola xd343
+                          Municipio: PUEBLA
+                          Provincia: PUEBLA
+                          Pais: México
+                          Continente: America
+                        - Direccion: PruebaOtraJCO
+                          Municipio: Pereira
+                          Provincia: Risaralda
+                          Pais: Colombia
+                          Continente: America
+                        - Direccion: PruebaJCO
+                          Municipio: Pereira
+                          Provincia: Risaralda
+                          Pais: Colombia
+                          Continente: America
+                        - Direccion: DireccionJuan
+                          Municipio: Pereira
+                          Provincia: Risaralda
+                          Pais: Colombia
+                          Continente: America
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - Direccion: UNAM
+                          Municipio: SANTIAGO CUAUTLALPAN
+                          Provincia: MEXICO
+                          Pais: México
+                          Continente: America
+                        - Direccion: UNAM
+                          Municipio: SANTIAGO CUAUTLALPAN
+                          Provincia: MEXICO
+                          Pais: México
+                          Continente: America
+                        - Direccion: UNAM
+                          Municipio: SANTIAGO CUAUTLALPAN
+                          Provincia: MEXICO
+                          Pais: México
+                          Continente: America
+                        - Direccion: UNAM
+                          Municipio: SANTIAGO CUAUTLALPAN
+                          Provincia: MEXICO
+                          Pais: México
+                          Continente: America
+                        - Direccion: UNAM
+                          Municipio: SANTIAGO CUAUTLALPAN
+                          Provincia: MEXICO
+                          Pais: México
+                          Continente: America
+                        - Direccion: hola xd343
+                          Municipio: PUEBLA
+                          Provincia: PUEBLA
+                          Pais: México
+                          Continente: America
+                        - Direccion: hola xd343
+                          Municipio: PUEBLA
+                          Provincia: PUEBLA
+                          Pais: México
+                          Continente: America
+                        - Direccion: PruebaOtraJCO
+                          Municipio: Pereira
+                          Provincia: Risaralda
+                          Pais: Colombia
+                          Continente: America
+                        - Direccion: PruebaJCO
+                          Municipio: Pereira
+                          Provincia: Risaralda
+                          Pais: Colombia
+                          Continente: America
+                        - Direccion: DireccionJuan
+                          Municipio: Pereira
+                          Provincia: Risaralda
+                          Pais: Colombia
+                          Continente: America
+      operationId: get-intervention-openListUbication
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content: {}
 components:
   schemas: {}
