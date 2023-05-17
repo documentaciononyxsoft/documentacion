@@ -16682,9 +16682,7 @@ paths:
     delete:
       summary: SalesReceiptsLine - Delete
       operationId: delete-sales-receipts-receiptid-lines-id
-      responses:
-        '200':
-          description: OK
+      responses: {}
       parameters:
         - schema:
             type: string
