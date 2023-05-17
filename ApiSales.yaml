@@ -14780,20 +14780,54 @@ paths:
       operationId: post-sales-receipts
       responses:
         '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "AlbaranVentaCabeceraID": 2744,
-                    "numero": 12,
-                    "success": true
-                }
-            }
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      AlbaranVentaCabeceraID:
+                        type: integer
+                      Proyecto_OFID:
+                        type: integer
+                      numero:
+                        type: integer
+                      mailingID:
+                        type: integer
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      AlbaranVentaCabeceraID: 2900
+                      Proyecto_OFID: 0
+                      numero: 74
+                      mailingID: 455
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      AlbaranVentaCabeceraID: 2900
+                      Proyecto_OFID: 0
+                      numero: 74
+                      mailingID: 455
+                      success: true
       parameters:
         - schema:
             type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzM0Mjg4LCAiZXhwIjoxNjcyMzQxNDg4IH0.UhH8yi-ah0ffeVORj47WjSn35LH1GnZoj39ufwvy8i0
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
@@ -14913,16 +14947,16 @@ paths:
                     Numero: ''
                     AlmacenID: ''
                     Fecha: ''
-                    ClienteID: ''
-                    TelefonoEnvio: ''
-                    TipoID: ''
+                    ClienteID: '84'
+                    TelefonoEnvio: '3333333'
+                    TipoID: '1'
                     FechaSalida: ''
                     Prestamo: ''
                     ControlEntrega: ''
-                    NotaGeneral: pruebaAlbaran
-                    NotaCliente: prueba  cliente
-                    NotaAlmacen: prueba almacen
-                    NotaEtiqueta: ''
+                    NotaGeneral: NotaGeneral
+                    NotaCliente: NotiClient
+                    NotaAlmacen: NotiALma
+                    NotaEtiqueta: Notequi
                   facturacion:
                     ClienteFacturaID: ''
                     FormaPagoID: ''
@@ -14962,55 +14996,55 @@ paths:
               Example 1:
                 value:
                   cabecera:
-                    SerieAlbaranID: string
-                    Numero: string
-                    AlmacenID: string
-                    Fecha: string
-                    ClienteID: string
-                    TelefonoEnvio: string
-                    TipoID: string
-                    FechaSalida: string
-                    Prestamo: string
-                    ControlEntrega: string
-                    NotaGeneral: string
-                    NotaCliente: string
-                    NotaAlmacen: string
-                    NotaEtiqueta: string
+                    SerieAlbaranID: ''
+                    Numero: ''
+                    AlmacenID: ''
+                    Fecha: ''
+                    ClienteID: '84'
+                    TelefonoEnvio: '3333333'
+                    TipoID: '1'
+                    FechaSalida: ''
+                    Prestamo: ''
+                    ControlEntrega: ''
+                    NotaGeneral: NotaGeneral
+                    NotaCliente: NotiClient
+                    NotaAlmacen: NotiALma
+                    NotaEtiqueta: Notequi
                   facturacion:
-                    ClienteFacturaID: string
-                    FormaPagoID: string
-                    NoFacturar: string
-                    NumeroVencimiento: string
-                    DiasPrimerVencimiento: string
-                    DiasResto: string
-                    DiaFijoPago1: string
-                    DiaFijoPago2: string
-                    DiaFijoPago3: string
-                    DiaFijoPago4: string
-                    MesVacacion: string
-                    DiaSiguientePago: string
-                    PorcentajeDtoComercial1: string
-                    PorcentajeDtoComercial2: string
-                    PorcentajeDtoComercial3: string
-                    PorcentajeDtoProntoPago: string
-                    PorcentajeDtoEspecial1: string
-                    PorcentajeDtoEspecial2: string
-                    IvaGastoFinancieroID: string
-                    NumeroCopiasFactura: string
-                    AgruparAlbaran: string
-                    MonedaID: string
-                    MonedaCambio: string
-                    ImporteOtroGasto: string
-                    IvaID: string
-                    SerieFacturaID: string
-                    TipoFacturacionID: string
-                    TipoRetencionID: string
-                    PorcentajeRetencionGarantia: string
-                    AlbaranValorado: string
-                    DireccionFacturaID: string
-                    DireccionEnvioFacturaID: string
-                    Banco: string
-                    cuentaAnticipoID: string
+                    ClienteFacturaID: ''
+                    FormaPagoID: ''
+                    NoFacturar: ''
+                    NumeroVencimiento: ''
+                    DiasPrimerVencimiento: ''
+                    DiasResto: ''
+                    DiaFijoPago1: ''
+                    DiaFijoPago2: ''
+                    DiaFijoPago3: ''
+                    DiaFijoPago4: ''
+                    MesVacacion: ''
+                    DiaSiguientePago: ''
+                    PorcentajeDtoComercial1: ''
+                    PorcentajeDtoComercial2: ''
+                    PorcentajeDtoComercial3: ''
+                    PorcentajeDtoProntoPago: ''
+                    PorcentajeDtoEspecial1: ''
+                    PorcentajeDtoEspecial2: ''
+                    IvaGastoFinancieroID: ''
+                    NumeroCopiasFactura: ''
+                    AgruparAlbaran: ''
+                    MonedaID: ''
+                    MonedaCambio: ''
+                    ImporteOtroGasto: ''
+                    IvaID: ''
+                    SerieFacturaID: ''
+                    TipoFacturacionID: ''
+                    TipoRetencionID: ''
+                    PorcentajeRetencionGarantia: ''
+                    AlbaranValorado: ''
+                    DireccionFacturaID: ''
+                    DireccionEnvioFacturaID: ''
+                    Banco: ''
+                    cuentaAnticipoID: ''
       description: ''
     get:
       summary: SalesReceipts - FindMany
