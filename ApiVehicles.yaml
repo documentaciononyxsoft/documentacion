@@ -9,7 +9,7 @@ servers:
 paths:
   /consult/vehicles:
     get:
-      summary: Vehicle - findManyByFilters
+      summary: Vehicle - FindManyByFilters
       tags: []
       responses:
         '200':
@@ -129,7 +129,7 @@ paths:
           name: versionVehiculo
   /brand/light:
     get:
-      summary: Vehicle - findLightListBrand
+      summary: Vehicle - FindLightListBrand
       tags: []
       responses:
         '200':
@@ -201,7 +201,7 @@ paths:
           description: '"tokenReciente"'
   /model/light:
     get:
-      summary: Vehicle - findLightListModel
+      summary: Vehicle - FindLightListModel
       tags: []
       responses:
         '200':
@@ -272,7 +272,7 @@ paths:
         content: {}
   /version/light:
     get:
-      summary: Vehicle -findLightListVersion
+      summary: Vehicle - FindLightListVersion
       tags: []
       responses:
         '200':
@@ -337,7 +337,7 @@ paths:
           description: '1'
   /vehicles:
     get:
-      summary: Vehicles -findMany
+      summary: Vehicles - FindMany
       tags: []
       responses:
         '200':
@@ -546,7 +546,7 @@ paths:
           description: '"ASC"'
   /vehicle/quicksearch:
     get:
-      summary: Vehicle - findManyByFilter
+      summary: Vehicle - FindManyByFilter
       tags: []
       responses:
         '200':
@@ -1017,7 +1017,7 @@ paths:
           description: AR
   /vehicle:
     post:
-      summary: Vehicle -Create
+      summary: Vehicle - Create
       operationId: post-vehicle
       responses:
         '200':
@@ -1163,7 +1163,7 @@ paths:
         required: true
         description: '25'
     put:
-      summary: Vehicle -Update
+      summary: Vehicle - Update
       operationId: put-vehicle-vehiculoID
       responses:
         '200':
