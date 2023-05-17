@@ -16107,11 +16107,11 @@ paths:
     parameters:
       - schema:
           type: string
-          example: h/sales/receipts/2742/lines
+          example: '2000'
         name: receiptid
         in: path
         required: true
-        description: ID de albaran venta
+        description: AlbaranVentaCabeceraID
     post:
       summary: SalesReceiptsLine - Create
       operationId: post-sales-receipts-id-lines
@@ -16261,189 +16261,204 @@ paths:
       operationId: get-sales-receipts-id-lines
       responses:
         '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": [
-                    {
-                        "albaranVentaLineaID": 4994,
-                        "linea": 20,
-                        "AlmacenID": 0,
-                        "codigoAlmacen": "",
-                        "nombreAlmacen": "",
-                        "articuloID": 38,
-                        "codigoArticulo": "300048779",
-                        "nombreArticulo": "",
-                        "descripcion": "",
-                        "referencia": "0",
-                        "cantidad": 0,
-                        "precioVenta": 0,
-                        "dto1": 0,
-                        "dto2": 0,
-                        "dto3": 0,
-                        "importeVenta": 0,
-                        "precioCoste": 0,
-                        "pedido": 0,
-                        "OF": 0,
-                        "porcentajeComision": 0,
-                        "notaCliente": "",
-                        "codigoIva": "",
-                        "ivaID": 0,
-                        "porcentajeIVA": 0,
-                        "porcentajeRecargo": 0,
-                        "cantidad2": 0,
-                        "factor": 0,
-                        "factorCantidad": 0,
-                        "cajas": 0,
-                        "margencomercial": 0,
-                        "porcentajeRappel": 0,
-                        "importeRappel": 0,
-                        "porcentajeCrossdocking": 0,
-                        "importeCrossdocking": 0,
-                        "porcentajeRetencion": 0,
-                        "referenciaCliente": "",
-                        "referenciaArticulo": "",
-                        "notaInterna": 0,
-                        "nombreIva": "",
-                        "clienteID": 84,
-                        "estado": "CR"
-                    },
-                    {
-                        "albaranVentaLineaID": 4995,
-                        "linea": 10,
-                        "AlmacenID": 0,
-                        "codigoAlmacen": "",
-                        "nombreAlmacen": "",
-                        "articuloID": 38,
-                        "codigoArticulo": "300048779",
-                        "nombreArticulo": "",
-                        "descripcion": "",
-                        "referencia": "0",
-                        "cantidad": 0,
-                        "precioVenta": 0,
-                        "dto1": 0,
-                        "dto2": 0,
-                        "dto3": 0,
-                        "importeVenta": 0,
-                        "precioCoste": 0,
-                        "pedido": 0,
-                        "OF": 0,
-                        "porcentajeComision": 0,
-                        "notaCliente": "",
-                        "codigoIva": "",
-                        "ivaID": 0,
-                        "porcentajeIVA": 0,
-                        "porcentajeRecargo": 0,
-                        "cantidad2": 0,
-                        "factor": 0,
-                        "factorCantidad": 0,
-                        "cajas": 0,
-                        "margencomercial": 0,
-                        "porcentajeRappel": 0,
-                        "importeRappel": 0,
-                        "porcentajeCrossdocking": 0,
-                        "importeCrossdocking": 0,
-                        "porcentajeRetencion": 0,
-                        "referenciaCliente": "",
-                        "referenciaArticulo": "",
-                        "notaInterna": 0,
-                        "nombreIva": "",
-                        "clienteID": 84,
-                        "estado": "CR"
-                    },
-                    {
-                        "albaranVentaLineaID": 4996,
-                        "linea": 30,
-                        "AlmacenID": 0,
-                        "codigoAlmacen": "",
-                        "nombreAlmacen": "",
-                        "articuloID": 38,
-                        "codigoArticulo": "300048779",
-                        "nombreArticulo": "",
-                        "descripcion": "",
-                        "referencia": "0",
-                        "cantidad": 0,
-                        "precioVenta": 0,
-                        "dto1": 0,
-                        "dto2": 0,
-                        "dto3": 0,
-                        "importeVenta": 0,
-                        "precioCoste": 0,
-                        "pedido": 0,
-                        "OF": 0,
-                        "porcentajeComision": 0,
-                        "notaCliente": "",
-                        "codigoIva": "",
-                        "ivaID": 0,
-                        "porcentajeIVA": 0,
-                        "porcentajeRecargo": 0,
-                        "cantidad2": 0,
-                        "factor": 0,
-                        "factorCantidad": 0,
-                        "cajas": 0,
-                        "margencomercial": 0,
-                        "porcentajeRappel": 0,
-                        "importeRappel": 0,
-                        "porcentajeCrossdocking": 0,
-                        "importeCrossdocking": 0,
-                        "porcentajeRetencion": 0,
-                        "referenciaCliente": "",
-                        "referenciaArticulo": "",
-                        "notaInterna": 0,
-                        "nombreIva": "",
-                        "clienteID": 84,
-                        "estado": "CR"
-                    },
-                    {
-                        "albaranVentaLineaID": 4997,
-                        "linea": 40,
-                        "AlmacenID": 0,
-                        "codigoAlmacen": "",
-                        "nombreAlmacen": "",
-                        "articuloID": 0,
-                        "codigoArticulo": "",
-                        "nombreArticulo": "0",
-                        "descripcion": "",
-                        "referencia": "0",
-                        "cantidad": 0,
-                        "precioVenta": 0,
-                        "dto1": 0,
-                        "dto2": 0,
-                        "dto3": 0,
-                        "importeVenta": 0,
-                        "precioCoste": 0,
-                        "pedido": 0,
-                        "OF": 0,
-                        "porcentajeComision": 0,
-                        "notaCliente": "",
-                        "codigoIva": "",
-                        "ivaID": 0,
-                        "porcentajeIVA": 0,
-                        "porcentajeRecargo": 0,
-                        "cantidad2": 0,
-                        "factor": 0,
-                        "factorCantidad": 0,
-                        "cajas": 0,
-                        "margencomercial": 0,
-                        "porcentajeRappel": 0,
-                        "importeRappel": 0,
-                        "porcentajeCrossdocking": 0,
-                        "importeCrossdocking": 0,
-                        "porcentajeRetencion": 0,
-                        "referenciaCliente": "0",
-                        "referenciaArticulo": "",
-                        "notaInterna": 0,
-                        "nombreIva": "",
-                        "clienteID": 84,
-                        "estado": "CR"
-                    }
-                ]
-            }
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        albaranVentaLineaID:
+                          type: integer
+                        linea:
+                          type: integer
+                        AlmacenID:
+                          type: integer
+                        codigoAlmacen:
+                          type: string
+                        nombreAlmacen:
+                          type: string
+                        articuloID:
+                          type: integer
+                        codigoArticulo:
+                          type: string
+                        nombreArticulo:
+                          type: string
+                        descripcion:
+                          type: string
+                        referencia:
+                          type: string
+                        cantidad:
+                          type: integer
+                        precioVenta:
+                          type: number
+                        dto1:
+                          type: integer
+                        dto2:
+                          type: integer
+                        dto3:
+                          type: integer
+                        importeVenta:
+                          type: number
+                        precioCoste:
+                          type: integer
+                        pedido:
+                          type: integer
+                        OF:
+                          type: integer
+                        porcentajeComision:
+                          type: integer
+                        notaCliente:
+                          type: string
+                        codigoIva:
+                          type: string
+                        ivaID:
+                          type: integer
+                        porcentajeIVA:
+                          type: integer
+                        porcentajeRecargo:
+                          type: integer
+                        cantidad2:
+                          type: integer
+                        factor:
+                          type: integer
+                        factorCantidad:
+                          type: integer
+                        cajas:
+                          type: integer
+                        margencomercial:
+                          type: integer
+                        porcentajeRappel:
+                          type: integer
+                        importeRappel:
+                          type: integer
+                        porcentajeCrossdocking:
+                          type: integer
+                        importeCrossdocking:
+                          type: integer
+                        porcentajeRetencion:
+                          type: integer
+                        referenciaCliente:
+                          type: string
+                        referenciaArticulo:
+                          type: string
+                        notaInterna:
+                          type: integer
+                        nombreIva:
+                          type: string
+                        clienteID:
+                          type: integer
+                        estado:
+                          type: string
+                        PedidoVentaLineaID:
+                          type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - albaranVentaLineaID: 3474
+                        linea: 10
+                        AlmacenID: 3
+                        codigoAlmacen: Q1-MPE
+                        nombreAlmacen: Calidad MP ME
+                        articuloID: 2120
+                        codigoArticulo: NC-01
+                        nombreArticulo: Nota credito
+                        descripcion: ''
+                        referencia: ''
+                        cantidad: -1
+                        precioVenta: 13788.38
+                        dto1: 0
+                        dto2: 0
+                        dto3: 0
+                        importeVenta: -13788.38
+                        precioCoste: 0
+                        pedido: 0
+                        OF: 0
+                        porcentajeComision: 0
+                        notaCliente: ''
+                        codigoIva: IEPS8
+                        ivaID: 8
+                        porcentajeIVA: 8
+                        porcentajeRecargo: 0
+                        cantidad2: 0
+                        factor: 1
+                        factorCantidad: 0
+                        cajas: 0
+                        margencomercial: 0
+                        porcentajeRappel: 0
+                        importeRappel: 0
+                        porcentajeCrossdocking: 0
+                        importeCrossdocking: 0
+                        porcentajeRetencion: 0
+                        referenciaCliente: ''
+                        referenciaArticulo: ''
+                        notaInterna: 0
+                        nombreIva: IEPS 8%
+                        clienteID: 219
+                        estado: FA
+                        PedidoVentaLineaID: 0
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - albaranVentaLineaID: 3474
+                        linea: 10
+                        AlmacenID: 3
+                        codigoAlmacen: Q1-MPE
+                        nombreAlmacen: Calidad MP ME
+                        articuloID: 2120
+                        codigoArticulo: NC-01
+                        nombreArticulo: Nota credito
+                        descripcion: ''
+                        referencia: ''
+                        cantidad: -1
+                        precioVenta: 13788.38
+                        dto1: 0
+                        dto2: 0
+                        dto3: 0
+                        importeVenta: -13788.38
+                        precioCoste: 0
+                        pedido: 0
+                        OF: 0
+                        porcentajeComision: 0
+                        notaCliente: ''
+                        codigoIva: IEPS8
+                        ivaID: 8
+                        porcentajeIVA: 8
+                        porcentajeRecargo: 0
+                        cantidad2: 0
+                        factor: 1
+                        factorCantidad: 0
+                        cajas: 0
+                        margencomercial: 0
+                        porcentajeRappel: 0
+                        importeRappel: 0
+                        porcentajeCrossdocking: 0
+                        importeCrossdocking: 0
+                        porcentajeRetencion: 0
+                        referenciaCliente: ''
+                        referenciaArticulo: ''
+                        notaInterna: 0
+                        nombreIva: IEPS 8%
+                        clienteID: 219
+                        estado: FA
+                        PedidoVentaLineaID: 0
       parameters:
         - schema:
             type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzM0Mjg4LCAiZXhwIjoxNjcyMzQxNDg4IH0.UhH8yi-ah0ffeVORj47WjSn35LH1GnZoj39ufwvy8i0
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
