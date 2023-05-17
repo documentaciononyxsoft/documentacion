@@ -14644,8 +14644,136 @@ paths:
     get:
       summary: SalesReceipts - FindManyByFilters
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      sql:
+                        type: string
+                      records:
+                        type: 'null'
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      sql: "SELECT \r\nAlbaranVentaCabecera.*,\r\nAlbaranVentaCabecera.Numero as NumeroAlbaran,\r\nAlbaranVentaCabeceraFacturacion.FormaPagoID as FormaPagoAlbaran,\r\nAlbaranVentaCabeceraFacturacion.BancoClienteID as BancoIdClienteAlbaran,\r\nAlbaranVentaCabeceraFacturacion.MonedaID,\r\nAlbaranVentaCabeceraFacturacion.NoFacturar,\r\nBancoCliente.BancoClienteID as BancoIdCliente,\r\nAlbaranVentaCabeceraFacturacion.IvaID as AlbaranIvaID,\r\nClienteFacturacion.TipoivaID as ClienteIvaID,\r\nClientefacturacion.FormaPagoCobroID as FormaPagoCliente,\r\nCliente.Codigo AS CodigoCliente,\r\nMailing.Nombre AS NombreCliente,\r\nSeriePedidoAlbaranVenta.Serie AS Serie,\r\nMailingRepresentante.Nombre as NombreRepresentante,\r\nTipoAlbaran.descripcion as AlbaranTipo,\r\nalmacen.*,\r\nRutaEntrega.Descripcion AS RutaEntrega,\r\nRepresentante.codigo as CodigoRepresentante,\r\nMailingRepresentante2.Nombre AS NomRepresentante2,\r\nAlbaranVentaCabecera.PorcentajeComision AS PorcComision,\r\nAlbaranVentaCabecera.PorcentajeComision2 AS PorcComision2,\r\nAlbaranVentaCabeceraFacturacion.PorcentajeDtoEspecial1,\r\nAlbaranVentaCabeceraFacturacion.PorcentajeDtoEspecial2,\r\nAlbaranVentaCabeceraFacturacion.PorcentajeDtoProntoPago\r\n\r\n\r\nFROM \r\n((((((((((((((AlbaranVentaCabecera  LEFT JOIN  Cliente ON AlbaranVentaCabecera.ClienteID=Cliente.ClienteID)\r\nInner join AlbaranVentaCabeceraFacturacion on AlbaranVentaCabecera.AlbaranVentaCabeceraID = AlbaranVentaCabeceraFacturacion.AlbaranVentaCabeceraID)\r\nLEFT Join TablaGeneral as TipoAlbaran on TipoAlbaran.TablaGeneralID = AlbaranVentaCabecera.TipoID)\r\nleft join AlbaranVentaLinea ON AlbaranVentaCabecera.AlbaranVentaCabeceraID=AlbaranVentaLinea.AlbaranVentaCabeceraID)\r\nLEFT JOIN Representante on AlbaranVentaCabecera.RepresentanteID = representante.RepresentanteID)\r\nleft Join mailing as MailingRepresentante on MailingRepresentante.MailingID = representante.MailingID) \r\nLEFT JOIN Mailing on Mailing.MailingID = cliente.MailingID)\r\nLEFT JOIN SeriePedidoAlbaranVenta ON AlbaranVentaCabecera.SerieAlbaranID=SeriePedidoAlbaranVenta.SeriePedidoAlbaranVentaID)\r\nLEFT JOIN Almacen ON AlbaranVentaCabecera.AlmacenID=Almacen.AlmacenID)\r\nLEFT JOIN Articulo ON AlbaranVentaLinea.ArticuloID=Articulo.ArticuloID)\r\nLEFT JOIN Familia ON Articulo.FamiliaID = Familia.FamiliaID)\r\ninner join clientefacturacion on clientefacturacion.clienteid =Albaranventacabecera.clienteid)\r\nleft join bancocliente on bancocliente.clienteID = Albaranventacabecera.clienteid)\r\nLEFT JOIN PedidoVentaLinea ON AlbaranVentaLinea.PedidoVentaLineaID = PedidoVentaLinea.PedidoVentaLineaID)\r\nLEFT JOIN PedidoVentaCabecera ON PedidoVentaCabecera.PedidoVentaCabeceraID = PedidoVentaLinea.PedidoVentaCabeceraID\r\nLEFT JOIN ArticuloPrecios ON Articulo.ArticuloID = ArticuloPrecios.ArticuloID\r\nLEFT JOIN ArticuloLogistica ON Articulo.ArticuloID = ArticuloLogistica.ArticuloID\r\nLEFT JOIN ClienteEDI on ClienteEDI.ClienteID = Cliente.ClienteID\r\nLEFT JOIN AlbaranVentaControlRecogidaTransporte ON AlbaranVentaControlRecogidaTransporte.AlbaranVentaCabeceraID = AlbaranVentaCabecera.AlbaranVentaCabeceraID\r\nLEFT JOIN TablaGeneral AS PartidaArancelaria ON ArticuloPrecios.PartidaArancelariaID = PartidaArancelaria.TablaGeneralID\r\nLEFT JOIN TablaGeneral AS RutaEntrega ON RutaEntrega.TablaGeneralID = AlbaranVentaCabecera.RutaEntregaID\r\nLEFT JOIN Representante as Representante2 ON AlbaranVentaCabecera.Representante2ID = Representante2.RepresentanteID\r\nLEFT JOIN Mailing AS MailingRepresentante2 ON MailingRepresentante2.MailingID = Representante2.MailingID\r\n\r\nWHERE\r\nAlbaranVentaCabecera.Estado <> 'AN' AND\r\nAlbaranVentaCabecera.CustomerID = 29 and\r\nAlbaranVentaCabecera.EmpresaID = 1\r\n\r\n\r\n\r\n AND (AlbaranVentaLinea.AlmacenID IN (2) AND AlbaranVentaCabecera.ClienteID IN (84) AND AlbaranVentaCabecera.Fecha >= 2020-01-01 AND DATE(AlbaranVentaCabecera.Fecha) <= 2025-01-01 AND AlbaranVentaCabecera.SerieAlbaranID = 4 AND AlbaranVentaCabecera.FechaSalida >= 2020-01-01 AND DATE(AlbaranVentaCabecera.FechaSalida) <= 2025-01-01) GROUP BY AlbaranVentaCabecera.AlbaranVentaCabeceraID\r\nORDER BY \r\nSeriePedidoAlbaranVenta.Serie, AlbaranVentaCabecera.Numero"
+                      records: null
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      sql: string
+                      records: null
       operationId: get-sales-consult-receipts
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ListaAlmacenesID:
+                  type: string
+                clienteID:
+                  type: string
+                fechaDesde:
+                  type: string
+                fechaHasta:
+                  type: string
+                familiaID:
+                  type: string
+                listaRepresentantes:
+                  type: string
+                articuloID:
+                  type: string
+                numeroAlbarandesde:
+                  type: string
+                numeroAlbaranHasta:
+                  type: string
+                serieAlbaranID:
+                  type: string
+                estadoAlbaran:
+                  type: string
+                listaTipoAlbaranes:
+                  type: string
+                pedidoNumeroDesde:
+                  type: string
+                pedidoNumeroHasta:
+                  type: string
+                listaTipoFacura:
+                  type: string
+                TipoAlbaran:
+                  type: string
+                fechaSalidaDesde:
+                  type: string
+                fechaSalidaHasta:
+                  type: string
+                referenciaCliente:
+                  type: string
+              x-examples:
+                Example 1:
+                  ListaAlmacenesID: '2'
+                  clienteID: '84'
+                  fechaDesde: '2020-01-01'
+                  fechaHasta: '2025-01-01'
+                  familiaID: ''
+                  listaRepresentantes: ''
+                  articuloID: ''
+                  numeroAlbarandesde: ''
+                  numeroAlbaranHasta: ''
+                  serieAlbaranID: '4'
+                  estadoAlbaran: ''
+                  listaTipoAlbaranes: ''
+                  pedidoNumeroDesde: ''
+                  pedidoNumeroHasta: ''
+                  listaTipoFacura: ''
+                  TipoAlbaran: ''
+                  fechaSalidaDesde: '2020-01-01'
+                  fechaSalidaHasta: '2025-01-01'
+                  referenciaCliente: ''
+            examples:
+              Example 1:
+                value:
+                  ListaAlmacenesID: '2'
+                  clienteID: '84'
+                  fechaDesde: '2020-01-01'
+                  fechaHasta: '2025-01-01'
+                  familiaID: ''
+                  listaRepresentantes: ''
+                  articuloID: ''
+                  numeroAlbarandesde: ''
+                  numeroAlbaranHasta: ''
+                  serieAlbaranID: '4'
+                  estadoAlbaran: ''
+                  listaTipoAlbaranes: ''
+                  pedidoNumeroDesde: ''
+                  pedidoNumeroHasta: ''
+                  listaTipoFacura: ''
+                  TipoAlbaran: ''
+                  fechaSalidaDesde: '2020-01-01'
+                  fechaSalidaHasta: '2025-01-01'
+                  referenciaCliente: ''
   /sales/receipts:
     post:
       summary: SalesReceipts - Create
