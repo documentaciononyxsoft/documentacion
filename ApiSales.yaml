@@ -17711,13 +17711,13 @@ paths:
         in: path
         required: true
     get:
-      summary: Your GET endpoint
+      summary: SalesReceipts - FindManyByFilter
       tags: []
       responses: {}
       operationId: get-sales-receipts-param
   /sales/receipts/generate:
     get:
-      summary: Your GET endpoint
+      summary: SalesReceipts - Generate
       tags: []
       responses: {}
       operationId: get-sales-receipts-generate
@@ -17731,7 +17731,7 @@ paths:
         required: true
         description: ID de albaran venta
     post:
-      summary: CreateLinesReceipts
+      summary: SalesReceiptsLine - Create
       operationId: post-sales-receipts-id-lines
       responses:
         '200':
@@ -17875,7 +17875,7 @@ paths:
                     PorcentajeComision: string
                     ComisionImporte: string
     get:
-      summary: ListReceiptLines
+      summary: SalesReceiptsLine - FindManyByReceipt
       operationId: get-sales-receipts-id-lines
       responses:
         '200':
@@ -18081,7 +18081,7 @@ paths:
         required: true
         description: ID de la linea a actualizar
     put:
-      summary: Update Receipts
+      summary: SalesReceiptsLine - Update
       operationId: put-sales-receipts-receiptid-lines-id
       responses:
         '200':
@@ -18195,7 +18195,7 @@ paths:
                     PorcentajeComision: ''
                     ComisionImporte: ''
     delete:
-      summary: Delete Receipts
+      summary: SalesReceiptsLine - Delete
       operationId: delete-sales-receipts-receiptid-lines-id
       responses:
         '200':
