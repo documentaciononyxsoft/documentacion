@@ -266,16 +266,19 @@ paths:
           required: true
         - schema:
             type: string
-            example: '3'
+            example: '5'
           in: query
           description: Límite de registros que trae la consulta. Si se envía el número 50 y la tabla tiene 2000 registros solo se traerán 50.
           name: limit
           required: true
         - schema:
             type: string
-            example: DESC
+            enum:
+              - 0 = DESC
+              - 1 = ASC
+            example: '1'
           in: query
-          description: 'Esta valor determina si los registros se leerán desde arriba hacia abajo, o desde abajo hacia arriba en la tabla.'
+          description: 'Este valor determina si los registros se leerán desde arriba hacia abajo, o desde abajo hacia arriba en la tabla.'
           name: order
           required: true
       description: ''
