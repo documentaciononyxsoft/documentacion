@@ -14642,13 +14642,13 @@ paths:
         description: TarifaVentaID
   /sales/consult/receipts:
     get:
-      summary: Your GET endpoint
+      summary: SalesReceipts - FindManyByFilters
       tags: []
       responses: {}
       operationId: get-sales-consult-receipts
   /sales/receipts:
     post:
-      summary: Create Receipts
+      summary: SalesReceipts - Create
       operationId: post-sales-receipts
       responses:
         '200':
@@ -14885,7 +14885,7 @@ paths:
                     cuentaAnticipoID: string
       description: ''
     get:
-      summary: List Receipts
+      summary: SalesReceipts - FindManyBy
       operationId: get-sales-receipts
       responses:
         '200':
@@ -17447,7 +17447,7 @@ paths:
         required: true
         description: 'ID del recibo de venta '
     put:
-      summary: Update receipts
+      summary: SalesReceipts - Update
       operationId: put-sales-receipts-id
       responses:
         '200':
@@ -17683,7 +17683,7 @@ paths:
                     Banco: string
                     cuentaAnticipoID: string
     delete:
-      summary: Delete receipts
+      summary: SalesReceipts - Delete
       operationId: delete-sales-receipts-id
       responses:
         '200':
