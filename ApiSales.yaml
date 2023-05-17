@@ -14516,19 +14516,42 @@ paths:
       operationId: put-sales-rate
       responses:
         '200':
-          description: |-
-            {
-                "statusCode": 200,
-                "message": "Request processed successfully",
-                "content": {
-                    "success": true,
-                    "TarifaVentaID": 14
-                }
-            }
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      TarifaVentaID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      TarifaVentaID: 18
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      TarifaVentaID: 18
       parameters:
         - schema:
             type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzM0Mjg4LCAiZXhwIjoxNjcyMzQxNDg4IH0.UhH8yi-ah0ffeVORj47WjSn35LH1GnZoj39ufwvy8i0
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
@@ -14539,36 +14562,35 @@ paths:
             schema:
               type: object
               properties:
-                dataTarifaVenta:
-                  type: object
-                  properties:
-                    codigo:
-                      type: string
-                    nombre:
-                      type: string
-                    descripcion:
-                      type: string
-                    TipoID:
-                      type: string
-                    activo:
-                      type: string
+                codigo:
+                  type: string
+                nombre:
+                  type: string
+                descripcion:
+                  type: string
+                TipoID:
+                  type: string
+                MonedaID:
+                  type: string
+                activo:
+                  type: string
               x-examples:
                 Example 1:
-                  dataTarifaVenta:
-                    codigo: '200'
-                    nombre: aleja
-                    descripcion: pruebac
-                    TipoID: '278'
-                    activo: '1'
+                  codigo: PRU2
+                  nombre: TarifaUpdated
+                  descripcion: TaxUP
+                  TipoID: '278'
+                  MonedaID: '1'
+                  activo: '1'
             examples:
               Example 1:
                 value:
-                  dataTarifaVenta:
-                    codigo: string
-                    nombre: string
-                    descripcion: string
-                    TipoID: string
-                    activo: string
+                  codigo: PRU2
+                  nombre: TarifaUpdated
+                  descripcion: TaxUP
+                  TipoID: '278'
+                  MonedaID: '1'
+                  activo: '1'
     delete:
       summary: SalesRate - Delete
       operationId: delete-sales-rate
@@ -14585,7 +14607,7 @@ paths:
       parameters:
         - schema:
             type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzM0Mjg4LCAiZXhwIjoxNjcyMzQxNDg4IH0.UhH8yi-ah0ffeVORj47WjSn35LH1GnZoj39ufwvy8i0
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
@@ -14593,11 +14615,11 @@ paths:
     parameters:
       - schema:
           type: string
-          example: sales/rate/14
+          example: '18'
         name: id
         in: path
         required: true
-        description: ID de la tarifa de venta que se va a actualizar o eliminar
+        description: TarifaVentaID
   /sales/consult/receipts:
     get:
       summary: Your GET endpoint
