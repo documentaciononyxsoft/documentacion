@@ -15839,14 +15839,256 @@ paths:
     parameters:
       - schema:
           type: string
+          example: prueba
         name: param
         in: path
         required: true
+        description: Parámetro a buscar
     get:
       summary: SalesReceipts - FindManyByFilter
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            AlbaranVentaCabeceraID:
+                              type: integer
+                            Estado:
+                              type: string
+                            SerieAlbaranID:
+                              type: integer
+                            Numero:
+                              type: integer
+                            Fecha:
+                              type: string
+                            AlmacenID:
+                              type: integer
+                            ClienteID:
+                              type: integer
+                            codigoCliente:
+                              type: string
+                            nombreCliente:
+                              type: string
+                            telefonoCliente:
+                              type: string
+                            ReferenciaCliente:
+                              type: string
+                            TipoID:
+                              type: integer
+                            FechaSalida:
+                              type: string
+                            FechaHoraUsuario:
+                              type: string
+                            UsuarioID:
+                              type: integer
+                            NombreUsuario:
+                              type: string
+                            Prestamo:
+                              type: integer
+                            ControlEntrega:
+                              type: integer
+                            DireccionEnvioID:
+                              type: integer
+                            municipioCabecera:
+                              type: string
+                            CodigoPostal:
+                              type: string
+                            Proyecto_OFID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            CodigoProyecto_OF:
+                              type: integer
+                            email:
+                              type: string
+                            nombreDireccion:
+                              type: string
+                            nombrePais:
+                              type: string
+                            nombreProvincia:
+                              type: string
+                            PlataformaLogisticaMailingID:
+                              type: integer
+                            RutaEntregaID:
+                              type: integer
+                            IdiomaID:
+                              type: integer
+                            ReferenciaInterna:
+                              type: string
+                            ContactoID:
+                              type: integer
+                            RepresentanteID:
+                              type: integer
+                            Representante2ID:
+                              type: integer
+                            PorcentajeComision:
+                              type: integer
+                            PorcentajeComision2:
+                              type: integer
+                            notaGeneral:
+                              type: string
+                            notaCliente:
+                              type: string
+                            notaAlmacen:
+                              type: string
+                            notaEtiqueta:
+                              type: string
+                            direccionEnvio:
+                              type: string
+                            nombreEnvio:
+                              type: string
+                            telefono:
+                              type: string
+                            direccionEmail:
+                              type: string
+                            noFacturar:
+                              type: integer
+                            abreviaturaMoneda:
+                              type: string
+                            nombreMoneda:
+                              type: string
+                            mailingID:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      sql: "Select \r\nalbaranventacabecera.AlbaranVentaCabeceraID,\r\nalbaranventacabecera.Estado,\r\nalbaranventacabecera.SerieAlbaranID,\r\nalbaranventacabecera.Numero,\r\nalbaranventacabecera.Fecha,\r\nalbaranventacabecera.AlmacenID,\r\nalbaranventacabecera.ClienteID,\r\nalbaranventacabecera.origenProblemaID,\r\nalbaranventacabecera.PlataformaLogisticaMailingID,\r\nalbaranventacabecera.RutaEntregaID,\r\nalbaranventacabecera.IdiomaID,\r\nalbaranventacabecera.ReferenciaInterna,\r\nalbaranventacabecera.ContactoID,\r\nalbaranventacabecera.RepresentanteID,\r\nalbaranventacabecera.Representante2ID,\r\nalbaranventacabecera.PorcentajeComision,\r\nalbaranventacabecera.PorcentajeComision2,\r\nalbaranventacabecera.Prestamo,\r\nalbaranventacabecera.ControlEntrega,\r\nalbaranventacabecera.DireccionEnvioID,\r\nalbaranventacabecera.ReferenciaCliente,\r\nalbaranventacabecera.TipoID,\r\nalbaranventacabecera.FechaSalida,\r\nalbaranventacabecera.FechaHoraUsuario,\r\nalbaranventacabecera.UsuarioID,\r\nalbaranventacabecera.notaGeneral,\r\nalbaranventacabecera.notaCliente,\r\nalbaranventacabecera.notaAlmacen,\r\nalbaranventacabecera.notaEtiqueta,\r\nalbaranventacabecera.direccionEnvio,\r\nalbaranventacabecera.nombreEnvio,\r\ncliente.MailingID as mailingID,\r\ncliente.Codigo as codigoCliente,\r\nmailing.nombre as nombreCliente,\r\nmailing.telefono as telefonoCliente,\r\nusuario.NombreUsuario,\r\ncodigopostal.CodigoPostal,\r\nalbaranventacabecera.Proyecto_OFID,\r\nproyecto_of.CodigoProyecto_OF,\r\nproyecto_of.Nombre,\r\nmailing.email,\r\ndireccion.nombre as nombreDireccion,\r\ndireccion.codigo as codigoDireccion,\r\ndireccion.CodigoPostalID,\r\ndireccion.Municipio as municipioCabecera,\r\ndireccion.Telefono,\r\ndireccion.email as direccionEmail,\r\npais.nombre as nombrePais,\r\nprovincia.Nombre as nombreProvincia,\r\n(select albaranventacabecerafacturacion.NoFacturar from albaranventacabecerafacturacion where albaranventacabecerafacturacion.AlbaranVentaCabeceraID = albaranventacabecera.AlbaranVentaCabeceraID) as NoFacturar,\r\nmoneda.Abreviatura as abreviaturaMoneda,\r\nmoneda.Nombre as nombreMoneda\r\nfrom albaranventacabecera\r\nleft join cliente on cliente.clienteid = albaranventacabecera.clienteid\r\nleft join mailing on cliente.mailingid = mailing.mailingid\r\nleft join usuario on usuario.usuarioid = albaranventacabecera.usuarioID\r\nleft join proyecto_of on proyecto_of.Proyecto_OFID = albaranventacabecera.Proyecto_OFID\r\nleft join direccion on direccion.DireccionID = albaranventacabecera.DireccionEnvioID\r\nleft join codigopostal on codigopostal.CodigoPostalID = direccion.CodigoPostalID\r\nleft join pais on pais.paisid = mailing.paisid\r\nleft join provincia on provincia.ProvinciaID = mailing.ProvinciaID\r\nleft join albaranventacabecerafacturacion on albaranventacabecerafacturacion.albaranventacabeceraID = albaranventacabecera.albaranventacabeceraID\r\nleft join moneda on moneda.monedaid = albaranventacabecerafacturacion.monedaID\r\nwhere albaranventacabecera.CustomerID = 29 and albaranventacabecera.empresaid = 1 and \r\n(albaranventacabecera.numero like '%prueba%' or cliente.codigo like '%prueba%' or\r\nmailing.nombre like '%prueba%' or mailing.nombreComercial like '%prueba%'\r\n)"
+                      records:
+                        - AlbaranVentaCabeceraID: 2832
+                          Estado: FA
+                          SerieAlbaranID: 4
+                          Numero: 2134
+                          Fecha: '20230303'
+                          AlmacenID: 3
+                          ClienteID: 420
+                          codigoCliente: '10300010355'
+                          nombreCliente: pruebaDEMO
+                          telefonoCliente: '5654541545'
+                          ReferenciaCliente: ''
+                          TipoID: 0
+                          FechaSalida: '0000-00-00T00:00:00.000'
+                          FechaHoraUsuario: '2023-03-09T14:23:51.232'
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                          Prestamo: 1
+                          ControlEntrega: 0
+                          DireccionEnvioID: 0
+                          municipioCabecera: ''
+                          CodigoPostal: ''
+                          Proyecto_OFID: 0
+                          Nombre: ''
+                          CodigoProyecto_OF: 0
+                          email: JNFJDHFB@FHGUJFD.COM
+                          nombreDireccion: ''
+                          nombrePais: ''
+                          nombreProvincia: ''
+                          PlataformaLogisticaMailingID: 1145
+                          RutaEntregaID: 601
+                          IdiomaID: 570
+                          ReferenciaInterna: ''
+                          ContactoID: 0
+                          RepresentanteID: 180
+                          Representante2ID: 180
+                          PorcentajeComision: 0
+                          PorcentajeComision2: 0
+                          notaGeneral: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+                          notaCliente: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+                          notaAlmacen: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+                          notaEtiqueta: ''
+                          direccionEnvio: ''
+                          nombreEnvio: pruebaDEMO
+                          telefono: pruebaDEMO
+                          direccionEmail: ''
+                          noFacturar: 1
+                          abreviaturaMoneda: €
+                          nombreMoneda: Euros
+                          mailingID: 1220
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      sql: string
+                      records:
+                        - AlbaranVentaCabeceraID: 2832
+                          Estado: FA
+                          SerieAlbaranID: 4
+                          Numero: 2134
+                          Fecha: '20230303'
+                          AlmacenID: 3
+                          ClienteID: 420
+                          codigoCliente: '10300010355'
+                          nombreCliente: pruebaDEMO
+                          telefonoCliente: '5654541545'
+                          ReferenciaCliente: ''
+                          TipoID: 0
+                          FechaSalida: '0000-00-00T00:00:00.000'
+                          FechaHoraUsuario: '2023-03-09T14:23:51.232'
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                          Prestamo: 1
+                          ControlEntrega: 0
+                          DireccionEnvioID: 0
+                          municipioCabecera: ''
+                          CodigoPostal: ''
+                          Proyecto_OFID: 0
+                          Nombre: ''
+                          CodigoProyecto_OF: 0
+                          email: JNFJDHFB@FHGUJFD.COM
+                          nombreDireccion: ''
+                          nombrePais: ''
+                          nombreProvincia: ''
+                          PlataformaLogisticaMailingID: 1145
+                          RutaEntregaID: 601
+                          IdiomaID: 570
+                          ReferenciaInterna: ''
+                          ContactoID: 0
+                          RepresentanteID: 180
+                          Representante2ID: 180
+                          PorcentajeComision: 0
+                          PorcentajeComision2: 0
+                          notaGeneral: NotaPrueba
+                          notaCliente: EstaNota
+                          notaAlmacen: UnaNota
+                          notaEtiqueta: ''
+                          direccionEnvio: ''
+                          nombreEnvio: pruebaDEMO
+                          telefono: pruebaDEMO
+                          direccionEmail: ''
+                          noFacturar: 1
+                          abreviaturaMoneda: €
+                          nombreMoneda: Euros
+                          mailingID: 1220
       operationId: get-sales-receipts-param
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /sales/receipts/generate:
     get:
       summary: SalesReceipts - Generate
