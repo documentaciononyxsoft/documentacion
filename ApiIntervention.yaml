@@ -15255,6 +15255,8 @@ paths:
                         items:
                           type: object
                           properties:
+                            NombreDireccion:
+                              type: string
                             Direccion:
                               type: string
                             Municipio:
@@ -15271,54 +15273,34 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      sql: "\r\nSELECT\r\n  d.DireccionID,\r\n  d.Nombre AS NombreDireccion,\r\n  m.MunicipioID,\r\n  m.Nombre AS NombreMunicipio,\r\n  p.ProvinciaID,\r\n  p.Nombre AS NombreProvincia,\r\n  pa.PaisID,\r\n  pa.Nombre AS NombrePais,\r\n  c.ContinenteID,\r\n  c.Nombre AS NombreContinente\r\nFROM\r\n  avisoticketintervencion ati\r\n  INNER JOIN avisoticket at ON ati.AvisoTicketID = at.AvisoTicketID\r\n  INNER JOIN direccion d ON at.DireccionID = d.DireccionID\r\n  INNER JOIN municipio m ON d.MunicipioID = m.MunicipioID\r\n  INNER JOIN provincia p ON m.ProvinciaID = p.ProvinciaID\r\n  INNER JOIN pais pa ON p.PaisID = pa.PaisID\r\n  INNER JOIN continente c ON pa.ContinenteID = c.ContinenteID\r\n  INNER JOIN proyecto_of po ON ati.Proyecto_OFID = po.Proyecto_OFID\r\nWHERE\r\n  at.CustomerID = 29\r\n  AND at.EmpresaID = 1\r\n  AND po.FechaHoraUsuarioCierre IS NULL;"
+                      sql: "\r\nSELECT\r\n  d.DireccionID,\r\n  d.Nombre AS NombreDireccion,\r\n  d.Direccion AS Direccion,\r\n  m.MunicipioID,\r\n  m.Nombre AS NombreMunicipio,\r\n  p.ProvinciaID,\r\n  p.Nombre AS NombreProvincia,\r\n  pa.PaisID,\r\n  pa.Nombre AS NombrePais,\r\n  c.ContinenteID,\r\n  c.Nombre AS NombreContinente\r\nFROM\r\n  avisoticketintervencion ati\r\n  INNER JOIN avisoticket at ON ati.AvisoTicketID = at.AvisoTicketID\r\n  INNER JOIN direccion d ON at.DireccionID = d.DireccionID\r\n  INNER JOIN municipio m ON d.MunicipioID = m.MunicipioID\r\n  INNER JOIN provincia p ON m.ProvinciaID = p.ProvinciaID\r\n  INNER JOIN pais pa ON p.PaisID = pa.PaisID\r\n  INNER JOIN continente c ON pa.ContinenteID = c.ContinenteID\r\n  INNER JOIN proyecto_of po ON ati.Proyecto_OFID = po.Proyecto_OFID\r\nWHERE\r\n  at.CustomerID = 29\r\n  AND at.EmpresaID = 1\r\n  AND po.FechaHoraUsuarioCierre LIKE '%2023-05-18%';"
                       data:
-                        - Direccion: UNAM
+                        - NombreDireccion: UNAM
+                          Direccion: "CALLE: \_AV. ANTONIO DELFÍN MADRIGAL, S/N, COL PEDREGAL DE STO. DOMINGO, COYOACÁN, MÉXICO D.F., C.P. 04369\r\n"
                           Municipio: SANTIAGO CUAUTLALPAN
                           Provincia: MEXICO
                           Pais: México
                           Continente: America
-                        - Direccion: UNAM
-                          Municipio: SANTIAGO CUAUTLALPAN
-                          Provincia: MEXICO
-                          Pais: México
-                          Continente: America
-                        - Direccion: UNAM
-                          Municipio: SANTIAGO CUAUTLALPAN
-                          Provincia: MEXICO
-                          Pais: México
-                          Continente: America
-                        - Direccion: UNAM
-                          Municipio: SANTIAGO CUAUTLALPAN
-                          Provincia: MEXICO
-                          Pais: México
-                          Continente: America
-                        - Direccion: UNAM
-                          Municipio: SANTIAGO CUAUTLALPAN
-                          Provincia: MEXICO
-                          Pais: México
-                          Continente: America
-                        - Direccion: hola xd343
+                        - NombreDireccion: hola xd343
+                          Direccion: Circunvalar
                           Municipio: PUEBLA
                           Provincia: PUEBLA
                           Pais: México
                           Continente: America
-                        - Direccion: hola xd343
-                          Municipio: PUEBLA
-                          Provincia: PUEBLA
-                          Pais: México
-                          Continente: America
-                        - Direccion: PruebaOtraJCO
+                        - NombreDireccion: PruebaOtraJCO
+                          Direccion: Molinos
                           Municipio: Pereira
                           Provincia: Risaralda
                           Pais: Colombia
                           Continente: America
-                        - Direccion: PruebaJCO
+                        - NombreDireccion: PruebaJCO
+                          Direccion: Calle falsa 123
                           Municipio: Pereira
                           Provincia: Risaralda
                           Pais: Colombia
                           Continente: America
-                        - Direccion: DireccionJuan
+                        - NombreDireccion: DireccionJuan
+                          Direccion: Violetas
                           Municipio: Pereira
                           Provincia: Risaralda
                           Pais: Colombia
@@ -15332,52 +15314,32 @@ paths:
                       success: true
                       sql: string
                       data:
-                        - Direccion: UNAM
+                        - NombreDireccion: UNAM
+                          Direccion: "CALLE: \_AV. ANTONIO DELFÍN MADRIGAL, S/N, COL PEDREGAL DE STO. DOMINGO, COYOACÁN, MÉXICO D.F., C.P. 04369\r\n"
                           Municipio: SANTIAGO CUAUTLALPAN
                           Provincia: MEXICO
                           Pais: México
                           Continente: America
-                        - Direccion: UNAM
-                          Municipio: SANTIAGO CUAUTLALPAN
-                          Provincia: MEXICO
-                          Pais: México
-                          Continente: America
-                        - Direccion: UNAM
-                          Municipio: SANTIAGO CUAUTLALPAN
-                          Provincia: MEXICO
-                          Pais: México
-                          Continente: America
-                        - Direccion: UNAM
-                          Municipio: SANTIAGO CUAUTLALPAN
-                          Provincia: MEXICO
-                          Pais: México
-                          Continente: America
-                        - Direccion: UNAM
-                          Municipio: SANTIAGO CUAUTLALPAN
-                          Provincia: MEXICO
-                          Pais: México
-                          Continente: America
-                        - Direccion: hola xd343
+                        - NombreDireccion: hola xd343
+                          Direccion: Circunvalar
                           Municipio: PUEBLA
                           Provincia: PUEBLA
                           Pais: México
                           Continente: America
-                        - Direccion: hola xd343
-                          Municipio: PUEBLA
-                          Provincia: PUEBLA
-                          Pais: México
-                          Continente: America
-                        - Direccion: PruebaOtraJCO
+                        - NombreDireccion: PruebaOtraJCO
+                          Direccion: Molinos
                           Municipio: Pereira
                           Provincia: Risaralda
                           Pais: Colombia
                           Continente: America
-                        - Direccion: PruebaJCO
+                        - NombreDireccion: PruebaJCO
+                          Direccion: Calle falsa 123
                           Municipio: Pereira
                           Provincia: Risaralda
                           Pais: Colombia
                           Continente: America
-                        - Direccion: DireccionJuan
+                        - NombreDireccion: DireccionJuan
+                          Direccion: Violetas
                           Municipio: Pereira
                           Provincia: Risaralda
                           Pais: Colombia
