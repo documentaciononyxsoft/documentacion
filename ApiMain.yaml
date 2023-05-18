@@ -7856,6 +7856,7 @@ paths:
     parameters:
       - schema:
           type: string
+          example: idioma
         name: key
         in: path
         required: true
@@ -7882,20 +7883,311 @@ paths:
                         type: array
                         items:
                           type: object
-                          properties: {}
+                          properties:
+                            timeStampVO:
+                              type: object
+                              properties:
+                                createdAt:
+                                  type: string
+                                updatedAt:
+                                  type: string
+                                version:
+                                  type: integer
+                            isLockedVO:
+                              type: object
+                              properties:
+                                isLocked:
+                                  type: boolean
+                            isSavedVO:
+                              type: object
+                              properties:
+                                isSaved:
+                                  type: boolean
+                            wasUpdated:
+                              type: boolean
+                            IDVO:
+                              type: object
+                              properties:
+                                ID:
+                                  type: integer
+                            ClaveVO:
+                              type: object
+                              properties:
+                                Clave:
+                                  type: string
+                            DescripcionVO:
+                              type: object
+                              properties:
+                                Descripcion:
+                                  type: string
+                            CustomerIDVO:
+                              type: object
+                              properties:
+                                CustomerID:
+                                  type: integer
+                            FechaHoraUsuarioVO:
+                              type: object
+                              properties:
+                                FechaHoraUsuario:
+                                  type: string
+                            UsuarioIDVO:
+                              type: object
+                              properties:
+                                UsuarioID:
+                                  type: integer
+                            EstandarVO:
+                              type: object
+                              properties:
+                                Estandar:
+                                  type: integer
+                            TipoVO:
+                              type: object
+                              properties:
+                                Tipo:
+                                  type: string
+                            Id_SatMovilVO:
+                              type: object
+                              properties:
+                                Id_SatMovil:
+                                  type: integer
+                            AbreviaturaVO:
+                              type: object
+                              properties:
+                                Abreviatura:
+                                  type: string
+                            PadreIDVO:
+                              type: object
+                              properties:
+                                PadreID:
+                                  type: integer
+                            FechaHoraModificadoVO:
+                              type: object
+                              properties:
+                                FechaHoraModificado:
+                                  type: string
+                            FechaHoraNuevoVO:
+                              type: object
+                              properties:
+                                FechaHoraNuevo:
+                                  type: string
+                            FechaHoraBorradoVO:
+                              type: object
+                              properties:
+                                FechaHoraBorrado:
+                                  type: string
+                            CampoLibre1VO:
+                              type: object
+                              properties:
+                                CampoLibre1:
+                                  type: string
+                            CampoLibre2VO:
+                              type: object
+                              properties:
+                                CampoLibre2:
+                                  type: string
+                            DefectoVO:
+                              type: object
+                              properties:
+                                Defecto:
+                                  type: integer
+                            ObsoletoVO:
+                              type: object
+                              properties:
+                                Obsoleto:
+                                  type: integer
                 x-examples:
                   Example 1:
                     statusCode: 200
                     message: Request processed successfully
                     content:
-                      TablaGenerals: []
+                      TablaGenerals:
+                        - timeStampVO:
+                            createdAt: '2023-05-18T17:39:02.748'
+                            updatedAt: '2023-05-18T17:39:02.748'
+                            version: 1
+                          isLockedVO:
+                            isLocked: false
+                          isSavedVO:
+                            isSaved: true
+                          wasUpdated: false
+                          IDVO:
+                            ID: 571
+                          ClaveVO:
+                            Clave: IDIOMA
+                          DescripcionVO:
+                            Descripcion: FRANCES
+                          CustomerIDVO:
+                            CustomerID: 29
+                          FechaHoraUsuarioVO:
+                            FechaHoraUsuario: '0000-00-00T00:00:00.000'
+                          UsuarioIDVO:
+                            UsuarioID: 1
+                          EstandarVO:
+                            Estandar: 0
+                          TipoVO:
+                            Tipo: ''
+                          Id_SatMovilVO:
+                            Id_SatMovil: 0
+                          AbreviaturaVO:
+                            Abreviatura: FRA
+                          PadreIDVO:
+                            PadreID: 0
+                          FechaHoraModificadoVO:
+                            FechaHoraModificado: '0000-00-00T00:00:00.000'
+                          FechaHoraNuevoVO:
+                            FechaHoraNuevo: '0000-00-00T00:00:00.000'
+                          FechaHoraBorradoVO:
+                            FechaHoraBorrado: '0000-00-00T00:00:00.000'
+                          CampoLibre1VO:
+                            CampoLibre1: ''
+                          CampoLibre2VO:
+                            CampoLibre2: ''
+                          DefectoVO:
+                            Defecto: 0
+                          ObsoletoVO:
+                            Obsoleto: 0
+                        - timeStampVO:
+                            createdAt: '2023-05-18T17:39:02.748'
+                            updatedAt: '2023-05-18T17:39:02.748'
+                            version: 1
+                          isLockedVO:
+                            isLocked: false
+                          isSavedVO:
+                            isSaved: true
+                          wasUpdated: false
+                          IDVO:
+                            ID: 570
+                          ClaveVO:
+                            Clave: IDIOMA
+                          DescripcionVO:
+                            Descripcion: INGLES
+                          CustomerIDVO:
+                            CustomerID: 29
+                          FechaHoraUsuarioVO:
+                            FechaHoraUsuario: '0000-00-00T00:00:00.000'
+                          UsuarioIDVO:
+                            UsuarioID: 1
+                          EstandarVO:
+                            Estandar: 0
+                          TipoVO:
+                            Tipo: ''
+                          Id_SatMovilVO:
+                            Id_SatMovil: 0
+                          AbreviaturaVO:
+                            Abreviatura: ING
+                          PadreIDVO:
+                            PadreID: 0
+                          FechaHoraModificadoVO:
+                            FechaHoraModificado: '0000-00-00T00:00:00.000'
+                          FechaHoraNuevoVO:
+                            FechaHoraNuevo: '0000-00-00T00:00:00.000'
+                          FechaHoraBorradoVO:
+                            FechaHoraBorrado: '0000-00-00T00:00:00.000'
+                          CampoLibre1VO:
+                            CampoLibre1: ''
+                          CampoLibre2VO:
+                            CampoLibre2: ''
+                          DefectoVO:
+                            Defecto: 0
+                          ObsoletoVO:
+                            Obsoleto: 0
               examples:
                 Example 1:
                   value:
                     statusCode: 200
                     message: Request processed successfully
                     content:
-                      TablaGenerals: []
+                      TablaGenerals:
+                        - timeStampVO:
+                            createdAt: '2023-05-18T17:39:02.748'
+                            updatedAt: '2023-05-18T17:39:02.748'
+                            version: 1
+                          isLockedVO:
+                            isLocked: false
+                          isSavedVO:
+                            isSaved: true
+                          wasUpdated: false
+                          IDVO:
+                            ID: 571
+                          ClaveVO:
+                            Clave: IDIOMA
+                          DescripcionVO:
+                            Descripcion: FRANCES
+                          CustomerIDVO:
+                            CustomerID: 29
+                          FechaHoraUsuarioVO:
+                            FechaHoraUsuario: '0000-00-00T00:00:00.000'
+                          UsuarioIDVO:
+                            UsuarioID: 1
+                          EstandarVO:
+                            Estandar: 0
+                          TipoVO:
+                            Tipo: ''
+                          Id_SatMovilVO:
+                            Id_SatMovil: 0
+                          AbreviaturaVO:
+                            Abreviatura: FRA
+                          PadreIDVO:
+                            PadreID: 0
+                          FechaHoraModificadoVO:
+                            FechaHoraModificado: '0000-00-00T00:00:00.000'
+                          FechaHoraNuevoVO:
+                            FechaHoraNuevo: '0000-00-00T00:00:00.000'
+                          FechaHoraBorradoVO:
+                            FechaHoraBorrado: '0000-00-00T00:00:00.000'
+                          CampoLibre1VO:
+                            CampoLibre1: ''
+                          CampoLibre2VO:
+                            CampoLibre2: ''
+                          DefectoVO:
+                            Defecto: 0
+                          ObsoletoVO:
+                            Obsoleto: 0
+                        - timeStampVO:
+                            createdAt: '2023-05-18T17:39:02.748'
+                            updatedAt: '2023-05-18T17:39:02.748'
+                            version: 1
+                          isLockedVO:
+                            isLocked: false
+                          isSavedVO:
+                            isSaved: true
+                          wasUpdated: false
+                          IDVO:
+                            ID: 570
+                          ClaveVO:
+                            Clave: IDIOMA
+                          DescripcionVO:
+                            Descripcion: INGLES
+                          CustomerIDVO:
+                            CustomerID: 29
+                          FechaHoraUsuarioVO:
+                            FechaHoraUsuario: '0000-00-00T00:00:00.000'
+                          UsuarioIDVO:
+                            UsuarioID: 1
+                          EstandarVO:
+                            Estandar: 0
+                          TipoVO:
+                            Tipo: ''
+                          Id_SatMovilVO:
+                            Id_SatMovil: 0
+                          AbreviaturaVO:
+                            Abreviatura: ING
+                          PadreIDVO:
+                            PadreID: 0
+                          FechaHoraModificadoVO:
+                            FechaHoraModificado: '0000-00-00T00:00:00.000'
+                          FechaHoraNuevoVO:
+                            FechaHoraNuevo: '0000-00-00T00:00:00.000'
+                          FechaHoraBorradoVO:
+                            FechaHoraBorrado: '0000-00-00T00:00:00.000'
+                          CampoLibre1VO:
+                            CampoLibre1: ''
+                          CampoLibre2VO:
+                            CampoLibre2: ''
+                          DefectoVO:
+                            Defecto: 0
+                          ObsoletoVO:
+                            Obsoleto: 0
       operationId: get-generals-key
       parameters:
         - schema:
