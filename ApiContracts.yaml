@@ -565,6 +565,7 @@ paths:
           in: query
           name: sBusqueda
           description: Valor a buscar
+      description: ''
   '/contracts/{contratoID}/equipments':
     parameters:
       - schema:

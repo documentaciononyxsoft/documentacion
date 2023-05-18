@@ -1,0 +1,893 @@
+openapi: 3.1.0
+x-stoplight:
+  id: 2n9dxve9a8msr
+info:
+  title: ApiPurchase
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /purchase:
+    post:
+      summary: Purchase - Create
+      operationId: post-purchase
+      responses:
+        '200':
+          description: User Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      AlbaranCompraCabeceraID:
+                        type: integer
+                      FechaHoraUsuario:
+                        type: string
+                      UsuarioID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      AlbaranCompraCabeceraID: 318
+                      FechaHoraUsuario: '2023-05-17T12:29:40.867'
+                      UsuarioID: 34
+              examples:
+                New User Bob Fellow:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      AlbaranCompraCabeceraID: 318
+                      FechaHoraUsuario: '2023-05-17T12:29:40.867'
+                      UsuarioID: 34
+        '400':
+          description: Missing Required Information
+        '409':
+          description: Email Already Taken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Purchase'
+            examples:
+              Create User Bob Fellow:
+                value:
+                  firstName: Bob
+                  lastName: Fellow
+                  email: bob.fellow@gmail.com
+                  dateOfBirth: '1996-08-24'
+        description: Post the necessary fields for the API to create a new maintenance purchase record.
+      description: Create a new maintenance purchase record
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: 'Authorization token '
+          required: true
+    parameters: []
+  /purchases:
+    parameters: []
+    get:
+      summary: Purchases - findMAny
+      operationId: get-purchases
+      responses:
+        '200':
+          description: Succesfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            AlbaranCompraCabeceraID:
+                              type: integer
+                            SerieAlbaranID:
+                              type: integer
+                            Numero:
+                              type: integer
+                            FechaEntrada:
+                              type: string
+                            AlmacenID:
+                              type: integer
+                            ProveedorID:
+                              type: integer
+                            NumeroAlbaranProveedor:
+                              type: string
+                            FechaAlbaran:
+                              type: string
+                            Referencia:
+                              type: string
+                            TipoID:
+                              type: integer
+                            FechaHoraCreacion:
+                              type: string
+                            Codigo:
+                              type: string
+                            Telefono:
+                              type: string
+                            Nombre:
+                              type: string
+                            NombreUsuario:
+                              type: string
+                            usuarioID:
+                              type: integer
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - AlbaranCompraCabeceraID: 1
+                          SerieAlbaranID: 0
+                          Numero: 0
+                          FechaEntrada: ''
+                          AlmacenID: 0
+                          ProveedorID: 0
+                          NumeroAlbaranProveedor: ''
+                          FechaAlbaran: ''
+                          Referencia: ''
+                          TipoID: 0
+                          FechaHoraCreacion: '2016-10-11T13:35:25.000'
+                          Codigo: ''
+                          Telefono: ''
+                          Nombre: ''
+                          NombreUsuario: SUPERVISOR
+                          usuarioID: 1
+                        - AlbaranCompraCabeceraID: 2
+                          SerieAlbaranID: 0
+                          Numero: 1
+                          FechaEntrada: '20050210'
+                          AlmacenID: 1
+                          ProveedorID: 0
+                          NumeroAlbaranProveedor: '456456456'
+                          FechaAlbaran: ''
+                          Referencia: '1'
+                          TipoID: 0
+                          FechaHoraCreacion: '2005-02-10T17:23:00.000'
+                          Codigo: ''
+                          Telefono: ''
+                          Nombre: ''
+                          NombreUsuario: DEMO
+                          usuarioID: 2
+                        - AlbaranCompraCabeceraID: 134
+                          SerieAlbaranID: 1
+                          Numero: 1
+                          FechaEntrada: '20170728'
+                          AlmacenID: 1
+                          ProveedorID: 11
+                          NumeroAlbaranProveedor: '345345'
+                          FechaAlbaran: '20170728'
+                          Referencia: ''
+                          TipoID: 0
+                          FechaHoraCreacion: '2017-07-28T11:34:36.000'
+                          Codigo: '40001002'
+                          Telefono: 943 56 67 78
+                          Nombre: SUMINISTROS DE ACERO
+                          NombreUsuario: SUPERVISOR
+                          usuarioID: 1
+                        - AlbaranCompraCabeceraID: 131
+                          SerieAlbaranID: 2
+                          Numero: 1
+                          FechaEntrada: '20170607'
+                          AlmacenID: 1
+                          ProveedorID: 11
+                          NumeroAlbaranProveedor: '34234'
+                          FechaAlbaran: '20170607'
+                          Referencia: ''
+                          TipoID: 0
+                          FechaHoraCreacion: '2017-06-07T10:46:49.000'
+                          Codigo: '40001002'
+                          Telefono: 943 56 67 78
+                          Nombre: SUMINISTROS DE ACERO
+                          NombreUsuario: DEMOS
+                          usuarioID: 3
+                        - AlbaranCompraCabeceraID: 244
+                          SerieAlbaranID: 2
+                          Numero: 1
+                          FechaEntrada: '20191219'
+                          AlmacenID: 1
+                          ProveedorID: 11
+                          NumeroAlbaranProveedor: '754'
+                          FechaAlbaran: '20191219'
+                          Referencia: ''
+                          TipoID: 0
+                          FechaHoraCreacion: '2019-12-19T15:53:54.000'
+                          Codigo: '40001002'
+                          Telefono: 943 56 67 78
+                          Nombre: SUMINISTROS DE ACERO
+                          NombreUsuario: DEMOS
+                          usuarioID: 3
+                        - AlbaranCompraCabeceraID: 3
+                          SerieAlbaranID: 0
+                          Numero: 2
+                          FechaEntrada: '20051120'
+                          AlmacenID: 2
+                          ProveedorID: 0
+                          NumeroAlbaranProveedor: '123'
+                          FechaAlbaran: ''
+                          Referencia: '4'
+                          TipoID: 0
+                          FechaHoraCreacion: '2005-12-28T16:06:00.000'
+                          Codigo: ''
+                          Telefono: ''
+                          Nombre: ''
+                          NombreUsuario: DEMO
+                          usuarioID: 2
+                        - AlbaranCompraCabeceraID: 135
+                          SerieAlbaranID: 1
+                          Numero: 2
+                          FechaEntrada: '20170821'
+                          AlmacenID: 1
+                          ProveedorID: 1
+                          NumeroAlbaranProveedor: '2343434'
+                          FechaAlbaran: '20170821'
+                          Referencia: ''
+                          TipoID: 0
+                          FechaHoraCreacion: '2017-08-21T14:59:18.000'
+                          Codigo: '01 '
+                          Telefono: 943.333.222
+                          Nombre: LA GUIPUZCOANA-edgos
+                          NombreUsuario: DEMOS
+                          usuarioID: 3
+                        - AlbaranCompraCabeceraID: 132
+                          SerieAlbaranID: 2
+                          Numero: 2
+                          FechaEntrada: '20170620'
+                          AlmacenID: 1
+                          ProveedorID: 11
+                          NumeroAlbaranProveedor: '34343'
+                          FechaAlbaran: '20170620'
+                          Referencia: ''
+                          TipoID: 0
+                          FechaHoraCreacion: '2017-06-20T12:20:06.000'
+                          Codigo: '40001002'
+                          Telefono: 943 56 67 78
+                          Nombre: SUMINISTROS DE ACERO
+                          NombreUsuario: DEMOS
+                          usuarioID: 3
+                        - AlbaranCompraCabeceraID: 4
+                          SerieAlbaranID: 0
+                          Numero: 3
+                          FechaEntrada: '20051123'
+                          AlmacenID: 2
+                          ProveedorID: 0
+                          NumeroAlbaranProveedor: '234'
+                          FechaAlbaran: ''
+                          Referencia: '4'
+                          TipoID: 0
+                          FechaHoraCreacion: '2005-12-28T16:06:00.000'
+                          Codigo: ''
+                          Telefono: ''
+                          Nombre: ''
+                          NombreUsuario: DEMO
+                          usuarioID: 2
+                        - AlbaranCompraCabeceraID: 137
+                          SerieAlbaranID: 1
+                          Numero: 3
+                          FechaEntrada: '20171006'
+                          AlmacenID: 1
+                          ProveedorID: 11
+                          NumeroAlbaranProveedor: '34343545'
+                          FechaAlbaran: '20171006'
+                          Referencia: ''
+                          TipoID: 0
+                          FechaHoraCreacion: '2017-10-06T14:24:21.000'
+                          Codigo: '40001002'
+                          Telefono: 943 56 67 78
+                          Nombre: SUMINISTROS DE ACERO
+                          NombreUsuario: DEMOS
+                          usuarioID: 3
+                      sql: "SELECT \r\nalbarancompracabecera.SerieAlbaranID,\r\nalbarancompracabecera.AlbaranCompraCabeceraID,\r\nalbarancompracabecera.Numero,\r\nalbarancompracabecera.FechaEntrada,\r\nalbarancompracabecera.AlmacenID,\r\nalbarancompracabecera.ProveedorID,\r\nalbarancompracabecera.NumeroAlbaranProveedor,\r\nalbarancompracabecera.FechaAlbaran,\r\nalbarancompracabecera.Referencia,\r\nalbarancompracabecera.TipoID,\r\nalbarancompracabecera.FechaHoraUsuario AS FechaHoraCreacion,\r\nproveedor.Codigo,\r\nmailing.Telefono,\r\nmailing.Nombre,\r\nusuario.NombreUsuario,\r\nusuario.usuarioID\r\n\r\n\r\n\r\nFROM albarancompracabecera\r\n\r\nLEFT JOIN proveedor \r\nON albarancompracabecera.ProveedorID = proveedor.ProveedorID\r\n\r\nLEFT JOIN mailing\r\nON proveedor.MailingID\t= mailing.MailingID\r\n\r\nLEFT JOIN usuario \r\nON albarancompracabecera.UsuarioID = usuario.UsuarioID\r\n\r\n\r\nWHERE albarancompracabecera.CustomerID = 29\r\nAND albarancompracabecera.EmpresaID = 1\r\n\r\norder BY albarancompracabecera.Numero ASC\r\nlimit 10\r\noffset 0\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - AlbaranCompraCabeceraID: 1
+                          SerieAlbaranID: 0
+                          Numero: 0
+                          FechaEntrada: ''
+                          AlmacenID: 0
+                          ProveedorID: 0
+                          NumeroAlbaranProveedor: ''
+                          FechaAlbaran: ''
+                          Referencia: ''
+                          TipoID: 0
+                          FechaHoraCreacion: '2016-10-11T13:35:25.000'
+                          Codigo: ''
+                          Telefono: ''
+                          Nombre: ''
+                          NombreUsuario: SUPERVISOR
+                          usuarioID: 1
+                        - AlbaranCompraCabeceraID: 2
+                          SerieAlbaranID: 0
+                          Numero: 1
+                          FechaEntrada: '20050210'
+                          AlmacenID: 1
+                          ProveedorID: 0
+                          NumeroAlbaranProveedor: '456456456'
+                          FechaAlbaran: ''
+                          Referencia: '1'
+                          TipoID: 0
+                          FechaHoraCreacion: '2005-02-10T17:23:00.000'
+                          Codigo: ''
+                          Telefono: ''
+                          Nombre: ''
+                          NombreUsuario: DEMO
+                          usuarioID: 2
+                        - AlbaranCompraCabeceraID: 134
+                          SerieAlbaranID: 1
+                          Numero: 1
+                          FechaEntrada: '20170728'
+                          AlmacenID: 1
+                          ProveedorID: 11
+                          NumeroAlbaranProveedor: '345345'
+                          FechaAlbaran: '20170728'
+                          Referencia: ''
+                          TipoID: 0
+                          FechaHoraCreacion: '2017-07-28T11:34:36.000'
+                          Codigo: '40001002'
+                          Telefono: 943 56 67 78
+                          Nombre: SUMINISTROS DE ACERO
+                          NombreUsuario: SUPERVISOR
+                          usuarioID: 1
+                        - AlbaranCompraCabeceraID: 131
+                          SerieAlbaranID: 2
+                          Numero: 1
+                          FechaEntrada: '20170607'
+                          AlmacenID: 1
+                          ProveedorID: 11
+                          NumeroAlbaranProveedor: '34234'
+                          FechaAlbaran: '20170607'
+                          Referencia: ''
+                          TipoID: 0
+                          FechaHoraCreacion: '2017-06-07T10:46:49.000'
+                          Codigo: '40001002'
+                          Telefono: 943 56 67 78
+                          Nombre: SUMINISTROS DE ACERO
+                          NombreUsuario: DEMOS
+                          usuarioID: 3
+                        - AlbaranCompraCabeceraID: 244
+                          SerieAlbaranID: 2
+                          Numero: 1
+                          FechaEntrada: '20191219'
+                          AlmacenID: 1
+                          ProveedorID: 11
+                          NumeroAlbaranProveedor: '754'
+                          FechaAlbaran: '20191219'
+                          Referencia: ''
+                          TipoID: 0
+                          FechaHoraCreacion: '2019-12-19T15:53:54.000'
+                          Codigo: '40001002'
+                          Telefono: 943 56 67 78
+                          Nombre: SUMINISTROS DE ACERO
+                          NombreUsuario: DEMOS
+                          usuarioID: 3
+                        - AlbaranCompraCabeceraID: 3
+                          SerieAlbaranID: 0
+                          Numero: 2
+                          FechaEntrada: '20051120'
+                          AlmacenID: 2
+                          ProveedorID: 0
+                          NumeroAlbaranProveedor: '123'
+                          FechaAlbaran: ''
+                          Referencia: '4'
+                          TipoID: 0
+                          FechaHoraCreacion: '2005-12-28T16:06:00.000'
+                          Codigo: ''
+                          Telefono: ''
+                          Nombre: ''
+                          NombreUsuario: DEMO
+                          usuarioID: 2
+                        - AlbaranCompraCabeceraID: 135
+                          SerieAlbaranID: 1
+                          Numero: 2
+                          FechaEntrada: '20170821'
+                          AlmacenID: 1
+                          ProveedorID: 1
+                          NumeroAlbaranProveedor: '2343434'
+                          FechaAlbaran: '20170821'
+                          Referencia: ''
+                          TipoID: 0
+                          FechaHoraCreacion: '2017-08-21T14:59:18.000'
+                          Codigo: '01 '
+                          Telefono: 943.333.222
+                          Nombre: LA GUIPUZCOANA-edgos
+                          NombreUsuario: DEMOS
+                          usuarioID: 3
+                        - AlbaranCompraCabeceraID: 132
+                          SerieAlbaranID: 2
+                          Numero: 2
+                          FechaEntrada: '20170620'
+                          AlmacenID: 1
+                          ProveedorID: 11
+                          NumeroAlbaranProveedor: '34343'
+                          FechaAlbaran: '20170620'
+                          Referencia: ''
+                          TipoID: 0
+                          FechaHoraCreacion: '2017-06-20T12:20:06.000'
+                          Codigo: '40001002'
+                          Telefono: 943 56 67 78
+                          Nombre: SUMINISTROS DE ACERO
+                          NombreUsuario: DEMOS
+                          usuarioID: 3
+                        - AlbaranCompraCabeceraID: 4
+                          SerieAlbaranID: 0
+                          Numero: 3
+                          FechaEntrada: '20051123'
+                          AlmacenID: 2
+                          ProveedorID: 0
+                          NumeroAlbaranProveedor: '234'
+                          FechaAlbaran: ''
+                          Referencia: '4'
+                          TipoID: 0
+                          FechaHoraCreacion: '2005-12-28T16:06:00.000'
+                          Codigo: ''
+                          Telefono: ''
+                          Nombre: ''
+                          NombreUsuario: DEMO
+                          usuarioID: 2
+                        - AlbaranCompraCabeceraID: 137
+                          SerieAlbaranID: 1
+                          Numero: 3
+                          FechaEntrada: '20171006'
+                          AlmacenID: 1
+                          ProveedorID: 11
+                          NumeroAlbaranProveedor: '34343545'
+                          FechaAlbaran: '20171006'
+                          Referencia: ''
+                          TipoID: 0
+                          FechaHoraCreacion: '2017-10-06T14:24:21.000'
+                          Codigo: '40001002'
+                          Telefono: 943 56 67 78
+                          Nombre: SUMINISTROS DE ACERO
+                          NombreUsuario: DEMOS
+                          usuarioID: 3
+                      sql: "SELECT \r\nalbarancompracabecera.SerieAlbaranID,\r\nalbarancompracabecera.AlbaranCompraCabeceraID,\r\nalbarancompracabecera.Numero,\r\nalbarancompracabecera.FechaEntrada,\r\nalbarancompracabecera.AlmacenID,\r\nalbarancompracabecera.ProveedorID,\r\nalbarancompracabecera.NumeroAlbaranProveedor,\r\nalbarancompracabecera.FechaAlbaran,\r\nalbarancompracabecera.Referencia,\r\nalbarancompracabecera.TipoID,\r\nalbarancompracabecera.FechaHoraUsuario AS FechaHoraCreacion,\r\nproveedor.Codigo,\r\nmailing.Telefono,\r\nmailing.Nombre,\r\nusuario.NombreUsuario,\r\nusuario.usuarioID\r\n\r\n\r\n\r\nFROM albarancompracabecera\r\n\r\nLEFT JOIN proveedor \r\nON albarancompracabecera.ProveedorID = proveedor.ProveedorID\r\n\r\nLEFT JOIN mailing\r\nON proveedor.MailingID\t= mailing.MailingID\r\n\r\nLEFT JOIN usuario \r\nON albarancompracabecera.UsuarioID = usuario.UsuarioID\r\n\r\n\r\nWHERE albarancompracabecera.CustomerID = 29\r\nAND albarancompracabecera.EmpresaID = 1\r\n\r\norder BY albarancompracabecera.Numero ASC\r\nlimit 10\r\noffset 0\r\n"
+      description: Gets all the maintenance purchase records depending on some parameters
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: 'Authorization token '
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: limit
+          description: Limit number of records
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: offset
+          description: Offset
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: order
+          description: Order in which you take the records
+          required: true
+  '/purchase/{AlbaranCompraCabeceraID}':
+    parameters:
+      - schema:
+          type: string
+        name: AlbaranCompraCabeceraID
+        in: path
+        required: true
+        description: Maintenance Purchase Identifier
+    put:
+      summary: Purchase - Update
+      operationId: put-purchase-AlbaranCompraCabeceraID
+      responses:
+        '200':
+          description: Succesfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      AlbaranCompraCabeceraID:
+                        type: integer
+                      FechaHoraUsuario:
+                        type: string
+                      UsuarioID:
+                        type: integer
+                      NombreUsuario:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      AlbaranCompraCabeceraID: 313
+                      FechaHoraUsuario: '2023-05-16T11:57:58.000'
+                      UsuarioID: 1
+                      NombreUsuario: ONYXD
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      AlbaranCompraCabeceraID: 313
+                      FechaHoraUsuario: '2023-05-16T11:57:58.000'
+                      UsuarioID: 1
+                      NombreUsuario: ONYXD
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: Authorization token
+          required: true
+      description: Update a maintenance purchase record
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Purchase'
+        description: Publish the required fields for the API to update a maintenance purchase record.
+    delete:
+      summary: Purchase - Remove
+      operationId: delete-purchase-AlbaranCompraCabeceraID
+      responses:
+        '200':
+          description: Succesfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+      description: Delete a maintenance purchase record
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: Authorization token
+          required: true
+      requestBody:
+        content: {}
+        description: ''
+  /purchase/quicksearch:
+    parameters: []
+    get:
+      summary: Purchase - QuickSearch - findManyByFilter
+      operationId: get-purchase-quicksearch
+      responses:
+        '200':
+          description: Succesfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            AlbaranCompraCabeceraID:
+                              type: integer
+                            SerieAlbaranID:
+                              type: integer
+                            Numero:
+                              type: integer
+                            FechaEntrada:
+                              type: string
+                            AlmacenID:
+                              type: integer
+                            ProveedorID:
+                              type: integer
+                            NumeroAlbaranProveedor:
+                              type: string
+                            FechaAlbaran:
+                              type: string
+                            Referencia:
+                              type: string
+                            TipoID:
+                              type: integer
+                            FechaHoraCreacion:
+                              type: string
+                            Codigo:
+                              type: string
+                            Telefono:
+                              type: string
+                            Nombre:
+                              type: string
+                            NombreUsuario:
+                              type: string
+                            usuarioID:
+                              type: integer
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - AlbaranCompraCabeceraID: 140
+                          SerieAlbaranID: 1
+                          Numero: 6
+                          FechaEntrada: '20171128'
+                          AlmacenID: 1
+                          ProveedorID: 11
+                          NumeroAlbaranProveedor: '34566546'
+                          FechaAlbaran: '20171128'
+                          Referencia: ''
+                          TipoID: 0
+                          FechaHoraCreacion: '2017-11-28T15:06:02.000'
+                          Codigo: '40001002'
+                          Telefono: 943 56 67 78
+                          Nombre: SUMINISTROS DE ACERO
+                          NombreUsuario: DEMOS
+                          usuarioID: 3
+                        - AlbaranCompraCabeceraID: 144
+                          SerieAlbaranID: 2
+                          Numero: 6
+                          FechaEntrada: '20171129'
+                          AlmacenID: 1
+                          ProveedorID: 10
+                          NumeroAlbaranProveedor: '343434'
+                          FechaAlbaran: '20171129'
+                          Referencia: ''
+                          TipoID: 0
+                          FechaHoraCreacion: '2017-11-29T16:50:18.000'
+                          Codigo: '40001001'
+                          Telefono: ''
+                          Nombre: TRATAMIENTOS ABC
+                          NombreUsuario: DEMOS
+                          usuarioID: 3
+                      sql: "SELECT \r\nalbarancompracabecera.SerieAlbaranID,\r\nalbarancompracabecera.AlbaranCompraCabeceraID,\r\nalbarancompracabecera.Numero,\r\nalbarancompracabecera.FechaEntrada,\r\nalbarancompracabecera.AlmacenID,\r\nalbarancompracabecera.ProveedorID,\r\nalbarancompracabecera.NumeroAlbaranProveedor,\r\nalbarancompracabecera.FechaAlbaran,\r\nalbarancompracabecera.Referencia,\r\nalbarancompracabecera.TipoID,\r\nalbarancompracabecera.FechaHoraUsuario AS FechaHoraCreacion,\r\nproveedor.Codigo,\r\nmailing.Telefono,\r\nmailing.Nombre,\r\nusuario.NombreUsuario,\r\nusuario.usuarioID\r\n\r\n\r\n\r\nFROM albarancompracabecera\r\n\r\nLEFT JOIN proveedor \r\nON albarancompracabecera.ProveedorID = proveedor.ProveedorID\r\n\r\nLEFT JOIN mailing\r\nON proveedor.MailingID\t= mailing.MailingID\r\n\r\nLEFT JOIN usuario \r\nON albarancompracabecera.UsuarioID = usuario.UsuarioID\r\n\r\n\r\nWHERE albarancompracabecera.CustomerID = 29\r\nAND  albarancompracabecera.EmpresaID = 1\r\nAND  albarancompracabecera.Tipo = 'A'\r\nAND  albarancompracabecera.ProveedorID IS NOT NULL\r\nAND  albarancompracabecera.Numero LIKE '6'"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - AlbaranCompraCabeceraID: 140
+                          SerieAlbaranID: 1
+                          Numero: 6
+                          FechaEntrada: '20171128'
+                          AlmacenID: 1
+                          ProveedorID: 11
+                          NumeroAlbaranProveedor: '34566546'
+                          FechaAlbaran: '20171128'
+                          Referencia: ''
+                          TipoID: 0
+                          FechaHoraCreacion: '2017-11-28T15:06:02.000'
+                          Codigo: '40001002'
+                          Telefono: 943 56 67 78
+                          Nombre: SUMINISTROS DE ACERO
+                          NombreUsuario: DEMOS
+                          usuarioID: 3
+                        - AlbaranCompraCabeceraID: 144
+                          SerieAlbaranID: 2
+                          Numero: 6
+                          FechaEntrada: '20171129'
+                          AlmacenID: 1
+                          ProveedorID: 10
+                          NumeroAlbaranProveedor: '343434'
+                          FechaAlbaran: '20171129'
+                          Referencia: ''
+                          TipoID: 0
+                          FechaHoraCreacion: '2017-11-29T16:50:18.000'
+                          Codigo: '40001001'
+                          Telefono: ''
+                          Nombre: TRATAMIENTOS ABC
+                          NombreUsuario: DEMOS
+                          usuarioID: 3
+                      sql: "SELECT \r\nalbarancompracabecera.SerieAlbaranID,\r\nalbarancompracabecera.AlbaranCompraCabeceraID,\r\nalbarancompracabecera.Numero,\r\nalbarancompracabecera.FechaEntrada,\r\nalbarancompracabecera.AlmacenID,\r\nalbarancompracabecera.ProveedorID,\r\nalbarancompracabecera.NumeroAlbaranProveedor,\r\nalbarancompracabecera.FechaAlbaran,\r\nalbarancompracabecera.Referencia,\r\nalbarancompracabecera.TipoID,\r\nalbarancompracabecera.FechaHoraUsuario AS FechaHoraCreacion,\r\nproveedor.Codigo,\r\nmailing.Telefono,\r\nmailing.Nombre,\r\nusuario.NombreUsuario,\r\nusuario.usuarioID\r\n\r\n\r\n\r\nFROM albarancompracabecera\r\n\r\nLEFT JOIN proveedor \r\nON albarancompracabecera.ProveedorID = proveedor.ProveedorID\r\n\r\nLEFT JOIN mailing\r\nON proveedor.MailingID\t= mailing.MailingID\r\n\r\nLEFT JOIN usuario \r\nON albarancompracabecera.UsuarioID = usuario.UsuarioID\r\n\r\n\r\nWHERE albarancompracabecera.CustomerID = 29\r\nAND  albarancompracabecera.EmpresaID = 1\r\nAND  albarancompracabecera.Tipo = 'A'\r\nAND  albarancompracabecera.ProveedorID IS NOT NULL\r\nAND  albarancompracabecera.Numero LIKE '6'"
+      description: Gets the records based on the specified lookup value
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: 'Authorization token '
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: sBusqueda
+          description: Search parameter
+          required: true
+  /purchaseSeries/light:
+    parameters: []
+    get:
+      summary: PurchaseSeries - Light - FindLightList
+      operationId: get-purchaseSeries-light
+      responses:
+        '200':
+          description: Succesfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            SeriePedidoAlbaranCompraID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Descripcion:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - SeriePedidoAlbaranCompraID: 1
+                          Codigo: Sin
+                          Descripcion: Sin
+                        - SeriePedidoAlbaranCompraID: 2
+                          Codigo: LS
+                          Descripcion: ASDAS
+                      sql: "SELECT\r\nseriepedidoalbarancompra.SeriePedidoAlbaranCompraID,\r\nseriepedidoalbarancompra.Serie AS Codigo,\r\nseriepedidoalbarancompra.Descripcion\r\nFROM \r\nseriepedidoalbarancompra\r\n \r\nWHERE \r\nseriepedidoalbarancompra.CustomerID = 29 AND\r\nseriepedidoalbarancompra.EmpresaID = 1 "
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - SeriePedidoAlbaranCompraID: 1
+                          Codigo: Sin
+                          Descripcion: Sin
+                        - SeriePedidoAlbaranCompraID: 2
+                          Codigo: LS
+                          Descripcion: ASDAS
+                      sql: "SELECT\r\nseriepedidoalbarancompra.SeriePedidoAlbaranCompraID,\r\nseriepedidoalbarancompra.Serie AS Codigo,\r\nseriepedidoalbarancompra.Descripcion\r\nFROM \r\nseriepedidoalbarancompra\r\n \r\nWHERE \r\nseriepedidoalbarancompra.CustomerID = 29 AND\r\nseriepedidoalbarancompra.EmpresaID = 1 "
+        '':
+          content: {}
+      description: Gets the records of the existing series
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: 'Authorization token '
+          required: true
+components:
+  schemas:
+    Purchase:
+      type: object
+      x-examples:
+        Example 1:
+          SerieAlbaranID: 1
+          Numero: 1299999
+          FechaEntrada: '20230515'
+          AlmacenID: 2
+          proveedorID: 5
+          NumeroAlbaranProveedor: 14514
+          FechaAlbaran: '20230515'
+          Referencia: XDFGDGDF
+          TipoID: 553
+      properties:
+        SerieAlbaranID:
+          type: integer
+        Numero:
+          type: integer
+        FechaEntrada:
+          type: string
+          format: date
+        AlmacenID:
+          type: integer
+        proveedorID:
+          type: integer
+        NumeroAlbaranProveedor:
+          type: integer
+        FechaAlbaran:
+          type: string
+          format: date
+        Referencia:
+          type: string
+        TipoID:
+          type: integer
+      description: Maintenance purchases
