@@ -2,14 +2,14 @@ openapi: 3.1.0
 x-stoplight:
   id: 2n9dxve9a8msr
 info:
-  title: ApiPurchase
+  title: API - Purchases
   version: '1.0'
 servers:
   - url: 'http://localhost:3000'
 paths:
   /purchase:
     post:
-      summary: Purchase - Create
+      summary: Purchases - Create
       operationId: post-purchase
       responses:
         '200':
@@ -83,7 +83,7 @@ paths:
   /purchases:
     parameters: []
     get:
-      summary: Purchases - findMAny
+      summary: Purchases - FindMAny
       operationId: get-purchases
       responses:
         '200':
@@ -514,7 +514,7 @@ paths:
         required: true
         description: Maintenance Purchase Identifier
     put:
-      summary: Purchase - Update
+      summary: Purchases - Update
       operationId: put-purchase-AlbaranCompraCabeceraID
       responses:
         '200':
@@ -578,7 +578,7 @@ paths:
               $ref: '#/components/schemas/Purchase'
         description: Publish the required fields for the API to update a maintenance purchase record.
     delete:
-      summary: Purchase - Remove
+      summary: Purchases - Remove
       operationId: delete-purchase-AlbaranCompraCabeceraID
       responses:
         '200':
@@ -625,7 +625,7 @@ paths:
   /purchase/quicksearch:
     parameters: []
     get:
-      summary: Purchase - QuickSearch - findManyByFilter
+      summary: Purchases - QuickSearch - FindManyByFilter
       operationId: get-purchase-quicksearch
       responses:
         '200':
@@ -891,3 +891,5 @@ components:
         TipoID:
           type: integer
       description: Maintenance purchases
+      x-stoplight:
+        id: wacxnslz28h1b
