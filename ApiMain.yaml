@@ -9594,8 +9594,6 @@ paths:
             schema:
               type: object
               properties:
-                CampoEspecialDefinicionID:
-                  type: string
                 Tabla:
                   type: string
                 NombreCampo:
@@ -9626,7 +9624,6 @@ paths:
                   type: string
               x-examples:
                 Example 1:
-                  CampoEspecialDefinicionID: '91'
                   Tabla: AlbaranCompraCabecera
                   NombreCampo: TesteoUPDATED
                   Tipo: TEXTO
@@ -9644,7 +9641,6 @@ paths:
             examples:
               Example 1:
                 value:
-                  CampoEspecialDefinicionID: '91'
                   Tabla: AlbaranCompraCabecera
                   NombreCampo: TesteoUPDATED
                   Tipo: TEXTO
