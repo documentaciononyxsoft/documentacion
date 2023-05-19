@@ -9405,5 +9405,130 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /clasifications:
+    post:
+      summary: Clasifications - Create
+      operationId: post-clasifications
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                      CampoEspecialDefinicionID:
+                        type: integer
+                      FechaHoraUsuario:
+                        type: string
+                      NombreUsuario:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: La Clasificacion se ha Guardado exitosamente.
+                      CampoEspecialDefinicionID: 92
+                      FechaHoraUsuario: '2023-05-19T17:41:16.127'
+                      NombreUsuario: ADMINISTRADOR
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: La Clasificacion se ha Guardado exitosamente.
+                      CampoEspecialDefinicionID: 92
+                      FechaHoraUsuario: '2023-05-19T17:41:16.127'
+                      NombreUsuario: ADMINISTRADOR
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Tabla:
+                  type: string
+                NombreCampo:
+                  type: string
+                Tipo:
+                  type: string
+                Longitud:
+                  type: string
+                Decimales:
+                  type: string
+                Lista:
+                  type: string
+                CampoEspecialTablasID:
+                  type: string
+                Script:
+                  type: string
+                Orden:
+                  type: string
+                Obsoleto:
+                  type: string
+                ValorDefecto:
+                  type: string
+                TipoGuardadoLista:
+                  type: string
+                Filtrable:
+                  type: string
+                Herencia:
+                  type: string
+              x-examples:
+                Example 1:
+                  Tabla: AlbaranCompraCabecera
+                  NombreCampo: TesteoNEW
+                  Tipo: TEXTO
+                  Longitud: '20'
+                  Decimales: '0'
+                  Lista: '0'
+                  CampoEspecialTablasID: '22'
+                  Script: ScriptingNEW
+                  Orden: '10'
+                  Obsoleto: '0'
+                  ValorDefecto: DEFECT
+                  TipoGuardadoLista: '1'
+                  Filtrable: '1'
+                  Herencia: '0'
+            examples:
+              Example 1:
+                value:
+                  Tabla: AlbaranCompraCabecera
+                  NombreCampo: TesteoNEW
+                  Tipo: TEXTO
+                  Longitud: '20'
+                  Decimales: '0'
+                  Lista: '0'
+                  CampoEspecialTablasID: '22'
+                  Script: ScriptingNEW
+                  Orden: '10'
+                  Obsoleto: '0'
+                  ValorDefecto: DEFECT
+                  TipoGuardadoLista: '1'
+                  Filtrable: '1'
+                  Herencia: '0'
 components:
   schemas: {}
