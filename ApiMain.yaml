@@ -9704,5 +9704,131 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  '/clasifications/{tablaid}':
+    parameters:
+      - schema:
+          type: string
+          example: '22'
+        name: tablaid
+        in: path
+        required: true
+        description: CampoEspecialTablasID
+    get:
+      summary: Clasifications - FindByTable
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Tabla:
+                              type: string
+                            Descripcion:
+                              type: string
+                            Lista:
+                              type: integer
+                            Obsoleto:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "\r\nSELECT\r\nced.Tabla,\r\nced.nOmbreCampo AS Descripcion,\r\nced.Lista,\r\nced.Obsoleto\r\nFROM\r\ncampoespecialdefinicion ced\r\nWHERE\r\nced.CustomerID = 29\r\nAND ced.EmpresaID = 1\r\nAND ced.CampoEspecialTablasID = 22"
+                      data:
+                        - Tabla: AlbaranCompraCabecera
+                          Descripcion: test
+                          Lista: 0
+                          Obsoleto: 0
+                        - Tabla: AlbaranCompraCabecera
+                          Descripcion: testing
+                          Lista: 0
+                          Obsoleto: 0
+                        - Tabla: AlbaranCompraCabecera
+                          Descripcion: Testeo
+                          Lista: 0
+                          Obsoleto: 0
+                        - Tabla: AlbaranCompraCabecera
+                          Descripcion: TesteoNEW
+                          Lista: 0
+                          Obsoleto: 0
+                        - Tabla: AlbaranCompraCabecera
+                          Descripcion: TesteoULTIMATE
+                          Lista: 0
+                          Obsoleto: 0
+                        - Tabla: AlbaranCompraCabecera
+                          Descripcion: TesteoULTIMATE
+                          Lista: 0
+                          Obsoleto: 0
+                        - Tabla: AlbaranCompraCabecera
+                          Descripcion: TesteoUPDATED
+                          Lista: 0
+                          Obsoleto: 0
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - Tabla: AlbaranCompraCabecera
+                          Descripcion: test
+                          Lista: 0
+                          Obsoleto: 0
+                        - Tabla: AlbaranCompraCabecera
+                          Descripcion: testing
+                          Lista: 0
+                          Obsoleto: 0
+                        - Tabla: AlbaranCompraCabecera
+                          Descripcion: Testeo
+                          Lista: 0
+                          Obsoleto: 0
+                        - Tabla: AlbaranCompraCabecera
+                          Descripcion: TesteoNEW
+                          Lista: 0
+                          Obsoleto: 0
+                        - Tabla: AlbaranCompraCabecera
+                          Descripcion: TesteoULTIMATE
+                          Lista: 0
+                          Obsoleto: 0
+                        - Tabla: AlbaranCompraCabecera
+                          Descripcion: TesteoULTIMATE
+                          Lista: 0
+                          Obsoleto: 0
+                        - Tabla: AlbaranCompraCabecera
+                          Descripcion: TesteoUPDATED
+                          Lista: 0
+                          Obsoleto: 0
+      operationId: get-clasifications-tablaid
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas: {}
