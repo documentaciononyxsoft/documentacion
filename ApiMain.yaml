@@ -9530,5 +9530,179 @@ paths:
                   TipoGuardadoLista: '1'
                   Filtrable: '1'
                   Herencia: '0'
+  '/clasifications/{id}':
+    parameters:
+      - schema:
+          type: string
+          example: '92'
+        name: id
+        in: path
+        required: true
+        description: CampoEspecialDefinicionID
+    put:
+      summary: Clasifications - Update
+      operationId: put-clasifications-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                      CampoEspecialDefinicionID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: La Clasificacion se ha modificado exitosamente.
+                      CampoEspecialDefinicionID: 92
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: La Clasificacion se ha modificado exitosamente.
+                      CampoEspecialDefinicionID: 92
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CampoEspecialDefinicionID:
+                  type: string
+                Tabla:
+                  type: string
+                NombreCampo:
+                  type: string
+                Tipo:
+                  type: string
+                Longitud:
+                  type: string
+                Decimales:
+                  type: string
+                Lista:
+                  type: string
+                CampoEspecialTablasID:
+                  type: string
+                Script:
+                  type: string
+                Orden:
+                  type: string
+                Obsoleto:
+                  type: string
+                ValorDefecto:
+                  type: string
+                TipoGuardadoLista:
+                  type: string
+                Filtrable:
+                  type: string
+                Herencia:
+                  type: string
+              x-examples:
+                Example 1:
+                  CampoEspecialDefinicionID: '91'
+                  Tabla: AlbaranCompraCabecera
+                  NombreCampo: TesteoUPDATED
+                  Tipo: TEXTO
+                  Longitud: '30'
+                  Decimales: '0'
+                  Lista: '0'
+                  CampoEspecialTablasID: '22'
+                  Script: ''
+                  Orden: '20'
+                  Obsoleto: '0'
+                  ValorDefecto: ''
+                  TipoGuardadoLista: '1'
+                  Filtrable: '1'
+                  Herencia: '0'
+            examples:
+              Example 1:
+                value:
+                  CampoEspecialDefinicionID: '91'
+                  Tabla: AlbaranCompraCabecera
+                  NombreCampo: TesteoUPDATED
+                  Tipo: TEXTO
+                  Longitud: '30'
+                  Decimales: '0'
+                  Lista: '0'
+                  CampoEspecialTablasID: '22'
+                  Script: ''
+                  Orden: '20'
+                  Obsoleto: '0'
+                  ValorDefecto: ''
+                  TipoGuardadoLista: '1'
+                  Filtrable: '1'
+                  Herencia: '0'
+    delete:
+      summary: Clasifications - Delete
+      operationId: delete-clasifications-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: La Clasificacion ha sido eliminada exitosamente.
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: La Clasificacion ha sido eliminada exitosamente.
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas: {}
