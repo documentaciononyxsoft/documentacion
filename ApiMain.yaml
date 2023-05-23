@@ -9907,7 +9907,7 @@ paths:
     parameters:
       - schema:
           type: string
-          example: '94'
+          example: '134'
         name: id
         in: path
         required: true
