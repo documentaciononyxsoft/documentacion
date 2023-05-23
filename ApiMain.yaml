@@ -9912,8 +9912,29 @@ paths:
         in: path
         required: true
         description: CampoEspecialDefinicionID
+    put:
+      summary: Clasifications - UpdateListValue
+      operationId: put-clasifications-list-id
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: Clasifications - DeleteListValue
+      operationId: delete-clasifications-list-id
+      responses:
+        '200':
+          description: OK
+  '/clasifications/listvalues/{id}':
+    parameters:
+      - schema:
+          type: string
+          example: '94'
+        name: id
+        in: path
+        required: true
+        description: CampoEspecialDefinicionID
     get:
-      summary: Clasifications - GetListValues
+      summary: Clasifications - ListValuesByClasification
       tags: []
       responses:
         '200':
@@ -9949,7 +9970,7 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      sql: "\r\nSELECT \r\ncel.CampoEspecialListaID,\r\ncel.CampoEspecialDefinicionID,\r\ncel.Valor\r\nFROM\r\ncampoespeciallista cel\r\nINNER JOIN campoespecialdefinicion ced ON cel.CampoEspecialDefinicionID = ced.CampoEspecialDefinicionID\r\nWHERE\r\nced.CustomerID = 29\r\nAND ced.EmpresaID = 1\r\nAND cel.CampoEspecialDefinicionID = 94"
+                      sql: string
                       data:
                         - CampoEspecialDefinicionID: 94
                           Valor: CEL126 - CED94 - Prueba
@@ -9972,7 +9993,7 @@ paths:
                           Valor: CEL127 - CED94 - Prueba
                         - CampoEspecialDefinicionID: 94
                           Valor: ValorPrueba2
-      operationId: get-clasifications-list-id
+      operationId: get-clasifications-listvalues-id
       parameters:
         - schema:
             type: string
