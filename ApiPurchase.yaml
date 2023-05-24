@@ -854,6 +854,810 @@ paths:
           name: accessToken
           description: 'Authorization token '
           required: true
+  /purchaseline:
+    post:
+      summary: Purchases - PurchaseLine - Create
+      operationId: post-purchaseline
+      responses:
+        '200':
+          description: User Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      AlbaranCompraLineaID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      AlbaranCompraLineaID: 445
+              examples:
+                New User Bob Fellow:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      AlbaranCompraLineaID: 445
+        '400':
+          description: Missing Required Information
+        '409':
+          description: Email Already Taken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurchaseLine'
+            examples:
+              Create User Bob Fellow:
+                value:
+                  firstName: Bob
+                  lastName: Fellow
+                  email: bob.fellow@gmail.com
+                  dateOfBirth: '1996-08-24'
+        description: Publish the necessary fields for the API to create a new purchase line record
+      description: Create a new purchase line record
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: 'Authorization token '
+          required: true
+    parameters: []
+  '/purchaseline/{AlbaranCompraLineaID}':
+    parameters:
+      - schema:
+          type: string
+        name: AlbaranCompraLineaID
+        in: path
+        required: true
+    put:
+      summary: Purchases - PurchaseLine - Update
+      operationId: put-purchaseline-albarancompralineaid
+      responses:
+        '200':
+          description: Succesfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      AlbaranCompraLineaID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      AlbaranCompraLineaID: 445
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      AlbaranCompraLineaID: 445
+        '':
+          description: ''
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: Authorization token
+          required: true
+      description: Update a maintenance purchase line record
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurchaseLine'
+        description: Publish the required fields for the API to update a maintenance purchase line record.
+    delete:
+      summary: Purchases - PurchaseLine- Remove
+      operationId: delete-purchaseline-albarancompralineaid
+      responses:
+        '200':
+          description: Succesfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: Eliminado correctamente
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: Eliminado correctamente
+      description: Delete a maintenance purchase line record
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: Authorization token
+          required: true
+      requestBody:
+        content: {}
+        description: ''
+  '/purchaselines/{AlbaranCompraCabeceraID}':
+    parameters:
+      - schema:
+          type: string
+        name: AlbaranCompraCabeceraID
+        in: path
+        required: true
+        description: Albaran purchase identifier
+    get:
+      summary: Purchases - Purchaselines - FindManybyPurchases
+      operationId: get-purchaselines-albarancompracabeceraid
+      responses:
+        '200':
+          description: Succesfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            PorcentajeIvaLinea:
+                              type: integer
+                            Cantidad:
+                              type: integer
+                            Cantidad2:
+                              type: integer
+                            PrecioCompra:
+                              type: number
+                            importeCompra:
+                              type:
+                                - integer
+                                - number
+                            Linea:
+                              type: integer
+                            Nombre:
+                              type: string
+                            GastoCompra:
+                              type: integer
+                            Cajas:
+                              type: integer
+                            Dto1:
+                              type: integer
+                            Dto2:
+                              type: integer
+                            Dto3:
+                              type: integer
+                            Estado:
+                              type: string
+                            Factor:
+                              type: integer
+                            FactorCantidad:
+                              type: integer
+                            GastoCompraCantidad2:
+                              type: integer
+                            ArticuloID:
+                              type: integer
+                            AlmacenID:
+                              type: integer
+                            HitoFacturacionID:
+                              type: integer
+                            NumeroAlbaranRecepcion:
+                              type: integer
+                            CodArticulo:
+                              type: string
+                            CodAlmacen:
+                              type: string
+                            Almacen:
+                              type: string
+                            IdentPedido:
+                              type: integer
+                            NumeroPedido:
+                              type: integer
+                            referenciaInternaPedido:
+                              type: string
+                            ReferenciaInterna:
+                              type: string
+                            NumeroAlbaranCompraOriginal:
+                              type: integer
+                            NumeroIncidencia:
+                              type: string
+                            IncidenciaCalidadCabeceraID:
+                              type: integer
+                            FacturaCompraCabeceraID:
+                              type: integer
+                            Problema:
+                              type: string
+                            codigoIVA:
+                              type: string
+                            PorcentajeIVATabla:
+                              type: integer
+                            PorcentajeRecargoTabla:
+                              type: integer
+                            Serie:
+                              type: string
+                            AlbaranCompraLineaDevolucionID:
+                              type: integer
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - PorcentajeIvaLinea: 16
+                          Cantidad: 50
+                          Cantidad2: 0
+                          PrecioCompra: 0.01
+                          importeCompra: 0.5
+                          Linea: 1
+                          Nombre: ARANDELA M3 PLANA T2531
+                          GastoCompra: 0
+                          Cajas: 0
+                          Dto1: 0
+                          Dto2: 0
+                          Dto3: 0
+                          Estado: ''
+                          Factor: 0
+                          FactorCantidad: 0
+                          GastoCompraCantidad2: 0
+                          ArticuloID: 88
+                          AlmacenID: 1
+                          HitoFacturacionID: 0
+                          NumeroAlbaranRecepcion: 1
+                          CodArticulo: 01ARM3P
+                          CodAlmacen: CEN
+                          Almacen: ALMACEN CENTRAL
+                          IdentPedido: 2
+                          NumeroPedido: 1
+                          referenciaInternaPedido: ''
+                          ReferenciaInterna: ''
+                          NumeroAlbaranCompraOriginal: 0
+                          NumeroIncidencia: ''
+                          IncidenciaCalidadCabeceraID: 0
+                          FacturaCompraCabeceraID: 0
+                          Problema: ''
+                          codigoIVA: '016'
+                          PorcentajeIVATabla: 16
+                          PorcentajeRecargoTabla: 0
+                          Serie: ''
+                          AlbaranCompraLineaDevolucionID: 0
+                        - PorcentajeIvaLinea: 4
+                          Cantidad: 0
+                          Cantidad2: 0
+                          PrecioCompra: 25
+                          importeCompra: 0
+                          Linea: 11
+                          Nombre: Tuerca numero 1
+                          GastoCompra: 0
+                          Cajas: 0
+                          Dto1: 25
+                          Dto2: 0
+                          Dto3: 30
+                          Estado: ''
+                          Factor: 1
+                          FactorCantidad: 0
+                          GastoCompraCantidad2: 0
+                          ArticuloID: 1694
+                          AlmacenID: 5
+                          HitoFacturacionID: 0
+                          NumeroAlbaranRecepcion: 1
+                          CodArticulo: TUE-88
+                          CodAlmacen: '3'
+                          Almacen: Almacén repuestos
+                          IdentPedido: 0
+                          NumeroPedido: 0
+                          referenciaInternaPedido: ''
+                          ReferenciaInterna: ''
+                          NumeroAlbaranCompraOriginal: 0
+                          NumeroIncidencia: ''
+                          IncidenciaCalidadCabeceraID: 0
+                          FacturaCompraCabeceraID: 0
+                          Problema: ''
+                          codigoIVA: '014'
+                          PorcentajeIVATabla: 4
+                          PorcentajeRecargoTabla: 0.5
+                          Serie: ''
+                          AlbaranCompraLineaDevolucionID: 0
+                        - PorcentajeIvaLinea: 0
+                          Cantidad: 10
+                          Cantidad2: 0
+                          PrecioCompra: 52.5
+                          importeCompra: 0
+                          Linea: 12
+                          Nombre: 'TORNILLO DE HIERRO FORJADO, VENTA POR LOTE'
+                          GastoCompra: 0
+                          Cajas: 0
+                          Dto1: 2
+                          Dto2: -1
+                          Dto3: 0
+                          Estado: ''
+                          Factor: 0
+                          FactorCantidad: 0
+                          GastoCompraCantidad2: 0
+                          ArticuloID: 9
+                          AlmacenID: 1
+                          HitoFacturacionID: 0
+                          NumeroAlbaranRecepcion: 1
+                          CodArticulo: APL1
+                          CodAlmacen: CEN
+                          Almacen: ALMACEN CENTRAL
+                          IdentPedido: 0
+                          NumeroPedido: 0
+                          referenciaInternaPedido: ''
+                          ReferenciaInterna: ''
+                          NumeroAlbaranCompraOriginal: 0
+                          NumeroIncidencia: ''
+                          IncidenciaCalidadCabeceraID: 0
+                          FacturaCompraCabeceraID: 0
+                          Problema: ''
+                          codigoIVA: '004'
+                          PorcentajeIVATabla: 4
+                          PorcentajeRecargoTabla: 0
+                          Serie: ''
+                          AlbaranCompraLineaDevolucionID: 0
+                        - PorcentajeIvaLinea: 0
+                          Cantidad: 10
+                          Cantidad2: 0
+                          PrecioCompra: 52.5
+                          importeCompra: 0
+                          Linea: 12
+                          Nombre: 'TORNILLO DE HIERRO FORJADO, VENTA POR LOTE'
+                          GastoCompra: 0
+                          Cajas: 0
+                          Dto1: 2
+                          Dto2: -1
+                          Dto3: 0
+                          Estado: ''
+                          Factor: 0
+                          FactorCantidad: 0
+                          GastoCompraCantidad2: 0
+                          ArticuloID: 9
+                          AlmacenID: 1
+                          HitoFacturacionID: 0
+                          NumeroAlbaranRecepcion: 1
+                          CodArticulo: APL1
+                          CodAlmacen: CEN
+                          Almacen: ALMACEN CENTRAL
+                          IdentPedido: 0
+                          NumeroPedido: 0
+                          referenciaInternaPedido: ''
+                          ReferenciaInterna: ''
+                          NumeroAlbaranCompraOriginal: 0
+                          NumeroIncidencia: ''
+                          IncidenciaCalidadCabeceraID: 0
+                          FacturaCompraCabeceraID: 0
+                          Problema: ''
+                          codigoIVA: '004'
+                          PorcentajeIVATabla: 4
+                          PorcentajeRecargoTabla: 0
+                          Serie: ''
+                          AlbaranCompraLineaDevolucionID: 0
+                        - PorcentajeIvaLinea: 0
+                          Cantidad: 10
+                          Cantidad2: 0
+                          PrecioCompra: 52.5
+                          importeCompra: 0
+                          Linea: 12
+                          Nombre: 'TORNILLO DE HIERRO FORJADO, VENTA POR LOTE'
+                          GastoCompra: 0
+                          Cajas: 0
+                          Dto1: 2
+                          Dto2: -1
+                          Dto3: 0
+                          Estado: ''
+                          Factor: 0
+                          FactorCantidad: 0
+                          GastoCompraCantidad2: 0
+                          ArticuloID: 9
+                          AlmacenID: 1
+                          HitoFacturacionID: 0
+                          NumeroAlbaranRecepcion: 1
+                          CodArticulo: APL1
+                          CodAlmacen: CEN
+                          Almacen: ALMACEN CENTRAL
+                          IdentPedido: 0
+                          NumeroPedido: 0
+                          referenciaInternaPedido: ''
+                          ReferenciaInterna: ''
+                          NumeroAlbaranCompraOriginal: 0
+                          NumeroIncidencia: ''
+                          IncidenciaCalidadCabeceraID: 0
+                          FacturaCompraCabeceraID: 0
+                          Problema: ''
+                          codigoIVA: '004'
+                          PorcentajeIVATabla: 4
+                          PorcentajeRecargoTabla: 0
+                          Serie: ''
+                          AlbaranCompraLineaDevolucionID: 0
+                      sql: "SELECT AlbaranCompraLinea.*,\r\nAlbaranCompraLinea.PorcentajeIVA AS PorcentajeIvaLinea,\r\nAlbaranCompraCabecera.HitoFacturacionID,\r\nAlbaranCompraCabecera.Numero AS NumeroAlbaranRecepcion,\r\nArticulo.Codigo AS CodArticulo, \r\nAlmacen.Codigo AS CodAlmacen, \r\nAlmacen.Nombre AS Almacen,\r\nPedidoCompraCabecera.PedidoCompraCabeceraID AS IdentPedido,\r\nPedidoCompraCabecera.Numero AS NumeroPedido,\r\nPedidoCompraCabecera.ReferenciaInterna AS referenciaInternaPedido,\r\nOriginal.Referencia AS ReferenciaInterna,\r\nOriginal.Numero AS NumeroAlbaranCompraOriginal,\r\nIncidenciaCalidadCabecera.Numero AS NumeroIncidencia,\r\nIncidenciaCalidadCabecera.IncidenciaCalidadCabeceraID,\r\nTablaGeneral.Descripcion AS Problema,\r\nIva.Codigo AS codigoIVA,\r\nIva.PorcentajeIva AS PorcentajeIVATabla,\r\nIva.PorcentajeRecargo AS PorcentajeRecargoTabla,\r\nSeriePedidoAlbaranCompra.Serie\r\n\r\nFROM \r\n((((((((AlbaranCompraLinea Left JOIN Articulo ON AlbaranCompraLinea.ArticuloID = Articulo.ArticuloID)\r\nLeft JOIN AlbaranCompraCabecera ON AlbaranCompraCabecera.AlbaranCompraCabeceraID = AlbaranCompraLinea.AlbaranCompraCabeceraID)\r\nLeft JOIN PedidoCompraLinea ON AlbaranCompraLinea.PedidoCompraLineaID = PedidoCompraLinea.PedidoCompraLineaID)\r\nLeft JOIN PedidoCompraCabecera ON PedidoCompraCabecera.PedidoCompraCabeceraID = PedidoCompraLinea.PedidoCompraCabeceraID)\r\nLeft OUTER JOIN AlbaranCompraLinea AS OriginalLinea ON OriginalLinea.AlbaranCompraLineaID = AlbaranCompraLinea.AlbaranCompraLineaDevolucionID)\r\nLeft JOIN AlbaranCompraCabecera AS Original ON Original.AlbaranCompraCabeceraID = OriginalLinea.AlbaranCompraCabeceraID)\r\nLeft OUTER JOIN IncidenciaCalidadCabecera ON IncidenciaCalidadCabecera.DevolucionLineaID = AlbaranCompraLinea.AlbaranCompraLineaID)\r\nLeft OUTER JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = AlbaranCompraLinea.OrigenProblemaID)\r\nLeft JOIN Almacen ON Almacen.AlmacenID = AlbaranCompraLinea.AlmacenID\r\nLeft JOIN Iva ON AlbaranCompraLinea.IvaID = Iva.IvaID\r\nLeft JOIN SeriePedidoAlbaranCompra ON SeriePedidoAlbaranCompra.SeriePedidoAlbaranCompraID = original.SerieAlbaranID\r\n\r\nwhere \r\nAlbaranCompraLinea.CustomerID = '29' AND\r\nAlbaranCompraLinea.EmpresaID =  '1' AND\r\nAlbaranCompraLinea.AlbaranCompraCabeceraID= 2 \r\n\r\nORDER by AlbaranCompraLinea.Linea\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - PorcentajeIvaLinea: 16
+                          Cantidad: 50
+                          Cantidad2: 0
+                          PrecioCompra: 0.01
+                          importeCompra: 0.5
+                          Linea: 1
+                          Nombre: ARANDELA M3 PLANA T2531
+                          GastoCompra: 0
+                          Cajas: 0
+                          Dto1: 0
+                          Dto2: 0
+                          Dto3: 0
+                          Estado: ''
+                          Factor: 0
+                          FactorCantidad: 0
+                          GastoCompraCantidad2: 0
+                          ArticuloID: 88
+                          AlmacenID: 1
+                          HitoFacturacionID: 0
+                          NumeroAlbaranRecepcion: 1
+                          CodArticulo: 01ARM3P
+                          CodAlmacen: CEN
+                          Almacen: ALMACEN CENTRAL
+                          IdentPedido: 2
+                          NumeroPedido: 1
+                          referenciaInternaPedido: ''
+                          ReferenciaInterna: ''
+                          NumeroAlbaranCompraOriginal: 0
+                          NumeroIncidencia: ''
+                          IncidenciaCalidadCabeceraID: 0
+                          FacturaCompraCabeceraID: 0
+                          Problema: ''
+                          codigoIVA: '016'
+                          PorcentajeIVATabla: 16
+                          PorcentajeRecargoTabla: 0
+                          Serie: ''
+                          AlbaranCompraLineaDevolucionID: 0
+                        - PorcentajeIvaLinea: 4
+                          Cantidad: 0
+                          Cantidad2: 0
+                          PrecioCompra: 25
+                          importeCompra: 0
+                          Linea: 11
+                          Nombre: Tuerca numero 1
+                          GastoCompra: 0
+                          Cajas: 0
+                          Dto1: 25
+                          Dto2: 0
+                          Dto3: 30
+                          Estado: ''
+                          Factor: 1
+                          FactorCantidad: 0
+                          GastoCompraCantidad2: 0
+                          ArticuloID: 1694
+                          AlmacenID: 5
+                          HitoFacturacionID: 0
+                          NumeroAlbaranRecepcion: 1
+                          CodArticulo: TUE-88
+                          CodAlmacen: '3'
+                          Almacen: Almacén repuestos
+                          IdentPedido: 0
+                          NumeroPedido: 0
+                          referenciaInternaPedido: ''
+                          ReferenciaInterna: ''
+                          NumeroAlbaranCompraOriginal: 0
+                          NumeroIncidencia: ''
+                          IncidenciaCalidadCabeceraID: 0
+                          FacturaCompraCabeceraID: 0
+                          Problema: ''
+                          codigoIVA: '014'
+                          PorcentajeIVATabla: 4
+                          PorcentajeRecargoTabla: 0.5
+                          Serie: ''
+                          AlbaranCompraLineaDevolucionID: 0
+                        - PorcentajeIvaLinea: 0
+                          Cantidad: 10
+                          Cantidad2: 0
+                          PrecioCompra: 52.5
+                          importeCompra: 0
+                          Linea: 12
+                          Nombre: 'TORNILLO DE HIERRO FORJADO, VENTA POR LOTE'
+                          GastoCompra: 0
+                          Cajas: 0
+                          Dto1: 2
+                          Dto2: -1
+                          Dto3: 0
+                          Estado: ''
+                          Factor: 0
+                          FactorCantidad: 0
+                          GastoCompraCantidad2: 0
+                          ArticuloID: 9
+                          AlmacenID: 1
+                          HitoFacturacionID: 0
+                          NumeroAlbaranRecepcion: 1
+                          CodArticulo: APL1
+                          CodAlmacen: CEN
+                          Almacen: ALMACEN CENTRAL
+                          IdentPedido: 0
+                          NumeroPedido: 0
+                          referenciaInternaPedido: ''
+                          ReferenciaInterna: ''
+                          NumeroAlbaranCompraOriginal: 0
+                          NumeroIncidencia: ''
+                          IncidenciaCalidadCabeceraID: 0
+                          FacturaCompraCabeceraID: 0
+                          Problema: ''
+                          codigoIVA: '004'
+                          PorcentajeIVATabla: 4
+                          PorcentajeRecargoTabla: 0
+                          Serie: ''
+                          AlbaranCompraLineaDevolucionID: 0
+                        - PorcentajeIvaLinea: 0
+                          Cantidad: 10
+                          Cantidad2: 0
+                          PrecioCompra: 52.5
+                          importeCompra: 0
+                          Linea: 12
+                          Nombre: 'TORNILLO DE HIERRO FORJADO, VENTA POR LOTE'
+                          GastoCompra: 0
+                          Cajas: 0
+                          Dto1: 2
+                          Dto2: -1
+                          Dto3: 0
+                          Estado: ''
+                          Factor: 0
+                          FactorCantidad: 0
+                          GastoCompraCantidad2: 0
+                          ArticuloID: 9
+                          AlmacenID: 1
+                          HitoFacturacionID: 0
+                          NumeroAlbaranRecepcion: 1
+                          CodArticulo: APL1
+                          CodAlmacen: CEN
+                          Almacen: ALMACEN CENTRAL
+                          IdentPedido: 0
+                          NumeroPedido: 0
+                          referenciaInternaPedido: ''
+                          ReferenciaInterna: ''
+                          NumeroAlbaranCompraOriginal: 0
+                          NumeroIncidencia: ''
+                          IncidenciaCalidadCabeceraID: 0
+                          FacturaCompraCabeceraID: 0
+                          Problema: ''
+                          codigoIVA: '004'
+                          PorcentajeIVATabla: 4
+                          PorcentajeRecargoTabla: 0
+                          Serie: ''
+                          AlbaranCompraLineaDevolucionID: 0
+                        - PorcentajeIvaLinea: 0
+                          Cantidad: 10
+                          Cantidad2: 0
+                          PrecioCompra: 52.5
+                          importeCompra: 0
+                          Linea: 12
+                          Nombre: 'TORNILLO DE HIERRO FORJADO, VENTA POR LOTE'
+                          GastoCompra: 0
+                          Cajas: 0
+                          Dto1: 2
+                          Dto2: -1
+                          Dto3: 0
+                          Estado: ''
+                          Factor: 0
+                          FactorCantidad: 0
+                          GastoCompraCantidad2: 0
+                          ArticuloID: 9
+                          AlmacenID: 1
+                          HitoFacturacionID: 0
+                          NumeroAlbaranRecepcion: 1
+                          CodArticulo: APL1
+                          CodAlmacen: CEN
+                          Almacen: ALMACEN CENTRAL
+                          IdentPedido: 0
+                          NumeroPedido: 0
+                          referenciaInternaPedido: ''
+                          ReferenciaInterna: ''
+                          NumeroAlbaranCompraOriginal: 0
+                          NumeroIncidencia: ''
+                          IncidenciaCalidadCabeceraID: 0
+                          FacturaCompraCabeceraID: 0
+                          Problema: ''
+                          codigoIVA: '004'
+                          PorcentajeIVATabla: 4
+                          PorcentajeRecargoTabla: 0
+                          Serie: ''
+                          AlbaranCompraLineaDevolucionID: 0
+                      sql: "SELECT AlbaranCompraLinea.*,\r\nAlbaranCompraLinea.PorcentajeIVA AS PorcentajeIvaLinea,\r\nAlbaranCompraCabecera.HitoFacturacionID,\r\nAlbaranCompraCabecera.Numero AS NumeroAlbaranRecepcion,\r\nArticulo.Codigo AS CodArticulo, \r\nAlmacen.Codigo AS CodAlmacen, \r\nAlmacen.Nombre AS Almacen,\r\nPedidoCompraCabecera.PedidoCompraCabeceraID AS IdentPedido,\r\nPedidoCompraCabecera.Numero AS NumeroPedido,\r\nPedidoCompraCabecera.ReferenciaInterna AS referenciaInternaPedido,\r\nOriginal.Referencia AS ReferenciaInterna,\r\nOriginal.Numero AS NumeroAlbaranCompraOriginal,\r\nIncidenciaCalidadCabecera.Numero AS NumeroIncidencia,\r\nIncidenciaCalidadCabecera.IncidenciaCalidadCabeceraID,\r\nTablaGeneral.Descripcion AS Problema,\r\nIva.Codigo AS codigoIVA,\r\nIva.PorcentajeIva AS PorcentajeIVATabla,\r\nIva.PorcentajeRecargo AS PorcentajeRecargoTabla,\r\nSeriePedidoAlbaranCompra.Serie\r\n\r\nFROM \r\n((((((((AlbaranCompraLinea Left JOIN Articulo ON AlbaranCompraLinea.ArticuloID = Articulo.ArticuloID)\r\nLeft JOIN AlbaranCompraCabecera ON AlbaranCompraCabecera.AlbaranCompraCabeceraID = AlbaranCompraLinea.AlbaranCompraCabeceraID)\r\nLeft JOIN PedidoCompraLinea ON AlbaranCompraLinea.PedidoCompraLineaID = PedidoCompraLinea.PedidoCompraLineaID)\r\nLeft JOIN PedidoCompraCabecera ON PedidoCompraCabecera.PedidoCompraCabeceraID = PedidoCompraLinea.PedidoCompraCabeceraID)\r\nLeft OUTER JOIN AlbaranCompraLinea AS OriginalLinea ON OriginalLinea.AlbaranCompraLineaID = AlbaranCompraLinea.AlbaranCompraLineaDevolucionID)\r\nLeft JOIN AlbaranCompraCabecera AS Original ON Original.AlbaranCompraCabeceraID = OriginalLinea.AlbaranCompraCabeceraID)\r\nLeft OUTER JOIN IncidenciaCalidadCabecera ON IncidenciaCalidadCabecera.DevolucionLineaID = AlbaranCompraLinea.AlbaranCompraLineaID)\r\nLeft OUTER JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = AlbaranCompraLinea.OrigenProblemaID)\r\nLeft JOIN Almacen ON Almacen.AlmacenID = AlbaranCompraLinea.AlmacenID\r\nLeft JOIN Iva ON AlbaranCompraLinea.IvaID = Iva.IvaID\r\nLeft JOIN SeriePedidoAlbaranCompra ON SeriePedidoAlbaranCompra.SeriePedidoAlbaranCompraID = original.SerieAlbaranID\r\n\r\nwhere \r\nAlbaranCompraLinea.CustomerID = '29' AND\r\nAlbaranCompraLinea.EmpresaID =  '1' AND\r\nAlbaranCompraLinea.AlbaranCompraCabeceraID= 2 \r\n\r\nORDER by AlbaranCompraLinea.Linea\r\n"
+      description: Gets all the lines that are related to the record of the specified id
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: 'Authorization token '
+          required: true
+  /purchaseline/validateGastoCompra:
+    parameters: []
+    get:
+      summary: Purchases - Purchaseline - ValidateGastoCompra
+      operationId: get-purchaseline-validategastocompra
+      responses:
+        '200':
+          description: Succesfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      ValodationGastoCompraCantidad:
+                        type: boolean
+                      ValodationGastoCompra:
+                        type: boolean
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      ValodationGastoCompraCantidad: false
+                      ValodationGastoCompra: false
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      ValodationGastoCompraCantidad: false
+                      ValodationGastoCompra: false
+                      success: true
+      description: Obtains the purchase expense validation
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: 'Authorization token '
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: ArticuloID
+          description: Article identifier
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: AlbaranCompraCabeceraID
+          description: Albaran compra identifier
+          required: true
+  '/purchaseline/validateGama/{AlbaranCompraLineaID}':
+    parameters:
+      - schema:
+          type: string
+        name: AlbaranCompraLineaID
+        in: path
+        required: true
+        description: Albaran purchase line identifier
+    get:
+      summary: Purchases - Purchaselines - ValidateGama
+      operationId: get-purchaseline-validategama-albarancompralineaid
+      responses:
+        '200':
+          description: Succesfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      RelacionesEncontradas:
+                        type: boolean
+                      msg:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      RelacionesEncontradas: false
+                      msg: No se encontraron registros de gama de control asociados
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      RelacionesEncontradas: false
+                      msg: No se encontraron registros de gama de control asociados
+      description: Gets validation of control ranges
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: accessToken
+          description: 'Authorization token '
+          required: true
 components:
   schemas:
     Purchase:
@@ -893,3 +1697,94 @@ components:
       description: Maintenance purchases
       x-stoplight:
         id: wacxnslz28h1b
+    PurchaseLine:
+      title: PurchaseLine
+      x-stoplight:
+        id: h0eqteqsoxy78
+      type: object
+      description: Maintenance purchase lines
+      properties:
+        id:
+          type: string
+          x-stoplight:
+            id: spz5rv6c2k53y
+        AlbaranCompraLineaID:
+          type: string
+          x-stoplight:
+            id: bqa9djtjx6pjv
+        Linea:
+          type: string
+          x-stoplight:
+            id: tqdjadhsdqgjp
+        AlmacenID:
+          type: string
+          x-stoplight:
+            id: 4ngkeyrsr06bb
+        ArticuloID:
+          type: string
+          x-stoplight:
+            id: fa5nlirefy00w
+        Referencia:
+          type: string
+          x-stoplight:
+            id: 9nfo2lmor96xy
+        Nombre:
+          type: string
+          x-stoplight:
+            id: 2lgiadz915ywe
+        Descripcion:
+          type: string
+          x-stoplight:
+            id: frxlmotn0sqlo
+        Cantidad:
+          type: string
+          x-stoplight:
+            id: iydhq0nm87xsl
+        PrecioCompra:
+          type: string
+          x-stoplight:
+            id: 9gdaafgrkqz51
+        IvaID:
+          type: string
+          x-stoplight:
+            id: k3cxo7s8ffx51
+        Dto1:
+          type: string
+          x-stoplight:
+            id: q3kixge7jcev5
+        Dto2:
+          type: string
+          x-stoplight:
+            id: dtw6b0dmoippm
+        Dto3:
+          type: string
+          x-stoplight:
+            id: 161az2gwckmv8
+        TipoRetencionID:
+          type: string
+          x-stoplight:
+            id: i9mnl38u0a6tx
+        importeCompra:
+          type: string
+          x-stoplight:
+            id: 4870zu21qllzo
+        Cajas:
+          type: string
+          x-stoplight:
+            id: wz1b83d9pik6i
+        ReferenciaProveedor:
+          type: string
+          x-stoplight:
+            id: e1gnkuigz0jkw
+        NotaInterna:
+          type: string
+          x-stoplight:
+            id: j7w30ceh41ogt
+        NotaProveedor:
+          type: string
+          x-stoplight:
+            id: hy61ipvy3k06z
+        AlbaranCompraCabeceraID:
+          type: string
+          x-stoplight:
+            id: rqad5d370tc9d
