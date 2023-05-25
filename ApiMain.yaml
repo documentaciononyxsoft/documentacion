@@ -10239,7 +10239,7 @@ paths:
                   TablaRegistroID: '2869'
                   Valor: ValorNuevo
     get:
-      summary: ''
+      summary: ListValues
       operationId: get-clasification-value
       responses:
         '200':
