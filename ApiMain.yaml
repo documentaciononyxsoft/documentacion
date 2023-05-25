@@ -10157,5 +10157,86 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
           name: accessToken
+  /clasification/value:
+    post:
+      summary: Clasifications - SaveValue
+      operationId: post-clasification-value
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                      CampoEspecialValorID:
+                        type: integer
+                      FechaHoraUsuario:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: El valor se ha guardado exitosamente.
+                      CampoEspecialValorID: 42734
+                      FechaHoraUsuario: '2023-05-25T17:56:08.655'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: El valor se ha guardado exitosamente.
+                      CampoEspecialValorID: 42734
+                      FechaHoraUsuario: '2023-05-25T17:56:08.655'
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CampoEspecialDefinicionID:
+                  type: string
+                CampoEspecialListaID:
+                  type: string
+                TablaRegistroID:
+                  type: string
+                Valor:
+                  type: string
+              x-examples:
+                Example 1:
+                  CampoEspecialDefinicionID: '107'
+                  CampoEspecialListaID: ''
+                  TablaRegistroID: '2869'
+                  Valor: ValorNuevo
+            examples:
+              Example 1:
+                value:
+                  CampoEspecialDefinicionID: '107'
+                  CampoEspecialListaID: ''
+                  TablaRegistroID: '2869'
+                  Valor: ValorNuevo
 components:
   schemas: {}
