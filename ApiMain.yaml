@@ -10238,5 +10238,179 @@ paths:
                   CampoEspecialListaID: ''
                   TablaRegistroID: '2869'
                   Valor: ValorNuevo
+    get:
+      summary: ''
+      operationId: get-clasification-value
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            TablaID:
+                              type: integer
+                            NombreTabla:
+                              type: string
+                            DefinicionID:
+                              type: integer
+                            NombreCampo:
+                              type: string
+                            ValorID:
+                              type: integer
+                            Valor:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "\r\nSELECT \r\ncet.CampoEspecialTablasID,\r\ncet.Nombredetabla AS NombreTabla,\r\nced.CampoEspecialDefinicionID,\r\nced.nOmbreCampo AS NombreCampo,\r\ncev.CampoEspecialValorID,\r\ncev.Valor\r\n\r\nFROM\r\ncampoespecialdefinicion ced\r\nINNER JOIN campoespecialtablas cet ON cet.CampoEspecialTablasID = ced.CampoEspecialTablasID\r\nINNER JOIN campoespecialvalor cev ON cev.CampoEspecialDefinicionID = ced.CampoEspecialDefinicionID\r\nWHERE\r\nced.CustomerID = 29\r\nAND ced.EmpresaID = 1\r\nAND cet.CampoEspecialTablasID = 22\r\nAND cev.TablaRegistroId = 1930"
+                      data:
+                        - TablaID: 22
+                          NombreTabla: AlbaranCompraCabecera
+                          DefinicionID: 75
+                          NombreCampo: test
+                          ValorID: 42614
+                          Valor: testValor1930
+                        - TablaID: 22
+                          NombreTabla: AlbaranCompraCabecera
+                          DefinicionID: 76
+                          NombreCampo: testing
+                          ValorID: 42628
+                          Valor: '1930'
+                        - TablaID: 22
+                          NombreTabla: AlbaranCompraCabecera
+                          DefinicionID: 80
+                          NombreCampo: Testeo
+                          ValorID: 42615
+                          Valor: TesteoValor1930
+                        - TablaID: 22
+                          NombreTabla: AlbaranCompraCabecera
+                          DefinicionID: 83
+                          NombreCampo: TesteoNEW
+                          ValorID: 42616
+                          Valor: TesteoNEW1930
+                        - TablaID: 22
+                          NombreTabla: AlbaranCompraCabecera
+                          DefinicionID: 88
+                          NombreCampo: TesteoULTIMATE
+                          ValorID: 42617
+                          Valor: TesteoULTIMATE1930
+                        - TablaID: 22
+                          NombreTabla: AlbaranCompraCabecera
+                          DefinicionID: 93
+                          NombreCampo: Nuevo
+                          ValorID: 42690
+                          Valor: CEL122 - CED93 - Prueba
+                        - TablaID: 22
+                          NombreTabla: AlbaranCompraCabecera
+                          DefinicionID: 94
+                          NombreCampo: NuevaLista
+                          ValorID: 42622
+                          Valor: CEL126 - CED94 - Prueba
+                        - TablaID: 22
+                          NombreTabla: AlbaranCompraCabecera
+                          DefinicionID: 102
+                          NombreCampo: pruebayuyu
+                          ValorID: 42693
+                          Valor: yuyu
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - TablaID: 22
+                          NombreTabla: AlbaranCompraCabecera
+                          DefinicionID: 75
+                          NombreCampo: test
+                          ValorID: 42614
+                          Valor: testValor1930
+                        - TablaID: 22
+                          NombreTabla: AlbaranCompraCabecera
+                          DefinicionID: 76
+                          NombreCampo: testing
+                          ValorID: 42628
+                          Valor: '1930'
+                        - TablaID: 22
+                          NombreTabla: AlbaranCompraCabecera
+                          DefinicionID: 80
+                          NombreCampo: Testeo
+                          ValorID: 42615
+                          Valor: TesteoValor1930
+                        - TablaID: 22
+                          NombreTabla: AlbaranCompraCabecera
+                          DefinicionID: 83
+                          NombreCampo: TesteoNEW
+                          ValorID: 42616
+                          Valor: TesteoNEW1930
+                        - TablaID: 22
+                          NombreTabla: AlbaranCompraCabecera
+                          DefinicionID: 88
+                          NombreCampo: TesteoULTIMATE
+                          ValorID: 42617
+                          Valor: TesteoULTIMATE1930
+                        - TablaID: 22
+                          NombreTabla: AlbaranCompraCabecera
+                          DefinicionID: 93
+                          NombreCampo: Nuevo
+                          ValorID: 42690
+                          Valor: CEL122 - CED93 - Prueba
+                        - TablaID: 22
+                          NombreTabla: AlbaranCompraCabecera
+                          DefinicionID: 94
+                          NombreCampo: NuevaLista
+                          ValorID: 42622
+                          Valor: CEL126 - CED94 - Prueba
+                        - TablaID: 22
+                          NombreTabla: AlbaranCompraCabecera
+                          DefinicionID: 102
+                          NombreCampo: pruebayuyu
+                          ValorID: 42693
+                          Valor: yuyu
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: '22'
+          in: query
+          name: tablaid
+          description: CampoEspecialTablasID
+          required: true
+        - schema:
+            type: string
+            example: '1930'
+          in: query
+          name: registroid
+          description: TablaRegistroID
+          required: true
 components:
   schemas: {}
