@@ -10129,7 +10129,7 @@ paths:
 
         Tabla donde se guardan los valores: CampoEspecialValor
     get:
-      summary: ListValues
+      summary: Clasifications - ListValues
       operationId: get-clasification-value
       responses:
         '200':
