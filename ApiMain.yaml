@@ -10025,84 +10025,6 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
-  '/clasifications/listvalues/{id}':
-    parameters:
-      - schema:
-          type: string
-          example: '94'
-        name: id
-        in: path
-        required: true
-        description: CampoEspecialDefinicionID
-    get:
-      summary: Clasifications - ListValuesByClasification
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
-                      data:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            CampoEspecialDefinicionID:
-                              type: integer
-                            Valor:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: string
-                      data:
-                        - CampoEspecialDefinicionID: 94
-                          Valor: CEL126 - CED94 - Prueba
-                        - CampoEspecialDefinicionID: 94
-                          Valor: CEL127 - CED94 - Prueba
-                        - CampoEspecialDefinicionID: 94
-                          Valor: ValorPrueba2
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      sql: string
-                      data:
-                        - CampoEspecialDefinicionID: 94
-                          Valor: CEL126 - CED94 - Prueba
-                        - CampoEspecialDefinicionID: 94
-                          Valor: CEL127 - CED94 - Prueba
-                        - CampoEspecialDefinicionID: 94
-                          Valor: ValorPrueba2
-      operationId: get-clasifications-listvalues-id
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
   /clasification/value:
     post:
       summary: Clasifications - Save/Update Value
@@ -10434,5 +10356,83 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
           name: accessToken
+  '/clasifications/listvalues/{id}':
+    parameters:
+      - schema:
+          type: string
+          example: '94'
+        name: id
+        in: path
+        required: true
+        description: CampoEspecialDefinicionID
+    get:
+      summary: Clasifications - ListValuesByClasification
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            CampoEspecialDefinicionID:
+                              type: integer
+                            Valor:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - CampoEspecialDefinicionID: 94
+                          Valor: CEL126 - CED94 - Prueba
+                        - CampoEspecialDefinicionID: 94
+                          Valor: CEL127 - CED94 - Prueba
+                        - CampoEspecialDefinicionID: 94
+                          Valor: ValorPrueba2
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - CampoEspecialDefinicionID: 94
+                          Valor: CEL126 - CED94 - Prueba
+                        - CampoEspecialDefinicionID: 94
+                          Valor: CEL127 - CED94 - Prueba
+                        - CampoEspecialDefinicionID: 94
+                          Valor: ValorPrueba2
+      operationId: get-clasifications-listvalues-id
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas: {}
