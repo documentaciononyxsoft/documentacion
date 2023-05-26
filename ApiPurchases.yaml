@@ -10,7 +10,7 @@ paths:
   /purchases:
     parameters: []
     get:
-      summary: Purchases - FindMAny
+      summary: Purchases - FindMany
       operationId: get-purchases
       responses:
         '200':
@@ -438,6 +438,49 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      AlbaranCompraCabeceraID:
+                        type: integer
+                      FechaHoraUsuario:
+                        type: string
+                      UsuarioID:
+                        type: integer
+                      NombreUsuario:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      AlbaranCompraCabeceraID: 1942
+                      FechaHoraUsuario: '2023-05-26T15:35:16.113'
+                      UsuarioID: 1
+                      NombreUsuario: admin@admin.com
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      AlbaranCompraCabeceraID: 1942
+                      FechaHoraUsuario: '2023-05-26T15:35:16.113'
+                      UsuarioID: 1
+                      NombreUsuario: admin@admin.com
       parameters:
         - schema:
             type: string
