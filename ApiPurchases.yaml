@@ -560,9 +560,11 @@ paths:
     parameters:
       - schema:
           type: string
+          example: '1942'
         name: id
         in: path
         required: true
+        description: AlbaranCompraCabeceraID
     put:
       summary: Purchases - Update
       operationId: put-purchase-AlbaranCompraCabeceraID
@@ -597,10 +599,10 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      AlbaranCompraCabeceraID: 313
-                      FechaHoraUsuario: '2023-05-16T11:57:58.000'
+                      AlbaranCompraCabeceraID: 1942
+                      FechaHoraUsuario: '2023-05-26T15:35:16.113'
                       UsuarioID: 1
-                      NombreUsuario: ONYXD
+                      NombreUsuario: admin@admin.com
               examples:
                 Example 1:
                   value:
@@ -608,10 +610,10 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      AlbaranCompraCabeceraID: 313
-                      FechaHoraUsuario: '2023-05-16T11:57:58.000'
+                      AlbaranCompraCabeceraID: 1942
+                      FechaHoraUsuario: '2023-05-26T15:35:16.113'
                       UsuarioID: 1
-                      NombreUsuario: ONYXD
+                      NombreUsuario: admin@admin.com
       parameters:
         - schema:
             type: string
@@ -625,7 +627,69 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Purchase'
+              type: object
+              properties:
+                SerieAlbaranID:
+                  type: integer
+                FechaEntrada:
+                  type: string
+                AlmacenID:
+                  type: integer
+                ProveedorID:
+                  type: integer
+                NumeroAlbaranProveedor:
+                  type: integer
+                FechaAlbaran:
+                  type: string
+                Referencia:
+                  type: string
+                TipoID:
+                  type: integer
+                IdiomaID:
+                  type: integer
+                PreciosVerificados:
+                  type: integer
+                AlbaranVerificado:
+                  type: integer
+                ReferenciaProveedor:
+                  type: string
+                NotaGeneral:
+                  type: string
+                NotaProveedor:
+                  type: string
+              x-examples:
+                Example 1:
+                  SerieAlbaranID: 1
+                  FechaEntrada: '20230526'
+                  AlmacenID: 12
+                  ProveedorID: 256
+                  NumeroAlbaranProveedor: 184858
+                  FechaAlbaran: '20230526'
+                  Referencia: HG5657
+                  TipoID: 575
+                  IdiomaID: 570
+                  PreciosVerificados: 1
+                  AlbaranVerificado: 1
+                  ReferenciaProveedor: RefUpdated
+                  NotaGeneral: GeneralNoteUPDATED
+                  NotaProveedor: ProvNoteUPDATED
+            examples:
+              Example 1:
+                value:
+                  SerieAlbaranID: 1
+                  FechaEntrada: '20230526'
+                  AlmacenID: 12
+                  ProveedorID: 256
+                  NumeroAlbaranProveedor: 184858
+                  FechaAlbaran: '20230526'
+                  Referencia: HG5657
+                  TipoID: 575
+                  IdiomaID: 570
+                  PreciosVerificados: 1
+                  AlbaranVerificado: 1
+                  ReferenciaProveedor: RefUpdated
+                  NotaGeneral: GeneralNoteUPDATED
+                  NotaProveedor: ProvNoteUPDATED
         description: Publish the required fields for the API to update a maintenance purchase record.
     delete:
       summary: Purchases - Remove
