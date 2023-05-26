@@ -10159,7 +10159,7 @@ paths:
           name: accessToken
   /clasification/value:
     post:
-      summary: Clasifications - SaveValue
+      summary: Clasifications - Save/Update Value
       operationId: post-clasification-value
       responses:
         '200':
@@ -10194,15 +10194,23 @@ paths:
                       CampoEspecialValorID: 42734
                       FechaHoraUsuario: '2023-05-25T17:56:08.655'
               examples:
-                Example 1:
+                Crear:
                   value:
                     statusCode: 200
                     message: Request processed successfully
                     content:
                       success: true
                       msg: El valor se ha guardado exitosamente.
-                      CampoEspecialValorID: 42734
-                      FechaHoraUsuario: '2023-05-25T17:56:08.655'
+                      CampoEspecialValorID: 42741
+                      FechaHoraUsuario: '2023-05-26T10:34:20.477'
+                Actualizar:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: El valor se ha modificado exitosamente.
+                      CampoEspecialValorID: 42741
       parameters:
         - schema:
             type: string
@@ -10232,12 +10240,23 @@ paths:
                   TablaRegistroID: '2869'
                   Valor: ValorNuevo
             examples:
-              Example 1:
+              Crear:
                 value:
                   CampoEspecialDefinicionID: '107'
                   CampoEspecialListaID: ''
-                  TablaRegistroID: '2869'
-                  Valor: ValorNuevo
+                  TablaRegistroID: '2870'
+                  Valor: ValorNEW
+              Actualizar:
+                value:
+                  CampoEspecialDefinicionID: '107'
+                  CampoEspecialListaID: ''
+                  TablaRegistroID: '2870'
+                  Valor: ValorUPDATED
+      description: |-
+        El evento de crear o actualizar valor depende de los campos: "CampoEspecialDefinicionID" y "TablaRegistroID".
+
+        Si el primer campo (CampoEspecialDefinicionID) no existe entonces crea, si este campo existe verifica el campo (TablaRegistroID).
+        Si el campo (TablaRegistroID) no existe cre un nuevo valor para ese registro, si existe entonces actualiza el registro actual.
     get:
       summary: ListValues
       operationId: get-clasification-value
