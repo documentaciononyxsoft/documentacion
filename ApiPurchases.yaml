@@ -7,79 +7,6 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  /purchase:
-    post:
-      summary: Purchases - Create
-      operationId: post-purchase
-      responses:
-        '200':
-          description: User Created
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      AlbaranCompraCabeceraID:
-                        type: integer
-                      FechaHoraUsuario:
-                        type: string
-                      UsuarioID:
-                        type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      AlbaranCompraCabeceraID: 318
-                      FechaHoraUsuario: '2023-05-17T12:29:40.867'
-                      UsuarioID: 34
-              examples:
-                New User Bob Fellow:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      AlbaranCompraCabeceraID: 318
-                      FechaHoraUsuario: '2023-05-17T12:29:40.867'
-                      UsuarioID: 34
-        '400':
-          description: Missing Required Information
-        '409':
-          description: Email Already Taken
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Purchase'
-            examples:
-              Create User Bob Fellow:
-                value:
-                  firstName: Bob
-                  lastName: Fellow
-                  email: bob.fellow@gmail.com
-                  dateOfBirth: '1996-08-24'
-        description: Post the necessary fields for the API to create a new maintenance purchase record.
-      description: Create a new maintenance purchase record
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
-          in: header
-          name: accessToken
-          description: 'Authorization token '
-          required: true
-    parameters: []
   /purchases:
     parameters: []
     get:
@@ -505,6 +432,87 @@ paths:
           name: order
           description: Order in which you take the records
           required: true
+    post:
+      summary: Purchases - Create
+      operationId: post-purchases
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                SerieAlbaranID:
+                  type: integer
+                FechaEntrada:
+                  type: string
+                AlmacenID:
+                  type: integer
+                ProveedorID:
+                  type: integer
+                NumeroAlbaranProveedor:
+                  type: integer
+                FechaAlbaran:
+                  type: string
+                Referencia:
+                  type: string
+                TipoID:
+                  type: integer
+                IdiomaID:
+                  type: integer
+                PreciosVerificados:
+                  type: integer
+                AlbaranVerificado:
+                  type: integer
+                ReferenciaProveedor:
+                  type: string
+                NotaGeneral:
+                  type: string
+                NotaProveedor:
+                  type: string
+              x-examples:
+                Example 1:
+                  SerieAlbaranID: 1
+                  FechaEntrada: '20230526'
+                  AlmacenID: 12
+                  ProveedorID: 256
+                  NumeroAlbaranProveedor: 14514
+                  FechaAlbaran: '20230526'
+                  Referencia: XDFGDGDF
+                  TipoID: 575
+                  IdiomaID: 570
+                  PreciosVerificados: 0
+                  AlbaranVerificado: 0
+                  ReferenciaProveedor: ReferenciaProveedor
+                  NotaGeneral: GeneralNote
+                  NotaProveedor: ProvNote
+            examples:
+              Example 1:
+                value:
+                  SerieAlbaranID: 1
+                  FechaEntrada: '20230526'
+                  AlmacenID: 12
+                  ProveedorID: 256
+                  NumeroAlbaranProveedor: 14514
+                  FechaAlbaran: '20230526'
+                  Referencia: XDFGDGDF
+                  TipoID: 575
+                  IdiomaID: 570
+                  PreciosVerificados: 0
+                  AlbaranVerificado: 0
+                  ReferenciaProveedor: ReferenciaProveedor
+                  NotaGeneral: GeneralNote
+                  NotaProveedor: ProvNote
   '/purchase/{AlbaranCompraCabeceraID}':
     parameters:
       - schema:
