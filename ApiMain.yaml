@@ -10256,7 +10256,7 @@ paths:
         El evento de crear o actualizar valor depende de los campos: "CampoEspecialDefinicionID" y "TablaRegistroID".
 
         Si el primer campo (CampoEspecialDefinicionID) no existe entonces crea, si este campo existe verifica el campo (TablaRegistroID).
-        Si el campo (TablaRegistroID) no existe cre un nuevo valor para ese registro, si existe entonces actualiza el registro actual.
+        Si el campo (TablaRegistroID) no existe crea un nuevo valor para ese registro, si existe entonces actualiza el valor de la definicion en el registro actual.
 
 
         Tabla donde se guardan los valores: CampoEspecialValor
