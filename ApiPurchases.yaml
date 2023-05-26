@@ -903,6 +903,161 @@ paths:
           name: sBusqueda
           description: Search parameter
           required: true
+  '/purchases/various/{id}':
+    parameters:
+      - schema:
+          type: string
+          example: '1941'
+        name: id
+        in: path
+        required: true
+        description: AlbaranCompraCabeceraID
+    get:
+      summary: Purchases - VariousFindOne
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: object
+                        properties:
+                          AlbaranCompraCabeceraID:
+                            type: integer
+                          IdiomaID:
+                            type: integer
+                          Idioma:
+                            type: string
+                          PreciosVerificados:
+                            type: integer
+                          AlbaranVerificado:
+                            type: integer
+                          ReferenciaProveedor:
+                            type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        AlbaranCompraCabeceraID: 1941
+                        IdiomaID: 570
+                        Idioma: INGLES
+                        PreciosVerificados: 1
+                        AlbaranVerificado: 1
+                        ReferenciaProveedor: RefUpdated
+                      sql: "\r\nSELECT \r\nacc.AlbaranCompraCabeceraID,\r\ntg.TablaGeneralID,\r\ntg.Clave AS Clave,\r\ntg.Descripcion AS Descripcion,\r\nacc.PreciosVerificados AS PreciosVerificados,\r\nacc.Verificado AS AlbaranVerificado,\t\r\nacc.ReferenciaEnvio AS ReferenciaProveedor\r\nFROM\r\nalbarancompracabecera acc\r\nINNER JOIN tablageneral tg ON acc.IdiomaID = tg.TablaGeneralID\r\nWHERE\r\nacc.CustomerID = 29\r\nAND acc.EmpresaID = 1\r\nAND acc.AlbaranCompraCabeceraID = 1941\r\n"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        AlbaranCompraCabeceraID: 1941
+                        IdiomaID: 570
+                        Idioma: INGLES
+                        PreciosVerificados: 1
+                        AlbaranVerificado: 1
+                        ReferenciaProveedor: RefUpdated
+                      sql: string
+      operationId: get-purchases-various-id
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+  '/purchases/observations/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: AlbaranCompraCabeceraID
+    get:
+      summary: Purchases - ObservationsFindOne
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      data:
+                        type: object
+                        properties:
+                          AlbaranCompraCabeceraID:
+                            type: integer
+                          NotaGeneral:
+                            type: string
+                          NotaProveedor:
+                            type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        AlbaranCompraCabeceraID: 1941
+                        NotaGeneral: GeneralNoteUPDATED
+                        NotaProveedor: ProvNoteUPDATED
+                      sql: "\r\nSELECT \r\nacc.AlbaranCompraCabeceraID,\r\nacc.NotaGeneral,\r\nacc.NotaProveedor\r\nFROM\r\nalbarancompracabecera acc\r\nWHERE\r\nacc.CustomerID = 29\r\nAND acc.EmpresaID = 1\r\nAND acc.AlbaranCompraCabeceraID = 1941"
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        AlbaranCompraCabeceraID: 1941
+                        NotaGeneral: GeneralNoteUPDATED
+                        NotaProveedor: ProvNoteUPDATED
+                      sql: string
+      operationId: get-purchases-observations-id
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /purchaseSeries/light:
     parameters: []
     get:
@@ -1781,161 +1936,6 @@ paths:
           in: header
           name: accessToken
           description: 'Authorization token '
-          required: true
-  '/purchases/various/{id}':
-    parameters:
-      - schema:
-          type: string
-          example: '1941'
-        name: id
-        in: path
-        required: true
-        description: AlbaranCompraCabeceraID
-    get:
-      summary: Purchases - VariousFindOne
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      data:
-                        type: object
-                        properties:
-                          AlbaranCompraCabeceraID:
-                            type: integer
-                          IdiomaID:
-                            type: integer
-                          Idioma:
-                            type: string
-                          PreciosVerificados:
-                            type: integer
-                          AlbaranVerificado:
-                            type: integer
-                          ReferenciaProveedor:
-                            type: string
-                      sql:
-                        type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        AlbaranCompraCabeceraID: 1941
-                        IdiomaID: 570
-                        Idioma: INGLES
-                        PreciosVerificados: 1
-                        AlbaranVerificado: 1
-                        ReferenciaProveedor: RefUpdated
-                      sql: "\r\nSELECT \r\nacc.AlbaranCompraCabeceraID,\r\ntg.TablaGeneralID,\r\ntg.Clave AS Clave,\r\ntg.Descripcion AS Descripcion,\r\nacc.PreciosVerificados AS PreciosVerificados,\r\nacc.Verificado AS AlbaranVerificado,\t\r\nacc.ReferenciaEnvio AS ReferenciaProveedor\r\nFROM\r\nalbarancompracabecera acc\r\nINNER JOIN tablageneral tg ON acc.IdiomaID = tg.TablaGeneralID\r\nWHERE\r\nacc.CustomerID = 29\r\nAND acc.EmpresaID = 1\r\nAND acc.AlbaranCompraCabeceraID = 1941\r\n"
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        AlbaranCompraCabeceraID: 1941
-                        IdiomaID: 570
-                        Idioma: INGLES
-                        PreciosVerificados: 1
-                        AlbaranVerificado: 1
-                        ReferenciaProveedor: RefUpdated
-                      sql: string
-      operationId: get-purchases-various-id
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-  '/purchases/observations/{id}':
-    parameters:
-      - schema:
-          type: string
-        name: id
-        in: path
-        required: true
-        description: AlbaranCompraCabeceraID
-    get:
-      summary: Purchases - ObservationsFindOne
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      data:
-                        type: object
-                        properties:
-                          AlbaranCompraCabeceraID:
-                            type: integer
-                          NotaGeneral:
-                            type: string
-                          NotaProveedor:
-                            type: string
-                      sql:
-                        type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        AlbaranCompraCabeceraID: 1941
-                        NotaGeneral: GeneralNoteUPDATED
-                        NotaProveedor: ProvNoteUPDATED
-                      sql: "\r\nSELECT \r\nacc.AlbaranCompraCabeceraID,\r\nacc.NotaGeneral,\r\nacc.NotaProveedor\r\nFROM\r\nalbarancompracabecera acc\r\nWHERE\r\nacc.CustomerID = 29\r\nAND acc.EmpresaID = 1\r\nAND acc.AlbaranCompraCabeceraID = 1941"
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        AlbaranCompraCabeceraID: 1941
-                        NotaGeneral: GeneralNoteUPDATED
-                        NotaProveedor: ProvNoteUPDATED
-                      sql: string
-      operationId: get-purchases-observations-id
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
 components:
   schemas:
