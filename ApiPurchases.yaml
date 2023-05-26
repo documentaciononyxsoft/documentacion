@@ -1779,6 +1779,7 @@ paths:
         name: id
         in: path
         required: true
+        description: AlbaranCompraCabeceraID
     get:
       summary: Purchases - ObservationsFindOne
       tags: []
@@ -1799,6 +1800,7 @@ paths:
         name: id
         in: path
         required: true
+        description: AlbaranCompraCabeceraID
     get:
       summary: Purchases - VariousFindOne
       tags: []
