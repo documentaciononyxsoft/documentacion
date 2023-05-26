@@ -711,12 +711,15 @@ paths:
                     properties:
                       success:
                         type: boolean
+                      msg:
+                        type: string
                 x-examples:
                   Example 1:
                     statusCode: 200
                     message: Request processed successfully
                     content:
                       success: true
+                      msg: Registro eliminado con éxito.
               examples:
                 Example 1:
                   value:
@@ -724,6 +727,13 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
+                Example 2:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: Registro eliminado con éxito.
       description: Delete a maintenance purchase record
       parameters:
         - schema:
