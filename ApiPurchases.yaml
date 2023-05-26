@@ -556,14 +556,13 @@ paths:
                   ReferenciaProveedor: ReferenciaProveedor
                   NotaGeneral: GeneralNote
                   NotaProveedor: ProvNote
-  '/purchase/{AlbaranCompraCabeceraID}':
+  '/purchase/{id}':
     parameters:
       - schema:
           type: string
-        name: AlbaranCompraCabeceraID
+        name: id
         in: path
         required: true
-        description: Maintenance Purchase Identifier
     put:
       summary: Purchases - Update
       operationId: put-purchase-AlbaranCompraCabeceraID
