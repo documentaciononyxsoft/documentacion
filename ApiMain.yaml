@@ -10257,6 +10257,9 @@ paths:
 
         Si el primer campo (CampoEspecialDefinicionID) no existe entonces crea, si este campo existe verifica el campo (TablaRegistroID).
         Si el campo (TablaRegistroID) no existe cre un nuevo valor para ese registro, si existe entonces actualiza el registro actual.
+
+
+        Tabla donde se guardan los valores: CampoEspecialValor
     get:
       summary: ListValues
       operationId: get-clasification-value
