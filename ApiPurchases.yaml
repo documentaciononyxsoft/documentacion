@@ -556,7 +556,7 @@ paths:
                   ReferenciaProveedor: ReferenciaProveedor
                   NotaGeneral: GeneralNote
                   NotaProveedor: ProvNote
-  '/purchase/{id}':
+  '/purchases/{id}':
     parameters:
       - schema:
           type: string
