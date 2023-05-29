@@ -5112,7 +5112,7 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
-  '/generals/{key}':
+  '/overalltable/{key}':
     parameters:
       - schema:
           type: string
