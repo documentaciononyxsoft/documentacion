@@ -1944,6 +1944,41 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      msg:
+                        type: string
+                      Codigo:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: La información ha sido guardada exitosamente.
+                      Codigo: '25000010440'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      msg: La información ha sido guardada exitosamente.
+                      Codigo: '25000010440'
       parameters:
         - schema:
             type: string
@@ -1952,6 +1987,81 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ProveedorID:
+                  type: string
+                Codigo:
+                  type: string
+                RFC:
+                  type: string
+                Activo:
+                  type: string
+                NombreFiscal:
+                  type: string
+                NombreComercial:
+                  type: string
+                Telefono:
+                  type: string
+                Horario:
+                  type: string
+                Email:
+                  type: string
+                Web:
+                  type: string
+                PaisID:
+                  type: string
+                ProvinciaID:
+                  type: string
+                MunicipioID:
+                  type: string
+                CodigoPostal:
+                  type: string
+                Direccion:
+                  type: string
+                ActividadID:
+                  type: string
+              x-examples:
+                Example 1:
+                  ProveedorID: '475'
+                  Codigo: '25000010440'
+                  RFC: '99082502140'
+                  Activo: '1'
+                  NombreFiscal: COMERCIO PEI JCO S.A.S
+                  NombreComercial: JUANSHOP
+                  Telefono: '3206117460'
+                  Horario: HorarioPRUEBA
+                  Email: jco@jco.com
+                  Web: www.jco.com
+                  PaisID: '45'
+                  ProvinciaID: '5666'
+                  MunicipioID: '169'
+                  CodigoPostal: '15666'
+                  Direccion: Molivento
+                  ActividadID: '294'
+            examples:
+              Example 1:
+                value:
+                  ProveedorID: '475'
+                  Codigo: '25000010440'
+                  RFC: '99082502140'
+                  Activo: '1'
+                  NombreFiscal: COMERCIO PEI JCO S.A.S
+                  NombreComercial: JUANSHOP
+                  Telefono: '3206117460'
+                  Horario: HorarioPRUEBA
+                  Email: jco@jco.com
+                  Web: www.jco.com
+                  PaisID: '45'
+                  ProvinciaID: '5666'
+                  MunicipioID: '169'
+                  CodigoPostal: '15666'
+                  Direccion: Molivento
+                  ActividadID: '294'
   '/purchasesconsult/findone/{id}':
     parameters:
       - schema:
