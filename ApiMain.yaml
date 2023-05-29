@@ -4716,7 +4716,7 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
-  /generaltableindex:
+  /overalltable:
     get:
       summary: GeneralTable - FindManyByCode
       tags: []
@@ -4970,7 +4970,8 @@ paths:
                   CampoLibre2: ''
                   Defecto: '0'
                   Obsoleto: '0'
-  '/generaltableindex/{tablaGeneralID}':
+    parameters: []
+  '/overalltable/{tablaGeneralID}':
     parameters:
       - schema:
           type: string
