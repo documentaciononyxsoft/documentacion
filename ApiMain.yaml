@@ -5311,6 +5311,140 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  '/overalltable/lightlist/{key}':
+    parameters:
+      - schema:
+          type: string
+          example: ACTIVIDAD
+        name: key
+        in: path
+        required: true
+        description: Clave
+    get:
+      summary: OverallTable - FindLightListByKey
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - ID: 597
+                          Codigo: fgfdggf
+                          Nombre: aggd
+                        - ID: 281
+                          Codigo: ALM
+                          Nombre: Almidones
+                        - ID: 7
+                          Codigo: '4841'
+                          Nombre: Autotransporte de carga General
+                        - ID: 291
+                          Codigo: AVE
+                          Nombre: Avenas
+                        - ID: 293
+                          Codigo: AZU
+                          Nombre: Azúcar
+                        - ID: 292
+                          Codigo: CYS
+                          Nombre: Cacahuates y Semillas
+                        - ID: 294
+                          Codigo: CHO
+                          Nombre: Chocolate
+                        - ID: 296
+                          Codigo: CYT
+                          Nombre: Coco y Toppings
+                        - ID: 295
+                          Codigo: COL
+                          Nombre: Colores
+                        - ID: 6
+                          Codigo: COM
+                          Nombre: Comercial
+                        - ID: 588
+                          Codigo: cuarto de 2
+                          Nombre: Cuarto Nivel de 2
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - ID: 597
+                          Codigo: fgfdggf
+                          Nombre: aggd
+                        - ID: 281
+                          Codigo: ALM
+                          Nombre: Almidones
+                        - ID: 7
+                          Codigo: '4841'
+                          Nombre: Autotransporte de carga General
+                        - ID: 291
+                          Codigo: AVE
+                          Nombre: Avenas
+                        - ID: 293
+                          Codigo: AZU
+                          Nombre: Azúcar
+                        - ID: 292
+                          Codigo: CYS
+                          Nombre: Cacahuates y Semillas
+                        - ID: 294
+                          Codigo: CHO
+                          Nombre: Chocolate
+                        - ID: 296
+                          Codigo: CYT
+                          Nombre: Coco y Toppings
+                        - ID: 295
+                          Codigo: COL
+                          Nombre: Colores
+                        - ID: 6
+                          Codigo: COM
+                          Nombre: Comercial
+                        - ID: 588
+                          Codigo: cuarto de 2
+                          Nombre: Cuarto Nivel de 2
+      operationId: get-overalltable-lightlist-key
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /Ivas:
     get:
       summary: IVAs - FindAll
