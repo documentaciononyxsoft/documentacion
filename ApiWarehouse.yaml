@@ -406,6 +406,24 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
       description: Busca en la tabla ArticuloXAlmacen por ArticuloID
+  /families/lightlist:
+    get:
+      summary: Families - FindLightList
+      tags: []
+      responses: {}
+      operationId: get-families-lightlist
+  /families/manybyparam:
+    get:
+      summary: Families - FindManyByParam
+      tags: []
+      responses: {}
+      operationId: get-families-manybyparam
+  /families/validate:
+    get:
+      summary: Families - Validate
+      tags: []
+      responses: {}
+      operationId: get-families-validate
 components:
   schemas:
     User:
