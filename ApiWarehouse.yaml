@@ -711,7 +711,52 @@ paths:
     get:
       summary: Families - Validate
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      found:
+                        type: boolean
+                      FamiliaID:
+                        type: integer
+                      Codigo:
+                        type: string
+                      Nombre:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      found: true
+                      FamiliaID: 68
+                      Codigo: CAL
+                      Nombre: CALIDAD
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      found: true
+                      FamiliaID: 68
+                      Codigo: CAL
+                      Nombre: CALIDAD
       operationId: get-families-validate
       parameters:
         - schema:
@@ -721,6 +766,12 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+        - schema:
+            type: string
+            example: CALIDAD
+          in: query
+          name: param
+          description: Parámetro a buscar. (Coincidencia exacta en nombre o código)
 components:
   schemas:
     User:
