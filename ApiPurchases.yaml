@@ -1058,6 +1058,256 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /purchases/manybyfilters:
+    get:
+      summary: Purchases - FindManyByFilters
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      dataResult:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            EstadoAlbaran:
+                              type: string
+                            SerieAlbaran:
+                              type: string
+                            NumeroAlbaran:
+                              type: integer
+                            FechaEntrada:
+                              type: string
+                            Cod_Proveedor:
+                              type: string
+                            Nombre:
+                              type: string
+                            Cod_Almacen:
+                              type: string
+                            NumAlbaranProveedor:
+                              type: string
+                            FechaAlbaran:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT\r\nAlbaranCompraCabecera.FechaEntrada AS FechaEntrada,\r\nAlbaranCompraCabecera.Numero AS NumeroAlbaran,\r\nAlbaranCompraCabecera.tipo as TipoAlbaran,\r\nAlbaranCompraCabecera.estado as EstadoAlbaran,\r\nPedidoCompraCabecera.Numero AS NumeroPedido, \r\nProveedor.Codigo AS Cod_Proveedor,\r\nMailing.Nombre AS Nombre,\r\nAlmacen.Codigo AS Cod_almacen, \r\nAlmacen.Nombre AS Almacen,\r\nAlbaranCompraCabecera.NumeroAlbaranProveedor AS Num_alb_Prov,\r\nAlbaranCompraCabecera.FechaAlbaran AS FechaAlbaran,\r\nAlbaranCompraCabecera.AlbaranCompraCabeceraID,\r\nAlbaranCompraCabecera.IdiomaID,\r\nSeriePedidoAlbaranCompra.Serie,\r\nSerieCabecera.Serie AS SerieAlbaran\r\n\r\nFROM \r\n(((((((((AlbaranCompraCabecera LEFT OUTER JOIN AlbaranCompraLinea ON  AlbaranCompraCabecera.AlbaranCompraCabeceraID = AlbaranCompraLinea.AlbaranCompraCabeceraID)\r\nLEFT JOIN PedidoCompraLinea ON AlbaranCompraLinea.PedidoCompraLineaID = PedidoCompraLinea.PedidoCompraLineaID)\r\nLEFT JOIN PedidoCompraCabecera ON PedidoCompraLinea.PedidoCompraCabeceraID = PedidoCompraCabecera.PedidoCompraCabeceraID)\r\nLEFT JOIN SeriePedidoAlbaranCompra ON PedidoCompraCabecera.SeriePedidoID = SeriePedidoAlbaranCompra.SeriePedidoAlbaranCompraID)\r\nLEFT JOIN Almacen ON AlbaranCompraCabecera.AlmacenID = Almacen.AlmacenID)\r\nLEFT JOIN Proveedor ON AlbaranCompraCabecera.ProveedorID = Proveedor.ProveedorID)\r\nLEFT JOIN Mailing ON Proveedor.MailingID = Mailing.MailingID)\r\nLEFT JOIN Articulo ON AlbaranCompraLinea.ArticuloID = Articulo.ArticuloID)\r\nLeft join ArticuloPrecios on ArticuloPrecios.ArticuloID = articulo.ArticuloID)\r\nLEFT JOIN Familia ON Articulo.FamiliaID = Familia.FamiliaID\r\nLEFT JOIN SeriePedidoAlbaranCompra AS SerieCabecera ON AlbaranCompraCabecera.SerieAlbaranID = SerieCabecera.SeriePedidoAlbaranCompraID\r\n\r\nWHERE \r\nAlbaranCompraCabecera.CustomerID = 29 AND\r\nAlbaranCompraCabecera.EmpresaID = 1\r\n\r\n\r\n AND (Proveedor.ProveedorID IN (475) AND AlbaranCompraCabecera.EsSubcontratacion = 0)\r\nGROUP BY AlbaranCompraCabeceraID\r\nLIMIT 500\r\nOFFSET 0"
+                      dataResult:
+                        - EstadoAlbaran: ''
+                          SerieAlbaran: Sin
+                          NumeroAlbaran: 1938
+                          FechaEntrada: '20230526'
+                          Cod_Proveedor: '25000010440'
+                          Nombre: COMERCIO PEI JCO S.A.S
+                          Cod_Almacen: MP
+                          NumAlbaranProveedor: '11'
+                          FechaAlbaran: '20230526'
+                        - EstadoAlbaran: ''
+                          SerieAlbaran: Con
+                          NumeroAlbaran: 2
+                          FechaEntrada: '20230531'
+                          Cod_Proveedor: '25000010440'
+                          Nombre: COMERCIO PEI JCO S.A.S
+                          Cod_Almacen: MRO
+                          NumAlbaranProveedor: '15'
+                          FechaAlbaran: '20230531'
+                        - EstadoAlbaran: ''
+                          SerieAlbaran: Con
+                          NumeroAlbaran: 1940
+                          FechaEntrada: '20230526'
+                          Cod_Proveedor: '25000010440'
+                          Nombre: COMERCIO PEI JCO S.A.S
+                          Cod_Almacen: MP
+                          NumAlbaranProveedor: '11'
+                          FechaAlbaran: '20230526'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      dataResult:
+                        - EstadoAlbaran: ''
+                          SerieAlbaran: Sin
+                          NumeroAlbaran: 1938
+                          FechaEntrada: '20230526'
+                          Cod_Proveedor: '25000010440'
+                          Nombre: COMERCIO PEI JCO S.A.S
+                          Cod_Almacen: MP
+                          NumAlbaranProveedor: '11'
+                          FechaAlbaran: '20230526'
+                        - EstadoAlbaran: ''
+                          SerieAlbaran: Con
+                          NumeroAlbaran: 2
+                          FechaEntrada: '20230531'
+                          Cod_Proveedor: '25000010440'
+                          Nombre: COMERCIO PEI JCO S.A.S
+                          Cod_Almacen: MRO
+                          NumAlbaranProveedor: '15'
+                          FechaAlbaran: '20230531'
+                        - EstadoAlbaran: ''
+                          SerieAlbaran: Con
+                          NumeroAlbaran: 1940
+                          FechaEntrada: '20230526'
+                          Cod_Proveedor: '25000010440'
+                          Nombre: COMERCIO PEI JCO S.A.S
+                          Cod_Almacen: MP
+                          NumAlbaranProveedor: '11'
+                          FechaAlbaran: '20230526'
+      operationId: get-purchases-manybyfilters
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: '0'
+          in: query
+          name: offset
+          description: 'Registro a partir del cual empezará a traer los datos desde la tabla. Si se envía 20, y en la tabla existen 100 registros, la respuesta traerá solo los registros comprendidos entre las posiciones 20 y 100, y los primero 20 se omitirán.'
+          required: true
+        - schema:
+            type: string
+            example: '500'
+          in: query
+          name: limit
+          description: 'Límite de registros que trae la consulta. Si se envía el número 50, y la tabla tiene 2000 registros solo se traerán 50.'
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  ProveedorID: '475'
+                  Detalle: '0'
+                  FechaEntradaMin: ''
+                  FechaEntradaMax: ''
+                  FechaAlbaranMin: ''
+                  FechaAlbaranMax: ''
+                  ArticuloID: ''
+                  SubFamiliaID: ''
+                  FamiliaID: ''
+                  Tipo: 1
+                  NumeroAlbaranMin: ''
+                  NumeroAlbaranMax: ''
+                  NumeroAlbaranProveedor: ''
+                  SerieAlbaranID: ''
+                  NumeroPedidoMin: ''
+                  NumeroPedidoMax: ''
+                  PendienteFacturar: 0
+                  GastoCompraAsignado: 0
+                  PendienteVerificar: 0
+              properties:
+                ProveedorID:
+                  type: string
+                Detalle:
+                  type: string
+                  description: |-
+                    0:SinDetalle
+                    1:ConDetalle
+                FechaEntradaMin:
+                  type: string
+                  description: 'EJ: 20230101'
+                FechaEntradaMax:
+                  type: string
+                FechaAlbaranMin:
+                  type: string
+                FechaAlbaranMax:
+                  type: string
+                ArticuloID:
+                  type: string
+                SubFamiliaID:
+                  type: string
+                FamiliaID:
+                  type: string
+                Tipo:
+                  type: integer
+                  description: |-
+                    1:Todos
+                    2:Albaranes
+                    3:Devoluciones
+                NumeroAlbaranMin:
+                  type: string
+                NumeroAlbaranMax:
+                  type: string
+                NumeroAlbaranProveedor:
+                  type: string
+                SerieAlbaranID:
+                  type: string
+                NumeroPedidoMin:
+                  type: string
+                NumeroPedidoMax:
+                  type: string
+                PendienteFacturar:
+                  type: integer
+                  description: |-
+                    0:NO
+                    1:SI
+                GastoCompraAsignado:
+                  type: integer
+                  description: |-
+                    0:NO
+                    1:SI
+                PendienteVerificar:
+                  type: integer
+                  description: |-
+                    0:NO
+                    1:SI
+              required:
+                - Detalle
+                - Tipo
+                - PendienteFacturar
+                - GastoCompraAsignado
+                - PendienteVerificar
+            examples:
+              Example 1:
+                value:
+                  ProveedorID: '475'
+                  Detalle: '0'
+                  FechaEntradaMin: ''
+                  FechaEntradaMax: ''
+                  FechaAlbaranMin: ''
+                  FechaAlbaranMax: ''
+                  ArticuloID: ''
+                  SubFamiliaID: ''
+                  FamiliaID: ''
+                  Tipo: 1
+                  NumeroAlbaranMin: ''
+                  NumeroAlbaranMax: ''
+                  NumeroAlbaranProveedor: ''
+                  SerieAlbaranID: ''
+                  NumeroPedidoMin: ''
+                  NumeroPedidoMax: ''
+                  PendienteFacturar: 0
+                  GastoCompraAsignado: 0
+                  PendienteVerificar: 0
   /purchaseSeries:
     parameters: []
     get:
