@@ -706,6 +706,7 @@ paths:
           in: query
           name: limit
           description: 'Límite de registros que trae la consulta. Si se envía el número 50, y la tabla tiene 2000 registros solo se traerán 50.'
+          required: true
   /families/validate:
     get:
       summary: Families - Validate
