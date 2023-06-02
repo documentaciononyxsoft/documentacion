@@ -768,10 +768,11 @@ paths:
           required: true
         - schema:
             type: string
-            example: CALIDAD
+            example: calidad
           in: query
           name: param
           description: Parámetro a buscar. (Coincidencia exacta en nombre o código)
+          required: true
 components:
   schemas:
     User:
