@@ -11592,7 +11592,7 @@ paths:
         in: path
         required: true
         description: ProveedorID
-  /tables/suppliers/light:
+  /tables/suppliers/lightlist:
     get:
       summary: Suppliers - FindLightList
       tags: []
@@ -11613,6 +11613,8 @@ paths:
                     properties:
                       success:
                         type: boolean
+                      sql:
+                        type: string
                       data:
                         type: array
                         items:
@@ -11620,9 +11622,9 @@ paths:
                           properties:
                             ProveedorID:
                               type: integer
-                            Nombre:
-                              type: string
                             Codigo:
+                              type: string
+                            Nombre:
                               type: string
                 x-examples:
                   Example 1:
@@ -11630,37 +11632,35 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
+                      sql: "\r\nSELECT \r\np.ProveedorID,\r\np.Codigo,\r\nm.Nombre\r\nFROM \r\nproveedor p \r\nINNER JOIN mailing m ON m.MailingID = p.MailingID\r\nWHERE \r\np.CustomerID = 29\r\nAND p.EmpresaID = 1\r\nORDER BY p.ProveedorID"
                       data:
                         - ProveedorID: 31
-                          Nombre: INGREDION MEXICO SA DE CV
                           Codigo: '25000010002'
+                          Nombre: INGREDION MEXICO SA DE CV
+                        - ProveedorID: 32
+                          Codigo: '25000020001'
+                          Nombre: OLAM INTERNATIONAL LIMITED
                         - ProveedorID: 33
-                          Nombre: PROCESADORA DE GRANOS AUSTRAL SA
                           Codigo: '25000020002'
+                          Nombre: PROCESADORA DE GRANOS AUSTRAL SA
                         - ProveedorID: 34
-                          Nombre: BRIDGE INTERNATIONAL COMPANY
                           Codigo: '25000020003'
+                          Nombre: BRIDGE INTERNATIONAL COMPANY
                         - ProveedorID: 37
-                          Nombre: CEPIA INTERNACIONAL SA
                           Codigo: '25000020006'
+                          Nombre: CEPIA INTERNACIONAL SA
                         - ProveedorID: 38
-                          Nombre: BLOMMER CHOCOLATE COMPANY
                           Codigo: '25000020007'
+                          Nombre: BLOMMER CHOCOLATE COMPANY
                         - ProveedorID: 39
-                          Nombre: TREE TOP INC
                           Codigo: '25000020008'
+                          Nombre: TREE TOP INC
                         - ProveedorID: 40
-                          Nombre: OLAM AMERICAS INC
                           Codigo: '25000020009'
+                          Nombre: OLAM AMERICAS INC
                         - ProveedorID: 41
-                          Nombre: PORTFOLIO CONCENTRATE SOLUTIONS UC
                           Codigo: '25000020010'
-                        - ProveedorID: 42
-                          Nombre: COMERCIALIZADORA ALCALI SA DE CV
-                          Codigo: '25000010003'
-                        - ProveedorID: 43
-                          Nombre: GIVAUDAN DE MEXICO SA DE CV
-                          Codigo: '25000010004'
+                          Nombre: PORTFOLIO CONCENTRATE SOLUTIONS UC
               examples:
                 Example 1:
                   value:
@@ -11668,37 +11668,35 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
+                      sql: string
                       data:
                         - ProveedorID: 31
-                          Nombre: INGREDION MEXICO SA DE CV
                           Codigo: '25000010002'
+                          Nombre: INGREDION MEXICO SA DE CV
+                        - ProveedorID: 32
+                          Codigo: '25000020001'
+                          Nombre: OLAM INTERNATIONAL LIMITED
                         - ProveedorID: 33
-                          Nombre: PROCESADORA DE GRANOS AUSTRAL SA
                           Codigo: '25000020002'
+                          Nombre: PROCESADORA DE GRANOS AUSTRAL SA
                         - ProveedorID: 34
-                          Nombre: BRIDGE INTERNATIONAL COMPANY
                           Codigo: '25000020003'
+                          Nombre: BRIDGE INTERNATIONAL COMPANY
                         - ProveedorID: 37
-                          Nombre: CEPIA INTERNACIONAL SA
                           Codigo: '25000020006'
+                          Nombre: CEPIA INTERNACIONAL SA
                         - ProveedorID: 38
-                          Nombre: BLOMMER CHOCOLATE COMPANY
                           Codigo: '25000020007'
+                          Nombre: BLOMMER CHOCOLATE COMPANY
                         - ProveedorID: 39
-                          Nombre: TREE TOP INC
                           Codigo: '25000020008'
+                          Nombre: TREE TOP INC
                         - ProveedorID: 40
-                          Nombre: OLAM AMERICAS INC
                           Codigo: '25000020009'
+                          Nombre: OLAM AMERICAS INC
                         - ProveedorID: 41
-                          Nombre: PORTFOLIO CONCENTRATE SOLUTIONS UC
                           Codigo: '25000020010'
-                        - ProveedorID: 42
-                          Nombre: COMERCIALIZADORA ALCALI SA DE CV
-                          Codigo: '25000010003'
-                        - ProveedorID: 43
-                          Nombre: GIVAUDAN DE MEXICO SA DE CV
-                          Codigo: '25000010004'
+                          Nombre: PORTFOLIO CONCENTRATE SOLUTIONS UC
       operationId: get-tables-suppliers-light
       parameters:
         - schema:
@@ -11708,6 +11706,7 @@ paths:
           name: 'accessToken '
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+    parameters: []
   /tables/typetime:
     get:
       summary: TimeType - FindManyTimeByUser
