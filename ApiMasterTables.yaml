@@ -1214,7 +1214,7 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
     parameters: []
-  /tables/article:
+  /tables/articles/manybyparam:
     get:
       summary: Article - FindManyByParam
       tags: []
@@ -1235,7 +1235,9 @@ paths:
                     properties:
                       success:
                         type: boolean
-                      records:
+                      sql:
+                        type: string
+                      data:
                         type: array
                         items:
                           type: object
@@ -1246,15 +1248,14 @@ paths:
                               type: string
                             Codigo:
                               type: string
-                      sql:
-                        type: string
                 x-examples:
                   Example 1:
                     statusCode: 200
                     message: Request processed successfully
                     content:
                       success: true
-                      records:
+                      sql: "\r\nSELECT \r\na.ArticuloID,\r\na.Codigo,\r\na.Nombre\r\nFROM \r\narticulo a \r\nWHERE \r\na.CustomerID = 29\r\nAND a.EmpresaID = 1\r\nAND (a.Nombre LIKE '%choco%' OR a.Codigo LIKE '%choco%')\r\nORDER BY a.ArticuloID\r\nLIMIT 10"
+                      data:
                         - ArticuloID: 20
                           Nombre: AZUCARADAD CHOCO 230GRX24X1
                           Codigo: '300053112'
@@ -1285,7 +1286,6 @@ paths:
                         - ArticuloID: 139
                           Nombre: 'Choco Brontosaurios 12/450g        '
                           Codigo: '300006450'
-                      sql: "SELECT \r\narticulo.ArticuloID,\r\narticulo.Nombre,\r\narticulo.Codigo\r\n\r\nFROM articulo \r\n\r\nWHERE articulo.CustomerID = 29 AND articulo.EmpresaID = 1\r\nAND (articulo.Nombre LIKE '%choco%' OR articulo.Codigo LIKE '%choco%' )\r\nORDER BY articulo.ArticuloID LIMIT 10 "
               examples:
                 Example 1:
                   value:
@@ -1293,7 +1293,8 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      records:
+                      sql: string
+                      data:
                         - ArticuloID: 20
                           Nombre: AZUCARADAD CHOCO 230GRX24X1
                           Codigo: '300053112'
@@ -1324,7 +1325,6 @@ paths:
                         - ArticuloID: 139
                           Nombre: 'Choco Brontosaurios 12/450g        '
                           Codigo: '300006450'
-                      sql: string
       operationId: get-tables-article
       parameters:
         - schema:
@@ -1339,7 +1339,8 @@ paths:
             example: choco
           in: query
           name: param
-          description: Parámetro a buscar
+          description: Parámetro a buscar.
+    parameters: []
   '/tables/articles/{id}':
     parameters:
       - schema:
