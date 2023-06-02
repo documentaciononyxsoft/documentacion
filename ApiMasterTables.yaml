@@ -11448,12 +11448,150 @@ paths:
                   CodigoPostal: '15666'
                   Direccion: Molivento
                   ActividadID: '294'
-  /tables/suppliers/findone:
+  '/tables/suppliers/findone/{id}':
     get:
-      summary: Your GET endpoint
+      summary: Suppliers - FindOne
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: object
+                        properties:
+                          ProveedorID:
+                            type: integer
+                          Codigo:
+                            type: string
+                          RFC:
+                            type: string
+                          Activo:
+                            type: integer
+                          NombreFiscal:
+                            type: string
+                          NombreComercial:
+                            type: string
+                          Telefono:
+                            type: string
+                          Horario:
+                            type: string
+                          Email:
+                            type: string
+                          Web:
+                            type: string
+                          PaisID:
+                            type: integer
+                          NombrePais:
+                            type: string
+                          ProvinciaID:
+                            type: integer
+                          NombreProvincia:
+                            type: string
+                          MunicipioID:
+                            type: integer
+                          NombreMunicipio:
+                            type: string
+                          CodigoPostalID:
+                            type: integer
+                          CodigoPostal:
+                            type: string
+                          Direccion:
+                            type: string
+                          ActividadID:
+                            type: integer
+                          Actividad:
+                            type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        ProveedorID: 475
+                        Codigo: '25000010440'
+                        RFC: '99082502140'
+                        Activo: 1
+                        NombreFiscal: COMERCIO PEI JCO S.A.S
+                        NombreComercial: JUANSHOP
+                        Telefono: '3206117460'
+                        Horario: HorarioPRUEBA
+                        Email: jco@jco.com
+                        Web: www.jco.com
+                        PaisID: 45
+                        NombrePais: Colombia
+                        ProvinciaID: 5666
+                        NombreProvincia: Risaralda
+                        MunicipioID: 169
+                        NombreMunicipio: Pereira
+                        CodigoPostalID: 20017
+                        CodigoPostal: '15666'
+                        Direccion: Molivento
+                        ActividadID: 294
+                        Actividad: Chocolate
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        ProveedorID: 475
+                        Codigo: '25000010440'
+                        RFC: '99082502140'
+                        Activo: 1
+                        NombreFiscal: COMERCIO PEI JCO S.A.S
+                        NombreComercial: JUANSHOP
+                        Telefono: '3206117460'
+                        Horario: HorarioPRUEBA
+                        Email: jco@jco.com
+                        Web: www.jco.com
+                        PaisID: 45
+                        NombrePais: Colombia
+                        ProvinciaID: 5666
+                        NombreProvincia: Risaralda
+                        MunicipioID: 169
+                        NombreMunicipio: Pereira
+                        CodigoPostalID: 20017
+                        CodigoPostal: '15666'
+                        Direccion: Molivento
+                        ActividadID: 294
+                        Actividad: Chocolate
       operationId: get-tables-suppliers-findone
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+    parameters:
+      - schema:
+          type: string
+          example: '475'
+        name: id
+        in: path
+        required: true
+        description: ProveedorID
   /tables/suppliers/light:
     get:
       summary: Suppliers - FindLightList
