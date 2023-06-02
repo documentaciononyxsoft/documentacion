@@ -1082,97 +1082,6 @@ paths:
                   content:
                     type: object
                     properties:
-                      Articulos:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ArticuloID:
-                              type: integer
-                            Codigo:
-                              type: string
-                            Nombre:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      Articulos:
-                        - ArticuloID: 2099
-                          Codigo: '10000012'
-                          Nombre: Recoleccion de agua residual
-                        - ArticuloID: 2065
-                          Codigo: '1000001311'
-                          Nombre: 'POLIZA DE SERVICIO DE TRATAMIENTO DE AGUA CALDERAS '
-                        - ArticuloID: 2066
-                          Codigo: '1000004549'
-                          Nombre: POLIZA DE SERVICIO PARTSWASHER - ULTRA SOLVE 40 SC
-                        - ArticuloID: 358
-                          Codigo: '100000585'
-                          Nombre: COCOA EN POLVO JET BLACK
-                        - ArticuloID: 395
-                          Codigo: '100000587'
-                          Nombre: LECHE DESCREMADA EN POLVO
-                        - ArticuloID: 396
-                          Codigo: '100000597'
-                          Nombre: SUERO DE LECHE EN POLVO
-                        - ArticuloID: 434
-                          Codigo: '100000602'
-                          Nombre: COCO RALLADO
-                        - ArticuloID: 435
-                          Codigo: '100000604'
-                          Nombre: CANELA KORITAJE EN POLVO
-                        - ArticuloID: 393
-                          Codigo: '100000606'
-                          Nombre: INULINA
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      Articulos:
-                        - ArticuloID: 2099
-                          Codigo: '10000012'
-                          Nombre: Recoleccion de agua residual
-                        - ArticuloID: 2065
-                          Codigo: '1000001311'
-                          Nombre: 'POLIZA DE SERVICIO DE TRATAMIENTO DE AGUA CALDERAS '
-                        - ArticuloID: 2066
-                          Codigo: '1000004549'
-                          Nombre: POLIZA DE SERVICIO PARTSWASHER - ULTRA SOLVE 40 SC
-                        - ArticuloID: 358
-                          Codigo: '100000585'
-                          Nombre: COCOA EN POLVO JET BLACK
-                        - ArticuloID: 395
-                          Codigo: '100000587'
-                          Nombre: LECHE DESCREMADA EN POLVO
-                        - ArticuloID: 396
-                          Codigo: '100000597'
-                          Nombre: SUERO DE LECHE EN POLVO
-                        - ArticuloID: 434
-                          Codigo: '100000602'
-                          Nombre: COCO RALLADO
-                        - ArticuloID: 435
-                          Codigo: '100000604'
-                          Nombre: CANELA KORITAJE EN POLVO
-                        - ArticuloID: 393
-                          Codigo: '100000606'
-                          Nombre: INULINA
-        '':
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
                       success:
                         type: boolean
                       sql:
@@ -1248,7 +1157,7 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      sql: string
+                      sql: "\r\nSELECT \r\na.ArticuloID,\r\na.Codigo,\r\na.Nombre\r\nFROM \r\narticulo a \r\nWHERE \r\na.CustomerID = 29\r\nAND a.EmpresaID = 1\r\nORDER BY a.ArticuloID"
                       data:
                         - ArticuloID: 8
                           Codigo: '300027223'
