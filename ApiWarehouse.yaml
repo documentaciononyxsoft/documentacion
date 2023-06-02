@@ -410,7 +410,167 @@ paths:
     get:
       summary: Families - FindLightList
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            FamiliaID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "\r\nSELECT \r\nf.FamiliaID,\r\nf.Codigo,\r\nf.Nombre\t\r\nFROM \r\nfamilia f \r\nWHERE \r\nf.CustomerID = 29\r\nAND f.EmpresaID = 1\r\nORDER BY f.FamiliaID "
+                      data:
+                        - FamiliaID: 1
+                          Codigo: DNE
+                          Nombre: DANONE
+                        - FamiliaID: 3
+                          Codigo: CF
+                          Nombre: CHOCO FLAKES
+                        - FamiliaID: 4
+                          Codigo: GRA
+                          Nombre: GRANELES
+                        - FamiliaID: 5
+                          Codigo: CD
+                          Nombre: CHEDRAUI
+                        - FamiliaID: 6
+                          Codigo: CC
+                          Nombre: CHOCO CRONCHI
+                        - FamiliaID: 7
+                          Codigo: TA
+                          Nombre: AROS DE FRUTA
+                        - FamiliaID: 8
+                          Codigo: MCF
+                          Nombre: MAIZORO CORN FLAKES
+                        - FamiliaID: 9
+                          Codigo: AZ
+                          Nombre: AZUCARADAS
+                        - FamiliaID: 10
+                          Codigo: GEN
+                          Nombre: GENERAL VENTAS 8%
+                        - FamiliaID: 12
+                          Codigo: MP
+                          Nombre: Materia Prima
+                        - FamiliaID: 13
+                          Codigo: AYG
+                          Nombre: ACEITES Y GRASAS
+                        - FamiliaID: 14
+                          Codigo: ALM
+                          Nombre: ALMIDONES
+                        - FamiliaID: 15
+                          Codigo: AVE
+                          Nombre: AVENAS
+                        - FamiliaID: 16
+                          Codigo: COL
+                          Nombre: COLORANTES
+                        - FamiliaID: 17
+                          Codigo: DES
+                          Nombre: DESHIDRATADOS
+                        - FamiliaID: 18
+                          Codigo: EDU
+                          Nombre: EDULCORANTES
+                        - FamiliaID: 19
+                          Codigo: EMU
+                          Nombre: EMULSIFICANTES
+                        - FamiliaID: 20
+                          Codigo: END
+                          Nombre: ENDULZANTES
+                        - FamiliaID: 21
+                          Codigo: EXT
+                          Nombre: EXTRACTOS
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - FamiliaID: 1
+                          Codigo: DNE
+                          Nombre: DANONE
+                        - FamiliaID: 3
+                          Codigo: CF
+                          Nombre: CHOCO FLAKES
+                        - FamiliaID: 4
+                          Codigo: GRA
+                          Nombre: GRANELES
+                        - FamiliaID: 5
+                          Codigo: CD
+                          Nombre: CHEDRAUI
+                        - FamiliaID: 6
+                          Codigo: CC
+                          Nombre: CHOCO CRONCHI
+                        - FamiliaID: 7
+                          Codigo: TA
+                          Nombre: AROS DE FRUTA
+                        - FamiliaID: 8
+                          Codigo: MCF
+                          Nombre: MAIZORO CORN FLAKES
+                        - FamiliaID: 9
+                          Codigo: AZ
+                          Nombre: AZUCARADAS
+                        - FamiliaID: 10
+                          Codigo: GEN
+                          Nombre: GENERAL VENTAS 8%
+                        - FamiliaID: 12
+                          Codigo: MP
+                          Nombre: Materia Prima
+                        - FamiliaID: 13
+                          Codigo: AYG
+                          Nombre: ACEITES Y GRASAS
+                        - FamiliaID: 14
+                          Codigo: ALM
+                          Nombre: ALMIDONES
+                        - FamiliaID: 15
+                          Codigo: AVE
+                          Nombre: AVENAS
+                        - FamiliaID: 16
+                          Codigo: COL
+                          Nombre: COLORANTES
+                        - FamiliaID: 17
+                          Codigo: DES
+                          Nombre: DESHIDRATADOS
+                        - FamiliaID: 18
+                          Codigo: EDU
+                          Nombre: EDULCORANTES
+                        - FamiliaID: 19
+                          Codigo: EMU
+                          Nombre: EMULSIFICANTES
+                        - FamiliaID: 20
+                          Codigo: END
+                          Nombre: ENDULZANTES
+                        - FamiliaID: 21
+                          Codigo: EXT
+                          Nombre: EXTRACTOS
       operationId: get-families-lightlist
       parameters:
         - schema:
