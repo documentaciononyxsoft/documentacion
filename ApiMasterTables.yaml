@@ -11707,6 +11707,86 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
     parameters: []
+  /tables/suppliers/manybyparam:
+    get:
+      summary: Suppliers - FindManyByParam
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ProveedorID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "\r\nSELECT \r\np.ProveedorID,\r\np.Codigo,\r\nm.Nombre\r\nFROM \r\nproveedor p \r\nINNER JOIN mailing m ON m.MailingID = p.MailingID\r\nWHERE \r\np.CustomerID = 29\r\nAND p.EmpresaID = 1\r\nAND (m.Nombre LIKE '%PEI%' OR p.Codigo LIKE '%PEI%')\r\n\r\nORDER BY p.ProveedorID\r\nLIMIT 10"
+                      data:
+                        - ProveedorID: 475
+                          Nombre: COMERCIO PEI JCO S.A.S
+                          Codigo: '25000010440'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - ProveedorID: 475
+                          Nombre: COMERCIO PEI JCO S.A.S
+                          Codigo: '25000010440'
+      operationId: get-tables-suppliers-manybyparam
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: PEI
+          in: query
+          name: param
+          description: Parámetro a buscar.
+          required: true
+        - schema:
+            type: string
+            example: '10'
+          in: query
+          name: limit
+          description: 'Límite de registros que trae la consulta. Si se envía el número 50, y la tabla tiene 2000 registros solo se traerán 50.'
+          required: true
   /tables/typetime:
     get:
       summary: TimeType - FindManyTimeByUser
