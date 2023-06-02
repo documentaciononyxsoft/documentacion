@@ -584,7 +584,107 @@ paths:
     get:
       summary: Families - FindManyByParam
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            FamiliaID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "\r\nSELECT \r\nf.FamiliaID,\r\nf.Nombre,\r\nf.Codigo\r\nFROM \r\nfamilia f \r\nWHERE \r\nf.CustomerID = 29\r\nAND f.EmpresaID = 1\r\nAND (f.Nombre LIKE '%CAL%' OR f.Codigo LIKE '%CAL%')\r\n\r\nORDER BY f.FamiliaID \r\nLIMIT 10"
+                      data:
+                        - FamiliaID: 68
+                          Nombre: CALIDAD
+                          Codigo: CAL
+                        - FamiliaID: 72
+                          Nombre: ESPONJAS CALIDAD
+                          Codigo: ESP
+                        - FamiliaID: 73
+                          Nombre: DETERGENTES CALIDAD
+                          Codigo: DET
+                        - FamiliaID: 74
+                          Nombre: GUANTES LAB CALIDAD
+                          Codigo: GUA
+                        - FamiliaID: 75
+                          Nombre: HERRAMIENTAS LAB CALIDAD
+                          Codigo: HER
+                        - FamiliaID: 76
+                          Nombre: INSTRUMENTOS LAB CALIDAD
+                          Codigo: INS
+                        - FamiliaID: 77
+                          Nombre: PAPEL LAB CALIDAD
+                          Codigo: PAC
+                        - FamiliaID: 79
+                          Nombre: REFACCIONES LAB CALIDAD
+                          Codigo: REFCAL
+                        - FamiliaID: 80
+                          Nombre: TESTS LAB CALIDAD
+                          Codigo: TEST
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - FamiliaID: 68
+                          Nombre: CALIDAD
+                          Codigo: CAL
+                        - FamiliaID: 72
+                          Nombre: ESPONJAS CALIDAD
+                          Codigo: ESP
+                        - FamiliaID: 73
+                          Nombre: DETERGENTES CALIDAD
+                          Codigo: DET
+                        - FamiliaID: 74
+                          Nombre: GUANTES LAB CALIDAD
+                          Codigo: GUA
+                        - FamiliaID: 75
+                          Nombre: HERRAMIENTAS LAB CALIDAD
+                          Codigo: HER
+                        - FamiliaID: 76
+                          Nombre: INSTRUMENTOS LAB CALIDAD
+                          Codigo: INS
+                        - FamiliaID: 77
+                          Nombre: PAPEL LAB CALIDAD
+                          Codigo: PAC
+                        - FamiliaID: 79
+                          Nombre: REFACCIONES LAB CALIDAD
+                          Codigo: REFCAL
+                        - FamiliaID: 80
+                          Nombre: TESTS LAB CALIDAD
+                          Codigo: TEST
       operationId: get-families-manybyparam
       parameters:
         - schema:
@@ -594,6 +694,18 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+        - schema:
+            type: string
+            example: CAL
+          in: query
+          name: param
+          description: Parámetro a buscar.
+        - schema:
+            type: string
+            example: '10'
+          in: query
+          name: limit
+          description: 'Límite de registros que trae la consulta. Si se envía el número 50, y la tabla tiene 2000 registros solo se traerán 50.'
   /families/validate:
     get:
       summary: Families - Validate
