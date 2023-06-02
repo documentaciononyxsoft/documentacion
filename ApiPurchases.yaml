@@ -1065,10 +1065,63 @@ paths:
       operationId: get-purchaseSeries-light
       responses:
         '200':
-          description: Succesfully
-          content: {}
-        '':
-          content: {}
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Serie:
+                              type: string
+                            Descripcion:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "\r\nSELECT\r\nspac.SeriePedidoAlbaranCompraID AS ID,\r\nspac.Serie,\r\nspac.Descripcion\r\nFROM\r\nseriepedidoalbarancompra spac\r\nWHERE\r\nspac.CustomerID = 29\r\nAND spac.EmpresaID = 1"
+                      data:
+                        - ID: 1
+                          Serie: Sin
+                          Descripcion: Sin Serie
+                        - ID: 2
+                          Serie: Con
+                          Descripcion: Con Serie
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - ID: 1
+                          Serie: Sin
+                          Descripcion: Sin Serie
+                        - ID: 2
+                          Serie: Con
+                          Descripcion: Con Serie
       description: Gets the records of the existing series
       parameters:
         - schema:
