@@ -4976,7 +4976,7 @@ paths:
         required: true
         description: Clave
     get:
-      summary: OverallTable - FindByKey
+      summary: OverallTable - FindAllByKey
       tags: []
       responses:
         '200':
