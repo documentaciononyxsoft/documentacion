@@ -1035,6 +1035,276 @@ paths:
                   Web: ASDASDAS.COM
                   CodigoPostalID: 14768
         description: ''
+  /tables/articles:
+    get:
+      summary: Article - FindMany
+      tags: []
+      responses: {}
+      operationId: get-tables-articles
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+    post:
+      summary: Article - Create
+      operationId: post-tables-articles
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+  /tables/articles/lightlist:
+    get:
+      summary: Article - FindLightList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      Articulos:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ArticuloID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      Articulos:
+                        - ArticuloID: 2099
+                          Codigo: '10000012'
+                          Nombre: Recoleccion de agua residual
+                        - ArticuloID: 2065
+                          Codigo: '1000001311'
+                          Nombre: 'POLIZA DE SERVICIO DE TRATAMIENTO DE AGUA CALDERAS '
+                        - ArticuloID: 2066
+                          Codigo: '1000004549'
+                          Nombre: POLIZA DE SERVICIO PARTSWASHER - ULTRA SOLVE 40 SC
+                        - ArticuloID: 358
+                          Codigo: '100000585'
+                          Nombre: COCOA EN POLVO JET BLACK
+                        - ArticuloID: 395
+                          Codigo: '100000587'
+                          Nombre: LECHE DESCREMADA EN POLVO
+                        - ArticuloID: 396
+                          Codigo: '100000597'
+                          Nombre: SUERO DE LECHE EN POLVO
+                        - ArticuloID: 434
+                          Codigo: '100000602'
+                          Nombre: COCO RALLADO
+                        - ArticuloID: 435
+                          Codigo: '100000604'
+                          Nombre: CANELA KORITAJE EN POLVO
+                        - ArticuloID: 393
+                          Codigo: '100000606'
+                          Nombre: INULINA
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      Articulos:
+                        - ArticuloID: 2099
+                          Codigo: '10000012'
+                          Nombre: Recoleccion de agua residual
+                        - ArticuloID: 2065
+                          Codigo: '1000001311'
+                          Nombre: 'POLIZA DE SERVICIO DE TRATAMIENTO DE AGUA CALDERAS '
+                        - ArticuloID: 2066
+                          Codigo: '1000004549'
+                          Nombre: POLIZA DE SERVICIO PARTSWASHER - ULTRA SOLVE 40 SC
+                        - ArticuloID: 358
+                          Codigo: '100000585'
+                          Nombre: COCOA EN POLVO JET BLACK
+                        - ArticuloID: 395
+                          Codigo: '100000587'
+                          Nombre: LECHE DESCREMADA EN POLVO
+                        - ArticuloID: 396
+                          Codigo: '100000597'
+                          Nombre: SUERO DE LECHE EN POLVO
+                        - ArticuloID: 434
+                          Codigo: '100000602'
+                          Nombre: COCO RALLADO
+                        - ArticuloID: 435
+                          Codigo: '100000604'
+                          Nombre: CANELA KORITAJE EN POLVO
+                        - ArticuloID: 393
+                          Codigo: '100000606'
+                          Nombre: INULINA
+        '':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ArticuloID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "\r\nSELECT \r\na.ArticuloID,\r\na.Codigo,\r\na.Nombre\r\nFROM \r\narticulo a \r\nWHERE \r\na.CustomerID = 29\r\nAND a.EmpresaID = 1\r\nORDER BY a.ArticuloID"
+                      data:
+                        - ArticuloID: 8
+                          Codigo: '300027223'
+                          Nombre: ARITOS 430GRX14X1
+                        - ArticuloID: 9
+                          Codigo: '300053113'
+                          Nombre: ARITOS DE FRUTA 140GRX24X1
+                        - ArticuloID: 10
+                          Codigo: '300028494'
+                          Nombre: ARITOS DE FRUTA 484GRX14X1
+                        - ArticuloID: 11
+                          Codigo: '300022324'
+                          Nombre: ARITOS DE FRUTA 485GRX16X1
+                        - ArticuloID: 12
+                          Codigo: '300022138'
+                          Nombre: ARITOS DE FRUTA 485GRX20X1
+                        - ArticuloID: 13
+                          Codigo: '300048850'
+                          Nombre: ARITOS DE FRUTA RG 485GRX16X1
+                        - ArticuloID: 14
+                          Codigo: '300051508'
+                          Nombre: ARITOS DE FRUTA RG2 484GRX14X1
+                        - ArticuloID: 15
+                          Codigo: '300048926'
+                          Nombre: ARITOS DE FRUTA RG 484GRX14X1
+                        - ArticuloID: 16
+                          Codigo: '300048846'
+                          Nombre: ARITOS FRUTY RUEDAS RG 3500GRX1X1
+                        - ArticuloID: 17
+                          Codigo: '300048847'
+                          Nombre: ARITOS GRANEL RG 11KGX1X1
+                        - ArticuloID: 18
+                          Codigo: '300048916'
+                          Nombre: ARITOS RG 430GRX14X1
+                        - ArticuloID: 19
+                          Codigo: '300051507'
+                          Nombre: ARITOS RG2 430GRX14X1
+                        - ArticuloID: 20
+                          Codigo: '300053112'
+                          Nombre: AZUCARADAD CHOCO 230GRX24X1
+                        - ArticuloID: 21
+                          Codigo: '300053111'
+                          Nombre: AZUCARADAS 230GRX24X1
+                        - ArticuloID: 22
+                          Codigo: '300027226'
+                          Nombre: AZUCARADAS 720GRX14X1
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - ArticuloID: 8
+                          Codigo: '300027223'
+                          Nombre: ARITOS 430GRX14X1
+                        - ArticuloID: 9
+                          Codigo: '300053113'
+                          Nombre: ARITOS DE FRUTA 140GRX24X1
+                        - ArticuloID: 10
+                          Codigo: '300028494'
+                          Nombre: ARITOS DE FRUTA 484GRX14X1
+                        - ArticuloID: 11
+                          Codigo: '300022324'
+                          Nombre: ARITOS DE FRUTA 485GRX16X1
+                        - ArticuloID: 12
+                          Codigo: '300022138'
+                          Nombre: ARITOS DE FRUTA 485GRX20X1
+                        - ArticuloID: 13
+                          Codigo: '300048850'
+                          Nombre: ARITOS DE FRUTA RG 485GRX16X1
+                        - ArticuloID: 14
+                          Codigo: '300051508'
+                          Nombre: ARITOS DE FRUTA RG2 484GRX14X1
+                        - ArticuloID: 15
+                          Codigo: '300048926'
+                          Nombre: ARITOS DE FRUTA RG 484GRX14X1
+                        - ArticuloID: 16
+                          Codigo: '300048846'
+                          Nombre: ARITOS FRUTY RUEDAS RG 3500GRX1X1
+                        - ArticuloID: 17
+                          Codigo: '300048847'
+                          Nombre: ARITOS GRANEL RG 11KGX1X1
+                        - ArticuloID: 18
+                          Codigo: '300048916'
+                          Nombre: ARITOS RG 430GRX14X1
+                        - ArticuloID: 19
+                          Codigo: '300051507'
+                          Nombre: ARITOS RG2 430GRX14X1
+                        - ArticuloID: 20
+                          Codigo: '300053112'
+                          Nombre: AZUCARADAD CHOCO 230GRX24X1
+                        - ArticuloID: 21
+                          Codigo: '300053111'
+                          Nombre: AZUCARADAS 230GRX24X1
+                        - ArticuloID: 22
+                          Codigo: '300027226'
+                          Nombre: AZUCARADAS 720GRX14X1
+      operationId: get-tables-articles-light
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: 'accessToken '
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+    parameters: []
   /tables/article:
     get:
       summary: Article - FindManyByParam
@@ -1161,140 +1431,6 @@ paths:
           in: query
           name: param
           description: Parámetro a buscar
-  /tables/articles:
-    get:
-      summary: Article - FindMany
-      tags: []
-      responses: {}
-      operationId: get-tables-articles
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-    post:
-      summary: Article - Create
-      operationId: post-tables-articles
-      responses:
-        '200':
-          description: OK
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
-  /tables/articles/light:
-    get:
-      summary: Article - FindLightList
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      Articulos:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ArticuloID:
-                              type: integer
-                            Codigo:
-                              type: string
-                            Nombre:
-                              type: string
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      Articulos:
-                        - ArticuloID: 2099
-                          Codigo: '10000012'
-                          Nombre: Recoleccion de agua residual
-                        - ArticuloID: 2065
-                          Codigo: '1000001311'
-                          Nombre: 'POLIZA DE SERVICIO DE TRATAMIENTO DE AGUA CALDERAS '
-                        - ArticuloID: 2066
-                          Codigo: '1000004549'
-                          Nombre: POLIZA DE SERVICIO PARTSWASHER - ULTRA SOLVE 40 SC
-                        - ArticuloID: 358
-                          Codigo: '100000585'
-                          Nombre: COCOA EN POLVO JET BLACK
-                        - ArticuloID: 395
-                          Codigo: '100000587'
-                          Nombre: LECHE DESCREMADA EN POLVO
-                        - ArticuloID: 396
-                          Codigo: '100000597'
-                          Nombre: SUERO DE LECHE EN POLVO
-                        - ArticuloID: 434
-                          Codigo: '100000602'
-                          Nombre: COCO RALLADO
-                        - ArticuloID: 435
-                          Codigo: '100000604'
-                          Nombre: CANELA KORITAJE EN POLVO
-                        - ArticuloID: 393
-                          Codigo: '100000606'
-                          Nombre: INULINA
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      Articulos:
-                        - ArticuloID: 2099
-                          Codigo: '10000012'
-                          Nombre: Recoleccion de agua residual
-                        - ArticuloID: 2065
-                          Codigo: '1000001311'
-                          Nombre: 'POLIZA DE SERVICIO DE TRATAMIENTO DE AGUA CALDERAS '
-                        - ArticuloID: 2066
-                          Codigo: '1000004549'
-                          Nombre: POLIZA DE SERVICIO PARTSWASHER - ULTRA SOLVE 40 SC
-                        - ArticuloID: 358
-                          Codigo: '100000585'
-                          Nombre: COCOA EN POLVO JET BLACK
-                        - ArticuloID: 395
-                          Codigo: '100000587'
-                          Nombre: LECHE DESCREMADA EN POLVO
-                        - ArticuloID: 396
-                          Codigo: '100000597'
-                          Nombre: SUERO DE LECHE EN POLVO
-                        - ArticuloID: 434
-                          Codigo: '100000602'
-                          Nombre: COCO RALLADO
-                        - ArticuloID: 435
-                          Codigo: '100000604'
-                          Nombre: CANELA KORITAJE EN POLVO
-                        - ArticuloID: 393
-                          Codigo: '100000606'
-                          Nombre: INULINA
-      operationId: get-tables-articles-light
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: 'accessToken '
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
   '/tables/articles/{id}':
     parameters:
       - schema:
