@@ -112,6 +112,208 @@ paths:
                       orden: 0
                       ancho: 0
                       titulo: string
+    get:
+      summary: Grid - FindManyByControl
+      operationId: get-grid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      lines:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            nombreColumna:
+                              type: string
+                            ancho:
+                              type: integer
+                            orden:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      lines:
+                        - nombreColumna: COL_Estado
+                          ancho: 0
+                          orden: 0
+                        - nombreColumna: COL_AlmacenID
+                          ancho: 0
+                          orden: 0
+                        - nombreColumna: COL_lineID
+                          ancho: 0
+                          orden: 0
+                        - nombreColumna: COL_Linea
+                          ancho: 119
+                          orden: 1
+                        - nombreColumna: COL_Stock
+                          ancho: 139
+                          orden: 2
+                        - nombreColumna: COL_CodigoArticulo
+                          ancho: 110
+                          orden: 3
+                        - nombreColumna: COL_Artículo
+                          ancho: 239
+                          orden: 4
+                        - nombreColumna: COL_Almacen
+                          ancho: 289
+                          orden: 5
+                        - nombreColumna: COL_Referencia
+                          ancho: 119
+                          orden: 6
+                        - nombreColumna: COL_Cantidad
+                          ancho: 119
+                          orden: 7
+                        - nombreColumna: COL_PrecioVenta
+                          ancho: 119
+                          orden: 8
+                        - nombreColumna: COL_DTO1
+                          ancho: 99
+                          orden: 9
+                        - nombreColumna: COL_DTO2
+                          ancho: 99
+                          orden: 10
+                        - nombreColumna: COL_DTO3
+                          ancho: 99
+                          orden: 11
+                        - nombreColumna: COL_Importe
+                          ancho: 99
+                          orden: 12
+                        - nombreColumna: COL_CantidadPedida
+                          ancho: 199
+                          orden: 13
+                        - nombreColumna: COL_Descripción
+                          ancho: 499
+                          orden: 14
+                        - nombreColumna: COL_NotaInterna
+                          ancho: 119
+                          orden: 15
+                        - nombreColumna: COL_NotaCliente
+                          ancho: 119
+                          orden: 16
+                        - nombreColumna: COL_Var
+                          ancho: 99
+                          orden: 17
+                        - nombreColumna: COL_Presupuesto
+                          ancho: 119
+                          orden: 18
+                        - nombreColumna: COL_Iva
+                          ancho: 99
+                          orden: 19
+                        - nombreColumna: COL_Recargo
+                          ancho: 119
+                          orden: 20
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      lines:
+                        - nombreColumna: COL_Estado
+                          ancho: 0
+                          orden: 0
+                        - nombreColumna: COL_AlmacenID
+                          ancho: 0
+                          orden: 0
+                        - nombreColumna: COL_lineID
+                          ancho: 0
+                          orden: 0
+                        - nombreColumna: COL_Linea
+                          ancho: 119
+                          orden: 1
+                        - nombreColumna: COL_Stock
+                          ancho: 139
+                          orden: 2
+                        - nombreColumna: COL_CodigoArticulo
+                          ancho: 110
+                          orden: 3
+                        - nombreColumna: COL_Artículo
+                          ancho: 239
+                          orden: 4
+                        - nombreColumna: COL_Almacen
+                          ancho: 289
+                          orden: 5
+                        - nombreColumna: COL_Referencia
+                          ancho: 119
+                          orden: 6
+                        - nombreColumna: COL_Cantidad
+                          ancho: 119
+                          orden: 7
+                        - nombreColumna: COL_PrecioVenta
+                          ancho: 119
+                          orden: 8
+                        - nombreColumna: COL_DTO1
+                          ancho: 99
+                          orden: 9
+                        - nombreColumna: COL_DTO2
+                          ancho: 99
+                          orden: 10
+                        - nombreColumna: COL_DTO3
+                          ancho: 99
+                          orden: 11
+                        - nombreColumna: COL_Importe
+                          ancho: 99
+                          orden: 12
+                        - nombreColumna: COL_CantidadPedida
+                          ancho: 199
+                          orden: 13
+                        - nombreColumna: COL_Descripción
+                          ancho: 499
+                          orden: 14
+                        - nombreColumna: COL_NotaInterna
+                          ancho: 119
+                          orden: 15
+                        - nombreColumna: COL_NotaCliente
+                          ancho: 119
+                          orden: 16
+                        - nombreColumna: COL_Var
+                          ancho: 99
+                          orden: 17
+                        - nombreColumna: COL_Presupuesto
+                          ancho: 119
+                          orden: 18
+                        - nombreColumna: COL_Iva
+                          ancho: 99
+                          orden: 19
+                        - nombreColumna: COL_Recargo
+                          ancho: 119
+                          orden: 20
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: PAGE_AddOffers
+          in: query
+          name: pageName
+        - schema:
+            type: string
+            example: TABLE_TableOffers
+          in: query
+          name: controlName
   /continents:
     get:
       summary: Continents - FindAll
