@@ -8117,6 +8117,87 @@ paths:
         name: provinciaID
         in: path
         required: true
+  '/municipalities/light/{provinciaID}':
+    parameters:
+      - schema:
+          type: string
+          example: '5666'
+        name: provinciaID
+        in: path
+        required: true
+    get:
+      summary: Municipalities - FindLightListByProvince
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            municipioid:
+                              type: integer
+                            nombre:
+                              type: string
+                            codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - municipioid: 169
+                          nombre: Pereira
+                          codigo: '15070'
+                        - municipioid: 178
+                          nombre: YeiLand
+                          codigo: '1999'
+                        - municipioid: 189
+                          nombre: MiloTest
+                          codigo: '660011'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - municipioid: 169
+                          nombre: Pereira
+                          codigo: '15070'
+                        - municipioid: 178
+                          nombre: YeiLand
+                          codigo: '1999'
+                        - municipioid: 189
+                          nombre: MiloTest
+                          codigo: '660011'
+      operationId: get-municipalities-light-provinciaID
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /municipality/checkMunicipality:
     get:
       summary: Municipalities - CheckMunicipality
