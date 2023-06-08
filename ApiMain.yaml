@@ -10328,6 +10328,8 @@ paths:
                           properties:
                             CampoEspecialDefinicionID:
                               type: integer
+                            NombreCampo:
+                              type: string
                             Valor:
                               type: string
                 x-examples:
@@ -10336,14 +10338,17 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
-                      sql: string
+                      sql: "\r\nSELECT \r\ncel.CampoEspecialListaID,\r\nced.nOmbreCampo AS NombreCampo,\r\ncel.CampoEspecialDefinicionID,\r\ncel.Valor\r\nFROM\r\ncampoespeciallista cel\r\nINNER JOIN campoespecialdefinicion ced ON cel.CampoEspecialDefinicionID = ced.CampoEspecialDefinicionID\r\nWHERE\r\nced.CustomerID = 29\r\nAND ced.EmpresaID = 1\r\nAND cel.CampoEspecialDefinicionID = 94"
                       data:
                         - CampoEspecialDefinicionID: 94
+                          NombreCampo: NuevaLista
                           Valor: CEL126 - CED94 - Prueba
                         - CampoEspecialDefinicionID: 94
+                          NombreCampo: NuevaLista
                           Valor: CEL127 - CED94 - Prueba
                         - CampoEspecialDefinicionID: 94
-                          Valor: ValorPrueba2
+                          NombreCampo: NuevaLista
+                          Valor: ValorPruebaActualizado
               examples:
                 Example 1:
                   value:
@@ -10354,11 +10359,14 @@ paths:
                       sql: string
                       data:
                         - CampoEspecialDefinicionID: 94
+                          NombreCampo: NuevaLista
                           Valor: CEL126 - CED94 - Prueba
                         - CampoEspecialDefinicionID: 94
+                          NombreCampo: NuevaLista
                           Valor: CEL127 - CED94 - Prueba
                         - CampoEspecialDefinicionID: 94
-                          Valor: ValorPrueba2
+                          NombreCampo: NuevaLista
+                          Valor: ValorPruebaActualizado
       operationId: get-clasifications-listvalues-id
       parameters:
         - schema:
