@@ -10640,10 +10640,10 @@ paths:
           required: true
         - schema:
             type: string
-            example: '22'
+            example: albarancompracabecera
           in: query
-          name: tablaid
-          description: CampoEspecialTablasID
+          name: nombretabla
+          description: Nombre de la tabla en (CampoEspecialTablas)
           required: true
         - schema:
             type: string
