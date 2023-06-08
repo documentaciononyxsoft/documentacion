@@ -6604,5 +6604,91 @@ paths:
       responses:
         '200':
           description: OK
+  /intervention/planning:
+    get:
+      summary: Planning - InterventionFindManyByTicket
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID:
+                              type: integer
+                            Nombre:
+                              type: string
+                            FechaInicio:
+                              type: string
+                            FechaFinal:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: select * from avisoticketplanificacion where avisoticketplanificacionid not in (select avisoticketplanificacionid from avisoticketintervencion where avisoticketplanificacionid > 0) and AvisoTicketID =  1
+                      records:
+                        - ID: 10
+                          Nombre: 'Planificación del 31/03/2023 06:00:00:0'
+                          FechaInicio: '31/03/2023 06:00:00:0'
+                          FechaFinal: '31/03/2023 12:00:00:0'
+                        - ID: 22
+                          Nombre: 'Planificación del 08/06/2023 05:00:00:0'
+                          FechaInicio: '08/06/2023 05:00:00:0'
+                          FechaFinal: '08/06/2023 10:00:00:0'
+                        - ID: 23
+                          Nombre: 'Planificación del 08/06/2023 10:00:00:0'
+                          FechaInicio: '08/06/2023 10:00:00:0'
+                          FechaFinal: '09/06/2023 11:00:00:0'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - ID: 10
+                          Nombre: 'Planificación del 31/03/2023 06:00:00:0'
+                          FechaInicio: '31/03/2023 06:00:00:0'
+                          FechaFinal: '31/03/2023 12:00:00:0'
+                        - ID: 22
+                          Nombre: 'Planificación del 08/06/2023 05:00:00:0'
+                          FechaInicio: '08/06/2023 05:00:00:0'
+                          FechaFinal: '08/06/2023 10:00:00:0'
+                        - ID: 23
+                          Nombre: 'Planificación del 08/06/2023 10:00:00:0'
+                          FechaInicio: '08/06/2023 10:00:00:0'
+                          FechaFinal: '09/06/2023 11:00:00:0'
+      operationId: get-intervention-planning
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
 components:
   schemas: {}
