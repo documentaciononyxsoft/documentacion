@@ -6604,6 +6604,77 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      data:
+                        type: object
+                        properties:
+                          PlanificacionGrayed:
+                            type: boolean
+                          CambiarEstadoGrayed:
+                            type: boolean
+                          records:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                AvisoTicketPlanificacionID:
+                                  type: integer
+                                FechaHoraInicio:
+                                  type: string
+                                FechaHoraFin:
+                                  type: string
+                                Situacion:
+                                  type: string
+                          success:
+                            type: boolean
+                          sql:
+                            type: string
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      data:
+                        PlanificacionGrayed: false
+                        CambiarEstadoGrayed: false
+                        records:
+                          - AvisoTicketPlanificacionID: 24
+                            FechaHoraInicio: '2023-05-02T00:00:00.000'
+                            FechaHoraFin: '2023-05-02T00:00:00.000'
+                            Situacion: Pendiente Operario
+                        success: true
+                        sql: "SELECT \r\n\tAvisoTicketPlanificacion.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID,\t\r\n\tAvisoTicketPlanificacion.AvisoTicketID AS AvisoTicketID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionInicio AS FechaHoraPlanificacionInicio,\t\r\n\tAvisoTicketPlanificacion.FechaHoraPlanificacionFinal AS FechaHoraPlanificacionFinal,\t\r\n\tAvisoTicketPlanificacion.CustomerID AS CustomerID,\t\r\n\tAvisoTicketPlanificacion.EmpresaID AS EmpresaID,\t\r\n\tAvisoTicketPlanificacion.UsuarioID AS UsuarioID,\t\r\n\tAvisoTicketPlanificacion.FechaHoraUsuario AS FechaHoraUsuario,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionEmpleadoID AS AvisoTicketPlanificacionEmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID AS AvisoTicketPlanificacionID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpleadoID AS EmpleadoID,\t\r\n\tAvisoTicketPlanificacionEmpleado.Situacion AS Situacion,\t\r\n\tAvisoTicketPlanificacionEmpleado.CustomerID AS CustomerID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.EmpresaID AS EmpresaID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.UsuarioID AS UsuarioID_Av,\t\r\n\tAvisoTicketPlanificacionEmpleado.FechaHoraUsuario AS FechaHoraUsuario_Av,\r\n\templeado.Nombre as NombreEmpleado\r\n\t\r\nFROM AvisoTicketPlanificacion\r\nleft join AvisoTicketPlanificacionEmpleado on AvisoTicketPlanificacionEmpleado.AvisoTicketPlanificacionID=AvisoTicketPlanificacion.AvisoTicketPlanificacionID\r\nLEFT JOIn Empleado on empleado.EmpleadoID=AvisoTicketPlanificacionEmpleado.EmpleadoID\r\n\r\nwhere AvisoTicketPlanificacion.CustomerID = 29 \r\nAND AvisoTicketPlanificacion.EmpresaID = 1 \r\nAND AvisoTicketPlanificacion.AvisoTicketID = 2\r\nAND AvisoTicketPlanificacion.AvisoTicketPlanificacionID = 24\r\nGroup By AvisoTicketPlanificacion.AvisoTicketPlanificacionID"
+                      success: true
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      data:
+                        PlanificacionGrayed: false
+                        CambiarEstadoGrayed: false
+                        records:
+                          - AvisoTicketPlanificacionID: 24
+                            FechaHoraInicio: '2023-05-02T00:00:00.000'
+                            FechaHoraFin: '2023-05-02T00:00:00.000'
+                            Situacion: Pendiente Operario
+                        success: true
+                        sql: string
+                      success: true
       parameters:
         - schema:
             type: string
@@ -6612,6 +6683,29 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ticketID:
+                  type: integer
+                fechaDesdeIN:
+                  type: string
+                fechaHastaIN:
+                  type: string
+              x-examples:
+                Example 1:
+                  ticketID: 2
+                  fechaDesdeIN: '20230502000000'
+                  fechaHastaIN: '20230502000000'
+            examples:
+              Example 1:
+                value:
+                  ticketID: 2
+                  fechaDesdeIN: '20230502000000'
+                  fechaHastaIN: '20230502000000'
   /intervention/planning:
     get:
       summary: Planning - InterventionFindManyByTicket
