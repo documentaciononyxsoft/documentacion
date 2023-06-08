@@ -10370,14 +10370,18 @@ paths:
           required: true
         - schema:
             type: string
+            example: albarancompracabecera
           in: query
           name: nombretabla
           description: Nombre de la tabla a la que pertenece el campo.
+          required: true
         - schema:
             type: string
+            example: nuevalista
           in: query
           name: nombrecampo
           description: Nombre del campo que contiene lista.
+          required: true
   /clasification/value:
     post:
       summary: Clasifications - Save/Update Value
