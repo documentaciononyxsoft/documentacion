@@ -10297,15 +10297,8 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
-  '/clasifications/listvalues/{id}':
-    parameters:
-      - schema:
-          type: string
-          example: '94'
-        name: id
-        in: path
-        required: true
-        description: CampoEspecialDefinicionID
+  /clasifications/listvalues:
+    parameters: []
     get:
       summary: Clasifications - ListValuesByClasification
       tags: []
@@ -10375,6 +10368,16 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+        - schema:
+            type: string
+          in: query
+          name: nombretabla
+          description: Nombre de la tabla a la que pertenece el campo.
+        - schema:
+            type: string
+          in: query
+          name: nombrecampo
+          description: Nombre del campo que contiene lista.
   /clasification/value:
     post:
       summary: Clasifications - Save/Update Value
