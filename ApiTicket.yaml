@@ -4908,9 +4908,9 @@ paths:
           in: query
           name: ticketID
           required: true
-  /tickets/cronology:
+  /tickets/chronology:
     get:
-      summary: Cronology
+      summary: Chronology
       tags: []
       responses:
         '200':
@@ -4985,6 +4985,7 @@ paths:
             example: 16
           in: query
           name: ticketID
+    parameters: []
   /tickets/expenses:
     get:
       summary: Expenses
