@@ -5,7 +5,7 @@ info:
   title: API - MasterTables
   version: '1.0'
 servers:
-  - url: 'http://15.236.85.216'
+  - url: 'http://localhost'
 paths:
   /tables/account:
     get:
@@ -2193,6 +2193,77 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
     parameters: []
+  /tables/client/validate:
+    get:
+      summary: Client - Validate
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      isFound:
+                        type: boolean
+                      dataClient:
+                        type: object
+                        properties:
+                          ClienteID:
+                            type: integer
+                          Codigo:
+                            type: string
+                          Nombre:
+                            type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      isFound: true
+                      dataClient:
+                        ClienteID: 5
+                        Codigo: '10300010005'
+                        Nombre: VIVERES DE SAN RAFAEL SA DE CV
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      isFound: true
+                      dataClient:
+                        ClienteID: 5
+                        Codigo: '10300010005'
+                        Nombre: VIVERES DE SAN RAFAEL SA DE CV
+      operationId: get-tables-client-validate
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: VIVERES DE SAN RAFAEL SA DE CV
+          in: query
+          name: param
+          required: true
+          description: Parámetro a buscar. (Coincidencia exacta en nombre o código)
   '/tables/clients/risk/{clienteID}':
     parameters:
       - schema:
