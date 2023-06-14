@@ -1569,5 +1569,67 @@ paths:
         name: sBusqueda
         in: path
         required: true
+  /ubication/validate:
+    get:
+      summary: Validate
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      DireccionID:
+                        type: integer
+                      NomDireccion:
+                        type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      DireccionID: 987
+                      NomDireccion: Prueba988
+                      sql: "SELECT\r\ndireccion.DireccionID,\r\ndireccion.Nombre\r\nFROM direccion\r\nWHERE \r\ndireccion.Nombre = 'PRUEBA988' AND\r\ndireccion.EmpresaID = 1 AND\r\ndireccion.CustomerID = 29 AND\r\nDireccion.Clave = 'SAT' "
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      DireccionID: 987
+                      NomDireccion: Prueba988
+                      sql: string
+      operationId: get-ubication-validate
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: PRUEBA988
+          in: query
+          name: param
+          description: Parámetro a buscar. (Coincidencia exacta en nombre o código)
+          required: true
 components:
   schemas: {}
