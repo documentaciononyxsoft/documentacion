@@ -5945,83 +5945,336 @@ paths:
                         items:
                           type: object
                           properties:
-                            ID:
+                            ContactoID:
                               type: integer
-                            Nombre:
+                            NombreContacto:
                               type: string
-                            Codigo:
+                            TelefonoContacto:
                               type: string
+                            MovilContacto:
+                              type: string
+                            EmailContacto:
+                              type: string
+                            ActivoMailing:
+                              type: integer
+                            MailingID:
+                              type: integer
                 x-examples:
                   Example 1:
                     statusCode: 200
                     message: Request processed successfully
                     content:
                       success: true
-                      sql: "SELECT \r\nContacto.*,\r\nMailing.*,\r\nMailing.Activo AS ActivoMailing,\r\nMailing.Nombre AS NombreMailing,\r\nMailing.ReferenciaCodigo AS CodigoMailing,\r\nTablaGeneral.Descripcion\r\nFROM \r\nContacto LEFT JOIN TablaGeneral ON Contacto.DepartamentoID = TablaGeneral.TablaGeneralID\r\nLEFT JOIN Mailing ON Contacto.MailingID = Mailing.MailingID\r\nLEFT JOIN Provincia ON Provincia.ProvinciaID=Contacto.ProvinciaID\r\nWHERE\r\nContacto.MailingID = 455\r\nAND Contacto.CustomerID = 29\r\nAND Contacto.EmpresaID = 1\r\nAND Contacto.Activo = 1\r\nORDER BY \r\nContacto.Nombre ASC \r\n"
+                      sql: "SELECT \r\ncontacto.ContactoID,\r\ncontacto.Nombre AS NombreContacto,\r\ncontacto.Telefono AS TelefonoContacto,\r\ncontacto.Movil AS MovilContacto,\r\ncontacto.Email AS EmailContacto,\r\nMailing.Activo AS ActivoMailing,\r\nmailing.MailingID\r\nFROM \r\nContacto \r\nLEFt JOIN Mailing ON Contacto.MailingID = Mailing.MailingID\r\nWHERE\r\nContacto.MailingID = 455\r\nAND Contacto.CustomerID = 29\r\nAND Contacto.EmpresaID = 1\r\nAND Contacto.Activo = 1\r\nORDER BY \r\nContacto.Nombre ASC \r\n"
                       records:
-                        - ID: 262
-                          Nombre: Andrea Quintero
-                          Codigo: '10300010329'
-                        - ID: 181
-                          Nombre: BRENDA ELENA HERNANDEZ
-                          Codigo: '10300010329'
-                        - ID: 99
-                          Nombre: CESAR J. MARTINEZ
-                          Codigo: '10300010329'
-                        - ID: 94
-                          Nombre: CINTHIA ENRIQUEZ
-                          Codigo: '10300010329'
-                        - ID: 97
-                          Nombre: CLAUDIA GUADALUPE MARTINEZ
-                          Codigo: '10300010329'
-                        - ID: 208
-                          Nombre: DIANA MARIA DE JESUS SANCHEZ
-                          Codigo: '10300010329'
-                        - ID: 183
-                          Nombre: ELIZABETH GARCIA
-                          Codigo: '10300010329'
-                        - ID: 98
-                          Nombre: FABIAN VELAZQUEZ
-                          Codigo: '10300010329'
-                        - ID: 104
-                          Nombre: FABIAN VELAZQUEZ
-                          Codigo: '10300010329'
-                        - ID: 101
-                          Nombre: GILBERTO BRENA
-                          Codigo: '10300010329'
-                        - ID: 138
-                          Nombre: JESUS FERNANDO GAMEZ
-                          Codigo: '10300010329'
-                        - ID: 100
-                          Nombre: JOSE P. HERNANDEZ
-                          Codigo: '10300010329'
-                        - ID: 171
-                          Nombre: KARLA ANDREA ESPINOZA
-                          Codigo: '10300010329'
-                        - ID: 103
-                          Nombre: MARIA M. SAMARO
-                          Codigo: '10300010329'
-                        - ID: 174
-                          Nombre: MONICA GUADALUPE HNDZ
-                          Codigo: '10300010329'
-                        - ID: 173
-                          Nombre: PABLO LOPEZ
-                          Codigo: '10300010329'
-                        - ID: 102
-                          Nombre: RICARDO FLORES
-                          Codigo: '10300010329'
-                        - ID: 175
-                          Nombre: RIPSON RAMOS
-                          Codigo: '10300010329'
-                        - ID: 95
-                          Nombre: ROSANA SOLIS
-                          Codigo: '10300010329'
-                        - ID: 215
-                          Nombre: 'VICTOR MANUEL PARDO '
-                          Codigo: '10300010329'
-                        - ID: 96
-                          Nombre: VIRIDIANA ARROYO
-                          Codigo: '10300010329'
+                        - ContactoID: 521
+                          NombreContacto: Andrea Quintero
+                          TelefonoContacto: '30000000'
+                          MovilContacto: '3152771341'
+                          EmailContacto: andreaaquintero.26@gmail.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 262
+                          NombreContacto: Andrea Quintero
+                          TelefonoContacto: '30000000'
+                          MovilContacto: '3152771341'
+                          EmailContacto: andreaaquintero.26@gmail.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 522
+                          NombreContacto: Andrea Quintero
+                          TelefonoContacto: '30000000'
+                          MovilContacto: '3152771341'
+                          EmailContacto: andreaaquintero.26@gmail.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 278
+                          NombreContacto: Andrea Quintero
+                          TelefonoContacto: '30000000'
+                          MovilContacto: '3152771341'
+                          EmailContacto: andreaaquintero.26@gmail.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 181
+                          NombreContacto: BRENDA ELENA HERNANDEZ
+                          TelefonoContacto: "5576735639\t\t\t\t\t\t\t\t\t\t"
+                          MovilContacto: ''
+                          EmailContacto: "analistac2_r10@tiendas3b.com\t\t\t\t\t\t\t\t\t\t\t\t"
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 442
+                          NombreContacto: BRENDA ELENA HERNANDEZ
+                          TelefonoContacto: "5576735639\t\t\t\t\t\t\t\t\t\t"
+                          MovilContacto: ''
+                          EmailContacto: "analistac2_r10@tiendas3b.com\t\t\t\t\t\t\t\t\t\t\t\t"
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 360
+                          NombreContacto: CESAR J. MARTINEZ
+                          TelefonoContacto: '53115831'
+                          MovilContacto: ''
+                          EmailContacto: compras_r3@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 99
+                          NombreContacto: CESAR J. MARTINEZ
+                          TelefonoContacto: '53115831'
+                          MovilContacto: ''
+                          EmailContacto: compras_r3@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 355
+                          NombreContacto: CINTHIA ENRIQUEZ
+                          TelefonoContacto: 5088 9163
+                          MovilContacto: 5087 1484
+                          EmailContacto: compras_r7@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 94
+                          NombreContacto: CINTHIA ENRIQUEZ
+                          TelefonoContacto: 5088 9163
+                          MovilContacto: 5087 1484
+                          EmailContacto: compras_r7@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 97
+                          NombreContacto: CLAUDIA GUADALUPE MARTINEZ
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: ''
+                          EmailContacto: analistac_r2@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 358
+                          NombreContacto: CLAUDIA GUADALUPE MARTINEZ
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: ''
+                          EmailContacto: analistac_r2@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 469
+                          NombreContacto: DIANA MARIA DE JESUS SANCHEZ
+                          TelefonoContacto: ''
+                          MovilContacto: '5576735639'
+                          EmailContacto: analistac1_r10@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 208
+                          NombreContacto: DIANA MARIA DE JESUS SANCHEZ
+                          TelefonoContacto: ''
+                          MovilContacto: '5576735639'
+                          EmailContacto: analistac1_r10@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 183
+                          NombreContacto: ELIZABETH GARCIA
+                          TelefonoContacto: ''
+                          MovilContacto: 55 54 32 16 16
+                          EmailContacto: analistac1_r3@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 444
+                          NombreContacto: ELIZABETH GARCIA
+                          TelefonoContacto: ''
+                          MovilContacto: 55 54 32 16 16
+                          EmailContacto: analistac1_r3@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 359
+                          NombreContacto: FABIAN VELAZQUEZ
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: ''
+                          EmailContacto: compras_r5@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 104
+                          NombreContacto: FABIAN VELAZQUEZ
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: ''
+                          EmailContacto: compras_r5@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 365
+                          NombreContacto: FABIAN VELAZQUEZ
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: ''
+                          EmailContacto: compras_r5@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 98
+                          NombreContacto: FABIAN VELAZQUEZ
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: ''
+                          EmailContacto: compras_r5@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 101
+                          NombreContacto: GILBERTO BRENA
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: '58720579'
+                          EmailContacto: compras_r1@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 362
+                          NombreContacto: GILBERTO BRENA
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: '58720579'
+                          EmailContacto: compras_r1@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 138
+                          NombreContacto: JESUS FERNANDO GAMEZ
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: ''
+                          EmailContacto: analistac1_r8@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 399
+                          NombreContacto: JESUS FERNANDO GAMEZ
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: ''
+                          EmailContacto: analistac1_r8@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 100
+                          NombreContacto: JOSE P. HERNANDEZ
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: ''
+                          EmailContacto: compras_r9@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 361
+                          NombreContacto: JOSE P. HERNANDEZ
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: ''
+                          EmailContacto: compras_r9@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 432
+                          NombreContacto: KARLA ANDREA ESPINOZA
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: ''
+                          EmailContacto: analistac1_r1@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 171
+                          NombreContacto: KARLA ANDREA ESPINOZA
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: ''
+                          EmailContacto: analistac1_r1@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 103
+                          NombreContacto: MARIA M. SAMARO
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: '7171320624'
+                          EmailContacto: compras_r4@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 364
+                          NombreContacto: MARIA M. SAMARO
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: '7171320624'
+                          EmailContacto: compras_r4@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 435
+                          NombreContacto: MONICA GUADALUPE HNDZ
+                          TelefonoContacto: 5088 9163 / 5087 1484
+                          MovilContacto: ''
+                          EmailContacto: analistac1_r7@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 174
+                          NombreContacto: MONICA GUADALUPE HNDZ
+                          TelefonoContacto: 5088 9163 / 5087 1484
+                          MovilContacto: ''
+                          EmailContacto: analistac1_r7@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 173
+                          NombreContacto: PABLO LOPEZ
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: ''
+                          EmailContacto: analistac1_r5@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 434
+                          NombreContacto: PABLO LOPEZ
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: ''
+                          EmailContacto: analistac1_r5@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 363
+                          NombreContacto: RICARDO FLORES
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: ''
+                          EmailContacto: analista_r10@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 102
+                          NombreContacto: RICARDO FLORES
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: ''
+                          EmailContacto: analista_r10@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 436
+                          NombreContacto: RIPSON RAMOS
+                          TelefonoContacto: 53115831 - 53115785 - 53115646
+                          MovilContacto: ''
+                          EmailContacto: analistac2_r3@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 175
+                          NombreContacto: RIPSON RAMOS
+                          TelefonoContacto: 53115831 - 53115785 - 53115646
+                          MovilContacto: ''
+                          EmailContacto: analistac2_r3@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 356
+                          NombreContacto: ROSANA SOLIS
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: ''
+                          EmailContacto: analistac3_r9@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 95
+                          NombreContacto: ROSANA SOLIS
+                          TelefonoContacto: '5576735639'
+                          MovilContacto: ''
+                          EmailContacto: analistac3_r9@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 215
+                          NombreContacto: 'VICTOR MANUEL PARDO '
+                          TelefonoContacto: '8536873'
+                          MovilContacto: ''
+                          EmailContacto: v.pardo@saintfoods.com.mx
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 476
+                          NombreContacto: 'VICTOR MANUEL PARDO '
+                          TelefonoContacto: '8536873'
+                          MovilContacto: ''
+                          EmailContacto: v.pardo@saintfoods.com.mx
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 96
+                          NombreContacto: VIRIDIANA ARROYO
+                          TelefonoContacto: ''
+                          MovilContacto: '5533340635'
+                          EmailContacto: analistac2_r6@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 357
+                          NombreContacto: VIRIDIANA ARROYO
+                          TelefonoContacto: ''
+                          MovilContacto: '5533340635'
+                          EmailContacto: analistac2_r6@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
               examples:
                 Example 1:
                   value:
@@ -6031,21 +6284,69 @@ paths:
                       success: true
                       sql: string
                       records:
-                        - ID: 262
-                          Nombre: Andrea Quintero
-                          Codigo: '10300010329'
-                        - ID: 181
-                          Nombre: BRENDA ELENA HERNANDEZ
-                          Codigo: '10300010329'
-                        - ID: 99
-                          Nombre: CESAR J. MARTINEZ
-                          Codigo: '10300010329'
-                        - ID: 94
-                          Nombre: CINTHIA ENRIQUEZ
-                          Codigo: '10300010329'
-                        - ID: 97
-                          Nombre: CLAUDIA GUADALUPE MARTINEZ
-                          Codigo: '10300010329'
+                        - ContactoID: 521
+                          NombreContacto: Andrea Quintero
+                          TelefonoContacto: '30000000'
+                          MovilContacto: '3152771341'
+                          EmailContacto: andreaaquintero.26@gmail.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 262
+                          NombreContacto: Andrea Quintero
+                          TelefonoContacto: '30000000'
+                          MovilContacto: '3152771341'
+                          EmailContacto: andreaaquintero.26@gmail.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 522
+                          NombreContacto: Andrea Quintero
+                          TelefonoContacto: '30000000'
+                          MovilContacto: '3152771341'
+                          EmailContacto: andreaaquintero.26@gmail.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 278
+                          NombreContacto: Andrea Quintero
+                          TelefonoContacto: '30000000'
+                          MovilContacto: '3152771341'
+                          EmailContacto: andreaaquintero.26@gmail.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 181
+                          NombreContacto: BRENDA ELENA HERNANDEZ
+                          TelefonoContacto: "5576735639\t\t\t\t\t\t\t\t\t\t"
+                          MovilContacto: ''
+                          EmailContacto: "analistac2_r10@tiendas3b.com\t\t\t\t\t\t\t\t\t\t\t\t"
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 442
+                          NombreContacto: BRENDA ELENA HERNANDEZ
+                          TelefonoContacto: "5576735639\t\t\t\t\t\t\t\t\t\t"
+                          MovilContacto: ''
+                          EmailContacto: "analistac2_r10@tiendas3b.com\t\t\t\t\t\t\t\t\t\t\t\t"
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 360
+                          NombreContacto: CESAR J. MARTINEZ
+                          TelefonoContacto: '53115831'
+                          MovilContacto: ''
+                          EmailContacto: compras_r3@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 99
+                          NombreContacto: CESAR J. MARTINEZ
+                          TelefonoContacto: '53115831'
+                          MovilContacto: ''
+                          EmailContacto: compras_r3@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
+                        - ContactoID: 355
+                          NombreContacto: CINTHIA ENRIQUEZ
+                          TelefonoContacto: 5088 9163
+                          MovilContacto: 5087 1484
+                          EmailContacto: compras_r7@tiendas3b.com
+                          ActivoMailing: 1
+                          MailingID: 455
       operationId: get-tables-clients-contacts-light
       parameters:
         - schema:
