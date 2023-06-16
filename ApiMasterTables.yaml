@@ -6054,11 +6054,12 @@ paths:
           in: header
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
         - schema:
             type: string
-            example: '455'
+            example: '84'
           in: query
-          name: mailingID
+          name: clienteID
           required: true
   /tables/contacts:
     get:
