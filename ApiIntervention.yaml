@@ -425,42 +425,42 @@ paths:
                       success: true
                       data:
                         success: true
-                        sql: "SELECT proyecto_of.CodigoProyecto_OF,\r\nproyecto_of.Proyecto_OFID,\r\nproyecto_of.FechaCreacion,\r\nproyecto_of.FechaHoraUsuario,\r\nproyecto_of.FechaHoraUsuarioCierre,\r\nproyecto_of.Observaciones,\r\nproyecto_of.UsuarioIDCierre,\r\nproyecto_of.Estado,\r\navisoticketintervencion.AvisoTicketID,\r\navisoticket.DescripcionProblema,\r\navisoticket.Numero,\r\navisoticketintervencion.Notas,\r\navisoticketintervencion.VehiculoID,\r\navisoticketintervencion.ContadorInicial,\r\navisoticketintervencion.ContadorFinal,\r\navisoticketintervencion.Kilometros,\r\nvehiculo.Matricula,\r\nvehiculo.Codigo,\r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre,\r\navisoticketplanificacion.AvisoTicketPlanificacionID,\r\navisoticketplanificacion.FechaHoraPlanificacionInicio,\r\navisoticketplanificacion.FechaHoraPlanificacionFinal,\r\nusuario.NombreUsuario \r\n\r\nFROM proyecto_of\r\nLEFT JOIN avisoticketintervencion \r\nON proyecto_of.Proyecto_OFID = avisoticketintervencion.Proyecto_OFID\r\nLEFT JOIN vehiculo \r\nON avisoticketintervencion.VehiculoID = vehiculo.VehiculoID\r\nLEFT JOIN avisoticket\r\nON avisoticketintervencion.AvisoTicketID = avisoticket.AvisoTicketID\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nLEFT JOIN avisoticketplanificacion\r\nON avisoticket.AvisoTicketID= avisoticketplanificacion.AvisoTicketID \r\nLEFT JOIN usuario\r\nON usuario.UsuarioID  = proyecto_of.UsuarioIDCierre\r\n\r\n\r\nWHERE proyecto_of.EsObraOf = 'S' AND proyecto_of.CustomerID = 29 \r\nAND proyecto_of.Proyecto_OFID = 1159\r\n"
+                        sql: "SELECT proyecto_of.CodigoProyecto_OF,\r\nproyecto_of.Proyecto_OFID,\r\nproyecto_of.FechaCreacion,\r\nproyecto_of.FechaHoraUsuario,\r\nproyecto_of.FechaHoraUsuarioCierre,\r\nproyecto_of.Observaciones,\r\nproyecto_of.UsuarioIDCierre,\r\nproyecto_of.Estado,\r\navisoticketintervencion.AvisoTicketID,\r\navisoticket.DescripcionProblema,\r\navisoticket.Numero,\r\navisoticketintervencion.Notas,\r\navisoticketintervencion.VehiculoID,\r\navisoticketintervencion.ContadorInicial,\r\navisoticketintervencion.ContadorFinal,\r\navisoticketintervencion.Kilometros,\r\nvehiculo.Matricula,\r\nvehiculo.Codigo,\r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre,\r\navisoticketplanificacion.AvisoTicketPlanificacionID,\r\navisoticketplanificacion.FechaHoraPlanificacionInicio,\r\navisoticketplanificacion.FechaHoraPlanificacionFinal,\r\nusuario.NombreUsuario \r\n\r\nFROM proyecto_of\r\nLEFT JOIN avisoticketintervencion \r\nON proyecto_of.Proyecto_OFID = avisoticketintervencion.Proyecto_OFID\r\nLEFT JOIN vehiculo \r\nON avisoticketintervencion.VehiculoID = vehiculo.VehiculoID\r\nLEFT JOIN avisoticket\r\nON avisoticketintervencion.AvisoTicketID = avisoticket.AvisoTicketID\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nLEFT JOIN avisoticketplanificacion\r\nON avisoticket.AvisoTicketID= avisoticketplanificacion.AvisoTicketID \r\nLEFT JOIN usuario\r\nON usuario.UsuarioID  = proyecto_of.UsuarioIDCierre\r\n\r\n\r\nWHERE proyecto_of.EsObraOf = 'S' AND proyecto_of.CustomerID = 29 \r\nAND proyecto_of.Proyecto_OFID = 1888\r\ngroup BY proyecto_of.Proyecto_OFID\r\n"
                         records:
-                          - Numero: 1159
-                            Proyecto_OFID: 66675
-                            FechaIntervencion: '00000101'
-                            NumeroTicketID: 0
-                            NumeroTicketCodigo: 0
-                            NumeroTicketNombre: ''
-                            UsuarioCreacion: ''
-                            FechaHoraCreacion: '2023-04-13T12:22:07.000'
-                            PlanificacionIntervencionID: 0
-                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
-                            TiempoPrevisto: 0 Horas
+                          - Numero: 80
+                            Proyecto_OFID: 1888
+                            FechaIntervencion: '20230621'
+                            NumeroTicketID: 1
+                            NumeroTicketCodigo: 1
+                            NumeroTicketNombre: "\r\n<BODY>PRUEBATICKET </BODY>"
+                            UsuarioCreacion: ADMINISTRADOR
+                            FechaHoraCreacion: '2023-06-21T16:31:47.000'
+                            PlanificacionIntervencionID: 1
+                            PlanificacionIntervencionNombre: 'Planificación del 10/01/2023 14:25'
+                            TiempoPrevisto: 12 Horas
                             UsuarioCierreID: 0
                             nombreUsuarioCierre: ''
                             FechaHoraCierre: '0000-00-00T00:00:00.000'
                             NAlbaran: ''
-                            Descripcion: '0'
-                            ObservacionInterna: '0'
-                            VehiculoId: 0
-                            VehiculoNombre: ''
-                            VehiculoCodigo: ''
-                            ContadorInicial: 0
-                            ContadorFinal: 0
-                            Kilometros: '0'
-                            FechaAltaTicket: '0000-00-00T00:00:00.000'
-                            TipoTicket: ''
-                            Prioridad: ''
-                            DescripcionTicket: ''
-                            Cliente: ''
-                            ClienteCodigo: ''
-                            Ubicacion: ''
-                            UbicacionCodigo: 0
-                            Equipo: ''
-                            EquipoCodigo: ''
-                            tipoEquipoNombre: ''
+                            Descripcion: Hola
+                            ObservacionInterna: Sisas
+                            VehiculoId: 2
+                            VehiculoNombre: TEST999
+                            VehiculoCodigo: '888'
+                            ContadorInicial: 20
+                            ContadorFinal: 100
+                            Kilometros: '1200'
+                            FechaAltaTicket: '2023-01-10T14:25:51.000'
+                            TipoTicket: Mantenimiento
+                            Prioridad: PRUEBALO
+                            DescripcionTicket: "\r\n<BODY>PRUEBATICKET </BODY>"
+                            Cliente: TIENDAS TRES B S A DE C V
+                            ClienteCodigo: '10300010329'
+                            Ubicacion: hola xd
+                            UbicacionCodigo: 3
+                            Equipo: Elemental
+                            EquipoCodigo: '10'
+                            tipoEquipoNombre: Equipo Alta Calidad
                             Estado: ''
                             EstadoTexto: ''
               examples:
@@ -472,42 +472,42 @@ paths:
                       success: true
                       data:
                         success: true
-                        sql: "SELECT proyecto_of.CodigoProyecto_OF,\r\nproyecto_of.Proyecto_OFID,\r\nproyecto_of.FechaCreacion,\r\nproyecto_of.FechaHoraUsuario,\r\nproyecto_of.FechaHoraUsuarioCierre,\r\nproyecto_of.Observaciones,\r\nproyecto_of.UsuarioIDCierre,\r\nproyecto_of.Estado,\r\navisoticketintervencion.AvisoTicketID,\r\navisoticket.DescripcionProblema,\r\navisoticket.Numero,\r\navisoticketintervencion.Notas,\r\navisoticketintervencion.VehiculoID,\r\navisoticketintervencion.ContadorInicial,\r\navisoticketintervencion.ContadorFinal,\r\navisoticketintervencion.Kilometros,\r\nvehiculo.Matricula,\r\nvehiculo.Codigo,\r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre,\r\navisoticketplanificacion.AvisoTicketPlanificacionID,\r\navisoticketplanificacion.FechaHoraPlanificacionInicio,\r\navisoticketplanificacion.FechaHoraPlanificacionFinal,\r\nusuario.NombreUsuario \r\n\r\nFROM proyecto_of\r\nLEFT JOIN avisoticketintervencion \r\nON proyecto_of.Proyecto_OFID = avisoticketintervencion.Proyecto_OFID\r\nLEFT JOIN vehiculo \r\nON avisoticketintervencion.VehiculoID = vehiculo.VehiculoID\r\nLEFT JOIN avisoticket\r\nON avisoticketintervencion.AvisoTicketID = avisoticket.AvisoTicketID\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nLEFT JOIN avisoticketplanificacion\r\nON avisoticket.AvisoTicketID= avisoticketplanificacion.AvisoTicketID \r\nLEFT JOIN usuario\r\nON usuario.UsuarioID  = proyecto_of.UsuarioIDCierre\r\n\r\n\r\nWHERE proyecto_of.EsObraOf = 'S' AND proyecto_of.CustomerID = 29 \r\nAND proyecto_of.Proyecto_OFID = 1159\r\n"
+                        sql: string
                         records:
-                          - Numero: 1159
-                            Proyecto_OFID: 66675
-                            FechaIntervencion: '00000101'
-                            NumeroTicketID: 0
-                            NumeroTicketCodigo: 0
-                            NumeroTicketNombre: ''
-                            UsuarioCreacion: ''
-                            FechaHoraCreacion: '2023-04-13T12:22:07.000'
-                            PlanificacionIntervencionID: 0
-                            PlanificacionIntervencionNombre: 'Planificación del 00/00/00 00:00:00'
-                            TiempoPrevisto: 0 Horas
+                          - Numero: 80
+                            Proyecto_OFID: 1888
+                            FechaIntervencion: '20230621'
+                            NumeroTicketID: 1
+                            NumeroTicketCodigo: 1
+                            NumeroTicketNombre: "\r\n<BODY>PRUEBATICKET </BODY>"
+                            UsuarioCreacion: ADMINISTRADOR
+                            FechaHoraCreacion: '2023-06-21T16:31:47.000'
+                            PlanificacionIntervencionID: 1
+                            PlanificacionIntervencionNombre: 'Planificación del 10/01/2023 14:25'
+                            TiempoPrevisto: 12 Horas
                             UsuarioCierreID: 0
                             nombreUsuarioCierre: ''
                             FechaHoraCierre: '0000-00-00T00:00:00.000'
                             NAlbaran: ''
-                            Descripcion: '0'
-                            ObservacionInterna: '0'
-                            VehiculoId: 0
-                            VehiculoNombre: ''
-                            VehiculoCodigo: ''
-                            ContadorInicial: 0
-                            ContadorFinal: 0
-                            Kilometros: '0'
-                            FechaAltaTicket: '0000-00-00T00:00:00.000'
-                            TipoTicket: ''
-                            Prioridad: ''
-                            DescripcionTicket: ''
-                            Cliente: ''
-                            ClienteCodigo: ''
-                            Ubicacion: ''
-                            UbicacionCodigo: 0
-                            Equipo: ''
-                            EquipoCodigo: ''
-                            tipoEquipoNombre: ''
+                            Descripcion: Hola
+                            ObservacionInterna: Sisas
+                            VehiculoId: 2
+                            VehiculoNombre: TEST999
+                            VehiculoCodigo: '888'
+                            ContadorInicial: 20
+                            ContadorFinal: 100
+                            Kilometros: '1200'
+                            FechaAltaTicket: '2023-01-10T14:25:51.000'
+                            TipoTicket: Mantenimiento
+                            Prioridad: PRUEBALO
+                            DescripcionTicket: "\r\n<BODY>PRUEBATICKET </BODY>"
+                            Cliente: TIENDAS TRES B S A DE C V
+                            ClienteCodigo: '10300010329'
+                            Ubicacion: hola xd
+                            UbicacionCodigo: 3
+                            Equipo: Elemental
+                            EquipoCodigo: '10'
+                            tipoEquipoNombre: Equipo Alta Calidad
                             Estado: ''
                             EstadoTexto: ''
       parameters:
@@ -532,23 +532,43 @@ paths:
                   type: string
                 ObservacionInterna:
                   type: string
+                planificacionID:
+                  type: integer
                 VehiculoId:
+                  type: integer
+                contadorInicial:
+                  type: integer
+                contadorFinal:
+                  type: integer
+                kilometros:
+                  type: integer
+                tiempoPrevisto:
                   type: integer
               x-examples:
                 Example 1:
-                  ticketID: 9
-                  FechaIntervencion: '20230502'
-                  Descripcion: PruebaJCO
-                  ObservacionInterna: NotaJCO
-                  VehiculoId: 1
+                  ticketID: 1
+                  FechaIntervencion: '20230621'
+                  Descripcion: Hola
+                  ObservacionInterna: Sisas
+                  planificacionID: 23
+                  VehiculoId: 2
+                  contadorInicial: 20
+                  contadorFinal: 100
+                  kilometros: 1200
+                  tiempoPrevisto: 12
             examples:
               Example 1:
                 value:
-                  ticketID: 9
-                  FechaIntervencion: '20231010'
-                  Descripcion: UpdateJCO
-                  ObservacionInterna: NotaActualizadaJCO
-                  VehiculoId: 1
+                  ticketID: 1
+                  FechaIntervencion: '20230621'
+                  Descripcion: Hola
+                  ObservacionInterna: Sisas
+                  planificacionID: 23
+                  VehiculoId: 2
+                  contadorInicial: 20
+                  contadorFinal: 100
+                  kilometros: 1200
+                  tiempoPrevisto: 12
   /interventions:
     get:
       summary: FindMany
