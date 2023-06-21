@@ -5,7 +5,7 @@ info:
   title: API - Intervention
   version: '1.0'
 servers:
-  - url: 'http://15.236.85.216/'
+  - url: 'http://localhost/'
 paths:
   /intervention:
     post:
@@ -264,14 +264,15 @@ paths:
                   contadorFinal: 100
                   kilometros: 1200
                   tiempoPrevisto: 12
-  '/intervention/{intervencionID}':
+  '/intervention/{id}':
     parameters:
       - schema:
           type: string
-          example: '5'
-        name: intervencionID
+          example: '188'
+        name: id
         in: path
         required: true
+        description: idProyectoOF
     delete:
       summary: Delete
       operationId: delete-intervention-intervencionID
