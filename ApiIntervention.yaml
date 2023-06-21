@@ -120,41 +120,41 @@ paths:
                       success: true
                       data:
                         success: true
-                        sql: "SELECT proyecto_of.CodigoProyecto_OF,\r\nproyecto_of.Proyecto_OFID,\r\nproyecto_of.FechaCreacion,\r\nproyecto_of.FechaHoraUsuario,\r\nproyecto_of.FechaHoraUsuarioCierre,\r\nproyecto_of.Observaciones,\r\nproyecto_of.UsuarioIDCierre,\r\nproyecto_of.Estado,\r\navisoticketintervencion.AvisoTicketID,\r\navisoticket.DescripcionProblema,\r\navisoticket.Numero,\r\navisoticketintervencion.Notas,\r\navisoticketintervencion.VehiculoID,\r\navisoticketintervencion.ContadorInicial,\r\navisoticketintervencion.ContadorFinal,\r\navisoticketintervencion.Kilometros,\r\nvehiculo.Matricula,\r\nvehiculo.Codigo,\r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre,\r\navisoticketplanificacion.AvisoTicketPlanificacionID,\r\navisoticketplanificacion.FechaHoraPlanificacionInicio,\r\navisoticketplanificacion.FechaHoraPlanificacionFinal,\r\nusuario.NombreUsuario \r\n\r\nFROM proyecto_of\r\nLEFT JOIN avisoticketintervencion \r\nON proyecto_of.Proyecto_OFID = avisoticketintervencion.Proyecto_OFID\r\nLEFT JOIN vehiculo \r\nON avisoticketintervencion.VehiculoID = vehiculo.VehiculoID\r\nLEFT JOIN avisoticket\r\nON avisoticketintervencion.AvisoTicketID = avisoticket.AvisoTicketID\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nLEFT JOIN avisoticketplanificacion\r\nON avisoticket.AvisoTicketID= avisoticketplanificacion.AvisoTicketID \r\nLEFT JOIN usuario\r\nON usuario.UsuarioID  = proyecto_of.UsuarioIDCierre\r\n\r\n\r\nWHERE proyecto_of.EsObraOf = 'S' AND proyecto_of.CustomerID = 29 \r\nAND proyecto_of.Proyecto_OFID = 1839\r\n"
+                        sql: "SELECT proyecto_of.CodigoProyecto_OF,\r\nproyecto_of.Proyecto_OFID,\r\nproyecto_of.FechaCreacion,\r\nproyecto_of.FechaHoraUsuario,\r\nproyecto_of.FechaHoraUsuarioCierre,\r\nproyecto_of.Observaciones,\r\nproyecto_of.UsuarioIDCierre,\r\nproyecto_of.Estado,\r\navisoticketintervencion.AvisoTicketID,\r\navisoticket.DescripcionProblema,\r\navisoticket.Numero,\r\navisoticketintervencion.Notas,\r\navisoticketintervencion.VehiculoID,\r\navisoticketintervencion.ContadorInicial,\r\navisoticketintervencion.ContadorFinal,\r\navisoticketintervencion.Kilometros,\r\nvehiculo.Matricula,\r\nvehiculo.Codigo,\r\navisoticket.FechaHoraUsuario AS FechaAltaTicket,\r\ntablageneral.Abreviatura,\r\navisoticket.AvisoTicketPrioridadID,\r\navisoticketprioridad.Nombre AS nombrePrioridad,\r\navisoticket.DescripcionProblema,\r\nmailing.ReferenciaCodigo AS mailingCodigo,\r\nmailing.Nombre AS mailingNombre,\r\ndireccion.Nombre AS direccionNombre,\r\ndireccion.Codigo AS direccionCodigo,\r\nelemento.Nombre AS equipoNombre,\r\nelemento.NumeroSerie AS equipoCodigo,\r\nTipoEquipo.Descripcion AS tipoEquipoNombre,\r\navisoticketplanificacion.AvisoTicketPlanificacionID,\r\navisoticketplanificacion.FechaHoraPlanificacionInicio,\r\navisoticketplanificacion.FechaHoraPlanificacionFinal,\r\nusuario.NombreUsuario \r\n\r\nFROM proyecto_of\r\nLEFT JOIN avisoticketintervencion \r\nON proyecto_of.Proyecto_OFID = avisoticketintervencion.Proyecto_OFID\r\nLEFT JOIN vehiculo \r\nON avisoticketintervencion.VehiculoID = vehiculo.VehiculoID\r\nLEFT JOIN avisoticket\r\nON avisoticketintervencion.AvisoTicketID = avisoticket.AvisoTicketID\r\nLEFT JOIN tablageneral \r\nON tablageneral.TablaGeneralID = avisoticket.TipoAvisoID\r\nLEFT JOIN avisoticketprioridad\r\nON  avisoticket.AvisoTicketPrioridadID = avisoticketprioridad.AvisoTicketPrioridadID\r\nLEFT JOIN mailing\r\nON avisoticket.MailingID\t= mailing.MailingID\r\nLEFT JOIN direccion \r\nON avisoticket.DireccionID = direccion.DireccionID\r\nLEFT JOIN avisoticketelemento\r\nON avisoticket.AvisoTicketID = avisoticketelemento.AvisoTicketID\r\nLEFT JOIN elemento \r\nON avisoticketelemento.ElementoID = elemento.ElementoID\r\nLEFT JOIN tablageneral TipoEquipo\r\nON tipoequipo.tablageneralid =  elemento.TipoEquipoID\r\nLEFT JOIN avisoticketplanificacion\r\nON avisoticket.AvisoTicketID= avisoticketplanificacion.AvisoTicketID \r\nLEFT JOIN usuario\r\nON usuario.UsuarioID  = proyecto_of.UsuarioIDCierre\r\n\r\n\r\nWHERE proyecto_of.EsObraOf = 'S' AND proyecto_of.CustomerID = 29 \r\nAND proyecto_of.Proyecto_OFID = 1890\r\ngroup BY proyecto_of.Proyecto_OFID\r\n"
                         records:
-                          - Numero: 1839
-                            Proyecto_OFID: 39
-                            FechaIntervencion: '20230502'
-                            NumeroTicketID: 9
-                            NumeroTicketCodigo: 6
-                            NumeroTicketNombre: "\r\n<BODY>qwertyuiasdfghjmkdrtstrsrtsrs</BODY>"
+                          - Numero: 82
+                            Proyecto_OFID: 1890
+                            FechaIntervencion: '20230621'
+                            NumeroTicketID: 1
+                            NumeroTicketCodigo: 1
+                            NumeroTicketNombre: "\r\n<BODY>PRUEBATICKET </BODY>"
                             UsuarioCreacion: ADMINISTRADOR
-                            FechaHoraCreacion: '2023-05-02T10:28:04.188'
-                            PlanificacionIntervencionID: 6
-                            PlanificacionIntervencionNombre: 'Planificación del 22/02/2023 14:50'
-                            TiempoPrevisto: 0 Horas
+                            FechaHoraCreacion: '2023-06-21T16:47:29.424'
+                            PlanificacionIntervencionID: 1
+                            PlanificacionIntervencionNombre: 'Planificación del 10/01/2023 14:25'
+                            TiempoPrevisto: 12 Horas
                             UsuarioCierreID: 0
                             nombreUsuarioCierre: ''
                             FechaHoraCierre: '0000-00-00T00:00:00.000'
                             NAlbaran: ''
-                            Descripcion: PruebaJCO
-                            ObservacionInterna: NotaJCO
-                            VehiculoId: 1
-                            VehiculoNombre: ARP86F
-                            VehiculoCodigo: BES
-                            ContadorInicial: 0
-                            ContadorFinal: 0
-                            Kilometros: '0'
-                            FechaAltaTicket: '2023-02-22T14:50:53.265'
-                            TipoTicket: Averia
+                            Descripcion: Hola
+                            ObservacionInterna: Sisas
+                            VehiculoId: 2
+                            VehiculoNombre: TEST999
+                            VehiculoCodigo: '888'
+                            ContadorInicial: 20
+                            ContadorFinal: 100
+                            Kilometros: '1200'
+                            FechaAltaTicket: '2023-01-10T14:25:51.000'
+                            TipoTicket: Mantenimiento
                             Prioridad: PRUEBALO
-                            DescripcionTicket: "\r\n<BODY>qwertyuiasdfghjmkdrtstrsrtsrs</BODY>"
+                            DescripcionTicket: "\r\n<BODY>PRUEBATICKET </BODY>"
                             Cliente: TIENDAS TRES B S A DE C V
                             ClienteCodigo: '10300010329'
-                            Ubicacion: MARIA DEL CARMEN CRUZ MIRANDA
-                            UbicacionCodigo: 20
-                            Equipo: PRUEBANIHIL
-                            EquipoCodigo: '456789'
+                            Ubicacion: hola xd
+                            UbicacionCodigo: 3
+                            Equipo: Elemental
+                            EquipoCodigo: '10'
                             tipoEquipoNombre: Equipo Alta Calidad
                             Estado: ''
                             EstadoTexto: ''
@@ -169,39 +169,39 @@ paths:
                         success: true
                         sql: string
                         records:
-                          - Numero: 1839
-                            Proyecto_OFID: 39
-                            FechaIntervencion: '20230502'
-                            NumeroTicketID: 9
-                            NumeroTicketCodigo: 6
-                            NumeroTicketNombre: "\r\n<BODY>qwertyuiasdfghjmkdrtstrsrtsrs</BODY>"
+                          - Numero: 82
+                            Proyecto_OFID: 1890
+                            FechaIntervencion: '20230621'
+                            NumeroTicketID: 1
+                            NumeroTicketCodigo: 1
+                            NumeroTicketNombre: "\r\n<BODY>PRUEBATICKET </BODY>"
                             UsuarioCreacion: ADMINISTRADOR
-                            FechaHoraCreacion: '2023-05-02T10:28:04.188'
-                            PlanificacionIntervencionID: 6
-                            PlanificacionIntervencionNombre: 'Planificación del 22/02/2023 14:50'
-                            TiempoPrevisto: 0 Horas
+                            FechaHoraCreacion: '2023-06-21T16:47:29.424'
+                            PlanificacionIntervencionID: 1
+                            PlanificacionIntervencionNombre: 'Planificación del 10/01/2023 14:25'
+                            TiempoPrevisto: 12 Horas
                             UsuarioCierreID: 0
                             nombreUsuarioCierre: ''
                             FechaHoraCierre: '0000-00-00T00:00:00.000'
                             NAlbaran: ''
-                            Descripcion: PruebaJCO
-                            ObservacionInterna: NotaJCO
-                            VehiculoId: 1
-                            VehiculoNombre: ARP86F
-                            VehiculoCodigo: BES
-                            ContadorInicial: 0
-                            ContadorFinal: 0
-                            Kilometros: '0'
-                            FechaAltaTicket: '2023-02-22T14:50:53.265'
-                            TipoTicket: Averia
+                            Descripcion: Hola
+                            ObservacionInterna: Sisas
+                            VehiculoId: 2
+                            VehiculoNombre: TEST999
+                            VehiculoCodigo: '888'
+                            ContadorInicial: 20
+                            ContadorFinal: 100
+                            Kilometros: '1200'
+                            FechaAltaTicket: '2023-01-10T14:25:51.000'
+                            TipoTicket: Mantenimiento
                             Prioridad: PRUEBALO
-                            DescripcionTicket: "\r\n<BODY>qwertyuiasdfghjmkdrtstrsrtsrs</BODY>"
+                            DescripcionTicket: "\r\n<BODY>PRUEBATICKET </BODY>"
                             Cliente: TIENDAS TRES B S A DE C V
                             ClienteCodigo: '10300010329'
-                            Ubicacion: MARIA DEL CARMEN CRUZ MIRANDA
-                            UbicacionCodigo: 20
-                            Equipo: PRUEBANIHIL
-                            EquipoCodigo: '456789'
+                            Ubicacion: hola xd
+                            UbicacionCodigo: 3
+                            Equipo: Elemental
+                            EquipoCodigo: '10'
                             tipoEquipoNombre: Equipo Alta Calidad
                             Estado: ''
                             EstadoTexto: ''
