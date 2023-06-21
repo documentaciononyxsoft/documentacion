@@ -227,23 +227,43 @@ paths:
                   type: string
                 ObservacionInterna:
                   type: string
+                planificacionID:
+                  type: integer
                 VehiculoId:
+                  type: integer
+                contadorInicial:
+                  type: integer
+                contadorFinal:
+                  type: integer
+                kilometros:
+                  type: integer
+                tiempoPrevisto:
                   type: integer
               x-examples:
                 Example 1:
-                  ticketID: 9
-                  FechaIntervencion: '20230502'
-                  Descripcion: PruebaJCO
-                  ObservacionInterna: NotaJCO
-                  VehiculoId: 1
+                  ticketID: 1
+                  FechaIntervencion: '20230621'
+                  Descripcion: Hola
+                  ObservacionInterna: Sisas
+                  planificacionID: 23
+                  VehiculoId: 2
+                  contadorInicial: 20
+                  contadorFinal: 100
+                  kilometros: 1200
+                  tiempoPrevisto: 12
             examples:
               Example 1:
                 value:
-                  ticketID: 9
-                  FechaIntervencion: '20230502'
-                  Descripcion: PruebaJCO
-                  ObservacionInterna: NotaJCO
-                  VehiculoId: 1
+                  ticketID: 1
+                  FechaIntervencion: '20230621'
+                  Descripcion: Hola
+                  ObservacionInterna: Sisas
+                  planificacionID: 23
+                  VehiculoId: 2
+                  contadorInicial: 20
+                  contadorFinal: 100
+                  kilometros: 1200
+                  tiempoPrevisto: 12
   '/intervention/{intervencionID}':
     parameters:
       - schema:
