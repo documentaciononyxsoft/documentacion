@@ -184,8 +184,8 @@ paths:
                             nombreUsuarioCierre: ''
                             FechaHoraCierre: '0000-00-00T00:00:00.000'
                             NAlbaran: ''
-                            Descripcion: Hola
-                            ObservacionInterna: Sisas
+                            Descripcion: Prueba
+                            ObservacionInterna: ObervacionPrueba
                             VehiculoId: 2
                             VehiculoNombre: TEST999
                             VehiculoCodigo: '888'
@@ -256,8 +256,8 @@ paths:
                 value:
                   ticketID: 1
                   FechaIntervencion: '20230621'
-                  Descripcion: Hola
-                  ObservacionInterna: Sisas
+                  Descripcion: Prueba
+                  ObservacionInterna: ObervacionPrueba
                   planificacionID: 23
                   VehiculoId: 2
                   contadorInicial: 20
@@ -490,8 +490,8 @@ paths:
                             nombreUsuarioCierre: ''
                             FechaHoraCierre: '0000-00-00T00:00:00.000'
                             NAlbaran: ''
-                            Descripcion: Hola
-                            ObservacionInterna: Sisas
+                            Descripcion: Updated
+                            ObservacionInterna: ObservacionUpdated
                             VehiculoId: 2
                             VehiculoNombre: TEST999
                             VehiculoCodigo: '888'
@@ -562,8 +562,8 @@ paths:
                 value:
                   ticketID: 1
                   FechaIntervencion: '20230621'
-                  Descripcion: Hola
-                  ObservacionInterna: Sisas
+                  Descripcion: Updated
+                  ObservacionInterna: ObservacionUpdated
                   planificacionID: 23
                   VehiculoId: 2
                   contadorInicial: 20
