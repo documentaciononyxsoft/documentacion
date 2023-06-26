@@ -3447,7 +3447,7 @@ paths:
           required: true
         - schema:
             type: string
-            example: '50'
+            example: '500'
           in: query
           name: limit
           required: true
@@ -3458,7 +3458,10 @@ paths:
           name: offset
         - schema:
             type: string
-            example: '1'
+            enum:
+              - '1:Todos'
+              - '2:Preventivo'
+              - '3:Averia'
           in: query
           name: tipoTicket
         - schema:
