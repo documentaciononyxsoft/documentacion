@@ -3462,13 +3462,21 @@ paths:
               - '1:Todos'
               - '2:Preventivo'
               - '3:Averia'
+              - '4:Mejora'
+            example: '1'
           in: query
           name: tipoTicket
+          required: true
         - schema:
             type: string
+            enum:
+              - '1:Todos'
+              - '2:Abiertos'
+              - '3:Cerrados'
             example: '1'
           in: query
           name: intervencion
+          required: true
         - schema:
             type: string
             example: '20020220'
@@ -3477,7 +3485,7 @@ paths:
           required: true
         - schema:
             type: string
-            example: '20230220'
+            example: '20250220'
           in: query
           name: fechaHastaIn
           required: true
