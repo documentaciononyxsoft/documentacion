@@ -1106,6 +1106,63 @@ paths:
                     PrePaidTotalAmount: '0'
                   Notes:
                     - Documento Soporte
+  /api/v1/document/pdf:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-api-v1-document-pdf
+  /api/v1/document/xml:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-api-v1-document-xml
+  /api/v1/document/zip:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-api-v1-document-zip
+  /api/v1/gettoken:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-api-v1-gettoken
+  /api/v1/invoice:
+    post:
+      summary: ''
+      operationId: post-api-v1-invoice
+      responses:
+        '200':
+          description: OK
+  /api/v1/invoice/qualification:
+    post:
+      summary: ''
+      operationId: post-api-v1-invoice-qualification
+      responses:
+        '200':
+          description: OK
+  '/api/v1/invoice/qualification/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-api-v1-invoice-qualification-id
+  /api/v1/supportDocument:
+    post:
+      summary: ''
+      operationId: post-api-v1-supportDocument
+      responses:
+        '200':
+          description: OK
 components:
   schemas:
     User:
