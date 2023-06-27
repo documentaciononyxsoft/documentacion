@@ -1,0 +1,1166 @@
+openapi: 3.1.0
+x-stoplight:
+  id: u3a7hzumc1uik
+info:
+  title: ApiFE
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /api/v1/consume:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-api-v1-consume
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: customerID
+        - schema:
+            type: string
+          in: query
+          name: companyID
+        - schema:
+            type: string
+          in: query
+          name: startDate
+        - schema:
+            type: string
+          in: query
+          name: endDate
+    parameters: []
+  /api/v1/credentials:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-api-v1-credentials
+  '/api/v1/dataico/document/pdf/{id}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  content:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    content: stringfi
+      operationId: get-api-v1-dataico-document-pdf
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: type
+          description: invoice o docsupp
+        - schema:
+            type: string
+          in: header
+          name: authtoken
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/api/v1/dataico/document/xml/{id}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  content:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    content: stringfi
+      operationId: get-api-v1-dataico-document-xml
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  /api/v1/dataico/invoice:
+    post:
+      summary: ''
+      operationId: post-api-v1-dataico-invoice
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  token:
+                    type: object
+                    properties:
+                      IsValid:
+                        type: boolean
+                      Warnings:
+                        type: array
+                        items:
+                          type: object
+                          properties: {}
+                      Errors:
+                        type: array
+                        items:
+                          type: object
+                          properties: {}
+                      ResultData:
+                        type: object
+                        properties:
+                          Id:
+                            type: string
+                          CorrelationDocumentId:
+                            type: string
+                          CUFE:
+                            type: string
+                          Content:
+                            type: string
+                          ContentType:
+                            type: string
+                      ResultCode:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 201
+                    token:
+                      IsValid: true
+                      Warnings: []
+                      Errors: []
+                      ResultData:
+                        Id: 0188f837-ab1d-88e3-85f3-429328372f81
+                        CorrelationDocumentId: 0188f837-ab1d-88e3-85f3-429328372f81
+                        CUFE: c6994bf99ea9ce45adcd08df91535166c75a1ce8c0c03ad931d3deaf9ab69816763a0a72425a048a086de6003b30aa01
+                        Content: PHM6RW52ZWxvcGUgeG1sbnM6cz0iaHR0cDovL3d3dy53My5vcmcvMjAwMy8wNS9zb2FwLWVudmVsb3BlIiB4bWxuczphPSJodHRwOi8vd3d3LnczLm9yZy8yMDA1LzA4L2FkZHJlc3NpbmciIHhtbG5zOnU9Imh0dHA6Ly9kb2NzLm9hc2lzLW9wZW4ub3JnL3dzcy8yMDA0LzAxL29hc2lzLTIwMDQwMS13c3Mtd3NzZWN1cml0eS11dGlsaXR5LTEuMC54c2QiPjxzOkhlYWRlcj48YTpBY3Rpb24gczptdXN0VW5kZXJzdGFuZD0iMSI+aHR0cDovL3djZi5kaWFuLmNvbG9tYmlhL0lXY2ZEaWFuQ3VzdG9tZXJTZXJ2aWNlcy9TZW5kQmlsbFN5bmNSZXNwb25zZTwvYTpBY3Rpb24+PG86U2VjdXJpdHkgczptdXN0VW5kZXJzdGFuZD0iMSIgeG1sbnM6bz0iaHR0cDovL2RvY3Mub2FzaXMtb3Blbi5vcmcvd3NzLzIwMDQvMDEvb2FzaXMtMjAwNDAxLXdzcy13c3NlY3VyaXR5LXNlY2V4dC0xLjAueHNkIj48dTpUaW1lc3RhbXAgdTpJZD0iXzAiPjx1OkNyZWF0ZWQ+MjAyMy0wNi0yN1QxNzowMzoyNC4yNjZaPC91OkNyZWF0ZWQ+PHU6RXhwaXJlcz4yMDIzLTA2LTI3VDE3OjA4OjI0LjI2Nlo8L3U6RXhwaXJlcz48L3U6VGltZXN0YW1wPjwvbzpTZWN1cml0eT48L3M6SGVhZGVyPjxzOkJvZHk+PFNlbmRCaWxsU3luY1Jlc3BvbnNlIHhtbG5zPSJodHRwOi8vd2NmLmRpYW4uY29sb21iaWEiPjxTZW5kQmlsbFN5bmNSZXN1bHQgeG1sbnM6Yj0iaHR0cDovL3NjaGVtYXMuZGF0YWNvbnRyYWN0Lm9yZy8yMDA0LzA3L0RpYW5SZXNwb25zZSIgeG1sbnM6aT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiPjxiOkVycm9yTWVzc2FnZSB4bWxuczpjPSJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tLzIwMDMvMTAvU2VyaWFsaXphdGlvbi9BcnJheXMiLz48YjpJc1ZhbGlkPmZhbHNlPC9iOklzVmFsaWQ+PGI6U3RhdHVzQ29kZT44OTwvYjpTdGF0dXNDb2RlPjxiOlN0YXR1c0Rlc2NyaXB0aW9uPk5JVCA5MDEyMjM2NDggbm8gYXV0b3JpemFkbyBhIGVudmlhciBkb2N1bWVudG9zIHBhcmEgZW1pc29yIGNvbiBOSVQgMTIxMjEyMTIxLjwvYjpTdGF0dXNEZXNjcmlwdGlvbj48YjpTdGF0dXNNZXNzYWdlIGk6bmlsPSJ0cnVlIi8+PGI6WG1sQmFzZTY0Qnl0ZXMgaTpuaWw9InRydWUiLz48YjpYbWxCeXRlcyBpOm5pbD0idHJ1ZSIvPjxiOlhtbERvY3VtZW50S2V5IGk6bmlsPSJ0cnVlIi8+PGI6WG1sRmlsZU5hbWU+ZnYwMTIxMjEyMTIxMDg5MjAwMDAwMDAwMS54bWw8L2I6WG1sRmlsZU5hbWU+PC9TZW5kQmlsbFN5bmNSZXN1bHQ+PC9TZW5kQmlsbFN5bmNSZXNwb25zZT48L3M6Qm9keT48L3M6RW52ZWxvcGU+
+                        ContentType: text/xml
+                      ResultCode: '200'
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Mode
+        - schema:
+            type: string
+          in: header
+          name: authtoken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Currency:
+                  type: string
+                resolutionNumber:
+                  type: string
+                SeriePrefix:
+                  type: string
+                serieNumber:
+                  type: string
+                IssueDate:
+                  type: string
+                DueDate:
+                  type: string
+                DeliveryDate:
+                  type: string
+                CorrelationDocumentId:
+                  type: string
+                OperationType:
+                  type: string
+                CustomerParty:
+                  type: object
+                  properties:
+                    Person:
+                      type: object
+                      properties:
+                        FirstName:
+                          type: string
+                        MiddleName:
+                          type: string
+                        FamilyName:
+                          type: string
+                    Name:
+                      type: string
+                    Identification:
+                      type: object
+                      properties:
+                        DocumentNumber:
+                          type: string
+                        DocumentType:
+                          type: string
+                        CountryCode:
+                          type: string
+                        CheckDigit:
+                          type: string
+                    Address:
+                      type: object
+                      properties:
+                        DepartmentCode:
+                          type: string
+                        CityCode:
+                          type: string
+                        Country:
+                          type: string
+                        DepartmentName:
+                          type: string
+                        CityName:
+                          type: string
+                        AddressLine:
+                          type: string
+                    LegalType:
+                      type: string
+                    email:
+                      type: string
+                    TaxScheme:
+                      type: string
+                    ResponsabilityTypes:
+                      type: array
+                      items:
+                        type: string
+                IssuerParty:
+                  type: object
+                  properties:
+                    Identification:
+                      type: object
+                      properties:
+                        DocumentNumber:
+                          type: string
+                        DocumentType:
+                          type: string
+                        CountryCode:
+                          type: string
+                        CheckDigit:
+                          type: string
+                PaymentMeans:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                      mean:
+                        type: string
+                      dueDate:
+                        type: string
+                PaymentExchangeRate:
+                  type: object
+                  properties:
+                    date:
+                      type: string
+                    DestinyCurrency:
+                      type: string
+                    OriginCurrency:
+                      type: string
+                    Rate:
+                      type: string
+                Lines:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      Number:
+                        type: string
+                      Quantity:
+                        type: string
+                      QuantityUnitOfMeasure:
+                        type: string
+                      ExcludeVat:
+                        type: string
+                      UnitPrice:
+                        type: string
+                      GrossAmount:
+                        type: string
+                      AllowanceCharges:
+                        type: array
+                        items:
+                          type: object
+                          properties: {}
+                      NetAmount:
+                        type: string
+                      TaxSubTotals:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            TaxCategory:
+                              type: string
+                            taxPercentage:
+                              type: string
+                            TaxableAmount:
+                              type: string
+                            TaxAmount:
+                              type: string
+                            PerUnitAmount:
+                              type: string
+                            BaseUnitMeasure:
+                              type: string
+                            BaseUnitMeasureUnitMeasure:
+                              type: string
+                      TaxTotals:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            TaxCategory:
+                              type: string
+                            TaxAmount:
+                              type: string
+                            RoundingAmount:
+                              type: string
+                      Item:
+                        type: object
+                        properties:
+                          Gtin:
+                            type: string
+                          Description:
+                            type: string
+                AllowanceCharges:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      ChargeIndicator:
+                        type: string
+                      BaseAmount:
+                        type: string
+                      ReasonCode:
+                        type: string
+                      Reason:
+                        type: string
+                      Amount:
+                        type: string
+                      Percentage:
+                        type: string
+                      SequenceIndicator:
+                        type: string
+                TaxSubTotals:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      TaxCategory:
+                        type: string
+                      taxPercentage:
+                        type: string
+                      TaxableAmount:
+                        type: string
+                      TaxAmount:
+                        type: string
+                TaxTotals:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      TaxCategory:
+                        type: string
+                      TaxAmount:
+                        type: string
+                      RoundingAmount:
+                        type: string
+                PrepaidPayments:
+                  type: array
+                  items:
+                    type: object
+                    properties: {}
+                WithholdingTaxSubTotals:
+                  type: array
+                  items:
+                    type: object
+                    properties: {}
+                WithholdingTaxTotals:
+                  type: array
+                  items:
+                    type: object
+                    properties: {}
+                Total:
+                  type: object
+                  properties:
+                    GrossAmount:
+                      type: string
+                    TotalBillableAmount:
+                      type: string
+                    PayableAmount:
+                      type: string
+                    TaxableAmount:
+                      type: string
+                    AllowancesTotalAmount:
+                      type: string
+                    ChargesTotalAmount:
+                      type: string
+                    PrePaidTotalAmount:
+                      type: string
+                Notes:
+                  type: array
+                  items:
+                    type: string
+              x-examples:
+                Example 1:
+                  Currency: COP
+                  resolutionNumber: '18764034472449'
+                  SeriePrefix: ACSA
+                  serieNumber: '1152'
+                  IssueDate: '2023-06-09'
+                  DueDate: '2023-06-09'
+                  DeliveryDate: '2023-06-09'
+                  CorrelationDocumentId: 192dc4dd-3179-4a9d-8071-3788b6c564ae
+                  OperationType: '10'
+                  CustomerParty:
+                    Person:
+                      FirstName: KASA VITAL S.A.S
+                      MiddleName: ''
+                      FamilyName: ''
+                    Name: 'KASA VITAL S.A.S  '
+                    Identification:
+                      DocumentNumber: '900978262'
+                      DocumentType: NIT
+                      CountryCode: CO
+                      CheckDigit: '5'
+                    Address:
+                      DepartmentCode: ''
+                      CityCode: ''
+                      Country: CO
+                      DepartmentName: ''
+                      CityName: ''
+                      AddressLine: ''
+                    LegalType: Legal
+                    email: ''
+                    TaxScheme: '01'
+                    ResponsabilityTypes:
+                      - O-15
+                  IssuerParty:
+                    Identification:
+                      DocumentNumber: '901088578'
+                      DocumentType: NIT
+                      CountryCode: CO
+                      CheckDigit: '1'
+                  PaymentMeans:
+                    - code: '10'
+                      mean: '1'
+                      dueDate: '2023-06-09'
+                  PaymentExchangeRate:
+                    date: '2023-06-09'
+                    DestinyCurrency: COP
+                    OriginCurrency: COP
+                    Rate: '1'
+                  Lines:
+                    - Number: '1'
+                      Quantity: '10'
+                      QuantityUnitOfMeasure: NAR
+                      ExcludeVat: 'false'
+                      UnitPrice: '100000'
+                      GrossAmount: '1000000'
+                      AllowanceCharges: []
+                      NetAmount: '1000000'
+                      TaxSubTotals:
+                        - TaxCategory: '01'
+                          taxPercentage: '19'
+                          TaxableAmount: '1000000'
+                          TaxAmount: '190000'
+                          PerUnitAmount: '19000'
+                          BaseUnitMeasure: '10'
+                          BaseUnitMeasureUnitMeasure: NAR
+                      TaxTotals:
+                        - TaxCategory: '01'
+                          TaxAmount: '190000'
+                          RoundingAmount: '0.0'
+                      Item:
+                        Gtin: test
+                        Description: test
+                    - Number: '2'
+                      Quantity: '10'
+                      QuantityUnitOfMeasure: NAR
+                      ExcludeVat: 'false'
+                      UnitPrice: '100000'
+                      GrossAmount: '1000000'
+                      AllowanceCharges: []
+                      NetAmount: '1000000'
+                      TaxSubTotals:
+                        - TaxCategory: '01'
+                          taxPercentage: '19'
+                          TaxableAmount: '1000000'
+                          TaxAmount: '190000'
+                          PerUnitAmount: '19000'
+                          BaseUnitMeasure: '10'
+                          BaseUnitMeasureUnitMeasure: NAR
+                      TaxTotals:
+                        - TaxCategory: '01'
+                          TaxAmount: '190000'
+                          RoundingAmount: '0.0'
+                      Item:
+                        Gtin: test
+                        Description: test
+                  AllowanceCharges:
+                    - ChargeIndicator: 'false'
+                      BaseAmount: '2000000'
+                      ReasonCode: '09'
+                      Reason: Descuento por pronto pago
+                      Amount: '100000'
+                      Percentage: '5'
+                      SequenceIndicator: '1'
+                    - ChargeIndicator: 'true'
+                      BaseAmount: '1900000'
+                      ReasonCode: ZZ
+                      Reason: Cargo de prueba
+                      Amount: '190000'
+                      Percentage: '10'
+                      SequenceIndicator: '2'
+                  TaxSubTotals:
+                    - TaxCategory: '01'
+                      taxPercentage: '19'
+                      TaxableAmount: '2090000'
+                      TaxAmount: '397100'
+                  TaxTotals:
+                    - TaxCategory: '01'
+                      TaxAmount: '397100'
+                      RoundingAmount: '0.0'
+                  PrepaidPayments: []
+                  WithholdingTaxSubTotals: []
+                  WithholdingTaxTotals: []
+                  Total:
+                    GrossAmount: '2000000'
+                    TotalBillableAmount: '2397100'
+                    PayableAmount: '2487100'
+                    TaxableAmount: '2000000'
+                    AllowancesTotalAmount: '100000'
+                    ChargesTotalAmount: '190000'
+                    PrePaidTotalAmount: '0'
+                  Notes:
+                    - Factura electronica registrada
+  /api/v1/dataico/supportDocument:
+    post:
+      summary: ''
+      operationId: post-api-v1-dataico-supportDocument
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  token:
+                    type: object
+                    properties:
+                      IsValid:
+                        type: boolean
+                      Warnings:
+                        type: array
+                        items:
+                          type: object
+                          properties: {}
+                      Errors:
+                        type: array
+                        items:
+                          type: object
+                          properties: {}
+                      ResultData:
+                        type: object
+                        properties:
+                          Id:
+                            type: string
+                          CorrelationDocumentId:
+                            type: string
+                          CUFE:
+                            type: string
+                          Content:
+                            type: string
+                          ContentType:
+                            type: string
+                      ResultCode:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 201
+                    token:
+                      IsValid: true
+                      Warnings: []
+                      Errors: []
+                      ResultData:
+                        Id: 0188f837-ab1d-88e3-85f3-429328372f81
+                        CorrelationDocumentId: 0188f837-ab1d-88e3-85f3-429328372f81
+                        CUFE: c6994bf99ea9ce45adcd08df91535166c75a1ce8c0c03ad931d3deaf9ab69816763a0a72425a048a086de6003b30aa01
+                        Content: PHM6RW52ZWxvcGUgeG1sbnM6cz0iaHR0cDovL3d3dy53My5vcmcvMjAwMy8wNS9zb2FwLWVudmVsb3BlIiB4bWxuczphPSJodHRwOi8vd3d3LnczLm9yZy8yMDA1LzA4L2FkZHJlc3NpbmciIHhtbG5zOnU9Imh0dHA6Ly9kb2NzLm9hc2lzLW9wZW4ub3JnL3dzcy8yMDA0LzAxL29hc2lzLTIwMDQwMS13c3Mtd3NzZWN1cml0eS11dGlsaXR5LTEuMC54c2QiPjxzOkhlYWRlcj48YTpBY3Rpb24gczptdXN0VW5kZXJzdGFuZD0iMSI+aHR0cDovL3djZi5kaWFuLmNvbG9tYmlhL0lXY2ZEaWFuQ3VzdG9tZXJTZXJ2aWNlcy9TZW5kQmlsbFN5bmNSZXNwb25zZTwvYTpBY3Rpb24+PG86U2VjdXJpdHkgczptdXN0VW5kZXJzdGFuZD0iMSIgeG1sbnM6bz0iaHR0cDovL2RvY3Mub2FzaXMtb3Blbi5vcmcvd3NzLzIwMDQvMDEvb2FzaXMtMjAwNDAxLXdzcy13c3NlY3VyaXR5LXNlY2V4dC0xLjAueHNkIj48dTpUaW1lc3RhbXAgdTpJZD0iXzAiPjx1OkNyZWF0ZWQ+MjAyMy0wNi0yN1QxNzowMzoyNC4yNjZaPC91OkNyZWF0ZWQ+PHU6RXhwaXJlcz4yMDIzLTA2LTI3VDE3OjA4OjI0LjI2Nlo8L3U6RXhwaXJlcz48L3U6VGltZXN0YW1wPjwvbzpTZWN1cml0eT48L3M6SGVhZGVyPjxzOkJvZHk+PFNlbmRCaWxsU3luY1Jlc3BvbnNlIHhtbG5zPSJodHRwOi8vd2NmLmRpYW4uY29sb21iaWEiPjxTZW5kQmlsbFN5bmNSZXN1bHQgeG1sbnM6Yj0iaHR0cDovL3NjaGVtYXMuZGF0YWNvbnRyYWN0Lm9yZy8yMDA0LzA3L0RpYW5SZXNwb25zZSIgeG1sbnM6aT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiPjxiOkVycm9yTWVzc2FnZSB4bWxuczpjPSJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tLzIwMDMvMTAvU2VyaWFsaXphdGlvbi9BcnJheXMiLz48YjpJc1ZhbGlkPmZhbHNlPC9iOklzVmFsaWQ+PGI6U3RhdHVzQ29kZT44OTwvYjpTdGF0dXNDb2RlPjxiOlN0YXR1c0Rlc2NyaXB0aW9uPk5JVCA5MDEyMjM2NDggbm8gYXV0b3JpemFkbyBhIGVudmlhciBkb2N1bWVudG9zIHBhcmEgZW1pc29yIGNvbiBOSVQgMTIxMjEyMTIxLjwvYjpTdGF0dXNEZXNjcmlwdGlvbj48YjpTdGF0dXNNZXNzYWdlIGk6bmlsPSJ0cnVlIi8+PGI6WG1sQmFzZTY0Qnl0ZXMgaTpuaWw9InRydWUiLz48YjpYbWxCeXRlcyBpOm5pbD0idHJ1ZSIvPjxiOlhtbERvY3VtZW50S2V5IGk6bmlsPSJ0cnVlIi8+PGI6WG1sRmlsZU5hbWU+ZnYwMTIxMjEyMTIxMDg5MjAwMDAwMDAwMS54bWw8L2I6WG1sRmlsZU5hbWU+PC9TZW5kQmlsbFN5bmNSZXN1bHQ+PC9TZW5kQmlsbFN5bmNSZXNwb25zZT48L3M6Qm9keT48L3M6RW52ZWxvcGU+
+                        ContentType: text/xml
+                      ResultCode: '200'
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Mode
+        - schema:
+            type: string
+          in: header
+          name: authtoken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Currency:
+                  type: string
+                SeriePrefix:
+                  type: string
+                SerieNumber:
+                  type: string
+                CompanyNoFact:
+                  type: string
+                IssueDate:
+                  type: string
+                DueDate:
+                  type: string
+                DeliveryDate:
+                  type: string
+                OperationType:
+                  type: string
+                CorrelationDocumentId:
+                  type: string
+                SerieExternalKey:
+                  type: string
+                PaymentExchangeRate:
+                  type: object
+                  properties:
+                    OriginCurrency:
+                      type: string
+                    DestinyCurrency:
+                      type: string
+                    Rate:
+                      type: string
+                    Date:
+                      type: string
+                PaymentMeans:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      Code:
+                        type: string
+                      Mean:
+                        type: string
+                      DueDate:
+                        type: string
+                CustomerParty:
+                  type: object
+                  properties:
+                    Identification:
+                      type: object
+                      properties:
+                        DocumentNumber:
+                          type: string
+                        DocumentType:
+                          type: string
+                        CountryCode:
+                          type: string
+                        CheckDigit:
+                          type: string
+                SupplierParty:
+                  type: object
+                  properties:
+                    LegalType:
+                      type: string
+                    email:
+                      type: string
+                    TaxScheme:
+                      type: string
+                    ResponsabilityTypes:
+                      type: array
+                      items:
+                        type: string
+                    Name:
+                      type: string
+                    Person:
+                      type: object
+                      properties:
+                        FirstName:
+                          type: string
+                        MiddleName:
+                          type: string
+                        FamilyName:
+                          type: string
+                    Identification:
+                      type: object
+                      properties:
+                        DocumentNumber:
+                          type: string
+                        DocumentType:
+                          type: string
+                        CountryCode:
+                          type: string
+                        CheckDigit:
+                          type: string
+                    Address:
+                      type: object
+                      properties:
+                        DepartmentCode:
+                          type: string
+                        CityCode:
+                          type: string
+                        AddressLine:
+                          type: string
+                        PostalCode:
+                          type: string
+                        Country:
+                          type: string
+                        DepartmentName:
+                          type: string
+                        CityName:
+                          type: string
+                Lines:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      Number:
+                        type: string
+                      Quantity:
+                        type: string
+                      QuantityUnitOfMeasure:
+                        type: string
+                      Excludevat:
+                        type: string
+                      TaxSubTotals:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            TaxCategory:
+                              type: string
+                            taxPercentage:
+                              type: string
+                            TaxableAmount:
+                              type: string
+                            TaxAmount:
+                              type: string
+                      TaxTotals:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            TaxCategory:
+                              type: string
+                            TaxAmount:
+                              type: string
+                            RoundingAmount:
+                              type: string
+                      AllowanceCharges:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ChargeIndicator:
+                              type: string
+                            BaseAmount:
+                              type: string
+                            ReasonCode:
+                              type: string
+                            Reason:
+                              type: string
+                            Amount:
+                              type: string
+                            Percentage:
+                              type: string
+                            SequenceIndicator:
+                              type: string
+                      UnitPrice:
+                        type: string
+                      GrossAmount:
+                        type: string
+                      NetAmount:
+                        type: string
+                      Item:
+                        type: object
+                        properties:
+                          Gtin:
+                            type: string
+                          Description:
+                            type: string
+                      InvoicePeriod:
+                        type: object
+                        properties:
+                          From:
+                            type: string
+                          DescriptionCode:
+                            type: string
+                TaxSubTotals:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      TaxCategory:
+                        type: string
+                      taxPercentage:
+                        type: string
+                      TaxableAmount:
+                        type: string
+                      TaxAmount:
+                        type: string
+                TaxTotals:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      TaxCategory:
+                        type: string
+                      TaxAmount:
+                        type: string
+                      RoundingAmount:
+                        type: string
+                WithholdingTaxSubTotals:
+                  type: array
+                  items:
+                    type: object
+                    properties: {}
+                WithholdingTaxTotals:
+                  type: array
+                  items:
+                    type: object
+                    properties: {}
+                AllowanceCharges:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      ChargeIndicator:
+                        type: string
+                      BaseAmount:
+                        type: string
+                      ReasonCode:
+                        type: string
+                      Reason:
+                        type: string
+                      Amount:
+                        type: string
+                      Percentage:
+                        type: string
+                      SequenceIndicator:
+                        type: string
+                PrepaidPayments:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      PaidDate:
+                        type: string
+                      PaidAmount:
+                        type: string
+                Total:
+                  type: object
+                  properties:
+                    GrossAmount:
+                      type: string
+                    TotalBillableAmount:
+                      type: string
+                    PayableAmount:
+                      type: string
+                    TaxableAmount:
+                      type: string
+                    AllowancesTotalAmount:
+                      type: string
+                    ChargesTotalAmount:
+                      type: string
+                    PrePaidTotalAmount:
+                      type: string
+                Notes:
+                  type: array
+                  items:
+                    type: string
+              x-examples:
+                Example 1:
+                  Currency: COP
+                  SeriePrefix: DS
+                  SerieNumber: '500'
+                  CompanyNoFact: '6'
+                  IssueDate: '2023-05-03'
+                  DueDate: '2023-05-03'
+                  DeliveryDate: '2023-05-03'
+                  OperationType: '10'
+                  CorrelationDocumentId: DS-20230503110638
+                  SerieExternalKey: dpghQ4W2iu
+                  PaymentExchangeRate:
+                    OriginCurrency: COP
+                    DestinyCurrency: COP
+                    Rate: '1'
+                    Date: '2023-05-03'
+                  PaymentMeans:
+                    - Code: '10'
+                      Mean: '1'
+                      DueDate: '2023-05-03'
+                  CustomerParty:
+                    Identification:
+                      DocumentNumber: '901088578'
+                      DocumentType: NIT
+                      CountryCode: CO
+                      CheckDigit: '1'
+                  SupplierParty:
+                    LegalType: Legal
+                    email: prueba@gmail.com
+                    TaxScheme: '01'
+                    ResponsabilityTypes:
+                      - R-99-PN
+                    Name: Efigas
+                    Person:
+                      FirstName: Efigas
+                      MiddleName: ''
+                      FamilyName: ''
+                    Identification:
+                      DocumentNumber: '800202395'
+                      DocumentType: NIT
+                      CountryCode: CO
+                      CheckDigit: '3'
+                    Address:
+                      DepartmentCode: '66'
+                      CityCode: '66170'
+                      AddressLine: Calle
+                      PostalCode: '661001'
+                      Country: CO
+                      DepartmentName: ''
+                      CityName: ''
+                  Lines:
+                    - Number: '1'
+                      Quantity: '25'
+                      QuantityUnitOfMeasure: NAR
+                      Excludevat: 'false'
+                      TaxSubTotals:
+                        - TaxCategory: '01'
+                          taxPercentage: '19'
+                          TaxableAmount: '2799056.25'
+                          TaxAmount: '531820.69'
+                      TaxTotals:
+                        - TaxCategory: '01'
+                          TaxAmount: '531820.69'
+                          RoundingAmount: '0.0'
+                      AllowanceCharges:
+                        - ChargeIndicator: 'false'
+                          BaseAmount: '3375000'
+                          ReasonCode: '00'
+                          Reason: Descuento no condicionado
+                          Amount: '337500'
+                          Percentage: '10'
+                          SequenceIndicator: '1'
+                        - ChargeIndicator: 'false'
+                          BaseAmount: '3037500'
+                          ReasonCode: '00'
+                          Reason: Descuento no condicionado
+                          Amount: '151875'
+                          Percentage: '5'
+                          SequenceIndicator: '2'
+                        - ChargeIndicator: 'false'
+                          BaseAmount: '2885625'
+                          ReasonCode: '00'
+                          Reason: Descuento no condicionado
+                          Amount: '86568.75'
+                          Percentage: '3'
+                          SequenceIndicator: '3'
+                      UnitPrice: '135000'
+                      GrossAmount: '3375000'
+                      NetAmount: '2799056.25'
+                      Item:
+                        Gtin: POZ
+                        Description: Facturador Poz
+                      InvoicePeriod:
+                        From: '2023-05-03'
+                        DescriptionCode: '2'
+                    - Number: '2'
+                      Quantity: '14'
+                      QuantityUnitOfMeasure: NAR
+                      Excludevat: 'false'
+                      TaxSubTotals:
+                        - TaxCategory: '01'
+                          taxPercentage: '0'
+                          TaxableAmount: '2415000'
+                          TaxAmount: '0'
+                      TaxTotals:
+                        - TaxCategory: '01'
+                          TaxAmount: '0'
+                          RoundingAmount: '0.0'
+                      AllowanceCharges:
+                        - ChargeIndicator: 'false'
+                          BaseAmount: '3220000'
+                          ReasonCode: '00'
+                          Reason: Descuento no condicionado
+                          Amount: '805000'
+                          Percentage: '25'
+                          SequenceIndicator: '1'
+                      UnitPrice: '230000'
+                      GrossAmount: '3220000'
+                      NetAmount: '2415000'
+                      Item:
+                        Gtin: SOB
+                        Description: Soporte básico
+                      InvoicePeriod:
+                        From: '2023-05-03'
+                        DescriptionCode: '2'
+                    - Number: '3'
+                      Quantity: '5'
+                      QuantityUnitOfMeasure: NAR
+                      Excludevat: 'false'
+                      TaxSubTotals:
+                        - TaxCategory: '01'
+                          taxPercentage: '19'
+                          TaxableAmount: '925000'
+                          TaxAmount: '175750'
+                      TaxTotals:
+                        - TaxCategory: '01'
+                          TaxAmount: '175750'
+                          RoundingAmount: '0.0'
+                      AllowanceCharges: []
+                      UnitPrice: '185000'
+                      GrossAmount: '925000'
+                      NetAmount: '925000'
+                      Item:
+                        Gtin: TEC
+                        Description: Visita Técnica
+                      InvoicePeriod:
+                        From: '2023-05-03'
+                        DescriptionCode: '2'
+                    - Number: '4'
+                      Quantity: '3'
+                      QuantityUnitOfMeasure: NAR
+                      Excludevat: 'false'
+                      TaxSubTotals:
+                        - TaxCategory: '01'
+                          taxPercentage: '19'
+                          TaxableAmount: '945000'
+                          TaxAmount: '179550'
+                      TaxTotals:
+                        - TaxCategory: '01'
+                          TaxAmount: '179550'
+                          RoundingAmount: '0.0'
+                      AllowanceCharges:
+                        - ChargeIndicator: 'false'
+                          BaseAmount: '1050000'
+                          ReasonCode: '00'
+                          Reason: Descuento no condicionado
+                          Amount: '105000'
+                          Percentage: '10'
+                          SequenceIndicator: '1'
+                      UnitPrice: '350000'
+                      GrossAmount: '1050000'
+                      NetAmount: '945000'
+                      Item:
+                        Gtin: CON
+                        Description: Consultoría
+                      InvoicePeriod:
+                        From: '2023-05-03'
+                        DescriptionCode: '2'
+                  TaxSubTotals:
+                    - TaxCategory: '01'
+                      taxPercentage: '19'
+                      TaxableAmount: '3968697.81'
+                      TaxAmount: '754052.58'
+                    - TaxCategory: '01'
+                      taxPercentage: '0'
+                      TaxableAmount: '2052750'
+                      TaxAmount: '0'
+                  TaxTotals:
+                    - TaxCategory: '01'
+                      TaxAmount: '754052.58'
+                      RoundingAmount: '0.0'
+                  WithholdingTaxSubTotals: []
+                  WithholdingTaxTotals: []
+                  AllowanceCharges:
+                    - ChargeIndicator: 'false'
+                      BaseAmount: '7084056.25'
+                      ReasonCode: '09'
+                      Reason: Descuento general
+                      Amount: '1062608.44'
+                      Percentage: '15'
+                      SequenceIndicator: '1'
+                  PrepaidPayments:
+                    - PaidDate: '2023-05-03'
+                      PaidAmount: '0'
+                  Total:
+                    GrossAmount: '7084056.25'
+                    TotalBillableAmount: '7838108.83'
+                    PayableAmount: '6775500.39'
+                    TaxableAmount: '7084056.25'
+                    AllowancesTotalAmount: '1062608.44'
+                    ChargesTotalAmount: '0'
+                    PrePaidTotalAmount: '0'
+                  Notes:
+                    - Documento Soporte
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      examples:
+        - id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+          x-stoplight:
+            id: porfx9hs9ezzb
+        firstName:
+          type: string
+          x-stoplight:
+            id: c937x8lgamvtg
+        lastName:
+          type: string
+          x-stoplight:
+            id: 9o3s36q00dt8l
+        email:
+          type: string
+          format: email
+          x-stoplight:
+            id: gkczm84ljcp5v
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+          x-stoplight:
+            id: 7fn3vee1pvtxa
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+          x-stoplight:
+            id: vdw4520pplrba
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+          x-stoplight:
+            id: mbg3s8wkbwcvh
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified
+      x-stoplight:
+        id: pqck2pxm6uosd
