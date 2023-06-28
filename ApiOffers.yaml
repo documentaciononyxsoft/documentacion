@@ -2162,6 +2162,366 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /offerssto:
+    get:
+      summary: OffersSTO - FindMany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            OfertaID:
+                              type: integer
+                            NumeroOferta:
+                              type: integer
+                            EstadoOferta:
+                              type: string
+                            TipoOfertaID:
+                              type: integer
+                            MailingID:
+                              type: integer
+                            ClienteID:
+                              type: integer
+                            CodigoCliente:
+                              type: string
+                            NombreCliente:
+                              type: string
+                            ZonaID:
+                              type: integer
+                            NombreZona:
+                              type: string
+                            ContactoID:
+                              type: integer
+                            TicketIDOrigen:
+                              type: integer
+                            NumeroTicketOrigen:
+                              type: integer
+                            AlmacenID:
+                              type: integer
+                            PedidoVentaID:
+                              type: integer
+                            EquipoID:
+                              type: string
+                            NumeroEquipo:
+                              type: string
+                            NombreEquipo:
+                              type: string
+                            ContratoID:
+                              type: string
+                            TicketIDNuevo:
+                              type: string
+                            NumeroTicketNuevo:
+                              type: integer
+                            UsuarioID:
+                              type: integer
+                            NombreUsuario:
+                              type: string
+                            FechaHoraCreacion:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "\r\nSELECT distinct\r\noferta.OfertaID,\r\noferta.Numero AS NumeroOferta,\r\noferta.Estado AS EstadoOferta,\r\noferta.TipoOfertaID,\r\noferta.MailingID,\r\ncliente.ClienteID,\r\ncliente.Codigo AS CodigoCliente,\r\nmailing.Nombre AS NombreCliente,\r\nmailing.ZonaID,\r\ntablageneral.Descripcion AS NombreZona,\r\noferta.ContactoID,\r\navisoticket.AvisoTicketID AS TicketIDOrigen, \r\navisoticket.Numero AS NumeroTicketOrigen,\r\noferta.AlmacenID,\r\npedidoventacabecera.PedidoVentaCabeceraID AS PedidoVentaID,\r\nclasificacionEquipoID.Valor AS EquipoID,\r\nelemento.NumeroSerie AS NumeroEquipo,\r\nelemento.Nombre AS NombreEquipo,\r\nclasificacionContratoID.Valor AS ContratoID,\r\nclasificacionAvisoID.Valor AS TicketIDNuevo,\r\naviso.Numero AS NumeroTicketNuevo,\r\nusuario.UsuarioID,\r\nusuario.NombreUsuario,\r\noferta.FechaHoraUsuario AS FechaHoraCreacion\r\n\r\nFROM \r\noferta\r\nLEFT JOIN mailing ON oferta.MailingID = mailing.MailingID \r\nLEFT JOIN cliente ON oferta.MailingID = cliente.MailingID\r\nLEFT JOIN avisoticket ON oferta.OfertaID = avisoticket.OfertaID\r\nLEFT JOIN tablageneral ON tablageneral.TablaGeneralID = mailing.ZonaID\r\nLEFT JOIN ofertalinea ON ofertalinea.OfertaID = oferta.OfertaID\r\nLEFT JOIN pedidoventalinea ON pedidoventalinea.OfertaLineaID = ofertalinea.OfertaLineaID\r\nLEFT JOIN pedidoventacabecera ON pedidoventacabecera.PedidoVentaCabeceraID = pedidoventalinea.PedidoVentaCabeceraID\r\nLEFT JOIN campoespecialvalor clasificacionEquipoID ON clasificacionEquipoID.TablaRegistroId = oferta.OfertaID\r\nLEFT JOIN campoespecialvalor clasificacionContratoID ON clasificacionContratoID.TablaRegistroId = oferta.OfertaID\r\nLEFT JOIN campoespecialvalor clasificacionAvisoID ON clasificacionAvisoID.TablaRegistroId = oferta.OfertaID\r\nLEFT JOIN usuario ON usuario.UsuarioID = oferta.UsuarioID\r\nLEFT JOIN elemento ON elemento.ElementoID = clasificacionEquipoID.Valor\r\nLEFT JOIN avisoticket aviso ON aviso.AvisoTicketID = clasificacionAvisoID.Valor\r\n\r\nWHERE \r\noferta.CustomerID = 29 \r\nAND oferta.EmpresaID = 1\r\nAND clasificacionEquipoID.CampoEspecialDefinicionID = 132\r\nAND clasificacionContratoID.CampoEspecialDefinicionID = 134\r\nAND clasificacionAvisoID.CampoEspecialDefinicionID = 133\r\nGROUP BY oferta.Numero\r\nLIMIT 5\r\nOFFSET 0"
+                      data:
+                        - OfertaID: 2028
+                          NumeroOferta: 1
+                          EstadoOferta: ''
+                          TipoOfertaID: 0
+                          MailingID: 0
+                          ClienteID: 0
+                          CodigoCliente: ''
+                          NombreCliente: ''
+                          ZonaID: 0
+                          NombreZona: ''
+                          ContactoID: 0
+                          TicketIDOrigen: 0
+                          NumeroTicketOrigen: 0
+                          AlmacenID: 3
+                          PedidoVentaID: 0
+                          EquipoID: '24'
+                          NumeroEquipo: '1701788'
+                          NombreEquipo: EquipoJCO
+                          ContratoID: '1'
+                          TicketIDNuevo: '1'
+                          NumeroTicketNuevo: 1
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraCreacion: '2022-05-26T08:13:21.313'
+                        - OfertaID: 2029
+                          NumeroOferta: 2
+                          EstadoOferta: ''
+                          TipoOfertaID: 0
+                          MailingID: 0
+                          ClienteID: 0
+                          CodigoCliente: ''
+                          NombreCliente: ''
+                          ZonaID: 0
+                          NombreZona: ''
+                          ContactoID: 0
+                          TicketIDOrigen: 0
+                          NumeroTicketOrigen: 0
+                          AlmacenID: 4
+                          PedidoVentaID: 0
+                          EquipoID: '2'
+                          NumeroEquipo: '45'
+                          NombreEquipo: ProbaElemento
+                          ContratoID: '2'
+                          TicketIDNuevo: '2'
+                          NumeroTicketNuevo: 2458
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraCreacion: '2022-05-26T08:41:11.318'
+                        - OfertaID: 2030
+                          NumeroOferta: 3
+                          EstadoOferta: ''
+                          TipoOfertaID: 0
+                          MailingID: 455
+                          ClienteID: 84
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          ZonaID: 535
+                          NombreZona: zona 1
+                          ContactoID: 0
+                          TicketIDOrigen: 0
+                          NumeroTicketOrigen: 0
+                          AlmacenID: 76
+                          PedidoVentaID: 0
+                          EquipoID: '3'
+                          NumeroEquipo: '456789'
+                          NombreEquipo: PRUEBANIHIL
+                          ContratoID: '3'
+                          TicketIDNuevo: '3'
+                          NumeroTicketNuevo: 8642
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraCreacion: '2022-05-26T08:56:28.820'
+                        - OfertaID: 2031
+                          NumeroOferta: 4
+                          EstadoOferta: ''
+                          TipoOfertaID: 0
+                          MailingID: 0
+                          ClienteID: 0
+                          CodigoCliente: ''
+                          NombreCliente: ''
+                          ZonaID: 0
+                          NombreZona: ''
+                          ContactoID: 0
+                          TicketIDOrigen: 0
+                          NumeroTicketOrigen: 0
+                          AlmacenID: 13
+                          PedidoVentaID: 0
+                          EquipoID: ''
+                          NumeroEquipo: ''
+                          NombreEquipo: ''
+                          ContratoID: ''
+                          TicketIDNuevo: ''
+                          NumeroTicketNuevo: 0
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraCreacion: '2022-05-26T09:38:08.170'
+                        - OfertaID: 1985
+                          NumeroOferta: 5
+                          EstadoOferta: ''
+                          TipoOfertaID: 0
+                          MailingID: 0
+                          ClienteID: 0
+                          CodigoCliente: ''
+                          NombreCliente: ''
+                          ZonaID: 0
+                          NombreZona: ''
+                          ContactoID: 0
+                          TicketIDOrigen: 0
+                          NumeroTicketOrigen: 0
+                          AlmacenID: 0
+                          PedidoVentaID: 0
+                          EquipoID: ''
+                          NumeroEquipo: ''
+                          NombreEquipo: ''
+                          ContratoID: ''
+                          TicketIDNuevo: ''
+                          NumeroTicketNuevo: 0
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraCreacion: '2022-04-07T16:09:55.553'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - OfertaID: 2028
+                          NumeroOferta: 1
+                          EstadoOferta: ''
+                          TipoOfertaID: 0
+                          MailingID: 0
+                          ClienteID: 0
+                          CodigoCliente: ''
+                          NombreCliente: ''
+                          ZonaID: 0
+                          NombreZona: ''
+                          ContactoID: 0
+                          TicketIDOrigen: 0
+                          NumeroTicketOrigen: 0
+                          AlmacenID: 3
+                          PedidoVentaID: 0
+                          EquipoID: '24'
+                          NumeroEquipo: '1701788'
+                          NombreEquipo: EquipoJCO
+                          ContratoID: '1'
+                          TicketIDNuevo: '1'
+                          NumeroTicketNuevo: 1
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraCreacion: '2022-05-26T08:13:21.313'
+                        - OfertaID: 2029
+                          NumeroOferta: 2
+                          EstadoOferta: ''
+                          TipoOfertaID: 0
+                          MailingID: 0
+                          ClienteID: 0
+                          CodigoCliente: ''
+                          NombreCliente: ''
+                          ZonaID: 0
+                          NombreZona: ''
+                          ContactoID: 0
+                          TicketIDOrigen: 0
+                          NumeroTicketOrigen: 0
+                          AlmacenID: 4
+                          PedidoVentaID: 0
+                          EquipoID: '2'
+                          NumeroEquipo: '45'
+                          NombreEquipo: ProbaElemento
+                          ContratoID: '2'
+                          TicketIDNuevo: '2'
+                          NumeroTicketNuevo: 2458
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraCreacion: '2022-05-26T08:41:11.318'
+                        - OfertaID: 2030
+                          NumeroOferta: 3
+                          EstadoOferta: ''
+                          TipoOfertaID: 0
+                          MailingID: 455
+                          ClienteID: 84
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          ZonaID: 535
+                          NombreZona: zona 1
+                          ContactoID: 0
+                          TicketIDOrigen: 0
+                          NumeroTicketOrigen: 0
+                          AlmacenID: 76
+                          PedidoVentaID: 0
+                          EquipoID: '3'
+                          NumeroEquipo: '456789'
+                          NombreEquipo: PRUEBANIHIL
+                          ContratoID: '3'
+                          TicketIDNuevo: '3'
+                          NumeroTicketNuevo: 8642
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraCreacion: '2022-05-26T08:56:28.820'
+                        - OfertaID: 2031
+                          NumeroOferta: 4
+                          EstadoOferta: ''
+                          TipoOfertaID: 0
+                          MailingID: 0
+                          ClienteID: 0
+                          CodigoCliente: ''
+                          NombreCliente: ''
+                          ZonaID: 0
+                          NombreZona: ''
+                          ContactoID: 0
+                          TicketIDOrigen: 0
+                          NumeroTicketOrigen: 0
+                          AlmacenID: 13
+                          PedidoVentaID: 0
+                          EquipoID: ''
+                          NumeroEquipo: ''
+                          NombreEquipo: ''
+                          ContratoID: ''
+                          TicketIDNuevo: ''
+                          NumeroTicketNuevo: 0
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraCreacion: '2022-05-26T09:38:08.170'
+                        - OfertaID: 1985
+                          NumeroOferta: 5
+                          EstadoOferta: ''
+                          TipoOfertaID: 0
+                          MailingID: 0
+                          ClienteID: 0
+                          CodigoCliente: ''
+                          NombreCliente: ''
+                          ZonaID: 0
+                          NombreZona: ''
+                          ContactoID: 0
+                          TicketIDOrigen: 0
+                          NumeroTicketOrigen: 0
+                          AlmacenID: 0
+                          PedidoVentaID: 0
+                          EquipoID: ''
+                          NumeroEquipo: ''
+                          NombreEquipo: ''
+                          ContratoID: ''
+                          TicketIDNuevo: ''
+                          NumeroTicketNuevo: 0
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                          FechaHoraCreacion: '2022-04-07T16:09:55.553'
+      operationId: get-offerssto
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: '5'
+          in: query
+          name: limit
+          description: 'Límite de registros que trae la consulta. Si se envía el número 50, y la tabla tiene 2000 registros solo se traerán 50.'
+        - schema:
+            type: string
+            example: '0'
+          in: query
+          name: offset
+          description: 'Registro a partir del cual empezará a traer los datos desde la tabla. Si se envía 20, y en la tabla existen 100 registros, la respuesta traerá solo los registros comprendidos entre las posiciones 20 y 100, y los primero 20 se omitirán.'
+  /offerssto/quicksearch:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-offerssto-quicksearch
 components:
   parameters:
     token:
