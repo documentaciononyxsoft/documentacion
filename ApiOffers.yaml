@@ -2812,6 +2812,624 @@ paths:
           in: query
           name: param
           description: Parámetro a buscar.
+  /offerssto/offer:
+    post:
+      summary: ''
+      operationId: post-offerssto-offer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      ofertaID:
+                        type: integer
+                      numero:
+                        type: integer
+                      version:
+                        type: integer
+                      fechaCreacion:
+                        type: string
+                      usuarioCreacion:
+                        type: string
+                      estado:
+                        type: string
+                      MotivoRechazoID:
+                        type: integer
+                      rechazoDescripcion:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      ofertaID: 2311
+                      numero: 2305
+                      version: 1
+                      fechaCreacion: '2023-06-28T17:30:28.990'
+                      usuarioCreacion: ADMINISTRADOR
+                      estado: ''
+                      MotivoRechazoID: 0
+                      rechazoDescripcion: ''
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: AccessToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cabecera:
+                  type: object
+                  properties:
+                    descripcion:
+                      type: string
+                    equipoID:
+                      type: string
+                    ticketID:
+                      type: string
+                    contratoID:
+                      type: string
+                    almacenID:
+                      type: string
+                    fechaEntrega:
+                      type: string
+                    mailingID:
+                      type: string
+                    numeroSolicitud:
+                      type: string
+                    fechaSolicitud:
+                      type: string
+                    TransportistaID:
+                      type: string
+                    PlataformaLogisticaMailingID:
+                      type: string
+                    TarifaVentaID:
+                      type: string
+                    representanteID:
+                      type: string
+                    contactoID:
+                      type: string
+                    telefonoCuenta:
+                      type: string
+                    direccionEnvioID:
+                      type: string
+                    observaciones:
+                      type: string
+                    notaCliente:
+                      type: string
+                    responsableUsuarioID:
+                      type: string
+                    tipoOfertaID:
+                      type: string
+                    respresentante2ID:
+                      type: string
+                    porcentajeComision:
+                      type: string
+                    porcentajeComision2:
+                      type: string
+                    referenciaInterna:
+                      type: string
+                    FechaSolcitadaPara:
+                      type: string
+                    idionaID:
+                      type: string
+                    fecha:
+                      type: string
+                    validoDesde:
+                      type: string
+                    fechaValidez:
+                      type: string
+                    inconterm:
+                      type: string
+                    campanaID:
+                      type: string
+                    oportunidadID:
+                      type: string
+                intrastat:
+                  type: object
+                  properties:
+                    CondicionEntregaID:
+                      type: string
+                cualificacion:
+                  type: object
+                  properties:
+                    EstrategiaID:
+                      type: string
+                    RentabilidadID:
+                      type: string
+                    OportunidadID:
+                      type: string
+                    InteresID:
+                      type: string
+                    AtencionID:
+                      type: string
+                    SituacionID:
+                      type: string
+                    DedicacionMaxima:
+                      type: string
+                facturacion:
+                  type: object
+                  properties:
+                    ClienteFacturaID:
+                      type: string
+                    FormaPagoCobroID:
+                      type: string
+                    NumeroVencimiento:
+                      type: string
+                    DiasPrimerVencimiento:
+                      type: string
+                    DiasResto:
+                      type: string
+                    DiasFijoPago1:
+                      type: string
+                    DiasFijoPago2:
+                      type: string
+                    DiasFijoPago3:
+                      type: string
+                    DiasFijoPago4:
+                      type: string
+                    MesVacacion:
+                      type: string
+                    DiaSiguientePago:
+                      type: string
+                    PorcentajeDtoComercial1:
+                      type: string
+                    PorcentajeDtoComercial2:
+                      type: string
+                    PorcentajeDtoComercial3:
+                      type: string
+                    PorcentajeDtoEspecial1:
+                      type: string
+                    PorcentajeDtoEspecial2:
+                      type: string
+                    PorcentajeDtoProntoPago:
+                      type: string
+                    PorcentajeGastoFinanciero:
+                      type: string
+                    MonedaID:
+                      type: string
+                    MonedaCambio:
+                      type: string
+                    Portes:
+                      type: string
+              x-examples:
+                Example 1:
+                  cabecera:
+                    descripcion: UnaPruebaJCO
+                    equipoID: '1'
+                    ticketID: '1'
+                    contratoID: '1'
+                    almacenID: ''
+                    fechaEntrega: '2022-11-16'
+                    mailingID: '455'
+                    numeroSolicitud: ''
+                    fechaSolicitud: '2022-11-16'
+                    TransportistaID: ''
+                    PlataformaLogisticaMailingID: ''
+                    TarifaVentaID: ''
+                    representanteID: ''
+                    contactoID: ''
+                    telefonoCuenta: ''
+                    direccionEnvioID: ''
+                    observaciones: ObservacionPrueba
+                    notaCliente: NotaPrueba
+                    responsableUsuarioID: ''
+                    tipoOfertaID: ''
+                    respresentante2ID: ''
+                    porcentajeComision: ''
+                    porcentajeComision2: ''
+                    referenciaInterna: ''
+                    FechaSolcitadaPara: '2022-11-16'
+                    idionaID: ''
+                    fecha: '2022-11-16'
+                    validoDesde: '2022-11-16'
+                    fechaValidez: '2022-11-16'
+                    inconterm: ''
+                    campanaID: ''
+                    oportunidadID: ''
+                  intrastat:
+                    CondicionEntregaID: ''
+                  cualificacion:
+                    EstrategiaID: ''
+                    RentabilidadID: ''
+                    OportunidadID: ''
+                    InteresID: ''
+                    AtencionID: ''
+                    SituacionID: ''
+                    DedicacionMaxima: ''
+                  facturacion:
+                    ClienteFacturaID: ''
+                    FormaPagoCobroID: ''
+                    NumeroVencimiento: ''
+                    DiasPrimerVencimiento: ''
+                    DiasResto: ''
+                    DiasFijoPago1: ''
+                    DiasFijoPago2: ''
+                    DiasFijoPago3: ''
+                    DiasFijoPago4: ''
+                    MesVacacion: ''
+                    DiaSiguientePago: ''
+                    PorcentajeDtoComercial1: ''
+                    PorcentajeDtoComercial2: ''
+                    PorcentajeDtoComercial3: ''
+                    PorcentajeDtoEspecial1: ''
+                    PorcentajeDtoEspecial2: ''
+                    PorcentajeDtoProntoPago: ''
+                    PorcentajeGastoFinanciero: ''
+                    MonedaID: ''
+                    MonedaCambio: ''
+                    Portes: ''
+    put:
+      summary: ''
+      operationId: put-offerssto-offer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      ofertaID:
+                        type: integer
+                      numero:
+                        type: integer
+                      version:
+                        type: integer
+                      fechaCreacion:
+                        type: string
+                      usuarioCreacion:
+                        type: string
+                      estado:
+                        type: string
+                      MotivoRechazoID:
+                        type: integer
+                      rechazoDescripcion:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      ofertaID: 2311
+                      numero: 2305
+                      version: 1
+                      fechaCreacion: '2023-06-28T17:30:28.990'
+                      usuarioCreacion: ADMINISTRADOR
+                      estado: ''
+                      MotivoRechazoID: 0
+                      rechazoDescripcion: ''
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: AccessToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cabecera:
+                  type: object
+                  properties:
+                    descripcion:
+                      type: string
+                    equipoID:
+                      type: string
+                    ticketID:
+                      type: string
+                    contratoID:
+                      type: string
+                    almacenID:
+                      type: string
+                    fechaEntrega:
+                      type: string
+                    mailingID:
+                      type: string
+                    numeroSolicitud:
+                      type: string
+                    fechaSolicitud:
+                      type: string
+                    TransportistaID:
+                      type: string
+                    PlataformaLogisticaMailingID:
+                      type: string
+                    TarifaVentaID:
+                      type: string
+                    representanteID:
+                      type: string
+                    contactoID:
+                      type: string
+                    telefonoCuenta:
+                      type: string
+                    direccionEnvioID:
+                      type: string
+                    observaciones:
+                      type: string
+                    notaCliente:
+                      type: string
+                    responsableUsuarioID:
+                      type: string
+                    tipoOfertaID:
+                      type: string
+                    respresentante2ID:
+                      type: string
+                    porcentajeComision:
+                      type: string
+                    porcentajeComision2:
+                      type: string
+                    referenciaInterna:
+                      type: string
+                    FechaSolcitadaPara:
+                      type: string
+                    idionaID:
+                      type: string
+                    fecha:
+                      type: string
+                    validoDesde:
+                      type: string
+                    fechaValidez:
+                      type: string
+                    inconterm:
+                      type: string
+                    campanaID:
+                      type: string
+                    oportunidadID:
+                      type: string
+                intrastat:
+                  type: object
+                  properties:
+                    CondicionEntregaID:
+                      type: string
+                cualificacion:
+                  type: object
+                  properties:
+                    EstrategiaID:
+                      type: string
+                    RentabilidadID:
+                      type: string
+                    OportunidadID:
+                      type: string
+                    InteresID:
+                      type: string
+                    AtencionID:
+                      type: string
+                    SituacionID:
+                      type: string
+                    DedicacionMaxima:
+                      type: string
+                facturacion:
+                  type: object
+                  properties:
+                    ClienteFacturaID:
+                      type: string
+                    FormaPagoCobroID:
+                      type: string
+                    NumeroVencimiento:
+                      type: string
+                    DiasPrimerVencimiento:
+                      type: string
+                    DiasResto:
+                      type: string
+                    DiasFijoPago1:
+                      type: string
+                    DiasFijoPago2:
+                      type: string
+                    DiasFijoPago3:
+                      type: string
+                    DiasFijoPago4:
+                      type: string
+                    MesVacacion:
+                      type: string
+                    DiaSiguientePago:
+                      type: string
+                    PorcentajeDtoComercial1:
+                      type: string
+                    PorcentajeDtoComercial2:
+                      type: string
+                    PorcentajeDtoComercial3:
+                      type: string
+                    PorcentajeDtoEspecial1:
+                      type: string
+                    PorcentajeDtoEspecial2:
+                      type: string
+                    PorcentajeDtoProntoPago:
+                      type: string
+                    PorcentajeGastoFinanciero:
+                      type: string
+                    MonedaID:
+                      type: string
+                    MonedaCambio:
+                      type: string
+                    Portes:
+                      type: string
+              x-examples:
+                Example 1:
+                  cabecera:
+                    descripcion: UnaPruebaJCO
+                    equipoID: '1'
+                    ticketID: '1'
+                    contratoID: '1'
+                    almacenID: ''
+                    fechaEntrega: '2022-11-16'
+                    mailingID: '455'
+                    numeroSolicitud: ''
+                    fechaSolicitud: '2022-11-16'
+                    TransportistaID: ''
+                    PlataformaLogisticaMailingID: ''
+                    TarifaVentaID: ''
+                    representanteID: ''
+                    contactoID: ''
+                    telefonoCuenta: ''
+                    direccionEnvioID: ''
+                    observaciones: ObservacionPrueba
+                    notaCliente: NotaPrueba
+                    responsableUsuarioID: ''
+                    tipoOfertaID: ''
+                    respresentante2ID: ''
+                    porcentajeComision: ''
+                    porcentajeComision2: ''
+                    referenciaInterna: ''
+                    FechaSolcitadaPara: '2022-11-16'
+                    idionaID: ''
+                    fecha: '2022-11-16'
+                    validoDesde: '2022-11-16'
+                    fechaValidez: '2022-11-16'
+                    inconterm: ''
+                    campanaID: ''
+                    oportunidadID: ''
+                  intrastat:
+                    CondicionEntregaID: ''
+                  cualificacion:
+                    EstrategiaID: ''
+                    RentabilidadID: ''
+                    OportunidadID: ''
+                    InteresID: ''
+                    AtencionID: ''
+                    SituacionID: ''
+                    DedicacionMaxima: ''
+                  facturacion:
+                    ClienteFacturaID: ''
+                    FormaPagoCobroID: ''
+                    NumeroVencimiento: ''
+                    DiasPrimerVencimiento: ''
+                    DiasResto: ''
+                    DiasFijoPago1: ''
+                    DiasFijoPago2: ''
+                    DiasFijoPago3: ''
+                    DiasFijoPago4: ''
+                    MesVacacion: ''
+                    DiaSiguientePago: ''
+                    PorcentajeDtoComercial1: ''
+                    PorcentajeDtoComercial2: ''
+                    PorcentajeDtoComercial3: ''
+                    PorcentajeDtoEspecial1: ''
+                    PorcentajeDtoEspecial2: ''
+                    PorcentajeDtoProntoPago: ''
+                    PorcentajeGastoFinanciero: ''
+                    MonedaID: ''
+                    MonedaCambio: ''
+                    Portes: ''
+  '/offerssto/offer/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    delete:
+      summary: ''
+      operationId: delete-offerssto-offer-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties: {}
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content: {}
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+  /offerssto/duplicateOffer:
+    post:
+      summary: ''
+      operationId: post-offerssto-duplicateOffer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      nuevaOfertaID:
+                        type: integer
+                      nuevaOfertaNumero:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      nuevaOfertaID: 2312
+                      nuevaOfertaNumero: '2306'
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nOfertaID:
+                  type: string
+                mailingid:
+                  type: string
+                contactoid:
+                  type: string
+                copiarword:
+                  type: boolean
+                actualizarprecios:
+                  type: boolean
+                linkgestiondocumental:
+                  type: boolean
+                nuevadescripcion:
+                  type: string
+              x-examples:
+                Example 1:
+                  nOfertaID: '2311'
+                  mailingid: '224'
+                  contactoid: '14'
+                  copiarword: true
+                  actualizarprecios: true
+                  linkgestiondocumental: true
+                  nuevadescripcion: Hola dani
 components:
   parameters:
     token:
