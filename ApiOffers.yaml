@@ -2520,8 +2520,298 @@ paths:
     get:
       summary: Your GET endpoint
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            OfertaID:
+                              type: integer
+                            NumeroOferta:
+                              type: integer
+                            EstadoOferta:
+                              type: string
+                            TipoOfertaID:
+                              type: integer
+                            MailingID:
+                              type: integer
+                            ClienteID:
+                              type: integer
+                            CodigoCliente:
+                              type: string
+                            NombreCliente:
+                              type: string
+                            ZonaID:
+                              type: integer
+                            NombreZona:
+                              type: string
+                            ContactoID:
+                              type: integer
+                            TicketIDOrigen:
+                              type: integer
+                            NumeroTicketOrigen:
+                              type: integer
+                            AlmacenID:
+                              type: integer
+                            PedidoVentaID:
+                              type: integer
+                            EquipoID:
+                              type: string
+                            NumeroEquipo:
+                              type: string
+                            NombreEquipo:
+                              type: string
+                            ContratoID:
+                              type: string
+                            TicketIDNuevo:
+                              type: string
+                            NumeroTicketNuevo:
+                              type: integer
+                            UsuarioID:
+                              type: integer
+                            NombreUsuario:
+                              type: string
+                            FechaHoraCreacion:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      sql: "\r\nSELECT distinct\r\noferta.OfertaID,\r\noferta.Numero AS NumeroOferta,\r\noferta.Estado AS EstadoOferta,\r\noferta.TipoOfertaID,\r\noferta.MailingID,\r\ncliente.ClienteID,\r\ncliente.Codigo AS CodigoCliente,\r\nmailing.Nombre AS NombreCliente,\r\nmailing.ZonaID,\r\ntablageneral.Descripcion AS NombreZona,\r\noferta.ContactoID,\r\navisoticket.AvisoTicketID AS TicketIDOrigen, \r\navisoticket.Numero AS NumeroTicketOrigen,\r\noferta.AlmacenID,\r\npedidoventacabecera.PedidoVentaCabeceraID AS PedidoVentaID,\r\nclasificacionEquipoID.Valor AS EquipoID,\r\nelemento.NumeroSerie AS NumeroEquipo,\r\nelemento.Nombre AS NombreEquipo,\r\nclasificacionContratoID.Valor AS ContratoID,\r\nclasificacionAvisoID.Valor AS TicketIDNuevo,\r\naviso.Numero AS NumeroTicketNuevo,\r\nusuario.UsuarioID,\r\nusuario.NombreUsuario,\r\noferta.FechaHoraUsuario AS FechaHoraCreacion\r\n\r\nFROM \r\noferta\r\nLEFT JOIN mailing ON oferta.MailingID = mailing.MailingID \r\nLEFT JOIN cliente ON oferta.MailingID = cliente.MailingID\r\nLEFT JOIN avisoticket ON oferta.OfertaID = avisoticket.OfertaID\r\nLEFT JOIN tablageneral ON tablageneral.TablaGeneralID = mailing.ZonaID\r\nLEFT JOIN ofertalinea ON ofertalinea.OfertaID = oferta.OfertaID\r\nLEFT JOIN pedidoventalinea ON pedidoventalinea.OfertaLineaID = ofertalinea.OfertaLineaID\r\nLEFT JOIN pedidoventacabecera ON pedidoventacabecera.PedidoVentaCabeceraID = pedidoventalinea.PedidoVentaCabeceraID\r\nLEFT JOIN campoespecialvalor clasificacionEquipoID ON clasificacionEquipoID.TablaRegistroId = oferta.OfertaID\r\nLEFT JOIN campoespecialvalor clasificacionContratoID ON clasificacionContratoID.TablaRegistroId = oferta.OfertaID\r\nLEFT JOIN campoespecialvalor clasificacionAvisoID ON clasificacionAvisoID.TablaRegistroId = oferta.OfertaID\r\nLEFT JOIN usuario ON usuario.UsuarioID = oferta.UsuarioID\r\nLEFT JOIN elemento ON elemento.ElementoID = clasificacionEquipoID.Valor\r\nLEFT JOIN avisoticket aviso ON aviso.AvisoTicketID = clasificacionAvisoID.Valor\r\n\r\nWHERE \r\noferta.CustomerID = 29 \r\nAND oferta.EmpresaID = 1\r\nAND clasificacionEquipoID.CampoEspecialDefinicionID = 132\r\nAND clasificacionContratoID.CampoEspecialDefinicionID = 134\r\nAND clasificacionAvisoID.CampoEspecialDefinicionID = 133\r\nAND (Oferta.Numero LIKE '%nutri%' OR \r\nOferta.Descripcion LIKE '%nutri%' OR\r\nMailing.ReferenciaCodigo LIKE '%nutri%' OR \r\nMailing.Nombre LIKE '%nutri%' OR \r\nMailing.NombreComercial LIKE '%nutri%')\r\nGROUP BY oferta.Numero"
+                      data:
+                        - OfertaID: 41
+                          NumeroOferta: 61
+                          EstadoOferta: AC
+                          TipoOfertaID: 0
+                          MailingID: 250
+                          ClienteID: 52
+                          CodigoCliente: '10300010052'
+                          NombreCliente: ALIMENTOS NUTRITIVOS SA DE CV
+                          ZonaID: 0
+                          NombreZona: ''
+                          ContactoID: 107
+                          TicketIDOrigen: 0
+                          NumeroTicketOrigen: 0
+                          AlmacenID: 19
+                          PedidoVentaID: 58
+                          EquipoID: ''
+                          NumeroEquipo: ''
+                          NombreEquipo: ''
+                          ContratoID: ''
+                          TicketIDNuevo: ''
+                          NumeroTicketNuevo: 0
+                          UsuarioID: 94
+                          NombreUsuario: Alejandra Morales
+                          FechaHoraCreacion: '2021-11-05T14:59:06.438'
+                        - OfertaID: 42
+                          NumeroOferta: 62
+                          EstadoOferta: AC
+                          TipoOfertaID: 0
+                          MailingID: 552
+                          ClienteID: 252
+                          CodigoCliente: '10300010252'
+                          NombreCliente: NUTRI SOW S.A. DE C.V.
+                          ZonaID: 0
+                          NombreZona: ''
+                          ContactoID: 108
+                          TicketIDOrigen: 0
+                          NumeroTicketOrigen: 0
+                          AlmacenID: 3
+                          PedidoVentaID: 18
+                          EquipoID: ''
+                          NumeroEquipo: ''
+                          NombreEquipo: ''
+                          ContratoID: ''
+                          TicketIDNuevo: ''
+                          NumeroTicketNuevo: 0
+                          UsuarioID: 17
+                          NombreUsuario: Blanca Trinidad
+                          FechaHoraCreacion: '2021-11-05T15:15:08.883'
+                        - OfertaID: 43
+                          NumeroOferta: 63
+                          EstadoOferta: AC
+                          TipoOfertaID: 0
+                          MailingID: 552
+                          ClienteID: 252
+                          CodigoCliente: '10300010252'
+                          NombreCliente: NUTRI SOW S.A. DE C.V.
+                          ZonaID: 0
+                          NombreZona: ''
+                          ContactoID: 108
+                          TicketIDOrigen: 0
+                          NumeroTicketOrigen: 0
+                          AlmacenID: 6
+                          PedidoVentaID: 19
+                          EquipoID: ''
+                          NumeroEquipo: ''
+                          NombreEquipo: ''
+                          ContratoID: ''
+                          TicketIDNuevo: ''
+                          NumeroTicketNuevo: 0
+                          UsuarioID: 17
+                          NombreUsuario: Blanca Trinidad
+                          FechaHoraCreacion: '2021-11-05T15:54:55.286'
+                        - OfertaID: 44
+                          NumeroOferta: 64
+                          EstadoOferta: AC
+                          TipoOfertaID: 0
+                          MailingID: 552
+                          ClienteID: 252
+                          CodigoCliente: '10300010252'
+                          NombreCliente: NUTRI SOW S.A. DE C.V.
+                          ZonaID: 0
+                          NombreZona: ''
+                          ContactoID: 108
+                          TicketIDOrigen: 0
+                          NumeroTicketOrigen: 0
+                          AlmacenID: 6
+                          PedidoVentaID: 20
+                          EquipoID: ''
+                          NumeroEquipo: ''
+                          NombreEquipo: ''
+                          ContratoID: ''
+                          TicketIDNuevo: ''
+                          NumeroTicketNuevo: 0
+                          UsuarioID: 17
+                          NombreUsuario: Blanca Trinidad
+                          FechaHoraCreacion: '2021-11-05T15:57:23.517'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      sql: "\r\nSELECT distinct\r\noferta.OfertaID,\r\noferta.Numero AS NumeroOferta,\r\noferta.Estado AS EstadoOferta,\r\noferta.TipoOfertaID,\r\noferta.MailingID,\r\ncliente.ClienteID,\r\ncliente.Codigo AS CodigoCliente,\r\nmailing.Nombre AS NombreCliente,\r\nmailing.ZonaID,\r\ntablageneral.Descripcion AS NombreZona,\r\noferta.ContactoID,\r\navisoticket.AvisoTicketID AS TicketIDOrigen, \r\navisoticket.Numero AS NumeroTicketOrigen,\r\noferta.AlmacenID,\r\npedidoventacabecera.PedidoVentaCabeceraID AS PedidoVentaID,\r\nclasificacionEquipoID.Valor AS EquipoID,\r\nelemento.NumeroSerie AS NumeroEquipo,\r\nelemento.Nombre AS NombreEquipo,\r\nclasificacionContratoID.Valor AS ContratoID,\r\nclasificacionAvisoID.Valor AS TicketIDNuevo,\r\naviso.Numero AS NumeroTicketNuevo,\r\nusuario.UsuarioID,\r\nusuario.NombreUsuario,\r\noferta.FechaHoraUsuario AS FechaHoraCreacion\r\n\r\nFROM \r\noferta\r\nLEFT JOIN mailing ON oferta.MailingID = mailing.MailingID \r\nLEFT JOIN cliente ON oferta.MailingID = cliente.MailingID\r\nLEFT JOIN avisoticket ON oferta.OfertaID = avisoticket.OfertaID\r\nLEFT JOIN tablageneral ON tablageneral.TablaGeneralID = mailing.ZonaID\r\nLEFT JOIN ofertalinea ON ofertalinea.OfertaID = oferta.OfertaID\r\nLEFT JOIN pedidoventalinea ON pedidoventalinea.OfertaLineaID = ofertalinea.OfertaLineaID\r\nLEFT JOIN pedidoventacabecera ON pedidoventacabecera.PedidoVentaCabeceraID = pedidoventalinea.PedidoVentaCabeceraID\r\nLEFT JOIN campoespecialvalor clasificacionEquipoID ON clasificacionEquipoID.TablaRegistroId = oferta.OfertaID\r\nLEFT JOIN campoespecialvalor clasificacionContratoID ON clasificacionContratoID.TablaRegistroId = oferta.OfertaID\r\nLEFT JOIN campoespecialvalor clasificacionAvisoID ON clasificacionAvisoID.TablaRegistroId = oferta.OfertaID\r\nLEFT JOIN usuario ON usuario.UsuarioID = oferta.UsuarioID\r\nLEFT JOIN elemento ON elemento.ElementoID = clasificacionEquipoID.Valor\r\nLEFT JOIN avisoticket aviso ON aviso.AvisoTicketID = clasificacionAvisoID.Valor\r\n\r\nWHERE \r\noferta.CustomerID = 29 \r\nAND oferta.EmpresaID = 1\r\nAND clasificacionEquipoID.CampoEspecialDefinicionID = 132\r\nAND clasificacionContratoID.CampoEspecialDefinicionID = 134\r\nAND clasificacionAvisoID.CampoEspecialDefinicionID = 133\r\nAND (Oferta.Numero LIKE '%nutri%' OR \r\nOferta.Descripcion LIKE '%nutri%' OR\r\nMailing.ReferenciaCodigo LIKE '%nutri%' OR \r\nMailing.Nombre LIKE '%nutri%' OR \r\nMailing.NombreComercial LIKE '%nutri%')\r\nGROUP BY oferta.Numero"
+                      data:
+                        - OfertaID: 41
+                          NumeroOferta: 61
+                          EstadoOferta: AC
+                          TipoOfertaID: 0
+                          MailingID: 250
+                          ClienteID: 52
+                          CodigoCliente: '10300010052'
+                          NombreCliente: ALIMENTOS NUTRITIVOS SA DE CV
+                          ZonaID: 0
+                          NombreZona: ''
+                          ContactoID: 107
+                          TicketIDOrigen: 0
+                          NumeroTicketOrigen: 0
+                          AlmacenID: 19
+                          PedidoVentaID: 58
+                          EquipoID: ''
+                          NumeroEquipo: ''
+                          NombreEquipo: ''
+                          ContratoID: ''
+                          TicketIDNuevo: ''
+                          NumeroTicketNuevo: 0
+                          UsuarioID: 94
+                          NombreUsuario: Alejandra Morales
+                          FechaHoraCreacion: '2021-11-05T14:59:06.438'
+                        - OfertaID: 42
+                          NumeroOferta: 62
+                          EstadoOferta: AC
+                          TipoOfertaID: 0
+                          MailingID: 552
+                          ClienteID: 252
+                          CodigoCliente: '10300010252'
+                          NombreCliente: NUTRI SOW S.A. DE C.V.
+                          ZonaID: 0
+                          NombreZona: ''
+                          ContactoID: 108
+                          TicketIDOrigen: 0
+                          NumeroTicketOrigen: 0
+                          AlmacenID: 3
+                          PedidoVentaID: 18
+                          EquipoID: ''
+                          NumeroEquipo: ''
+                          NombreEquipo: ''
+                          ContratoID: ''
+                          TicketIDNuevo: ''
+                          NumeroTicketNuevo: 0
+                          UsuarioID: 17
+                          NombreUsuario: Blanca Trinidad
+                          FechaHoraCreacion: '2021-11-05T15:15:08.883'
+                        - OfertaID: 43
+                          NumeroOferta: 63
+                          EstadoOferta: AC
+                          TipoOfertaID: 0
+                          MailingID: 552
+                          ClienteID: 252
+                          CodigoCliente: '10300010252'
+                          NombreCliente: NUTRI SOW S.A. DE C.V.
+                          ZonaID: 0
+                          NombreZona: ''
+                          ContactoID: 108
+                          TicketIDOrigen: 0
+                          NumeroTicketOrigen: 0
+                          AlmacenID: 6
+                          PedidoVentaID: 19
+                          EquipoID: ''
+                          NumeroEquipo: ''
+                          NombreEquipo: ''
+                          ContratoID: ''
+                          TicketIDNuevo: ''
+                          NumeroTicketNuevo: 0
+                          UsuarioID: 17
+                          NombreUsuario: Blanca Trinidad
+                          FechaHoraCreacion: '2021-11-05T15:54:55.286'
+                        - OfertaID: 44
+                          NumeroOferta: 64
+                          EstadoOferta: AC
+                          TipoOfertaID: 0
+                          MailingID: 552
+                          ClienteID: 252
+                          CodigoCliente: '10300010252'
+                          NombreCliente: NUTRI SOW S.A. DE C.V.
+                          ZonaID: 0
+                          NombreZona: ''
+                          ContactoID: 108
+                          TicketIDOrigen: 0
+                          NumeroTicketOrigen: 0
+                          AlmacenID: 6
+                          PedidoVentaID: 20
+                          EquipoID: ''
+                          NumeroEquipo: ''
+                          NombreEquipo: ''
+                          ContratoID: ''
+                          TicketIDNuevo: ''
+                          NumeroTicketNuevo: 0
+                          UsuarioID: 17
+                          NombreUsuario: Blanca Trinidad
+                          FechaHoraCreacion: '2021-11-05T15:57:23.517'
       operationId: get-offerssto-quicksearch
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: nutri
+          in: query
+          name: param
+          description: Parámetro a buscar.
 components:
   parameters:
     token:
