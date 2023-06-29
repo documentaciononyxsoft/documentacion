@@ -15191,9 +15191,113 @@ paths:
           required: true
   /consultIntervention/internalTicket:
     get:
-      summary: Your GET endpoint
+      summary: ConsultInterventions - InternalTicket
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: object
+                        properties:
+                          AvisoTicketIntervencionID:
+                            type: integer
+                          AvisoTicketID:
+                            type: integer
+                          NumeroTicket:
+                            type: integer
+                          FechaHoraAlta:
+                            type: string
+                          UsuarioAlta:
+                            type: string
+                          CodigoCuenta:
+                            type: string
+                          NombreCuenta:
+                            type: string
+                          NombreContacto:
+                            type: string
+                          TipoTicket:
+                            type: string
+                          Prioridad:
+                            type: string
+                          Servicio:
+                            type: string
+                          TipoProblema:
+                            type: string
+                          Notas:
+                            type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "\r\nSELECT \r\navt.AvisoTicketID,\r\nati.AvisoTicketIntervencionID,\r\navt.Numero AS NumeroTicket,\r\navt.FechaHoraUsuario AS FechaHoraAlta,\r\nu.NombreUsuario AS UsuarioAlta,\r\nm.ReferenciaCodigo AS CodigoCuenta,\r\nm.Nombre AS NombreCuenta,\r\nc.Nombre AS NombreContacto,\r\ntg1.Descripcion AS TipoTicket,\r\natp.Nombre AS Prioridad,\r\ntg2.Descripcion AS Servicio,\r\nattp.Nombre AS TipoProblema,\r\navt.DescripcionProblema AS Notas\r\nFROM\r\navisoticket avt\r\nLEFT JOIN mailing m ON m.MailingID = avt.MailingID\r\nLEFT JOIN contacto c ON c.ContactoID = avt.ContactoID\r\nLEFT JOIN tablageneral tg1 ON tg1.TablaGeneralID = avt.TipoAvisoID\r\nLEFT JOIN tablageneral tg2 ON tg2.TablaGeneralID = avt.ServicioID\r\nLEFT JOIN avisoticketprioridad atp ON atp.AvisoTicketPrioridadID = avt.AvisoTicketPrioridadID\r\nLEFT JOIN avisotickettipoproblema attp ON attp.AvisoTicketTipoProblemaID = avt.AvisoTicketTipoProblemaID\r\nLEFT JOIN avisoticketintervencion ati ON ati.AvisoTicketID = avt.AvisoTicketID\r\nLEFT JOIN usuario u ON u.UsuarioID = avt.UsuarioID\r\n\r\nWHERE\r\navt.CustomerID = 29\r\nAND avt.EmpresaID = 1\r\nAND ati.AvisoTicketIntervencionID = 46"
+                      data:
+                        AvisoTicketIntervencionID: 46
+                        AvisoTicketID: 23
+                        NumeroTicket: 2005
+                        FechaHoraAlta: '2023-05-10T00:00:00.000'
+                        UsuarioAlta: ADMINISTRADOR
+                        CodigoCuenta: '10300010329'
+                        NombreCuenta: TIENDAS TRES B S A DE C V
+                        NombreContacto: Ventas Centro
+                        TipoTicket: Mantenimiento
+                        Prioridad: PrioridadJCO
+                        Servicio: un servicio
+                        TipoProblema: ProblemaPrueba
+                        Notas: Harden
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        AvisoTicketIntervencionID: 46
+                        AvisoTicketID: 23
+                        NumeroTicket: 2005
+                        FechaHoraAlta: '2023-05-10T00:00:00.000'
+                        UsuarioAlta: ADMINISTRADOR
+                        CodigoCuenta: '10300010329'
+                        NombreCuenta: TIENDAS TRES B S A DE C V
+                        NombreContacto: Ventas Centro
+                        TipoTicket: Mantenimiento
+                        Prioridad: PrioridadJCO
+                        Servicio: un servicio
+                        TipoProblema: ProblemaPrueba
+                        Notas: Harden
       operationId: get-consultIntervention-internalTicket
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: '46'
+          in: query
+          name: avisoTicketIntervencionID
+          required: true
 components:
   schemas: {}
