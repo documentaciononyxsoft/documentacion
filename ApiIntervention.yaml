@@ -15076,5 +15076,124 @@ paths:
           required: true
       requestBody:
         content: {}
+  /consultIntervention/internalEquipment:
+    get:
+      summary: ConsultInterventions - InternalEquipment
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: object
+                        properties:
+                          AvisoTicketIntervencionID:
+                            type: integer
+                          AvisoTicketID:
+                            type: integer
+                          ElementoID:
+                            type: integer
+                          NumeroEquipo:
+                            type: string
+                          NumeroSerieCliente:
+                            type: string
+                          Nombre:
+                            type: string
+                          Marca:
+                            type: string
+                          Modelo:
+                            type: string
+                          FechaInstalacion:
+                            type: string
+                          FechaBaja:
+                            type: string
+                          MotivoBaja:
+                            type: string
+                          InicioGarantia:
+                            type: string
+                          FinalGarantia:
+                            type: string
+                          Notas:
+                            type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "\r\nSELECT \r\nati.AvisoTicketIntervencionID,\r\nati.AvisoTicketID,\r\nate.ElementoID,\r\ne.NumeroSerie AS NumeroEquipo,\r\ne.NumeroSerieCliente,\r\ne.Nombre,\r\ne.Marca,\r\ne.Modelo,\r\ne.FechaInstalacion,\r\ne.FechaBaja,\r\ne.MotivoBaja,\r\ne.InicioGarantia,\r\ne.FinalGarantia,\r\ne.Notas\r\nFROM\r\navisoticketintervencion ati\r\nLEFT JOIN avisoticketelemento ate ON ati.AvisoTicketID = ate.AvisoTicketID\r\nLEFT JOIN elemento e ON e.ElementoID = ate.ElementoID\r\nWHERE\r\ne.CustomerID = 29\r\nAND e.EmpresaID = 1\r\nAND ati.AvisoTicketIntervencionID = 46"
+                      data:
+                        AvisoTicketIntervencionID: 46
+                        AvisoTicketID: 23
+                        ElementoID: 24
+                        NumeroEquipo: '1701788'
+                        NumeroSerieCliente: '77777'
+                        Nombre: EquipoJCO
+                        Marca: MarcaCH
+                        Modelo: '2007'
+                        FechaInstalacion: '20230428'
+                        FechaBaja: '20230428'
+                        MotivoBaja: Motivau
+                        InicioGarantia: '20230110'
+                        FinalGarantia: '20230110'
+                        Notas: Nota DIA
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        AvisoTicketIntervencionID: 46
+                        AvisoTicketID: 23
+                        ElementoID: 24
+                        NumeroEquipo: '1701788'
+                        NumeroSerieCliente: '77777'
+                        Nombre: EquipoJCO
+                        Marca: MarcaCH
+                        Modelo: '2007'
+                        FechaInstalacion: '20230428'
+                        FechaBaja: '20230428'
+                        MotivoBaja: Motivau
+                        InicioGarantia: '20230110'
+                        FinalGarantia: '20230110'
+                        Notas: Nota DIA
+      operationId: get-consultIntervention-internalEquipment
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+        - schema:
+            type: string
+            example: '46'
+          in: query
+          name: avisoTicketIntervencionID
+          required: true
+  /consultIntervention/internalTicket:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-consultIntervention-internalTicket
 components:
   schemas: {}
