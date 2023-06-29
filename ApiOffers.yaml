@@ -2516,6 +2516,15 @@ paths:
           in: query
           name: offset
           description: 'Registro a partir del cual empezará a traer los datos desde la tabla. Si se envía 20, y en la tabla existen 100 registros, la respuesta traerá solo los registros comprendidos entre las posiciones 20 y 100, y los primero 20 se omitirán.'
+        - schema:
+            type: string
+            enum:
+              - '1:ASC'
+              - '-1:DESC'
+            example: '1'
+          in: query
+          name: orientation
+          description: 'Este valor determina si los registros se leerán desde arriba hacia abajo, o desde abajo hacia arriba en la tabla.'
   /offerssto/quicksearch:
     get:
       summary: OffersSTO - Quicksearch
