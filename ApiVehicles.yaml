@@ -26,87 +26,111 @@ paths:
                   content:
                     type: object
                     properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
                       records:
                         type: array
                         items:
                           type: object
                           properties:
-                            NombreVersion:
-                              type: string
-                            NombreModelo:
-                              type: string
-                            NombreTipoVehiculo:
-                              type: string
-                            NombreCombustible:
-                              type: string
+                            VehiculoID:
+                              type: integer
                             Codigo:
                               type: string
-                      success:
-                        type: boolean
-                      sql:
-                        type: string
+                            Matricula:
+                              type: string
+                            Marca:
+                              type: string
+                            Modelo:
+                              type: string
+                            Version:
+                              type: string
+                            Tipo:
+                              type: string
+                            Combustible:
+                              type: string
                 x-examples:
                   Example 1:
                     statusCode: 200
                     message: Request processed successfully
                     content:
-                      records:
-                        - NombreVersion: '1.6'
-                          NombreModelo: Clio
-                          NombreTipoVehiculo: ''
-                          NombreCombustible: ''
-                          Codigo: '1'
-                        - NombreVersion: ''
-                          NombreModelo: ''
-                          NombreTipoVehiculo: ''
-                          NombreCombustible: ''
-                          Codigo: '231231'
                       success: true
-                      sql: "SELECT Vehiculo.*,\r\nVersion.Nombre AS NombreVersion,\r\nModelo.Nombre AS NombreModelo,\r\nMarca.Nombre AS NombreMarca,\r\nTipoVehiculo.Descripcion AS NombreTipoVehiculo,\r\nCombustible.Descripcion AS NombreCombustible \r\nFROM Vehiculo\r\nLEFT OUTER JOIN Version ON Version.VersionID = Vehiculo.VersionID\r\nLEFT OUTER JOIN Modelo ON Modelo.ModeloID = Version.ModeloID\r\nLEFT OUTER JOIN Marca ON Marca.MarcaID = Modelo.MarcaID\r\nLEFT OUTER JOIN TablaGeneral AS TipoVehiculo ON TipoVehiculo.TablaGeneralID = Vehiculo.TipoVehiculoID\r\nLEFT OUTER JOIN TablaGeneral AS Combustible ON Combustible.TablaGeneralID = Vehiculo.CombustibleID\r\nWHERE Vehiculo.CustomerID = 29\r\nAND Vehiculo.EmpresaID = 1\r\n\r\nlimit 50 \r\noffset 0"
+                      sql: "SELECT Vehiculo.*,\r\nVersion.Nombre AS NombreVersion,\r\nModelo.Nombre AS NombreModelo,\r\nMarca.Nombre AS NombreMarca,\r\nTipoVehiculo.Descripcion AS NombreTipoVehiculo,\r\nCombustible.Descripcion AS NombreCombustible \r\nFROM Vehiculo\r\nLEFT OUTER JOIN Version ON Version.VersionID = Vehiculo.VersionID\r\nLEFT OUTER JOIN Modelo ON Modelo.ModeloID = Version.ModeloID\r\nLEFT OUTER JOIN Marca ON Marca.MarcaID = Modelo.MarcaID\r\nLEFT OUTER JOIN TablaGeneral AS TipoVehiculo ON TipoVehiculo.TablaGeneralID = Vehiculo.TipoVehiculoID\r\nLEFT OUTER JOIN TablaGeneral AS Combustible ON Combustible.TablaGeneralID = Vehiculo.CombustibleID\r\nWHERE Vehiculo.CustomerID = 29\r\nAND Vehiculo.EmpresaID = 1\r\n AND (Vehiculo.Codigo >= 1 AND Vehiculo.Codigo <= 10 AND Vehiculo.TipoVehiculoID IN (897))\r\nLIMIT 50\r\nOFFSET 0"
+                      records:
+                        - VehiculoID: 1
+                          Codigo: '1'
+                          Matricula: ARP86F
+                          Marca: Marquesí
+                          Modelo: '2022'
+                          Version: VerTest
+                          Tipo: Transporte Ferroviario
+                          Combustible: Diesel
+                        - VehiculoID: 6
+                          Codigo: '5'
+                          Matricula: FDF455
+                          Marca: MarcaPrueba
+                          Modelo: '2023'
+                          Version: Versiculo
+                          Tipo: Transporte Ferroviario
+                          Combustible: Premium
               examples:
                 Example 1:
                   value:
                     statusCode: 200
                     message: Request processed successfully
                     content:
-                      records:
-                        - NombreVersion: '1.6'
-                          NombreModelo: Clio
-                          NombreTipoVehiculo: ''
-                          NombreCombustible: ''
-                          Codigo: '1'
-                        - NombreVersion: ''
-                          NombreModelo: ''
-                          NombreTipoVehiculo: ''
-                          NombreCombustible: ''
-                          Codigo: '231231'
                       success: true
-                      sql: "SELECT Vehiculo.*,\r\nVersion.Nombre AS NombreVersion,\r\nModelo.Nombre AS NombreModelo,\r\nMarca.Nombre AS NombreMarca,\r\nTipoVehiculo.Descripcion AS NombreTipoVehiculo,\r\nCombustible.Descripcion AS NombreCombustible \r\nFROM Vehiculo\r\nLEFT OUTER JOIN Version ON Version.VersionID = Vehiculo.VersionID\r\nLEFT OUTER JOIN Modelo ON Modelo.ModeloID = Version.ModeloID\r\nLEFT OUTER JOIN Marca ON Marca.MarcaID = Modelo.MarcaID\r\nLEFT OUTER JOIN TablaGeneral AS TipoVehiculo ON TipoVehiculo.TablaGeneralID = Vehiculo.TipoVehiculoID\r\nLEFT OUTER JOIN TablaGeneral AS Combustible ON Combustible.TablaGeneralID = Vehiculo.CombustibleID\r\nWHERE Vehiculo.CustomerID = 29\r\nAND Vehiculo.EmpresaID = 1\r\n\r\nlimit 50 \r\noffset 0"
+                      sql: string
+                      records:
+                        - VehiculoID: 1
+                          Codigo: '1'
+                          Matricula: ARP86F
+                          Marca: Marquesí
+                          Modelo: '2022'
+                          Version: VerTest
+                          Tipo: Transporte Ferroviario
+                          Combustible: Diesel
+                        - VehiculoID: 6
+                          Codigo: '5'
+                          Matricula: FDF455
+                          Marca: MarcaPrueba
+                          Modelo: '2023'
+                          Version: Versiculo
+                          Tipo: Transporte Ferroviario
+                          Combustible: Premium
       operationId: get-consult-vehicles
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: 'accessToken '
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
         - schema:
             type: string
+            example: '0'
           in: query
           name: offset
-          description: '0'
+          description: 'Registro a partir del cual empezará a traer los datos desde la tabla. Si se envía 20, y en la tabla existen 100 registros, la respuesta traerá solo los registros comprendidos entre las posiciones 20 y 100, y los primero 20 se omitirán.'
         - schema:
             type: string
+            example: '50'
           in: query
           name: limit
-          description: '50'
+          description: 'Límite de registros que trae la consulta. Si se envía el número 50, y la tabla tiene 2000 registros solo se traerán 50.'
         - schema:
             type: string
+            example: '1'
           in: query
-          name: codVehiculoDesde
+          name: codigoDesde
         - schema:
             type: string
+            example: '10'
           in: query
-          name: codVehiculoHasta
+          name: codigoHasta
         - schema:
             type: string
           in: query
@@ -115,18 +139,19 @@ paths:
             type: string
           in: query
           name: tipo
+          description: '897'
         - schema:
             type: string
           in: query
-          name: marcaVehiculo
+          name: marca
         - schema:
             type: string
           in: query
-          name: modeloVehiculo
+          name: modelo
         - schema:
             type: string
           in: query
-          name: versionVehiculo
+          name: version
   /brand/light:
     get:
       summary: Vehicle - FindLightListBrand
