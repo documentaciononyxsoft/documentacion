@@ -137,21 +137,25 @@ paths:
           name: matricula
         - schema:
             type: string
+            example: '897'
           in: query
           name: tipo
-          description: '897'
+          description: TipoVehiculoID
         - schema:
             type: string
           in: query
           name: marca
+          description: MarcaID
         - schema:
             type: string
           in: query
           name: modelo
+          description: ModeloID
         - schema:
             type: string
           in: query
           name: version
+          description: VersionID
   /brand/light:
     get:
       summary: Vehicle - FindLightListBrand
