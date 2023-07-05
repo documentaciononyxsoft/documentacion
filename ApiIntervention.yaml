@@ -3509,7 +3509,215 @@ paths:
     get:
       summary: FindManyByFiltersInternal
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            AvisoTicketIntervencionID:
+                              type: integer
+                            Numero:
+                              type: integer
+                            Fecha:
+                              type: string
+                            Descripcion:
+                              type: string
+                            CodigoCuenta:
+                              type: string
+                            NombreCuenta:
+                              type: string
+                            FechaCierre:
+                              type: string
+                            CosteMO:
+                              type: integer
+                            CosteMaterial:
+                              type: integer
+                            Gastos:
+                              type: integer
+                            Subcontratación:
+                              type: integer
+                            NumeroAlbaran:
+                              type: integer
+                            ProcesoID:
+                              type: integer
+                            Proyecto_OFID:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT \r\nAvisoTicketIntervencion.*,\r\nProyecto_OF.CodigoProyecto_OF,\r\nProyecto_OF.FechaHoraUsuarioCierre,\r\nProyecto_OF.Observaciones,\r\nTablaGeneral.Abreviatura AS TipoTicketAbreviatura,\r\nTablaGeneral.Descripcion AS TipoTicketTexto,\r\nAvisoTicket.MailingID,\r\nMailing.ReferenciaCodigo,\r\nMailing.Nombre, AlbaranVentaCabecera.Numero, Proceso.ProcesoID\r\nFROM AvisoTicketIntervencion\r\nLEFT OUTER JOIN AvisoTicket ON AvisoTIcket.AvisoTicketID = AvisoTicketIntervencion.AvisoTicketID\r\nleft outer join AvisoTicketElemento on AvisoTicketElemento.AvisoTicketID = AvisoTicket.AvisoTicketID\r\nLEFT OUTER JOIN Proyecto_OF ON Proyecto_OF.Proyecto_OFID = AvisoTicketIntervencion.Proyecto_OFID\r\nLEFT OUTER JOIN Proceso ON Proceso.Proyecto_OFID = Proyecto_OF.Proyecto_OFID\r\nLEFT OUTER JOIN AlbaranVentaCabecera ON AlbaranVentaCabecera.AlbaranVentaCabeceraID = AvisoTicketIntervencion.AlbaranVentaCabeceraID\r\nLEFT OUTER JOIN TablaGeneral ON TablaGeneral.TablaGeneralID = AvisoTicket.TipoAvisoID\r\nLEFT OUTER JOIN Mailing ON Mailing.MailingID = AvisoTicket.MailingID\r\nWHERE AvisoTicketIntervencion.CustomerID = 29\r\nAND AvisoTicket.EmpresaID = 1\r\n AND (AvisoTicketIntervencion.Fecha >= 20100101 AND DATE(AvisoTicketIntervencion.Fecha) <= 20250101 AND AvisoTicketIntervencion.AvisoTicketID IN (1))\r\nlimit 5 \r\noffset 0"
+                      records:
+                        - AvisoTicketIntervencionID: 5
+                          Numero: 5
+                          Fecha: '20230222'
+                          Descripcion: ''
+                          CodigoCuenta: '10300010329'
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          FechaCierre: '20230222'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1878
+                          Proyecto_OFID: 1773
+                        - AvisoTicketIntervencionID: 8
+                          Numero: 1112
+                          Fecha: '20230216'
+                          Descripcion: JCOIntervention
+                          CodigoCuenta: '10300010329'
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          FechaCierre: '20220225'
+                          CosteMO: 5.56079
+                          CosteMaterial: 2173.0672
+                          Gastos: 100
+                          Subcontratación: 250
+                          NumeroAlbaran: 0
+                          ProcesoID: 1276
+                          Proyecto_OFID: 1264
+                        - AvisoTicketIntervencionID: 11
+                          Numero: 11
+                          Fecha: '20230215'
+                          Descripcion: PRUEBALU33333RT
+                          CodigoCuenta: '10300010329'
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          FechaCierre: ''
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1884
+                          Proyecto_OFID: 1781
+                        - AvisoTicketIntervencionID: 13
+                          Numero: 9
+                          Fecha: '20230223'
+                          Descripcion: ''
+                          CodigoCuenta: '10300010329'
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          FechaCierre: ''
+                          CosteMO: 0
+                          CosteMaterial: 214.65
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1886
+                          Proyecto_OFID: 1783
+                        - AvisoTicketIntervencionID: 44
+                          Numero: 37
+                          Fecha: '20230502'
+                          Descripcion: PruebaJCO
+                          CodigoCuenta: '10300010329'
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          FechaCierre: '20230518'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1917
+                          Proyecto_OFID: 1837
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - AvisoTicketIntervencionID: 5
+                          Numero: 5
+                          Fecha: '20230222'
+                          Descripcion: ''
+                          CodigoCuenta: '10300010329'
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          FechaCierre: '20230222'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1878
+                          Proyecto_OFID: 1773
+                        - AvisoTicketIntervencionID: 8
+                          Numero: 1112
+                          Fecha: '20230216'
+                          Descripcion: JCOIntervention
+                          CodigoCuenta: '10300010329'
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          FechaCierre: '20220225'
+                          CosteMO: 5.56079
+                          CosteMaterial: 2173.0672
+                          Gastos: 100
+                          Subcontratación: 250
+                          NumeroAlbaran: 0
+                          ProcesoID: 1276
+                          Proyecto_OFID: 1264
+                        - AvisoTicketIntervencionID: 11
+                          Numero: 11
+                          Fecha: '20230215'
+                          Descripcion: PRUEBALU33333RT
+                          CodigoCuenta: '10300010329'
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          FechaCierre: ''
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1884
+                          Proyecto_OFID: 1781
+                        - AvisoTicketIntervencionID: 13
+                          Numero: 9
+                          Fecha: '20230223'
+                          Descripcion: ''
+                          CodigoCuenta: '10300010329'
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          FechaCierre: ''
+                          CosteMO: 0
+                          CosteMaterial: 214.65
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1886
+                          Proyecto_OFID: 1783
+                        - AvisoTicketIntervencionID: 44
+                          Numero: 37
+                          Fecha: '20230502'
+                          Descripcion: PruebaJCO
+                          CodigoCuenta: '10300010329'
+                          NombreCuenta: TIENDAS TRES B S A DE C V
+                          FechaCierre: '20230518'
+                          CosteMO: 0
+                          CosteMaterial: 0
+                          Gastos: 0
+                          Subcontratación: 0
+                          NumeroAlbaran: 0
+                          ProcesoID: 1917
+                          Proyecto_OFID: 1837
       operationId: get-consult-interventionsInternal
       parameters:
         - schema:
@@ -3527,7 +3735,7 @@ paths:
           description: Fecha Min (YYYYMMDD)
         - schema:
             type: string
-            example: '2025010'
+            example: '20250101'
           in: query
           name: fechaHastaIn
           description: Fecha Max (YYYYMMDD)
@@ -3550,7 +3758,7 @@ paths:
           name: ubicacionID
         - schema:
             type: string
-            example: '50'
+            example: '5'
           in: query
           name: limit
           description: 'Límite de registros que trae la consulta. Si se envía el número 50, y la tabla tiene 2000 registros solo se traerán 50.'
