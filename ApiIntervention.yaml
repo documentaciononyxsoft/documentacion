@@ -3505,6 +3505,61 @@ paths:
             type: string
           in: query
           name: ubicacionID
+  /consult/interventionsInternal:
+    get:
+      summary: FindManyByFiltersInternal
+      tags: []
+      responses: {}
+      operationId: get-consult-interventionsInternal
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: '20100101'
+          in: query
+          name: fechaDesdeIn
+          description: Fecha Min (YYYYMMDD)
+        - schema:
+            type: string
+            example: '2025010'
+          in: query
+          name: fechaHastaIn
+          description: Fecha Max (YYYYMMDD)
+        - schema:
+            type: string
+            example: '1'
+          in: query
+          name: ticketID
+        - schema:
+            type: string
+          in: query
+          name: mailingID
+        - schema:
+            type: string
+          in: query
+          name: equipoID
+        - schema:
+            type: string
+          in: query
+          name: ubicacionID
+        - schema:
+            type: string
+            example: '50'
+          in: query
+          name: limit
+          description: 'Límite de registros que trae la consulta. Si se envía el número 50, y la tabla tiene 2000 registros solo se traerán 50.'
+        - schema:
+            type: string
+            example: '0'
+          in: query
+          name: offset
+          description: 'Registro a partir del cual empezará a traer los datos desde la tabla. Si se envía 20, y en la tabla existen 100 registros, la respuesta traerá solo los registros comprendidos entre las posiciones 20 y 100, y los primero 20 se omitirán.'
   /intervention/ubication:
     get:
       summary: FindUbication
