@@ -4070,8 +4070,202 @@ paths:
     get:
       summary: OffersSTO - FindLinesByOffer
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            OfertaLineaID:
+                              type: integer
+                            OfertaID:
+                              type: integer
+                            Linea:
+                              type: integer
+                            ArticuloID:
+                              type: integer
+                            CodigoArticulo:
+                              type: string
+                            NombreArticulo:
+                              type: string
+                            Cantidad:
+                              type: integer
+                            PrecioVenta:
+                              type:
+                                - integer
+                                - number
+                            Dto1:
+                              type: integer
+                            Dto2:
+                              type: integer
+                            Dto3:
+                              type: integer
+                            DescripcionLinea:
+                              type: string
+                            ImporteVenta:
+                              type:
+                                - integer
+                                - number
+                            NotaCliente:
+                              type: string
+                            Cantidad2:
+                              type: integer
+                            Factor:
+                              type: integer
+                            FactorCantidad:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT \r\nol.OfertaLineaID,\r\nol.OfertaID,\r\nol.Linea,\r\na.ArticuloID,\r\na.Codigo AS CodigoArticulo,\r\na.Nombre AS NombreArticulo,\r\nol.Cantidad,\r\nol.PrecioVenta,\r\nol.Dto1,\r\nol.Dto2,\r\nol.Dto3,\r\nol.Descripcion AS DescripcionLinea,\r\nol.ImporteVenta,\r\nol.NotaCliente,\r\nol.Cantidad2,\r\nol.Factor,\r\nol.FactorCantidad\r\nFROM\r\nofertalinea ol\r\nINNER JOIN articulo a ON a.ArticuloID = ol.ArticuloID\r\nWHERE\r\nol.CustomerID = 29\r\nAND ol.EmpresaID = 1\r\nAND ol.OfertaID = 2338"
+                      records:
+                        - OfertaLineaID: 4472
+                          OfertaID: 2338
+                          Linea: 10
+                          ArticuloID: 3517
+                          CodigoArticulo: V9T2R
+                          NombreArticulo: LAPTOP DELL INSPIRON 15 3501 15.6" INTEL CORE i5 1135G7
+                          Cantidad: 4
+                          PrecioVenta: 500
+                          Dto1: 10
+                          Dto2: 15
+                          Dto3: 0
+                          DescripcionLinea: ''
+                          ImporteVenta: 1530
+                          NotaCliente: ''
+                          Cantidad2: 4
+                          Factor: 1
+                          FactorCantidad: 1
+                        - OfertaLineaID: 4474
+                          OfertaID: 2338
+                          Linea: 10
+                          ArticuloID: 15
+                          CodigoArticulo: '300048926'
+                          NombreArticulo: ARITOS DE FRUTA RG 484GRX14X1
+                          Cantidad: 0
+                          PrecioVenta: 0
+                          Dto1: 0
+                          Dto2: 0
+                          Dto3: 0
+                          DescripcionLinea: ''
+                          ImporteVenta: 0
+                          NotaCliente: ''
+                          Cantidad2: 0
+                          Factor: 1
+                          FactorCantidad: 0
+                        - OfertaLineaID: 4476
+                          OfertaID: 2338
+                          Linea: 10
+                          ArticuloID: 3517
+                          CodigoArticulo: V9T2R
+                          NombreArticulo: LAPTOP DELL INSPIRON 15 3501 15.6" INTEL CORE i5 1135G7
+                          Cantidad: 8
+                          PrecioVenta: 48.52
+                          Dto1: 5
+                          Dto2: 5
+                          Dto3: 5
+                          DescripcionLinea: LineaPrueba
+                          ImporteVenta: 83.2
+                          NotaCliente: Notesting
+                          Cantidad2: 5
+                          Factor: 1
+                          FactorCantidad: 1
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      records:
+                        - OfertaLineaID: 4472
+                          OfertaID: 2338
+                          Linea: 10
+                          ArticuloID: 3517
+                          CodigoArticulo: V9T2R
+                          NombreArticulo: LAPTOP DELL INSPIRON 15 3501 15.6" INTEL CORE i5 1135G7
+                          Cantidad: 4
+                          PrecioVenta: 500
+                          Dto1: 10
+                          Dto2: 15
+                          Dto3: 0
+                          DescripcionLinea: ''
+                          ImporteVenta: 1530
+                          NotaCliente: ''
+                          Cantidad2: 4
+                          Factor: 1
+                          FactorCantidad: 1
+                        - OfertaLineaID: 4474
+                          OfertaID: 2338
+                          Linea: 10
+                          ArticuloID: 15
+                          CodigoArticulo: '300048926'
+                          NombreArticulo: ARITOS DE FRUTA RG 484GRX14X1
+                          Cantidad: 0
+                          PrecioVenta: 0
+                          Dto1: 0
+                          Dto2: 0
+                          Dto3: 0
+                          DescripcionLinea: ''
+                          ImporteVenta: 0
+                          NotaCliente: ''
+                          Cantidad2: 0
+                          Factor: 1
+                          FactorCantidad: 0
+                        - OfertaLineaID: 4476
+                          OfertaID: 2338
+                          Linea: 10
+                          ArticuloID: 3517
+                          CodigoArticulo: V9T2R
+                          NombreArticulo: LAPTOP DELL INSPIRON 15 3501 15.6" INTEL CORE i5 1135G7
+                          Cantidad: 8
+                          PrecioVenta: 48.52
+                          Dto1: 5
+                          Dto2: 5
+                          Dto3: 5
+                          DescripcionLinea: LineaPrueba
+                          ImporteVenta: 83.2
+                          NotaCliente: Notesting
+                          Cantidad2: 5
+                          Factor: 1
+                          FactorCantidad: 1
       operationId: get-offerssto-linesByOffer
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: '2338'
+          in: query
+          name: ofertaID
+          required: true
 components:
   parameters:
     token:
