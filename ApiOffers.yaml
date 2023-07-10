@@ -3439,6 +3439,639 @@ paths:
                   actualizarprecios: true
                   linkgestiondocumental: true
                   nuevadescripcion: Hola dani
+  /offerssto/consult:
+    get:
+      summary: OffersSTO - FindManyByFilters
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      ofertas:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ofertaid:
+                              type: integer
+                            numero:
+                              type: integer
+                            fecha:
+                              type: string
+                            codigoCuenta:
+                              type: string
+                            cuenta:
+                              type: string
+                            tipooferta:
+                              type: string
+                            importe:
+                              type:
+                                - integer
+                                - number
+                            numeroAviso:
+                              type: integer
+                            numeroGrua:
+                              type: string
+                            motivorechazoofertavalor:
+                              type: string
+                            albaranfecha:
+                              type: string
+                            numeroalbaran:
+                              type: integer
+                            estadoLinea:
+                              type: string
+                            estadoOferta:
+                              type: string
+                            linea:
+                              type: integer
+                            codigoArticulo:
+                              type: string
+                            nombreArticulo:
+                              type: string
+                            descripcion:
+                              type: string
+                            cantidad:
+                              type: integer
+                            pvp:
+                              type:
+                                - integer
+                                - number
+                            dto:
+                              type: integer
+                            descripcionLinea:
+                              type: string
+                            importeVenta:
+                              type: string
+                            cantidad2:
+                              type: integer
+                            factor:
+                              type: integer
+                            factorCantidad:
+                              type: integer
+                            version:
+                              type: integer
+                            municipio:
+                              type: string
+                            pais:
+                              type: string
+                            representante:
+                              type: string
+                            usuario:
+                              type: string
+                            fechaValidez:
+                              type: string
+                            notas:
+                              type: string
+                            observaciones:
+                              type: string
+                            clasificacionEquipoID:
+                              type: string
+                            clasificacionContratoID:
+                              type: string
+                            clasificacionAvisoID:
+                              type: string
+                            tipoofertaid:
+                              type: integer
+                            monedaID:
+                              type: integer
+                            nombreMoneda:
+                              type: string
+                            monedaISO:
+                              type: string
+                            TipoDeCambio:
+                              type:
+                                - integer
+                                - number
+                            ImporteEnEuros:
+                              type:
+                                - integer
+                                - number
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "sELECT distinct\r\nOferta.*,\r\nMailing.*,\r\nCodigoPostal.CodigoPostal AS CodigoPostalMailing, \r\nMailing.Municipio AS NombreMunicio,\r\nPais.Nombre AS PaisMailing,\r\nAlbaranVentaCabecera.Numero AS NumeroAlbaran,\r\nAlbaranVentaCabecera.Fecha AS albaranfecha,\r\nclasificacionEquipoID.Valor AS clasificacionEquipoID,\r\nclasificacionContratoID.Valor AS clasificacionContratoID,\r\nclasificacionAvisoID.Valor AS clasificacionAvisoID,\r\nmotivorechazooferta.Descripcion AS motivorechazoofertavalor,\r\navisoticket.Numero AS numeroAviso,\r\nelemento.NumeroSerie AS numeroGrua,\r\nOferta.TipoOfertaID AS tipoofertaid,\r\nTiposOfertas.Descripcion AS TipoOferta,\r\nUsuario.NombreUsuario AS ResponsableUsuario,\r\nContacto.Nombre AS NombreContacto,\r\nMailRepresentante.Nombre AS NombreRepre,\r\nEmpresa.Cif AS CifEmpresa,\r\nEmpresa.Codigo AS CodigoEmpresa,\r\nEmpresa.CodigoPostal AS CodPostalEmpresa,\r\nEmpresa.Direccion AS DirEmpresa,\r\nEmpresa.Nombre AS NomEmpresa,\r\nOfertaLinea.Cantidad AS CantidadArticulo,\r\nOfertaLinea.Linea,\r\nOfertaLinea.Pedido as LineaPedida,\r\nOfertaLinea.Descripcion AS DescripcionArticulo,\r\nOfertaLinea.nombre as NombreArticulo,\r\nOfertaLinea.Dto1 AS DtoArticulo,\r\nOfertaLinea.ImporteVenta AS ImporteArticulo,\r\nOfertaLinea.PrecioVenta,\r\nOfertaLinea.CantidadPedida as CantiPedida,\r\nOfertaLinea.Cantidad - OfertaLinea.CantidadPedida AS CantidadPendiente,\r\nofertalinea.ArticuloID,\r\nOfertaLinea.OfertaLineaID,\r\nOfertaLinea.estado as EstadoLinea,\r\nOFERTALINEA.Descripcion AS descripcionLinea,\r\nOFERTALINEA.NotaCliente as notaClienteLinea,\r\nArticulo.Codigo AS CodigoArticulo,\r\nArticulo.Nombre AS NomArt,\r\nFamilia.Nombre AS NombreFamilia,\r\nCampana.Descripcion AS DescripcionCampana,\r\nOfertaLinea.Cantidad2 AS Cantidad2Articulo,\r\nOfertaLinea.Factor AS Factor,\r\nOfertaLinea.ReferenciaCliente AS ReferenciaClienteLinea,\r\nOfertaLinea.Referencia AS ReferenciaArticuloCliente,\r\nMailRepresentante2.Nombre AS NombreRepre2,\r\nOfertalinea.PorcentajeComision AS PorcComision,\r\n0 as PorcComision2,\r\nSituacionOferta.Abreviatura AS CodSituacion,\r\nSituacionOferta.Descripcion AS DescSituacion,\r\nOfertaLinea.Cantidad2,\r\nOfertaLinea.Factor,\r\nOfertaLinea.FactorCantidad,\r\nofertalinea.Dto2,\r\nofertalinea.Dto3,\r\nOfertaLinea.FechaEntrega as FechaEntregaLinea,\r\nFamilia.Codigo as CodigoFamilia,\r\nArticulo.FamiliaID,\r\nArticulo.TipoArticuloID,\r\nTipoArticulo.Abreviatura AS CodTipoArticulo,\r\nTipoArticulo.Descripcion AS DescTipoArticulo,\r\nOfertaLinea.pedido\r\n\r\n\r\nFROM\r\n(((((((((((((((((((Oferta INNER JOIN Mailing ON Oferta.MailingID = Mailing.MailingID)\r\nLEFT JOIN Contacto ON Oferta.ContactoID = Contacto.ContactoID)\r\nLEFT JOIN Representante ON Oferta.RepresentanteID=Representante.RepresentanteID)\r\nLEFT JOIN Mailing AS MailRepresentante ON Representante.MailingID=MailRepresentante.MailingID)\r\nLEFT JOIN Usuario ON Oferta.UsuarioID = Usuario.UsuarioID)\r\nLEFT JOIN Municipio ON Mailing.MunicipioID = Municipio.MunicipioID)\r\nLEFT JOIN Pais ON Mailing.PaisID = Pais.PaisID)\r\nLEFT JOIN TablaGeneral AS TiposOfertas ON Oferta.TipoOfertaID = TiposOfertas.TablaGeneralID)\r\nLEFT JOIN Cliente ON Cliente.MailingID=Mailing.MailingID)\r\nLEFT JOIN Empresa ON Empresa.EmpresaID=Cliente.EmpresaID)\r\nLEFT JOIN OfertaLinea ON Oferta.OfertaID=OfertaLinea.OfertaID)\r\nLEFT JOIN Articulo ON Articulo.ArticuloID=OfertaLinea.ArticuloID)\r\nLEFT JOIN CodigoPostal ON CodigoPostal.CodigoPostalID=Mailing.CodigoPostalID)\r\nLEFT JOIN Familia ON Familia.FamiliaID=Articulo.FamiliaID)\r\nLEFT JOIN Campana ON Campana.CampanaID=Oferta.CampanaID)\r\nLEFT JOIN PedidoVentaLinea ON PedidoVentaLinea.OfertaLineaID = OfertaLinea.OfertaLineaID)\r\nLEFT JOIN PedidoVentaCabecera ON PedidoVentaCabecera.PedidoVentaCabeceraID = PedidoVentaLinea.PedidoVentaCabeceraID)\r\nLEFT JOIN AlbaranVentaLinea ON AlbaranVentaLinea.PedidoVentaLineaID = PedidoVentaLinea.PedidoVentaLineaID)\r\nLEFT JOIN AlbaranVentaCabecera ON AlbaranVentaCabecera.AlbaranVentaCabeceraID = AlbaranVentaLinea.AlbaranVentaCabeceraID)\r\nleft join OfertaCualificacion on OfertaCualificacion.OfertaID = oferta.OfertaID\r\nLEFT JOIN Representante as representante2 ON Oferta.Representante2ID=Representante2.RepresentanteID\r\nLEFT JOIN Mailing AS MailRepresentante2 ON Representante2.MailingID=MailRepresentante2.MailingID\r\nLEFT JOIN TablaGeneral AS SituacionOferta ON OfertaCualificacion.SituacionID = SituacionOferta.TablaGeneralID\r\nLEFT JOIN TablaGeneral AS TipoArticulo ON Articulo.TipoArticuloID = TipoArticulo.TablaGeneralID\r\nLEFT JOIN CampoEspecialValor clasificacionEquipoID ON clasificacionEquipoID.TablaRegistroId = Oferta.OfertaID AND clasificacionEquipoID.CampoEspecialDefinicionID = (SELECT CampoEspecialDefinicionID FROM CampoEspecialDefinicion WHERE CampoEspecialDefinicion.Tabla = 'Oferta' AND CampoEspecialDefinicion.nOmbreCampo = 'equipo')\r\nLEFT JOIN CampoEspecialValor clasificacionContratoID ON clasificacionContratoID.TablaRegistroId = Oferta.OfertaID AND clasificacionContratoID.CampoEspecialDefinicionID = (SELECT CampoEspecialDefinicionID FROM CampoEspecialDefinicion WHERE CampoEspecialDefinicion.Tabla = 'Oferta' AND CampoEspecialDefinicion.nOmbreCampo = 'contrato')\r\nLEFT JOIN CampoEspecialValor clasificacionAvisoID ON clasificacionAvisoID.TablaRegistroId = Oferta.OfertaID AND clasificacionAvisoID.CampoEspecialDefinicionID = (SELECT CampoEspecialDefinicionID FROM CampoEspecialDefinicion WHERE CampoEspecialDefinicion.Tabla = 'Oferta' AND CampoEspecialDefinicion.nOmbreCampo = 'aviso')\r\nLEFT JOIN avisoticket ON avisoticket.AvisoTicketID = clasificacionAvisoID.Valor\r\nLEFT JOIN elemento ON elemento.ElementoID = clasificacionEquipoID.valor\r\nLEFT JOIN TablaGeneral as motivorechazooferta on oferta.motivorechazoid = motivorechazooferta.tablageneralId\r\n\r\nWHERE\r\n\tOferta.CustomerID = 29 AND\r\n\tOferta.EmpresaID = 1\r\n AND (Oferta.Fecha >= 20000101 AND DATE(Oferta.Fecha) <= 20250101 AND Oferta.Estado IN ('AC','PA')) GROUP BY\r\n\toferta.OfertaID\r\nORDER BY Oferta.Numero ASC, OfertaLinea.Linea DESC\r\n"
+                      ofertas:
+                        - ofertaid: 2028
+                          numero: 1
+                          fecha: '20220526'
+                          codigoCuenta: '10300010008'
+                          cuenta: ABARROTERA AVILA GUAMUCHIL
+                          tipooferta: ''
+                          importe: 97.04
+                          numeroAviso: 1
+                          numeroGrua: '1701788'
+                          motivorechazoofertavalor: Limite de credito
+                          albaranfecha: '20230705'
+                          numeroalbaran: 2151
+                          estadoLinea: ''
+                          estadoOferta: ACEPTADA
+                          linea: 10
+                          codigoArticulo: V9T2R
+                          nombreArticulo: LAPTOP DELL INSPIRON 15 3501 15.6" INTEL CORE i5 1135G7
+                          descripcion: Hablalo
+                          cantidad: 2
+                          pvp: 48.52
+                          dto: 0
+                          descripcionLinea: LAPTOP DELL INSPIRON 15 3501 15.6" INTEL CORE i5 1135G7DISCODURO 256 GB SSD RAM 8 GB WINDOWS 10 HOME
+                          importeVenta: ''
+                          cantidad2: 0
+                          factor: 1
+                          factorCantidad: 0
+                          version: 1
+                          municipio: ''
+                          pais: México
+                          representante: ''
+                          usuario: ADMINISTRADOR
+                          fechaValidez: '2022-05-26T00:00:00.000'
+                          notas: ''
+                          observaciones: ''
+                          clasificacionEquipoID: '24'
+                          clasificacionContratoID: '1'
+                          clasificacionAvisoID: '1'
+                          tipoofertaid: 0
+                          monedaID: 3
+                          nombreMoneda: Peso Mexicano
+                          monedaISO: MXN
+                          TipoDeCambio: 0.053
+                          ImporteEnEuros: 5.14312
+                        - ofertaid: 7
+                          numero: 27
+                          fecha: '20211103'
+                          codigoCuenta: '10300010329'
+                          cuenta: TIENDAS TRES B S A DE C V
+                          tipooferta: ''
+                          importe: 49161.6
+                          numeroAviso: 0
+                          numeroGrua: ''
+                          motivorechazoofertavalor: ''
+                          albaranfecha: ''
+                          numeroalbaran: 0
+                          estadoLinea: ''
+                          estadoOferta: ACEPTADA
+                          linea: 10
+                          codigoArticulo: '300051322'
+                          nombreArticulo: CHOCO FLAKES RG2 500GRX30X1
+                          descripcion: O.C 153598
+                          cantidad: 96
+                          pvp: 512.1
+                          dto: 0
+                          descripcionLinea: ''
+                          importeVenta: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17 O.C \\b 153598\\b0 , N\\'b0 PROV: \\b 20756 \\b0 , ANDEN \\b 5\\b0  , HORARIO DE ENTREGA : \\b 08:30\\b0  (llegar 15 min antes)\\par\r\n\\par\r\n}\r\n"
+                          cantidad2: 0
+                          factor: 1
+                          factorCantidad: 0
+                          version: 1
+                          municipio: CUAUHTEMOC
+                          pais: México
+                          representante: ''
+                          usuario: ADMINISTRADOR
+                          fechaValidez: '2021-11-04T00:00:00.000'
+                          notas: ''
+                          observaciones: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+                          clasificacionEquipoID: ''
+                          clasificacionContratoID: ''
+                          clasificacionAvisoID: ''
+                          tipoofertaid: 0
+                          monedaID: 1
+                          nombreMoneda: Euros
+                          monedaISO: EUR
+                          TipoDeCambio: 1
+                          ImporteEnEuros: 49161.6
+                        - ofertaid: 8
+                          numero: 28
+                          fecha: '20211103'
+                          codigoCuenta: '10300010329'
+                          cuenta: TIENDAS TRES B S A DE C V
+                          tipooferta: ''
+                          importe: 49161.6
+                          numeroAviso: 0
+                          numeroGrua: '1701788'
+                          motivorechazoofertavalor: ''
+                          albaranfecha: ''
+                          numeroalbaran: 0
+                          estadoLinea: ''
+                          estadoOferta: ACEPTADA
+                          linea: 10
+                          codigoArticulo: '300051322'
+                          nombreArticulo: CHOCO FLAKES RG2 500GRX30X1
+                          descripcion: O.C 71193
+                          cantidad: 96
+                          pvp: 512.1
+                          dto: 0
+                          descripcionLinea: ''
+                          importeVenta: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17 O.C \\b 71193\\b0 , N\\'b0 PROV: \\b 20756 \\b0 , ANDEN \\b 1\\b0  , HORARIO DE ENTREGA : 10:00 (llegar 15 min antes)\\par\r\n}\r\n"
+                          cantidad2: 0
+                          factor: 1
+                          factorCantidad: 0
+                          version: 1
+                          municipio: CUAUHTEMOC
+                          pais: México
+                          representante: ''
+                          usuario: ADMINISTRADOR
+                          fechaValidez: '2021-11-04T00:00:00.000'
+                          notas: ''
+                          observaciones: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+                          clasificacionEquipoID: '24'
+                          clasificacionContratoID: '9'
+                          clasificacionAvisoID: ''
+                          tipoofertaid: 0
+                          monedaID: 1
+                          nombreMoneda: Euros
+                          monedaISO: EUR
+                          TipoDeCambio: 1
+                          ImporteEnEuros: 49161.6
+                        - ofertaid: 2311
+                          numero: 2305
+                          fecha: '20221116'
+                          codigoCuenta: '10300010329'
+                          cuenta: TIENDAS TRES B S A DE C V
+                          tipooferta: ''
+                          importe: 0
+                          numeroAviso: 2458
+                          numeroGrua: '45'
+                          motivorechazoofertavalor: ''
+                          albaranfecha: ''
+                          numeroalbaran: 0
+                          estadoLinea: ''
+                          estadoOferta: ACEPTADA
+                          linea: 0
+                          codigoArticulo: ''
+                          nombreArticulo: ''
+                          descripcion: daniupdate
+                          cantidad: 0
+                          pvp: 0
+                          dto: 0
+                          descripcionLinea: ''
+                          importeVenta: NotaPrueba
+                          cantidad2: 0
+                          factor: 0
+                          factorCantidad: 0
+                          version: 1
+                          municipio: CUAUHTEMOC
+                          pais: México
+                          representante: ''
+                          usuario: ''
+                          fechaValidez: '2022-11-16T00:00:00.000'
+                          notas: ''
+                          observaciones: ObservacionPrueba
+                          clasificacionEquipoID: '2'
+                          clasificacionContratoID: '2'
+                          clasificacionAvisoID: '2'
+                          tipoofertaid: 0
+                          monedaID: 1
+                          nombreMoneda: Euros
+                          monedaISO: EUR
+                          TipoDeCambio: 1
+                          ImporteEnEuros: 0
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "sELECT distinct\r\nOferta.*,\r\nMailing.*,\r\nCodigoPostal.CodigoPostal AS CodigoPostalMailing, \r\nMailing.Municipio AS NombreMunicio,\r\nPais.Nombre AS PaisMailing,\r\nAlbaranVentaCabecera.Numero AS NumeroAlbaran,\r\nAlbaranVentaCabecera.Fecha AS albaranfecha,\r\nclasificacionEquipoID.Valor AS clasificacionEquipoID,\r\nclasificacionContratoID.Valor AS clasificacionContratoID,\r\nclasificacionAvisoID.Valor AS clasificacionAvisoID,\r\nmotivorechazooferta.Descripcion AS motivorechazoofertavalor,\r\navisoticket.Numero AS numeroAviso,\r\nelemento.NumeroSerie AS numeroGrua,\r\nOferta.TipoOfertaID AS tipoofertaid,\r\nTiposOfertas.Descripcion AS TipoOferta,\r\nUsuario.NombreUsuario AS ResponsableUsuario,\r\nContacto.Nombre AS NombreContacto,\r\nMailRepresentante.Nombre AS NombreRepre,\r\nEmpresa.Cif AS CifEmpresa,\r\nEmpresa.Codigo AS CodigoEmpresa,\r\nEmpresa.CodigoPostal AS CodPostalEmpresa,\r\nEmpresa.Direccion AS DirEmpresa,\r\nEmpresa.Nombre AS NomEmpresa,\r\nOfertaLinea.Cantidad AS CantidadArticulo,\r\nOfertaLinea.Linea,\r\nOfertaLinea.Pedido as LineaPedida,\r\nOfertaLinea.Descripcion AS DescripcionArticulo,\r\nOfertaLinea.nombre as NombreArticulo,\r\nOfertaLinea.Dto1 AS DtoArticulo,\r\nOfertaLinea.ImporteVenta AS ImporteArticulo,\r\nOfertaLinea.PrecioVenta,\r\nOfertaLinea.CantidadPedida as CantiPedida,\r\nOfertaLinea.Cantidad - OfertaLinea.CantidadPedida AS CantidadPendiente,\r\nofertalinea.ArticuloID,\r\nOfertaLinea.OfertaLineaID,\r\nOfertaLinea.estado as EstadoLinea,\r\nOFERTALINEA.Descripcion AS descripcionLinea,\r\nOFERTALINEA.NotaCliente as notaClienteLinea,\r\nArticulo.Codigo AS CodigoArticulo,\r\nArticulo.Nombre AS NomArt,\r\nFamilia.Nombre AS NombreFamilia,\r\nCampana.Descripcion AS DescripcionCampana,\r\nOfertaLinea.Cantidad2 AS Cantidad2Articulo,\r\nOfertaLinea.Factor AS Factor,\r\nOfertaLinea.ReferenciaCliente AS ReferenciaClienteLinea,\r\nOfertaLinea.Referencia AS ReferenciaArticuloCliente,\r\nMailRepresentante2.Nombre AS NombreRepre2,\r\nOfertalinea.PorcentajeComision AS PorcComision,\r\n0 as PorcComision2,\r\nSituacionOferta.Abreviatura AS CodSituacion,\r\nSituacionOferta.Descripcion AS DescSituacion,\r\nOfertaLinea.Cantidad2,\r\nOfertaLinea.Factor,\r\nOfertaLinea.FactorCantidad,\r\nofertalinea.Dto2,\r\nofertalinea.Dto3,\r\nOfertaLinea.FechaEntrega as FechaEntregaLinea,\r\nFamilia.Codigo as CodigoFamilia,\r\nArticulo.FamiliaID,\r\nArticulo.TipoArticuloID,\r\nTipoArticulo.Abreviatura AS CodTipoArticulo,\r\nTipoArticulo.Descripcion AS DescTipoArticulo,\r\nOfertaLinea.pedido\r\n\r\n\r\nFROM\r\n(((((((((((((((((((Oferta INNER JOIN Mailing ON Oferta.MailingID = Mailing.MailingID)\r\nLEFT JOIN Contacto ON Oferta.ContactoID = Contacto.ContactoID)\r\nLEFT JOIN Representante ON Oferta.RepresentanteID=Representante.RepresentanteID)\r\nLEFT JOIN Mailing AS MailRepresentante ON Representante.MailingID=MailRepresentante.MailingID)\r\nLEFT JOIN Usuario ON Oferta.UsuarioID = Usuario.UsuarioID)\r\nLEFT JOIN Municipio ON Mailing.MunicipioID = Municipio.MunicipioID)\r\nLEFT JOIN Pais ON Mailing.PaisID = Pais.PaisID)\r\nLEFT JOIN TablaGeneral AS TiposOfertas ON Oferta.TipoOfertaID = TiposOfertas.TablaGeneralID)\r\nLEFT JOIN Cliente ON Cliente.MailingID=Mailing.MailingID)\r\nLEFT JOIN Empresa ON Empresa.EmpresaID=Cliente.EmpresaID)\r\nLEFT JOIN OfertaLinea ON Oferta.OfertaID=OfertaLinea.OfertaID)\r\nLEFT JOIN Articulo ON Articulo.ArticuloID=OfertaLinea.ArticuloID)\r\nLEFT JOIN CodigoPostal ON CodigoPostal.CodigoPostalID=Mailing.CodigoPostalID)\r\nLEFT JOIN Familia ON Familia.FamiliaID=Articulo.FamiliaID)\r\nLEFT JOIN Campana ON Campana.CampanaID=Oferta.CampanaID)\r\nLEFT JOIN PedidoVentaLinea ON PedidoVentaLinea.OfertaLineaID = OfertaLinea.OfertaLineaID)\r\nLEFT JOIN PedidoVentaCabecera ON PedidoVentaCabecera.PedidoVentaCabeceraID = PedidoVentaLinea.PedidoVentaCabeceraID)\r\nLEFT JOIN AlbaranVentaLinea ON AlbaranVentaLinea.PedidoVentaLineaID = PedidoVentaLinea.PedidoVentaLineaID)\r\nLEFT JOIN AlbaranVentaCabecera ON AlbaranVentaCabecera.AlbaranVentaCabeceraID = AlbaranVentaLinea.AlbaranVentaCabeceraID)\r\nleft join OfertaCualificacion on OfertaCualificacion.OfertaID = oferta.OfertaID\r\nLEFT JOIN Representante as representante2 ON Oferta.Representante2ID=Representante2.RepresentanteID\r\nLEFT JOIN Mailing AS MailRepresentante2 ON Representante2.MailingID=MailRepresentante2.MailingID\r\nLEFT JOIN TablaGeneral AS SituacionOferta ON OfertaCualificacion.SituacionID = SituacionOferta.TablaGeneralID\r\nLEFT JOIN TablaGeneral AS TipoArticulo ON Articulo.TipoArticuloID = TipoArticulo.TablaGeneralID\r\nLEFT JOIN CampoEspecialValor clasificacionEquipoID ON clasificacionEquipoID.TablaRegistroId = Oferta.OfertaID AND clasificacionEquipoID.CampoEspecialDefinicionID = (SELECT CampoEspecialDefinicionID FROM CampoEspecialDefinicion WHERE CampoEspecialDefinicion.Tabla = 'Oferta' AND CampoEspecialDefinicion.nOmbreCampo = 'equipo')\r\nLEFT JOIN CampoEspecialValor clasificacionContratoID ON clasificacionContratoID.TablaRegistroId = Oferta.OfertaID AND clasificacionContratoID.CampoEspecialDefinicionID = (SELECT CampoEspecialDefinicionID FROM CampoEspecialDefinicion WHERE CampoEspecialDefinicion.Tabla = 'Oferta' AND CampoEspecialDefinicion.nOmbreCampo = 'contrato')\r\nLEFT JOIN CampoEspecialValor clasificacionAvisoID ON clasificacionAvisoID.TablaRegistroId = Oferta.OfertaID AND clasificacionAvisoID.CampoEspecialDefinicionID = (SELECT CampoEspecialDefinicionID FROM CampoEspecialDefinicion WHERE CampoEspecialDefinicion.Tabla = 'Oferta' AND CampoEspecialDefinicion.nOmbreCampo = 'aviso')\r\nLEFT JOIN avisoticket ON avisoticket.AvisoTicketID = clasificacionAvisoID.Valor\r\nLEFT JOIN elemento ON elemento.ElementoID = clasificacionEquipoID.valor\r\nLEFT JOIN TablaGeneral as motivorechazooferta on oferta.motivorechazoid = motivorechazooferta.tablageneralId\r\n\r\nWHERE\r\n\tOferta.CustomerID = 29 AND\r\n\tOferta.EmpresaID = 1\r\n AND (Oferta.Fecha >= 20000101 AND DATE(Oferta.Fecha) <= 20250101 AND Oferta.Estado IN ('AC','PA')) GROUP BY\r\n\toferta.OfertaID\r\nORDER BY Oferta.Numero ASC, OfertaLinea.Linea DESC\r\n"
+                      ofertas:
+                        - ofertaid: 2028
+                          numero: 1
+                          fecha: '20220526'
+                          codigoCuenta: '10300010008'
+                          cuenta: ABARROTERA AVILA GUAMUCHIL
+                          tipooferta: ''
+                          importe: 97.04
+                          numeroAviso: 1
+                          numeroGrua: '1701788'
+                          motivorechazoofertavalor: Limite de credito
+                          albaranfecha: '20230705'
+                          numeroalbaran: 2151
+                          estadoLinea: ''
+                          estadoOferta: ACEPTADA
+                          linea: 10
+                          codigoArticulo: V9T2R
+                          nombreArticulo: LAPTOP DELL INSPIRON 15 3501 15.6" INTEL CORE i5 1135G7
+                          descripcion: Hablalo
+                          cantidad: 2
+                          pvp: 48.52
+                          dto: 0
+                          descripcionLinea: LAPTOP DELL INSPIRON 15 3501 15.6" INTEL CORE i5 1135G7DISCODURO 256 GB SSD RAM 8 GB WINDOWS 10 HOME
+                          importeVenta: ''
+                          cantidad2: 0
+                          factor: 1
+                          factorCantidad: 0
+                          version: 1
+                          municipio: ''
+                          pais: México
+                          representante: ''
+                          usuario: ADMINISTRADOR
+                          fechaValidez: '2022-05-26T00:00:00.000'
+                          notas: ''
+                          observaciones: ''
+                          clasificacionEquipoID: '24'
+                          clasificacionContratoID: '1'
+                          clasificacionAvisoID: '1'
+                          tipoofertaid: 0
+                          monedaID: 3
+                          nombreMoneda: Peso Mexicano
+                          monedaISO: MXN
+                          TipoDeCambio: 0.053
+                          ImporteEnEuros: 5.14312
+                        - ofertaid: 7
+                          numero: 27
+                          fecha: '20211103'
+                          codigoCuenta: '10300010329'
+                          cuenta: TIENDAS TRES B S A DE C V
+                          tipooferta: ''
+                          importe: 49161.6
+                          numeroAviso: 0
+                          numeroGrua: ''
+                          motivorechazoofertavalor: ''
+                          albaranfecha: ''
+                          numeroalbaran: 0
+                          estadoLinea: ''
+                          estadoOferta: ACEPTADA
+                          linea: 10
+                          codigoArticulo: '300051322'
+                          nombreArticulo: CHOCO FLAKES RG2 500GRX30X1
+                          descripcion: O.C 153598
+                          cantidad: 96
+                          pvp: 512.1
+                          dto: 0
+                          descripcionLinea: ''
+                          importeVenta: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17 O.C \\b 153598\\b0 , N\\'b0 PROV: \\b 20756 \\b0 , ANDEN \\b 5\\b0  , HORARIO DE ENTREGA : \\b 08:30\\b0  (llegar 15 min antes)\\par\r\n\\par\r\n}\r\n"
+                          cantidad2: 0
+                          factor: 1
+                          factorCantidad: 0
+                          version: 1
+                          municipio: CUAUHTEMOC
+                          pais: México
+                          representante: ''
+                          usuario: ADMINISTRADOR
+                          fechaValidez: '2021-11-04T00:00:00.000'
+                          notas: ''
+                          observaciones: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+                          clasificacionEquipoID: ''
+                          clasificacionContratoID: ''
+                          clasificacionAvisoID: ''
+                          tipoofertaid: 0
+                          monedaID: 1
+                          nombreMoneda: Euros
+                          monedaISO: EUR
+                          TipoDeCambio: 1
+                          ImporteEnEuros: 49161.6
+                        - ofertaid: 8
+                          numero: 28
+                          fecha: '20211103'
+                          codigoCuenta: '10300010329'
+                          cuenta: TIENDAS TRES B S A DE C V
+                          tipooferta: ''
+                          importe: 49161.6
+                          numeroAviso: 0
+                          numeroGrua: '1701788'
+                          motivorechazoofertavalor: ''
+                          albaranfecha: ''
+                          numeroalbaran: 0
+                          estadoLinea: ''
+                          estadoOferta: ACEPTADA
+                          linea: 10
+                          codigoArticulo: '300051322'
+                          nombreArticulo: CHOCO FLAKES RG2 500GRX30X1
+                          descripcion: O.C 71193
+                          cantidad: 96
+                          pvp: 512.1
+                          dto: 0
+                          descripcionLinea: ''
+                          importeVenta: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17 O.C \\b 71193\\b0 , N\\'b0 PROV: \\b 20756 \\b0 , ANDEN \\b 1\\b0  , HORARIO DE ENTREGA : 10:00 (llegar 15 min antes)\\par\r\n}\r\n"
+                          cantidad2: 0
+                          factor: 1
+                          factorCantidad: 0
+                          version: 1
+                          municipio: CUAUHTEMOC
+                          pais: México
+                          representante: ''
+                          usuario: ADMINISTRADOR
+                          fechaValidez: '2021-11-04T00:00:00.000'
+                          notas: ''
+                          observaciones: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang2058{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17\\par\r\n}\r\n"
+                          clasificacionEquipoID: '24'
+                          clasificacionContratoID: '9'
+                          clasificacionAvisoID: ''
+                          tipoofertaid: 0
+                          monedaID: 1
+                          nombreMoneda: Euros
+                          monedaISO: EUR
+                          TipoDeCambio: 1
+                          ImporteEnEuros: 49161.6
+                        - ofertaid: 2311
+                          numero: 2305
+                          fecha: '20221116'
+                          codigoCuenta: '10300010329'
+                          cuenta: TIENDAS TRES B S A DE C V
+                          tipooferta: ''
+                          importe: 0
+                          numeroAviso: 2458
+                          numeroGrua: '45'
+                          motivorechazoofertavalor: ''
+                          albaranfecha: ''
+                          numeroalbaran: 0
+                          estadoLinea: ''
+                          estadoOferta: ACEPTADA
+                          linea: 0
+                          codigoArticulo: ''
+                          nombreArticulo: ''
+                          descripcion: daniupdate
+                          cantidad: 0
+                          pvp: 0
+                          dto: 0
+                          descripcionLinea: ''
+                          importeVenta: NotaPrueba
+                          cantidad2: 0
+                          factor: 0
+                          factorCantidad: 0
+                          version: 1
+                          municipio: CUAUHTEMOC
+                          pais: México
+                          representante: ''
+                          usuario: ''
+                          fechaValidez: '2022-11-16T00:00:00.000'
+                          notas: ''
+                          observaciones: ObservacionPrueba
+                          clasificacionEquipoID: '2'
+                          clasificacionContratoID: '2'
+                          clasificacionAvisoID: '2'
+                          tipoofertaid: 0
+                          monedaID: 1
+                          nombreMoneda: Euros
+                          monedaISO: EUR
+                          TipoDeCambio: 1
+                          ImporteEnEuros: 0
+      operationId: get-offerssto-consult
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fechaDesde:
+                  type: string
+                fechaOfertaHasta:
+                  type: string
+                albaranFechaDesde:
+                  type: string
+                albaranFechaHasta:
+                  type: string
+                numeroAlbaranDesde:
+                  type: string
+                numeroAlbaranHasta:
+                  type: string
+                numeroOfertaDesde:
+                  type: string
+                numeroOfertahasta:
+                  type: string
+                mailingID:
+                  type: string
+                listaTipoOfertasID:
+                  type: string
+                clasificacionEquipoID:
+                  type: string
+                descripcion:
+                  type: string
+                clasificacionAvisoID:
+                  type: string
+                estadoOferta:
+                  type: array
+                  items:
+                    type: integer
+                articuloID:
+                  type: string
+                familiaID:
+                  type: string
+                listausuariosID:
+                  type: string
+                listaresponsablesID:
+                  type: string
+                listaRepresentantesID:
+                  type: string
+                listaZonasID:
+                  type: string
+                misFavoritos:
+                  type: integer
+                ConDetalle:
+                  type: integer
+                offset:
+                  type: integer
+                limite:
+                  type: integer
+                clasificacionContratoID:
+                  type: string
+                listacampanasID:
+                  type: string
+                fechaSolicitudDesde:
+                  type: string
+                fechaSolicitudHasta:
+                  type: string
+                listaSituacionesID:
+                  type: string
+                numeroSolicitud:
+                  type: string
+              x-examples:
+                Example 1:
+                  fechaDesde: '20000101'
+                  fechaOfertaHasta: '20250101'
+                  albaranFechaDesde: ''
+                  albaranFechaHasta: ''
+                  numeroAlbaranDesde: ''
+                  numeroAlbaranHasta: ''
+                  numeroOfertaDesde: ''
+                  numeroOfertahasta: ''
+                  mailingID: ''
+                  listaTipoOfertasID: ''
+                  clasificacionEquipoID: ''
+                  descripcion: ''
+                  clasificacionAvisoID: ''
+                  estadoOferta:
+                    - 1
+                  articuloID: ''
+                  familiaID: ''
+                  listausuariosID: ''
+                  listaresponsablesID: ''
+                  listaRepresentantesID: ''
+                  listaZonasID: ''
+                  misFavoritos: 0
+                  ConDetalle: 1
+                  offset: 0
+                  limite: 0
+                  clasificacionContratoID: ''
+                  listacampanasID: ''
+                  fechaSolicitudDesde: ''
+                  fechaSolicitudHasta: ''
+                  listaSituacionesID: ''
+                  numeroSolicitud: ''
+            examples:
+              Example 1:
+                value:
+                  fechaDesde: '20000101'
+                  fechaOfertaHasta: '20250101'
+                  albaranFechaDesde: ''
+                  albaranFechaHasta: ''
+                  numeroAlbaranDesde: ''
+                  numeroAlbaranHasta: ''
+                  numeroOfertaDesde: ''
+                  numeroOfertahasta: ''
+                  mailingID: ''
+                  listaTipoOfertasID: ''
+                  clasificacionEquipoID: ''
+                  descripcion: ''
+                  clasificacionAvisoID: ''
+                  estadoOferta:
+                    - 1
+                  articuloID: ''
+                  familiaID: ''
+                  listausuariosID: ''
+                  listaresponsablesID: ''
+                  listaRepresentantesID: ''
+                  listaZonasID: ''
+                  misFavoritos: 0
+                  ConDetalle: 1
+                  offset: 0
+                  limite: 0
+                  clasificacionContratoID: ''
+                  listacampanasID: ''
+                  fechaSolicitudDesde: ''
+                  fechaSolicitudHasta: ''
+                  listaSituacionesID: ''
+                  numeroSolicitud: ''
+  /offerssto/linesByOffer:
+    get:
+      summary: OffersSTO - FindLinesByOffer
+      tags: []
+      responses: {}
+      operationId: get-offerssto-linesByOffer
 components:
   parameters:
     token:
