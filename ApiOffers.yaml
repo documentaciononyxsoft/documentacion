@@ -3650,7 +3650,7 @@ paths:
           required: true
   /offerssto/offer:
     post:
-      summary: ''
+      summary: OffersSTO - Create
       operationId: post-offerssto-offer
       responses:
         '200':
