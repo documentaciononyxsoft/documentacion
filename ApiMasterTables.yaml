@@ -12455,6 +12455,74 @@ paths:
                           NombreUsuario: Aldo Alan Madrigal Corona
                           Administrador: 'NO'
                           Activo: SI
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      data:
+                        - ID: 62
+                          NombreAcesso: '1952'
+                          NombreUsuario: Martinez
+                          Administrador: SI
+                          Activo: SI
+                        - ID: 138
+                          NombreAcesso: aalcala
+                          NombreUsuario: Alejandra Alcala
+                          Administrador: 'NO'
+                          Activo: SI
+                        - ID: 33
+                          NombreAcesso: acruz
+                          NombreUsuario: Aldo Alfredo Cruz Reyes
+                          Administrador: 'NO'
+                          Activo: SI
+                        - ID: 1
+                          NombreAcesso: admin@admin.com
+                          NombreUsuario: ADMINISTRADOR
+                          Administrador: SI
+                          Activo: SI
+                        - ID: 95
+                          NombreAcesso: afernandez
+                          NombreUsuario: Armando Fernandez
+                          Administrador: 'NO'
+                          Activo: SI
+                        - ID: 64
+                          NombreAcesso: aflores
+                          NombreUsuario: Alfonso Flores Ahumada
+                          Administrador: SI
+                          Activo: SI
+                        - ID: 47
+                          NombreAcesso: agonzalez
+                          NombreUsuario: Alejandra González
+                          Administrador: 'NO'
+                          Activo: SI
+                        - ID: 44
+                          NombreAcesso: ahernandez
+                          NombreUsuario: Alejandro Hernandez Rodriguez
+                          Administrador: 'NO'
+                          Activo: SI
+                        - ID: 40
+                          NombreAcesso: aherrera
+                          NombreUsuario: Axel Herrera
+                          Administrador: 'NO'
+                          Activo: SI
+                        - ID: 18
+                          NombreAcesso: aldo
+                          NombreUsuario: Aldo Carrillo
+                          Administrador: SI
+                          Activo: SI
+                        - ID: 172
+                          NombreAcesso: Aluis
+                          NombreUsuario: Luis A
+                          Administrador: 'NO'
+                          Activo: 'NO'
+                        - ID: 69
+                          NombreAcesso: amadrigal
+                          NombreUsuario: Aldo Alan Madrigal Corona
+                          Administrador: 'NO'
+                          Activo: SI
       operationId: get-tables-user-light
       parameters:
         - schema:
