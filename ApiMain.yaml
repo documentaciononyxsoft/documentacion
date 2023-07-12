@@ -7230,12 +7230,13 @@ paths:
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
       description: cc = Cuenta Contable
-  /Ivas/lightlist:
+  /Ivas/lightList:
     get:
       summary: IVAs - FindLightList
       tags: []
       responses: {}
       operationId: get-Ivas-lightlist
+    parameters: []
   /Ivas/findManyByParam:
     get:
       summary: IVAs - FindManyByParam
