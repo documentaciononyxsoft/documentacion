@@ -8099,7 +8099,7 @@ paths:
           required: true
   /methodsofpaymentandcollection/validate:
     get:
-      summary: MethodsOfPayment - Update
+      summary: MethodsOfPayment - Validate
       tags: []
       responses:
         '200':
