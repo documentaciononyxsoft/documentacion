@@ -8428,14 +8428,108 @@ paths:
           required: true
   /methodsofpayment/lightList:
     get:
-      summary: Your GET endpoint
+      summary: MethodsOfPayment - FindLightList
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      succes:
+                        type: boolean
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            FormaPagoCobroID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      succes: false
+                      success: true
+                      sql: "\r\nSELECT \r\nfpc.FormaPagoCobroID,\r\nfpc.Codigo,\r\nfpc.Nombre\r\n\r\nFROM \r\nformapagocobro fpc\r\nWHERE \r\nfpc.CustomerID = 29\r\nORDER BY fpc.FormaPagoCobroID"
+                      data:
+                        - FormaPagoCobroID: 5
+                          Codigo: '01'
+                          Nombre: EFECTIVO
+                        - FormaPagoCobroID: 6
+                          Codigo: '03'
+                          Nombre: TRANSFERENCIA
+                        - FormaPagoCobroID: 7
+                          Codigo: '02'
+                          Nombre: CHEQUE
+                        - FormaPagoCobroID: 8
+                          Codigo: '04'
+                          Nombre: TARJETA DE CREDITO
+                        - FormaPagoCobroID: 9
+                          Codigo: '05'
+                          Nombre: FormaPruebaJCO
+                        - FormaPagoCobroID: 11
+                          Codigo: '06'
+                          Nombre: TARJETA DE DEBITO
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      succes: false
+                      success: true
+                      sql: "\r\nSELECT \r\nfpc.FormaPagoCobroID,\r\nfpc.Codigo,\r\nfpc.Nombre\r\n\r\nFROM \r\nformapagocobro fpc\r\nWHERE \r\nfpc.CustomerID = 29\r\nORDER BY fpc.FormaPagoCobroID"
+                      data:
+                        - FormaPagoCobroID: 5
+                          Codigo: '01'
+                          Nombre: EFECTIVO
+                        - FormaPagoCobroID: 6
+                          Codigo: '03'
+                          Nombre: TRANSFERENCIA
+                        - FormaPagoCobroID: 7
+                          Codigo: '02'
+                          Nombre: CHEQUE
+                        - FormaPagoCobroID: 8
+                          Codigo: '04'
+                          Nombre: TARJETA DE CREDITO
+                        - FormaPagoCobroID: 9
+                          Codigo: '05'
+                          Nombre: FormaPruebaJCO
+                        - FormaPagoCobroID: 11
+                          Codigo: '06'
+                          Nombre: TARJETA DE DEBITO
       operationId: get-methodsofpayment-findLightList
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
     parameters: []
   /methodsofpayment/findManyByParam:
     get:
-      summary: Your GET endpoint
+      summary: MethodsOfPayment - FindManyByParam
       tags: []
       responses: {}
       operationId: get-methodsofpayment-findManyByParam
