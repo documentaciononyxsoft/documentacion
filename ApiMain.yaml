@@ -8531,8 +8531,81 @@ paths:
     get:
       summary: MethodsOfPayment - FindManyByParam
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            FormaPagoCobroID:
+                              type: integer
+                            Codigo:
+                              type: string
+                            Nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT \r\nfpc.FormaPagoCobroID,\r\nfpc.Nombre,\r\nfpc.Codigo\r\nFROM \r\nformapagocobro fpc\r\nWHERE \r\nfpc.CustomerID = 29\r\nAND (fpc.Nombre LIKE '%tar%' OR fpc.Codigo LIKE '%tar%')\r\n\r\nORDER BY fpc.FormaPagoCobroID\r\nLIMIT 10"
+                      data:
+                        - FormaPagoCobroID: 8
+                          Codigo: '04'
+                          Nombre: TARJETA DE CREDITO
+                        - FormaPagoCobroID: 11
+                          Codigo: '06'
+                          Nombre: TARJETA DE DEBITO
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT \r\nfpc.FormaPagoCobroID,\r\nfpc.Nombre,\r\nfpc.Codigo\r\nFROM \r\nformapagocobro fpc\r\nWHERE \r\nfpc.CustomerID = 29\r\nAND (fpc.Nombre LIKE '%tar%' OR fpc.Codigo LIKE '%tar%')\r\n\r\nORDER BY fpc.FormaPagoCobroID\r\nLIMIT 10"
+                      data:
+                        - FormaPagoCobroID: 8
+                          Codigo: '04'
+                          Nombre: TARJETA DE CREDITO
+                        - FormaPagoCobroID: 11
+                          Codigo: '06'
+                          Nombre: TARJETA DE DEBITO
       operationId: get-methodsofpayment-findManyByParam
+      parameters:
+        - schema:
+            type: string
+            example: tar
+          in: query
+          name: param
+          description: Parámetro a buscar. (Coincidencia exacta en nombre o código)
+          required: true
+        - schema:
+            type: string
+            example: '10'
+          in: query
+          name: limit
+          required: true
+          description: 'Límite de registros que trae la consulta. Si se envía el número 50, y la tabla tiene 2000 registros solo se traerán 50.'
   /methodsofpayment/validate:
     get:
       summary: MethodsOfPayment - Validate
