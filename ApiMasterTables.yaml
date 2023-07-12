@@ -12380,7 +12380,13 @@ paths:
                           properties:
                             ID:
                               type: integer
-                            Nombre:
+                            NombreAcesso:
+                              type: string
+                            NombreUsuario:
+                              type: string
+                            Administrador:
+                              type: string
+                            Activo:
                               type: string
                 x-examples:
                   Example 1:
@@ -12390,309 +12396,65 @@ paths:
                       success: true
                       data:
                         - ID: 62
-                          Nombre: '1952'
+                          NombreAcesso: '1952'
+                          NombreUsuario: Martinez
+                          Administrador: SI
+                          Activo: SI
                         - ID: 138
-                          Nombre: aalcala
+                          NombreAcesso: aalcala
+                          NombreUsuario: Alejandra Alcala
+                          Administrador: 'NO'
+                          Activo: SI
                         - ID: 33
-                          Nombre: acruz
+                          NombreAcesso: acruz
+                          NombreUsuario: Aldo Alfredo Cruz Reyes
+                          Administrador: 'NO'
+                          Activo: SI
                         - ID: 1
-                          Nombre: admin@admin.com
+                          NombreAcesso: admin@admin.com
+                          NombreUsuario: ADMINISTRADOR
+                          Administrador: SI
+                          Activo: SI
                         - ID: 95
-                          Nombre: afernandez
+                          NombreAcesso: afernandez
+                          NombreUsuario: Armando Fernandez
+                          Administrador: 'NO'
+                          Activo: SI
                         - ID: 64
-                          Nombre: aflores
+                          NombreAcesso: aflores
+                          NombreUsuario: Alfonso Flores Ahumada
+                          Administrador: SI
+                          Activo: SI
                         - ID: 47
-                          Nombre: agonzalez
+                          NombreAcesso: agonzalez
+                          NombreUsuario: Alejandra González
+                          Administrador: 'NO'
+                          Activo: SI
                         - ID: 44
-                          Nombre: ahernandez
+                          NombreAcesso: ahernandez
+                          NombreUsuario: Alejandro Hernandez Rodriguez
+                          Administrador: 'NO'
+                          Activo: SI
                         - ID: 40
-                          Nombre: aherrera
+                          NombreAcesso: aherrera
+                          NombreUsuario: Axel Herrera
+                          Administrador: 'NO'
+                          Activo: SI
                         - ID: 18
-                          Nombre: aldo
+                          NombreAcesso: aldo
+                          NombreUsuario: Aldo Carrillo
+                          Administrador: SI
+                          Activo: SI
                         - ID: 172
-                          Nombre: Aluis
+                          NombreAcesso: Aluis
+                          NombreUsuario: Luis A
+                          Administrador: 'NO'
+                          Activo: 'NO'
                         - ID: 69
-                          Nombre: amadrigal
-                        - ID: 94
-                          Nombre: amorales
-                        - ID: 171
-                          Nombre: archi
-                        - ID: 58
-                          Nombre: arojas
-                        - ID: 161
-                          Nombre: asdfas
-                        - ID: 16
-                          Nombre: avela
-                        - ID: 52
-                          Nombre: avillegas
-                        - ID: 109
-                          Nombre: bgonzalez
-                        - ID: 17
-                          Nombre: btrinidad
-                        - ID: 45
-                          Nombre: bvera
-                        - ID: 63
-                          Nombre: cacosta
-                        - ID: 30
-                          Nombre: cajero
-                        - ID: 105
-                          Nombre: candujo
-                        - ID: 14
-                          Nombre: captor
-                        - ID: 135
-                          Nombre: ccastillo
-                        - ID: 31
-                          Nombre: chuerta
-                        - ID: 118
-                          Nombre: cocegueda
-                        - ID: 91
-                          Nombre: csanchez
-                        - ID: 90
-                          Nombre: dalmazan
-                        - ID: 59
-                          Nombre: dbarro
-                        - ID: 13
-                          Nombre: demo
-                        - ID: 50
-                          Nombre: ebautista
-                        - ID: 46
-                          Nombre: edjimenez
-                        - ID: 32
-                          Nombre: egonzalez
-                        - ID: 39
-                          Nombre: ejimenez
-                        - ID: 35
-                          Nombre: epetriciolet
-                        - ID: 145
-                          Nombre: eramirez
-                        - ID: 54
-                          Nombre: esegundo
-                        - ID: 78
-                          Nombre: fanaya
-                        - ID: 139
-                          Nombre: fmunoz
-                        - ID: 86
-                          Nombre: fsanchez
-                        - ID: 111
-                          Nombre: gbaruch
-                        - ID: 89
-                          Nombre: gramirez
-                        - ID: 93
-                          Nombre: gramos
-                        - ID: 97
-                          Nombre: gsaint
-                        - ID: 38
-                          Nombre: icoria
-                        - ID: 37
-                          Nombre: igomez
-                        - ID: 67
-                          Nombre: iperez
-                        - ID: 77
-                          Nombre: jalejo
-                        - ID: 113
-                          Nombre: jalvarado
-                        - ID: 100
-                          Nombre: jbaltazar
-                        - ID: 81
-                          Nombre: jcastillo
-                        - ID: 117
-                          Nombre: jcedillo
-                        - ID: 175
-                          Nombre: jco
-                        - ID: 76
-                          Nombre: jcruz
-                        - ID: 68
-                          Nombre: jcureño
-                        - ID: 74
-                          Nombre: jdominguez
-                        - ID: 65
-                          Nombre: jibarra
-                        - ID: 41
-                          Nombre: jjimenez
-                        - ID: 106
-                          Nombre: jnoriega
-                        - ID: 114
-                          Nombre: jortega
-                        - ID: 87
-                          Nombre: jramirez
-                        - ID: 26
-                          Nombre: jramos
-                        - ID: 85
-                          Nombre: jregis
-                        - ID: 110
-                          Nombre: jrivera
-                        - ID: 88
-                          Nombre: jrosales
-                        - ID: 140
-                          Nombre: jrosas
-                        - ID: 108
-                          Nombre: jsanchez
-                        - ID: 51
-                          Nombre: krodriguez
-                        - ID: 72
-                          Nombre: kvargas
-                        - ID: 99
-                          Nombre: lballeza
-                        - ID: 92
-                          Nombre: lcabrera
-                        - ID: 27
-                          Nombre: lpinzon
-                        - ID: 136
-                          Nombre: mbolivar
-                        - ID: 79
-                          Nombre: mcoyol
-                        - ID: 82
-                          Nombre: mgranados
-                        - ID: 121
-                          Nombre: mhernandez
-                        - ID: 98
-                          Nombre: mherrera
-                        - ID: 146
-                          Nombre: michael
-                        - ID: 36
-                          Nombre: mjimenez
-                        - ID: 112
-                          Nombre: mmartinez
-                        - ID: 28
-                          Nombre: mmoreno
-                        - ID: 61
-                          Nombre: molino
-                        - ID: 42
-                          Nombre: mperez
-                        - ID: 53
-                          Nombre: mponce
-                        - ID: 73
-                          Nombre: mromero
-                        - ID: 71
-                          Nombre: mrubio
-                        - ID: 60
-                          Nombre: msantamaria
-                        - ID: 55
-                          Nombre: msantos
-                        - ID: 57
-                          Nombre: nbenavides
-                        - ID: 173
-                          Nombre: netvyadm
-                        - ID: 156
-                          Nombre: NoRepetir
-                        - ID: 155
-                          Nombre: nousaASGASGFASDASDr
-                        - ID: 148
-                          Nombre: nousar
-                        - ID: 101
-                          Nombre: nydia
-                        - ID: 75
-                          Nombre: ocoria
-                        - ID: 83
-                          Nombre: ocorral
-                        - ID: 19
-                          Nombre: ONYXD
-                        - ID: 115
-                          Nombre: opartida
-                        - ID: 116
-                          Nombre: patsy
-                        - ID: 164
-                          Nombre: propro
-                        - ID: 159
-                          Nombre: prueba
-                        - ID: 163
-                          Nombre: pruebap
-                        - ID: 80
-                          Nombre: pvillalobos
-                        - ID: 165
-                          Nombre: rakata
-                        - ID: 70
-                          Nombre: refacciones
-                        - ID: 147
-                          Nombre: rhernandez
-                        - ID: 49
-                          Nombre: salud
-                        - ID: 134
-                          Nombre: sgonzalez
-                        - ID: 120
-                          Nombre: sherrera
-                        - ID: 119
-                          Nombre: sorozco
-                        - ID: 84
-                          Nombre: ssanchez
-                        - ID: 137
-                          Nombre: szezatti
-                        - ID: 122
-                          Nombre: tecnico1
-                        - ID: 131
-                          Nombre: tecnico10
-                        - ID: 132
-                          Nombre: tecnico11
-                        - ID: 133
-                          Nombre: tecnico12
-                        - ID: 141
-                          Nombre: tecnico13
-                        - ID: 142
-                          Nombre: tecnico14
-                        - ID: 123
-                          Nombre: tecnico2
-                        - ID: 124
-                          Nombre: tecnico3
-                        - ID: 125
-                          Nombre: tecnico4
-                        - ID: 126
-                          Nombre: tecnico5
-                        - ID: 127
-                          Nombre: tecnico6
-                        - ID: 128
-                          Nombre: tecnico7
-                        - ID: 129
-                          Nombre: tecnico8
-                        - ID: 130
-                          Nombre: tecnico9
-                        - ID: 48
-                          Nombre: tperez
-                        - ID: 15
-                          Nombre: ubaldo
-                        - ID: 170
-                          Nombre: utestu
-                        - ID: 66
-                          Nombre: ventas
-                        - ID: 143
-                          Nombre: ventas1
-                        - ID: 144
-                          Nombre: ventas2
-                        - ID: 29
-                          Nombre: vloesa
-                        - ID: 107
-                          Nombre: vpardo
-                        - ID: 96
-                          Nombre: yallon
-                        - ID: 166
-                          Nombre: Yei
-                        - ID: 34
-                          Nombre: ygarcia
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      data:
-                        - ID: 62
-                          Nombre: '1952'
-                        - ID: 138
-                          Nombre: aalcala
-                        - ID: 33
-                          Nombre: acruz
-                        - ID: 1
-                          Nombre: admin@admin.com
-                        - ID: 95
-                          Nombre: afernandez
-                        - ID: 64
-                          Nombre: aflores
-                        - ID: 47
-                          Nombre: agonzalez
-                        - ID: 44
-                          Nombre: ahernandez
-                        - ID: 40
-                          Nombre: aherrera
+                          NombreAcesso: amadrigal
+                          NombreUsuario: Aldo Alan Madrigal Corona
+                          Administrador: 'NO'
+                          Activo: SI
       operationId: get-tables-user-light
       parameters:
         - schema:
