@@ -8097,7 +8097,7 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
-  /methodsofpaymentandcollection/validate:
+  /methodsofpayment/validate:
     get:
       summary: MethodsOfPayment - Validate
       tags: []
@@ -8163,6 +8163,7 @@ paths:
           name: param
           description: Parámetro a buscar. (Coincidencia exacta en nombre o código)
           required: true
+    parameters: []
   /municipalities:
     post:
       summary: Municipalities - Create
