@@ -7234,8 +7234,196 @@ paths:
     get:
       summary: IVAs - FindLightList
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                            IvaID:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - Nombre: 'IVA16, ventas, gastos'
+                          Codigo: IVA
+                          IvaID: 1
+                        - Nombre: 'IVA16, ventas, gastos 2'
+                          Codigo: IVA
+                          IvaID: 2
+                        - Nombre: IVA 0%
+                          Codigo: IVA0
+                          IvaID: 4
+                        - Nombre: IVA EXCENTO
+                          Codigo: IVAEX
+                          IvaID: 5
+                        - Nombre: IEPS 8%
+                          Codigo: IEPS8
+                          IvaID: 8
+                        - Nombre: 'IVA16, compras'
+                          Codigo: IVA16C
+                          IvaID: 9
+                        - Nombre: IVA10
+                          Codigo: IVA10
+                          IvaID: 10
+                        - Nombre: Prueba Yeison Iva
+                          Codigo: IVAY
+                          IvaID: 11
+                        - Nombre: Ye 3
+                          Codigo: Prueb 3 y
+                          IvaID: 13
+                        - Nombre: Almejo
+                          Codigo: IvaTest
+                          IvaID: 14
+                        - Nombre: ''
+                          Codigo: '1'
+                          IvaID: 15
+                        - Nombre: IVA-Valen
+                          Codigo: codd
+                          IvaID: 16
+                        - Nombre: NUEVO
+                          Codigo: NUEVO
+                          IvaID: 22
+                        - Nombre: FDF
+                          Codigo: DS
+                          IvaID: 23
+                        - Nombre: eee
+                          Codigo: eee
+                          IvaID: 24
+                        - Nombre: nn
+                          Codigo: nn
+                          IvaID: 25
+                        - Nombre: Iva test
+                          Codigo: '12345'
+                          IvaID: 26
+                        - Nombre: Iva Tivi
+                          Codigo: MIIVA
+                          IvaID: 27
+                        - Nombre: este iva
+                          Codigo: iva sto
+                          IvaID: 28
+                        - Nombre: este iva 2
+                          Codigo: fgh
+                          IvaID: 29
+                        - Nombre: ''
+                          Codigo: '157451'
+                          IvaID: 30
+                        - Nombre: ''
+                          Codigo: '6666666'
+                          IvaID: 32
+                        - Nombre: IvaName
+                          Codigo: IVAJCO
+                          IvaID: 33
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - Nombre: 'IVA16, ventas, gastos'
+                          Codigo: IVA
+                          IvaID: 1
+                        - Nombre: 'IVA16, ventas, gastos 2'
+                          Codigo: IVA
+                          IvaID: 2
+                        - Nombre: IVA 0%
+                          Codigo: IVA0
+                          IvaID: 4
+                        - Nombre: IVA EXCENTO
+                          Codigo: IVAEX
+                          IvaID: 5
+                        - Nombre: IEPS 8%
+                          Codigo: IEPS8
+                          IvaID: 8
+                        - Nombre: 'IVA16, compras'
+                          Codigo: IVA16C
+                          IvaID: 9
+                        - Nombre: IVA10
+                          Codigo: IVA10
+                          IvaID: 10
+                        - Nombre: Prueba Yeison Iva
+                          Codigo: IVAY
+                          IvaID: 11
+                        - Nombre: Ye 3
+                          Codigo: Prueb 3 y
+                          IvaID: 13
+                        - Nombre: Almejo
+                          Codigo: IvaTest
+                          IvaID: 14
+                        - Nombre: ''
+                          Codigo: '1'
+                          IvaID: 15
+                        - Nombre: IVA-Valen
+                          Codigo: codd
+                          IvaID: 16
+                        - Nombre: NUEVO
+                          Codigo: NUEVO
+                          IvaID: 22
+                        - Nombre: FDF
+                          Codigo: DS
+                          IvaID: 23
+                        - Nombre: eee
+                          Codigo: eee
+                          IvaID: 24
+                        - Nombre: nn
+                          Codigo: nn
+                          IvaID: 25
+                        - Nombre: Iva test
+                          Codigo: '12345'
+                          IvaID: 26
+                        - Nombre: Iva Tivi
+                          Codigo: MIIVA
+                          IvaID: 27
+                        - Nombre: este iva
+                          Codigo: iva sto
+                          IvaID: 28
+                        - Nombre: este iva 2
+                          Codigo: fgh
+                          IvaID: 29
+                        - Nombre: ''
+                          Codigo: '157451'
+                          IvaID: 30
+                        - Nombre: ''
+                          Codigo: '6666666'
+                          IvaID: 32
+                        - Nombre: IvaName
+                          Codigo: IVAJCO
+                          IvaID: 33
       operationId: get-Ivas-lightlist
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
     parameters: []
   /Ivas/findManyByParam:
     get:
