@@ -8109,6 +8109,19 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /methodsofpayment/lightList:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-methodsofpayment-findLightList
+    parameters: []
+  /methodsofpayment/findManyByParam:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-methodsofpayment-findManyByParam
   /methodsofpayment/validate:
     get:
       summary: MethodsOfPayment - Validate
