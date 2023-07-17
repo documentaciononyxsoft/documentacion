@@ -1065,7 +1065,11 @@ paths:
                     properties:
                       success:
                         type: boolean
+                      NombreUsuario:
+                        type: string
                       vehiculoID:
+                        type: integer
+                      CodigoVehiculo:
                         type: integer
                       FechaHoraUsuario:
                         type: string
@@ -1077,9 +1081,11 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
+                      NombreUsuario: admin@admin.com
                       vehiculoID: 25
-                      FechaHoraUsuario: '2023-04-28T15:32:52.236'
-                      UsuarioID: 34
+                      CodigoVehiculo: 13
+                      FechaHoraUsuario: '2023-07-17T10:50:20.049'
+                      UsuarioID: 1
               examples:
                 Example 1:
                   value:
@@ -1087,23 +1093,25 @@ paths:
                     message: Request processed successfully
                     content:
                       success: true
+                      NombreUsuario: admin@admin.com
                       vehiculoID: 25
-                      FechaHoraUsuario: '2023-04-28T15:32:52.236'
-                      UsuarioID: 34
+                      CodigoVehiculo: 13
+                      FechaHoraUsuario: '2023-07-17T10:50:20.049'
+                      UsuarioID: 1
       parameters:
         - schema:
             type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
           in: header
           name: accessToken
-          description: '"tokenReciente"'
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
       requestBody:
         content:
           application/json:
             schema:
               type: object
               properties:
-                Codigo:
-                  type: string
                 Matricula:
                   type: string
                 MarcaID:
@@ -1116,9 +1124,9 @@ paths:
                   type: string
                 CombustibleID:
                   type: string
-                Color:
+                NombreAseguradora:
                   type: string
-                Plazas:
+                NumeroPoliza:
                   type: string
                 CV:
                   type: string
@@ -1136,53 +1144,59 @@ paths:
                   type: string
                 PrecioCompra:
                   type: string
-                Chasis:
-                  type: string
                 Itv:
+                  type: string
+                NumeroPermiso:
+                  type: string
+                PermisoSCT:
+                  type: string
+                TipoID:
                   type: string
               x-examples:
                 Example 1:
-                  Codigo: GTD
-                  Matricula: ARP87F
+                  Matricula: PRR111
                   MarcaID: '1'
                   ModeloID: '1'
-                  VersionID: '1'
-                  TipoVehiculoID: '10007'
-                  CombustibleID: '11034'
-                  Color: AZUL
-                  Plazas: '4'
-                  CV: '45'
-                  Tara: '34'
-                  Pmax: '556'
-                  Ancho: '353'
-                  Alto: '454'
-                  Largo: '44645'
-                  FechaCompra: '20231204'
-                  PrecioCompra: '5000'
-                  Chasis: '111'
-                  Itv: '222'
+                  VersionID: '14'
+                  TipoVehiculoID: '895'
+                  CombustibleID: '929'
+                  NombreAseguradora: Aseguratest
+                  NumeroPoliza: '170999'
+                  CV: '2000'
+                  Tara: '55'
+                  Pmax: '40'
+                  Ancho: '10'
+                  Alto: '10'
+                  Largo: '10'
+                  FechaCompra: '20230717'
+                  PrecioCompra: '45000'
+                  Itv: '20250701'
+                  NumeroPermiso: '7755'
+                  PermisoSCT: '790'
+                  TipoID: '844'
             examples:
               Example 1:
                 value:
-                  Codigo: GTD
-                  Matricula: ARP87F
+                  Matricula: PRR111
                   MarcaID: '1'
                   ModeloID: '1'
-                  VersionID: '1'
-                  TipoVehiculoID: '10007'
-                  CombustibleID: '11034'
-                  Color: AZUL
-                  Plazas: '4'
-                  CV: '45'
-                  Tara: '34'
-                  Pmax: '556'
-                  Ancho: '353'
-                  Alto: '454'
-                  Largo: '44645'
-                  FechaCompra: '20231204'
-                  PrecioCompra: '5000'
-                  Chasis: '111'
-                  Itv: '222'
+                  VersionID: '14'
+                  TipoVehiculoID: '895'
+                  CombustibleID: '929'
+                  NombreAseguradora: Aseguratest
+                  NumeroPoliza: '170999'
+                  CV: '2000'
+                  Tara: '55'
+                  Pmax: '40'
+                  Ancho: '10'
+                  Alto: '10'
+                  Largo: '10'
+                  FechaCompra: '20230717'
+                  PrecioCompra: '45000'
+                  Itv: '20250701'
+                  NumeroPermiso: '7755'
+                  PermisoSCT: '790'
+                  TipoID: '844'
   '/vehicle/{vehiculoID}':
     parameters:
       - schema:
