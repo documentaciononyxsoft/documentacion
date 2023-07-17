@@ -1272,8 +1272,6 @@ paths:
             schema:
               type: object
               properties:
-                VehiculoID:
-                  type: integer
                 Matricula:
                   type: string
                 MarcaID:
@@ -1316,7 +1314,6 @@ paths:
                   type: string
               x-examples:
                 Example 1:
-                  VehiculoID: 22
                   Matricula: ACT100
                   MarcaID: '1'
                   ModeloID: '1'
@@ -1340,7 +1337,6 @@ paths:
             examples:
               Example 1:
                 value:
-                  VehiculoID: 22
                   Matricula: ACT100
                   MarcaID: '1'
                   ModeloID: '1'
