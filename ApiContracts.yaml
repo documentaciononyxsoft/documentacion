@@ -1954,5 +1954,276 @@ paths:
           description: '10003,1'
       requestBody:
         content: {}
+  /consult/contractSTO:
+    get:
+      summary: ContractSTO - FindManyByFilters
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ContratoID:
+                              type: integer
+                            NumeroContrato:
+                              type: string
+                            TipoContratoID:
+                              type: integer
+                            TipoContratoNombre:
+                              type: string
+                            ClienteID:
+                              type: integer
+                            ClienteCodigo:
+                              type: string
+                            ClienteNombre:
+                              type: string
+                            FechaActivacion:
+                              type: string
+                            FechaDesactivacion:
+                              type: string
+                            TipoIntervencion:
+                              type: string
+                            NumeroGrua:
+                              type: string
+                            NombreGrua:
+                              type: string
+                            Importe:
+                              type: string
+                            Estado:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "select \r\nContratoMantenimiento.*\r\n\r\n from ContratoMantenimiento\r\n \r\n where \r\n \r\nContratoMantenimiento.CustomerID = 29\r\nAND ContratoMantenimiento.EmpresaID = 1\r\nlimit 5 \r\noffset 0"
+                      records:
+                        - ContratoID: 1
+                          NumeroContrato: '1'
+                          TipoContratoID: 953
+                          TipoContratoNombre: CONTRACT 01
+                          ClienteID: 10
+                          ClienteCodigo: '10300010010'
+                          ClienteNombre: ABARROTERA DEL DUERO S A DE C V
+                          FechaActivacion: '20230508'
+                          FechaDesactivacion: '20240202'
+                          TipoIntervencion: ''
+                          NumeroGrua: '1701788'
+                          NombreGrua: EquipoJCO
+                          Importe: '97.04'
+                          Estado: ''
+                        - ContratoID: 3
+                          NumeroContrato: '2'
+                          TipoContratoID: 953
+                          TipoContratoNombre: CONTRACT 01
+                          ClienteID: 10
+                          ClienteCodigo: '10300010010'
+                          ClienteNombre: ABARROTERA DEL DUERO S A DE C V
+                          FechaActivacion: '20230508'
+                          FechaDesactivacion: '20240518'
+                          TipoIntervencion: ''
+                          NumeroGrua: '1701788'
+                          NombreGrua: EquipoJCO
+                          Importe: '1530'
+                          Estado: ''
+                        - ContratoID: 4
+                          NumeroContrato: '3'
+                          TipoContratoID: 953
+                          TipoContratoNombre: CONTRACT 01
+                          ClienteID: 10
+                          ClienteCodigo: '10300010010'
+                          ClienteNombre: ABARROTERA DEL DUERO S A DE C V
+                          FechaActivacion: '20230508'
+                          FechaDesactivacion: '20240515'
+                          TipoIntervencion: ''
+                          NumeroGrua: '12'
+                          NombreGrua: PRUEBALUIS
+                          Importe: '49161.6'
+                          Estado: ''
+                        - ContratoID: 5
+                          NumeroContrato: '4'
+                          TipoContratoID: 954
+                          TipoContratoNombre: CONTRACT 02
+                          ClienteID: 10
+                          ClienteCodigo: '10300010010'
+                          ClienteNombre: ABARROTERA DEL DUERO S A DE C V
+                          FechaActivacion: '20230508'
+                          FechaDesactivacion: '20240825'
+                          TipoIntervencion: ''
+                          NumeroGrua: '45'
+                          NombreGrua: ProbaElemento
+                          Importe: '0'
+                          Estado: ''
+                        - ContratoID: 6
+                          NumeroContrato: '5'
+                          TipoContratoID: 954
+                          TipoContratoNombre: CONTRACT 02
+                          ClienteID: 10
+                          ClienteCodigo: '10300010010'
+                          ClienteNombre: ABARROTERA DEL DUERO S A DE C V
+                          FechaActivacion: '20230508'
+                          FechaDesactivacion: '20240530'
+                          TipoIntervencion: ''
+                          NumeroGrua: '456789'
+                          NombreGrua: PRUEBANIHIL
+                          Importe: '0'
+                          Estado: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "select \r\nContratoMantenimiento.*\r\n\r\n from ContratoMantenimiento\r\n \r\n where \r\n \r\nContratoMantenimiento.CustomerID = 29\r\nAND ContratoMantenimiento.EmpresaID = 1\r\nlimit 5 \r\noffset 0"
+                      records:
+                        - ContratoID: 1
+                          NumeroContrato: '1'
+                          TipoContratoID: 953
+                          TipoContratoNombre: CONTRACT 01
+                          ClienteID: 10
+                          ClienteCodigo: '10300010010'
+                          ClienteNombre: ABARROTERA DEL DUERO S A DE C V
+                          FechaActivacion: '20230508'
+                          FechaDesactivacion: '20240202'
+                          TipoIntervencion: ''
+                          NumeroGrua: '1701788'
+                          NombreGrua: EquipoJCO
+                          Importe: '97.04'
+                          Estado: ''
+                        - ContratoID: 3
+                          NumeroContrato: '2'
+                          TipoContratoID: 953
+                          TipoContratoNombre: CONTRACT 01
+                          ClienteID: 10
+                          ClienteCodigo: '10300010010'
+                          ClienteNombre: ABARROTERA DEL DUERO S A DE C V
+                          FechaActivacion: '20230508'
+                          FechaDesactivacion: '20240518'
+                          TipoIntervencion: ''
+                          NumeroGrua: '1701788'
+                          NombreGrua: EquipoJCO
+                          Importe: '1530'
+                          Estado: ''
+                        - ContratoID: 4
+                          NumeroContrato: '3'
+                          TipoContratoID: 953
+                          TipoContratoNombre: CONTRACT 01
+                          ClienteID: 10
+                          ClienteCodigo: '10300010010'
+                          ClienteNombre: ABARROTERA DEL DUERO S A DE C V
+                          FechaActivacion: '20230508'
+                          FechaDesactivacion: '20240515'
+                          TipoIntervencion: ''
+                          NumeroGrua: '12'
+                          NombreGrua: PRUEBALUIS
+                          Importe: '49161.6'
+                          Estado: ''
+                        - ContratoID: 5
+                          NumeroContrato: '4'
+                          TipoContratoID: 954
+                          TipoContratoNombre: CONTRACT 02
+                          ClienteID: 10
+                          ClienteCodigo: '10300010010'
+                          ClienteNombre: ABARROTERA DEL DUERO S A DE C V
+                          FechaActivacion: '20230508'
+                          FechaDesactivacion: '20240825'
+                          TipoIntervencion: ''
+                          NumeroGrua: '45'
+                          NombreGrua: ProbaElemento
+                          Importe: '0'
+                          Estado: ''
+                        - ContratoID: 6
+                          NumeroContrato: '5'
+                          TipoContratoID: 954
+                          TipoContratoNombre: CONTRACT 02
+                          ClienteID: 10
+                          ClienteCodigo: '10300010010'
+                          ClienteNombre: ABARROTERA DEL DUERO S A DE C V
+                          FechaActivacion: '20230508'
+                          FechaDesactivacion: '20240530'
+                          TipoIntervencion: ''
+                          NumeroGrua: '456789'
+                          NombreGrua: PRUEBANIHIL
+                          Importe: '0'
+                          Estado: ''
+      operationId: get-consult-contractSTO
+      x-stoplight:
+        id: per91u5tsqhm2
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: query
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: '20231231'
+          in: query
+          name: fechaAltaIn
+        - schema:
+            type: string
+          in: query
+          name: fechaAltaOut
+        - schema:
+            type: string
+          in: query
+          name: fechaInicioIn
+        - schema:
+            type: string
+          in: query
+          name: fechaInicioOut
+        - schema:
+            type: string
+          in: query
+          name: fechaBajaIn
+        - schema:
+            type: string
+          in: query
+          name: fechaBajaOut
+        - schema:
+            type: string
+          in: query
+          name: tipoContrato
+          description: TipoContratoID
+        - schema:
+            type: string
+          in: query
+          name: clientes
+          description: ClienteID
+        - schema:
+            type: string
+            example: '5'
+          in: query
+          name: limit
+          description: 'Límite de registros que trae la consulta. Si se envía el número 50, y la tabla tiene 2000 registros solo se traerán 50.'
+        - schema:
+            type: string
+            example: '0'
+          in: query
+          name: offset
+          description: 'Registro a partir del cual empezará a traer los datos desde la tabla. Si se envía 20, y en la tabla existen 100 registros, la respuesta traerá solo los registros comprendidos entre las posiciones 20 y 100, y los primero 20 se omitirán.'
 components:
   schemas: {}
