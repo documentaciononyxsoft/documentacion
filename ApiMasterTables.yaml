@@ -15394,7 +15394,9 @@ paths:
               type: object
               properties:
                 MisFavoritos:
-                  type: string
+                  type: integer
+                ExcluirNoActivas:
+                  type: integer
                 nombre:
                   type: string
                 TipoMailingid:
@@ -15425,7 +15427,8 @@ paths:
                   type: integer
               x-examples:
                 Example 1:
-                  MisFavoritos: '0'
+                  MisFavoritos: 0
+                  ExcluirNoActivas: 1
                   nombre: ''
                   TipoMailingid: ''
                   ListaEnvioID: '1'
@@ -15443,10 +15446,11 @@ paths:
             examples:
               Example 1:
                 value:
-                  MisFavoritos: '0'
+                  MisFavoritos: 0
+                  ExcluirNoActivas: 1
                   nombre: ''
                   TipoMailingid: ''
-                  ListaEnvioID: ''
+                  ListaEnvioID: '1'
                   ZonaID: ''
                   PaisID: ''
                   MunicipioID: ''
@@ -15457,6 +15461,6 @@ paths:
                   codigopostalid: ''
                   palabraclaveid: ''
                   offset: 0
-                  limit: 5
+                  limit: 500
 components:
   schemas: {}
