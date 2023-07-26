@@ -15078,5 +15078,385 @@ paths:
               Example 1:
                 value:
                   Apartado: 785417
+  /accountsat/consult:
+    get:
+      summary: AccountSAT - FindManyByFilters
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            MailingID:
+                              type: integer
+                            EmpresaID:
+                              type: integer
+                            CustomerID:
+                              type: integer
+                            CodigoCuenta:
+                              type: string
+                            NombreCuenta:
+                              type: string
+                            MunicipioID:
+                              type: integer
+                            MunicipioNombre:
+                              type: string
+                            ProvinciaID:
+                              type: integer
+                            ProvinciaNombre:
+                              type: string
+                            PaisID:
+                              type: integer
+                            PaisNombre:
+                              type: string
+                            Fax:
+                              type: string
+                            Cif:
+                              type: string
+                            Email:
+                              type: string
+                            Web:
+                              type: string
+                            ActividadID:
+                              type: integer
+                            ActividadNombre:
+                              type: string
+                            TipoMailingID:
+                              type: integer
+                            TipoMailingNombre:
+                              type: string
+                            UsuarioID:
+                              type: integer
+                            FechaHoraUsuario:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - MailingID: 132
+                          EmpresaID: 1
+                          CustomerID: 29
+                          CodigoCuenta: '25000010020'
+                          NombreCuenta: SANUDO SA DE CV
+                          MunicipioID: 33
+                          MunicipioNombre: CUAUHTEMOC
+                          ProvinciaID: 10
+                          ProvinciaNombre: CDMX
+                          PaisID: 148
+                          PaisNombre: México
+                          Fax: '5555472328'
+                          Cif: SAÑ8012016L8
+                          Email: OGUZMAN@SANUDO.COM
+                          Web: ''
+                          ActividadID: 308
+                          ActividadNombre: Quimicos y Sales
+                          TipoMailingID: 6
+                          TipoMailingNombre: Proveedores Nacionales
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2021-10-11T20:13:56.100'
+                        - MailingID: 128
+                          EmpresaID: 1
+                          CustomerID: 29
+                          CodigoCuenta: '25000010002'
+                          NombreCuenta: INGREDION MEXICO SA DE CV
+                          MunicipioID: 0
+                          MunicipioNombre: ''
+                          ProvinciaID: 11
+                          ProvinciaNombre: JALISCO
+                          PaisID: 148
+                          PaisNombre: México
+                          Fax: '555333509045'
+                          Cif: CPI950901F3A
+                          Email: Edmar.diaz@ingredion.com
+                          Web: pruebaLUIS.com
+                          ActividadID: 281
+                          ActividadNombre: Almidones
+                          TipoMailingID: 6
+                          TipoMailingNombre: Proveedores Nacionales
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2021-10-11T00:00:00.000'
+                        - MailingID: 129
+                          EmpresaID: 1
+                          CustomerID: 29
+                          CodigoCuenta: '25000010003'
+                          NombreCuenta: COMERCIALIZADORA ALCALI SA DE CV
+                          MunicipioID: 0
+                          MunicipioNombre: ''
+                          ProvinciaID: 23
+                          ProvinciaNombre: 'NUEVO LEON '
+                          PaisID: 148
+                          PaisNombre: México
+                          Fax: '0'
+                          Cif: VCO800331D61
+                          Email: AMENDEZL@VITRO.COM
+                          Web: ''
+                          ActividadID: 308
+                          ActividadNombre: Quimicos y Sales
+                          TipoMailingID: 6
+                          TipoMailingNombre: Proveedores Nacionales
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2021-10-11T20:12:39.549'
+                        - MailingID: 130
+                          EmpresaID: 1
+                          CustomerID: 29
+                          CodigoCuenta: '25000010004'
+                          NombreCuenta: GIVAUDAN DE MEXICO SA DE CV
+                          MunicipioID: 71
+                          MunicipioNombre: JIUTEPEC
+                          ProvinciaID: 288
+                          ProvinciaNombre: MORELOS
+                          PaisID: 148
+                          PaisNombre: México
+                          Fax: '0'
+                          Cif: GME920101B39
+                          Email: jose.lira@givaudan.com
+                          Web: ''
+                          ActividadID: 309
+                          ActividadNombre: Sabores
+                          TipoMailingID: 6
+                          TipoMailingNombre: Proveedores Nacionales
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2021-10-11T20:13:22.264'
+                        - MailingID: 131
+                          EmpresaID: 1
+                          CustomerID: 29
+                          CodigoCuenta: '25000010007'
+                          NombreCuenta: TATE & LYLE MEXICO S DE RL DE CV
+                          MunicipioID: 32
+                          MunicipioNombre: IZTAPALAPA
+                          ProvinciaID: 10
+                          ProvinciaNombre: CDMX
+                          PaisID: 148
+                          PaisNombre: México
+                          Fax: '5556400053'
+                          Cif: TLM9304141U0
+                          Email: FANNY.SAVEDRA@TATEANDLYLE.COM
+                          Web: ''
+                          ActividadID: 293
+                          ActividadNombre: Azúcar
+                          TipoMailingID: 6
+                          TipoMailingNombre: Proveedores Nacionales
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2021-10-11T20:13:40.969'
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: string
+                      data:
+                        - MailingID: 132
+                          EmpresaID: 1
+                          CustomerID: 29
+                          CodigoCuenta: '25000010020'
+                          NombreCuenta: SANUDO SA DE CV
+                          MunicipioID: 33
+                          MunicipioNombre: CUAUHTEMOC
+                          ProvinciaID: 10
+                          ProvinciaNombre: CDMX
+                          PaisID: 148
+                          PaisNombre: México
+                          Fax: '5555472328'
+                          Cif: SAÑ8012016L8
+                          Email: OGUZMAN@SANUDO.COM
+                          Web: ''
+                          ActividadID: 308
+                          ActividadNombre: Quimicos y Sales
+                          TipoMailingID: 6
+                          TipoMailingNombre: Proveedores Nacionales
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2021-10-11T20:13:56.100'
+                        - MailingID: 128
+                          EmpresaID: 1
+                          CustomerID: 29
+                          CodigoCuenta: '25000010002'
+                          NombreCuenta: INGREDION MEXICO SA DE CV
+                          MunicipioID: 0
+                          MunicipioNombre: ''
+                          ProvinciaID: 11
+                          ProvinciaNombre: JALISCO
+                          PaisID: 148
+                          PaisNombre: México
+                          Fax: '555333509045'
+                          Cif: CPI950901F3A
+                          Email: Edmar.diaz@ingredion.com
+                          Web: pruebaLUIS.com
+                          ActividadID: 281
+                          ActividadNombre: Almidones
+                          TipoMailingID: 6
+                          TipoMailingNombre: Proveedores Nacionales
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2021-10-11T00:00:00.000'
+                        - MailingID: 129
+                          EmpresaID: 1
+                          CustomerID: 29
+                          CodigoCuenta: '25000010003'
+                          NombreCuenta: COMERCIALIZADORA ALCALI SA DE CV
+                          MunicipioID: 0
+                          MunicipioNombre: ''
+                          ProvinciaID: 23
+                          ProvinciaNombre: 'NUEVO LEON '
+                          PaisID: 148
+                          PaisNombre: México
+                          Fax: '0'
+                          Cif: VCO800331D61
+                          Email: AMENDEZL@VITRO.COM
+                          Web: ''
+                          ActividadID: 308
+                          ActividadNombre: Quimicos y Sales
+                          TipoMailingID: 6
+                          TipoMailingNombre: Proveedores Nacionales
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2021-10-11T20:12:39.549'
+                        - MailingID: 130
+                          EmpresaID: 1
+                          CustomerID: 29
+                          CodigoCuenta: '25000010004'
+                          NombreCuenta: GIVAUDAN DE MEXICO SA DE CV
+                          MunicipioID: 71
+                          MunicipioNombre: JIUTEPEC
+                          ProvinciaID: 288
+                          ProvinciaNombre: MORELOS
+                          PaisID: 148
+                          PaisNombre: México
+                          Fax: '0'
+                          Cif: GME920101B39
+                          Email: jose.lira@givaudan.com
+                          Web: ''
+                          ActividadID: 309
+                          ActividadNombre: Sabores
+                          TipoMailingID: 6
+                          TipoMailingNombre: Proveedores Nacionales
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2021-10-11T20:13:22.264'
+                        - MailingID: 131
+                          EmpresaID: 1
+                          CustomerID: 29
+                          CodigoCuenta: '25000010007'
+                          NombreCuenta: TATE & LYLE MEXICO S DE RL DE CV
+                          MunicipioID: 32
+                          MunicipioNombre: IZTAPALAPA
+                          ProvinciaID: 10
+                          ProvinciaNombre: CDMX
+                          PaisID: 148
+                          PaisNombre: México
+                          Fax: '5556400053'
+                          Cif: TLM9304141U0
+                          Email: FANNY.SAVEDRA@TATEANDLYLE.COM
+                          Web: ''
+                          ActividadID: 293
+                          ActividadNombre: Azúcar
+                          TipoMailingID: 6
+                          TipoMailingNombre: Proveedores Nacionales
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2021-10-11T20:13:40.969'
+      operationId: get-accountsat-consult
+      x-stoplight:
+        id: 3idb2yakothsl
+      description: ''
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                MisFavoritos:
+                  type: string
+                nombre:
+                  type: string
+                TipoMailingid:
+                  type: string
+                ListaEnvioID:
+                  type: string
+                ZonaID:
+                  type: string
+                PaisID:
+                  type: string
+                MunicipioID:
+                  type: string
+                situacionid:
+                  type: string
+                actividadid:
+                  type: string
+                representanteid:
+                  type: string
+                provinciaid:
+                  type: string
+                codigopostalid:
+                  type: string
+                palabraclaveid:
+                  type: string
+                offset:
+                  type: integer
+                limit:
+                  type: integer
+              x-examples:
+                Example 1:
+                  MisFavoritos: '0'
+                  nombre: ''
+                  TipoMailingid: ''
+                  ListaEnvioID: '1'
+                  ZonaID: ''
+                  PaisID: ''
+                  MunicipioID: ''
+                  situacionid: ''
+                  actividadid: ''
+                  representanteid: ''
+                  provinciaid: ''
+                  codigopostalid: ''
+                  palabraclaveid: ''
+                  offset: 0
+                  limit: 500
+            examples:
+              Example 1:
+                value:
+                  MisFavoritos: '0'
+                  nombre: ''
+                  TipoMailingid: ''
+                  ListaEnvioID: ''
+                  ZonaID: ''
+                  PaisID: ''
+                  MunicipioID: ''
+                  situacionid: ''
+                  actividadid: ''
+                  representanteid: ''
+                  provinciaid: ''
+                  codigopostalid: ''
+                  palabraclaveid: ''
+                  offset: 0
+                  limit: 5
 components:
   schemas: {}
