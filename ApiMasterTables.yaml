@@ -594,6 +594,144 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /tables/account/listTypes:
+    get:
+      summary: Account - ListTypes
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        tipoMailingID:
+                          type: integer
+                        nombre:
+                          type: string
+                        ClaveInterna:
+                          type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - tipoMailingID: 3
+                        nombre: Posible cliente
+                        ClaveInterna: Mailing
+                      - tipoMailingID: 5
+                        nombre: Clientes Nacional
+                        ClaveInterna: Cliente
+                      - tipoMailingID: 6
+                        nombre: Proveedores Nacionales
+                        ClaveInterna: Proveedor
+                      - tipoMailingID: 7
+                        nombre: Proveedores Extranjeros
+                        ClaveInterna: Proveedor
+                      - tipoMailingID: 8
+                        nombre: Bancos Nacional
+                        ClaveInterna: Banco
+                      - tipoMailingID: 14
+                        nombre: Cliente Extanjero
+                        ClaveInterna: Cliente
+                      - tipoMailingID: 15
+                        nombre: Vendedor
+                        ClaveInterna: Representante
+                      - tipoMailingID: 16
+                        nombre: Transportista
+                        ClaveInterna: Transportista
+                      - tipoMailingID: 17
+                        nombre: Banco Extranjero
+                        ClaveInterna: Banco
+                      - tipoMailingID: 584
+                        nombre: Fabricante
+                        ClaveInterna: Mailing
+                      - tipoMailingID: 585
+                        nombre: SeguroRiesgo
+                        ClaveInterna: Mailing
+                      - tipoMailingID: 586
+                        nombre: Acreedor
+                        ClaveInterna: Mailing
+                      - tipoMailingID: 594
+                        nombre: ojala sirva dios mio
+                        ClaveInterna: Mailing
+                      - tipoMailingID: 595
+                        nombre: PlataformaLogistica
+                        ClaveInterna: Mailing
+                      - tipoMailingID: 598
+                        nombre: me resbalo fácil
+                        ClaveInterna: Cliente
+                      - tipoMailingID: 599
+                        nombre: ClienteProveedor
+                        ClaveInterna: ClienteProveedor
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - tipoMailingID: 3
+                        nombre: Posible cliente
+                        ClaveInterna: Mailing
+                      - tipoMailingID: 5
+                        nombre: Clientes Nacional
+                        ClaveInterna: Cliente
+                      - tipoMailingID: 6
+                        nombre: Proveedores Nacionales
+                        ClaveInterna: Proveedor
+                      - tipoMailingID: 7
+                        nombre: Proveedores Extranjeros
+                        ClaveInterna: Proveedor
+                      - tipoMailingID: 8
+                        nombre: Bancos Nacional
+                        ClaveInterna: Banco
+                      - tipoMailingID: 14
+                        nombre: Cliente Extanjero
+                        ClaveInterna: Cliente
+                      - tipoMailingID: 15
+                        nombre: Vendedor
+                        ClaveInterna: Representante
+                      - tipoMailingID: 16
+                        nombre: Transportista
+                        ClaveInterna: Transportista
+                      - tipoMailingID: 17
+                        nombre: Banco Extranjero
+                        ClaveInterna: Banco
+                      - tipoMailingID: 584
+                        nombre: Fabricante
+                        ClaveInterna: Mailing
+                      - tipoMailingID: 585
+                        nombre: SeguroRiesgo
+                        ClaveInterna: Mailing
+                      - tipoMailingID: 586
+                        nombre: Acreedor
+                        ClaveInterna: Mailing
+                      - tipoMailingID: 595
+                        nombre: PlataformaLogistica
+                        ClaveInterna: Mailing
+                      - tipoMailingID: 599
+                        nombre: ClienteProveedor
+                        ClaveInterna: ClienteProveedor
+      operationId: get-tables-account-listTypes
+      x-stoplight:
+        id: i6m3ioa1hlgnk
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: query
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /tables/accountsbycoincidence:
     get:
       summary: Account - FindManyByCoincidence
