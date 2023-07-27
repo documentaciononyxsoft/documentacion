@@ -10930,7 +10930,80 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            CodigoPostalID:
+                              type: integer
+                            CodCodigoPostal:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT\r\ncodigopostal.CodigoPostalID, \r\ncodigopostal.CodigoPostal AS CodCodigoPostal\r\nFROM codigopostal\r\nWHERE codigopostal.CustomerID = 29"
+                      records:
+                        - CodigoPostalID: 1
+                          CodCodigoPostal: '01193'
+                        - CodigoPostalID: 2
+                          CodCodigoPostal: '01240'
+                        - CodigoPostalID: 3
+                          CodCodigoPostal: '01450'
+                        - CodigoPostalID: 4
+                          CodCodigoPostal: '01468'
+                        - CodigoPostalID: 5
+                          CodCodigoPostal: '01470'
+                        - CodigoPostalID: 9
+                          CodCodigoPostal: '01474'
+                        - CodigoPostalID: 10
+                          CodCodigoPostal: '01478'
+                        - CodigoPostalID: 11
+                          CodCodigoPostal: '01211'
+                        - CodigoPostalID: 12
+                          CodCodigoPostal: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      sql: "SELECT\r\ncodigopostal.CodigoPostalID, \r\ncodigopostal.CodigoPostal AS CodCodigoPostal\r\nFROM codigopostal\r\nWHERE codigopostal.CustomerID = 29"
+                      records:
+                        - CodigoPostalID: 1
+                          CodCodigoPostal: '01193'
+                        - CodigoPostalID: 2
+                          CodCodigoPostal: '01240'
+                        - CodigoPostalID: 3
+                          CodCodigoPostal: '01450'
+                        - CodigoPostalID: 4
+                          CodCodigoPostal: '01468'
+                        - CodigoPostalID: 5
+                          CodCodigoPostal: '01470'
+                        - CodigoPostalID: 9
+                          CodCodigoPostal: '01474'
+                        - CodigoPostalID: 10
+                          CodCodigoPostal: '01478'
+                        - CodigoPostalID: 11
+                          CodCodigoPostal: '01211'
+                        - CodigoPostalID: 12
+                          CodCodigoPostal: ''
       operationId: get-postalcode-lightList
       x-stoplight:
         id: 84dr4ft0c9kqy
