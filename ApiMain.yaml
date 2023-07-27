@@ -10816,29 +10816,6 @@ paths:
             type: string
           in: query
           name: codigoPostal
-  /postalcode/lightList:
-    get:
-      summary: PostalCodes - FindLightList
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
-      operationId: get-postalcode-lightList
-      x-stoplight:
-        id: 84dr4ft0c9kqy
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: query
-          name: accessToken
-          required: true
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
   '/postalcodes/{municipioID}':
     parameters:
       - schema:
@@ -10942,6 +10919,30 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /postalcode/lightList:
+    get:
+      summary: PostalCodes - FindLightList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+      operationId: get-postalcode-lightList
+      x-stoplight:
+        id: 84dr4ft0c9kqy
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: query
+          name: accessToken
+          required: true
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+      description: ''
   /provinces:
     post:
       summary: Provinces - Create
