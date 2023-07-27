@@ -10155,6 +10155,599 @@ paths:
             example: 'pereira '
           in: query
           name: sMunicipio
+  /municipality/lightList:
+    get:
+      summary: Municipalities - FindLightList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            municipioid:
+                              type: integer
+                            nombre:
+                              type: string
+                            codigo:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - municipioid: 3
+                          nombre: TUXTLA GUTIERREZ
+                          codigo: ''
+                        - municipioid: 22
+                          nombre: SAN CRISTOBAL DE LAS CASAS
+                          codigo: ''
+                        - municipioid: 27
+                          nombre: Tehuacan
+                          codigo: ''
+                        - municipioid: 28
+                          nombre: OXCHUC
+                          codigo: ''
+                        - municipioid: 29
+                          nombre: CHILE
+                          codigo: ''
+                        - municipioid: 30
+                          nombre: 'SANTIAGO '
+                          codigo: ''
+                        - municipioid: 31
+                          nombre: CORK
+                          codigo: ''
+                        - municipioid: 32
+                          nombre: IZTAPALAPA
+                          codigo: ''
+                        - municipioid: 33
+                          nombre: CUAUHTEMOC
+                          codigo: ''
+                        - municipioid: 34
+                          nombre: MEXICO
+                          codigo: ''
+                        - municipioid: 35
+                          nombre: MIGUEL HIDALGO
+                          codigo: ''
+                        - municipioid: 36
+                          nombre: GUSTAVO A MADERO
+                          codigo: ''
+                        - municipioid: 37
+                          nombre: DF
+                          codigo: ''
+                        - municipioid: 38
+                          nombre: TULTITLAN
+                          codigo: ''
+                        - municipioid: 39
+                          nombre: MEXICO DF AZCAPOTZALCO
+                          codigo: ''
+                        - municipioid: 40
+                          nombre: CUAUHTEMOC
+                          codigo: ''
+                        - municipioid: 41
+                          nombre: TORREON
+                          codigo: ''
+                        - municipioid: 42
+                          nombre: TECOMAN
+                          codigo: ''
+                        - municipioid: 43
+                          nombre: COLIMA
+                          codigo: ''
+                        - municipioid: 44
+                          nombre: GUANAJUATO
+                          codigo: ''
+                        - municipioid: 45
+                          nombre: CELAYA
+                          codigo: ''
+                        - municipioid: 46
+                          nombre: PENJAMO
+                          codigo: ''
+                        - municipioid: 47
+                          nombre: VALLE DE SANTIAGO
+                          codigo: ''
+                        - municipioid: 48
+                          nombre: IRAPUATO
+                          codigo: ''
+                        - municipioid: 49
+                          nombre: HUICHAPAN
+                          codigo: ''
+                        - municipioid: 50
+                          nombre: GUADALAJARA
+                          codigo: ''
+                        - municipioid: 51
+                          nombre: EL SALTO
+                          codigo: ''
+                        - municipioid: 52
+                          nombre: ZAPOPAN
+                          codigo: ''
+                        - municipioid: 53
+                          nombre: JALISCO
+                          codigo: ''
+                        - municipioid: 54
+                          nombre: TLALNEPANTLA DE BAZ
+                          codigo: ''
+                        - municipioid: 55
+                          nombre: NAUCALPAN
+                          codigo: ''
+                        - municipioid: 56
+                          nombre: HUIXQUILUCAN
+                          codigo: ''
+                        - municipioid: 57
+                          nombre: LERMA
+                          codigo: ''
+                        - municipioid: 58
+                          nombre: DF
+                          codigo: ''
+                        - municipioid: 59
+                          nombre: DF
+                          codigo: ''
+                        - municipioid: 60
+                          nombre: TULTITLAN
+                          codigo: ''
+                        - municipioid: 61
+                          nombre: TULTITLAN
+                          codigo: ''
+                        - municipioid: 62
+                          nombre: DF
+                          codigo: ''
+                        - municipioid: 63
+                          nombre: TLALNEPANTLA
+                          codigo: ''
+                        - municipioid: 64
+                          nombre: DF
+                          codigo: ''
+                        - municipioid: 65
+                          nombre: EDO DE MEXICO
+                          codigo: ''
+                        - municipioid: 66
+                          nombre: DF
+                          codigo: ''
+                        - municipioid: 67
+                          nombre: NAUCALPAN DE JUAREZ
+                          codigo: ''
+                        - municipioid: 68
+                          nombre: NUMARAN
+                          codigo: ''
+                        - municipioid: 69
+                          nombre: JOSE SIXTO VERDUZCO
+                          codigo: ''
+                        - municipioid: 70
+                          nombre: LA PIEDAD
+                          codigo: ''
+                        - municipioid: 71
+                          nombre: JIUTEPEC
+                          codigo: ''
+                        - municipioid: 72
+                          nombre: NUEVO LEON
+                          codigo: ''
+                        - municipioid: 73
+                          nombre: GUADALUPE
+                          codigo: ''
+                        - municipioid: 74
+                          nombre: GENERAL ESCOBEDO
+                          codigo: ''
+                        - municipioid: 75
+                          nombre: ESCOBEDO
+                          codigo: ''
+                        - municipioid: 76
+                          nombre: SAN NICOAS DE LOS GARZA
+                          codigo: ''
+                        - municipioid: 77
+                          nombre: SAN NICOLAS DE LOS GARZA
+                          codigo: ''
+                        - municipioid: 78
+                          nombre: MONTERREY
+                          codigo: ''
+                        - municipioid: 79
+                          nombre: SANTA CATARINA
+                          codigo: ''
+                        - municipioid: 80
+                          nombre: CORREGIDORA
+                          codigo: ''
+                        - municipioid: 81
+                          nombre: QUERETARO
+                          codigo: ''
+                        - municipioid: 82
+                          nombre: SAN LUIS POTOSI
+                          codigo: ''
+                        - municipioid: 83
+                          nombre: GUASAVE
+                          codigo: ''
+                        - municipioid: 84
+                          nombre: MERIDA
+                          codigo: ''
+                        - municipioid: 85
+                          nombre: SINGAPORE
+                          codigo: ''
+                        - municipioid: 86
+                          nombre: SAN FRANCISCO CA
+                          codigo: ''
+                        - municipioid: 87
+                          nombre: ILLINOIS
+                          codigo: ''
+                        - municipioid: 88
+                          nombre: ST ANSGAR
+                          codigo: ''
+                        - municipioid: 89
+                          nombre: UNION CITY
+                          codigo: ''
+                        - municipioid: 90
+                          nombre: WA
+                          codigo: ''
+                        - municipioid: 91
+                          nombre: BROOKFIELD
+                          codigo: ''
+                        - municipioid: 92
+                          nombre: GUADALAJARA
+                          codigo: ''
+                        - municipioid: 93
+                          nombre: NUEVO LEON
+                          codigo: ''
+                        - municipioid: 94
+                          nombre: SOA PRU
+                          codigo: ''
+                        - municipioid: 98
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 99
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 100
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 101
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 102
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 103
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 104
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 105
+                          nombre: NOCHISTLAN DE MEJIA
+                          codigo: ''
+                        - municipioid: 106
+                          nombre: HUEJOTZINGO
+                          codigo: ''
+                        - municipioid: 107
+                          nombre: TLAHUAC
+                          codigo: ''
+                        - municipioid: 108
+                          nombre: TEZOYUCA
+                          codigo: ''
+                        - municipioid: 109
+                          nombre: CUAUTLTLAN IZCALLI
+                          codigo: ''
+                        - municipioid: 110
+                          nombre: METEPEC
+                          codigo: ''
+                        - municipioid: 111
+                          nombre: 'ECATEPEC DE MORELOS '
+                          codigo: ''
+                        - municipioid: 112
+                          nombre: Cuatemoc
+                          codigo: ''
+                        - municipioid: 113
+                          nombre: PUEBLA
+                          codigo: ''
+                        - municipioid: 114
+                          nombre: HERMOSILLO
+                          codigo: ''
+                        - municipioid: 115
+                          nombre: OAXACA DE JUAREZ
+                          codigo: ''
+                        - municipioid: 116
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 117
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 118
+                          nombre: ALVARO OBREGON
+                          codigo: ''
+                        - municipioid: 120
+                          nombre: AGUASCALIENTES
+                          codigo: ''
+                        - municipioid: 121
+                          nombre: BENITO JUAREZ
+                          codigo: ''
+                        - municipioid: 122
+                          nombre: LAREDO
+                          codigo: ''
+                        - municipioid: 123
+                          nombre: EL MARQUES
+                          codigo: ''
+                        - municipioid: 124
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 125
+                          nombre: ONTARIO
+                          codigo: ''
+                        - municipioid: 126
+                          nombre: IZTACALCO
+                          codigo: ''
+                        - municipioid: 127
+                          nombre: AZCAPOTZALCO
+                          codigo: ''
+                        - municipioid: 128
+                          nombre: CUAUTITLAN IZCALLI
+                          codigo: ''
+                        - municipioid: 129
+                          nombre: SANTIAGO CUAUTLALPAN
+                          codigo: ''
+                        - municipioid: 130
+                          nombre: VENUSTIANO CARRANZA
+                          codigo: ''
+                        - municipioid: 131
+                          nombre: ATIZAPAN DE ZARAGOZA
+                          codigo: ''
+                        - municipioid: 132
+                          nombre: TAMPICO
+                          codigo: ''
+                        - municipioid: 133
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 135
+                          nombre: TIZAYUCA
+                          codigo: ''
+                        - municipioid: 136
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 137
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 138
+                          nombre: TECAMAC
+                          codigo: ''
+                        - municipioid: 140
+                          nombre: MONTERREY
+                          codigo: ''
+                        - municipioid: 141
+                          nombre: IZTAPALAPA
+                          codigo: ''
+                        - municipioid: 142
+                          nombre: 'TEPEJI DEL RIO '
+                          codigo: ''
+                        - municipioid: 143
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 146
+                          nombre: TIANGUISTENCO
+                          codigo: ''
+                        - municipioid: 147
+                          nombre: TOLUCA
+                          codigo: ''
+                        - municipioid: 148
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 149
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 150
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 151
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 152
+                          nombre: CUERNAVACA
+                          codigo: ''
+                        - municipioid: 153
+                          nombre: 'CUAJIMALPA DE MORELOS '
+                          codigo: ''
+                        - municipioid: 154
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 155
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 156
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 157
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 158
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 159
+                          nombre: TULTITLAN
+                          codigo: ''
+                        - municipioid: 161
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 162
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 163
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 164
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 165
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 166
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 167
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 168
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 169
+                          nombre: Pereira
+                          codigo: CODIGO
+                        - municipioid: 178
+                          nombre: Sta Rosa de Cabal
+                          codigo: ''
+                        - municipioid: 179
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 180
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 181
+                          nombre: Municipio
+                          codigo: ''
+                        - municipioid: 182
+                          nombre: Municipio 2
+                          codigo: ''
+                        - municipioid: 184
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 185
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 186
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 187
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 188
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 189
+                          nombre: Dosquebradas
+                          codigo: '005'
+                        - municipioid: 190
+                          nombre: PROOF
+                          codigo: ''
+                        - municipioid: 191
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 192
+                          nombre: ''
+                          codigo: ''
+                        - municipioid: 193
+                          nombre: ''
+                          codigo: ''
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - municipioid: 3
+                          nombre: TUXTLA GUTIERREZ
+                          codigo: ''
+                        - municipioid: 22
+                          nombre: SAN CRISTOBAL DE LAS CASAS
+                          codigo: ''
+                        - municipioid: 27
+                          nombre: Tehuacan
+                          codigo: ''
+                        - municipioid: 28
+                          nombre: OXCHUC
+                          codigo: ''
+                        - municipioid: 29
+                          nombre: CHILE
+                          codigo: ''
+                        - municipioid: 30
+                          nombre: 'SANTIAGO '
+                          codigo: ''
+                        - municipioid: 31
+                          nombre: CORK
+                          codigo: ''
+                        - municipioid: 32
+                          nombre: IZTAPALAPA
+                          codigo: ''
+                        - municipioid: 33
+                          nombre: CUAUHTEMOC
+                          codigo: ''
+                        - municipioid: 34
+                          nombre: MEXICO
+                          codigo: ''
+                        - municipioid: 35
+                          nombre: MIGUEL HIDALGO
+                          codigo: ''
+                        - municipioid: 36
+                          nombre: GUSTAVO A MADERO
+                          codigo: ''
+                        - municipioid: 37
+                          nombre: DF
+                          codigo: ''
+                        - municipioid: 38
+                          nombre: TULTITLAN
+                          codigo: ''
+                        - municipioid: 39
+                          nombre: MEXICO DF AZCAPOTZALCO
+                          codigo: ''
+                        - municipioid: 40
+                          nombre: CUAUHTEMOC
+                          codigo: ''
+                        - municipioid: 41
+                          nombre: TORREON
+                          codigo: ''
+                        - municipioid: 42
+                          nombre: TECOMAN
+                          codigo: ''
+                        - municipioid: 43
+                          nombre: COLIMA
+                          codigo: ''
+                        - municipioid: 44
+                          nombre: GUANAJUATO
+                          codigo: ''
+                        - municipioid: 45
+                          nombre: CELAYA
+                          codigo: ''
+                        - municipioid: 46
+                          nombre: PENJAMO
+                          codigo: ''
+                        - municipioid: 47
+                          nombre: VALLE DE SANTIAGO
+                          codigo: ''
+                        - municipioid: 48
+                          nombre: IRAPUATO
+                          codigo: ''
+                        - municipioid: 49
+                          nombre: HUICHAPAN
+                          codigo: ''
+                        - municipioid: 50
+                          nombre: GUADALAJARA
+                          codigo: ''
+                        - municipioid: 193
+                          nombre: ''
+                          codigo: ''
+      operationId: get-municipalitie-lightList
+      x-stoplight:
+        id: ldhuksvl4o2m5
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: query
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+    parameters: []
   /postalcode/checkPostalCode:
     get:
       summary: PostalCodes - Check
