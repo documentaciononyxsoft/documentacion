@@ -2258,6 +2258,1050 @@ paths:
                   Iso3: PEI
                   OrigenOperacionFacturaID: '1'
                   ControlProvincia: '1'
+  /countries/lightList:
+    get:
+      summary: Countrie - FindLightList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      Paiss:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            PaisID:
+                              type: integer
+                            Nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      Paiss:
+                        - PaisID: 1
+                          Nombre: Afganistán
+                        - PaisID: 2
+                          Nombre: Albania
+                        - PaisID: 3
+                          Nombre: Alemania
+                        - PaisID: 4
+                          Nombre: Andorra
+                        - PaisID: 5
+                          Nombre: Angola
+                        - PaisID: 6
+                          Nombre: Anguilla
+                        - PaisID: 7
+                          Nombre: Antártida
+                        - PaisID: 8
+                          Nombre: Antigua y Barbuda
+                        - PaisID: 9
+                          Nombre: Antillas Holandesas
+                        - PaisID: 10
+                          Nombre: Arabia Saudí
+                        - PaisID: 11
+                          Nombre: Argelia
+                        - PaisID: 12
+                          Nombre: Argentina
+                        - PaisID: 13
+                          Nombre: Armenia
+                        - PaisID: 14
+                          Nombre: Aruba
+                        - PaisID: 15
+                          Nombre: Australia
+                        - PaisID: 16
+                          Nombre: Austria
+                        - PaisID: 17
+                          Nombre: Azerbaiyán
+                        - PaisID: 18
+                          Nombre: Bahamas
+                        - PaisID: 19
+                          Nombre: Bahréin
+                        - PaisID: 20
+                          Nombre: Bangladesh
+                        - PaisID: 21
+                          Nombre: Barbados
+                        - PaisID: 22
+                          Nombre: Bélgica
+                        - PaisID: 23
+                          Nombre: Belice
+                        - PaisID: 24
+                          Nombre: Benin
+                        - PaisID: 25
+                          Nombre: Bermudas
+                        - PaisID: 26
+                          Nombre: Bhután
+                        - PaisID: 27
+                          Nombre: Bielorrusia
+                        - PaisID: 28
+                          Nombre: Bolivia
+                        - PaisID: 29
+                          Nombre: Bosnia y Herzegovina
+                        - PaisID: 30
+                          Nombre: Botsuana
+                        - PaisID: 31
+                          Nombre: Brasil
+                        - PaisID: 32
+                          Nombre: Brunéi
+                        - PaisID: 33
+                          Nombre: Bulgaria
+                        - PaisID: 34
+                          Nombre: Burkina Faso
+                        - PaisID: 35
+                          Nombre: Burundi
+                        - PaisID: 36
+                          Nombre: Cabo Verde
+                        - PaisID: 37
+                          Nombre: Camboya
+                        - PaisID: 38
+                          Nombre: Camerún
+                        - PaisID: 39
+                          Nombre: Canadá
+                        - PaisID: 40
+                          Nombre: Chad
+                        - PaisID: 41
+                          Nombre: Chile
+                        - PaisID: 42
+                          Nombre: China
+                        - PaisID: 43
+                          Nombre: Chipre
+                        - PaisID: 44
+                          Nombre: Ciudad del Vaticano
+                        - PaisID: 45
+                          Nombre: Colombia
+                        - PaisID: 46
+                          Nombre: Comoras
+                        - PaisID: 47
+                          Nombre: Congo
+                        - PaisID: 48
+                          Nombre: Corea del Norte
+                        - PaisID: 49
+                          Nombre: Corea del Sur
+                        - PaisID: 50
+                          Nombre: Costa de Marfil
+                        - PaisID: 51
+                          Nombre: Costa Rica
+                        - PaisID: 52
+                          Nombre: Croacia
+                        - PaisID: 53
+                          Nombre: Cuba
+                        - PaisID: 54
+                          Nombre: Dinamarca
+                        - PaisID: 55
+                          Nombre: Dominica
+                        - PaisID: 56
+                          Nombre: Ecuador
+                        - PaisID: 57
+                          Nombre: Egipto
+                        - PaisID: 58
+                          Nombre: El Salvador
+                        - PaisID: 59
+                          Nombre: Emiratos Árabes Unidos
+                        - PaisID: 60
+                          Nombre: Eritrea
+                        - PaisID: 61
+                          Nombre: Eslovaquia
+                        - PaisID: 62
+                          Nombre: Eslovenia
+                        - PaisID: 63
+                          Nombre: España
+                        - PaisID: 64
+                          Nombre: Estados Unidos
+                        - PaisID: 65
+                          Nombre: Estonia
+                        - PaisID: 66
+                          Nombre: Etiopía
+                        - PaisID: 67
+                          Nombre: Filipinas
+                        - PaisID: 68
+                          Nombre: Finlandia
+                        - PaisID: 69
+                          Nombre: Fiyi
+                        - PaisID: 70
+                          Nombre: Francia
+                        - PaisID: 71
+                          Nombre: Gabón
+                        - PaisID: 72
+                          Nombre: Gambia
+                        - PaisID: 73
+                          Nombre: Georgia
+                        - PaisID: 74
+                          Nombre: Ghana
+                        - PaisID: 75
+                          Nombre: Gibraltar
+                        - PaisID: 76
+                          Nombre: Granada
+                        - PaisID: 77
+                          Nombre: Grecia
+                        - PaisID: 78
+                          Nombre: Groenlandia
+                        - PaisID: 79
+                          Nombre: Guadalupe
+                        - PaisID: 80
+                          Nombre: Guam
+                        - PaisID: 81
+                          Nombre: Guatemala
+                        - PaisID: 82
+                          Nombre: Guayana Francesa
+                        - PaisID: 83
+                          Nombre: Guinea
+                        - PaisID: 84
+                          Nombre: Guinea Ecuatorial
+                        - PaisID: 85
+                          Nombre: Guinea-Bissau
+                        - PaisID: 86
+                          Nombre: Guyana
+                        - PaisID: 87
+                          Nombre: Haití
+                        - PaisID: 88
+                          Nombre: Honduras
+                        - PaisID: 89
+                          Nombre: Hong Kong
+                        - PaisID: 90
+                          Nombre: Hungría
+                        - PaisID: 91
+                          Nombre: India
+                        - PaisID: 92
+                          Nombre: Indonesia
+                        - PaisID: 93
+                          Nombre: Irán
+                        - PaisID: 94
+                          Nombre: Iraq
+                        - PaisID: 95
+                          Nombre: Irlanda
+                        - PaisID: 96
+                          Nombre: Isla Bouvet
+                        - PaisID: 97
+                          Nombre: Isla de Navidad
+                        - PaisID: 98
+                          Nombre: Isla Norfolk
+                        - PaisID: 99
+                          Nombre: Islandia
+                        - PaisID: 100
+                          Nombre: Islas Caimán
+                        - PaisID: 101
+                          Nombre: Islas Cocos
+                        - PaisID: 102
+                          Nombre: Islas Cook
+                        - PaisID: 103
+                          Nombre: Islas Feroe
+                        - PaisID: 104
+                          Nombre: Islas Georgias del Sur y Sandwich del Sur
+                        - PaisID: 105
+                          Nombre: Islas Gland
+                        - PaisID: 106
+                          Nombre: Islas Heard y McDonald
+                        - PaisID: 107
+                          Nombre: Islas Malvinas
+                        - PaisID: 108
+                          Nombre: Islas Marianas del Norte
+                        - PaisID: 109
+                          Nombre: Islas Marshall
+                        - PaisID: 110
+                          Nombre: Islas Pitcairn
+                        - PaisID: 111
+                          Nombre: Islas Salomón
+                        - PaisID: 112
+                          Nombre: Islas Turcas y Caicos
+                        - PaisID: 113
+                          Nombre: Islas ultramarinas de Estados Unidos
+                        - PaisID: 114
+                          Nombre: Islas Vírgenes Británicas
+                        - PaisID: 115
+                          Nombre: Islas Vírgenes de los Estados Unidos
+                        - PaisID: 116
+                          Nombre: Israel
+                        - PaisID: 117
+                          Nombre: Italia
+                        - PaisID: 118
+                          Nombre: Jamaica
+                        - PaisID: 119
+                          Nombre: Japón
+                        - PaisID: 120
+                          Nombre: Jordania
+                        - PaisID: 121
+                          Nombre: Kazajstán
+                        - PaisID: 122
+                          Nombre: Kenia
+                        - PaisID: 123
+                          Nombre: Kirguistán
+                        - PaisID: 124
+                          Nombre: Kiribati
+                        - PaisID: 125
+                          Nombre: Kuwait
+                        - PaisID: 126
+                          Nombre: Laos
+                        - PaisID: 127
+                          Nombre: Lesotho
+                        - PaisID: 128
+                          Nombre: Letonia
+                        - PaisID: 129
+                          Nombre: Líbano
+                        - PaisID: 130
+                          Nombre: Liberia
+                        - PaisID: 131
+                          Nombre: Libia
+                        - PaisID: 132
+                          Nombre: Liechtenstein
+                        - PaisID: 133
+                          Nombre: Lituania
+                        - PaisID: 134
+                          Nombre: Luxemburgo
+                        - PaisID: 135
+                          Nombre: Macao
+                        - PaisID: 136
+                          Nombre: Macedonia
+                        - PaisID: 137
+                          Nombre: Madagascar
+                        - PaisID: 138
+                          Nombre: Malasia
+                        - PaisID: 139
+                          Nombre: Malawi
+                        - PaisID: 140
+                          Nombre: Maldivas
+                        - PaisID: 141
+                          Nombre: Malí
+                        - PaisID: 142
+                          Nombre: Malta
+                        - PaisID: 143
+                          Nombre: Marruecos
+                        - PaisID: 144
+                          Nombre: Martinica
+                        - PaisID: 145
+                          Nombre: Mauricio
+                        - PaisID: 146
+                          Nombre: Mauritania
+                        - PaisID: 147
+                          Nombre: Mayotte
+                        - PaisID: 148
+                          Nombre: México
+                        - PaisID: 149
+                          Nombre: Micronesia
+                        - PaisID: 150
+                          Nombre: Moldavia
+                        - PaisID: 151
+                          Nombre: Mónaco
+                        - PaisID: 152
+                          Nombre: Mongolia
+                        - PaisID: 153
+                          Nombre: Montserrat
+                        - PaisID: 154
+                          Nombre: Mozambique
+                        - PaisID: 155
+                          Nombre: Myanmar
+                        - PaisID: 156
+                          Nombre: Namibia
+                        - PaisID: 157
+                          Nombre: Nauru
+                        - PaisID: 158
+                          Nombre: Nepal
+                        - PaisID: 159
+                          Nombre: Nicaragua
+                        - PaisID: 160
+                          Nombre: Níger
+                        - PaisID: 161
+                          Nombre: Nigeria
+                        - PaisID: 162
+                          Nombre: Niue
+                        - PaisID: 163
+                          Nombre: Noruega
+                        - PaisID: 164
+                          Nombre: Nueva Caledonia
+                        - PaisID: 165
+                          Nombre: Nueva Zelanda
+                        - PaisID: 166
+                          Nombre: Omán
+                        - PaisID: 167
+                          Nombre: Países Bajos
+                        - PaisID: 168
+                          Nombre: Pakistán
+                        - PaisID: 169
+                          Nombre: Palau
+                        - PaisID: 170
+                          Nombre: Palestina
+                        - PaisID: 171
+                          Nombre: Panamá
+                        - PaisID: 172
+                          Nombre: Papúa Nueva Guinea
+                        - PaisID: 173
+                          Nombre: Paraguay
+                        - PaisID: 174
+                          Nombre: Perú
+                        - PaisID: 175
+                          Nombre: Polinesia Francesa
+                        - PaisID: 176
+                          Nombre: Polonia
+                        - PaisID: 177
+                          Nombre: Portugal
+                        - PaisID: 178
+                          Nombre: Puerto Rico
+                        - PaisID: 179
+                          Nombre: Qatar
+                        - PaisID: 180
+                          Nombre: Reino Unido
+                        - PaisID: 181
+                          Nombre: República Centroafricana
+                        - PaisID: 182
+                          Nombre: República Checa
+                        - PaisID: 183
+                          Nombre: República Democrática del Congo
+                        - PaisID: 184
+                          Nombre: República Dominicana
+                        - PaisID: 185
+                          Nombre: Reunión
+                        - PaisID: 186
+                          Nombre: Ruanda
+                        - PaisID: 187
+                          Nombre: Rumania
+                        - PaisID: 188
+                          Nombre: Rusia
+                        - PaisID: 189
+                          Nombre: Sahara Occidental
+                        - PaisID: 190
+                          Nombre: Samoa
+                        - PaisID: 191
+                          Nombre: Samoa Americana
+                        - PaisID: 192
+                          Nombre: San Cristóbal y Nevis
+                        - PaisID: 193
+                          Nombre: San Marino
+                        - PaisID: 194
+                          Nombre: San Pedro y Miquelón
+                        - PaisID: 195
+                          Nombre: San Vicente y las Granadinas
+                        - PaisID: 196
+                          Nombre: Santa Helena
+                        - PaisID: 197
+                          Nombre: Santa Lucía
+                        - PaisID: 198
+                          Nombre: Santo Tomé y Príncipe
+                        - PaisID: 199
+                          Nombre: Senegal
+                        - PaisID: 200
+                          Nombre: Serbia y Montenegro
+                        - PaisID: 201
+                          Nombre: Seychelles
+                        - PaisID: 202
+                          Nombre: Sierra Leona
+                        - PaisID: 203
+                          Nombre: Singapur
+                        - PaisID: 204
+                          Nombre: Siria
+                        - PaisID: 205
+                          Nombre: Somalia
+                        - PaisID: 206
+                          Nombre: Sri Lanka
+                        - PaisID: 207
+                          Nombre: Suazilandia
+                        - PaisID: 208
+                          Nombre: Sudáfrica
+                        - PaisID: 209
+                          Nombre: Sudán
+                        - PaisID: 210
+                          Nombre: Suecia
+                        - PaisID: 211
+                          Nombre: Suiza
+                        - PaisID: 212
+                          Nombre: Surinam
+                        - PaisID: 213
+                          Nombre: Svalbard y Jan Mayen
+                        - PaisID: 214
+                          Nombre: Tailandia
+                        - PaisID: 215
+                          Nombre: Taiwán
+                        - PaisID: 216
+                          Nombre: Tanzania
+                        - PaisID: 217
+                          Nombre: Tayikistán
+                        - PaisID: 218
+                          Nombre: Territorio Británico del Océano Índico
+                        - PaisID: 219
+                          Nombre: Territorios Australes Franceses
+                        - PaisID: 220
+                          Nombre: Timor Oriental
+                        - PaisID: 221
+                          Nombre: Togo
+                        - PaisID: 222
+                          Nombre: Tokelau
+                        - PaisID: 223
+                          Nombre: Tonga
+                        - PaisID: 224
+                          Nombre: Trinidad y Tobago
+                        - PaisID: 225
+                          Nombre: Túnez
+                        - PaisID: 226
+                          Nombre: Turkmenistán
+                        - PaisID: 227
+                          Nombre: Turquía
+                        - PaisID: 228
+                          Nombre: Tuvalu
+                        - PaisID: 229
+                          Nombre: Ucrania
+                        - PaisID: 230
+                          Nombre: Uganda
+                        - PaisID: 231
+                          Nombre: Uruguay
+                        - PaisID: 232
+                          Nombre: Uzbekistán
+                        - PaisID: 233
+                          Nombre: Vanuatu
+                        - PaisID: 234
+                          Nombre: Venezuela
+                        - PaisID: 235
+                          Nombre: Vietnam
+                        - PaisID: 236
+                          Nombre: Wallis y Futuna
+                        - PaisID: 237
+                          Nombre: Yemen
+                        - PaisID: 238
+                          Nombre: Yibuti
+                        - PaisID: 239
+                          Nombre: Zambia
+                        - PaisID: 240
+                          Nombre: Zimbabue
+                        - PaisID: 241
+                          Nombre: REP. Yeison
+                        - PaisID: 248
+                          Nombre: yeik z
+                        - PaisID: 249
+                          Nombre: yeik real
+                        - PaisID: 251
+                          Nombre: PAISJuan
+                        - PaisID: 252
+                          Nombre: JCO
+                        - PaisID: 253
+                          Nombre: UPDATED
+                        - PaisID: 254
+                          Nombre: PAISJCO
+                        - PaisID: 255
+                          Nombre: CALICHE SA
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      Paiss:
+                        - PaisID: 1
+                          Nombre: Afganistán
+                        - PaisID: 2
+                          Nombre: Albania
+                        - PaisID: 3
+                          Nombre: Alemania
+                        - PaisID: 4
+                          Nombre: Andorra
+                        - PaisID: 5
+                          Nombre: Angola
+                        - PaisID: 6
+                          Nombre: Anguilla
+                        - PaisID: 7
+                          Nombre: Antártida
+                        - PaisID: 8
+                          Nombre: Antigua y Barbuda
+                        - PaisID: 9
+                          Nombre: Antillas Holandesas
+                        - PaisID: 10
+                          Nombre: Arabia Saudí
+                        - PaisID: 11
+                          Nombre: Argelia
+                        - PaisID: 12
+                          Nombre: Argentina
+                        - PaisID: 13
+                          Nombre: Armenia
+                        - PaisID: 14
+                          Nombre: Aruba
+                        - PaisID: 15
+                          Nombre: Australia
+                        - PaisID: 16
+                          Nombre: Austria
+                        - PaisID: 17
+                          Nombre: Azerbaiyán
+                        - PaisID: 18
+                          Nombre: Bahamas
+                        - PaisID: 19
+                          Nombre: Bahréin
+                        - PaisID: 20
+                          Nombre: Bangladesh
+                        - PaisID: 21
+                          Nombre: Barbados
+                        - PaisID: 22
+                          Nombre: Bélgica
+                        - PaisID: 23
+                          Nombre: Belice
+                        - PaisID: 24
+                          Nombre: Benin
+                        - PaisID: 25
+                          Nombre: Bermudas
+                        - PaisID: 26
+                          Nombre: Bhután
+                        - PaisID: 27
+                          Nombre: Bielorrusia
+                        - PaisID: 28
+                          Nombre: Bolivia
+                        - PaisID: 29
+                          Nombre: Bosnia y Herzegovina
+                        - PaisID: 30
+                          Nombre: Botsuana
+                        - PaisID: 31
+                          Nombre: Brasil
+                        - PaisID: 32
+                          Nombre: Brunéi
+                        - PaisID: 33
+                          Nombre: Bulgaria
+                        - PaisID: 34
+                          Nombre: Burkina Faso
+                        - PaisID: 35
+                          Nombre: Burundi
+                        - PaisID: 36
+                          Nombre: Cabo Verde
+                        - PaisID: 37
+                          Nombre: Camboya
+                        - PaisID: 38
+                          Nombre: Camerún
+                        - PaisID: 39
+                          Nombre: Canadá
+                        - PaisID: 40
+                          Nombre: Chad
+                        - PaisID: 41
+                          Nombre: Chile
+                        - PaisID: 42
+                          Nombre: China
+                        - PaisID: 43
+                          Nombre: Chipre
+                        - PaisID: 44
+                          Nombre: Ciudad del Vaticano
+                        - PaisID: 45
+                          Nombre: Colombia
+                        - PaisID: 46
+                          Nombre: Comoras
+                        - PaisID: 47
+                          Nombre: Congo
+                        - PaisID: 48
+                          Nombre: Corea del Norte
+                        - PaisID: 49
+                          Nombre: Corea del Sur
+                        - PaisID: 50
+                          Nombre: Costa de Marfil
+                        - PaisID: 51
+                          Nombre: Costa Rica
+                        - PaisID: 52
+                          Nombre: Croacia
+                        - PaisID: 53
+                          Nombre: Cuba
+                        - PaisID: 54
+                          Nombre: Dinamarca
+                        - PaisID: 55
+                          Nombre: Dominica
+                        - PaisID: 56
+                          Nombre: Ecuador
+                        - PaisID: 57
+                          Nombre: Egipto
+                        - PaisID: 58
+                          Nombre: El Salvador
+                        - PaisID: 59
+                          Nombre: Emiratos Árabes Unidos
+                        - PaisID: 60
+                          Nombre: Eritrea
+                        - PaisID: 61
+                          Nombre: Eslovaquia
+                        - PaisID: 62
+                          Nombre: Eslovenia
+                        - PaisID: 63
+                          Nombre: España
+                        - PaisID: 64
+                          Nombre: Estados Unidos
+                        - PaisID: 65
+                          Nombre: Estonia
+                        - PaisID: 66
+                          Nombre: Etiopía
+                        - PaisID: 67
+                          Nombre: Filipinas
+                        - PaisID: 68
+                          Nombre: Finlandia
+                        - PaisID: 69
+                          Nombre: Fiyi
+                        - PaisID: 70
+                          Nombre: Francia
+                        - PaisID: 71
+                          Nombre: Gabón
+                        - PaisID: 72
+                          Nombre: Gambia
+                        - PaisID: 73
+                          Nombre: Georgia
+                        - PaisID: 74
+                          Nombre: Ghana
+                        - PaisID: 75
+                          Nombre: Gibraltar
+                        - PaisID: 76
+                          Nombre: Granada
+                        - PaisID: 77
+                          Nombre: Grecia
+                        - PaisID: 78
+                          Nombre: Groenlandia
+                        - PaisID: 79
+                          Nombre: Guadalupe
+                        - PaisID: 80
+                          Nombre: Guam
+                        - PaisID: 81
+                          Nombre: Guatemala
+                        - PaisID: 82
+                          Nombre: Guayana Francesa
+                        - PaisID: 83
+                          Nombre: Guinea
+                        - PaisID: 84
+                          Nombre: Guinea Ecuatorial
+                        - PaisID: 85
+                          Nombre: Guinea-Bissau
+                        - PaisID: 86
+                          Nombre: Guyana
+                        - PaisID: 87
+                          Nombre: Haití
+                        - PaisID: 88
+                          Nombre: Honduras
+                        - PaisID: 89
+                          Nombre: Hong Kong
+                        - PaisID: 90
+                          Nombre: Hungría
+                        - PaisID: 91
+                          Nombre: India
+                        - PaisID: 92
+                          Nombre: Indonesia
+                        - PaisID: 93
+                          Nombre: Irán
+                        - PaisID: 94
+                          Nombre: Iraq
+                        - PaisID: 95
+                          Nombre: Irlanda
+                        - PaisID: 96
+                          Nombre: Isla Bouvet
+                        - PaisID: 97
+                          Nombre: Isla de Navidad
+                        - PaisID: 98
+                          Nombre: Isla Norfolk
+                        - PaisID: 99
+                          Nombre: Islandia
+                        - PaisID: 100
+                          Nombre: Islas Caimán
+                        - PaisID: 101
+                          Nombre: Islas Cocos
+                        - PaisID: 102
+                          Nombre: Islas Cook
+                        - PaisID: 103
+                          Nombre: Islas Feroe
+                        - PaisID: 104
+                          Nombre: Islas Georgias del Sur y Sandwich del Sur
+                        - PaisID: 105
+                          Nombre: Islas Gland
+                        - PaisID: 106
+                          Nombre: Islas Heard y McDonald
+                        - PaisID: 107
+                          Nombre: Islas Malvinas
+                        - PaisID: 108
+                          Nombre: Islas Marianas del Norte
+                        - PaisID: 109
+                          Nombre: Islas Marshall
+                        - PaisID: 110
+                          Nombre: Islas Pitcairn
+                        - PaisID: 111
+                          Nombre: Islas Salomón
+                        - PaisID: 112
+                          Nombre: Islas Turcas y Caicos
+                        - PaisID: 113
+                          Nombre: Islas ultramarinas de Estados Unidos
+                        - PaisID: 114
+                          Nombre: Islas Vírgenes Británicas
+                        - PaisID: 115
+                          Nombre: Islas Vírgenes de los Estados Unidos
+                        - PaisID: 116
+                          Nombre: Israel
+                        - PaisID: 117
+                          Nombre: Italia
+                        - PaisID: 118
+                          Nombre: Jamaica
+                        - PaisID: 119
+                          Nombre: Japón
+                        - PaisID: 120
+                          Nombre: Jordania
+                        - PaisID: 121
+                          Nombre: Kazajstán
+                        - PaisID: 122
+                          Nombre: Kenia
+                        - PaisID: 123
+                          Nombre: Kirguistán
+                        - PaisID: 124
+                          Nombre: Kiribati
+                        - PaisID: 125
+                          Nombre: Kuwait
+                        - PaisID: 126
+                          Nombre: Laos
+                        - PaisID: 127
+                          Nombre: Lesotho
+                        - PaisID: 128
+                          Nombre: Letonia
+                        - PaisID: 129
+                          Nombre: Líbano
+                        - PaisID: 130
+                          Nombre: Liberia
+                        - PaisID: 131
+                          Nombre: Libia
+                        - PaisID: 132
+                          Nombre: Liechtenstein
+                        - PaisID: 133
+                          Nombre: Lituania
+                        - PaisID: 134
+                          Nombre: Luxemburgo
+                        - PaisID: 135
+                          Nombre: Macao
+                        - PaisID: 136
+                          Nombre: Macedonia
+                        - PaisID: 137
+                          Nombre: Madagascar
+                        - PaisID: 138
+                          Nombre: Malasia
+                        - PaisID: 139
+                          Nombre: Malawi
+                        - PaisID: 140
+                          Nombre: Maldivas
+                        - PaisID: 141
+                          Nombre: Malí
+                        - PaisID: 142
+                          Nombre: Malta
+                        - PaisID: 143
+                          Nombre: Marruecos
+                        - PaisID: 144
+                          Nombre: Martinica
+                        - PaisID: 145
+                          Nombre: Mauricio
+                        - PaisID: 146
+                          Nombre: Mauritania
+                        - PaisID: 147
+                          Nombre: Mayotte
+                        - PaisID: 148
+                          Nombre: México
+                        - PaisID: 149
+                          Nombre: Micronesia
+                        - PaisID: 150
+                          Nombre: Moldavia
+                        - PaisID: 151
+                          Nombre: Mónaco
+                        - PaisID: 152
+                          Nombre: Mongolia
+                        - PaisID: 153
+                          Nombre: Montserrat
+                        - PaisID: 154
+                          Nombre: Mozambique
+                        - PaisID: 155
+                          Nombre: Myanmar
+                        - PaisID: 156
+                          Nombre: Namibia
+                        - PaisID: 157
+                          Nombre: Nauru
+                        - PaisID: 158
+                          Nombre: Nepal
+                        - PaisID: 159
+                          Nombre: Nicaragua
+                        - PaisID: 160
+                          Nombre: Níger
+                        - PaisID: 161
+                          Nombre: Nigeria
+                        - PaisID: 162
+                          Nombre: Niue
+                        - PaisID: 163
+                          Nombre: Noruega
+                        - PaisID: 164
+                          Nombre: Nueva Caledonia
+                        - PaisID: 165
+                          Nombre: Nueva Zelanda
+                        - PaisID: 166
+                          Nombre: Omán
+                        - PaisID: 167
+                          Nombre: Países Bajos
+                        - PaisID: 168
+                          Nombre: Pakistán
+                        - PaisID: 169
+                          Nombre: Palau
+                        - PaisID: 170
+                          Nombre: Palestina
+                        - PaisID: 171
+                          Nombre: Panamá
+                        - PaisID: 172
+                          Nombre: Papúa Nueva Guinea
+                        - PaisID: 173
+                          Nombre: Paraguay
+                        - PaisID: 174
+                          Nombre: Perú
+                        - PaisID: 175
+                          Nombre: Polinesia Francesa
+                        - PaisID: 176
+                          Nombre: Polonia
+                        - PaisID: 177
+                          Nombre: Portugal
+                        - PaisID: 178
+                          Nombre: Puerto Rico
+                        - PaisID: 179
+                          Nombre: Qatar
+                        - PaisID: 180
+                          Nombre: Reino Unido
+                        - PaisID: 181
+                          Nombre: República Centroafricana
+                        - PaisID: 182
+                          Nombre: República Checa
+                        - PaisID: 183
+                          Nombre: República Democrática del Congo
+                        - PaisID: 184
+                          Nombre: República Dominicana
+                        - PaisID: 185
+                          Nombre: Reunión
+                        - PaisID: 186
+                          Nombre: Ruanda
+                        - PaisID: 187
+                          Nombre: Rumania
+                        - PaisID: 188
+                          Nombre: Rusia
+                        - PaisID: 189
+                          Nombre: Sahara Occidental
+                        - PaisID: 190
+                          Nombre: Samoa
+                        - PaisID: 191
+                          Nombre: Samoa Americana
+                        - PaisID: 192
+                          Nombre: San Cristóbal y Nevis
+                        - PaisID: 193
+                          Nombre: San Marino
+                        - PaisID: 194
+                          Nombre: San Pedro y Miquelón
+                        - PaisID: 195
+                          Nombre: San Vicente y las Granadinas
+                        - PaisID: 196
+                          Nombre: Santa Helena
+                        - PaisID: 197
+                          Nombre: Santa Lucía
+                        - PaisID: 198
+                          Nombre: Santo Tomé y Príncipe
+                        - PaisID: 199
+                          Nombre: Senegal
+                        - PaisID: 200
+                          Nombre: Serbia y Montenegro
+                        - PaisID: 201
+                          Nombre: Seychelles
+                        - PaisID: 202
+                          Nombre: Sierra Leona
+                        - PaisID: 203
+                          Nombre: Singapur
+                        - PaisID: 204
+                          Nombre: Siria
+                        - PaisID: 205
+                          Nombre: Somalia
+                        - PaisID: 206
+                          Nombre: Sri Lanka
+                        - PaisID: 207
+                          Nombre: Suazilandia
+                        - PaisID: 208
+                          Nombre: Sudáfrica
+                        - PaisID: 209
+                          Nombre: Sudán
+                        - PaisID: 210
+                          Nombre: Suecia
+                        - PaisID: 211
+                          Nombre: Suiza
+                        - PaisID: 212
+                          Nombre: Surinam
+                        - PaisID: 213
+                          Nombre: Svalbard y Jan Mayen
+                        - PaisID: 214
+                          Nombre: Tailandia
+                        - PaisID: 215
+                          Nombre: Taiwán
+                        - PaisID: 216
+                          Nombre: Tanzania
+                        - PaisID: 217
+                          Nombre: Tayikistán
+                        - PaisID: 218
+                          Nombre: Territorio Británico del Océano Índico
+                        - PaisID: 219
+                          Nombre: Territorios Australes Franceses
+                        - PaisID: 220
+                          Nombre: Timor Oriental
+                        - PaisID: 221
+                          Nombre: Togo
+                        - PaisID: 222
+                          Nombre: Tokelau
+                        - PaisID: 223
+                          Nombre: Tonga
+                        - PaisID: 224
+                          Nombre: Trinidad y Tobago
+                        - PaisID: 225
+                          Nombre: Túnez
+                        - PaisID: 226
+                          Nombre: Turkmenistán
+                        - PaisID: 227
+                          Nombre: Turquía
+                        - PaisID: 228
+                          Nombre: Tuvalu
+                        - PaisID: 229
+                          Nombre: Ucrania
+                        - PaisID: 230
+                          Nombre: Uganda
+                        - PaisID: 231
+                          Nombre: Uruguay
+                        - PaisID: 232
+                          Nombre: Uzbekistán
+                        - PaisID: 233
+                          Nombre: Vanuatu
+                        - PaisID: 234
+                          Nombre: Venezuela
+                        - PaisID: 235
+                          Nombre: Vietnam
+                        - PaisID: 236
+                          Nombre: Wallis y Futuna
+                        - PaisID: 237
+                          Nombre: Yemen
+                        - PaisID: 238
+                          Nombre: Yibuti
+                        - PaisID: 239
+                          Nombre: Zambia
+                        - PaisID: 240
+                          Nombre: Zimbabue
+                        - PaisID: 241
+                          Nombre: REP. Yeison
+                        - PaisID: 248
+                          Nombre: yeik z
+                        - PaisID: 249
+                          Nombre: yeik real
+                        - PaisID: 251
+                          Nombre: PAISJuan
+                        - PaisID: 252
+                          Nombre: JCO
+                        - PaisID: 253
+                          Nombre: UPDATED
+                        - PaisID: 254
+                          Nombre: PAISJCO
+                        - PaisID: 255
+                          Nombre: CALICHE SA
+      operationId: get-countries-lightList
+      x-stoplight:
+        id: 5x2zgc8lx6bfa
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: query
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   '/countries/continent/{continenteID}':
     parameters:
       - schema:
