@@ -9572,6 +9572,304 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /provinces/lightList:
+    get:
+      summary: Provinces - FindLightList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        provinciaID:
+                          type: integer
+                        nombre:
+                          type: string
+                        codigo:
+                          type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - provinciaID: 1
+                        nombre: CHIAPAS
+                        codigo: CHIA
+                      - provinciaID: 2
+                        nombre: TABASCO
+                        codigo: TABA
+                      - provinciaID: 3
+                        nombre: YeiLand2
+                        codigo: 19YEIi2
+                      - provinciaID: 4
+                        nombre: VERACRUZ
+                        codigo: VERA
+                      - provinciaID: 5
+                        nombre: CAMPECHE
+                        codigo: CAMP
+                      - provinciaID: 6
+                        nombre: YUCATAN
+                        codigo: YUCA
+                      - provinciaID: 7
+                        nombre: QUINTANA ROO
+                        codigo: QROO
+                      - provinciaID: 8
+                        nombre: PUEBLA
+                        codigo: PUEB
+                      - provinciaID: 9
+                        nombre: GUERRERO
+                        codigo: GUER
+                      - provinciaID: 10
+                        nombre: CDMX
+                        codigo: CDMX
+                      - provinciaID: 11
+                        nombre: JALISCO
+                        codigo: JALI
+                      - provinciaID: 12
+                        nombre: GUANAJUATO
+                        codigo: GTO
+                      - provinciaID: 13
+                        nombre: CHIHUAHUA
+                        codigo: CHIH
+                      - provinciaID: 14
+                        nombre: CHILE
+                        codigo: CHI
+                      - provinciaID: 15
+                        nombre: SANTIAGO
+                        codigo: SAN
+                      - provinciaID: 16
+                        nombre: CK
+                        codigo: CK
+                      - provinciaID: 17
+                        nombre: COAHUILA
+                        codigo: COAH
+                      - provinciaID: 18
+                        nombre: COLIMA
+                        codigo: COLI
+                      - provinciaID: 19
+                        nombre: 'HIDALGO '
+                        codigo: HIDA
+                      - provinciaID: 20
+                        nombre: MEXICO
+                        codigo: MEXI
+                      - provinciaID: 21
+                        nombre: MICHOACAN
+                        codigo: MICH
+                      - provinciaID: 22
+                        nombre: MORELIA
+                        codigo: MORE
+                      - provinciaID: 23
+                        nombre: 'NUEVO LEON '
+                        codigo: NL
+                      - provinciaID: 24
+                        nombre: QUERETARO
+                        codigo: QRO
+                      - provinciaID: 25
+                        nombre: SAN LUIS POTOSI
+                        codigo: 'SAN '
+                      - provinciaID: 26
+                        nombre: SINALOA
+                        codigo: SINA
+                      - provinciaID: 27
+                        nombre: SINGAPUR
+                        codigo: SG
+                      - provinciaID: 28
+                        nombre: CALIFORNIA
+                        codigo: CAL
+                      - provinciaID: 29
+                        nombre: ILLINOIS
+                        codigo: ILL
+                      - provinciaID: 30
+                        nombre: LOS ANGELES
+                        codigo: ANG
+                      - provinciaID: 31
+                        nombre: TLAXCALA
+                        codigo: TLX
+                      - provinciaID: 32
+                        nombre: WYOMING
+                        codigo: WYO
+                      - provinciaID: 33
+                        nombre: WINSCONSIN
+                        codigo: WIN
+                      - provinciaID: 36
+                        nombre: ZACATECAS
+                        codigo: ZACA
+                      - provinciaID: 39
+                        nombre: 'TAMAULIPAS '
+                        codigo: TAMA
+                      - provinciaID: 50
+                        nombre: HERMOSILLO
+                        codigo: HERMOS
+                      - provinciaID: 285
+                        nombre: ''
+                        codigo: ''
+                      - provinciaID: 287
+                        nombre: AGUASCALIENTES
+                        codigo: AGSAGS
+                      - provinciaID: 288
+                        nombre: MORELOS
+                        codigo: MOREE
+                      - provinciaID: 294
+                        nombre: MiNuevoNpmbre
+                        codigo: asd123
+                      - provinciaID: 299
+                        nombre: MORELOSLOS
+                        codigo: MOREELOS
+                      - provinciaID: 300
+                        nombre: Provincia
+                        codigo: '1'
+                      - provinciaID: 301
+                        nombre: Provincia 2
+                        codigo: '98765'
+                      - provinciaID: 302
+                        nombre: Provincia 3
+                        codigo: '1234567'
+                      - provinciaID: 5666
+                        nombre: Risaralda
+                        codigo: 19RIS
+                      - provinciaID: 5667
+                        nombre: Caldas
+                        codigo: 19CAL
+                      - provinciaID: 5668
+                        nombre: Quindio
+                        codigo: 19QUI
+                      - provinciaID: 5671
+                        nombre: Provinicius
+                        codigo: VINIJR
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - provinciaID: 1
+                        nombre: CHIAPAS
+                        codigo: CHIA
+                      - provinciaID: 2
+                        nombre: TABASCO
+                        codigo: TABA
+                      - provinciaID: 3
+                        nombre: YeiLand2
+                        codigo: 19YEIi2
+                      - provinciaID: 4
+                        nombre: VERACRUZ
+                        codigo: VERA
+                      - provinciaID: 5
+                        nombre: CAMPECHE
+                        codigo: CAMP
+                      - provinciaID: 6
+                        nombre: YUCATAN
+                        codigo: YUCA
+                      - provinciaID: 7
+                        nombre: QUINTANA ROO
+                        codigo: QROO
+                      - provinciaID: 8
+                        nombre: PUEBLA
+                        codigo: PUEB
+                      - provinciaID: 9
+                        nombre: GUERRERO
+                        codigo: GUER
+                      - provinciaID: 10
+                        nombre: CDMX
+                        codigo: CDMX
+                      - provinciaID: 11
+                        nombre: JALISCO
+                        codigo: JALI
+                      - provinciaID: 12
+                        nombre: GUANAJUATO
+                        codigo: GTO
+                      - provinciaID: 13
+                        nombre: CHIHUAHUA
+                        codigo: CHIH
+                      - provinciaID: 14
+                        nombre: CHILE
+                        codigo: CHI
+                      - provinciaID: 15
+                        nombre: SANTIAGO
+                        codigo: SAN
+                      - provinciaID: 16
+                        nombre: CK
+                        codigo: CK
+                      - provinciaID: 17
+                        nombre: COAHUILA
+                        codigo: COAH
+                      - provinciaID: 18
+                        nombre: COLIMA
+                        codigo: COLI
+                      - provinciaID: 19
+                        nombre: 'HIDALGO '
+                        codigo: HIDA
+                      - provinciaID: 20
+                        nombre: MEXICO
+                        codigo: MEXI
+                      - provinciaID: 21
+                        nombre: MICHOACAN
+                        codigo: MICH
+                      - provinciaID: 22
+                        nombre: MORELIA
+                        codigo: MORE
+                      - provinciaID: 23
+                        nombre: 'NUEVO LEON '
+                        codigo: NL
+                      - provinciaID: 24
+                        nombre: QUERETARO
+                        codigo: QRO
+                      - provinciaID: 25
+                        nombre: SAN LUIS POTOSI
+                        codigo: 'SAN '
+                      - provinciaID: 26
+                        nombre: SINALOA
+                        codigo: SINA
+                      - provinciaID: 27
+                        nombre: SINGAPUR
+                        codigo: SG
+                      - provinciaID: 28
+                        nombre: CALIFORNIA
+                        codigo: CAL
+                      - provinciaID: 29
+                        nombre: ILLINOIS
+                        codigo: ILL
+                      - provinciaID: 30
+                        nombre: LOS ANGELES
+                        codigo: ANG
+                      - provinciaID: 31
+                        nombre: TLAXCALA
+                        codigo: TLX
+                      - provinciaID: 32
+                        nombre: WYOMING
+                        codigo: WYO
+                      - provinciaID: 33
+                        nombre: WINSCONSIN
+                        codigo: WIN
+                      - provinciaID: 36
+                        nombre: ZACATECAS
+                        codigo: ZACA
+                      - provinciaID: 39
+                        nombre: 'TAMAULIPAS '
+                        codigo: TAMA
+      operationId: get-provinces-lightList
+      x-stoplight:
+        id: 682ewiwxk56bi
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: query
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /variables:
     get:
       summary: Variables - FindAll
