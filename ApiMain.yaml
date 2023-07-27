@@ -11723,8 +11723,10 @@ paths:
           required: true
         - schema:
             type: string
+            example: mailing
           in: query
           name: tabla
-          description: mailing
+          description: Nombre tabla
+          required: true
 components:
   schemas: {}
