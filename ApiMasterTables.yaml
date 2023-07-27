@@ -732,6 +732,78 @@ paths:
           in: query
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /tables/account/mailingList:
+    get:
+      summary: Account - MailingList
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            listaenvioid:
+                              type: integer
+                            nombre:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - listaenvioid: 1
+                          nombre: Envio1
+                        - listaenvioid: 2
+                          nombre: Envio2
+                        - listaenvioid: 3
+                          nombre: Envio3
+                        - listaenvioid: 4
+                          nombre: ListaPruebaJCO
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      records:
+                        - listaenvioid: 1
+                          nombre: Envio1
+                        - listaenvioid: 2
+                          nombre: Envio2
+                        - listaenvioid: 3
+                          nombre: Envio3
+                        - listaenvioid: 4
+                          nombre: ListaPruebaJCO
+      operationId: get-tables-account-mailingList
+      x-stoplight:
+        id: k2f6b2xb9do72
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: query
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
   /tables/accountsbycoincidence:
     get:
       summary: Account - FindManyByCoincidence
