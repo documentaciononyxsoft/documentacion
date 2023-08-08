@@ -6212,7 +6212,7 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
-  '/overalltable/{key}':
+  '/overalltable/findAll/{key}':
     parameters:
       - schema:
           type: string
@@ -6557,6 +6557,8 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+      x-stoplight:
+        id: kai6o2kht2eec
   '/overalltable/lightlist/{key}':
     parameters:
       - schema:
