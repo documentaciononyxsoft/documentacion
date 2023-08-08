@@ -6693,6 +6693,101 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /overalltable/manybyparam:
+    get:
+      summary: OverallTable - FindManyByParam
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      NumeroRegistros:
+                        type: integer
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Nombre:
+                              type: string
+                            Codigo:
+                              type: string
+                            TablaGeneralID:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      NumeroRegistros: 1
+                      records:
+                        - Nombre: Embalaje
+                          Codigo: EMB
+                          TablaGeneralID: 321
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      NumeroRegistros: 1
+                      records:
+                        - Nombre: Embalaje
+                          Codigo: EMB
+                          TablaGeneralID: 321
+      operationId: get-overalltable-manybyparam
+      x-stoplight:
+        id: 853d5l9q6e5e3
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: query
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+        - schema:
+            type: string
+            example: emba
+          in: query
+          name: param
+          description: Parámetro a buscar.
+        - schema:
+            type: string
+            example: '10'
+          in: query
+          name: limit
+          description: 'Límite de registros que trae la consulta. Si se envía el número 50, y la tabla tiene 2000 registros solo se traerán 50.'
+        - schema:
+            type: string
+            example: TIPOARTICULO
+          in: query
+          name: clave
+          description: Clave en tabla general.
+          required: true
+  /overalltable/validate:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-overalltable-validate
+      x-stoplight:
+        id: syzhx8iypfp1i
   /Ivas:
     get:
       summary: IVAs - FindAll
