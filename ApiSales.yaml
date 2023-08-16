@@ -16691,5 +16691,80 @@ paths:
           name: accessToken
           description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
           required: true
+  /sales/ordersto/consult:
+    get:
+      summary: SalesOrderSTO - FindManyByFilters
+      tags: []
+      responses: {}
+      operationId: get-sales-ordersto-consult
+      x-stoplight:
+        id: qbowc5ydlohv3
+      parameters:
+        - schema:
+            type: string
+            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
+          in: header
+          name: accessToken
+          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FechaIni:
+                  type: string
+                FechaEnd:
+                  type: string
+                NumeroIn:
+                  type: string
+                NumeroEnd:
+                  type: string
+                ClienteID:
+                  type: string
+                ArticuloID:
+                  type: string
+                FamiliaID:
+                  type: string
+                Estado:
+                  type: string
+                AlbaranGenerado:
+                  type: string
+                Facturado:
+                  type: string
+                offset:
+                  type: integer
+                limit:
+                  type: integer
+              x-examples:
+                Example 1:
+                  FechaIni: ''
+                  FechaEnd: ''
+                  NumeroIn: ''
+                  NumeroEnd: ''
+                  ClienteID: ''
+                  ArticuloID: ''
+                  FamiliaID: ''
+                  Estado: ''
+                  AlbaranGenerado: ''
+                  Facturado: ''
+                  offset: 0
+                  limit: 0
+            examples:
+              Example 1:
+                value:
+                  FechaIni: ''
+                  FechaEnd: ''
+                  NumeroIn: ''
+                  NumeroEnd: ''
+                  ClienteID: ''
+                  ArticuloID: ''
+                  FamiliaID: ''
+                  Estado: ''
+                  AlbaranGenerado: ''
+                  Facturado: ''
+                  offset: 0
+                  limit: 0
 components:
   schemas: {}
