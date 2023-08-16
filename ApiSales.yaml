@@ -16695,7 +16695,277 @@ paths:
     get:
       summary: SalesOrderSTO - FindManyByFilters
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      PedidoVentas:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            PedidoVentaCabeceraID:
+                              type: integer
+                            PedidoVentaLineaID:
+                              type: integer
+                            Numero:
+                              type: integer
+                            Fecha:
+                              type: string
+                            CodigoCliente:
+                              type: string
+                            NombreCliente:
+                              type: string
+                            NombreComercial:
+                              type: string
+                            Direccion:
+                              type: string
+                            DireccionEntrega:
+                              type: string
+                            NumeroSerieGrua:
+                              type: string
+                            NombreGrua:
+                              type: string
+                            Importe:
+                              type:
+                                - integer
+                                - number
+                            Estado:
+                              type: string
+                            NumeroAlbaran:
+                              type: integer
+                            NumeroFactura:
+                              type: integer
+                            NoFacturar:
+                              type: integer
+                            FechaHoraUsuario:
+                              type: string
+                            UsuarioID:
+                              type: integer
+                            NombreUsuario:
+                              type: string
+                      sql:
+                        type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      PedidoVentas:
+                        - PedidoVentaCabeceraID: 2287
+                          PedidoVentaLineaID: 5070
+                          Numero: 2129
+                          Fecha: '20230719'
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          NombreComercial: TIENDAS TRES B S A DE C V
+                          Direccion: 'CALLE RIO DANUBIO P2 51 COLONIA CUAUHTEMOC C.P 06500, CIUDAD DE MEXICO, CUAUHTEMOC'
+                          DireccionEntrega: MELCHOR OCAMPO 123  CENTRO EZEQUIEL MONTES QUERÉTARO 76650 MEX
+                          NumeroSerieGrua: ''
+                          NombreGrua: ''
+                          Importe: 40000
+                          Estado: ''
+                          NumeroAlbaran: 0
+                          NumeroFactura: 0
+                          NoFacturar: 0
+                          FechaHoraUsuario: '2023-07-19T20:29:19.463'
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                        - PedidoVentaCabeceraID: 2286
+                          PedidoVentaLineaID: 5069
+                          Numero: 2128
+                          Fecha: '20230719'
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          NombreComercial: TIENDAS TRES B S A DE C V
+                          Direccion: 'CALLE RIO DANUBIO P2 51 COLONIA CUAUHTEMOC C.P 06500, CIUDAD DE MEXICO, CUAUHTEMOC'
+                          DireccionEntrega: MELCHOR OCAMPO 123  CENTRO EZEQUIEL MONTES QUERÉTARO 76650 MEX
+                          NumeroSerieGrua: ''
+                          NombreGrua: ''
+                          Importe: 30000
+                          Estado: ''
+                          NumeroAlbaran: 0
+                          NumeroFactura: 0
+                          NoFacturar: 0
+                          FechaHoraUsuario: '2023-07-19T20:12:46.466'
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                        - PedidoVentaCabeceraID: 2285
+                          PedidoVentaLineaID: 5068
+                          Numero: 2127
+                          Fecha: '20230719'
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          NombreComercial: TIENDAS TRES B S A DE C V
+                          Direccion: 'CALLE RIO DANUBIO P2 51 COLONIA CUAUHTEMOC C.P 06500, CIUDAD DE MEXICO, CUAUHTEMOC'
+                          DireccionEntrega: MELCHOR OCAMPO 123  CENTRO EZEQUIEL MONTES QUERÉTARO 76650 MEX
+                          NumeroSerieGrua: ''
+                          NombreGrua: ''
+                          Importe: 30000
+                          Estado: ''
+                          NumeroAlbaran: 0
+                          NumeroFactura: 0
+                          NoFacturar: 0
+                          FechaHoraUsuario: '2023-07-19T20:10:13.340'
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                        - PedidoVentaCabeceraID: 2284
+                          PedidoVentaLineaID: 0
+                          Numero: 2126
+                          Fecha: '20230719'
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          NombreComercial: TIENDAS TRES B S A DE C V
+                          Direccion: 'CALLE RIO DANUBIO P2 51 COLONIA CUAUHTEMOC C.P 06500, CIUDAD DE MEXICO, CUAUHTEMOC'
+                          DireccionEntrega: MELCHOR OCAMPO 123  CENTRO EZEQUIEL MONTES QUERÉTARO 76650 MEX
+                          NumeroSerieGrua: ''
+                          NombreGrua: ''
+                          Importe: 0
+                          Estado: ''
+                          NumeroAlbaran: 0
+                          NumeroFactura: 0
+                          NoFacturar: 0
+                          FechaHoraUsuario: '2023-07-19T20:07:36.188'
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                        - PedidoVentaCabeceraID: 2180
+                          PedidoVentaLineaID: 4977
+                          Numero: 69
+                          Fecha: ''
+                          CodigoCliente: ''
+                          NombreCliente: ''
+                          NombreComercial: ''
+                          Direccion: ''
+                          DireccionEntrega: ''
+                          NumeroSerieGrua: ''
+                          NombreGrua: ''
+                          Importe: 213.75
+                          Estado: ''
+                          NumeroAlbaran: 0
+                          NumeroFactura: 0
+                          NoFacturar: 0
+                          FechaHoraUsuario: '2022-10-04T12:02:54.669'
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                      sql: string
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      PedidoVentas:
+                        - PedidoVentaCabeceraID: 2287
+                          PedidoVentaLineaID: 5070
+                          Numero: 2129
+                          Fecha: '20230719'
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          NombreComercial: TIENDAS TRES B S A DE C V
+                          Direccion: 'CALLE RIO DANUBIO P2 51 COLONIA CUAUHTEMOC C.P 06500, CIUDAD DE MEXICO, CUAUHTEMOC'
+                          DireccionEntrega: MELCHOR OCAMPO 123  CENTRO EZEQUIEL MONTES QUERÉTARO 76650 MEX
+                          NumeroSerieGrua: ''
+                          NombreGrua: ''
+                          Importe: 40000
+                          Estado: ''
+                          NumeroAlbaran: 0
+                          NumeroFactura: 0
+                          NoFacturar: 0
+                          FechaHoraUsuario: '2023-07-19T20:29:19.463'
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                        - PedidoVentaCabeceraID: 2286
+                          PedidoVentaLineaID: 5069
+                          Numero: 2128
+                          Fecha: '20230719'
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          NombreComercial: TIENDAS TRES B S A DE C V
+                          Direccion: 'CALLE RIO DANUBIO P2 51 COLONIA CUAUHTEMOC C.P 06500, CIUDAD DE MEXICO, CUAUHTEMOC'
+                          DireccionEntrega: MELCHOR OCAMPO 123  CENTRO EZEQUIEL MONTES QUERÉTARO 76650 MEX
+                          NumeroSerieGrua: ''
+                          NombreGrua: ''
+                          Importe: 30000
+                          Estado: ''
+                          NumeroAlbaran: 0
+                          NumeroFactura: 0
+                          NoFacturar: 0
+                          FechaHoraUsuario: '2023-07-19T20:12:46.466'
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                        - PedidoVentaCabeceraID: 2285
+                          PedidoVentaLineaID: 5068
+                          Numero: 2127
+                          Fecha: '20230719'
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          NombreComercial: TIENDAS TRES B S A DE C V
+                          Direccion: 'CALLE RIO DANUBIO P2 51 COLONIA CUAUHTEMOC C.P 06500, CIUDAD DE MEXICO, CUAUHTEMOC'
+                          DireccionEntrega: MELCHOR OCAMPO 123  CENTRO EZEQUIEL MONTES QUERÉTARO 76650 MEX
+                          NumeroSerieGrua: ''
+                          NombreGrua: ''
+                          Importe: 30000
+                          Estado: ''
+                          NumeroAlbaran: 0
+                          NumeroFactura: 0
+                          NoFacturar: 0
+                          FechaHoraUsuario: '2023-07-19T20:10:13.340'
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                        - PedidoVentaCabeceraID: 2284
+                          PedidoVentaLineaID: 0
+                          Numero: 2126
+                          Fecha: '20230719'
+                          CodigoCliente: '10300010329'
+                          NombreCliente: TIENDAS TRES B S A DE C V
+                          NombreComercial: TIENDAS TRES B S A DE C V
+                          Direccion: 'CALLE RIO DANUBIO P2 51 COLONIA CUAUHTEMOC C.P 06500, CIUDAD DE MEXICO, CUAUHTEMOC'
+                          DireccionEntrega: MELCHOR OCAMPO 123  CENTRO EZEQUIEL MONTES QUERÉTARO 76650 MEX
+                          NumeroSerieGrua: ''
+                          NombreGrua: ''
+                          Importe: 0
+                          Estado: ''
+                          NumeroAlbaran: 0
+                          NumeroFactura: 0
+                          NoFacturar: 0
+                          FechaHoraUsuario: '2023-07-19T20:07:36.188'
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                        - PedidoVentaCabeceraID: 2180
+                          PedidoVentaLineaID: 4977
+                          Numero: 69
+                          Fecha: ''
+                          CodigoCliente: ''
+                          NombreCliente: ''
+                          NombreComercial: ''
+                          Direccion: ''
+                          DireccionEntrega: ''
+                          NumeroSerieGrua: ''
+                          NombreGrua: ''
+                          Importe: 213.75
+                          Estado: ''
+                          NumeroAlbaran: 0
+                          NumeroFactura: 0
+                          NoFacturar: 0
+                          FechaHoraUsuario: '2022-10-04T12:02:54.669'
+                          UsuarioID: 1
+                          NombreUsuario: ADMINISTRADOR
+                      sql: string
       operationId: get-sales-ordersto-consult
       x-stoplight:
         id: qbowc5ydlohv3
