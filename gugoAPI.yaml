@@ -1,0 +1,467 @@
+openapi: 3.1.0
+x-stoplight:
+  id: xiurjxbp9jqro
+info:
+  title: gugaAPI
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /guga/purchaseorders:
+    post:
+      summary: ''
+      operationId: post-guga-purchaseorders
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      PedidoCompraCabeceraID:
+                        type: integer
+                      Numero:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      PedidoCompraCabeceraID: 1691
+                      Numero: 1738
+          headers: {}
+      x-stoplight:
+        id: 0f4ke1w5dz99c
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                codigoProveedor:
+                  type: string
+                  x-stoplight:
+                    id: p15vnqag27z9w
+                DireccionEntrega:
+                  type: string
+                  x-stoplight:
+                    id: z9df0k1e08h3l
+                numeroPedidoCompraGugo:
+                  type: string
+                  x-stoplight:
+                    id: j1fl0o0b6jnoc
+                  description: Se guarda en Referencia Interna
+                incoterm:
+                  type: string
+                  x-stoplight:
+                    id: gqhbvxh6fqiyq
+                  description: Se guarda en una nota en la Gestion Documental del proveedor
+                pedidoAbierto:
+                  type: string
+                  x-stoplight:
+                    id: 3ujx4nxq1abiv
+                  description: Se guarda en la clasificacion PedidoAbierto del pedido de compra
+                Numero:
+                  type: string
+                  x-stoplight:
+                    id: ahorifxsnnx0v
+                ReferenciaProveedor:
+                  type: string
+                  x-stoplight:
+                    id: qv01sq8z44yp9
+                ProveedorID:
+                  type: string
+                  x-stoplight:
+                    id: xuqyotqgv9cv8
+                NotaGeneral:
+                  type: string
+                  x-stoplight:
+                    id: uzcr397tmvslc
+                NotaProveedor:
+                  type: string
+                  x-stoplight:
+                    id: 54nmjyo4zr2s9
+                ContactoID:
+                  type: string
+                  x-stoplight:
+                    id: unrfu16bjwxan
+                Portes:
+                  type: string
+                  x-stoplight:
+                    id: syod6m39z1gg4
+                MonedaID:
+                  type: string
+                  x-stoplight:
+                    id: dmdu5p4kiojkp
+                DireccionEnvioID:
+                  type: string
+                  x-stoplight:
+                    id: z9ypv5nimufm3
+                Direccion:
+                  type: string
+                  x-stoplight:
+                    id: h3vk98rdny82e
+                MunicipioID:
+                  type: string
+                  x-stoplight:
+                    id: ss0oixwsphhrp
+                ProvinciaID:
+                  type: string
+                  x-stoplight:
+                    id: y4d568hwhgeus
+                PaisID:
+                  type: string
+                  x-stoplight:
+                    id: nt7tu1hxcnvic
+                PedidoPor:
+                  type: string
+                  x-stoplight:
+                    id: w4hcaqqgbict1
+                FechaPedido:
+                  type: string
+                  x-stoplight:
+                    id: m48sz0xurdhd2
+                FechaEntregaProveedor:
+                  type: string
+                  x-stoplight:
+                    id: d6fuz0qacs1zt
+                FechaRecepcionPrevista:
+                  type: string
+                  x-stoplight:
+                    id: banhsrcf9o1eh
+                SeriePedidoID:
+                  type: string
+                  x-stoplight:
+                    id: tnxoxwob7bx76
+                MonedaCambio:
+                  type: string
+                  x-stoplight:
+                    id: 6dvcs2spe988z
+                AlmacenID:
+                  type: string
+                  x-stoplight:
+                    id: 609kbk6ga0tk9
+                TransportistaID:
+                  type: string
+                  x-stoplight:
+                    id: k5j4z35v2jivs
+                ReferenciaInterna:
+                  type: string
+                  x-stoplight:
+                    id: wt19yf8plqrz7
+                Recibido:
+                  type: string
+                  x-stoplight:
+                    id: ryipumcbciit8
+                Confirmado:
+                  type: string
+                  x-stoplight:
+                    id: dof5thdmop1h6
+                ImportePortes:
+                  type: string
+                  x-stoplight:
+                    id: gtyp2iid76q6v
+                Estado:
+                  type: string
+                  x-stoplight:
+                    id: z28jpy8dq2lug
+                EsSubcontratacion:
+                  type: string
+                  x-stoplight:
+                    id: ybho0dhpxs3mf
+                PedidoVentaCabeceraID:
+                  type: string
+                  x-stoplight:
+                    id: 4cmo5i9m5hogv
+                IdiomaID:
+                  type: string
+                  x-stoplight:
+                    id: tmbj639zmks29
+                EntregarEn:
+                  type: string
+                  x-stoplight:
+                    id: lnooeujmqauig
+                Municipio:
+                  type: string
+                  x-stoplight:
+                    id: 8b3pdvw47dgig
+                DireccionOrigenId:
+                  type: string
+                  x-stoplight:
+                    id: 17zj0skacloas
+                PedidoNoValorado:
+                  type: string
+                  x-stoplight:
+                    id: uodityst8t86s
+                TipoPedidoID:
+                  type: string
+                  x-stoplight:
+                    id: flvsfalnq89xo
+              required:
+                - codigoProveedor
+                - DireccionEntrega
+  '/guga/purchaseorders/{PedidoCompraCabeceraID}/lines':
+    post:
+      summary: ''
+      operationId: post-guga-purchaseorderexample
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      PedidoCompraLineaID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      PedidoCompraLineaID: 3716
+      x-stoplight:
+        id: n6zqe6tkmfqy7
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                CodigoArticulo:
+                  type: string
+                  x-stoplight:
+                    id: vkg5ffpuaitpd
+                Linea:
+                  type: string
+                  x-stoplight:
+                    id: m0ihi0fup704d
+                Nombre:
+                  type: string
+                  x-stoplight:
+                    id: guvmsq0u5sp7r
+                Descripcion:
+                  type: string
+                  x-stoplight:
+                    id: o0llnedthimvo
+                Cantidad:
+                  type: string
+                  x-stoplight:
+                    id: yxdjtu14rsypi
+                PrecioCompra:
+                  type: string
+                  x-stoplight:
+                    id: bzx34170y8gu2
+                IvaID:
+                  type: string
+                  x-stoplight:
+                    id: 6fiojwubwb7k8
+                Referencia:
+                  type: string
+                  x-stoplight:
+                    id: 826sfd5gmrigi
+                NotaInterna:
+                  type: string
+                  x-stoplight:
+                    id: h1gegkw44k2hu
+                NotaProveedor:
+                  type: string
+                  x-stoplight:
+                    id: twx61zwywr7dh
+                TipoLinea:
+                  type: string
+                  x-stoplight:
+                    id: ocffret7bdt3o
+                AlmacenID:
+                  type: string
+                  x-stoplight:
+                    id: cyijnp08lrniw
+                ImporteCompra:
+                  type: string
+                  x-stoplight:
+                    id: 19h0apo11c72a
+                FechaRecepcionPrevista:
+                  type: string
+                  x-stoplight:
+                    id: i9fbafbq8px4j
+                FechaEntregaProveedor:
+                  type: string
+                  x-stoplight:
+                    id: lb1fx81dwi503
+                Dto1:
+                  type: string
+                  x-stoplight:
+                    id: 62n2stq779euv
+                Dto2:
+                  type: string
+                  x-stoplight:
+                    id: ie7rxxebdmk66
+                Dto3:
+                  type: string
+                  x-stoplight:
+                    id: g3uxufcjmtm1e
+                Recibido:
+                  type: string
+                  x-stoplight:
+                    id: 9pj2gqrflpbfg
+                CantidadRecibida:
+                  type: string
+                  x-stoplight:
+                    id: af68n7a3zrsye
+                CantidadOriginal:
+                  type: string
+                  x-stoplight:
+                    id: a0vhsbz6g2sjd
+                CentroDeCosteID:
+                  type: string
+                  x-stoplight:
+                    id: tk4ppar803m51
+                PorcentajeIVA:
+                  type: string
+                  x-stoplight:
+                    id: kn7htmp87h1bb
+                NivelIngenieriaID:
+                  type: string
+                  x-stoplight:
+                    id: tentlocfkbaib
+                PedidoVentaLineaID:
+                  type: string
+                  x-stoplight:
+                    id: mrbpxbvmwdvp9
+                Confirmado:
+                  type: string
+                  x-stoplight:
+                    id: y9s2kf15imnvk
+                Factor:
+                  type: string
+                  x-stoplight:
+                    id: 1c27apjwwcq6m
+                Cantidad2:
+                  type: string
+                  x-stoplight:
+                    id: y0tt6qko0xpqc
+                CantidadRecibida2:
+                  type: string
+                  x-stoplight:
+                    id: r7p4b8ufp7hkm
+                EntregarEn:
+                  type: string
+                  x-stoplight:
+                    id: d00p8tn0xuwg4
+                SolicitudInternaCompraLineaID:
+                  type: string
+                  x-stoplight:
+                    id: 24jfyjhqsbtp2
+                PedidoCompraLineaPadreID:
+                  type: string
+                  x-stoplight:
+                    id: 2mf39abxlfzc3
+                ArticuloVariableValorID:
+                  type: string
+                  x-stoplight:
+                    id: hcdedupmikktw
+                ProcesoContenedorID:
+                  type: string
+                  x-stoplight:
+                    id: qrmkck9k7jyv6
+                ReferenciaProveedor:
+                  type: string
+                  x-stoplight:
+                    id: r48ib6c3zzqvi
+                FactorCantidad:
+                  type: string
+                  x-stoplight:
+                    id: v2cnsijbvobw5
+              required:
+                - CodigoArticulo
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          required: true
+    parameters:
+      - schema:
+          type: string
+        name: PedidoCompraCabeceraID
+        in: path
+        required: true
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      examples:
+        - id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+          x-stoplight:
+            id: pozc7u992fba5
+        firstName:
+          type: string
+          x-stoplight:
+            id: z28lp9dcjnqyg
+        lastName:
+          type: string
+          x-stoplight:
+            id: 34nq5whyl0zqr
+        email:
+          type: string
+          format: email
+          x-stoplight:
+            id: 3z3jacxkkcw9l
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+          x-stoplight:
+            id: rajjay8y6s1em
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+          x-stoplight:
+            id: p9fmpa6z32jcz
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+          x-stoplight:
+            id: mqii1t6c4ugbi
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified
+      x-stoplight:
+        id: jizcgnj6yf5hq
