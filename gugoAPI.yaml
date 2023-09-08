@@ -46,6 +46,11 @@ paths:
           in: header
           name: accessToken
           required: true
+        - schema:
+            type: string
+          in: header
+          name: developedMode
+          description: 1 para que retorne el detalle de los errores
       requestBody:
         content:
           application/json:
@@ -401,6 +406,11 @@ paths:
           in: header
           name: accessToken
           required: true
+        - schema:
+            type: string
+          in: header
+          description: 1 para que retorne el detalle de los errores
+          name: developedMode
     parameters:
       - schema:
           type: string
