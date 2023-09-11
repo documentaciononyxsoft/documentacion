@@ -1,17 +1,17 @@
 openapi: 3.1.0
 x-stoplight:
-  id: 02z12o3lc6v6g
+  id: h3n8zpb8rs93d
 info:
-  title: ApiCustomers
+  title: ApiTokens_Account
   version: '1.0'
 servers:
   - url: 'http://localhost:3000'
 paths:
-  '/customers/{customerId}':
+  '/users/{tokenId}':
     parameters:
       - schema:
           type: string
-        name: customerId
+        name: tokenId
         in: path
         required: true
     get:
@@ -19,60 +19,27 @@ paths:
       tags: []
       responses:
         '200':
-          description: Customer Found
+          description: User Found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  customer_id:
-                    type: integer
-                    x-stoplight:
-                      id: 69l5wb0upa9hz
-                    format: int32
-                    readOnly: true
-                  first_name:
-                    type: string
-                    x-stoplight:
-                      id: gs36oxhbxicg6
-                  last_name:
-                    type: string
-                    x-stoplight:
-                      id: 9vc5abvycudvx
-                  phone:
-                    type: number
-                    x-stoplight:
-                      id: 90zof34n1iltf
-                    exclusiveMinimum: 11
-                    exclusiveMaximum: 13
-                  email:
-                    type: string
-                    x-stoplight:
-                      id: 6h1e6us19fbc7
-                  province:
-                    type: string
-                    x-stoplight:
-                      id: iypaxnx4j6u8b
-                  city:
-                    type: string
-                    x-stoplight:
-                      id: bpoir71k8podr
-                  adress:
-                    type: string
-                    x-stoplight:
-                      id: nt9ekfen7udx8
-                required:
-                  - first_name
-                  - last_name
-                  - email
+                $ref: '#/components/schemas/User'
+              examples:
+                Get User Alice Smith:
+                  value:
+                    id: 142
+                    firstName: Alice
+                    lastName: Smith
+                    email: alice.smith@gmail.com
+                    dateOfBirth: '1997-10-31'
+                    emailVerified: true
+                    signUpDate: '2019-08-24'
         '404':
-          description: Customer Not Found
-        '':
-          description: Customer found
-      operationId: get-customers-customerId
-      description: Retrieve the information of the customer with the matching customer ID.
+          description: User Not Found
+      operationId: get-users-userId
+      description: Retrieve the information of the user with the matching user ID.
       x-stoplight:
-        id: maev7ac9m85qm
+        id: 6trfqjgni6lus
     patch:
       summary: Update User Information
       operationId: patch-users-userId
@@ -126,7 +93,46 @@ paths:
                   dateOfBirth: '1985-10-02'
         description: Patch user properties to update.
       x-stoplight:
-        id: dvnwurt7rv2iv
+        id: pz7ctdh6g3g7q
+    post:
+      summary: ''
+      operationId: post-tokens-tokenId
+      responses:
+        '200':
+          description: OK
+      x-stoplight:
+        id: hqgoo43alyp63
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token_id:
+                  type: integer
+                  x-stoplight:
+                    id: z18huzt88ufax
+                  format: int32
+                  readOnly: true
+                token:
+                  type: integer
+                  x-stoplight:
+                    id: 8m2oolvyhf2zf
+                  format: int32
+                  readOnly: true
+                user_id:
+                  type: integer
+                  x-stoplight:
+                    id: h93cisofuxyaf
+                  format: int32
+                  readOnly: true
+                expiration:
+                  type: string
+                  x-stoplight:
+                    id: jg4q1c1xql8fd
+                  format: date-time
+                  readOnly: true
   /user:
     post:
       summary: Create New User
@@ -182,7 +188,7 @@ paths:
         description: Post the necessary fields for the API to create a new user.
       description: Create a new user.
       x-stoplight:
-        id: o5dhamssn84de
+        id: vay156bou5jmn
 components:
   schemas:
     User:
@@ -202,37 +208,37 @@ components:
           type: integer
           description: Unique identifier for the given user.
           x-stoplight:
-            id: 6v3pdykjbp4a0
+            id: aqzfxbj4qcw5q
         firstName:
           type: string
           x-stoplight:
-            id: t1vivn4q24c0z
+            id: 05gci2j5we9nb
         lastName:
           type: string
           x-stoplight:
-            id: 73iv8mxke2he1
+            id: d0mcjzi7msnuv
         email:
           type: string
           format: email
           x-stoplight:
-            id: qfy2gx0vcm2nc
+            id: a9mm21eyjtgf9
         dateOfBirth:
           type: string
           format: date
           example: '1997-10-31'
           x-stoplight:
-            id: 1dmqbd7s4n0qe
+            id: peyczey46fqv1
         emailVerified:
           type: boolean
           description: Set to true if the user's email has been verified.
           x-stoplight:
-            id: 3am92qg2xwdaf
+            id: 7uvacdaczmhl9
         createDate:
           type: string
           format: date
           description: The date that the user was created.
           x-stoplight:
-            id: nj1eoua9p8t17
+            id: 2xgi0wqa2s13c
       required:
         - id
         - firstName
@@ -240,4 +246,15 @@ components:
         - email
         - emailVerified
       x-stoplight:
-        id: zcyhuj142smx4
+        id: u8cbvqv90fkua
+  securitySchemes:
+    API Key - 1:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: ''
+          tokenUrl: ''
+          refreshUrl: ''
+          scopes: {}
+security:
+  - API Key - 1: []
