@@ -4,6 +4,7 @@ x-stoplight:
 info:
   title: API - Contracts
   version: '1.0'
+  description: ''
 servers:
   - url: 'http://localhost:3000'
 paths:
@@ -2227,3 +2228,4 @@ paths:
           description: 'Registro a partir del cual empezará a traer los datos desde la tabla. Si se envía 20, y en la tabla existen 100 registros, la respuesta traerá solo los registros comprendidos entre las posiciones 20 y 100, y los primero 20 se omitirán.'
 components:
   schemas: {}
+  securitySchemes: {}

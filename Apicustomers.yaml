@@ -7,20 +7,19 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  '/users/{userId}':
+  '/customers/{customerId}':
     parameters:
       - schema:
-          type: integer
-        name: userId
+          type: string
+        name: customerId
         in: path
         required: true
-        description: Id of an existing user.
     get:
       summary: Get User Info by User ID
       tags: []
       responses:
         '200':
-          description: User Found
+          description: Customer Found
           content:
             application/json:
               schema:
@@ -36,9 +35,11 @@ paths:
                     emailVerified: true
                     signUpDate: '2019-08-24'
         '404':
-          description: User Not Found
-      operationId: get-users-userId
-      description: Retrieve the information of the user with the matching user ID.
+          description: Customer Not Found
+        '':
+          description: Customer found
+      operationId: get-customers-customerId
+      description: Retrieve the information of the customer with the matching customer ID.
       x-stoplight:
         id: maev7ac9m85qm
     patch:
