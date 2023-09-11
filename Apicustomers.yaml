@@ -23,17 +23,48 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
-              examples:
-                Get User Alice Smith:
-                  value:
-                    id: 142
-                    firstName: Alice
-                    lastName: Smith
-                    email: alice.smith@gmail.com
-                    dateOfBirth: '1997-10-31'
-                    emailVerified: true
-                    signUpDate: '2019-08-24'
+                type: object
+                properties:
+                  customer_id:
+                    type: integer
+                    x-stoplight:
+                      id: 69l5wb0upa9hz
+                    format: int32
+                    readOnly: true
+                  first_name:
+                    type: string
+                    x-stoplight:
+                      id: gs36oxhbxicg6
+                  last_name:
+                    type: string
+                    x-stoplight:
+                      id: 9vc5abvycudvx
+                  phone:
+                    type: number
+                    x-stoplight:
+                      id: 90zof34n1iltf
+                    exclusiveMinimum: 11
+                    exclusiveMaximum: 13
+                  email:
+                    type: string
+                    x-stoplight:
+                      id: 6h1e6us19fbc7
+                  province:
+                    type: string
+                    x-stoplight:
+                      id: iypaxnx4j6u8b
+                  city:
+                    type: string
+                    x-stoplight:
+                      id: bpoir71k8podr
+                  adress:
+                    type: string
+                    x-stoplight:
+                      id: nt9ekfen7udx8
+                required:
+                  - first_name
+                  - last_name
+                  - email
         '404':
           description: Customer Not Found
         '':
