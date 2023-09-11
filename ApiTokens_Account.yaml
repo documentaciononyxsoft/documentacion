@@ -7,102 +7,22 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  '/users/{tokenId}':
-    parameters:
-      - schema:
-          type: string
-        name: tokenId
-        in: path
-        required: true
+  /tokens/token_id:
     get:
-      summary: Get User Info by User ID
+      summary: Your GET endpoint
       tags: []
-      responses:
-        '200':
-          description: User Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-              examples:
-                Get User Alice Smith:
-                  value:
-                    id: 142
-                    firstName: Alice
-                    lastName: Smith
-                    email: alice.smith@gmail.com
-                    dateOfBirth: '1997-10-31'
-                    emailVerified: true
-                    signUpDate: '2019-08-24'
-        '404':
-          description: User Not Found
-      operationId: get-users-userId
-      description: Retrieve the information of the user with the matching user ID.
+      responses: {}
+      operationId: get-tokens-token_id
       x-stoplight:
-        id: 6trfqjgni6lus
-    patch:
-      summary: Update User Information
-      operationId: patch-users-userId
-      responses:
-        '200':
-          description: User Updated
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-              examples:
-                Updated User Rebecca Baker:
-                  value:
-                    id: 13
-                    firstName: Rebecca
-                    lastName: Baker
-                    email: rebecca@gmail.com
-                    dateOfBirth: '1985-10-02'
-                    emailVerified: false
-                    createDate: '2019-08-24'
-        '404':
-          description: User Not Found
-        '409':
-          description: Email Already Taken
-      description: Update the information of an existing user.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                firstName:
-                  type: string
-                lastName:
-                  type: string
-                email:
-                  type: string
-                  description: 'If a new email is given, the user''s email verified property will be set to false.'
-                dateOfBirth:
-                  type: string
-            examples:
-              Update First Name:
-                value:
-                  firstName: Rebecca
-              Update Email:
-                value:
-                  email: rebecca@gmail.com
-              Update Last Name & Date of Birth:
-                value:
-                  lastName: Baker
-                  dateOfBirth: '1985-10-02'
-        description: Patch user properties to update.
-      x-stoplight:
-        id: pz7ctdh6g3g7q
+        id: w3uraooxymrz9
     post:
       summary: ''
-      operationId: post-tokens-tokenId
+      operationId: post-tokens-token_id
       responses:
         '200':
           description: OK
       x-stoplight:
-        id: hqgoo43alyp63
-      description: ''
+        id: bw9dkl44usymf
       requestBody:
         content:
           application/json:
@@ -110,85 +30,20 @@ paths:
               type: object
               properties:
                 token_id:
-                  type: integer
+                  $ref: '#/components/schemas/User'
                   x-stoplight:
-                    id: z18huzt88ufax
-                  format: int32
-                  readOnly: true
+                    id: rhah9xlwud0n1
                 token:
                   type: integer
                   x-stoplight:
-                    id: 8m2oolvyhf2zf
-                  format: int32
-                  readOnly: true
-                user_id:
-                  type: integer
-                  x-stoplight:
-                    id: h93cisofuxyaf
+                    id: rgdwseptm0oep
                   format: int32
                   readOnly: true
                 expiration:
                   type: string
                   x-stoplight:
-                    id: jg4q1c1xql8fd
+                    id: tfikotz0s8zyj
                   format: date-time
-                  readOnly: true
-  /user:
-    post:
-      summary: Create New User
-      operationId: post-user
-      responses:
-        '200':
-          description: User Created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-              examples:
-                New User Bob Fellow:
-                  value:
-                    id: 12
-                    firstName: Bob
-                    lastName: Fellow
-                    email: bob.fellow@gmail.com
-                    dateOfBirth: '1996-08-24'
-                    emailVerified: false
-                    createDate: '2020-11-18'
-        '400':
-          description: Missing Required Information
-        '409':
-          description: Email Already Taken
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                firstName:
-                  type: string
-                lastName:
-                  type: string
-                email:
-                  type: string
-                dateOfBirth:
-                  type: string
-                  format: date
-              required:
-                - firstName
-                - lastName
-                - email
-                - dateOfBirth
-            examples:
-              Create User Bob Fellow:
-                value:
-                  firstName: Bob
-                  lastName: Fellow
-                  email: bob.fellow@gmail.com
-                  dateOfBirth: '1996-08-24'
-        description: Post the necessary fields for the API to create a new user.
-      description: Create a new user.
-      x-stoplight:
-        id: vay156bou5jmn
 components:
   schemas:
     User:
