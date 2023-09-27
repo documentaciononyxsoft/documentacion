@@ -7,7 +7,7 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  /guga/purchaseorders:
+  /gugo/purchaseorders:
     post:
       summary: ''
       operationId: post-guga-purchaseorders
@@ -218,8 +218,8 @@ paths:
                     id: flvsfalnq89xo
               required:
                 - codigoProveedor
-                - DireccionEntrega
-  '/guga/purchaseorders/{PedidoCompraCabeceraID}/lines':
+    parameters: []
+  '/gugo/purchaseorders/{PedidoCompraCabeceraID}/lines':
     post:
       summary: ''
       operationId: post-guga-purchaseorderexample
