@@ -156,6 +156,121 @@ paths:
           in: query
           name: order
           description: ASC
+    post:
+      summary: Contracts - Create
+      operationId: post-contract
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                      FechaHoraUsuario:
+                        type: string
+                      ContratoMantenimientoID:
+                        type: integer
+                      CustomerID:
+                        type: integer
+                      EmpresaID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      FechaHoraUsuario: '2019-08-05T00:00:00.000'
+                      ContratoMantenimientoID: 25
+                      CustomerID: 29
+                      EmpresaID: 1
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+                      FechaHoraUsuario: '2019-08-05T00:00:00.000'
+                      ContratoMantenimientoID: 25
+                      CustomerID: 29
+                      EmpresaID: 1
+      parameters:
+        - schema:
+            type: string
+            example: >-
+              eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
+          in: header
+          name: 'accessToken '
+          description: Token Reciente
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                FechaAlta:
+                  type: string
+                FechaBaja:
+                  type: string
+                RenovacionAutomatica:
+                  type: string
+                Activo:
+                  type: string
+                ClienteID:
+                  type: string
+                FechaInicio:
+                  type: string
+                Meses:
+                  type: string
+                FechaFinalizacion:
+                  type: string
+                TipoContratoMantenimientoID:
+                  type: string
+                ContactoID:
+                  type: string
+                Nota:
+                  type: string
+              x-examples:
+                Example 1:
+                  FechaAlta: '20190805'
+                  FechaBaja: '20240325'
+                  RenovacionAutomatica: '1'
+                  Activo: '1'
+                  ClienteID: '1'
+                  FechaInicio: '20230212'
+                  Meses: '12'
+                  FechaFinalizacion: '20240316'
+                  TipoContratoMantenimientoID: '1160'
+                  ContactoID: '79'
+                  Nota: CONTRATOPRUEBA
+            examples:
+              Example 1:
+                value:
+                  FechaAlta: '20190805'
+                  FechaBaja: '20240325'
+                  RenovacionAutomatica: '1'
+                  Activo: '1'
+                  ClienteID: '1'
+                  FechaInicio: '20230212'
+                  Meses: '12'
+                  FechaFinalizacion: '20240316'
+                  TipoContratoMantenimientoID: '1160'
+                  ContactoID: '79'
+                  Nota: CONTRATOPRUEBA
+      description: 'APi para crear contratos '
+      x-stoplight:
+        id: fyyzb42it7yns
   '/contract/{ContratoMantenimientoID}':
     parameters:
       - schema:
@@ -315,119 +430,6 @@ paths:
           in: header
           name: accessToken
           description: 'token reciente '
-  /contract:
-    post:
-      summary: Contracts - Create
-      operationId: post-contract
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      FechaHoraUsuario:
-                        type: string
-                      ContratoMantenimientoID:
-                        type: integer
-                      CustomerID:
-                        type: integer
-                      EmpresaID:
-                        type: integer
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      FechaHoraUsuario: '2019-08-05T00:00:00.000'
-                      ContratoMantenimientoID: 25
-                      CustomerID: 29
-                      EmpresaID: 1
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      FechaHoraUsuario: '2019-08-05T00:00:00.000'
-                      ContratoMantenimientoID: 25
-                      CustomerID: 29
-                      EmpresaID: 1
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMzQiLCAiY3VzdG9tZXJJRCI6IjI5IiwgInJ1dGFGb3RvIjoiIiwgInVzZXJOYW1lIjoiWWVzc2ljYSBHYXJjXHUwMGVkYSIsICJhZG1pbmlzdHJhZG9yIjoiMCIsICJlbXByZXNhSUQiOiIxIiwgImFwaUtleSI6Im1pc2VjcmV0aXRvIiwgImN0b2tlbiI6IiIsICJpYXQiOjE2ODEzMTM0MzEsICJleHAiOjE2ODQ5MTM0MzEgfQ.wZngeFlW-DDh_Ty3PtDmAvLy-kKJ6eBY6bCTkrmKmaU
-          in: header
-          name: 'accessToken '
-          description: Token Reciente
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                FechaAlta:
-                  type: string
-                FechaBaja:
-                  type: string
-                RenovacionAutomatica:
-                  type: string
-                Activo:
-                  type: string
-                ClienteID:
-                  type: string
-                FechaInicio:
-                  type: string
-                Meses:
-                  type: string
-                FechaFinalizacion:
-                  type: string
-                TipoContratoMantenimientoID:
-                  type: string
-                ContactoID:
-                  type: string
-                Nota:
-                  type: string
-              x-examples:
-                Example 1:
-                  FechaAlta: '20190805'
-                  FechaBaja: '20240325'
-                  RenovacionAutomatica: '1'
-                  Activo: '1'
-                  ClienteID: '1'
-                  FechaInicio: '20230212'
-                  Meses: '12'
-                  FechaFinalizacion: '20240316'
-                  TipoContratoMantenimientoID: '1160'
-                  ContactoID: '79'
-                  Nota: CONTRATOPRUEBA
-            examples:
-              Example 1:
-                value:
-                  FechaAlta: '20190805'
-                  FechaBaja: '20240325'
-                  RenovacionAutomatica: '1'
-                  Activo: '1'
-                  ClienteID: '1'
-                  FechaInicio: '20230212'
-                  Meses: '12'
-                  FechaFinalizacion: '20240316'
-                  TipoContratoMantenimientoID: '1160'
-                  ContactoID: '79'
-                  Nota: CONTRATOPRUEBA
-      description: 'APi para crear contratos '
   /contract/quicksearch:
     get:
       summary: Contracts - FindManyByFilter
