@@ -427,6 +427,7 @@ paths:
                   TipoContratoMantenimientoID: '1160'
                   ContactoID: '79'
                   Nota: CONTRATOPRUEBA
+      description: 'APi para crear contratos '
   /contract/quicksearch:
     get:
       summary: Contracts - FindManyByFilter
