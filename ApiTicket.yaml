@@ -5,7 +5,8 @@ info:
   title: API - Ticket
   version: '1.0'
 servers:
-  - url: 'http://15.236.85.216/'
+  - url: 'https://netvy-api-dev.onyxsoft.co'
+    description: dev server
 paths:
   /consult/contracts:
     get:

@@ -6,8 +6,8 @@ info:
   title: API - Offers
   description: ''
 servers:
-  - description: Direccion Francia
-    url: 'http://15.236.85.216/'
+  - description: dev server
+    url: 'https://netvy-api-dev.onyxsoft.co'
 paths:
   /offers:
     post:

@@ -5,7 +5,7 @@ info:
   title: API - Main
   version: '1.0'
 servers:
-  - url: 'http://localhost:3000'
+  - url: 'https://netvy-api-dev.onyxsoft.co'
 paths:
   /grid:
     parameters: []

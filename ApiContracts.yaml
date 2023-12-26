@@ -6,7 +6,8 @@ info:
   version: '1.0'
   description: ''
 servers:
-  - url: 'https://dev.onyxsoft.co'
+  - url: 'https://netvy-api-dev.onyxsoft.co'
+    description: dev server
 paths:
   /contracts:
     get:

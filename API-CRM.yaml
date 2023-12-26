@@ -4,6 +4,7 @@ x-stoplight:
 info:
   title: API - CRM
   version: '1.0'
+  description: ''
 servers:
   - url: 'https://netvy-api-dev.onyxsoft.co'
     description: dev server

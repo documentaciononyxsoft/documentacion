@@ -5,7 +5,8 @@ info:
   title: API - MasterTables
   version: '1.0'
 servers:
-  - url: 'http://localhost'
+  - url: 'https://netvy-api-dev.onyxsoft.co'
+    description: dev server
 paths:
   /tables/account:
     get:
