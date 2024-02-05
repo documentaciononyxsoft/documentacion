@@ -9,13 +9,50 @@ servers:
   - description: dev server
     url: 'https://netvy-api-dev.onyxsoft.co'
 paths:
-  /login:
+  /v1/login:
     post:
       summary: Login
       operationId: post-login
       responses:
         '200':
-          description: ''
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      token: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjE0NTg2LCAiZXhwIjoxNjY4NjIxNzg2IH0.CH41WeuWJD-yDF_TmXtk47RPUBwUp3IkdTedvuO8yvQ
+                      usuarioID: 1
+                properties:
+                  statusCode:
+                    type: integer
+                    default: 200
+                  message:
+                    type: string
+                    default: Request processed successfully
+                  content:
+                    type: object
+                    properties:
+                      token:
+                        type: string
+                        description: Token necesario para enviar en la cabecera de las demas peticiones
+                      usuarioID:
+                        type: integer
+                        description: ID en la BD del erp del usuario que se acaba de autenticar
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      token: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjE0NTg2LCAiZXhwIjoxNjY4NjIxNzg2IH0.CH41WeuWJD-yDF_TmXtk47RPUBwUp3IkdTedvuO8yvQ
+                      usuarioID: 1
+        '400':
+          description: autenticación fallida
           content:
             application/json:
               schema:
@@ -27,28 +64,20 @@ paths:
                     type: string
                   content:
                     type: object
-                    properties:
-                      token:
-                        type: string
-                      usuarioID:
-                        type: integer
+                    properties: {}
                 x-examples:
                   Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      token: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjE0NTg2LCAiZXhwIjoxNjY4NjIxNzg2IH0.CH41WeuWJD-yDF_TmXtk47RPUBwUp3IkdTedvuO8yvQ
-                      usuarioID: 1
+                    statusCode: 400
+                    message: 'Credenciales no validas '
+                    content: {}
               examples:
                 Example 1:
                   value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      token: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjE0NTg2LCAiZXhwIjoxNjY4NjIxNzg2IH0.CH41WeuWJD-yDF_TmXtk47RPUBwUp3IkdTedvuO8yvQ
-                      usuarioID: 1
-        '400':
-          description: ''
+                    statusCode: 400
+                    message: 'Credenciales no validas '
+                    content: {}
+        '404':
+          description: Not Found
           content:
             application/json:
               schema:
@@ -58,10 +87,45 @@ paths:
                     type: integer
                   message:
                     type: string
+                  content:
+                    type: object
+                    properties: {}
                 x-examples:
                   Example 1:
-                    statusCode: 400
-                    message: 'Credenciales no validas '
+                    statusCode: 404
+                    message: No se encontró la licencia
+                    content: {}
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 404
+                    message: No se encontró la licencia
+                    content: {}
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties: {}
+                x-examples:
+                  Example 1:
+                    statusCode: 500
+                    message: Internal Server Error
+                    content: {}
+              examples:
+                Example 1:
+                  value:
+                    statusCode: 500
+                    message: Internal Server Error
+                    content: {}
       description: ''
       requestBody:
         content:
@@ -84,6 +148,15 @@ paths:
                   user: user@example.com
                   pass: mypass123
         description: ''
+      x-stoplight:
+        id: 7orm8rgv6lkg2
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: license
+          description: license obtained from license server
+    parameters: []
 components:
   parameters:
     token:
@@ -95,3 +168,4 @@ components:
         example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjo0NCwgImN1c3RvbWVySUQiOjI5LCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJlZGdvcyIsICJhZG1pbmlzdHJhZG9yIjp0cnVlLCAiZW1wcmVzYUlEIjoxLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjQ5MjU0ODMyLCAiZXhwIjoxNjQ5MjYyMDMyIH0.rNNdNm9MflATkqiE6tA_HOCb8BmMX6uleG1I_TY7AkU
       required: true
   schemas: {}
+  securitySchemes: {}
