@@ -15,157 +15,198 @@ paths:
       operationId: post-login
       responses:
         '200':
-          description: ok
-          content:
-            application/json:
-              schema:
-                type: object
-                x-examples:
-                  Example 1:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      token: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjE0NTg2LCAiZXhwIjoxNjY4NjIxNzg2IH0.CH41WeuWJD-yDF_TmXtk47RPUBwUp3IkdTedvuO8yvQ
-                      usuarioID: 1
-                properties:
-                  statusCode:
-                    type: integer
-                    default: 200
-                  message:
-                    type: string
-                    default: Request processed successfully
-                  content:
-                    type: object
-                    properties:
-                      token:
-                        type: string
-                        description: Token necesario para enviar en la cabecera de las demas peticiones
-                      usuarioID:
-                        type: integer
-                        description: ID en la BD del erp del usuario que se acaba de autenticar
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      token: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjE0NTg2LCAiZXhwIjoxNjY4NjIxNzg2IH0.CH41WeuWJD-yDF_TmXtk47RPUBwUp3IkdTedvuO8yvQ
-                      usuarioID: 1
+          $ref: '#/components/responses/login-200-response'
         '400':
-          description: autenticación fallida
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties: {}
-                x-examples:
-                  Example 1:
-                    statusCode: 400
-                    message: 'Credenciales no validas '
-                    content: {}
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 400
-                    message: 'Credenciales no validas '
-                    content: {}
+          $ref: '#/components/responses/login-400-response'
         '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties: {}
-                x-examples:
-                  Example 1:
-                    statusCode: 404
-                    message: No se encontró la licencia
-                    content: {}
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 404
-                    message: No se encontró la licencia
-                    content: {}
+          $ref: '#/components/responses/login-404-response'
         '500':
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties: {}
-                x-examples:
-                  Example 1:
-                    statusCode: 500
-                    message: Internal Server Error
-                    content: {}
-              examples:
-                Example 1:
-                  value:
-                    statusCode: 500
-                    message: Internal Server Error
-                    content: {}
+          $ref: '#/components/responses/login-500-response'
       description: ''
       requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                user:
-                  type: string
-                  description: 'Example: user@example.com'
-                pass:
-                  type: string
-                  description: 'Example: mypass123'
-              required:
-                - user
-                - pass
-            examples:
-              Example:
-                value:
-                  user: user@example.com
-                  pass: mypass123
-        description: ''
+        $ref: '#/components/requestBodies/login-request'
       x-stoplight:
         id: 7orm8rgv6lkg2
       parameters:
-        - schema:
-            type: string
-          in: header
-          name: license
-          description: license obtained from license server
+        - license: null
+          $ref: '#/components/parameters/license'
     parameters: []
 components:
   parameters:
-    token:
-      name: token
+    license:
+      name: license
       in: header
-      description: Token de autenticación
+      description: license obtained from license server
       schema:
         type: string
-        example: eyAic2lnIjoiSFMyNTYiLCAidHlwIjoiSldUIiB9.eyAidXNlcklEIjo0NCwgImN1c3RvbWVySUQiOjI5LCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJlZGdvcyIsICJhZG1pbmlzdHJhZG9yIjp0cnVlLCAiZW1wcmVzYUlEIjoxLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjQ5MjU0ODMyLCAiZXhwIjoxNjQ5MjYyMDMyIH0.rNNdNm9MflATkqiE6tA_HOCb8BmMX6uleG1I_TY7AkU
+        example: NETVY-DEMO
       required: true
-  schemas: {}
+  schemas:
+    login-model:
+      title: Credentials
+      x-stoplight:
+        id: 948nrwaphwnav
+      type: object
+      properties:
+        user:
+          type: string
+          description: username for onyxerp user account
+          x-stoplight:
+            id: fohuteogtldjh
+        pass:
+          type: string
+          description: password for onyxerp user
+          x-stoplight:
+            id: kiwfgqxi223ms
+      example: null
   securitySchemes: {}
+  requestBodies:
+    login-request:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              user:
+                type: string
+                description: 'Example: user@example.com'
+              pass:
+                type: string
+                description: 'Example: mypass123'
+            required:
+              - user
+              - pass
+          examples:
+            Example:
+              $ref: '#/components/examples/login-example'
+      description: ''
+  examples:
+    login-example:
+      value:
+        description: Example Login example
+        type: object
+        properties:
+          user:
+            type: string
+          pass:
+            type: string
+        required:
+          - user
+          - pass
+        example:
+          value:
+            user: user@example.com
+            pass: mypass123
+  responses:
+    login-200-response:
+      description: Ok
+      content:
+        application/json:
+          schema:
+            type: object
+            x-examples:
+              Example 1:
+                statusCode: 200
+                message: Request processed successfully
+                content:
+                  token: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjE0NTg2LCAiZXhwIjoxNjY4NjIxNzg2IH0.CH41WeuWJD-yDF_TmXtk47RPUBwUp3IkdTedvuO8yvQ
+                  usuarioID: 1
+            properties:
+              statusCode:
+                type: integer
+                default: 200
+              message:
+                type: string
+                default: Request processed successfully
+              content:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    description: Token necesario para enviar en la cabecera de las demas peticiones
+                  usuarioID:
+                    type: integer
+                    description: ID en la BD del erp del usuario que se acaba de autenticar
+          examples:
+            Example 1:
+              value:
+                statusCode: 200
+                message: Request processed successfully
+                content:
+                  token: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjE0NTg2LCAiZXhwIjoxNjY4NjIxNzg2IH0.CH41WeuWJD-yDF_TmXtk47RPUBwUp3IkdTedvuO8yvQ
+                  usuarioID: 1
+    login-400-response:
+      description: autenticación fallida
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              statusCode:
+                type: integer
+              message:
+                type: string
+              content:
+                type: object
+                properties: {}
+            x-examples:
+              Example 1:
+                statusCode: 400
+                message: 'Credenciales no validas '
+                content: {}
+          examples:
+            Example 1:
+              value:
+                statusCode: 400
+                message: 'Credenciales no validas '
+                content: {}
+    login-404-response:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              statusCode:
+                type: integer
+              message:
+                type: string
+              content:
+                type: object
+                properties: {}
+            x-examples:
+              Example 1:
+                statusCode: 404
+                message: No se encontró la licencia
+                content: {}
+          examples:
+            Example 1:
+              value:
+                statusCode: 404
+                message: No se encontró la licencia
+                content: {}
+    login-500-response:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              statusCode:
+                type: integer
+              message:
+                type: string
+              content:
+                type: object
+                properties: {}
+            x-examples:
+              Example 1:
+                statusCode: 500
+                message: Internal Server Error
+                content: {}
+          examples:
+            Example 1:
+              value:
+                statusCode: 500
+                message: Internal Server Error
+                content: {}
