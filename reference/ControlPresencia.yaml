@@ -152,6 +152,742 @@ paths:
       description: Create a new user.
       x-stoplight:
         id: txdpf3uta2vto
+  /presence:
+    get:
+      summary: Presence findMany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        ControlPresenciaID:
+                          type: integer
+                        CustomerID:
+                          type: integer
+                        DocumentoID:
+                          type: integer
+                        EmpleadoID:
+                          type: integer
+                        EmpresaID:
+                          type: integer
+                        Fecha:
+                          type: string
+                        FechaHoraUsuario:
+                          type: string
+                        HoraFinManana:
+                          type: string
+                        HoraIniManana:
+                          type: string
+                        HoraFinTarde:
+                          type: string
+                        HoraIniTarde:
+                          type: string
+                        HorasExtra:
+                          type: string
+                        HorasNormales:
+                          type: string
+                        UsuarioID:
+                          type: integer
+                        TipoMotivoSalidaID:
+                          type: integer
+                        ControlPresencia_PadreID:
+                          type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - ControlPresenciaID: 54
+                        CustomerID: 29
+                        DocumentoID: 0
+                        EmpleadoID: 4
+                        EmpresaID: 1
+                        Fecha: '2023-02-09T05:00:00.000'
+                        FechaHoraUsuario: '2024-07-17T18:05:57.261'
+                        HoraFinManana: '0000-00-00T13:30:00.000'
+                        HoraIniManana: '0000-00-00T00:00:00.000'
+                        HoraFinTarde: '0000-00-00T18:00:00.000'
+                        HoraIniTarde: '0000-00-00T00:00:00.000'
+                        HorasExtra: '0000-00-00T00:00:00.000'
+                        HorasNormales: '0000-00-00T07:30:00.000'
+                        UsuarioID: 739
+                        TipoMotivoSalidaID: 11647
+                        ControlPresencia_PadreID: 51
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+      operationId: get-presence
+      x-stoplight:
+        id: gbjorxicip6il
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          required: true
+          description: Token Login
+        - schema:
+            type: string
+          in: header
+        - schema:
+            type: string
+          in: query
+          name: employees
+          description: 'Filtro: Lista de empleados separado por ( , )'
+        - schema:
+            type: string
+          in: query
+          name: startDate
+          description: 'Filtro: Fecha desde '
+        - schema:
+            type: string
+          in: query
+          name: endDate
+          description: 'Filtro: Fecha Hasta'
+  '/presence/{ControlPresenciaID}':
+    parameters:
+      - schema:
+          type: string
+        name: ControlPresenciaID
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: ControlPresenciaID
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: ControlPresenciaID
+        in: path
+        required: true
+      - schema:
+          type: string
+        in: header
+        name: accessToken
+        description: Login Token
+    get:
+      summary: Presence findOne
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      controlPresenciaID:
+                        type: integer
+                      CustomerID:
+                        type: integer
+                      DocumentoID:
+                        type: integer
+                      EmpleadoID:
+                        type: integer
+                      EmpresaID:
+                        type: integer
+                      Fecha:
+                        type: string
+                      FechaHoraUsuario:
+                        type: string
+                      HoraFinManana:
+                        type: string
+                      HoraIniManana:
+                        type: string
+                      HoraFinTarde:
+                        type: string
+                      HoraIniTarde:
+                        type: string
+                      HorasExtra:
+                        type: string
+                      HorasNormales:
+                        type: string
+                      UsuarioID:
+                        type: integer
+                      ControlPresencia_PadreID:
+                        type: integer
+                      TipoMotivoSalidaID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      controlPresenciaID: 3
+                      CustomerID: 29
+                      DocumentoID: 1109
+                      EmpleadoID: 3
+                      EmpresaID: 1
+                      Fecha: '2023-02-09T00:00:00.000'
+                      FechaHoraUsuario: '2023-02-10T15:38:48.697'
+                      HoraFinManana: '133000'
+                      HoraIniManana: '030000'
+                      HoraFinTarde: '180000'
+                      HoraIniTarde: '000000'
+                      HorasExtra: '000000'
+                      HorasNormales: '073000'
+                      UsuarioID: 1
+                      ControlPresencia_PadreID: 0
+                      TipoMotivoSalidaID: 0
+          headers: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 404
+                    message: No se encontró el registro solicitado en la BD
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 404
+                    message: No se encontró el registro solicitado en la BD
+      operationId: get-presence-ControlPresenciaID
+      x-stoplight:
+        id: abjm1w8fsjywk
+      parameters: []
+    put:
+      summary: Presence update
+      tags: []
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+      operationId: put-presence-ControlPresenciaID
+      x-stoplight:
+        id: 5d43nv1vgw1b3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                controlPresenciaID:
+                  type: integer
+                CustomerID:
+                  type: integer
+                DocumentoID:
+                  type: integer
+                EmpleadoID:
+                  type: integer
+                EmpresaID:
+                  type: integer
+                Fecha:
+                  type: string
+                FechaHoraUsuario:
+                  type: string
+                HoraFinManana:
+                  type: string
+                HoraIniManana:
+                  type: string
+                HoraFinTarde:
+                  type: string
+                HoraIniTarde:
+                  type: string
+                HorasExtra:
+                  type: string
+                HorasNormales:
+                  type: string
+                UsuarioID:
+                  type: integer
+                ControlPresencia_PadreID:
+                  type: integer
+                TipoMotivoSalidaID:
+                  type: integer
+              x-examples:
+                Example 1:
+                  controlPresenciaID: 4
+                  CustomerID: 29
+                  DocumentoID: 1110
+                  EmpleadoID: 3
+                  EmpresaID: 1
+                  Fecha: '2023-02-09T00:00:00.000'
+                  FechaHoraUsuario: '2023-02-10T15:42:27.291'
+                  HoraFinManana: '180000'
+                  HoraIniManana: '180000'
+                  HoraFinTarde: '180000'
+                  HoraIniTarde: '000000'
+                  HorasExtra: '000000'
+                  HorasNormales: '073000'
+                  UsuarioID: 1
+                  ControlPresencia_PadreID: 0
+                  TipoMotivoSalidaID: 0
+    delete:
+      summary: Presence delete
+      tags: []
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+      operationId: delete-presence-ControlPresenciaID
+      x-stoplight:
+        id: 1tu421540s9bu
+  /presence/entry:
+    parameters: []
+    post:
+      summary: Presence Entry
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  controlPresenciaID:
+                    type: integer
+                  CustomerID:
+                    type: integer
+                  DocumentoID:
+                    type: integer
+                  EmpleadoID:
+                    type: integer
+                  EmpresaID:
+                    type: integer
+                  Fecha:
+                    type: string
+                  FechaHoraUsuario:
+                    type: string
+                  HoraFinManana:
+                    type: string
+                  HoraIniManana:
+                    type: string
+                  HoraFinTarde:
+                    type: string
+                  HoraIniTarde:
+                    type: string
+                  HorasExtra:
+                    type: string
+                  HorasNormales:
+                    type: string
+                  UsuarioID:
+                    type: integer
+                  ControlPresencia_PadreID:
+                    type: integer
+                  TipoMotivoSalidaID:
+                    type: integer
+                x-examples:
+                  Example 1:
+                    controlPresenciaID: 4
+                    CustomerID: 29
+                    DocumentoID: 1110
+                    EmpleadoID: 3
+                    EmpresaID: 1
+                    Fecha: '2023-02-09T00:00:00.000'
+                    FechaHoraUsuario: '2023-02-10T15:42:27.291'
+                    HoraFinManana: '180000'
+                    HoraIniManana: '180000'
+                    HoraFinTarde: '180000'
+                    HoraIniTarde: '000000'
+                    HorasExtra: '000000'
+                    HorasNormales: '073000'
+                    UsuarioID: 1
+                    ControlPresencia_PadreID: 0
+                    TipoMotivoSalidaID: 0
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+      operationId: post-presence-entry
+      x-stoplight:
+        id: 0vgvr4fnef6gl
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: Token Login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  DocumentoID: 1110
+                  EmpleadoID: 3
+                  Fecha: '2023-02-09T00:00:00.000'
+                  HoraFinManana: '180000'
+                  HoraIniManana: '180000'
+                  HoraFinTarde: '180000'
+                  HoraIniTarde: '000000'
+                  HorasExtra: '000000'
+                  HorasNormales: '073000'
+                  TipoMotivoSalidaID: 0
+              required:
+                - EmpleadoID
+              properties:
+                DocumentoID:
+                  type: integer
+                EmpleadoID:
+                  type: integer
+                Fecha:
+                  type: string
+                HoraFinManana:
+                  type: string
+                HoraIniManana:
+                  type: string
+                HoraFinTarde:
+                  type: string
+                HoraIniTarde:
+                  type: string
+                HorasExtra:
+                  type: string
+                HorasNormales:
+                  type: string
+                TipoMotivoSalidaID:
+                  type: integer
+  /presence/exit:
+    post:
+      summary: Presence Exit
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  controlPresenciaID:
+                    type: integer
+                  CustomerID:
+                    type: integer
+                  DocumentoID:
+                    type: integer
+                  EmpleadoID:
+                    type: integer
+                  EmpresaID:
+                    type: integer
+                  Fecha:
+                    type: string
+                  FechaHoraUsuario:
+                    type: string
+                  HoraFinManana:
+                    type: string
+                  HoraIniManana:
+                    type: string
+                  HoraFinTarde:
+                    type: string
+                  HoraIniTarde:
+                    type: string
+                  HorasExtra:
+                    type: string
+                  HorasNormales:
+                    type: string
+                  UsuarioID:
+                    type: integer
+                  ControlPresencia_PadreID:
+                    type: integer
+                  TipoMotivoSalidaID:
+                    type: integer
+                x-examples:
+                  Example 1:
+                    controlPresenciaID: 4
+                    CustomerID: 29
+                    DocumentoID: 1110
+                    EmpleadoID: 3
+                    EmpresaID: 1
+                    Fecha: '2023-02-09T00:00:00.000'
+                    FechaHoraUsuario: '2023-02-10T15:42:27.291'
+                    HoraFinManana: '180000'
+                    HoraIniManana: '180000'
+                    HoraFinTarde: '180000'
+                    HoraIniTarde: '000000'
+                    HorasExtra: '000000'
+                    HorasNormales: '073000'
+                    UsuarioID: 1
+                    ControlPresencia_PadreID: 0
+                    TipoMotivoSalidaID: 0
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+      operationId: post-presence-exit
+      x-stoplight:
+        id: tlirp2fzlj19o
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: Login tokin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  DocumentoID: 1110
+                  EmpleadoID: 3
+                  Fecha: '2023-02-09T00:00:00.000'
+                  HoraFinManana: '180000'
+                  HoraIniManana: '180000'
+                  HoraFinTarde: '180000'
+                  HoraIniTarde: '000000'
+                  HorasExtra: '000000'
+                  HorasNormales: '073000'
+                  TipoMotivoSalidaID: 0
+              required:
+                - EmpleadoID
+              properties:
+                DocumentoID:
+                  type: integer
+                EmpleadoID:
+                  type: integer
+                Fecha:
+                  type: string
+                HoraFinManana:
+                  type: string
+                HoraIniManana:
+                  type: string
+                HoraFinTarde:
+                  type: string
+                HoraIniTarde:
+                  type: string
+                HorasExtra:
+                  type: string
+                HorasNormales:
+                  type: string
+                TipoMotivoSalidaID:
+                  type: integer
 components:
   schemas:
     User:
