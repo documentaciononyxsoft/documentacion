@@ -4,6 +4,7 @@ x-stoplight:
 info:
   title: ControlPresencia
   version: '1.0'
+  description: test description
 servers:
   - url: 'http://localhost:3000'
 paths:
