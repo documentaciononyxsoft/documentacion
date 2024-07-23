@@ -1,0 +1,1406 @@
+openapi: 3.1.0
+x-stoplight:
+  id: i2u00j7zrsyil
+info:
+  title: ApiTrabajoAsignado
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/users/{userId}':
+    parameters:
+      - schema:
+          type: integer
+        name: userId
+        in: path
+        required: true
+        description: Id of an existing user.
+    get:
+      summary: Get User Info by User ID
+      tags: []
+      responses:
+        '200':
+          description: User Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Get User Alice Smith:
+                  value:
+                    id: 142
+                    firstName: Alice
+                    lastName: Smith
+                    email: alice.smith@gmail.com
+                    dateOfBirth: '1997-10-31'
+                    emailVerified: true
+                    signUpDate: '2019-08-24'
+        '404':
+          description: User Not Found
+      operationId: get-users-userId
+      description: Retrieve the information of the user with the matching user ID.
+      x-stoplight:
+        id: s32u6my28cj6q
+    patch:
+      summary: Update User Information
+      operationId: patch-users-userId
+      responses:
+        '200':
+          description: User Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Updated User Rebecca Baker:
+                  value:
+                    id: 13
+                    firstName: Rebecca
+                    lastName: Baker
+                    email: rebecca@gmail.com
+                    dateOfBirth: '1985-10-02'
+                    emailVerified: false
+                    createDate: '2019-08-24'
+        '404':
+          description: User Not Found
+        '409':
+          description: Email Already Taken
+      description: Update the information of an existing user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                email:
+                  type: string
+                  description: 'If a new email is given, the user''s email verified property will be set to false.'
+                dateOfBirth:
+                  type: string
+            examples:
+              Update First Name:
+                value:
+                  firstName: Rebecca
+              Update Email:
+                value:
+                  email: rebecca@gmail.com
+              Update Last Name & Date of Birth:
+                value:
+                  lastName: Baker
+                  dateOfBirth: '1985-10-02'
+        description: Patch user properties to update.
+      x-stoplight:
+        id: hfpcz43hfds99
+  /user:
+    post:
+      summary: Create New User
+      operationId: post-user
+      responses:
+        '200':
+          description: User Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                New User Bob Fellow:
+                  value:
+                    id: 12
+                    firstName: Bob
+                    lastName: Fellow
+                    email: bob.fellow@gmail.com
+                    dateOfBirth: '1996-08-24'
+                    emailVerified: false
+                    createDate: '2020-11-18'
+        '400':
+          description: Missing Required Information
+        '409':
+          description: Email Already Taken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                email:
+                  type: string
+                dateOfBirth:
+                  type: string
+                  format: date
+              required:
+                - firstName
+                - lastName
+                - email
+                - dateOfBirth
+            examples:
+              Create User Bob Fellow:
+                value:
+                  firstName: Bob
+                  lastName: Fellow
+                  email: bob.fellow@gmail.com
+                  dateOfBirth: '1996-08-24'
+        description: Post the necessary fields for the API to create a new user.
+      description: Create a new user.
+      x-stoplight:
+        id: h9a9kyptlmc60
+  /TrabajoAsignado:
+    get:
+      summary: findMany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        TrabajoAsignadoID:
+                          type: integer
+                        CustomerID:
+                          type: integer
+                        DepartamentoID:
+                          type: integer
+                        Descripcion:
+                          type: string
+                        EmpleadoID:
+                          type: integer
+                        EmpresaID:
+                          type: integer
+                        Estado:
+                          type: string
+                        FechaHoraUsuario:
+                          type: string
+                        FinalLimite:
+                          type: string
+                        FinalPrevisto:
+                          type: string
+                        FinalReal:
+                          type: string
+                        HorasPrevistas:
+                          type: integer
+                        InicioPrevisto:
+                          type: string
+                        InicioReal:
+                          type: string
+                        Kanban:
+                          type: integer
+                        MailingID:
+                          type: integer
+                        Nombre:
+                          type: string
+                        Numero:
+                          type: integer
+                        Prioridad:
+                          type: integer
+                        ProcesoID:
+                          type: integer
+                        TablaRelacionada:
+                          type: string
+                        TablaRelacionadaId:
+                          type: integer
+                        TipoTrabajoAsignadoID:
+                          type: integer
+                        TrabajoAsignadoPadreID:
+                          type: integer
+                        UsuarioID:
+                          type: integer
+                        Version:
+                          type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - TrabajoAsignadoID: 2
+                        CustomerID: 29
+                        DepartamentoID: 0
+                        Descripcion: ''
+                        EmpleadoID: 1
+                        EmpresaID: 1
+                        Estado: ''
+                        FechaHoraUsuario: '2018-03-22T15:40:52.000'
+                        FinalLimite: '2018-04-04T00:00:00.000'
+                        FinalPrevisto: '0000-00-00T00:00:00.000'
+                        FinalReal: '2018-03-27T00:00:00.000'
+                        HorasPrevistas: 0
+                        InicioPrevisto: '0000-00-00T00:00:00.000'
+                        InicioReal: '0000-00-00T00:00:00.000'
+                        Kanban: 1
+                        MailingID: 0
+                        Nombre: Analisis costes y rentabilidad
+                        Numero: 2
+                        Prioridad: 0
+                        ProcesoID: 0
+                        TablaRelacionada: ''
+                        TablaRelacionadaId: 0
+                        TipoTrabajoAsignadoID: 0
+                        TrabajoAsignadoPadreID: 0
+                        UsuarioID: 3
+                        Version: 1
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+      operationId: get-TrabajoAsignado
+      x-stoplight:
+        id: tzpqhhi175q6z
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: UsuarioID
+          description: 'Lista separada por (,)'
+        - schema:
+            type: string
+          in: query
+          name: EmpleadoID
+        - schema:
+            type: string
+          in: query
+          name: MailingID
+        - schema:
+            type: string
+          in: query
+          name: Proyecto_OFID
+        - schema:
+            type: string
+          in: query
+          name: ProcesoID
+        - schema:
+            type: string
+          in: query
+          name: startDate
+        - schema:
+            type: string
+          in: query
+          name: endDate
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: login token
+    post:
+      summary: create
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      TrabajoAsignadoID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      TrabajoAsignadoID: 427
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+      operationId: post-TrabajoAsignado
+      x-stoplight:
+        id: m7alm7b9gn6fk
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: login token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  TrabajoAsignadoID: 4
+                  CustomerID: 29
+                  DepartamentoID: 0
+                  Descripcion: ''
+                  EmpleadoID: 0
+                  EmpresaID: 1
+                  Estado: ''
+                  FechaHoraUsuario: '2018-03-27T09:00:40.000'
+                  FinalLimite: '0000-00-00T00:00:00.000'
+                  FinalPrevisto: '0000-00-00T00:00:00.000'
+                  FinalReal: '0000-00-00T00:00:00.000'
+                  HorasPrevistas: 0
+                  InicioPrevisto: '0000-00-00T00:00:00.000'
+                  InicioReal: '0000-00-00T00:00:00.000'
+                  Kanban: 1
+                  MailingID: 0
+                  Nombre: ''
+                  Numero: 4
+                  Prioridad: 0
+                  ProcesoID: 0
+                  TablaRelacionada: ''
+                  TablaRelacionadaId: 0
+                  TipoTrabajoAsignadoID: 0
+                  TrabajoAsignadoPadreID: 0
+                  UsuarioID: 3
+                  Version: 1
+              required:
+                - Nombre
+                - ProcesoID
+              properties:
+                DepartamentoID:
+                  type: integer
+                Descripcion:
+                  type: string
+                EmpleadoID:
+                  type: integer
+                Estado:
+                  type: string
+                FinalLimite:
+                  type: string
+                FinalPrevisto:
+                  type: string
+                FinalReal:
+                  type: string
+                HorasPrevistas:
+                  type: integer
+                InicioPrevisto:
+                  type: string
+                InicioReal:
+                  type: string
+                Kanban:
+                  type: integer
+                MailingID:
+                  type: integer
+                Nombre:
+                  type: string
+                Numero:
+                  type: integer
+                Prioridad:
+                  type: integer
+                ProcesoID:
+                  type: integer
+                TablaRelacionada:
+                  type: string
+                TablaRelacionadaId:
+                  type: integer
+                TipoTrabajoAsignadoID:
+                  type: integer
+                TrabajoAsignadoPadreID:
+                  type: integer
+                Version:
+                  type: integer
+  '/TrabajoAsignado/{TrabajoAsignadoID}':
+    parameters:
+      - schema:
+          type: string
+        name: TrabajoAsignadoID
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: TrabajoAsignadoID
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: TrabajoAsignadoID
+        in: path
+        required: true
+    get:
+      summary: findOne
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      TrabajoAsignadoID:
+                        type: integer
+                      CustomerID:
+                        type: integer
+                      DepartamentoID:
+                        type: integer
+                      Descripcion:
+                        type: string
+                      EmpleadoID:
+                        type: integer
+                      EmpresaID:
+                        type: integer
+                      Estado:
+                        type: string
+                      FechaHoraUsuario:
+                        type: string
+                      FinalLimite:
+                        type: string
+                      FinalPrevisto:
+                        type: string
+                      FinalReal:
+                        type: string
+                      HorasPrevistas:
+                        type: integer
+                      InicioPrevisto:
+                        type: string
+                      InicioReal:
+                        type: string
+                      Kanban:
+                        type: integer
+                      MailingID:
+                        type: integer
+                      Nombre:
+                        type: string
+                      Numero:
+                        type: integer
+                      Prioridad:
+                        type: integer
+                      ProcesoID:
+                        type: integer
+                      TablaRelacionada:
+                        type: string
+                      TablaRelacionadaId:
+                        type: integer
+                      TipoTrabajoAsignadoID:
+                        type: integer
+                      TrabajoAsignadoPadreID:
+                        type: integer
+                      UsuarioID:
+                        type: integer
+                      Version:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      TrabajoAsignadoID: 4
+                      CustomerID: 29
+                      DepartamentoID: 0
+                      Descripcion: ''
+                      EmpleadoID: 0
+                      EmpresaID: 1
+                      Estado: ''
+                      FechaHoraUsuario: '2018-03-27T09:00:40.000'
+                      FinalLimite: '0000-00-00T00:00:00.000'
+                      FinalPrevisto: '0000-00-00T00:00:00.000'
+                      FinalReal: '0000-00-00T00:00:00.000'
+                      HorasPrevistas: 0
+                      InicioPrevisto: '0000-00-00T00:00:00.000'
+                      InicioReal: '0000-00-00T00:00:00.000'
+                      Kanban: 1
+                      MailingID: 0
+                      Nombre: ''
+                      Numero: 4
+                      Prioridad: 0
+                      ProcesoID: 0
+                      TablaRelacionada: ''
+                      TablaRelacionadaId: 0
+                      TipoTrabajoAsignadoID: 0
+                      TrabajoAsignadoPadreID: 0
+                      UsuarioID: 3
+                      Version: 1
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+      operationId: get-TrabajoAsignado-TrabajoAsignadoID
+      x-stoplight:
+        id: 2ayzv1jvrgyvb
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: token login
+    put:
+      summary: update
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties: {}
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+      operationId: put-TrabajoAsignado-TrabajoAsignadoID
+      x-stoplight:
+        id: z15bielftlste
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: login token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  TrabajoAsignadoID: 4
+                  CustomerID: 29
+                  DepartamentoID: 0
+                  Descripcion: ''
+                  EmpleadoID: 0
+                  EmpresaID: 1
+                  Estado: ''
+                  FechaHoraUsuario: '2018-03-27T09:00:40.000'
+                  FinalLimite: '0000-00-00T00:00:00.000'
+                  FinalPrevisto: '0000-00-00T00:00:00.000'
+                  FinalReal: '0000-00-00T00:00:00.000'
+                  HorasPrevistas: 0
+                  InicioPrevisto: '0000-00-00T00:00:00.000'
+                  InicioReal: '0000-00-00T00:00:00.000'
+                  Kanban: 1
+                  MailingID: 0
+                  Nombre: ''
+                  Numero: 4
+                  Prioridad: 0
+                  ProcesoID: 0
+                  TablaRelacionada: ''
+                  TablaRelacionadaId: 0
+                  TipoTrabajoAsignadoID: 0
+                  TrabajoAsignadoPadreID: 0
+                  UsuarioID: 3
+                  Version: 1
+              properties:
+                DepartamentoID:
+                  type: integer
+                Descripcion:
+                  type: string
+                EmpleadoID:
+                  type: integer
+                Estado:
+                  type: string
+                FinalLimite:
+                  type: string
+                FinalPrevisto:
+                  type: string
+                FinalReal:
+                  type: string
+                HorasPrevistas:
+                  type: integer
+                InicioPrevisto:
+                  type: string
+                InicioReal:
+                  type: string
+                Kanban:
+                  type: integer
+                MailingID:
+                  type: integer
+                Nombre:
+                  type: string
+                Numero:
+                  type: integer
+                Prioridad:
+                  type: integer
+                ProcesoID:
+                  type: integer
+                TablaRelacionada:
+                  type: string
+                TablaRelacionadaId:
+                  type: integer
+                TipoTrabajoAsignadoID:
+                  type: integer
+                TrabajoAsignadoPadreID:
+                  type: integer
+                Version:
+                  type: integer
+    delete:
+      summary: delete
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties: {}
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+      operationId: delete-TrabajoAsignado-TrabajoAsignadoID
+      x-stoplight:
+        id: cs14am7kvovkt
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: token login
+  '/TrabajoAsignado/{TrabajoAsignadoID}/close':
+    parameters:
+      - schema:
+          type: string
+        name: TrabajoAsignadoID
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: TrabajoAsignadoID
+        in: path
+        required: true
+    get_copy:
+      summary: close
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties: {}
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+      operationId: get-TrabajoAsignado-TrabajoAsignadoID-close
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: token login
+    post:
+      summary: close
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties: {}
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+      operationId: post-TrabajoAsignado-TrabajoAsignadoID-close
+      x-stoplight:
+        id: 1ybmbkc78c59o
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: token login
+  '/TrabajoAsignado/{TrabajoAsignadoID}/newVersion':
+    parameters:
+      - schema:
+          type: string
+        name: TrabajoAsignadoID
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: TrabajoAsignadoID
+        in: path
+        required: true
+    post:
+      summary: newVersion
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      TrabajoAsignadoID:
+                        type: integer
+                      CustomerID:
+                        type: integer
+                      DepartamentoID:
+                        type: integer
+                      Descripcion:
+                        type: string
+                      EmpleadoID:
+                        type: integer
+                      EmpresaID:
+                        type: integer
+                      Estado:
+                        type: string
+                      FechaHoraUsuario:
+                        type: string
+                      FinalLimite:
+                        type: string
+                      FinalPrevisto:
+                        type: string
+                      FinalReal:
+                        type: string
+                      HorasPrevistas:
+                        type: integer
+                      InicioPrevisto:
+                        type: string
+                      InicioReal:
+                        type: string
+                      Kanban:
+                        type: integer
+                      MailingID:
+                        type: integer
+                      Nombre:
+                        type: string
+                      Numero:
+                        type: integer
+                      Prioridad:
+                        type: integer
+                      ProcesoID:
+                        type: integer
+                      TablaRelacionada:
+                        type: string
+                      TablaRelacionadaId:
+                        type: integer
+                      TipoTrabajoAsignadoID:
+                        type: integer
+                      TrabajoAsignadoPadreID:
+                        type: integer
+                      UsuarioID:
+                        type: integer
+                      Version:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      TrabajoAsignadoID: 430
+                      CustomerID: 29
+                      DepartamentoID: 0
+                      Descripcion: ''
+                      EmpleadoID: 0
+                      EmpresaID: 1
+                      Estado: ''
+                      FechaHoraUsuario: '2024-07-22T19:54:16.000'
+                      FinalLimite: '0000-00-00T00:00:00.000'
+                      FinalPrevisto: '0000-00-00T00:00:00.000'
+                      FinalReal: '0000-00-00T00:00:00.000'
+                      HorasPrevistas: 0
+                      InicioPrevisto: '0000-00-00T00:00:00.000'
+                      InicioReal: '0000-00-00T00:00:00.000'
+                      Kanban: 1
+                      MailingID: 2
+                      Nombre: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.22621}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs24 fsfdsfds\\par\r\n}\r\n"
+                      Numero: 512
+                      Prioridad: 1
+                      ProcesoID: 5375
+                      TablaRelacionada: ''
+                      TablaRelacionadaId: 0
+                      TipoTrabajoAsignadoID: -1
+                      TrabajoAsignadoPadreID: 0
+                      UsuarioID: 739
+                      Version: 3
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+      operationId: post-TrabajoAsignado-TrabajoAsignadoID-newVersion
+      x-stoplight:
+        id: ma8derh8pqbyf
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: token login
+  '/TrabajoAsignado/{TrabajoAsignadoID}/clone':
+    parameters:
+      - schema:
+          type: string
+        name: TrabajoAsignadoID
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: TrabajoAsignadoID
+        in: path
+        required: true
+    post:
+      summary: clone
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      Descripcion:
+                        type: string
+                      EmpleadoID:
+                        type: integer
+                      FinalLimite:
+                        type: string
+                      FinalPrevisto:
+                        type: string
+                      FinalReal:
+                        type: string
+                      HorasPrevistas:
+                        type: integer
+                      InicioPrevisto:
+                        type: string
+                      InicioReal:
+                        type: string
+                      Kanban:
+                        type: integer
+                      MailingID:
+                        type: integer
+                      Nombre:
+                        type: string
+                      Prioridad:
+                        type: integer
+                      ProcesoID:
+                        type: integer
+                      TablaRelacionada:
+                        type: string
+                      TablaRelacionadaId:
+                        type: integer
+                      TipoTrabajoAsignadoID:
+                        type: integer
+                      TrabajoAsignadoID:
+                        type: integer
+                      TrabajoAsignadoPadreID:
+                        type: integer
+                      Version:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      Descripcion: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.22621}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs24 fsfdsfds\\par\r\n}\r\n"
+                      EmpleadoID: 0
+                      FinalLimite: '0000-00-00T00:00:00.000'
+                      FinalPrevisto: '0000-00-00T00:00:00.000'
+                      FinalReal: '2024-07-22T19:57:33.000'
+                      HorasPrevistas: 0
+                      InicioPrevisto: '0000-00-00T00:00:00.000'
+                      InicioReal: '0000-00-00T00:00:00.000'
+                      Kanban: 1
+                      MailingID: 2
+                      Nombre: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.22621}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs24 fsfdsfds\\par\r\n}\r\n"
+                      Prioridad: 1
+                      ProcesoID: 5375
+                      TablaRelacionada: ''
+                      TablaRelacionadaId: 0
+                      TipoTrabajoAsignadoID: -1
+                      TrabajoAsignadoID: 426
+                      TrabajoAsignadoPadreID: 0
+                      Version: 1
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 401
+                    message: 'Token invalid: Unsigned'
+      operationId: post-TrabajoAsignado-TrabajoAsignadoID-clone
+      x-stoplight:
+        id: 0okoxm8kn72zh
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: token login
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      examples:
+        - id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+          x-stoplight:
+            id: d1oyhcdpul1y8
+        firstName:
+          type: string
+          x-stoplight:
+            id: vq8lep872khpz
+        lastName:
+          type: string
+          x-stoplight:
+            id: whjyvxjold96z
+        email:
+          type: string
+          format: email
+          x-stoplight:
+            id: 9hlg77kjqt3zk
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+          x-stoplight:
+            id: 3wkpv4p7c25mp
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+          x-stoplight:
+            id: oq4cxr5pcg88p
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+          x-stoplight:
+            id: k6lqkt2i1lj43
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified
+      x-stoplight:
+        id: wa858094jy6ra
