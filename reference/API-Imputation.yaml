@@ -151,6 +151,631 @@ paths:
       description: Create a new user.
       x-stoplight:
         id: 2ddxhkt55loiw
+  /imputations/loadData:
+    get:
+      summary: findMany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      '20240723':
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Cliente:
+                              type: string
+                            nombreCliente:
+                              type: string
+                            Concepto:
+                              type: string
+                            Horas:
+                              type: string
+                            Notas:
+                              type: string
+                            TiempoTrabajoID:
+                              type: integer
+                            tarjetaID:
+                              type: integer
+                            tareaID:
+                              type: integer
+                            motivoID:
+                              type: integer
+                            fechaImputacion:
+                              type: string
+                            contactoID:
+                              type: integer
+                            viaje:
+                              type: integer
+                            clave:
+                              type: integer
+                            cuentaID:
+                              type: integer
+                            proyectoID:
+                              type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      '20240723':
+                        - Cliente: ''
+                          nombreCliente: ''
+                          Concepto: 'FIN PARADA OF: 581 INYECCION'
+                          Horas: '0000'
+                          Notas: ''
+                          TiempoTrabajoID: 18901
+                          tarjetaID: 0
+                          tareaID: 4393
+                          motivoID: 0
+                          fechaImputacion: '20240723'
+                          contactoID: 0
+                          viaje: 0
+                          clave: 0
+                          cuentaID: 0
+                          proyectoID: 801
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+      operationId: get-imputations
+      x-stoplight:
+        id: zy1w536am41t7
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: login token
+    parameters: []
+  /imputations:
+    post:
+      summary: create
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      TiempoTrabajoID:
+                        type: integer
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      TiempoTrabajoID: 18901
+                      success: true
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+      operationId: post-imputations
+      x-stoplight:
+        id: qykrw9xjm97ru
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  Cliente: ''
+                  nombreCliente: ''
+                  Concepto: 'FIN PARADA OF: 581 INYECCION'
+                  Horas: '0000'
+                  Notas: ''
+                  TiempoTrabajoID: 18901
+                  tarjetaID: 0
+                  tareaID: 4393
+                  motivoID: 0
+                  fechaImputacion: '20240723'
+                  contactoID: 0
+                  viaje: 0
+                  clave: 0
+                  cuentaID: 0
+                  proyectoID: 801
+              required:
+                - tareaID
+                - motivoID
+                - proyectoID
+              properties:
+                Cliente:
+                  type: string
+                nombreCliente:
+                  type: string
+                Concepto:
+                  type: string
+                Horas:
+                  type: string
+                Notas:
+                  type: string
+                TiempoTrabajoID:
+                  type: integer
+                tarjetaID:
+                  type: integer
+                tareaID:
+                  type: integer
+                motivoID:
+                  type: integer
+                fechaImputacion:
+                  type: string
+                contactoID:
+                  type: integer
+                viaje:
+                  type: integer
+                clave:
+                  type: integer
+                cuentaID:
+                  type: integer
+                proyectoID:
+                  type: integer
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: token login
+  /imputations/duplicate:
+    parameters: []
+    post:
+      summary: duplicate
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      TiempoTrabajoID:
+                        type: integer
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      TiempoTrabajoID: 18901
+                      success: true
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      TiempoTrabajoID:
+                        type: integer
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      TiempoTrabajoID: 18901
+                      success: true
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      TiempoTrabajoID:
+                        type: integer
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      TiempoTrabajoID: 18901
+                      success: true
+      operationId: post-imputations-duplicate
+      x-stoplight:
+        id: kv9ysnfvofbqq
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: token login
+        - schema:
+            type: string
+          in: query
+          name: since
+        - schema:
+            type: string
+          in: query
+          name: until
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Cliente:
+                  type: string
+                nombreCliente:
+                  type: string
+                Concepto:
+                  type: string
+                Horas:
+                  type: string
+                Notas:
+                  type: string
+                TiempoTrabajoID:
+                  type: integer
+                tarjetaID:
+                  type: integer
+                tareaID:
+                  type: integer
+                motivoID:
+                  type: integer
+                fechaImputacion:
+                  type: string
+                contactoID:
+                  type: integer
+                viaje:
+                  type: integer
+                clave:
+                  type: integer
+                cuentaID:
+                  type: integer
+                proyectoID:
+                  type: integer
+              x-examples:
+                Example 1:
+                  Cliente: ''
+                  nombreCliente: ''
+                  Concepto: 'FIN PARADA OF: 581 INYECCION'
+                  Horas: '0000'
+                  Notas: ''
+                  TiempoTrabajoID: 18901
+                  tarjetaID: 0
+                  tareaID: 4393
+                  motivoID: 1
+                  fechaImputacion: '20240723'
+                  contactoID: 0
+                  viaje: 0
+                  clave: 0
+                  cuentaID: 0
+                  proyectoID: 801
+  '/imputrations/{TimpoTrabajoID}':
+    parameters:
+      - schema:
+          type: string
+        name: TimpoTrabajoID
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: TimpoTrabajoID
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: TimpoTrabajoID
+        in: path
+        required: true
+    put:
+      summary: update
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      TiempoTrabajoID:
+                        type: integer
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      TiempoTrabajoID: 18901
+                      success: true
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+      operationId: put-imputrations-TimpoTrabajoID
+      x-stoplight:
+        id: 0i02cll9lyk3c
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: token login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Cliente:
+                  type: string
+                nombreCliente:
+                  type: string
+                Concepto:
+                  type: string
+                Horas:
+                  type: string
+                Notas:
+                  type: string
+                TiempoTrabajoID:
+                  type: integer
+                tarjetaID:
+                  type: integer
+                tareaID:
+                  type: integer
+                motivoID:
+                  type: integer
+                fechaImputacion:
+                  type: string
+                contactoID:
+                  type: integer
+                viaje:
+                  type: integer
+                clave:
+                  type: integer
+                cuentaID:
+                  type: integer
+                proyectoID:
+                  type: integer
+              x-examples:
+                Example 1:
+                  Cliente: ''
+                  nombreCliente: ''
+                  Concepto: 'FIN PARADA OF: 581 INYECCION v2'
+                  Horas: '0000'
+                  Notas: ''
+                  TiempoTrabajoID: 18901
+                  tarjetaID: 0
+                  tareaID: 4393
+                  motivoID: 1
+                  fechaImputacion: '20240723'
+                  contactoID: 0
+                  viaje: 0
+                  clave: 0
+                  cuentaID: 0
+                  proyectoID: 801
+    delete:
+      summary: delete
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      success: true
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+      operationId: delete-imputrations-TimpoTrabajoID
+      x-stoplight:
+        id: 297sj71bce6l8
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: token login
 components:
   schemas:
     User:
