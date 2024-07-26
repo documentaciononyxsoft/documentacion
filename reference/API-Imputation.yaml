@@ -776,6 +776,225 @@ paths:
           in: header
           name: accessToken
           description: token login
+  /imputations/material:
+    post:
+      summary: Imputación materiales
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      movimientoalmacenID:
+                        type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      movimientoalmacenID: 35661
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+      operationId: post-imputations-material
+      x-stoplight:
+        id: ldm5cu7kge7v0
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: token login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  AlmacenID: '6'
+                  ArticuloID: '14'
+                  ArticuloXAlmacenID: ''
+                  Cantidad2: ''
+                  CantidadAlmacen: '5'
+                  CantidadPrecio: ''
+                  Concepto: ''
+                  CuentaVerificacionID: ''
+                  Descripcion: ''
+                  Dto1: ''
+                  Dto2: ''
+                  Dto3: ''
+                  EmpleadoVerificacionID: ''
+                  ExcluirInventario: ''
+                  ExistenciaUbicacionLoteID: ''
+                  Factor: ''
+                  FactorCantidad: ''
+                  Fecha: '20240723'
+                  FechaHora: ''
+                  FechaHoraVerificacion: ''
+                  FicheroOrigen: ''
+                  GastoCompra: ''
+                  GastoCompraCantidad2: ''
+                  Hora: '154500'
+                  IncidenciaCalidadCabeceraID: ''
+                  IndiceUnico: ''
+                  lote: ''
+                  loteid: ''
+                  MailingID: ''
+                  Nombre: ''
+                  NotasVerificacion: ''
+                  Numero: ''
+                  Precio: '123'
+                  ProcesoID: '636'
+                  ProcesoUtillajeID: ''
+                  ReservaMaterialID: ''
+                  Serie: ''
+                  TipoMovimientoID: ''
+                  UbicacionID: ''
+                  UsuarioVerificacionID: ''
+                  WebID: ''
+                  Tipo: P
+              required:
+                - ArticuloID
+                - CantidadAlmacen
+                - ProcesoID
+              properties:
+                AlmacenID:
+                  type: string
+                ArticuloID:
+                  type: string
+                ArticuloXAlmacenID:
+                  type: string
+                Cantidad2:
+                  type: string
+                CantidadAlmacen:
+                  type: string
+                CantidadPrecio:
+                  type: string
+                Concepto:
+                  type: string
+                CuentaVerificacionID:
+                  type: string
+                Descripcion:
+                  type: string
+                Dto1:
+                  type: string
+                Dto2:
+                  type: string
+                Dto3:
+                  type: string
+                EmpleadoVerificacionID:
+                  type: string
+                ExcluirInventario:
+                  type: string
+                ExistenciaUbicacionLoteID:
+                  type: string
+                Factor:
+                  type: string
+                FactorCantidad:
+                  type: string
+                Fecha:
+                  type: string
+                FechaHora:
+                  type: string
+                FechaHoraVerificacion:
+                  type: string
+                FicheroOrigen:
+                  type: string
+                GastoCompra:
+                  type: string
+                GastoCompraCantidad2:
+                  type: string
+                Hora:
+                  type: string
+                IncidenciaCalidadCabeceraID:
+                  type: string
+                IndiceUnico:
+                  type: string
+                lote:
+                  type: string
+                loteid:
+                  type: string
+                MailingID:
+                  type: string
+                Nombre:
+                  type: string
+                NotasVerificacion:
+                  type: string
+                Numero:
+                  type: string
+                Precio:
+                  type: string
+                ProcesoID:
+                  type: string
+                ProcesoUtillajeID:
+                  type: string
+                ReservaMaterialID:
+                  type: string
+                Serie:
+                  type: string
+                TipoMovimientoID:
+                  type: string
+                UbicacionID:
+                  type: string
+                UsuarioVerificacionID:
+                  type: string
+                WebID:
+                  type: string
+                Tipo:
+                  type: string
 components:
   schemas:
     User:
