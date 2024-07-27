@@ -241,6 +241,21 @@ paths:
                   Example 1:
                     statusCode: 200
                     message: Request processed successfully
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
         '500':
           description: Internal Server Error
           content:
@@ -265,6 +280,7 @@ paths:
           in: header
           name: accessToken
           description: login token
+          required: true
     parameters: []
   /imputations:
     post:
@@ -298,6 +314,21 @@ paths:
                       success: true
         '400':
           description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '422':
+          description: Unprocessable Entity (WebDAV)
           content:
             application/json:
               schema:
@@ -392,6 +423,7 @@ paths:
           in: header
           name: accessToken
           description: token login
+          required: true
   /imputations/duplicate:
     parameters: []
     post:
@@ -448,6 +480,36 @@ paths:
                     content:
                       TiempoTrabajoID: 18901
                       success: true
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
         '500':
           description: Internal Server Error
           content:
@@ -482,6 +544,7 @@ paths:
           in: header
           name: accessToken
           description: token login
+          required: true
         - schema:
             type: string
           in: query
@@ -543,21 +606,11 @@ paths:
                   clave: 0
                   cuentaID: 0
                   proyectoID: 801
-  '/imputrations/{TimpoTrabajoID}':
+  '/imputrations/{TiempoTrabajoID}':
     parameters:
       - schema:
           type: string
-        name: TimpoTrabajoID
-        in: path
-        required: true
-      - schema:
-          type: string
-        name: TimpoTrabajoID
-        in: path
-        required: true
-      - schema:
-          type: string
-        name: TimpoTrabajoID
+        name: TiempoTrabajoID
         in: path
         required: true
     put:
@@ -619,6 +672,21 @@ paths:
                   Example 1:
                     statusCode: 200
                     message: Request processed successfully
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
         '500':
           description: Internal Server Error
           content:
@@ -643,6 +711,7 @@ paths:
           in: header
           name: accessToken
           description: token login
+          required: true
       requestBody:
         content:
           application/json:
@@ -752,6 +821,21 @@ paths:
                   Example 1:
                     statusCode: 200
                     message: Request processed successfully
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
         '500':
           description: Internal Server Error
           content:
@@ -776,6 +860,7 @@ paths:
           in: header
           name: accessToken
           description: token login
+          required: true
   /imputations/material:
     post:
       summary: Imputación materiales
@@ -833,6 +918,21 @@ paths:
                   Example 1:
                     statusCode: 200
                     message: Request processed successfully
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
         '500':
           description: Internal Server Error
           content:
@@ -857,6 +957,7 @@ paths:
           in: header
           name: accessToken
           description: token login
+          required: true
       requestBody:
         content:
           application/json:

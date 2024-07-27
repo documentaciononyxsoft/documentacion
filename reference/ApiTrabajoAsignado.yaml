@@ -270,6 +270,21 @@ paths:
                   Example 1:
                     statusCode: 401
                     message: 'Token invalid: Unsigned'
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
         '500':
           description: Internal Server Error
           content:
@@ -323,6 +338,7 @@ paths:
           in: header
           name: accessToken
           description: login token
+          required: true
     post:
       summary: create
       tags: []
@@ -364,6 +380,21 @@ paths:
                   Example 1:
                     statusCode: 401
                     message: 'Token invalid: Unsigned'
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
         '500':
           description: Internal Server Error
           content:
@@ -388,6 +419,7 @@ paths:
           in: header
           name: accessToken
           description: login token
+          required: true
       requestBody:
         content:
           application/json:
@@ -615,6 +647,21 @@ paths:
                   Example 1:
                     statusCode: 401
                     message: 'Token invalid: Unsigned'
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
         '500':
           description: Internal Server Error
           content:
@@ -639,6 +686,7 @@ paths:
           in: header
           name: accessToken
           description: token login
+          required: true
     put:
       summary: update
       tags: []
@@ -692,6 +740,21 @@ paths:
                   Example 1:
                     statusCode: 401
                     message: 'Token invalid: Unsigned'
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
         '500':
           description: Internal Server Error
           content:
@@ -716,6 +779,7 @@ paths:
           in: header
           name: accessToken
           description: login token
+          required: true
       requestBody:
         content:
           application/json:
@@ -845,6 +909,21 @@ paths:
                   Example 1:
                     statusCode: 401
                     message: 'Token invalid: Unsigned'
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
         '500':
           description: Internal Server Error
           content:
@@ -869,6 +948,7 @@ paths:
           in: header
           name: accessToken
           description: token login
+          required: true
   '/TrabajoAsignado/{TrabajoAsignadoID}/close':
     parameters:
       - schema:
@@ -1009,6 +1089,21 @@ paths:
                   Example 1:
                     statusCode: 401
                     message: 'Token invalid: Unsigned'
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
         '500':
           description: Internal Server Error
           content:
@@ -1033,6 +1128,7 @@ paths:
           in: header
           name: accessToken
           description: token login
+          required: true
   '/TrabajoAsignado/{TrabajoAsignadoID}/newVersion':
     parameters:
       - schema:
@@ -1176,6 +1272,21 @@ paths:
                   Example 1:
                     statusCode: 401
                     message: 'Token invalid: Unsigned'
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
         '500':
           description: Internal Server Error
           content:
@@ -1200,6 +1311,7 @@ paths:
           in: header
           name: accessToken
           description: token login
+          required: true
   '/TrabajoAsignado/{TrabajoAsignadoID}/clone':
     parameters:
       - schema:
@@ -1322,6 +1434,21 @@ paths:
                   Example 1:
                     statusCode: 401
                     message: 'Token invalid: Unsigned'
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
         '500':
           description: Internal Server Error
           content:
@@ -1346,6 +1473,7 @@ paths:
           in: header
           name: accessToken
           description: token login
+          required: true
 components:
   schemas:
     User:
