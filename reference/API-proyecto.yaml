@@ -1,0 +1,419 @@
+openapi: 3.1.0
+x-stoplight:
+  id: axij17owozv5b
+info:
+  title: API-proyecto
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/users/{userId}':
+    parameters:
+      - schema:
+          type: integer
+        name: userId
+        in: path
+        required: true
+        description: Id of an existing user.
+    get:
+      summary: Get User Info by User ID
+      tags: []
+      responses:
+        '200':
+          description: User Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Get User Alice Smith:
+                  value:
+                    id: 142
+                    firstName: Alice
+                    lastName: Smith
+                    email: alice.smith@gmail.com
+                    dateOfBirth: '1997-10-31'
+                    emailVerified: true
+                    signUpDate: '2019-08-24'
+        '404':
+          description: User Not Found
+      operationId: get-users-userId
+      description: Retrieve the information of the user with the matching user ID.
+      x-stoplight:
+        id: cyprp2e8mr2b5
+    patch:
+      summary: Update User Information
+      operationId: patch-users-userId
+      responses:
+        '200':
+          description: User Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Updated User Rebecca Baker:
+                  value:
+                    id: 13
+                    firstName: Rebecca
+                    lastName: Baker
+                    email: rebecca@gmail.com
+                    dateOfBirth: '1985-10-02'
+                    emailVerified: false
+                    createDate: '2019-08-24'
+        '404':
+          description: User Not Found
+        '409':
+          description: Email Already Taken
+      description: Update the information of an existing user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                email:
+                  type: string
+                  description: 'If a new email is given, the user''s email verified property will be set to false.'
+                dateOfBirth:
+                  type: string
+            examples:
+              Update First Name:
+                value:
+                  firstName: Rebecca
+              Update Email:
+                value:
+                  email: rebecca@gmail.com
+              Update Last Name & Date of Birth:
+                value:
+                  lastName: Baker
+                  dateOfBirth: '1985-10-02'
+        description: Patch user properties to update.
+      x-stoplight:
+        id: o8ofjqamnp11x
+  /user:
+    post:
+      summary: Create New User
+      operationId: post-user
+      responses:
+        '200':
+          description: User Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                New User Bob Fellow:
+                  value:
+                    id: 12
+                    firstName: Bob
+                    lastName: Fellow
+                    email: bob.fellow@gmail.com
+                    dateOfBirth: '1996-08-24'
+                    emailVerified: false
+                    createDate: '2020-11-18'
+        '400':
+          description: Missing Required Information
+        '409':
+          description: Email Already Taken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                email:
+                  type: string
+                dateOfBirth:
+                  type: string
+                  format: date
+              required:
+                - firstName
+                - lastName
+                - email
+                - dateOfBirth
+            examples:
+              Create User Bob Fellow:
+                value:
+                  firstName: Bob
+                  lastName: Fellow
+                  email: bob.fellow@gmail.com
+                  dateOfBirth: '1996-08-24'
+        description: Post the necessary fields for the API to create a new user.
+      description: Create a new user.
+      x-stoplight:
+        id: 64thyuue26k1p
+  /project:
+    get:
+      summary: projectFindMany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      sql:
+                        type: string
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            Proyecto_OFID:
+                              type: integer
+                            CustomerID:
+                              type: integer
+                            EmpresaID:
+                              type: integer
+                            Tipo:
+                              type: string
+                            CodigoProyecto_OF:
+                              type: integer
+                            Nombre:
+                              type: string
+                            ArticuloID:
+                              type: integer
+                            PedidoVentaLineaID:
+                              type: integer
+                            Proyecto_OF_PadreId:
+                              type: integer
+                            UsuarioID:
+                              type: integer
+                            FechaHoraUsuario:
+                              type: string
+                            FechaEntrega:
+                              type: string
+                            Prioridad:
+                              type: integer
+                            NombreArticulo:
+                              type: string
+                            NombreComercial:
+                              type: string
+                            NombreMailing:
+                              type: string
+                            MailingID:
+                              type: integer
+                            NombreProyectoTipo:
+                              type: string
+                            Nota:
+                              type: string
+                            NotaCliente:
+                              type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      sql: "SELECT\r\n\tProyecto_OF.Proyecto_OFID AS Proyecto_OFID,\t\r\n\tProyecto_OF.CustomerID AS CustomerID,\t\r\n\tProyecto_OF.EmpresaID AS EmpresaID,\t\r\n\tProyecto_OF.Tipo AS Tipo,\t\r\n\tProyecto_OF.CodigoProyecto_OF AS CodigoProyecto_OF,\t\r\n\tProyecto_OF.Nombre AS Nombre,\t\r\n\tProyecto_OF.ArticuloID AS ArticuloID,\t\r\n\tProyecto_OF.PedidoVentaLineaID AS PedidoVentaLineaID,\t\r\n\tProyecto_OF.Proyecto_OF_PadreId AS Proyecto_OF_PadreId,\t\r\n\tProyecto_OF.UsuarioID AS UsuarioID,\t\r\n\tProyecto_OF.FechaHoraUsuario AS FechaHoraUsuario,\t\r\n\tProyecto_OF.FechaEntrega AS FechaEntrega,\r\n\tProyecto_OF.Prioridad AS Prioridad,\r\n\tArticulo.Nombre AS Nombre_Ar,\t\r\n\tMailing.NombreComercial AS NombreComercial,\r\n\tMailing.Nombre AS NombreMailing,\r\n\tMailing.MailingID,\r\n\tProyecto_OFTipo.Nombre AS NombreProyectoTipo,\r\n\tProyecto_OF.Nota,\r\n\tProyecto_OF.NotaCliente\r\nFROM \r\n\tProyecto_OF \r\n\tLEFT JOIN Proyecto_OfTipo ON Proyecto_OFTipo.Proyecto_OFTipoID = Proyecto_OF.Proyecto_OFTipoID\r\n\tleft join Mailing ON Mailing.MailingID = Proyecto_OF.MailingID\r\n\tleft join articulo ON Articulo.ArticuloID = Proyecto_OF.ArticuloID\r\nWHERE \r\n\tProyecto_OF.EmpresaID = 1\r\n\tAND\tProyecto_OF.CustomerID = 29\r\n\tAND Proyecto_OF.EsObraOf = 'P'\r\n"
+                      records:
+                        - Proyecto_OFID: 303
+                          CustomerID: 29
+                          EmpresaID: 1
+                          Tipo: ''
+                          CodigoProyecto_OF: 1
+                          Nombre: Instalacion Edif. ANER
+                          ArticuloID: 0
+                          PedidoVentaLineaID: 0
+                          Proyecto_OF_PadreId: 0
+                          UsuarioID: 1
+                          FechaHoraUsuario: '2016-10-11T13:07:20.000'
+                          FechaEntrega: ''
+                          Prioridad: 0
+                          NombreArticulo: ''
+                          NombreComercial: ''
+                          NombreMailing: DEUTSCHE RECU
+                          MailingID: 3
+                          NombreProyectoTipo: ''
+                          Nota: ''
+                          NotaCliente: ''
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+      operationId: get-project
+      x-stoplight:
+        id: s1gpejm4thh8z
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+        - schema:
+            type: string
+          in: query
+          name: Proyecto_OFID
+        - schema:
+            type: string
+          in: query
+          name: FechaHoraUsuario
+        - schema:
+            type: array
+          in: query
+          name: ArticuloID
+          description: 'lista ( , ) '
+        - schema:
+            type: array
+          in: query
+          name: MailingID
+          description: 'lista ( , ) '
+        - schema:
+            type: string
+          in: query
+          name: Nombre
+        - schema:
+            type: string
+          in: query
+          name: Estado
+        - schema:
+            type: array
+          in: query
+          name: Proyecto_OFTipoID
+          description: 'lista ( , ) '
+        - schema:
+            type: string
+          in: query
+          name: Referencia
+        - schema:
+            type: string
+          in: query
+          name: Prioridad
+        - schema:
+            type: string
+          in: query
+          name: FechaHoraUsuarioCierre
+        - schema:
+            type: string
+          in: query
+          name: PedidoID
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      examples:
+        - id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+          x-stoplight:
+            id: 8znkmaafq2fib
+        firstName:
+          type: string
+          x-stoplight:
+            id: 2e3gf0iltm0pn
+        lastName:
+          type: string
+          x-stoplight:
+            id: tsqzcyxq0me51
+        email:
+          type: string
+          format: email
+          x-stoplight:
+            id: z32hid97x2o85
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+          x-stoplight:
+            id: y3hpjguz47c2v
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+          x-stoplight:
+            id: v8zdqu07oxx72
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+          x-stoplight:
+            id: nhwthhuypz32l
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified
+      x-stoplight:
+        id: mvy0ahzi71x7v
