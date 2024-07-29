@@ -291,6 +291,233 @@ paths:
                   TipoProcesoGastoID: ''
                   UsuarioPagoID: ''
                   WebID: ''
+    get:
+      summary: ProcesoGastoFindMany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        Cantidad:
+                          type: integer
+                        CodigoEmpleado:
+                          type: string
+                        CodigoMailing:
+                          type: string
+                        CodigoMailingImputado:
+                          type: string
+                        CodigoProyecto:
+                          type: integer
+                        ConceptoTrabajo:
+                          type: string
+                        DescrpcionTipoGasto:
+                          type: string
+                        EmpleadoID:
+                          type: integer
+                        ExcluirDePago:
+                          type: integer
+                        Fecha:
+                          type: string
+                        FechaHoraPagado:
+                          type: string
+                        Importe:
+                          type: integer
+                        NombreEmpleado:
+                          type: string
+                        NombreMailing:
+                          type: string
+                        NombreMailingImputado:
+                          type: string
+                        NombreProceso:
+                          type: string
+                        NombreProyecto:
+                          type: string
+                        Notas:
+                          type: string
+                        NumeroTarea:
+                          type: integer
+                        Precio:
+                          type: integer
+                        ProcesoGastoID:
+                          type: integer
+                        ProcesoID:
+                          type: integer
+                        ProcesoNumero:
+                          type: integer
+                        Proyecto_OFID:
+                          type: integer
+                        TiempoTrabajoID:
+                          type: integer
+                        TipoProcesoGastoID:
+                          type: integer
+                        UsuarioPagoID:
+                          type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - Cantidad: 0
+                        CodigoEmpleado: ''
+                        CodigoMailing: ''
+                        CodigoMailingImputado: ''
+                        CodigoProyecto: 0
+                        ConceptoTrabajo: ''
+                        DescrpcionTipoGasto: ''
+                        EmpleadoID: 0
+                        ExcluirDePago: 0
+                        Fecha: '20240726'
+                        FechaHoraPagado: '2024-07-29T12:23:43.000'
+                        Importe: 0
+                        NombreEmpleado: ''
+                        NombreMailing: ''
+                        NombreMailingImputado: ''
+                        NombreProceso: ''
+                        NombreProyecto: ''
+                        Notas: ''
+                        NumeroTarea: 0
+                        Precio: 0
+                        ProcesoGastoID: 152
+                        ProcesoID: 0
+                        ProcesoNumero: 0
+                        Proyecto_OFID: 0
+                        TiempoTrabajoID: 0
+                        TipoProcesoGastoID: 0
+                        UsuarioPagoID: 3
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+      operationId: get-procesogasto
+      x-stoplight:
+        id: mu2q6vexgimtn
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: token login
+          required: true
+        - schema:
+            type: array
+          in: query
+          name: EmpleadoID
+          description: 'lista ( , )'
+        - schema:
+            type: string
+          in: query
+          name: ProcesoID
+        - schema:
+            type: string
+          in: query
+          name: ProyectoOFID
+        - schema:
+            type: string
+          in: query
+          name: FechaStart
+        - schema:
+            type: string
+          in: query
+          name: FechaEnd
+        - schema:
+            type: string
+          in: query
+          name: TipoProcesoGastoID
+        - schema:
+            type: string
+          in: query
+          name: SinExcluidosPago
+        - schema:
+            type: string
+          in: query
+          name: MailingID
+        - schema:
+            type: array
+          in: query
+          name: ProyectoOFTipoID
+          description: 'lista ( , )'
+        - schema:
+            type: array
+          in: query
+          name: TipoProcesoID
+          description: 'lista ( , )'
+        - schema:
+            type: string
+          in: query
+          name: Pagados
+        - schema:
+            type: string
+          in: query
+          name: NoPagados
   '/procesogasto/{ProcesoGastoID}':
     parameters:
       - schema:
@@ -546,6 +773,119 @@ paths:
             schema:
               type: object
               properties: {}
+  /procesogastomarcarpagado:
+    get:
+      summary: ProcesoGastoMarcarPagado
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties: {}
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+      operationId: get-procesogastomarcarpagado
+      x-stoplight:
+        id: stqdycazz0gd1
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: token login
+          required: true
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  ProcesosGastoID: ''
+                  UsuarioPagoID: ''
+              required:
+                - ProcesosGastoID
+                - UsuarioPagoID
+              properties:
+                ProcesosGastoID:
+                  type: string
+                  description: 'lista ( , )'
+                UsuarioPagoID:
+                  type: string
 components:
   schemas:
     User:
