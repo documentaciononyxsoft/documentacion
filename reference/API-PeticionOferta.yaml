@@ -1,0 +1,591 @@
+openapi: 3.1.0
+x-stoplight:
+  id: gl197uk0lzle1
+info:
+  title: API-PeticionOferta
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/users/{userId}':
+    parameters:
+      - schema:
+          type: integer
+        name: userId
+        in: path
+        required: true
+        description: Id of an existing user.
+    get:
+      summary: Get User Info by User ID
+      tags: []
+      responses:
+        '200':
+          description: User Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Get User Alice Smith:
+                  value:
+                    id: 142
+                    firstName: Alice
+                    lastName: Smith
+                    email: alice.smith@gmail.com
+                    dateOfBirth: '1997-10-31'
+                    emailVerified: true
+                    signUpDate: '2019-08-24'
+        '404':
+          description: User Not Found
+      operationId: get-users-userId
+      description: Retrieve the information of the user with the matching user ID.
+      x-stoplight:
+        id: i06036leaiq3e
+    patch:
+      summary: Update User Information
+      operationId: patch-users-userId
+      responses:
+        '200':
+          description: User Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Updated User Rebecca Baker:
+                  value:
+                    id: 13
+                    firstName: Rebecca
+                    lastName: Baker
+                    email: rebecca@gmail.com
+                    dateOfBirth: '1985-10-02'
+                    emailVerified: false
+                    createDate: '2019-08-24'
+        '404':
+          description: User Not Found
+        '409':
+          description: Email Already Taken
+      description: Update the information of an existing user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                email:
+                  type: string
+                  description: 'If a new email is given, the user''s email verified property will be set to false.'
+                dateOfBirth:
+                  type: string
+            examples:
+              Update First Name:
+                value:
+                  firstName: Rebecca
+              Update Email:
+                value:
+                  email: rebecca@gmail.com
+              Update Last Name & Date of Birth:
+                value:
+                  lastName: Baker
+                  dateOfBirth: '1985-10-02'
+        description: Patch user properties to update.
+      x-stoplight:
+        id: zudqb72r567hr
+  /user:
+    post:
+      summary: Create New User
+      operationId: post-user
+      responses:
+        '200':
+          description: User Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                New User Bob Fellow:
+                  value:
+                    id: 12
+                    firstName: Bob
+                    lastName: Fellow
+                    email: bob.fellow@gmail.com
+                    dateOfBirth: '1996-08-24'
+                    emailVerified: false
+                    createDate: '2020-11-18'
+        '400':
+          description: Missing Required Information
+        '409':
+          description: Email Already Taken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                email:
+                  type: string
+                dateOfBirth:
+                  type: string
+                  format: date
+              required:
+                - firstName
+                - lastName
+                - email
+                - dateOfBirth
+            examples:
+              Create User Bob Fellow:
+                value:
+                  firstName: Bob
+                  lastName: Fellow
+                  email: bob.fellow@gmail.com
+                  dateOfBirth: '1996-08-24'
+        description: Post the necessary fields for the API to create a new user.
+      description: Create a new user.
+      x-stoplight:
+        id: nhln4lkctvgr9
+  /peticionoferta:
+    get:
+      summary: PeticionOfertaFindMany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - EsSubcontratacion: 0
+                        Estado: ''
+                        AlmacenID: 2
+                        CodigoCuenta: '01 '
+                        CodigoSerie: ''
+                        ContactoID: 0
+                        Descripcion: ''
+                        Fecha: '20240527'
+                        FechaEntrega: ''
+                        FechaLimiteRespuesta: ''
+                        FechaValidez: '20240603'
+                        IdiomaID: 1003
+                        MailingID: 1
+                        MotivoRechazoID: 0
+                        NombreCuenta: PRUEBA FINAL
+                        NombreSerie: ''
+                        NotaGeneral: ''
+                        NotaProveedor: ''
+                        Numero: 8
+                        ObservacionesRechazo: '0'
+                        OfertaCompraCabeceraID: 310
+                        OfertaRecibida: 0
+                        PedidoPor: ''
+                        PrecioAceptado: 0
+                        ReferenciaInterna: ''
+                        ReferenciaProveedor: ''
+                        SerieID: 0
+                        Version: 1
+                        ArticuloID: ''
+                        ArticuloVariableValorID: ''
+                        Cantidad: ''
+                        Cantidad2: ''
+                        CodigoArticulo: ''
+                        CodigoFamilia: ''
+                        DescripcionLinea: ''
+                        Dto1: ''
+                        Dto2: ''
+                        Dto3: ''
+                        EstadoLinea: ''
+                        Factor: ''
+                        FactorCantidad: ''
+                        FechaEntregaLinea: ''
+                        ImporteCompra: ''
+                        IvaID: ''
+                        Linea: ''
+                        NivelIngenieriaID: ''
+                        Nombre: ''
+                        NombreFamilia: ''
+                        NotaInterna: ''
+                        NotaProveedorLinea: ''
+                        NumeroOfertaVenta: ''
+                        OfertaCompraLineaID: ''
+                        OfertaCompraLineaPadreID: ''
+                        OfertaLineaID: ''
+                        Pedido: ''
+                        PorcentajeIVA: ''
+                        PrecioCompra: ''
+                        Referencia: ''
+                        ReferenciaProveedorLinea: ''
+                        SolicitudInternaCompraLineaID: ''
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        EsSubcontratacion:
+                          type: integer
+                        Estado:
+                          type: string
+                        AlmacenID:
+                          type: integer
+                        CodigoCuenta:
+                          type: string
+                        CodigoSerie:
+                          type: string
+                        ContactoID:
+                          type: integer
+                        Descripcion:
+                          type: string
+                        Fecha:
+                          type: string
+                        FechaEntrega:
+                          type: string
+                        FechaLimiteRespuesta:
+                          type: string
+                        FechaValidez:
+                          type: string
+                        IdiomaID:
+                          type: integer
+                        MailingID:
+                          type: integer
+                        MotivoRechazoID:
+                          type: integer
+                        NombreCuenta:
+                          type: string
+                        NombreSerie:
+                          type: string
+                        NotaGeneral:
+                          type: string
+                        NotaProveedor:
+                          type: string
+                        Numero:
+                          type: integer
+                        ObservacionesRechazo:
+                          type: string
+                        OfertaCompraCabeceraID:
+                          type: integer
+                        OfertaRecibida:
+                          type: integer
+                        PedidoPor:
+                          type: string
+                        PrecioAceptado:
+                          type: integer
+                        ReferenciaInterna:
+                          type: string
+                        ReferenciaProveedor:
+                          type: string
+                        SerieID:
+                          type: integer
+                        Version:
+                          type: integer
+                        ArticuloID:
+                          type: string
+                          description: con Detalle
+                        ArticuloVariableValorID:
+                          type: string
+                          description: con Detalle
+                        Cantidad:
+                          type: string
+                          description: con Detalle
+                        Cantidad2:
+                          type: string
+                          description: con Detalle
+                        CodigoArticulo:
+                          type: string
+                          description: con Detalle
+                        CodigoFamilia:
+                          type: string
+                          description: con Detalle
+                        DescripcionLinea:
+                          type: string
+                          description: con Detalle
+                        Dto1:
+                          type: string
+                          description: con Detalle
+                        Dto2:
+                          type: string
+                          description: con Detalle
+                        Dto3:
+                          type: string
+                          description: con Detalle
+                        EstadoLinea:
+                          type: string
+                          description: con Detalle
+                        Factor:
+                          type: string
+                          description: con Detalle
+                        FactorCantidad:
+                          type: string
+                          description: con Detalle
+                        FechaEntregaLinea:
+                          type: string
+                          description: con Detalle
+                        ImporteCompra:
+                          type: string
+                          description: con Detalle
+                        IvaID:
+                          type: string
+                          description: con Detalle
+                        Linea:
+                          type: string
+                          description: con Detalle
+                        NivelIngenieriaID:
+                          type: string
+                          description: con Detalle
+                        Nombre:
+                          type: string
+                          description: con Detalle
+                        NombreFamilia:
+                          type: string
+                          description: con Detalle
+                        NotaInterna:
+                          type: string
+                          description: con Detalle
+                        NotaProveedorLinea:
+                          type: string
+                          description: con Detalle
+                        NumeroOfertaVenta:
+                          type: string
+                          description: con Detalle
+                        OfertaCompraLineaID:
+                          type: string
+                          description: con Detalle
+                        OfertaCompraLineaPadreID:
+                          type: string
+                          description: con Detalle
+                        OfertaLineaID:
+                          type: string
+                          description: con Detalle
+                        Pedido:
+                          type: string
+                          description: con Detalle
+                        PorcentajeIVA:
+                          type: string
+                          description: con Detalle
+                        PrecioCompra:
+                          type: string
+                          description: con Detalle
+                        Referencia:
+                          type: string
+                          description: con Detalle
+                        ReferenciaProveedorLinea:
+                          type: string
+                          description: con Detalle
+                        SolicitudInternaCompraLineaID:
+                          type: string
+                          description: con Detalle
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+      operationId: get-peticionoferta
+      x-stoplight:
+        id: cshccsfp3c8em
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: token login
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: FechaStart
+        - schema:
+            type: string
+          in: query
+          name: FechaEnd
+        - schema:
+            type: string
+          in: query
+          name: NumeroStart
+        - schema:
+            type: string
+          in: query
+          name: NumeroEnd
+        - schema:
+            type: string
+          in: query
+          name: MailingID
+        - schema:
+            type: string
+          in: query
+          name: ArticuloID
+        - schema:
+            type: string
+          in: query
+          name: ReferenciaInterna
+        - schema:
+            type: string
+          in: query
+          name: ReferenciaProveedor
+        - schema:
+            type: string
+          in: query
+          name: SerieID
+        - schema:
+            type: array
+          in: query
+          name: FamiliaID
+          description: 'lista ( , )'
+        - schema:
+            type: array
+          in: query
+          name: UsuarioID
+          description: 'lista ( , )'
+        - schema:
+            type: string
+          in: query
+          name: Pedido
+        - schema:
+            type: string
+          in: query
+          name: estado
+        - schema:
+            type: string
+          in: query
+          name: conDetalle
+        - schema:
+            type: string
+          in: query
+          name: ProyectoOFID
+          description: Busqueda por proyecto
+        - schema:
+            type: string
+          in: query
+          name: ProyectoandOF
+          description: Busqueda por proyecto
+        - schema:
+            type: string
+          in: query
+          name: EsSubcontratacion
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      examples:
+        - id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+          x-stoplight:
+            id: wymknizxhlqvf
+        firstName:
+          type: string
+          x-stoplight:
+            id: bnafgu3av0q2d
+        lastName:
+          type: string
+          x-stoplight:
+            id: kr6rtcjk7ux5y
+        email:
+          type: string
+          format: email
+          x-stoplight:
+            id: snj00gleftp9s
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+          x-stoplight:
+            id: blwlgfagmntr8
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+          x-stoplight:
+            id: gixqxtkhrgc9g
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+          x-stoplight:
+            id: 1xol4q31xh3l3
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified
+      x-stoplight:
+        id: v8ydyogl4y5yv
