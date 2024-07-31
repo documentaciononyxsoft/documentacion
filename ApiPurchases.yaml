@@ -2186,6 +2186,328 @@ paths:
           name: accessToken
           description: 'Authorization token '
           required: true
+  /facturacompra:
+    get:
+      summary: FacturaCompraFindMany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        BaseImponible:
+                          type: integer
+                        BaseImportador:
+                          type: integer
+                        BaseImportadorMonedaOrigen:
+                          type: integer
+                        BaseMonedaOrigen:
+                          type: integer
+                        Cif:
+                          type: string
+                        CodigoClasificacion:
+                          type: string
+                        CodigoClasificacionRecargo:
+                          type: string
+                        CodigoIva:
+                          type: string
+                        CodProveedor:
+                          type: string
+                        CriterioCajaFacturaCompraCabecera:
+                          type: integer
+                        CuentaContableContrapartidaID:
+                          type: integer
+                        CuotaRetencion:
+                          type: integer
+                        DiarioLineaAutofacturaID:
+                          type: integer
+                        DiarioLineaID:
+                          type: integer
+                        DiarioLineaRetencionID:
+                          type: integer
+                        Ejercicio:
+                          type: integer
+                        FacturaClasificacionIvaId:
+                          type: integer
+                        FacturaClasificacionRecargoID:
+                          type: integer
+                        FacturaCompraCabeceraID:
+                          type: integer
+                        FacturaCompraCabeceraImportadorID:
+                          type: integer
+                        FacturaCompraIVAID:
+                          type: integer
+                        FacturaVentaCabeceraID:
+                          type: integer
+                        FechaAdmision:
+                          type: string
+                        FechaContable:
+                          type: string
+                        FechaFactura:
+                          type: string
+                        ImporteBruto:
+                          type: integer
+                        ImporteIVA:
+                          type: integer
+                        ImporteIVAMonedaOrigen:
+                          type: integer
+                        ImporteRecargo:
+                          type: integer
+                        ImporteRecargoMonedaOrigen:
+                          type: integer
+                        ImporteRetencionIVA:
+                          type: integer
+                        ImporteRetencionIVAMonedaOrigen:
+                          type: integer
+                        IncluirBaseImportadorImpuestos:
+                          type: integer
+                        IvaDeducible:
+                          type: integer
+                        IvaID:
+                          type: integer
+                        IvaNoDeducible:
+                          type: integer
+                        NombreFactura:
+                          type: string
+                        NombreMailing:
+                          type: string
+                        NombreMunicipio:
+                          type: string
+                        NombreRetencion:
+                          type: string
+                        Numero:
+                          type: integer
+                        NumeroDua:
+                          type: string
+                        NumeroFactura:
+                          type: integer
+                        NumeroFacturaProveddor:
+                          type: string
+                        PorcentajeIVA:
+                          type: integer
+                        PorcentajeRecargo:
+                          type: integer
+                        PorcentajeRetencion:
+                          type: integer
+                        PorcentajeRetencionIVA:
+                          type: integer
+                        ProveedorID:
+                          type: integer
+                        Serie:
+                          type: string
+                        TipoOperacion:
+                          type: string
+                        TipoOrigenGAsto:
+                          type: string
+                        TipoOrigenGastoID:
+                          type: integer
+                        TipoRegimenIVA:
+                          type: string
+                        TipoRetencionID:
+                          type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - BaseImponible: -13200
+                        BaseImportador: 15
+                        BaseImportadorMonedaOrigen: 0
+                        BaseMonedaOrigen: -13200
+                        Cif: B2547974
+                        CodigoClasificacion: ''
+                        CodigoClasificacionRecargo: ''
+                        CodigoIva: '015'
+                        CodProveedor: '40020006'
+                        CriterioCajaFacturaCompraCabecera: 0
+                        CuentaContableContrapartidaID: -13200
+                        CuotaRetencion: 0
+                        DiarioLineaAutofacturaID: -1980
+                        DiarioLineaID: 1
+                        DiarioLineaRetencionID: 37
+                        Ejercicio: 2022
+                        FacturaClasificacionIvaId: 29
+                        FacturaClasificacionRecargoID: 1
+                        FacturaCompraCabeceraID: 20220606
+                        FacturaCompraCabeceraImportadorID: 0
+                        FacturaCompraIVAID: 0
+                        FacturaVentaCabeceraID: 0
+                        FechaAdmision: ''
+                        FechaContable: '20220606'
+                        FechaFactura: '20220601'
+                        ImporteBruto: -13200
+                        ImporteIVA: -1980
+                        ImporteIVAMonedaOrigen: 531
+                        ImporteRecargo: 0
+                        ImporteRecargoMonedaOrigen: 0
+                        ImporteRetencionIVA: 0
+                        ImporteRetencionIVAMonedaOrigen: 0
+                        IncluirBaseImportadorImpuestos: 0
+                        IvaDeducible: -1980
+                        IvaID: 0
+                        IvaNoDeducible: 0
+                        NombreFactura: ENCARNA LOPEZ
+                        NombreMailing: ENCARNA LOPEZ
+                        NombreMunicipio: España
+                        NombreRetencion: ''
+                        Numero: 0
+                        NumeroDua: '0.000000'
+                        NumeroFactura: 8
+                        NumeroFacturaProveddor: '123654'
+                        PorcentajeIVA: 0
+                        PorcentajeRecargo: 0
+                        PorcentajeRetencion: 0
+                        PorcentajeRetencionIVA: 0
+                        ProveedorID: 6
+                        Serie: ''
+                        TipoOperacion: Extranjero
+                        TipoOrigenGAsto: ''
+                        TipoOrigenGastoID: 0
+                        TipoRegimenIVA: ''
+                        TipoRetencionID: 0
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+      operationId: get-facturacompra
+      x-stoplight:
+        id: k8q3yxq8qhbj1
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: ProyectoOFID
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: Token Login
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: ArticuloID
+        - schema:
+            type: string
+          in: query
+          name: ProveedorID
+        - schema:
+            type: string
+          in: query
+          name: TipoOperacionTerceroID
+        - schema:
+            type: string
+          in: query
+          name: TipoIVA
+        - schema:
+            type: string
+          in: query
+          name: NumerofacturaStart
+        - schema:
+            type: string
+          in: query
+          name: NumerofacturaEnd
+        - schema:
+            type: string
+          in: query
+          name: NumeroFacturaProveedor
+        - schema:
+            type: string
+          in: query
+          name: FechafacturaStart
+        - schema:
+            type: string
+          in: query
+          name: FechafacturaEnd
+        - schema:
+            type: string
+          in: query
+          name: FechaContableStart
+        - schema:
+            type: string
+          in: query
+          name: FechaContableEnd
+        - schema:
+            type: string
+          in: query
+          name: SerieFacturaCompraID
+        - schema:
+            type: string
+          in: query
+          name: Inmovilizado
+        - schema:
+            type: array
+          in: query
+          name: PaisID
+          description: 'lista ( , )'
 components:
   schemas:
     Purchase:
