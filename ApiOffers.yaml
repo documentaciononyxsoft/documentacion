@@ -1776,6 +1776,66 @@ paths:
                     content:
                       ofertas: null
                       sql: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: string
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: ''
+                    message: ''
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: string
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: ''
+                    message: ''
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: string
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: ''
+                    message: ''
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: string
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: ''
+                    message: ''
       operationId: get-consult-offers
       parameters:
         - schema:
@@ -1790,6 +1850,32 @@ paths:
           application/json:
             schema:
               type: object
+              x-examples:
+                Example 1:
+                  dataConsulta:
+                    fechaDesde: ''
+                    fechaOfertaHasta: ''
+                    listaZonasID: ''
+                    listaTipoOfertasID: ''
+                    listaRepresentantesID: ''
+                    descripcion: ''
+                    mailingID: ''
+                    articuloID: ''
+                    familiaID: ''
+                    listacampanasID: ''
+                    estadoOferta: ''
+                    listausuariosID: ''
+                    numeroOfertaDesde: ''
+                    numeroOfertahasta: ''
+                    listaresponsablesID: ''
+                    listaSituacionesID: ''
+                    numeroSolicitud: ''
+                    fechaSolicitudDesde: ''
+                    fechaSolicitudHasta: ''
+                    misFavoritos: ''
+                    ConDetalle: '0'
+                    offset: ''
+                    limite: '50'
               properties:
                 dataConsulta:
                   type: object
@@ -1840,32 +1926,10 @@ paths:
                       type: string
                     limite:
                       type: string
-              x-examples:
-                Example 1:
-                  dataConsulta:
-                    fechaDesde: ''
-                    fechaOfertaHasta: ''
-                    listaZonasID: ''
-                    listaTipoOfertasID: ''
-                    listaRepresentantesID: ''
-                    descripcion: ''
-                    mailingID: ''
-                    articuloID: ''
-                    familiaID: ''
-                    listacampanasID: ''
-                    estadoOferta: ''
-                    listausuariosID: ''
-                    numeroOfertaDesde: ''
-                    numeroOfertahasta: ''
-                    listaresponsablesID: ''
-                    listaSituacionesID: ''
-                    numeroSolicitud: ''
-                    fechaSolicitudDesde: ''
-                    fechaSolicitudHasta: ''
-                    misFavoritos: ''
-                    ConDetalle: '0'
-                    offset: ''
-                    limite: '50'
+                    ProyectoOFID:
+                      type: string
+                      x-stoplight:
+                        id: whgo1xufmve7r
             examples:
               Example 1:
                 value:
