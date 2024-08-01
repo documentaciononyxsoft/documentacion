@@ -565,12 +565,84 @@ paths:
                     content:
                       sql: string
                       records: null
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
       operationId: get-sales-consult-invoices
       requestBody:
         content:
           application/json:
             schema:
               type: object
+              x-examples:
+                Example 1:
+                  fechaDesde: '20200101'
+                  fechaHasta: '20250101'
+                  numeroFActuraDesde: '10'
+                  numeroFActuraHasta: '20'
+                  serieFacturaVentaID: '4'
+                  clienteID: '84'
+                  listaRepresentantesID: '185'
+                  tipoOperacionTerceroID: '180'
+                  tipoIvaID: '1'
+                  ejercicio: '2021'
               properties:
                 fechaDesde:
                   type: string
@@ -592,18 +664,10 @@ paths:
                   type: string
                 ejercicio:
                   type: string
-              x-examples:
-                Example 1:
-                  fechaDesde: '20200101'
-                  fechaHasta: '20250101'
-                  numeroFActuraDesde: '10'
-                  numeroFActuraHasta: '20'
-                  serieFacturaVentaID: '4'
-                  clienteID: '84'
-                  listaRepresentantesID: '185'
-                  tipoOperacionTerceroID: '180'
-                  tipoIvaID: '1'
-                  ejercicio: '2021'
+                ProyectoOFID:
+                  type: string
+                  x-stoplight:
+                    id: x2mssg09wq2xe
             examples:
               Example 1:
                 value:
@@ -617,6 +681,12 @@ paths:
                   tipoOperacionTerceroID: '180'
                   tipoIvaID: '1'
                   ejercicio: '2021'
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: Token Login
   /sales/invoices:
     get:
       summary: SalesInvoices - FindMany
