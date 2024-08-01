@@ -17037,5 +17037,528 @@ paths:
                   Facturado: ''
                   offset: 0
                   limit: 0
+  /pedidoventa:
+    get:
+      summary: pedidoVentaFindMany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - AgruparPedido: ''
+                        AlbaranNoValorado: 0
+                        AlmacenID: 0
+                        ClienteFinalMailingID: 0
+                        ClienteID: 0
+                        Codigo: ''
+                        CodigoAlmacen: ''
+                        CodigoPostalID: 0
+                        Confirmado: 0
+                        ContactoID: 0
+                        CPMailing: ''
+                        Descargado: 0
+                        Descripcion: ''
+                        DescripcionCabecera: ''
+                        DireccionEnvioID: 0
+                        DirMailing: ''
+                        DNI: ''
+                        Entregado: 0
+                        Estado: ''
+                        Fecha: '20211123'
+                        FechaCaptacion: ''
+                        FechaEntregaPrevistaCliente: '20220302'
+                        FechaEntregaPrevistaInterna: ''
+                        FormaEnvio: ''
+                        IdiomaID: 0
+                        ImportePortes: 0
+                        Inconterm: ''
+                        Matricula: ''
+                        MonedaCambio: 1.245
+                        MonedaID: 2
+                        Municipio: ''
+                        MunicipioID: 0
+                        Nombre: ''
+                        NombreComercial: ''
+                        NombreMailing: ''
+                        NombreMunicipio: ''
+                        NombreProvincia: ''
+                        NombreRepresentante: ''
+                        NombreRepresentante2: ''
+                        NombreTransportista: ''
+                        NotaCliente: ''
+                        NotaGeneral: ''
+                        Numero: 0
+                        NumeroCopiasAlbaran: 0
+                        PaisID: 0
+                        PedidoPor: ''
+                        PedidoVentaCabeceraID: 470
+                        PesoBruto: 0
+                        PesoNeto: 0
+                        PlataformaLogisticaMailingID: 0
+                        PorcentajeComision: 0
+                        PorcentajeComision2: 0
+                        Portes: D
+                        ProcesoID: 0
+                        ProvinciaID: 0
+                        Proyecto_OFID: 0
+                        ProyectoOFCabecera: 0
+                        ReferenciaCliente: ''
+                        ReferenciaNuestra: ''
+                        Representante2ID: 0
+                        RepresentanteID: 0
+                        RutaEntrega: ''
+                        RutaEntregaID: 0
+                        Serie: ''
+                        SeriePedidoID: 0
+                        TarifaVentaID: 0
+                        TipoPedidoID: 0
+                        TransportistaID: 0
+                        UsuarioCreacion: SUPERVISOR
+                        ArticuloDescripcion: ''
+                        ArticuloID: 3090
+                        Cantidad: 2
+                        Cantidad2: 0
+                        CantidadEntregada: 0
+                        CodigoAlmacenLinea: '1'
+                        CodigoArticulo: MarvinKeyChain
+                        CodigoArticuloOF: ''
+                        CodigoFamilia: COM
+                        CodigoProyecto_OF: 0
+                        ConfirmadoLinea: 0
+                        descripcionLinea: ''
+                        Dto1: 0
+                        Dto2: 0
+                        Dto3: 0
+                        EntregadoLinea: 0
+                        ExistenciaAXA: 0
+                        Factor: 1
+                        FactorCantidad: 0
+                        FechaEntregaPrevistaClienteLinea: '20210311'
+                        IDArticuloOF: 0
+                        ImporteVenta: 159.48
+                        ImporteVentaPendiente: 0
+                        linea: 1
+                        MargenComercial: 0
+                        NombreArticulo: MarvinKeyChain
+                        NombreArticuloLinea: MarvinKeyChain
+                        NombreFamilia: ARTICULOS COMERCIALES
+                        notaClienteLinea: ''
+                        PedidoVentaLineaID: 2777
+                        PrecioCoste: 0
+                        PrecioVenta: 79.74
+                        referenciaArticuloCliente: ''
+                        referenciaClienteLinea: ''
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        AgruparPedido:
+                          type: string
+                        AlbaranNoValorado:
+                          type: integer
+                        AlmacenID:
+                          type: integer
+                        ClienteFinalMailingID:
+                          type: integer
+                        ClienteID:
+                          type: integer
+                        Codigo:
+                          type: string
+                        CodigoAlmacen:
+                          type: string
+                        CodigoPostalID:
+                          type: integer
+                        Confirmado:
+                          type: integer
+                        ContactoID:
+                          type: integer
+                        CPMailing:
+                          type: string
+                        Descargado:
+                          type: integer
+                        Descripcion:
+                          type: string
+                        DescripcionCabecera:
+                          type: string
+                        DireccionEnvioID:
+                          type: integer
+                        DirMailing:
+                          type: string
+                        DNI:
+                          type: string
+                        Entregado:
+                          type: integer
+                        Estado:
+                          type: string
+                        Fecha:
+                          type: string
+                        FechaCaptacion:
+                          type: string
+                        FechaEntregaPrevistaCliente:
+                          type: string
+                        FechaEntregaPrevistaInterna:
+                          type: string
+                        FormaEnvio:
+                          type: string
+                        IdiomaID:
+                          type: integer
+                        ImportePortes:
+                          type: integer
+                        Inconterm:
+                          type: string
+                        Matricula:
+                          type: string
+                        MonedaCambio:
+                          type: number
+                        MonedaID:
+                          type: integer
+                        Municipio:
+                          type: string
+                        MunicipioID:
+                          type: integer
+                        Nombre:
+                          type: string
+                        NombreComercial:
+                          type: string
+                        NombreMailing:
+                          type: string
+                        NombreMunicipio:
+                          type: string
+                        NombreProvincia:
+                          type: string
+                        NombreRepresentante:
+                          type: string
+                        NombreRepresentante2:
+                          type: string
+                        NombreTransportista:
+                          type: string
+                        NotaCliente:
+                          type: string
+                        NotaGeneral:
+                          type: string
+                        Numero:
+                          type: integer
+                        NumeroCopiasAlbaran:
+                          type: integer
+                        PaisID:
+                          type: integer
+                        PedidoPor:
+                          type: string
+                        PedidoVentaCabeceraID:
+                          type: integer
+                        PesoBruto:
+                          type: integer
+                        PesoNeto:
+                          type: integer
+                        PlataformaLogisticaMailingID:
+                          type: integer
+                        PorcentajeComision:
+                          type: integer
+                        PorcentajeComision2:
+                          type: integer
+                        Portes:
+                          type: string
+                        ProcesoID:
+                          type: integer
+                        ProvinciaID:
+                          type: integer
+                        Proyecto_OFID:
+                          type: integer
+                        ProyectoOFCabecera:
+                          type: integer
+                        ReferenciaCliente:
+                          type: string
+                        ReferenciaNuestra:
+                          type: string
+                        Representante2ID:
+                          type: integer
+                        RepresentanteID:
+                          type: integer
+                        RutaEntrega:
+                          type: string
+                        RutaEntregaID:
+                          type: integer
+                        Serie:
+                          type: string
+                        SeriePedidoID:
+                          type: integer
+                        TarifaVentaID:
+                          type: integer
+                        TipoPedidoID:
+                          type: integer
+                        TransportistaID:
+                          type: integer
+                        UsuarioCreacion:
+                          type: string
+                        ArticuloDescripcion:
+                          type: string
+                          description: 'Con '
+                        ArticuloID:
+                          type: integer
+                          description: Con Detalle
+                        Cantidad:
+                          type: integer
+                          description: Con Detalle
+                        Cantidad2:
+                          type: integer
+                          description: Con Detalle
+                        CantidadEntregada:
+                          type: integer
+                          description: Con Detalle
+                        CodigoAlmacenLinea:
+                          type: string
+                          description: Con Detalle
+                        CodigoArticulo:
+                          type: string
+                          description: Con Detalle
+                        CodigoArticuloOF:
+                          type: string
+                          description: Con Detalle
+                        CodigoFamilia:
+                          type: string
+                          description: Con Detalle
+                        CodigoProyecto_OF:
+                          type: integer
+                          description: Con Detalle
+                        ConfirmadoLinea:
+                          type: integer
+                          description: Con Detalle
+                        descripcionLinea:
+                          type: string
+                          description: Con Detalle
+                        Dto1:
+                          type: integer
+                          description: Con Detalle
+                        Dto2:
+                          type: integer
+                          description: Con Detalle
+                        Dto3:
+                          type: integer
+                          description: Con Detalle
+                        EntregadoLinea:
+                          type: integer
+                          description: Con Detalle
+                        ExistenciaAXA:
+                          type: integer
+                          description: Con Detalle
+                        Factor:
+                          type: integer
+                          description: Con Detalle
+                        FactorCantidad:
+                          type: integer
+                          description: Con Detalle
+                        FechaEntregaPrevistaClienteLinea:
+                          type: string
+                          description: Con Detalle
+                        IDArticuloOF:
+                          type: integer
+                          description: Con Detalle
+                        ImporteVenta:
+                          type: number
+                          description: Con Detalle
+                        ImporteVentaPendiente:
+                          type: integer
+                          description: Con Detalle
+                        linea:
+                          type: integer
+                          description: Con Detalle
+                        MargenComercial:
+                          type: integer
+                          description: Con Detalle
+                        NombreArticulo:
+                          type: string
+                          description: Con Detalle
+                        NombreArticuloLinea:
+                          type: string
+                          description: Con Detalle
+                        NombreFamilia:
+                          type: string
+                          description: Con Detalle
+                        notaClienteLinea:
+                          type: string
+                          description: Con Detalle
+                        PedidoVentaLineaID:
+                          type: integer
+                          description: Con Detalle
+                        PrecioCoste:
+                          type: integer
+                          description: Con Detalle
+                        PrecioVenta:
+                          type: number
+                          description: Con Detalle
+                        referenciaArticuloCliente:
+                          type: string
+                          description: Con Detalle
+                        referenciaClienteLinea:
+                          type: string
+                          description: Con Detalle
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+      operationId: get-pedidoventa
+      x-stoplight:
+        id: 5h5rx5ar1b76w
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: token login
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: Lanzamiento
+        - schema:
+            type: string
+          in: query
+          name: FechaStart
+        - schema:
+            type: string
+          in: query
+          name: FechaEnd
+        - schema:
+            type: array
+          in: query
+          name: ClienteID
+          description: 'lista ( , )'
+        - schema:
+            type: array
+          in: query
+          name: FamiliaID
+          description: 'lista ( , )'
+        - schema:
+            type: string
+          in: query
+          name: Entregado
+        - schema:
+            type: array
+          in: query
+          name: ArticuloID
+          description: 'lista ( , )'
+        - schema:
+            type: string
+          in: query
+          name: NumeroStart
+        - schema:
+            type: string
+          in: query
+          name: NumeroEnd
+        - schema:
+            type: array
+          in: query
+          name: RepresentanteID
+          description: 'lista ( , )'
+        - schema:
+            type: string
+          in: query
+          name: SeriePedidoID
+        - schema:
+            type: string
+          in: query
+          name: SINLANZAROF
+        - schema:
+            type: string
+          in: query
+          name: ProyectoOFID
+        - schema:
+            type: string
+          in: query
+          name: TipoPedidoID
+        - schema:
+            type: string
+          in: query
+          name: ReferenciaCliente
+        - schema:
+            type: string
+          in: query
+          name: FechaEntregaPrevistaClienteStart
+        - schema:
+            type: string
+          in: query
+          name: FechaEntregaPrevistaClienteEnd
+        - schema:
+            type: string
+          in: query
+          name: OfertaLineaID
+        - schema:
+            type: string
+          in: query
+          name: MRP
+        - schema:
+            type: string
+          in: query
+          name: ConDetalle
 components:
   schemas: {}
