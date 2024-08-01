@@ -14679,6 +14679,66 @@ paths:
                     content:
                       sql: string
                       records: null
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
       operationId: get-sales-consult-receipts
       parameters:
         - schema:
@@ -14693,6 +14753,27 @@ paths:
           application/json:
             schema:
               type: object
+              x-examples:
+                Example 1:
+                  ListaAlmacenesID: '2'
+                  clienteID: '84'
+                  fechaDesde: '2020-01-01'
+                  fechaHasta: '2025-01-01'
+                  familiaID: ''
+                  listaRepresentantes: ''
+                  articuloID: ''
+                  numeroAlbarandesde: ''
+                  numeroAlbaranHasta: ''
+                  serieAlbaranID: '4'
+                  estadoAlbaran: ''
+                  listaTipoAlbaranes: ''
+                  pedidoNumeroDesde: ''
+                  pedidoNumeroHasta: ''
+                  listaTipoFacura: ''
+                  TipoAlbaran: ''
+                  fechaSalidaDesde: '2020-01-01'
+                  fechaSalidaHasta: '2025-01-01'
+                  referenciaCliente: ''
               properties:
                 ListaAlmacenesID:
                   type: string
@@ -14732,27 +14813,10 @@ paths:
                   type: string
                 referenciaCliente:
                   type: string
-              x-examples:
-                Example 1:
-                  ListaAlmacenesID: '2'
-                  clienteID: '84'
-                  fechaDesde: '2020-01-01'
-                  fechaHasta: '2025-01-01'
-                  familiaID: ''
-                  listaRepresentantes: ''
-                  articuloID: ''
-                  numeroAlbarandesde: ''
-                  numeroAlbaranHasta: ''
-                  serieAlbaranID: '4'
-                  estadoAlbaran: ''
-                  listaTipoAlbaranes: ''
-                  pedidoNumeroDesde: ''
-                  pedidoNumeroHasta: ''
-                  listaTipoFacura: ''
-                  TipoAlbaran: ''
-                  fechaSalidaDesde: '2020-01-01'
-                  fechaSalidaHasta: '2025-01-01'
-                  referenciaCliente: ''
+                ProyectoOFID:
+                  type: string
+                  x-stoplight:
+                    id: m0ugqo4k36go3
             examples:
               Example 1:
                 value:
