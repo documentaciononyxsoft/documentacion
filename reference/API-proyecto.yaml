@@ -359,6 +359,227 @@ paths:
             type: string
           in: query
           name: PedidoID
+  /cobros:
+    get:
+      summary: CobrosFindMany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        CobroID:
+                          type: integer
+                        CodigoEfecto:
+                          type: string
+                        NumeroVencimiento:
+                          type: integer
+                        FechaVencimiento:
+                          type: string
+                        ImporteVencimiento:
+                          type: integer
+                        ImporteVencimientoMonedaOrigen:
+                          type: integer
+                        CambioMoneda:
+                          type: integer
+                        DiarioLineaCobroID:
+                          type: integer
+                        ClienteID:
+                          type: integer
+                        FacturaVentaCabeceraID:
+                          type: integer
+                        FechaVencimientoOriginal:
+                          type: string
+                        Observaciones:
+                          type: string
+                        CodigoCliente:
+                          type: string
+                        ClienteMailingID:
+                          type: integer
+                        ClienteCuentaContableID:
+                          type: integer
+                        NombreCliente:
+                          type: string
+                        CodigoISO:
+                          type: string
+                        NombreFormaPago:
+                          type: string
+                        CodigoFormaPago:
+                          type: string
+                        FechaFactura:
+                          type: string
+                        NumeroFactura:
+                          type: integer
+                        Ejercicio:
+                          type: integer
+                        TotalFactura:
+                          type: integer
+                        CodigoBanco:
+                          type: string
+                        NombreBanco:
+                          type: string
+                        AsientoAnticipo:
+                          type: integer
+                        FechaAnticipo:
+                          type: string
+                        AsientoDescuento:
+                          type: integer
+                        FechaDescuento:
+                          type: string
+                        BancoCuentaContableID:
+                          type: integer
+                        NombreSerie:
+                          type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - CobroID: 1
+                        CodigoEfecto: 14-2023
+                        NumeroVencimiento: 1
+                        FechaVencimiento: '20230620'
+                        ImporteVencimiento: 1
+                        ImporteVencimientoMonedaOrigen: 1
+                        CambioMoneda: 1
+                        DiarioLineaCobroID: 0
+                        ClienteID: 108
+                        FacturaVentaCabeceraID: 1
+                        FechaVencimientoOriginal: '20230620'
+                        Observaciones: ''
+                        CodigoCliente: '43000060'
+                        ClienteMailingID: 349
+                        ClienteCuentaContableID: 776
+                        NombreCliente: nombreClienteqOIzq
+                        CodigoISO: EUR
+                        NombreFormaPago: ''
+                        CodigoFormaPago: ''
+                        FechaFactura: '20230620'
+                        NumeroFactura: 14
+                        Ejercicio: 2023
+                        TotalFactura: 1
+                        CodigoBanco: ''
+                        NombreBanco: ''
+                        AsientoAnticipo: 0
+                        FechaAnticipo: ''
+                        AsientoDescuento: 0
+                        FechaDescuento: ''
+                        BancoCuentaContableID: 0
+                        NombreSerie: Sin
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+      operationId: get-cobros
+      x-stoplight:
+        id: 10om4ukyj9ewk
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          required: true
+        - schema:
+            type: array
+          in: query
+          name: FacturasID
+          description: 'lista ( , )'
+        - schema:
+            type: string
+          in: query
+          name: ClienteID
+        - schema:
+            type: string
+          in: query
+          name: BancoID
+        - schema:
+            type: string
+          in: query
+          name: FechaStart
+        - schema:
+            type: string
+          in: query
+          name: FechaEnd
+        - schema:
+            type: string
+          in: query
+          name: Pendiente
+        - schema:
+            type: string
+          in: query
+          name: Liquidado
+        - schema:
+            type: string
+          in: query
+          name: FacturaVentaCabeceraID
 components:
   schemas:
     User:
