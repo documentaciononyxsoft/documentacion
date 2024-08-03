@@ -580,6 +580,489 @@ paths:
             type: string
           in: query
           name: FacturaVentaCabeceraID
+  /projects:
+    post:
+      summary: projectCreate
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                    x-stoplight:
+                      id: y0o45paljjv4z
+                  Proyecto_OFID:
+                    type: string
+                    x-stoplight:
+                      id: 2f5qob45wpvpy
+                  codigo:
+                    type: string
+                    x-stoplight:
+                      id: ufxdhunemvv9n
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                  error:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: ''
+                    error: ''
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                  error:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: ''
+                    error: ''
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                  error:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: ''
+                    error: ''
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                  error:
+                    type: string
+                x-examples:
+                  Example 1:
+                    success: ''
+                    error: ''
+      operationId: post-projects
+      x-stoplight:
+        id: z2fgew6aehoop
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: projectCreate
+          required: true
+          description: Token login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Proyecto_OFID:
+                  type: string
+                  x-stoplight:
+                    id: gifuumtf5dejt
+                CodigoProyecto_OF:
+                  type: string
+                  x-stoplight:
+                    id: 8w5mp2x75avgu
+                Nombre:
+                  type: string
+                  x-stoplight:
+                    id: p91cstmo3gmr3
+                Referencia:
+                  type: string
+                  x-stoplight:
+                    id: id570qa0mut0a
+                MailingID:
+                  type: string
+                  x-stoplight:
+                    id: g5f18yo0cx121
+                Proyecto_OFTipoID:
+                  type: string
+                  x-stoplight:
+                    id: korecspkual5i
+                FechaEntrega:
+                  type: string
+                  x-stoplight:
+                    id: fwc6kzq5lyt2v
+                  description: 'YYYY-MM-DDTHH:mm:SS'
+                FechaHoraUsuarioCierre:
+                  type: string
+                  x-stoplight:
+                    id: 7yg6nrwbvv6j0
+                  description: 'YYYY-MM-DDTHH:mm:SS'
+                Prioridad:
+                  type: string
+                  x-stoplight:
+                    id: qom99xw53qrw0
+                Publico:
+                  type: string
+                  x-stoplight:
+                    id: ea6poejrwswr9
+                Observaciones:
+                  type: string
+                  x-stoplight:
+                    id: dejo0tzv768bj
+                nota:
+                  type: string
+                  x-stoplight:
+                    id: w4db1gfti51h9
+                notaCliente:
+                  type: string
+                  x-stoplight:
+                    id: gf8zn2udfoffa
+                empleadosProyecto:
+                  type: array
+                  x-stoplight:
+                    id: ne9f7t5f562w1
+                  items:
+                    x-stoplight:
+                      id: y7z2rlvzvbnzc
+                    type: object
+                    properties:
+                      empleadoID:
+                        type: string
+                        x-stoplight:
+                          id: hmfw7du50ad74
+                      rolID:
+                        type: string
+                        x-stoplight:
+                          id: 7tbtnx2kuip8x
+                contactosProyecto:
+                  type: array
+                  x-stoplight:
+                    id: qiza4o0f2w7vn
+                  items:
+                    x-stoplight:
+                      id: nea0ey0d0nxeu
+                    type: object
+                    properties:
+                      contactoID:
+                        type: string
+                        x-stoplight:
+                          id: adv39yk1x7sgt
+                      RolID:
+                        type: string
+                        x-stoplight:
+                          id: 85uid9n5rdni7
+                '':
+                  type: string
+                  x-stoplight:
+                    id: hxxjk0bgu9wwi
+  '/projects/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    put:
+      summary: projectUpdate
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                    x-stoplight:
+                      id: g5t8vjn4edpgl
+                  Proyecto_OFID:
+                    type: string
+                    x-stoplight:
+                      id: gmou9wy63rf8b
+                  codigo:
+                    type: string
+                    x-stoplight:
+                      id: 7jf5uwrb3g2j6
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                    x-stoplight:
+                      id: cd5erzfiz9hl3
+                  error:
+                    type: string
+                    x-stoplight:
+                      id: 94j7fgl7nodhv
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                    x-stoplight:
+                      id: ndknp7ob6peks
+                  error:
+                    type: string
+                    x-stoplight:
+                      id: njn63dt3vu50t
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                    x-stoplight:
+                      id: r4xp70o40qxqj
+                  error:
+                    type: string
+                    x-stoplight:
+                      id: 1rfmd3g1plnnv
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    x-stoplight:
+                      id: kph39ikog121u
+                  success:
+                    type: string
+                    x-stoplight:
+                      id: 8plbk04ltsegz
+      operationId: put-projects-id
+      x-stoplight:
+        id: qk5brhzmu2ed3
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: Token login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Proyecto_OFID:
+                  type: string
+                  x-stoplight:
+                    id: avlgtvk83tf6l
+                CodigoProyecto_OF:
+                  type: string
+                  x-stoplight:
+                    id: xg8b4aeqqfj27
+                Nombre:
+                  type: string
+                  x-stoplight:
+                    id: fjznphwqqqnet
+                Referencia:
+                  type: string
+                  x-stoplight:
+                    id: 0h5e973s0g575
+                MailingID:
+                  type: string
+                  x-stoplight:
+                    id: wjfoj6zbxttob
+                Proyecto_OFTipoID:
+                  type: string
+                  x-stoplight:
+                    id: kzp57ov72zw0f
+                FechaEntrega:
+                  type: string
+                  x-stoplight:
+                    id: wuzpu683zz9sw
+                  description: 'YYYY-MM-DDTHH:mm:SS'
+                FechaHoraUsuarioCierre:
+                  type: string
+                  x-stoplight:
+                    id: zghg84b004nam
+                  description: 'YYYY-MM-DDTHH:mm:SS'
+                Prioridad:
+                  type: string
+                  x-stoplight:
+                    id: fynypojixw8db
+                Publico:
+                  type: string
+                  x-stoplight:
+                    id: 3ixt716n6o4a8
+                Observaciones:
+                  type: string
+                  x-stoplight:
+                    id: vnsqvf2zqxrpu
+                nota:
+                  type: string
+                  x-stoplight:
+                    id: va1ittpu6xe3y
+                notaCliente:
+                  type: string
+                  x-stoplight:
+                    id: a5qalnyw4qx5y
+                empleadosProyecto:
+                  type: array
+                  x-stoplight:
+                    id: 7sg4ruqudykje
+                  items:
+                    x-stoplight:
+                      id: 9iilqbl6qkfkv
+                    type: object
+                    properties:
+                      empleadoID:
+                        type: string
+                        x-stoplight:
+                          id: ic696v01ptn06
+                      rolID:
+                        type: string
+                        x-stoplight:
+                          id: ff09mkrgzqs64
+                contactosProyecto:
+                  type: array
+                  x-stoplight:
+                    id: zfn52irc4lekd
+                  items:
+                    x-stoplight:
+                      id: 6qeprvypr6sdl
+                    type: object
+                    properties:
+                      contactoID:
+                        type: string
+                        x-stoplight:
+                          id: zudxxo0luooe2
+                      RolID:
+                        type: string
+                        x-stoplight:
+                          id: f7uqwg4b71t2h
+    delete:
+      summary: ProjectDelete
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                    x-stoplight:
+                      id: sz41wtsix3d0l
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                    x-stoplight:
+                      id: iyg51pydptqw2
+                  error:
+                    type: string
+                    x-stoplight:
+                      id: myo8zsausty68
+                  '':
+                    type: string
+                    x-stoplight:
+                      id: e3cpkvxpnw63t
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                    x-stoplight:
+                      id: o4sg7va3qb90t
+                  error:
+                    type: string
+                    x-stoplight:
+                      id: lzqzonbg3c67q
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                    x-stoplight:
+                      id: ffgiey0lr10g2
+                  error:
+                    type: string
+                    x-stoplight:
+                      id: njrxxq8vq7bhz
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                    x-stoplight:
+                      id: z9zo99i09osbb
+                  error:
+                    type: string
+                    x-stoplight:
+                      id: u2s8uikl6m0l8
+      operationId: delete-projects-id
+      x-stoplight:
+        id: vyl00nwnv1y3e
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: Token login
 components:
   schemas:
     User:
