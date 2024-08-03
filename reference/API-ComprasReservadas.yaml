@@ -315,6 +315,7 @@ paths:
           in: header
           name: accessToken
           description: login token
+          required: true
         - schema:
             type: array
           in: query
