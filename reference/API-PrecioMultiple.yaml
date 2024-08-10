@@ -1,0 +1,369 @@
+openapi: 3.1.0
+x-stoplight:
+  id: 8j67gn98hqcml
+info:
+  title: API-PrecioMultiple
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/users/{userId}':
+    parameters:
+      - schema:
+          type: integer
+        name: userId
+        in: path
+        required: true
+        description: Id of an existing user.
+    get:
+      summary: Get User Info by User ID
+      tags: []
+      responses:
+        '200':
+          description: User Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Get User Alice Smith:
+                  value:
+                    id: 142
+                    firstName: Alice
+                    lastName: Smith
+                    email: alice.smith@gmail.com
+                    dateOfBirth: '1997-10-31'
+                    emailVerified: true
+                    signUpDate: '2019-08-24'
+        '404':
+          description: User Not Found
+      operationId: get-users-userId
+      description: Retrieve the information of the user with the matching user ID.
+      x-stoplight:
+        id: x0610xejyyoo9
+    patch:
+      summary: Update User Information
+      operationId: patch-users-userId
+      responses:
+        '200':
+          description: User Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Updated User Rebecca Baker:
+                  value:
+                    id: 13
+                    firstName: Rebecca
+                    lastName: Baker
+                    email: rebecca@gmail.com
+                    dateOfBirth: '1985-10-02'
+                    emailVerified: false
+                    createDate: '2019-08-24'
+        '404':
+          description: User Not Found
+        '409':
+          description: Email Already Taken
+      description: Update the information of an existing user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                email:
+                  type: string
+                  description: 'If a new email is given, the user''s email verified property will be set to false.'
+                dateOfBirth:
+                  type: string
+            examples:
+              Update First Name:
+                value:
+                  firstName: Rebecca
+              Update Email:
+                value:
+                  email: rebecca@gmail.com
+              Update Last Name & Date of Birth:
+                value:
+                  lastName: Baker
+                  dateOfBirth: '1985-10-02'
+        description: Patch user properties to update.
+      x-stoplight:
+        id: r5bhgsg3n6eha
+  /user:
+    post:
+      summary: Create New User
+      operationId: post-user
+      responses:
+        '200':
+          description: User Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                New User Bob Fellow:
+                  value:
+                    id: 12
+                    firstName: Bob
+                    lastName: Fellow
+                    email: bob.fellow@gmail.com
+                    dateOfBirth: '1996-08-24'
+                    emailVerified: false
+                    createDate: '2020-11-18'
+        '400':
+          description: Missing Required Information
+        '409':
+          description: Email Already Taken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                email:
+                  type: string
+                dateOfBirth:
+                  type: string
+                  format: date
+              required:
+                - firstName
+                - lastName
+                - email
+                - dateOfBirth
+            examples:
+              Create User Bob Fellow:
+                value:
+                  firstName: Bob
+                  lastName: Fellow
+                  email: bob.fellow@gmail.com
+                  dateOfBirth: '1996-08-24'
+        description: Post the necessary fields for the API to create a new user.
+      description: Create a new user.
+      x-stoplight:
+        id: 3xbvnoazbn1i8
+  /preciosmultiples:
+    get:
+      summary: Precio Multiple find Many
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        ArticuloCodigo:
+                          type: string
+                        ArticuloNombre:
+                          type: string
+                        DelegacionCodigo:
+                          type: string
+                        Delegaciondescripcio:
+                          type: string
+                        AlmacenCodigo:
+                          type: string
+                        AlmacenNombre:
+                          type: string
+                        TarifaVentaCodigo:
+                          type: string
+                        TarifaVentaNombre:
+                          type: string
+                        PreciosMultiplesID:
+                          type: integer
+                        ArticuloID:
+                          type: integer
+                        DelegacionID:
+                          type: integer
+                        AlmacenID:
+                          type: integer
+                        TarifaVentaID:
+                          type: integer
+                        PrecioVenta:
+                          type: integer
+                        PrecioTarifaVenta:
+                          type: integer
+                        CustomerID:
+                          type: integer
+                        EmpresaID:
+                          type: integer
+                        UsuarioID:
+                          type: integer
+                        FechaHoraUsuario:
+                          type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 0
+                    message: ''
+                    content:
+                      - ArticuloCodigo: SERV
+                        ArticuloNombre: Servidor Mensual
+                        DelegacionCodigo: '65'
+                        Delegaciondescripcio: aaaaaa
+                        AlmacenCodigo: FOOD
+                        AlmacenNombre: Almacen Foodoz
+                        TarifaVentaCodigo: '456'
+                        TarifaVentaNombre: Cliente extrangero1
+                        PreciosMultiplesID: 4
+                        ArticuloID: 37
+                        DelegacionID: 5
+                        AlmacenID: 6
+                        TarifaVentaID: 1
+                        PrecioVenta: 4560
+                        PrecioTarifaVenta: 3
+                        CustomerID: 32
+                        EmpresaID: 1
+                        UsuarioID: 21
+                        FechaHoraUsuario: '2024-08-08T21:52:24.000'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 0
+                    message: ''
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 0
+                    message: ''
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 0
+                    message: ''
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 0
+                    message: ''
+      operationId: get-preciomultiple
+      x-stoplight:
+        id: 4yjgqh7f9c5fd
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: Token login
+        - schema:
+            type: array
+          in: query
+          name: TarifaVentaID
+          description: 'list ( , )'
+    parameters: []
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      examples:
+        - id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+          x-stoplight:
+            id: 7s1sdf5b8bpuz
+        firstName:
+          type: string
+          x-stoplight:
+            id: h8m34lr54k8tj
+        lastName:
+          type: string
+          x-stoplight:
+            id: t5bo7u5dhz8ny
+        email:
+          type: string
+          format: email
+          x-stoplight:
+            id: rbauocqwuihjh
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+          x-stoplight:
+            id: mm1g9g0r4ypkf
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+          x-stoplight:
+            id: 6aaafy45ip1n3
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+          x-stoplight:
+            id: v2k9oaqhehoti
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified
+      x-stoplight:
+        id: 6067sfdxxsms1
