@@ -1,0 +1,565 @@
+openapi: 3.1.0
+x-stoplight:
+  id: i7wad7n7zbofh
+info:
+  title: API-OrdenTrabajo
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/users/{userId}':
+    parameters:
+      - schema:
+          type: integer
+        name: userId
+        in: path
+        required: true
+        description: Id of an existing user.
+    get:
+      summary: Get User Info by User ID
+      tags: []
+      responses:
+        '200':
+          description: User Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Get User Alice Smith:
+                  value:
+                    id: 142
+                    firstName: Alice
+                    lastName: Smith
+                    email: alice.smith@gmail.com
+                    dateOfBirth: '1997-10-31'
+                    emailVerified: true
+                    signUpDate: '2019-08-24'
+        '404':
+          description: User Not Found
+      operationId: get-users-userId
+      description: Retrieve the information of the user with the matching user ID.
+      x-stoplight:
+        id: z5yt9ivu1zozo
+    patch:
+      summary: Update User Information
+      operationId: patch-users-userId
+      responses:
+        '200':
+          description: User Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Updated User Rebecca Baker:
+                  value:
+                    id: 13
+                    firstName: Rebecca
+                    lastName: Baker
+                    email: rebecca@gmail.com
+                    dateOfBirth: '1985-10-02'
+                    emailVerified: false
+                    createDate: '2019-08-24'
+        '404':
+          description: User Not Found
+        '409':
+          description: Email Already Taken
+      description: Update the information of an existing user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                email:
+                  type: string
+                  description: 'If a new email is given, the user''s email verified property will be set to false.'
+                dateOfBirth:
+                  type: string
+            examples:
+              Update First Name:
+                value:
+                  firstName: Rebecca
+              Update Email:
+                value:
+                  email: rebecca@gmail.com
+              Update Last Name & Date of Birth:
+                value:
+                  lastName: Baker
+                  dateOfBirth: '1985-10-02'
+        description: Patch user properties to update.
+      x-stoplight:
+        id: 2e46nihiwh95c
+  /user:
+    post:
+      summary: Create New User
+      operationId: post-user
+      responses:
+        '200':
+          description: User Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                New User Bob Fellow:
+                  value:
+                    id: 12
+                    firstName: Bob
+                    lastName: Fellow
+                    email: bob.fellow@gmail.com
+                    dateOfBirth: '1996-08-24'
+                    emailVerified: false
+                    createDate: '2020-11-18'
+        '400':
+          description: Missing Required Information
+        '409':
+          description: Email Already Taken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                email:
+                  type: string
+                dateOfBirth:
+                  type: string
+                  format: date
+              required:
+                - firstName
+                - lastName
+                - email
+                - dateOfBirth
+            examples:
+              Create User Bob Fellow:
+                value:
+                  firstName: Bob
+                  lastName: Fellow
+                  email: bob.fellow@gmail.com
+                  dateOfBirth: '1996-08-24'
+        description: Post the necessary fields for the API to create a new user.
+      description: Create a new user.
+      x-stoplight:
+        id: wijj9qk5c8c28
+  /ordentrabajo:
+    get:
+      summary: Orden Trabajo FindaMany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        AlmacenDestinoID:
+                          type: integer
+                        AlmacenOrigenID:
+                          type: integer
+                        ArticuloID:
+                          type: integer
+                        CantidadFabricada:
+                          type: integer
+                        CantidadPrevista:
+                          type: integer
+                        CodigoEquipo:
+                          type: string
+                        CodigoProyecto_OF:
+                          type: integer
+                        CosteEstructural:
+                          type: number
+                        CosteExterior:
+                          type: integer
+                        CosteManoObra:
+                          type: number
+                        CosteMaquina:
+                          type: integer
+                        CosteMateriales:
+                          type: integer
+                        CosteOtros:
+                          type: integer
+                        CostePreparacion:
+                          type: integer
+                        DescripcionEstadoEquipo:
+                          type: string
+                        DescripcionPrioridad:
+                          type: string
+                        DescripcionTicket:
+                          type: string
+                        EmpresaID:
+                          type: integer
+                        EsObraOf:
+                          type: string
+                        Estado:
+                          type: string
+                        Factor:
+                          type: integer
+                        FechaAltaTicket:
+                          type: string
+                        FechaCreacion:
+                          type: string
+                        FechaHoraInicioPlanificacion:
+                          type: string
+                        FechaHoraModificado:
+                          type: string
+                        FechaHoraUsuarioCierre:
+                          type: string
+                        FechaInicio:
+                          type: string
+                        FechaLanzamiento:
+                          type: string
+                        FechaTerminacion:
+                          type: string
+                        Gmao_TicketID:
+                          type: integer
+                        MailingID:
+                          type: integer
+                        MargenEstructural:
+                          type: integer
+                        MargenExterior:
+                          type: integer
+                        MargenGastos:
+                          type: integer
+                        MargenGeneral:
+                          type: integer
+                        MargenManoObra:
+                          type: integer
+                        MargenMaquina:
+                          type: integer
+                        MargenMateriales:
+                          type: integer
+                        MargenPreparacion:
+                          type: integer
+                        MotivoRetenido:
+                          type: string
+                        Nivel:
+                          type: integer
+                        NivelIngenieriaID:
+                          type: integer
+                        Nombre:
+                          type: string
+                        NombreEquipo:
+                          type: string
+                        Nota:
+                          type: string
+                        NotaCliente:
+                          type: string
+                        NumeroTicket:
+                          type: integer
+                        Observaciones:
+                          type: string
+                        PedidoVentaLineaID:
+                          type: integer
+                        PrecioVenta:
+                          type: integer
+                        Prioridad:
+                          type: integer
+                        ProcesoID:
+                          type: integer
+                        Proyecto_OF_PadreId:
+                          type: integer
+                        Proyecto_OFAnteriorID:
+                          type: integer
+                        Proyecto_OFID:
+                          type: integer
+                        Proyecto_OFTipoID:
+                          type: integer
+                        Publico:
+                          type: integer
+                        Referencia:
+                          type: string
+                        ReferenciaArticulo:
+                          type: string
+                        Retenido:
+                          type: integer
+                        RutaFabricacionID:
+                          type: integer
+                        Tipo:
+                          type: string
+                        TipoFabricación:
+                          type: string
+                        TipoTicket:
+                          type: string
+                        Titulo:
+                          type: string
+                        TratadoInbox:
+                          type: integer
+                        UsuarioIDCierre:
+                          type: integer
+                        UsuarioID:
+                          type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 0
+                    message: ''
+                    content:
+                      - AlmacenDestinoID: 0
+                        AlmacenOrigenID: 0
+                        ArticuloID: 0
+                        CantidadFabricada: 0
+                        CantidadPrevista: 0
+                        CodigoEquipo: C-001
+                        CodigoProyecto_OF: 1
+                        CosteEstructural: 3.012332
+                        CosteExterior: 0
+                        CosteManoObra: 50.41109
+                        CosteMaquina: 0
+                        CosteMateriales: 50
+                        CosteOtros: 0
+                        CostePreparacion: 0
+                        DescripcionEstadoEquipo: Equipo en marcha
+                        DescripcionPrioridad: Alta
+                        DescripcionTicket: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.14393}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17 No funciona la carga. Se ha dejado toda la noche cargando pero en media hora se descarga y deja de funcionar.\\par\r\n}\r\n"
+                        EmpresaID: 1
+                        EsObraOf: M
+                        Estado: FI
+                        Factor: 1
+                        FechaAltaTicket: '2016-10-18T15:24:41.000'
+                        FechaCreacion: ''
+                        FechaHoraInicioPlanificacion: '2016-10-28T09:00:00.000'
+                        FechaHoraModificado: '2018-07-18T08:35:07.000'
+                        FechaHoraUsuarioCierre: '2018-07-18T08:35:06.000'
+                        FechaInicio: '20171107'
+                        FechaLanzamiento: ''
+                        FechaTerminacion: '20171107'
+                        Gmao_TicketID: 1
+                        MailingID: 0
+                        MargenEstructural: 0
+                        MargenExterior: 0
+                        MargenGastos: 0
+                        MargenGeneral: 0
+                        MargenManoObra: 0
+                        MargenMaquina: 0
+                        MargenMateriales: 0
+                        MargenPreparacion: 0
+                        MotivoRetenido: ''
+                        Nivel: 0
+                        NivelIngenieriaID: 0
+                        Nombre: ''
+                        NombreEquipo: Carretillas elevadoras de cuatro ruedas
+                        Nota: ''
+                        NotaCliente: ''
+                        NumeroTicket: 1
+                        Observaciones: "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3082{\\fonttbl{\\f0\\fswiss\\fprq2\\fcharset0 Tahoma;}}\r\n{\\*\\generator Riched20 10.0.14393}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs17 Revisar carga bateria con polimetro y si esta sin carga cambiar bateria.\\par\r\n}\r\n"
+                        PedidoVentaLineaID: 0
+                        PrecioVenta: 0
+                        Prioridad: 0
+                        ProcesoID: 0
+                        Proyecto_OF_PadreId: 0
+                        Proyecto_OFAnteriorID: 0
+                        Proyecto_OFID: 361
+                        Proyecto_OFTipoID: 0
+                        Publico: 0
+                        Referencia: ''
+                        ReferenciaArticulo: ''
+                        Retenido: 0
+                        RutaFabricacionID: 0
+                        Tipo: ''
+                        TipoFabricación: ''
+                        TipoTicket: AV
+                        Titulo: AlmacÃ©n
+                        TratadoInbox: 0
+                        UsuarioIDCierre: 1
+                        UsuarioID: 0
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 0
+                    message: ''
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 0
+                    message: ''
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 0
+                    message: ''
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 0
+                    message: ''
+      operationId: get-ordentrabajo
+      x-stoplight:
+        id: rp6cqvj59ter7
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: token login
+          required: true
+        - schema:
+            type: array
+          in: query
+          name: TipoTicket
+          description: 'lista ( , )'
+        - schema:
+            type: string
+          in: query
+          name: FechaAltaTicketStart
+        - schema:
+            type: string
+          in: query
+          name: FechaAltaTicketEnd
+        - schema:
+            type: string
+          in: query
+          name: FechaHoraInicioPlanificacionStart
+        - schema:
+            type: string
+          in: query
+          name: FechaHoraInicioPlanificacionEnd
+        - schema:
+            type: string
+          in: query
+          name: GmaoEquipoID
+        - schema:
+            type: array
+          in: query
+          name: PrioridadID
+          description: 'lista ( , )'
+        - schema:
+            type: array
+          in: query
+          name: EstadoEquipoID
+          description: 'lista ( , )'
+        - schema:
+            type: string
+          in: query
+          name: Estado
+          description: ABIERTA | ENCURSO | CERRADA
+        - schema:
+            type: array
+          in: query
+          name: EmpleadoID
+          description: 'lista ( , )'
+        - schema:
+            type: array
+          in: query
+          name: GmaoLayoutID
+          description: 'lista ( , )'
+        - schema:
+            type: string
+          in: query
+          name: TipoEquipoID
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      examples:
+        - id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+          x-stoplight:
+            id: fpalmeymtlexe
+        firstName:
+          type: string
+          x-stoplight:
+            id: 2ymdt8121wemn
+        lastName:
+          type: string
+          x-stoplight:
+            id: 4dct9qbr95nzm
+        email:
+          type: string
+          format: email
+          x-stoplight:
+            id: ljea5avl688bl
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+          x-stoplight:
+            id: kfcvi7ovgrynb
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+          x-stoplight:
+            id: s6o6d66qq5x00
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+          x-stoplight:
+            id: 8frrzvlhbos0n
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified
+      x-stoplight:
+        id: x20vwxbztucm3
