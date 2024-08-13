@@ -18,8 +18,6 @@ paths:
           $ref: '#/components/responses/login-200-response'
         '400':
           $ref: '#/components/responses/login-400-response'
-        '404':
-          $ref: '#/components/responses/login-404-response'
         '500':
           $ref: '#/components/responses/login-500-response'
       description: ''
@@ -40,7 +38,7 @@ components:
       schema:
         type: string
         example: NETVY-DEMO
-      required: true
+      required: false
   schemas:
     login-model:
       title: Credentials
@@ -83,20 +81,8 @@ components:
   examples:
     login-example:
       value:
-        description: Example Login example
-        type: object
-        properties:
-          user:
-            type: string
-          pass:
-            type: string
-        required:
-          - user
-          - pass
-        example:
-          value:
-            user: user@example.com
-            pass: mypass123
+        user: user@example.com
+        pass: mypass123
   responses:
     login-200-response:
       description: Ok
@@ -112,54 +98,55 @@ components:
                   token: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjE0NTg2LCAiZXhwIjoxNjY4NjIxNzg2IH0.CH41WeuWJD-yDF_TmXtk47RPUBwUp3IkdTedvuO8yvQ
                   usuarioID: 1
             properties:
-              statusCode:
-                type: integer
-                default: 200
-              message:
+              token:
                 type: string
-                default: Request processed successfully
-              content:
-                type: object
-                properties:
-                  token:
-                    type: string
-                    description: Token necesario para enviar en la cabecera de las demas peticiones
-                  usuarioID:
-                    type: integer
-                    description: ID en la BD del erp del usuario que se acaba de autenticar
+                x-stoplight:
+                  id: yfzesidbz5914
+              usuarioID:
+                type: integer
+                x-stoplight:
+                  id: hafa56ejjzwd8
+                minimum: 1
+              isAdmin:
+                type: boolean
+                x-stoplight:
+                  id: f4vy4tx9cvzds
+                default: false
+              idiomaID:
+                type: integer
+                x-stoplight:
+                  id: 3oznf2dtywnwf
+                minimum: 1
           examples:
             Example 1:
               value:
-                statusCode: 200
-                message: Request processed successfully
-                content:
-                  token: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjY4NjE0NTg2LCAiZXhwIjoxNjY4NjIxNzg2IH0.CH41WeuWJD-yDF_TmXtk47RPUBwUp3IkdTedvuO8yvQ
-                  usuarioID: 1
+                token: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2iB8.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiY3Rva2VuIjoiIiwgImlhdCI6MTcyMzUxMjQ2NSwgImV4cCI6MTcyNzExMjQ2NSB9.hd3lRBQT3yaUIa3Ckdb-TJ5t6xw6oO99i_1S3F3hdw
+                usuarioID: 1
+                isAdmin: true
+                idiomaID: 1092
     login-400-response:
       description: autenticación fallida
       content:
         application/json:
           schema:
             type: object
-            properties:
-              statusCode:
-                type: integer
-              message:
-                type: string
-              content:
-                type: object
-                properties: {}
             x-examples:
               Example 1:
                 statusCode: 400
                 message: 'Credenciales no validas '
                 content: {}
+            properties:
+              statusCode:
+                type: integer
+                default: 400
+              message:
+                type: string
+                default: Credenciales no validas
           examples:
             Example 1:
               value:
                 statusCode: 400
                 message: 'Credenciales no validas '
-                content: {}
     login-404-response:
       description: Not Found
       content:
@@ -191,22 +178,20 @@ components:
         application/json:
           schema:
             type: object
-            properties:
-              statusCode:
-                type: integer
-              message:
-                type: string
-              content:
-                type: object
-                properties: {}
             x-examples:
               Example 1:
                 statusCode: 500
                 message: Internal Server Error
                 content: {}
+            properties:
+              statusCode:
+                type: integer
+                default: 500
+              message:
+                type: string
+                default: Internal Server Error
           examples:
             Example 1:
               value:
                 statusCode: 500
                 message: Internal Server Error
-                content: {}
