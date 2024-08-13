@@ -338,18 +338,10 @@ paths:
                       sql:
                         type: string
                       records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            ContinenteID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            CustomerID:
-                              type: integer
-                            UsuarioID:
-                              type: integer
+                        CustomerID:
+                          type: integer
+                        UsuarioID:
+                          type: integer
                 x-examples:
                   Example 1:
                     statusCode: 200
@@ -1350,28 +1342,16 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                  message:
-                    type: string
-                  content:
-                    type: object
-                    properties:
-                      success:
-                        type: boolean
-                      records:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            PaisID:
-                              type: integer
-                            Nombre:
-                              type: string
-                            IsoNumerico:
-                              type: integer
+                type: array
+                items:
+                  type: object
+                  properties:
+                    PaisID:
+                      type: integer
+                    Nombre:
+                      type: string
+                    IsoNumerico:
+                      type: integer
                 x-examples:
                   Example 1:
                     statusCode: 200
@@ -2123,49 +2103,54 @@ paths:
               examples:
                 Example 1:
                   value:
-                    statusCode: 200
-                    message: Request processed successfully
-                    content:
-                      success: true
-                      records:
-                        - PaisID: 1
-                          Nombre: Afganistán
-                          IsoNumerico: 4
-                        - PaisID: 2
-                          Nombre: Albania
-                          IsoNumerico: 8
-                        - PaisID: 3
-                          Nombre: Alemania
-                          IsoNumerico: 276
-                        - PaisID: 241
-                          Nombre: REP. Yeison
-                          IsoNumerico: 12
-                        - PaisID: 248
-                          Nombre: yeik z
-                          IsoNumerico: 30
-                        - PaisID: 249
-                          Nombre: yeik real
-                          IsoNumerico: 30
-                        - PaisID: 251
-                          Nombre: PAISJuan
-                          IsoNumerico: 17
-                        - PaisID: 252
-                          Nombre: JCO
-                          IsoNumerico: 11
-                        - PaisID: 253
-                          Nombre: UPDATED
-                          IsoNumerico: 0
-                        - PaisID: 254
-                          Nombre: PAISJCO
-                          IsoNumerico: 17
-      parameters:
-        - schema:
-            type: string
-            example: eyAidHlwIjoiSldUIiwgImFsZyI6IkhTMjU2IiB9.eyAidXNlcklEIjoiMSIsICJjdXN0b21lcklEIjoiMjkiLCAicnV0YUZvdG8iOiIiLCAidXNlck5hbWUiOiJBRE1JTklTVFJBRE9SIiwgImFkbWluaXN0cmFkb3IiOiIxIiwgImVtcHJlc2FJRCI6IjEiLCAiYXBpS2V5IjoibWlzZWNyZXRpdG8iLCAiaWF0IjoxNjcyMzQ5MTcyLCAiZXhwIjoxNjcyMzU2MzcyIH0._R6egSIjKnI-OMeQjVs5tz7Jk4vJSIdk7Wh22SyJomg
-          in: header
-          name: accessToken
-          description: Token de acceso. Si no se cuenta con uno no se podrá realizar la petición.
-          required: true
+                    - PaisID: 1
+                      Nombre: Afganistán
+                      IsoNumerico: 4
+                    - PaisID: 2
+                      Nombre: Albania
+                      IsoNumerico: 8
+                    - PaisID: 3
+                      Nombre: Alemania
+                      IsoNumerico: 276
+                    - PaisID: 241
+                      Nombre: REP. Yeison
+                      IsoNumerico: 12
+                    - PaisID: 248
+                      Nombre: yeik z
+                      IsoNumerico: 30
+                    - PaisID: 249
+                      Nombre: yeik real
+                      IsoNumerico: 30
+                    - PaisID: 251
+                      Nombre: PAISJuan
+                      IsoNumerico: 17
+                    - PaisID: 252
+                      Nombre: JCO
+                      IsoNumerico: 11
+                    - PaisID: 253
+                      Nombre: UPDATED
+                      IsoNumerico: 0
+                    - PaisID: 254
+                      Nombre: PAISJCO
+                      IsoNumerico: 17
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    x-stoplight:
+                      id: zxdakwy2hxaq3
+                    default: 500
+                  message:
+                    type: string
+                    x-stoplight:
+                      id: ssjeezatkjptp
+                    default: Internal Server Error
+      parameters: []
   '/countries/{paisID}':
     parameters:
       - schema:
@@ -13628,3 +13613,10 @@ paths:
           required: true
 components:
   schemas: {}
+  securitySchemes:
+    accessToke:
+      name: accessToken
+      type: apiKey
+      in: header
+security:
+  - accessToke: []
