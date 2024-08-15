@@ -308,6 +308,18 @@ paths:
           in: query
           name: TarifaVentaID
           description: 'list ( , )'
+        - schema:
+            type: string
+          in: query
+          name: TarifaVenta
+        - schema:
+            type: string
+          in: query
+          name: Delegacion
+        - schema:
+            type: string
+          in: query
+          name: Almacen
     parameters: []
 components:
   schemas:
