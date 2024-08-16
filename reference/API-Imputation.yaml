@@ -1008,9 +1008,9 @@ paths:
                   WebID: ''
                   Tipo: P
               required:
-                - ArticuloID
                 - CantidadAlmacen
                 - ProcesoID
+                - Articulo
               properties:
                 AlmacenID:
                   type: string
@@ -1074,9 +1074,9 @@ paths:
                   type: string
                 NotasVerificacion:
                   type: string
-                Numero:
-                  type: string
                 Precio:
+                  type: string
+                Numero:
                   type: string
                 ProcesoID:
                   type: string
@@ -1096,6 +1096,15 @@ paths:
                   type: string
                 Tipo:
                   type: string
+                Articulo:
+                  type: string
+                  x-stoplight:
+                    id: rbyr8rzkoann3
+                  description: Or ArticuloID required
+                Almacen:
+                  type: string
+                  x-stoplight:
+                    id: 0krfjdacgypju
 components:
   schemas:
     User:
