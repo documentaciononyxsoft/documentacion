@@ -1009,8 +1009,8 @@ paths:
                   Tipo: P
               required:
                 - CantidadAlmacen
-                - ProcesoID
                 - Articulo
+                - Proceso
               properties:
                 AlmacenID:
                   type: string
@@ -1105,6 +1105,11 @@ paths:
                   type: string
                   x-stoplight:
                     id: 0krfjdacgypju
+                Proceso:
+                  type: string
+                  x-stoplight:
+                    id: r9n46unu6lv1g
+                  description: Or ProcesoID required
 components:
   schemas:
     User:
