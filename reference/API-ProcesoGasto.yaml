@@ -886,6 +886,132 @@ paths:
                   description: 'lista ( , )'
                 UsuarioPagoID:
                   type: string
+  /procesogasto/tipo:
+    get:
+      summary: TipoProcesoGasto FindMany
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        CustomerID:
+                          type: integer
+                        EmpresaID:
+                          type: integer
+                        CuentaContableCostoID:
+                          type: integer
+                        Descripcion:
+                          type: string
+                        ExcluirDePago:
+                          type: integer
+                        FechaHoraUsuario:
+                          type: string
+                        Modificable:
+                          type: integer
+                        Precio:
+                          type: number
+                        TipoProcesoGastoID:
+                          type: integer
+                        UsuarioID:
+                          type: integer
+                        WebID:
+                          type: integer
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content:
+                      - CustomerID: 29
+                        EmpresaID: 1
+                        CuentaContableCostoID: 0
+                        Descripcion: KILOMETRAJE
+                        ExcluirDePago: 0
+                        FechaHoraUsuario: '2016-10-11T12:41:28.000'
+                        Modificable: 1
+                        Precio: 0.25
+                        TipoProcesoGastoID: 1
+                        UsuarioID: 1
+                        WebID: 61
+        '400':
+          description: Bad Request
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+      operationId: get-procesogasto-tipo
+      x-stoplight:
+        id: xk2900cidgapu
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: login token
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: Descripcion
 components:
   schemas:
     User:
