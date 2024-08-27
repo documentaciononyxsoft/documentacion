@@ -1063,6 +1063,120 @@ paths:
           in: header
           name: accessToken
           description: Token login
+  /project/close:
+    put:
+      summary: ProjectClose
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                  content:
+                    type: object
+                    properties: {}
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+                    content: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                  message:
+                    type: string
+                x-examples:
+                  Example 1:
+                    statusCode: 200
+                    message: Request processed successfully
+      operationId: put-project-close
+      x-stoplight:
+        id: 521vuz6so5dcq
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: accessToken
+          description: Login Token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-examples:
+                Example 1:
+                  ProyectoOF: '66681'
+                  ProyectoOFID: '66681'
+                  fechacierre: '20240827'
+              required:
+                - ProyectoOF
+                - fechacierre
+              properties:
+                ProyectoOFID:
+                  type: string
+                ProyectoOF:
+                  type: string
+                  description: "or ProyectoOFID required\r\n"
+                fechacierre:
+                  type: string
 components:
   schemas:
     User:
