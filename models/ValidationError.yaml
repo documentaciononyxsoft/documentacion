@@ -1,0 +1,34 @@
+type: object
+x-examples:
+  Example 1:
+    errors:
+      - key: EmailPlantillaID
+        errors:
+          - The field is required
+    statusCode: 422
+required:
+  - errors
+  - statusCode
+properties:
+  errors:
+    type: array
+    items:
+      type: object
+      required:
+        - key
+        - errors
+      properties:
+        key:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
+  statusCode:
+    type: integer
+examples:
+  - errors:
+      - key: EmailPlantillaID
+        errors:
+          - The field is required
+    statusCode: 422

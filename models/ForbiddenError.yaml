@@ -1,0 +1,19 @@
+type: object
+x-examples:
+  Example 1:
+    error: Plantilla de email no encontrada
+    statusCode: 401
+required:
+  - error
+  - statusCode
+properties:
+  error:
+    type: string
+    default: Forbidden error
+  statusCode:
+    type: integer
+    default: 403
+examples:
+  - error: Forbidden error
+    statusCode: 403
+description: ''

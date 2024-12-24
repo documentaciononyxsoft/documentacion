@@ -1,0 +1,490 @@
+openapi: 3.1.0
+x-stoplight:
+  id: dookfc17vpodx
+info:
+  title: APIEmailTemplate
+  version: '1.0'
+  summary: Plantillas de email
+servers:
+  - url: 'https://netvy-api-dev.onyxsoft.co'
+    description: dev server
+paths:
+  /emailTemplate:
+    parameters: []
+    get:
+      summary: list EmailTemplates
+      tags: []
+      responses:
+        '200':
+          description: User Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  AdjuntoID:
+                    type: integer
+                  Agrupacion:
+                    type: string
+                  Asunto:
+                    type: string
+                  Contenido:
+                    type: string
+                  CustomerID:
+                    type: integer
+                  EmailPlantillaID:
+                    type: integer
+                  EmailPlantillaPadreID:
+                    type: integer
+                  EmpresaID:
+                    type: integer
+                  Favorito:
+                    type: integer
+                  FechaHoraUltimaModificacion:
+                    type: string
+                  FechaHoraUsuario:
+                    type: string
+                  FormatoHTML:
+                    type: integer
+                  Grupo:
+                    type: string
+                  Plantilla:
+                    type: string
+                  TipoPlantillaID:
+                    type: integer
+                  UsuarioID:
+                    type: integer
+                  UsuarioPropietarioID:
+                    type: integer
+                x-examples:
+                  Example 1:
+                    AdjuntoID: 0
+                    Agrupacion: ''
+                    Asunto: Natilla para todos
+                    Contenido: '{\rtf1\ansi\ansicpg1252\deff0{\fonttbl{\f0\fcharset0 Courier New;}}{\*\generator WinDev 29.0.270.0;}{\line }{\f0 }{\b\fs48\f0 }{\b\fs48\f0 }{\b\fs48\f0 Natillada Bailable}{\b\fs48\f0 }{\b\fs48\f0 }{\f0 \line \line Llevar sus buñuelos, natilla, plato y cuchara\line \line \line \line \line \line \line }{\f0 \line }}'
+                    CustomerID: 29
+                    EmailPlantillaID: 83
+                    EmailPlantillaPadreID: 77
+                    EmpresaID: 439
+                    Favorito: 0
+                    FechaHoraUltimaModificacion: '2024-11-22T09:39:29.076'
+                    FechaHoraUsuario: '2024-11-22T09:39:29.077'
+                    FormatoHTML: 0
+                    Grupo: Articulos
+                    Plantilla: Plantilla Prueba
+                    TipoPlantillaID: 0
+                    UsuarioID: 228
+                    UsuarioPropietarioID: 0
+              examples:
+                Get User Alice Smith:
+                  value:
+                    AdjuntoID: 0
+                    Agrupacion: ''
+                    Asunto: Natilla para todos
+                    Contenido: '{\rtf1\ansi\ansicpg1252\deff0{\fonttbl{\f0\fcharset0 Courier New;}}{\*\generator WinDev 29.0.270.0;}{\line }{\f0 }{\b\fs48\f0 }{\b\fs48\f0 }{\b\fs48\f0 Natillada Bailable}{\b\fs48\f0 }{\b\fs48\f0 }{\f0 \line \line Llevar sus buñuelos, natilla, plato y cuchara\line \line \line \line \line \line \line }{\f0 \line }}'
+                    CustomerID: 29
+                    EmailPlantillaID: 83
+                    EmailPlantillaPadreID: 77
+                    EmpresaID: 439
+                    Favorito: 0
+                    FechaHoraUltimaModificacion: '2024-11-22T09:39:29.076'
+                    FechaHoraUsuario: '2024-11-22T09:39:29.077'
+                    FormatoHTML: 0
+                    Grupo: Articulos
+                    Plantilla: Plantilla Prueba
+                    TipoPlantillaID: 0
+                    UsuarioID: 228
+                    UsuarioPropietarioID: 0
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: ./models/UnauthorizedError.yaml
+              examples:
+                Example 1:
+                  value:
+                    error: Unauthorized Error
+                    statusCode: 401
+        '422':
+          description: Unprocessable Entity (WebDAV)
+        '500':
+          description: Internal Server Error
+      operationId: get-emailTemplate
+      description: List all email templates
+      x-stoplight:
+        id: evi972olt7zu8
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: 'Token Reciente '
+    post:
+      summary: create EmailTemplate
+      tags: []
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable Entity (WebDAV)
+        '500':
+          description: Internal Server Error
+      operationId: post-emailTemplate
+      x-stoplight:
+        id: qmd08qj67vztn
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: 'accessToken '
+          description: 'Token Reciente '
+  '/emailTemplate/{EmailPlantillaID}':
+    parameters:
+      - schema:
+          type: string
+        name: EmailPlantillaID
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: EmailPlantillaID
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: EmailPlantillaID
+        in: path
+        required: true
+    get:
+      summary: get EmailTemplateBy ID
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  AdjuntoID:
+                    type: integer
+                  Agrupacion:
+                    type: string
+                  Asunto:
+                    type: string
+                  Contenido:
+                    type: string
+                  CustomerID:
+                    type: integer
+                  EmailPlantillaID:
+                    type: integer
+                  EmailPlantillaPadreID:
+                    type: integer
+                  EmpresaID:
+                    type: integer
+                  Favorito:
+                    type: integer
+                  FechaHoraUltimaModificacion:
+                    type: string
+                  FechaHoraUsuario:
+                    type: string
+                  FormatoHTML:
+                    type: integer
+                  Grupo:
+                    type: string
+                  Plantilla:
+                    type: string
+                  TipoPlantillaID:
+                    type: integer
+                  UsuarioID:
+                    type: integer
+                  UsuarioPropietarioID:
+                    type: integer
+                x-examples:
+                  Example 1:
+                    AdjuntoID: 0
+                    Agrupacion: ''
+                    Asunto: Natilla para todos
+                    Contenido: '{\rtf1\ansi\ansicpg1252\deff0{\fonttbl{\f0\fcharset0 Courier New;}}{\*\generator WinDev 29.0.270.0;}{\line }{\f0 }{\b\fs48\f0 }{\b\fs48\f0 }{\b\fs48\f0 Natillada Bailable}{\b\fs48\f0 }{\b\fs48\f0 }{\f0 \line \line Llevar sus buñuelos, natilla, plato y cuchara\line \line \line \line \line \line \line }{\f0 \line }}'
+                    CustomerID: 29
+                    EmailPlantillaID: 83
+                    EmailPlantillaPadreID: 77
+                    EmpresaID: 439
+                    Favorito: 0
+                    FechaHoraUltimaModificacion: '2024-11-22T09:39:29.076'
+                    FechaHoraUsuario: '2024-11-22T09:39:29.077'
+                    FormatoHTML: 0
+                    Grupo: Articulos
+                    Plantilla: Plantilla Prueba
+                    TipoPlantillaID: 0
+                    UsuarioID: 228
+                    UsuarioPropietarioID: 0
+              examples:
+                Example 1:
+                  value:
+                    AdjuntoID: 0
+                    Agrupacion: string
+                    Asunto: string
+                    Contenido: string
+                    CustomerID: 0
+                    EmailPlantillaID: 0
+                    EmailPlantillaPadreID: 0
+                    EmpresaID: 0
+                    Favorito: 0
+                    FechaHoraUltimaModificacion: string
+                    FechaHoraUsuario: string
+                    FormatoHTML: 0
+                    Grupo: string
+                    Plantilla: string
+                    TipoPlantillaID: 0
+                    UsuarioID: 0
+                    UsuarioPropietarioID: 0
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: ./models/UnauthorizedError.yaml
+              examples:
+                Example 1:
+                  value:
+                    error: Unauthorized Error
+                    statusCode: 401
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: ./models/NotFoundError.yaml
+                x-examples:
+                  Example 1:
+                    error: Plantilla de email no encontrada
+                    statusCode: 404
+              examples:
+                Example 1:
+                  value:
+                    error: Plantilla de email no encontrada
+                    statusCode: 404
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                $ref: ./models/ValidationError.yaml
+                x-examples:
+                  Example 1:
+                    errors:
+                      - key: EmailPlantillaID
+                        errors:
+                          - The field is required
+                    statusCode: 422
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                      - key: EmailPlantillaID
+                        errors:
+                          - The field is required
+                    statusCode: 422
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: ./models/ServerError.yaml
+              examples:
+                Example 1:
+                  value:
+                    error: Internal Server Error
+                    statusCode: 500
+      operationId: get-emailTemplate-EmailPlantillaID
+      x-stoplight:
+        id: 9ie8eyjsp4k5b
+      parameters:
+        - schema:
+            type: string
+          in: header
+          description: 'Token Reciente '
+          name: 'accessToken '
+    patch:
+      summary: update EmailTemplate
+      tags: []
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: ./models/BadRequestError.yaml
+              examples:
+                Example 1:
+                  value:
+                    error: Bad Request
+                    statusCode: 400
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: ./models/UnauthorizedError.yaml
+              examples:
+                Example 1:
+                  value:
+                    error: Unauthorized Error
+                    statusCode: 401
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: ./models/NotFoundError.yaml
+              examples:
+                Example 1:
+                  value:
+                    error: Not Found
+                    statusCode: 404
+        '422':
+          description: Unprocessable Entity (WebDAV)
+          content:
+            application/json:
+              schema:
+                $ref: ./models/ValidationError.yaml
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                      - key: EmailPlantillaID
+                        errors:
+                          - The field is required
+                    statusCode: 422
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: ./models/ServerError.yaml
+              examples:
+                Example 1:
+                  value:
+                    error: Internal Server Error
+                    statusCode: 500
+      operationId: patch-emailTemplate-EmailPlantillaID
+      x-stoplight:
+        id: nscv2ohcynbdo
+      parameters:
+        - schema:
+            type: string
+          in: header
+          description: 'Token Reciente '
+          name: 'accessToken '
+    delete:
+      summary: remove EmailTemplate
+      tags: []
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '422':
+          description: Unprocessable Entity (WebDAV)
+        '500':
+          description: Internal Server Error
+      operationId: delete-emailTemplate-EmailPlantillaID
+      x-stoplight:
+        id: zygxf2o7s50ka
+      parameters:
+        - schema:
+            type: string
+          in: header
+          description: 'Token Reciente '
+          name: 'accessToken '
+components:
+  schemas:
+    listEmailTemplates:
+      type: object
+      x-stoplight:
+        id: 3753e037b4f17
+      properties:
+        AdjuntoID:
+          type: integer
+        Agrupacion:
+          type: string
+        Asunto:
+          type: string
+        Contenido:
+          type: string
+        CustomerID:
+          type: integer
+        EmailPlantillaID:
+          type: integer
+        EmailPlantillaPadreID:
+          type: integer
+        EmpresaID:
+          type: integer
+        Favorito:
+          type: integer
+        FechaHoraUltimaModificacion:
+          type: string
+        FechaHoraUsuario:
+          type: string
+        FormatoHTML:
+          type: integer
+        Grupo:
+          type: string
+        Plantilla:
+          type: string
+        TipoPlantillaID:
+          type: integer
+        UsuarioID:
+          type: integer
+        UsuarioPropietarioID:
+          type: integer
+      x-examples:
+        Example 1:
+          AdjuntoID: 0
+          Agrupacion: ''
+          Asunto: Natilla para todos
+          Contenido: '{\rtf1\ansi\ansicpg1252\deff0{\fonttbl{\f0\fcharset0 Courier New;}}{\*\generator WinDev 29.0.270.0;}{\line }{\f0 }{\b\fs48\f0 }{\b\fs48\f0 }{\b\fs48\f0 Natillada Bailable}{\b\fs48\f0 }{\b\fs48\f0 }{\f0 \line \line Llevar sus buñuelos, natilla, plato y cuchara\line \line \line \line \line \line \line }{\f0 \line }}'
+          CustomerID: 29
+          EmailPlantillaID: 83
+          EmailPlantillaPadreID: 77
+          EmpresaID: 439
+          Favorito: 0
+          FechaHoraUltimaModificacion: '2024-11-22T09:39:29.076'
+          FechaHoraUsuario: '2024-11-22T09:39:29.077'
+          FormatoHTML: 0
+          Grupo: Articulos
+          Plantilla: Plantilla Prueba
+          TipoPlantillaID: 0
+          UsuarioID: 228
+          UsuarioPropietarioID: 0
+      examples:
+        - AdjuntoID: 0
+          Agrupacion: string
+          Asunto: string
+          Contenido: string
+          CustomerID: 0
+          EmailPlantillaID: 0
+          EmailPlantillaPadreID: 0
+          EmpresaID: 0
+          Favorito: 0
+          FechaHoraUltimaModificacion: string
+          FechaHoraUsuario: string
+          FormatoHTML: 0
+          Grupo: string
+          Plantilla: string
+          TipoPlantillaID: 0
+          UsuarioID: 0
+          UsuarioPropietarioID: 0
+      title: ''

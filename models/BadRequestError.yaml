@@ -1,0 +1,18 @@
+type: object
+x-examples:
+  Example 1:
+    error: Plantilla de email no encontrada
+    statusCode: 404
+examples:
+  - error: Bad Request
+    statusCode: 400
+required:
+  - error
+  - statusCode
+properties:
+  error:
+    type: string
+    default: Bad Request
+  statusCode:
+    type: integer
+    default: 400

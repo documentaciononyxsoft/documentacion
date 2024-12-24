@@ -1,0 +1,24 @@
+type: object
+x-stoplight:
+  id: 5d37a90a99d7c
+x-examples:
+  Example 1:
+    error: Plantilla de email no encontrada
+    statusCode: 404
+examples:
+  - error: Unauthorized Error
+    statusCode: 401
+required:
+  - error
+  - statusCode
+properties:
+  error:
+    type: string
+    x-stoplight:
+      id: 6cc7g69jih88b
+    default: Unauthorized Error
+  statusCode:
+    type: integer
+    x-stoplight:
+      id: fnw524msuhvia
+    default: 401
